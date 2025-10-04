@@ -1,0 +1,987 @@
+﻿@{
+    ViewData["Title"] = "Share Capital Clause Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">Allotment of Equity shares</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== PARTICULARS OF RIGHT ISSUE ====================== -->
+        <div class="section-heading">PARTICULARS OF RIGHT ISSUE</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Type of Share</label>
+                    <select class="form-select" name="TypeOfShare">
+                        <option value="">Select Type of Share</option>
+                        <option>Equity</option>
+                        <option>Preference</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date of Allotment</label>
+                    <input type="date" class="form-control" name="DateOfAllotment" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Premium per Share</label>
+                    <input type="number" class="form-control" name="PremiumPerShare" value="0" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Nature of Consideration</label>
+                    <select class="form-select" name="NatureOfConsideration">
+                        <option value="">Nature of Consideration</option>
+                        <option>Cash</option>
+                        <option>Other than Cash</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold d-block">Are all the shares fully paid?</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="FullyPaid" value="Yes" />
+                        <label class="form-check-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="FullyPaid" value="No" />
+                        <label class="form-check-label">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden field initially -->
+            <div class="row mb-3" id="amountPaidRow" style="display:none;">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">
+                        Amount paid on Allotment per share (including premium)
+                    </label>
+                    <input type="text" class="form-control" name="AmountPaid" placeholder="Enter amount" />
+                </div>
+            </div>
+
+
+            <div id="allotteeContainer"></div>
+            <div class="mt-3">
+                <button type="button" class="btn btn-primary" id="addAllotteeBtn">Add Allottee(s)</button>
+            </div>
+        </div>
+
+        <!-- ====================== ALLOTTEE DETAILS TABLE ====================== -->
+        <div class="section-heading">ALLOTTEE DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-striped" style="font-size:15px;">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width:5%; text-align:center; vertical-align: middle;" rowspan="2">S. No.</th>
+                        <th style="width:20%; text-align:center; vertical-align: middle;" rowspan="2">Full Name</th>
+                        <th style="text-align:center; vertical-align: middle;" rowspan="2">Action</th>
+                        <th style="text-align:center; vertical-align: middle;" rowspan="2">Accepted Quantity</th>
+                        <th style="text-align:center; vertical-align: middle;" rowspan="2">
+                            No. of person to whom shares are being renounced
+                        </th>
+                        <th style="text-align:center; vertical-align: middle;" rowspan="2">Rejected Quantity</th>
+                        <th style="text-align:center; vertical-align: middle;" colspan="2">Signing of relevant letter</th>
+                    </tr>
+                    <tr>
+                        <th style="text-align:center; vertical-align: middle;">Date</th>
+                        <th style="text-align:center; vertical-align: middle;">Place</th>
+                    </tr>
+                </thead>
+                <tbody id="allotteeTableBody">
+
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName1" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action1">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty1" value="500"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo1" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty1"></td>
+                        <td><input type="date" class="form-control" name="SignDate1" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace1"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center">2</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName2" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action2">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty2" value="400"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo2" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty2"></td>
+                        <td><input type="date" class="form-control" name="SignDate2" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace2"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center">3</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName3" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action3">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty3" value="200"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo3" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty3"></td>
+                        <td><input type="date" class="form-control" name="SignDate3" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace3"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center">4</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName4" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action4">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty4" value="1000"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo4" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty4"></td>
+                        <td><input type="date" class="form-control" name="SignDate4" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace4"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center">5</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName5" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action5">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty5" value="700"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo5" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty5"></td>
+                        <td><input type="date" class="form-control" name="SignDate5" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace5"></td>
+                    </tr>
+
+
+                    <tr>
+                        <td class="text-center">6</td>
+                        <td>
+                            <input type="text" class="form-control" name="FullName6" placeholder="Enter Shareholder Name">
+                        </td>
+                        <td>
+                            <select class="form-select" name="Action6">
+                                <option value="">Select</option>
+                                <option>Accepted</option>
+                                <option>Rejected</option>
+                                <option>Renounced</option>
+                                <option>Partially Accepted & Renounced</option>
+                                <option>Partially Accepted & Rejected</option>
+                                <option>Partially Renounced & Rejected</option>
+                                <option>Partially Accepted & Renounced & Rejected</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="form-control" name="AcceptedQty6" value="250"></td>
+                        <td><input type="number" class="form-control" name="RenouncedTo6" value="0"></td>
+                        <td><input type="number" class="form-control" name="RejectedQty6"></td>
+                        <td><input type="date" class="form-control" name="SignDate6" value="2025-09-24"></td>
+                        <td><input type="text" class="form-control" name="SignPlace6"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div id="rejectedOptions" style="display:none; margin-top:20px; padding:10px; border:1px solid #ccc; border-radius:6px;">
+                <p>Do you want to offer the rejected share to some other shareholder?</p>
+                <label><input type="radio" name="offerShareGlobal" value="Yes"> Yes</label>
+                <label><input type="radio" name="offerShareGlobal" value="No" checked> No</label>
+
+                <!-- Allottee section (hidden initially) -->
+                <div id="allotteeSection" class="mt-3" style="display:none;">
+                    <div class="allottee-row" style="margin-bottom:12px;">
+                        <h6 class="allottee-label">1 Allottee</h6>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <select class="form-control" style="width:250px;">
+                                <option value="">Select Allottee Name</option>
+                                <option value="shareholder1">Shareholder 1</option>
+                                <option value="shareholder2">Shareholder 2</option>
+                                <option value="shareholder3">Shareholder 3</option>
+                            </select>
+                            <input type="number" class="form-control" placeholder="Enter Quantity" style="width:200px;">
+                            <button type="button" class="btn btn-danger btn-sm removeAllottee">X</button>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-primary btn-sm" id="addAllottee">Add More Allottee</button>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <div class="section-heading">Offer Details</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Opening of offer period</div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="OpeningOfferPeriod">
+                </div>
+
+                <div class="col-md-3 fw-bold">Closing of offer period</div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="ClosingOfferPeriod">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Date of Circulation of offer letter</div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="CirculationDate">
+                </div>
+
+                <div class="col-md-3 fw-bold">Place of Circulation of offer letter</div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="CirculationPlace" placeholder="Enter place">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Record Date</div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="RecordDate">
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="section-heading">Meeting Details</div>
+        <div class="p-3 border">
+
+
+            <div class="row mb-3">
+                <div class="col-md-12 fw-bold">Board Meeting for Approval of Offer Letter</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4 fw-bold">Do you want to incorporate this agenda in existing Board Meeting?</div>
+                <div class="col-md-8">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="IncorporateAgendaOffer" value="Yes">
+                        <label class="form-check-label">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="IncorporateAgendaOffer" value="No">
+                        <label class="form-check-label">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fields shown when Yes is selected -->
+            <div id="existingMeetingSection" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Select Existing Meeting</div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" name="ExistingMeetingOffer">
+                    </div>
+
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorOffer">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorOffer2">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fields shown when No is selected -->
+            <div id="newMeetingSection" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Date of Meeting</div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" name="DateOfMeeting">
+                    </div>
+
+                    <div class="col-md-3 fw-bold">Time of Meeting</div>
+                    <div class="col-md-3">
+                        <input type="time" class="form-control" name="TimeOfMeeting">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorNo1">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorNo2">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-danger small">
+                Quick Hint: The first signatory will be used as the signatory for documents and PAS-3 as well.
+            </p>
+
+            <hr>
+
+            <!-- Approval for Allotment -->
+            <div class="row mb-3">
+                <div class="section-heading">Approval for Allotment</div>
+            </div>
+
+            <!-- Approval Mode -->
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Approval Mode</div>
+                <div class="col-md-9">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ApprovalMode" value="Board" checked>
+                        <label class="form-check-label">In Board meeting</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="ApprovalMode" value="Circular">
+                        <label class="form-check-label">By Circular Resolution</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: In Board Meeting -->
+            <div id="boardSection">
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Do you want to incorporate this agenda in existing Board Meeting?</div>
+                    <div class="col-md-8">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="IncorporateAgendaAllotment" value="Yes" checked>
+                            <label class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="IncorporateAgendaAllotment" value="No">
+                            <label class="form-check-label">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- When Yes -->
+                <div id="existingMeetingFields">
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Select Existing Meeting</div>
+                        <div class="col-md-3">
+                            <select class="form-control" name="ExistingMeetingAllotment">
+                                <option>Select Existing Meeting</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 fw-bold">Authorized Director</div>
+                        <div class="col-md-3">
+                            <select class="form-control" name="AuthorizedDirectorAllotment1">
+                                <option>Select Director</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Authorized Director</div>
+                        <div class="col-md-3">
+                            <select class="form-control" name="AuthorizedDirectorAllotment2">
+                                <option>Select Director</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- When No -->
+                <div id="newMeetingFields" style="display:none;">
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Date of Meeting</div>
+                        <div class="col-md-3">
+                            <input type="date" class="form-control" name="NewMeetingDate">
+                        </div>
+
+                        <div class="col-md-3 fw-bold">Time of Meeting</div>
+                        <div class="col-md-3">
+                            <input type="time" class="form-control" name="NewMeetingTime">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Authorized Director</div>
+                        <div class="col-md-3">
+                            <select class="form-control" name="NewMeetingDirector1">
+                                <option>Select Director</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 fw-bold">Authorized Director</div>
+                        <div class="col-md-3">
+                            <select class="form-control" name="NewMeetingDirector2">
+                                <option>Select Director</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Common -->
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Name of Authorized Signatory for Share certificates</div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="AuthorizedSignatoryShareCertificates">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION: By Circular Resolution -->
+            <div id="circularSection" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Date of Passing Circular Resolution</div>
+                    <div class="col-md-3">
+                        <input type="date" class="form-control" name="CircularResolutionDate">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorCircular1">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3 fw-bold">Authorized Director</div>
+                    <div class="col-md-3">
+                        <select class="form-control" name="AuthorizedDirectorCircular2">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Name of Authorized Signatory for Share certificates</div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" name="AuthorizedSignatoryCircular">
+                    </div>
+                </div>
+            </div>
+
+
+           
+
+
+
+
+            <!-- ====================== AGENDA & RESOLUTION ====================== -->
+            <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+            <div class="p-3 border">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda</div>
+                    <div class="col-md-9">
+                        <select name="agenda" class="form-control">
+                            <option>To consider and approve Allotment of Equity shares on right issue basis</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" value="To consider and approve Allotment of Equity shares on right issue basis">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" value="To consider and approve Allotment of Equity shares on right issue basis">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda Preface</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">
+The Board hereby proposes to reclassify the authorized capital of the company as part of our strategic initiative to issue shares and meet our long-term capital requirements. This reclassification necessitates the approval of shareholders via a Special Resolution. Therefore, the Board recommends passing the following resolution...
+                    </textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Minute Preface</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">
+The Board of Directors convened the meeting to propose the reclassification of the company's authorized capital to issue shares and address long-term capital requirements in the ensuing general meeting...
+                    </textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">[Resolution for Notice text here]</textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                    <div class="col-md-9">
+                        <textarea rows="12" class="form-control">[Resolution for Minutes text here]</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================== SIGNATORY TABLE ====================== -->
+            <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+            <div class="p-3 border">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                            <td><input type="date" class="form-control"></td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ====================== SUBMIT ====================== -->
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+                </div>
+            </div>
+</form>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        function toggleSections() {
+            const selected = $('input[name="IncorporateAgendaOffer"]:checked').val();
+            if (selected === "Yes") {
+                $("#existingMeetingSection").show();
+                $("#newMeetingSection").hide();
+            } else {
+                $("#existingMeetingSection").hide();
+                $("#newMeetingSection").show();
+            }
+        }
+
+       
+        toggleSections();
+
+       
+        $('input[name="IncorporateAgendaOffer"]').change(toggleSections);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('input[name="FullyPaid"]').change(function () {
+            if ($(this).val() === "No") {
+                $('#amountPaidRow').show();
+            } else {
+                $('#amountPaidRow').hide();
+                $('#amountPaidRow input').val("");
+            }
+        });
+    });
+</script>
+<script>
+
+    let allotteeCount = 0;
+    document.getElementById('addAllotteeBtn').addEventListener('click', function () {
+        allotteeCount++;
+        const row = document.createElement('div');
+        row.classList.add('row', 'mb-2', 'align-items-center');
+        row.setAttribute('data-id', allotteeCount);
+        row.innerHTML = `
+            <div class="col-12 fw-bold mb-1">${allotteeCount} Originally offered Quantity</div>
+            <div class="col-md-5">
+                <select class="form-select" name="ShareholderName${allotteeCount}">
+                    <option value="">Select Shareholder Name</option>
+                    <option>Shareholder 1</option>
+                    <option>Shareholder 2</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <input type="number" class="form-control" name="Quantity${allotteeCount}" placeholder="Enter Quantity" />
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger btn-sm remove-allottee">X</button>
+            </div>`;
+        document.getElementById('allotteeContainer').appendChild(row);
+        row.querySelector('.remove-allottee').addEventListener('click', function () {
+            row.remove();
+            updateAllotteeLabels();
+        });
+    });
+    function updateAllotteeLabels() {
+        const rows = document.querySelectorAll('#allotteeContainer > .row');
+        allotteeCount = 0;
+        rows.forEach(r => {
+            allotteeCount++;
+            r.querySelector('.fw-bold').innerText = `${allotteeCount} Originally offered Quantity`;
+        });
+    }
+
+
+
+    /* --- SIGNATORY TABLE --- */
+    function addSignatoryRow() {
+        const table = document.querySelector('#signatoryTable tbody');
+        const index = table.querySelectorAll('tr').length + 1;
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${index}</td>
+            <td>
+                <select class="form-select">
+                    <option value="">Select Signatory</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Michael Johnson</option>
+                    <option>Emily Davis</option>
+                </select>
+            </td>
+            <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+            <td><input type="date" class="form-control"></td>
+            <td style="text-align:center;">
+                <button type="button" class="btn btn-danger btn-sm" onclick="this.closest('tr').remove()">X</button>
+            </td>`;
+        table.appendChild(tr);
+    }
+</script>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        let rejectedOptionsShown = false;
+
+        $('#allotteeTableBody tr').each(function () {
+            const row = $(this);
+            const actionSelect = row.find('select[name^="Action"]');
+            const acceptedQty = row.find('input[name^="AcceptedQty"]');
+            const renouncedTo = row.find('input[name^="RenouncedTo"]');
+            const rejectedQty = row.find('input[name^="RejectedQty"]');
+
+            acceptedQty.data('original', acceptedQty.val());
+            actionSelect.val('Accepted');
+            acceptedQty.prop('readonly', true);
+            renouncedTo.prop('readonly', true);
+            rejectedQty.prop('readonly', true);
+
+            actionSelect.change(function () {
+                const val = $(this).val();
+
+                // Reset all fields first
+                acceptedQty.val(0).prop('readonly', true);
+                renouncedTo.val(0).prop('readonly', true);
+                rejectedQty.val(0).prop('readonly', true);
+
+                switch (val) {
+                    case 'Accepted':
+                        acceptedQty.val(acceptedQty.data('original'));
+                        break;
+
+                    case 'Rejected':
+                        rejectedQty.val(acceptedQty.data('original'));
+                        if (!rejectedOptionsShown) {
+                            $('#rejectedOptions').show();
+                            rejectedOptionsShown = true;
+                        }
+                        break;
+
+                    case 'Renounced':
+                        renouncedTo.val('').prop('readonly', false); // Empty and editable
+                        acceptedQty.val(0).prop('readonly', true);  // Ensure accepted is 0 and readonly
+                        rejectedQty.val(0).prop('readonly', true);  // Ensure rejected is 0 and readonly
+                        break;
+
+                    case 'Partially Accepted':
+                        acceptedQty.val(acceptedQty.data('original')).prop('readonly', false);
+                        break;
+
+                    case 'Partially Renounced':
+                        renouncedTo.val('').prop('readonly', false); // Empty & editable
+                        break;
+
+                    case 'Partially Accepted & Renounced':
+                        acceptedQty.val(acceptedQty.data('original')).prop('readonly', false);
+                        renouncedTo.prop('readonly', false);
+                        break;
+
+                    case 'Partially Accepted & Rejected':
+                        acceptedQty.val(acceptedQty.data('original')).prop('readonly', false);
+                        rejectedQty.prop('readonly', false);
+                        if (!rejectedOptionsShown) {
+                            $('#rejectedOptions').show();
+                            rejectedOptionsShown = true;
+                        }
+                        break;
+
+                    case 'Partially Renounced & Rejected':
+                        renouncedTo.prop('readonly', false);
+                        rejectedQty.prop('readonly', false);
+                        if (!rejectedOptionsShown) {
+                            $('#rejectedOptions').show();
+                            rejectedOptionsShown = true;
+                        }
+                        break;
+
+                    case 'Partially Accepted & Renounced & Rejected':
+                        acceptedQty.val(acceptedQty.data('original')).prop('readonly', false);
+                        renouncedTo.prop('readonly', false);
+                        rejectedQty.prop('readonly', false);
+                        if (!rejectedOptionsShown) {
+                            $('#rejectedOptions').show();
+                            rejectedOptionsShown = true;
+                        }
+                        break;
+                }
+            });
+        });
+
+        $('input[name="offerShareGlobal"]').change(function () {
+            if ($(this).val() === "Yes") {
+                $('#allotteeSection').show();
+                updateAllotteeLabels();
+            } else {
+                $('#allotteeSection').hide();
+            }
+        });
+
+        $('#addAllottee').click(function () {
+            const newRow = $(`
+            <div class="allottee-row" style="margin-bottom:12px;">
+                <h6 class="allottee-label"></h6>
+                <div style="display:flex; gap:10px; align-items:center;">
+                    <select class="form-control" style="width:250px;">
+                        <option value="">Select Allottee Name</option>
+                        <option value="shareholder1">Shareholder 1</option>
+                        <option value="shareholder2">Shareholder 2</option>
+                        <option value="shareholder3">Shareholder 3</option>
+                    </select>
+                    <input type="number" class="form-control" placeholder="Enter Quantity" style="width:200px;">
+                    <button type="button" class="btn btn-danger btn-sm removeAllottee">X</button>
+                </div>
+            </div>
+        `);
+            $('#addAllottee').before(newRow);
+            updateAllotteeLabels();
+        });
+
+        $(document).on('click', '.removeAllottee', function () {
+            $(this).closest('.allottee-row').remove();
+            updateAllotteeLabels();
+        });
+
+        function updateAllotteeLabels() {
+            $('#allotteeSection .allottee-row').each(function (index) {
+                $(this).find('.allottee-label').text((index + 1) + ' Allottee');
+            });
+        }
+    });
+
+</script>
+
+
+<script>
+   
+    document.querySelectorAll('input[name="ApprovalMode"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (this.value === "Board") {
+                document.getElementById("boardSection").style.display = "block";
+                document.getElementById("circularSection").style.display = "none";
+            } else {
+                document.getElementById("boardSection").style.display = "none";
+                document.getElementById("circularSection").style.display = "block";
+            }
+        });
+    });
+
+  
+    document.querySelectorAll('input[name="IncorporateAgendaAllotment"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            if (this.value === "Yes") {
+                document.getElementById("existingMeetingFields").style.display = "block";
+                document.getElementById("newMeetingFields").style.display = "none";
+            } else {
+                document.getElementById("existingMeetingFields").style.display = "none";
+                document.getElementById("newMeetingFields").style.display = "block";
+            }
+        });
+    });
+</script>
+

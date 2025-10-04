@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Process</title>
+    <style>
+        .txt-display {
+            text-align: justify;
+        }
+
+        .card {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px" name="title">Resolution</h3>
+                <div></div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h5 class="fw-bold mb-2">Agenda Preface</h5>
+                        <div class="txt-display" name="agenda"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h5 class="fw-bold mb-2">Minutes Preface</h5>
+                        <div class="txt-display" name="minutes"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <h5 class="fw-bold mb-2">Resolution</h5>
+                        <div class="txt-display" name="resolution"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Static data - replace with your content
+            const staticData = {
+                title: "Annual Budget Approval Resolution",
+                agendaText: `<p>The board will review and approve the proposed annual budget for FY 2023-24, including allocations for:
+                    <ul>
+                        <li>Departmental expenditures</li>
+                        <li>Capital investments</li>
+                        <li>Employee benefits package</li>
+                    </ul>`,
+                meetingText: `<p>During the meeting held on October 15, 2023, the finance committee presented:
+                    <ol>
+                        <li>Revenue projections</li>
+                        <li>Expense breakdowns</li>
+                        <li>Comparative analysis with previous years</li>
+                    </ol>`,
+                resolutionText: `<p><strong>Resolved:</strong> That the proposed budget for FY 2023-24 is hereby approved as presented,
+                    with the following amendments:
+                    <br>1. 10% increase in R&D allocation
+                    <br>2. 5% reduction in travel expenses</p>`
+            };
+
+            // Populate data
+            $('[name="title"]').text(staticData.title);
+            $('[name="agenda"]').html(staticData.agendaText);
+            $('[name="minutes"]').html(staticData.meetingText);
+            $('[name="resolution"]').html(staticData.resolutionText);
+        });
+    </script>
+</body>
+</html>

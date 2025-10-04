@@ -1,0 +1,16 @@
+﻿@if (ViewBag.UseLayout == true)
+{
+    <div class="row mt-4">
+        <div class="col text-end">
+            <button type="button" class="btn btn-primary px-4 py-2" onclick="setOriginalValues()">
+                Reset Resolution
+            </button>
+            <button type="button" class="btn btn-primary px-4 py-2" onclick="loadMeeting_AgendaDetails(setObj, 1);">
+                Rollback Resolution
+            </button>
+            <button type="button" class="btn btn-primary px-4 py-2" onclick="SaveMeeting_AgendaDetail()">
+                Submit Resolution
+            </button>
+        </div>
+    </div>
+}

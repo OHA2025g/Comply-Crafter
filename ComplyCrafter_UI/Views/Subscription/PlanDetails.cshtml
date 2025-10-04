@@ -1,0 +1,220 @@
+﻿@model ComplyCrafter_Data.SubscriptionPlansView
+
+
+<div class="container py-5">
+    <div class="card shadow-sm p-4">
+        <h3 class="fw-bold text-primary">@Model.PlanName</h3>
+        <p class="text-muted">Base Price: ₹@Model.PlanAmount</p>
+
+        <div class="mt-3">
+            <p>Coupon Applied: <strong>@Model.CouponCode</strong> (@Model.DiscountPercentage% off)</p>
+            <p>Discount: - ₹@Model.DiscountAmount</p>
+            <p>Subtotal: ₹@Model.SubTotal</p>
+            <p>GST (@Model.GSTPercentage%): ₹@Model.GSTAmount</p>
+            <h5 class="fw-bold">Total Payable: ₹@Model.TotalAmount</h5>
+        </div>
+
+        <form>
+
+            <input type="hidden" name="planid" value="@Model.Id" />
+            <input type="hidden" name="totalamount" value="@Model.TotalAmount" />
+            <input type="hidden" name="plan" value="@Model.PlanName" />
+            <input type="hidden" name="coupon" value="@Model.CouponCode" />
+            <a class="btn btn-success mt-3" onclick="payNow()">Proceed to Payment</a>
+        </form>
+    </div>
+</div>
+
+<div id="loader" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(255,255,255,0.6); z-index:9999; text-align:center;">
+    <div style="position:relative; top:40%;">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+        <p class="mt-2">Processing your payment...</p>
+    </div>
+</div>
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+
+    $(document).ready(function(){
+        fnud();
+    });
+
+    function showLoader() {
+        document.getElementById("loader").style.display = "block";
+    }
+    function hideLoader() {
+        document.getElementById("loader").style.display = "none";
+    }
+
+    async function payNow() 
+    {
+        showLoader();
+
+        try 
+        {
+            const res = await fetch('@R.ApiUrl/payment/createorder', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId"),
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    SubscriptionId: '@Model.Id',
+                    Amount: '@Model.TotalAmount' // INR
+                })
+            });
+
+            const data = await res.json();
+            console.log("Order Data:", data);
+
+            hideLoader(); // Hide loader before opening Razorpay modal
+
+            const options = {
+                key: data.key,
+                amount: data.amount,
+                currency: "INR",
+                name: "Comply Crafter",
+                description: "Payment",
+                order_id: data.orderId,
+                handler: function (response) {
+                    showLoader();
+                    fnVerifyPay(response);                    
+                },
+                prefill: {
+                    name: $('#hdnName').val(),
+                    email: $('#hdnEmail').val(),
+                    contact: $('#hdnMobile').val()
+                },
+                theme: { color: "#528FF0" }
+            };
+
+            const rzp = new Razorpay(options);
+            rzp.open();
+
+        } 
+        catch (err) 
+        {
+            hideLoader();
+            console.error("Payment Error:", err);
+        }
+    }
+
+    async function fnVerifyPay(response)
+    {
+        $.ajax({
+            url: '@R.ApiUrl/Payment/VerifyPayment',
+            data: JSON.stringify({
+                razorpay_payment_id: response.razorpay_payment_id,
+                razorpay_order_id: response.razorpay_order_id,
+                razorpay_signature: response.razorpay_signature
+            }),
+            contentType: 'application/json',
+            type: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+            },
+            success: data => {
+                if(data.status)
+                {
+                    swal.fire({
+                        icon: 'success',
+                        title: 'Payment Success',
+                        text: 'Payment received. Thank you for your purchase.'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = '@Url.Action("PaymentSuccess", "Home")' + '?TransactionId=' + response.razorpay_order_id;
+                        }
+                    });
+                    fnSaveSub(response)
+                }
+                else{
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Payment Failed',
+                        text: 'Payment failed. Please contact administration with order id:'+response.razorpay_order_id
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location = '@Url.Action("Subscription", "Home")'
+                        }
+                    });
+                }
+
+                hideLoader();
+            }
+        });
+    }
+    
+    async function fnSaveSub(response)
+    {
+        $.ajax({
+            url: '@R.ApiUrl/Payment/Transaction?TransactionId='+response.razorpay_order_id,
+            type: 'GET',
+            contentType: 'application/json',
+            headers: {
+                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+            },
+            success: function (data) {
+                console.log("Transaction Response:", data);
+                if(data.status){
+
+                    $.ajax({
+                        url: '@R.ApiUrl/Subscription/Purchase',
+                        type: 'POST',
+                        data: JSON.stringify({
+                            PaymentId: data.responseObject.id,
+                            subscriptionid: data.responseObject.subscriptionId
+                        }),
+                        contentType: 'application/json',
+                        type: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                        },
+                        success: data => {
+                            if(data.status)
+                            {
+                            }
+                        }
+                    });
+
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Transaction Error:", error);
+            }
+        });
+
+    }
+
+
+    async function fnud()
+    {
+        $.ajax({
+            url: '@R.ApiUrl/Auth/UserInfo',
+            type: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+            },
+            success: data => {
+                if (data.status) {
+                    $('#hdnName').val(data.responseObject.name);
+                    $('#hdnEmail').val(data.responseObject.email);
+                    $('#hdnMobile').val(data.responseObject.mobile);
+
+                    if(data.responseObject.roleName == 'SubUser')
+                    {
+                        $('#subscription').hide();
+                        $('#liSubscriptionLink').hide();
+                    }
+                }
+            }
+        });
+    }
+</script>
+<input type="hidden" id="hdnName" />
+<input type="hidden" id="hdnEmail" />
+<input type="hidden" id="hdnMobile" />

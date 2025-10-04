@@ -1,0 +1,735 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+   
+    .obtain, .related {
+        display: none;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.MR-1
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Notice of situation or change of situation of registered oftice [Pursuant to section 12(2) & (4) of The Companies Act, 2013 and Rule 25 and 27 of The Companies (lncorporation) Rules, 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_MR-1.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                        <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Entity Details
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        KMP Details
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Declaration & Attachments
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-xs-5 col-sm-5 col-md-5">
+                            <label class="form-label">(c) *Whether the company is a public company or subsidiary of public company</label>
+                            <div class="form-control my-3">
+                                <input type="radio" name="public" class="dated" value="Y" required="required"> &nbsp; Yes &nbsp;
+                                <input type="radio" name="public" class="dated" value="N" required="required"> &nbsp;No
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-0" id="part2">
+        <div class="card">
+            <div class="card-body row mb-4">
+                <div class="d-flex justify-content-between mx-1 pt-3">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        3. Particulars of the proposed appointee or the person in whose respect the application is filed
+                    </p>
+                </div>
+
+                <div class="col-md-4 my-3">
+                    <label class="form-label" for="appointeeName">(a). *Name</label>
+                    <select id="appointeeName" name="appointeeName" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" aria-label="Select appointee name" required>
+                        <option value="">Select</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a name.</div>
+                </div>
+
+                <script>
+                    $(document).ready(function () {
+                        loadAppointeeDropdown();
+                    });
+
+                    function loadAppointeeDropdown() {
+                        var urlAdd = '';
+                        if (localStorage.getItem("comp_id")) {
+                            urlAdd = '/ByCompany/' + localStorage.getItem("comp_id");
+                        }
+
+                        $.get(`@R.ApiUrl/Director${urlAdd}`, function (data) {
+                            const $dropdown = $('#appointeeName');
+                            $dropdown.empty().append(`<option value="">Select</option>`);
+
+                            data.forEach(function (item) {
+                                const fullName = `${item.firstName ?? ''} ${item.middleName ?? ''} ${item.lastName ?? ''}`.trim();
+                                $dropdown.append(`<option value="${item.id}">${fullName} (${item.din ?? 'No DIN'})</option>`);
+                            });
+                        });
+                    }
+                </script>
+
+
+
+                <div class="col-md-4 my-3">
+                    <label class="form-label" for="appointeeDinPan">(b) *Director Identification number (DIN) or income-tax permanent account number (PAN) or membership number</label>
+                    <input id="appointeeDinPan" name="appointeeDinPan" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide a valid DIN/PAN/Membership number.</div>
+                </div>
+
+                <div class="col-md-4 my-3">
+                    <label class="form-label" for="appointeeDesignation">(c) *Designation</label>
+                    <input id="appointeeDesignation" name="appointeeDesignation" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide a designation.</div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="appointeeResolutionDate">4 *Date of the resolution by the board of directors</label>
+                    <input id="appointeeResolutionDate" name="appointeeResolutionDate" type="date" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide the resolution date.</div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="appointeeAppointmentDate">5 *Effective date of appointment</label>
+                    <input id="appointeeAppointmentDate" name="appointeeAppointmentDate" type="date" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide the effective appointment date.</div>
+                </div>
+
+
+
+
+                <div class="d-flex justify-content-between mx-1 pt-3">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        6. Terms and conditions including remuneration
+                    </p>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        (a) Remuneration
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="radio" name="remunerationType" value="month">&nbsp;&nbsp; Per month&nbsp;&nbsp;
+                        <input type="radio" name="remunerationType" value="annum">&nbsp;&nbsp;Per annum
+                    </div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">(i) Salary (in Rs.)</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" placeholder="" class="form-control num" value="" name="remunerationSalary">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">(ii) Perquisites (in Rs.)</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" placeholder="" class="form-control num" value="" name="remunerationPerquisites">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">(iii) Others (in Rs.)</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" placeholder="" class="form-control num" value="" name="remunerationOthers">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">(iv) Total of (i) to (iii) (in Rs.)</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" placeholder="" class="form-control num" value="" name="remunerationTotal" disabled>
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="d-flex justify-content-between mx-1 pt-3">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        (b) Tenure of appointment
+                    </p>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">From</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" placeholder="" class="form-control" value="" name="appointmentFrom">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label">To</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" placeholder="" class="form-control" value="" name="appointmentTo">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+
+
+                <!-- Group: 7 (a), (b), (c) -->
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -10px;">
+                        7 (a) *Whether the age of the appointee is more than 70 years
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                        (b) *Whether the appointee had been convicted or detained under any of the Acts mentioned in Part I of Schedule V
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                        (c) *Whether the appointee is a Non-Resident in Part I of Schedule V
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row" style="height: 40px;">
+                        <input type="radio" name="ageOver70" value="yes" class="mx-2" required>&nbsp;&nbsp;Yes
+                        <input type="radio" name="ageOver70" value="no" class="mx-2" required>&nbsp;&nbsp;No
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row" style="height: 40px;">
+                        <input type="radio" name="convictedDetained" value="yes" class="mx-2" required>&nbsp;&nbsp;Yes
+                        <input type="radio" name="convictedDetained" value="no" class="mx-2" required>&nbsp;&nbsp;No
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row" style="height: 40px;">
+                        <input type="radio" name="nonResident" value="yes" class="mx-2" required>&nbsp;&nbsp;Yes
+                        <input type="radio" name="nonResident" value="no" class="mx-2" required>&nbsp;&nbsp;No
+                    </div>
+                </div>
+
+                <!-- Group: 8 (a) and Related Fields: All in One Line -->
+                <div class="row obtain align-items-start" style="margin-bottom: 0px;">
+                    <!-- 8(a) main label -->
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                        8 (a) Whether the approval for such appointment has been obtained from the members in general meeting
+                    </div>
+
+                    <!-- (a)(i) label -->
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold related" style="display: none;">
+                        (a)(i) If yes, date of passing the resolution
+                    </div>
+
+                    
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold related" style="display: none;">
+                        (b) SRN of related Form No. MGT-14 (for filing of special resolution)
+                    </div>
+                </div>
+
+               
+                <div class="row obtain">
+                    
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="radio" name="approvalObtained" value="yes" class="mx-2 special"> Yes
+                        <input type="radio" name="approvalObtained" value="no" class="mx-2 special"> No
+                    </div>
+
+                   
+                    <div class="col-xs-12 col-sm-4 col-md-4 related" style="display: none;">
+                        <input type="text" name="resolutionDate" class="form-control datepicker" placeholder="dd/mm/yyyy" id="resolutionDate">
+                    </div>
+
+                    
+                    <div class="col-xs-12 col-sm-4 col-md-4 related" style="display: none;">
+                        <input type="text" name="mgt14Srn" id="mgt14Srn" class="form-control">
+                    </div>
+                </div>
+
+
+
+                <!-- Group: 8 (c) -->
+                <div class="row obtain">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">
+                        (c) SRN of MR-2 for obtaining Central Government's approval (as applicable)
+                    </div>
+                </div>
+
+                <div class="row obtain">
+                    <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                        <input type="text" name="srnMR2" id="srnMR2" class="form-control" value="">
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="part3" class="p-0">
+        @*  tab-2 *@
+        <div class="col-md-12 p-0">
+            <div class="card" style="padding:20px;">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="guideLoading guideServiceLoading dvloader" style="display: none;"></div>
+
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Declaration</label><br>
+
+                        <div class="row" style="height: auto">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: 102px;">
+                                <p style="text-align: justify;">
+                                    I am authorized by the board of directors of the company vide resolution no. &nbsp;
+                                    <input type="text" name="resolutionNumber" placeholder="Resolution Number" value="" required="">
+                                    &nbsp;&nbsp; dated &nbsp;
+                                    <input type="date" name="resolutionDate" class="datepicker hasDatepicker" id="resolutionDate" placeholder="dd/mm/yyyy" value="" required="">
+                                    to sign this e-form and declare that all the requirements of Companies Act, 2013 and the rules made thereunder in respect of the subject matter of this form and matters incidental thereto have been complied with. <br><br>
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="height: auto">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                <p style="text-align: justify;">
+                                    I also declare that all the information given herein above is true, correct and complete including the attachments to this form and nothing material has been supressed.
+                                </p>
+                            </div>
+                        </div>
+
+
+                        <div class="row" style="margin-bottom: 0px;">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold" style="margin-left: -10px;">
+                                Designation
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold">
+                                Signatory
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 bold" style="text-align: justify;">
+                                DIN of the director; or DIN or PAN of the manager or CEO or CFO; or Membership number of the Company secretary
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-3" style="margin-left: -10px;">
+                                <select name="designation" id="designation" class="form-select">
+                                    <option value=""> Select Designation</option>
+                                    <option value="Director">Director</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Company Secretary">Company Secretary</option>
+                                    <option value="Chief Executive Officer">Chief Executive Officer</option>
+                                    <option value="Chief Financial Officer">Chief Financial Officer</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 change_designation">
+                                <input type="text" name="officerDesignation" id="officerDesignation" class="form-control" value="">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <input type="text" name="signatoryId" id="signatoryId" value="" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;" class="my-3">Certificate by Practicing Professionals</label>
+
+                        <div class="row" style="height: auto">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: 161px;">
+                                <p style="text-align: justify;">I declare that I have been duly engaged for the purpose of certification of this form. It is hereby certified that I have gone through the provisions of the Companies Act, 2013 and Rules thereunder for the subject matter of this form and matters incidental thereto and I have verified the above particulars [including attachment(s)] from the original/certified records maintained by the Company/applicant which is subject matter of this form and found them to be true, correct and complete and no information material to this form has been suppressed.<br></p>
+                                <p style="text-align: justify;">
+                                    I further certify that: <br>
+                                    1) The said records have been properly prepared, signed by the required officers of the Company and maintained as per the relevant provisions of the Companies Act, 2013 and were found to be in order;<br>
+                                    2) All the required attachments have been completely and legibly attached to this form;
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row my-3" style="margin-top:5rem !important;">
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                                Category [In whole time practice]
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                                &nbsp;<input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="radio" name="category" value="charteredAccountant" required>&nbsp; Chartered Accountant &nbsp;
+                                <input type="radio" name="category" value="costAccountant" required>&nbsp; Cost Accountant or&nbsp;
+                                <input type="radio" name="category" value="companySecretary" required>&nbsp;Company Secretary
+                            </div>
+                            <div class="col-xs-12 col-sm-2 col-md-2 bold form-row CERT_PRACTICE_NO1" style="display: block;">
+                                Company Secretary
+                            </div>
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row CERT_PRACTICE_NO1" style="text-align: center; display: block;">
+                                <select style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" name="pcs" aria-label="Default select example">
+                                    <option value="">Select PCS</option>
+                                    <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row my-3 mb-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                                Whether associate or fellow
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                &nbsp;<input type="radio" name="membershipStatus" value="associate" required>&nbsp; Associate&nbsp;
+                                <input type="radio" name="membershipStatus" value="fellow" required>&nbsp;Fellow&nbsp;
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                                Membership number or Certificate of practice number
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                <input type="text" class="form-control membershipnumber" name="membershipNumber" value="" required>
+                            </div>
+                        </div>
+
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Attachments</label><br><br>
+
+                        <div class="row my-3">
+                            <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                                Sr. No
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                                (a)* Copy of Board resolution
+                            </div>
+                        </div>
+                        <div id="equity2">
+                            <div class="row" id="rowel1">
+                                <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                    1.
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                    <input type="file" name="address" id="address_1" class="1" required="">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row my-3">
+                            <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                                Sr. No
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                                (b) Copy of certificate by the Nomination and Remuneration Committee of the company, if any, to the effect that the remuneration is as per remuneration poijcy of the company
+                            </div>
+                        </div>
+                        <div id="equity2">
+                            <div class="row" id="rowel1">
+                                <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                    2.
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                    <input type="file" name="utility" id="utility" class="1">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                                Sr. No
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                                (c) Optional Attachment(s) - if any
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                            </div>
+
+                        </div>
+                        <div id="equity2" class="showon0and5th my-3">
+
+                            <div class="row" id="rowel1">
+                                <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                    1.
+
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                    <input type="file" name="resolution" id="resolution_1" class="1" required="required">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+      function toggleApprovalAndMR2() {
+        // Check if any of the conditions are "yes"
+        const ageYes = $("input[name='ageOver70']:checked").val() === "yes";
+        const convictedYes = $("input[name='convictedDetained']:checked").val() === "yes";
+        const nonResidentYes = $("input[name='nonResident']:checked").val() === "yes";
+
+        if (ageYes || convictedYes || nonResidentYes) {
+          $(".obtain").show(); // Show 8(a) and 8(c) sections
+        } else {
+          $(".obtain").hide(); // Hide all
+          // Optionally reset inputs
+          $("input[name='approvalObtained']").prop("checked", false);
+          $("#resolutionDate").val('');
+          $("#mgt14Srn").val('');
+          $("#srnMR2").val('');
+          $(".related").hide(); // Also hide related section
+        }
+      }
+
+      function toggleRelatedFields() {
+        const approvalYes = $("input[name='approvalObtained']:checked").val() === "yes";
+        $(".related").toggle(approvalYes);
+      }
+
+      // Bind change event for 7(a), (b), (c)
+      $("input[name='ageOver70'], input[name='convictedDetained'], input[name='nonResident']").on("change", toggleApprovalAndMR2);
+
+      // Bind change event for 8(a) approval obtained
+      $("input[name='approvalObtained']").on("change", toggleRelatedFields);
+
+      // Run once on page load (in case of edit form)
+      toggleApprovalAndMR2();
+      toggleRelatedFields();
+    });
+
+
+
+
+
+        $(document).ready(function () {
+        function toggleRelatedFields() {
+            const approvalYes = $("input[name='approvalObtained']:checked").val() === "yes";
+            $(".related").toggle(approvalYes);
+        }
+
+        $("input[name='approvalObtained']").on("change", toggleRelatedFields);
+        toggleRelatedFields(); // Trigger on load for edit scenarios
+    });
+
+</script>
+
+
+
+<script>
+    $(document).ready(function () {
+        // Restrict input to numbers only
+        $(document).on("input", "input[name='remunerationSalary'], input[name='remunerationPerquisites'], input[name='remunerationOthers']", function () {
+            // Replace non-numeric characters (allow decimal)
+            this.value = this.value.replace(/[^0-9.]/g, '');
+            calculateRemunerationTotal();
+        });
+    });
+
+    function calculateRemunerationTotal() {
+        let salary = parseFloat($("input[name='remunerationSalary']").val()) || 0;
+        let perquisites = parseFloat($("input[name='remunerationPerquisites']").val()) || 0;
+        let others = parseFloat($("input[name='remunerationOthers']").val()) || 0;
+
+        let total = salary + perquisites + others;
+
+        $("input[name='remunerationTotal']").val(total.toFixed(2));
+    }
+</script>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            public: "",
+
+            appointeeName: "",
+            appointeeDinPan: "",
+            appointeeDesignation: "",
+            appointeeResolutionDate: "",
+            appointeeAppointmentDate: "",
+
+            remunerationType: "",         // String (radio value: "month" or "annum")
+            remunerationSalary: 0,        // Number
+            remunerationPerquisites: 0,   // Number
+            remunerationOthers: 0,        // Number
+            remunerationTotal: 0,         // Number (disabled, calculated field)
+            appointmentFrom: "",          // Date 
+            appointmentTo: "",            // Date
+
+
+            ageOver70: "",             // String ("yes" or "no" for radio selection)
+            convictedDetained: "",     // String ("yes" or "no" for radio selection)
+            nonResident: "",           // String ("yes" or "no" for radio selection)
+            approvalObtained: "",      // String ("yes" or "no" for radio selection)
+            srnMR2: "",                 // String (text input for SRN)
+
+            resolutionNumber: "",        // Stores the resolution number, e.g., "12345"
+            resolutionDate: "",          // Stores the date of the resolution, e.g., "2025-01-08"
+
+            designation: "",           // String for Designation (Director, Manager, etc.)
+            officerDesignation: "",    // String for Officer Designation (if entered)
+            signatoryId: "",            // String for the ID of the signatory (DIN, PAN, Membership number)
+
+            category: "",
+            pcs: "",
+            membershipStatus: "",
+            membershipNumber: ""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

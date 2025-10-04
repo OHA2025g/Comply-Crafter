@@ -1,0 +1,1373 @@
+﻿@{
+    ViewBag.ShowSearch = true;
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<!-- Clipboard.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+</style>
+
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Company Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frmCompany">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+
+                        <div class="col-md-12 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Company Name</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('companyNameInput')" title="Copy Company Name"></i>
+                                <span class="text-success" id="companyNameInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="companyName" id="companyNameInput" readonly>
+                                <button class="btn btn-outline-primary" type="button" onclick="sync()">Sync</button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Corporate Identification Number (CIN)</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('cinInput')" title="Copy CIN"></i>
+                                <span class="text-success" id="cinInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="cin" id="cinInput" readonly value="U12345MH2023PTC123456">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Incorporation Date</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('incorporationDateInput')" title="Copy Date"></i>
+                                <span class="text-success" id="incorporationDateInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="date" class="form-control" name="incorporationDate" id="incorporationDateInput" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Company Type</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('companyTypeSelect')" title="Copy Company Type"></i>
+                                <span class="text-success" id="companyTypeSelectCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <select class="form-control" name="companyType" id="companyTypeSelect" disabled>
+                                <option value="">Select Company</option>
+                                <option value="Company">Company</option>
+                                <option value="Private">Private Limited</option>
+                                <option value="Public">Public Limited</option>
+                                <option value="Private(One Person Company)">One Person (OPC) Private Limited</option>
+                                <option value="LLP">Limited Liability Partnership (LLP)</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Email</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('emailInput')" title="Copy Email"></i>
+                                <span class="text-success" id="emailInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="email" class="form-control" name="email" id="emailInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-12 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Registered Address</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('addressInput')" title="Copy Address"></i>
+                                <span class="text-success" id="addressInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <textarea class="form-control" name="address" id="addressInput" readonly></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Website</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('websiteInput')" title="Copy Website"></i>
+                                <span class="text-success" id="websiteInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="website" id="websiteInput"
+                                   data-val="true"
+                                   data-val-url="Please enter a valid website URL (e.g. https://example.com)"
+                                   placeholder="https://example.com">
+                            <span class="field-validation-valid" data-valmsg-for="website" data-valmsg-replace="true"></span>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Contact Number</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('contactNumberInput')" title="Copy Contact Number"></i>
+                                <span class="text-success" id="contactNumberInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="companyContactNo" id="contactNumberInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>PAN</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('panInput')" title="Copy PAN"></i>
+                                <span class="text-success" id="panInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="pan" id="panInput"
+                                       data-val="true"
+                                       data-val-regex="Please enter a valid PAN (e.g. AAAAA9999A)"
+                                       data-val-regex-pattern="^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+                                       placeholder="AAAAA9999A">
+                                @* <button class="btn btn-primary" type="button">Prefill</button> *@
+                            </div>
+                            <div id="panError" class="invalid-feedback" style="display:none;"></div>
+
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>GST Number</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('gstNoInput')" title="Copy GST"></i>
+                                <span class="text-success" id="gstNoInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="gstNo" id="gstNoInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                    </div>
+                </form>
+
+
+                <script>
+                    function copyToClipboard(inputId) {
+                        const input = document.getElementById(inputId);
+                        if (!input) return;
+
+                        let textToCopy = "";
+
+                        if (input.tagName === "INPUT" || input.tagName === "TEXTAREA") {
+                            textToCopy = input.value;
+                        } else if (input.tagName === "SELECT") {
+                            textToCopy = input.options[input.selectedIndex]?.text || "";
+                        } else {
+                            textToCopy = input.textContent || "";
+                        }
+
+                        if (!textToCopy.trim()) return; // Avoid copying empty strings
+
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            const successMsg = document.getElementById(inputId + "Copied");
+                            if (successMsg) {
+                                successMsg.style.display = "inline";
+                                setTimeout(() => {
+                                    successMsg.style.display = "none";
+                                }, 2000);
+                            }
+                        }).catch(err => {
+                            console.error("Failed to copy: ", err);
+                        });
+                    }
+
+
+
+
+                    document.getElementById('websiteInput').addEventListener('blur', function(e) {
+                        if (this.value && this.value.trim() !== '') {
+
+                            if (!this.value.match(/^https?:\/\//)) {
+                                this.value = 'https://' + this.value;
+                            }
+
+
+                            const urlPattern = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+                            if (!urlPattern.test(this.value)) {
+                                $(this).addClass('input-validation-error');
+                                $('[data-valmsg-for="website"]').text('Please enter a valid website URL').removeClass('field-validation-valid').addClass('field-validation-error');
+                            } else {
+                                $(this).removeClass('input-validation-error');
+                                $('[data-valmsg-for="website"]').text('').addClass('field-validation-valid').removeClass('field-validation-error');
+                            }
+                        }
+                    });
+
+
+
+                    document.getElementById('panInput').addEventListener('input', function(e) {
+
+                        this.value = this.value.toUpperCase();
+
+
+                        if (this.value && this.value.trim() !== '') {
+                            const panPattern = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+                            if (!panPattern.test(this.value)) {
+                                $(this).addClass('input-validation-error');
+                                $('[data-valmsg-for="pan"]').text('Please enter a valid PAN (e.g. AAAAA9999A)')
+                                    .removeClass('field-validation-valid')
+                                    .addClass('field-validation-error');
+                            } else {
+                                $(this).removeClass('input-validation-error');
+                                $('[data-valmsg-for="pan"]').text('')
+                                    .addClass('field-validation-valid')
+                                    .removeClass('field-validation-error');
+                            }
+                        } else {
+
+                            $(this).removeClass('input-validation-error');
+                            $('[data-valmsg-for="pan"]').text('')
+                                .addClass('field-validation-valid')
+                                .removeClass('field-validation-error');
+                        }
+                    });
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="companyAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                        Details
+                    </button>
+                </h2>
+                <div id="collapseDetails" class="accordion-collapse collapse" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Authorized Capital</label>
+                                        <input type="number" class="form-control num amt-words" value="0" name="authorizedCapital" readonly>
+                                        <div class="amount-in-words"></div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Paid Up Capital</label>
+                                        <input type="number" class="form-control num amt-words" value="0" name="paidUpCapital" readonly>
+                                        <div class="amount-in-words"></div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    @*                                     <div class="col-md-6 my-1">
+                                        <label class="form-label">Company Class</label>
+                                        <input type="text" class="form-control" name="companyClass">
+                                        <div class="invalid-feedback"></div>
+                                    </div> *@
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Registration Number</label>
+                                        <input type="number" class="form-control num" value="0" name="registrationNumber" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Category</label>
+                                        <input type="text" class="form-control" name="category" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Subcategory</label>
+                                        <input type="text" class="form-control" name="subCategory" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Date Of Last Balance Sheet</label>
+                                        <input type="date" class="form-control" name="dateOfLastBalanceSheet" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Last AGM Date</label>
+                                        <input type="date" class="form-control" name="lastAgmDate" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Whether Listed</label>
+                                        <input type="text" class="form-control" name="whetherListed" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">RoC</label>
+                                        <input type="text" class="form-control" name="roc" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Type of Company</label>
+                                        <input type="text" class="form-control" name="TypeofCompany" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address Books Maintained At</label>
+                                        <textarea class="form-control" name="addressBooksMaintainedAt"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Business Activity</label>
+                                        <input type="text" class="form-control" name="businessActivity">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Main Business Division Code</label>
+                                        <input type="text" class="form-control" name="mainBusinessDivisionCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Main Objects</label>
+                                        <input type="text" class="form-control" name="mainObjects">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="OtherDetailsheading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherDetails" aria-expanded="false" aria-controls="collapseOtherDetails">
+                        Other Details
+                    </button>
+                </h2>
+                <div id="collapseOtherDetails" class="accordion-collapse collapse" aria-labelledby="OtherDetailsheading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyOtherDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Tan</label>
+                                        <input type="text" class="form-control" name="tan">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Brn Number</label>
+                                        <input type="text" class="form-control" name="brnNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Food Licence Number</label>
+                                        <input type="text" class="form-control" name="foodLicenceNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Msme Number</label>
+                                        <input type="text" class="form-control" name="msmeNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Import Export Code</label>
+                                        <input type="text" class="form-control" name="impExpCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Trademark Number</label>
+                                        <input type="text" class="form-control" name="tradeMarkNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">COR</label>
+                                        <input type="text" class="form-control" name="cor">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="FinancialDetailsheading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinancialDetails" aria-expanded="false" aria-controls="collapseFinancialDetails">
+                        Financial Details
+                    </button>
+                </h2>
+                <div id="collapseFinancialDetails" class="accordion-collapse collapse" aria-labelledby="FinancialDetailsheading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyFinancialDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous Name</label>
+                                        <input type="text" class="form-control" name="previousName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous Begin Date</label>
+                                        <input type="date" class="form-control" name="previousBeginDate">
+                                        <div class="invalid-feedback">Begin date cannot be greater than end date.</div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous End Date</label>
+                                        <input type="date" class="form-control" name="previousEndDate">
+                                        <div class="invalid-feedback">End date cannot be less than begin date.</div>
+                                    </div>                                    
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Financial Year Begin Month</label>
+                                        <input type="text" class="form-control" name="financialYearBeginMonth">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Financial Year End Month</label>
+                                        <input type="text" class="form-control" name="financialYearEndMonth">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN</label>
+                                        <input type="text" class="form-control" name="otherCin">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN Begin Date</label>
+                                        <input type="date" class="form-control" name="otherCinBeginDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN End Date</label>
+                                        <input type="date" class="form-control" name="otherCinEndDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address</label>
+                                        <input type="text" class="form-control" name="otherAddress">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address Begin Date</label>
+                                        <input type="date" class="form-control" name="otherAddressBeginDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address End Date</label>
+                                        <input type="date" class="form-control" name="otherAddressEndDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label d-block">Has Company Name Changed?</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasNameChanged" value="true" id="nameChangedYes">
+                                            <label class="form-check-label" for="nameChangedYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasNameChanged" value="false" id="nameChangedNo" checked>
+                                            <label class="form-check-label" for="nameChangedNo">No</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1" id="newCompanyNameWrapper" style="display: none;">
+                                        <label for="newCompanyName" class="form-label">Old Company Name</label>
+                                        <input type="text" class="form-control" id="newCompanyName" name="newCompanyName" placeholder="Enter Old company name">
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label d-block">Does Company Have Other CIN?</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasOtherCin" value="true" id="otherCinYes">
+                                            <label class="form-check-label" for="otherCinYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasOtherCin" value="false" id="otherCinNo" checked>
+                                            <label class="form-check-label" for="otherCinNo">No</label>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1" id="otherCinWrapper" style="display: none;">
+                                        <label for="otherCin" class="form-label">Other CIN</label>
+                                        <input type="text" class="form-control" id="otherCin" name="otherCin" placeholder="Enter Other CIN">
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="validateAndSave()">Save</button>
+    </div>
+</div>
+
+<style>
+    .amount-in-words {
+        padding-left: 0.5em;
+        color: #444;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        let objCompany = {
+            id: 0,
+            refUser: 0,
+            companyName: "",
+            cin: "",
+            cinUpdatedOn: "",
+            incorporationDate: "",
+            companyContactNo: "",
+            email: "",
+            address: "",
+            companyType: "Company",
+            pan: "",
+            gstNo: "",
+            website: "",
+            createdBy: 0,
+            createdOn: "",
+            updatedBy: 0,
+            updatedOn: "",
+            isActive: true,
+            deletedOn: ""
+        };
+
+        let voCompany = {
+            id: 'required',
+            companyName: 'required',
+            cin: 'required',
+            incorporationDate: {
+                required: true,
+                date: true
+            },
+            companyContactNo: {
+                required: true,
+                mobile: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            companyType: 'required',
+            pan: {
+                required: false,
+                regex: "^[A-Z]{5}[0-9]{4}[A-Z]{1}$"
+            },
+            gstNo: {
+                required: false,
+                regex: "^([0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1})$"
+            }
+        };
+
+        let voCompanyDetails = {
+            id: 'required',
+            companyId: 'required',
+            authorizedCapital: {
+                // required: true,
+                number: true
+            },
+            paidUpCapital: {
+                // required: true,
+                number: true
+            },
+            // companyClass: "required",
+            registrationNumber: {
+                // required: true,
+                number: true
+            },
+            // category: "required",
+            // subCategory: "required",
+            dateOfLastBalanceSheet: {
+                // required: true,
+                date: true
+            },
+            lastAgmDate: {
+                // required: true,
+                date: true
+            },
+            addressBooksMaintainedAt: {
+                //required: true
+            },
+            // whetherListed: "required",
+            // roc: "required",
+            // addressBooksMaintainedAt: "required",
+            // businessActivity: "required",
+            // mainBusinessDivisionCode: "required",
+            // mainObjects: "required"
+        };
+
+        let voCompanyOtherDetails = {
+            id: 'required',
+            companyId: 'required',
+            // tan: 'required',
+            // brnNo: 'required',
+            // foodLicenceNo: 'required',
+            // msmeNo: 'required',
+            // impExpCode: 'required',
+            // tradeMarkNo: 'required',
+            // cor: 'required',
+
+        }
+
+        let voCompanyFinancialDetails = {
+            id: 'required',
+            companyId: 'required',
+            // previousName: 'required',
+            previousBeginDate: {
+                // required: true,
+                date: true
+            },
+            previousEndDate: {
+                // required: true,
+                date: true
+            },
+            // financialYearBeginMonth: 'required',
+            // financialYearEndMonth: 'required',
+            // otherCin: 'required',
+            otherCinBeginDate: {
+                // required: true,
+                date: true
+            },
+            otherCinEndDate: {
+                // required: true,
+                date: true
+            },
+            // otherAddress: 'required',
+            otherAddressBeginDate: {
+                // required: true,
+                date: true
+            },
+            otherAddressEndDate: {
+                // required: true,
+                date: true
+            },
+        }
+
+        let vfCompany = null;
+        let vfCompanyDetails = null;
+        let vfCompanyOtherDetails = null;
+        let vfCompanyFinancialDetails = null;
+
+        $(document).ready(function () {
+            autocomplete();
+            load();
+
+            jQuery.validator.addMethod("regex", function (value, element, pattern) {
+                if (!value) return true; // allow empty
+                const regex = new RegExp(pattern);
+                return regex.test(value);
+            }, "Invalid format.");
+
+            vfCompany = $('#frmCompany').validate({
+                rules: voCompany,
+                messages: {
+                    pan: {
+                        regex: "Please enter a valid PAN (e.g. AAAAA9999A)"
+                    },
+                    gstNo: {
+                        regex: "Please enter a valid GST Number (e.g. 22AAAAA0000A1Z5)"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    if (element.attr("name") == "pan" || element.attr("name") == "gstNo") {
+                        error.insertAfter(element.closest(".input-group").length ? element.closest(".input-group") : element);
+                    } else {
+                        error.insertAfter(element);
+                    }
+                }
+            });
+
+            // PAN input
+            $('#panInput').on('input', function () {
+                this.value = this.value.toUpperCase();
+                $(this).valid();
+            });
+
+            // GST input
+            $('#gstNoInput').on('input', function () {
+                this.value = this.value.toUpperCase();
+                $(this).valid();
+            });
+
+            // Amount in words
+            $('.amt-words').change(function () {
+                const val = $(this).val();
+                const display = val ? price_in_words(parseInt(val)) : '';
+                $(this).parent().find('.amount-in-words').text(display);
+            });
+
+            // Toggle previous company name
+            $('input[name="hasNameChanged"]').on('change', function () {
+                $('#newCompanyNameWrapper').toggle(this.value === 'true');
+            });
+
+                    $('input[name="hasOtherCin"]').on('change', function () {
+            $('#otherCinWrapper').toggle(this.value === 'true');
+        });
+
+            // Other validations
+            vfCompanyDetails = $('#frmCompanyDetails').validate({ rules: voCompanyDetails, ignore: [] });
+            vfCompanyOtherDetails = $('#frmCompanyOtherDetails').validate({ rules: voCompanyOtherDetails, ignore: [] });
+            vfCompanyFinancialDetails = $('#frmCompanyFinancialDetails').validate({ rules: voCompanyFinancialDetails, ignore: [] });
+        });
+
+        function validateAndSave() {
+            const panValue = $('#panInput').val().trim();
+            const gstValue = $('#gstNoInput').val().trim();
+
+            if (panValue && !/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(panValue)) {
+                toastr.error('Please enter a valid PAN (e.g. AAAAA9999A)');
+                $('#panInput').focus();
+                return false;
+            }
+
+            if (gstValue && !/^([0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1})$/.test(gstValue)) {
+                toastr.error('Please enter a valid GST Number (e.g. 22AAAAA0000A1Z5)');
+                $('#gstNoInput').focus();
+                return false;
+            }
+
+            let allValid = true;
+            if (!vfCompany.form()) allValid = false;
+            if (!vfCompanyDetails.form()) allValid = false;
+            if (!vfCompanyOtherDetails.form()) allValid = false;
+            if (!vfCompanyFinancialDetails.form()) allValid = false;
+
+            if (!allValid) {
+                toastr.error('Please correct all validation errors before saving.');
+                $(':input.error:first').focus();
+                return false;
+            }
+
+            save();
+        }
+
+        function validateDynamicForm() {
+            var isValid = true;
+
+            // open first accordion panel
+            $('#collapseFinancialDetails').collapse('show');
+
+            let $PreviousBeginDate = $('[name="previousBeginDate"]');
+            let value = $PreviousBeginDate.val(); // input type=date → yyyy-MM-dd
+
+            if (!value) {
+                $PreviousBeginDate.removeClass("is-valid").addClass("is-invalid");
+                isValid = false;
+            } else {
+                // Convert yyyy-MM-dd -> dd-MMM-yyyy
+                let dateObj = new Date(value);
+                if (isNaN(dateObj.getTime())) {
+                    $PreviousBeginDate.removeClass("is-valid").addClass("is-invalid");
+                    isValid = false;
+                } else {
+                    let options = { day: "2-digit", month: "short", year: "numeric" };
+                    let formatted = dateObj
+                        .toLocaleDateString("en-GB", options)
+                        .replace(/ /g, "-");
+                    $PreviousBeginDate.removeClass("is-invalid").addClass("is-valid");
+                }
+            }
+
+            let $PreviousEndDate = $('[name="previousEndDate"]');
+            value = $PreviousEndDate.val(); // input type=date → yyyy-MM-dd
+
+            if (!value) {
+                $PreviousEndDate.removeClass("is-valid").addClass("is-invalid");
+                isValid = false;
+            } else {
+                // Convert yyyy-MM-dd -> dd-MMM-yyyy
+                let dateObj = new Date(value);
+                if (isNaN(dateObj.getTime())) {
+                    $PreviousEndDate.removeClass("is-valid").addClass("is-invalid");
+                    isValid = false;
+                } else {
+                    let options = { day: "2-digit", month: "short", year: "numeric" };
+                    let formatted = dateObj
+                        .toLocaleDateString("en-GB", options)
+                        .replace(/ /g, "-");
+                    $PreviousEndDate.removeClass("is-invalid").addClass("is-valid");
+                }
+            }
+            if(isValid)
+            isValid = validateBeginEndDates();
+
+            return isValid;
+        }
+        function validateBeginEndDates() {
+            // Use correct selectors for input elements
+            const $beginDateInput = $('[name="previousBeginDate"]');
+            const $endDateInput = $('[name="previousEndDate"]');
+
+            const beginDateStr = $beginDateInput.val();
+            const endDateStr = $endDateInput.val();
+
+            let isValid = true;
+
+            if (beginDateStr && endDateStr) {
+                const beginDate = new Date(beginDateStr);
+                const endDate = new Date(endDateStr);
+
+                if (beginDate > endDate) {
+                    $beginDateInput.addClass("is-invalid").removeClass("is-valid");
+                    $endDateInput.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    $beginDateInput.removeClass("is-invalid").addClass("is-valid");
+                    $endDateInput.removeClass("is-invalid").addClass("is-valid");
+                }
+            }
+
+            return isValid;
+        }
+
+        function save() {
+            if (!validateDynamicForm()) return;
+            var obj = getObj(objCompany, '#frmCompany');
+            var objDetails = getObj(objCompanyDetails, '#frmCompanyDetails');
+            var objOtherDetails = getObj(objCompanyOtherDetails, '#frmCompanyOtherDetails');
+            var objFinancialDetails = getObj(objCompanyFinancialDetails, '#frmCompanyFinancialDetails');
+
+            obj["details"] = objDetails;
+            obj["otherDetails"] = objOtherDetails;
+            obj["financialDetails"] = objFinancialDetails;
+
+            $._post(`@R.ApiUrl/Company`, obj)
+                .then(response => {
+                    if (response.status) {
+                        window.location.href = `/Home/Company/${response.responseObject.id}`;
+                    } else {
+                        swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error('Error saving company:', error);
+                    toastr.error('Failed to save company data');
+                });
+        }
+
+        function load() {
+            $._get(`@R.ApiUrl/Company/${@ViewBag.id}`)
+                .then(response => {
+                    objCompany = response;
+                    objCompanyDetails = response.details;
+                    objCompanyOtherDetails = response.otherDetails;
+                    objCompanyFinancialDetails = response.financialDetails;
+
+                    setObj(response, "#frmCompany");
+                    setObj(response.details, '#frmCompanyDetails');
+                    setObj(response.otherDetails, '#frmCompanyOtherDetails');
+                    setObj(response.financialDetails, '#frmCompanyFinancialDetails');
+
+                    $('[name="company_name"]').text(objCompany.companyName);
+                    $('.amt-words').trigger('change');
+                })
+                .catch(error => {
+                    console.error('Error loading company:', error);
+                    toastr.error('Failed to load company data');
+                });
+        }
+
+        function sync() {
+            swal.fire({
+                title: 'Processing...'
+            });
+            swal.showLoading();
+            $._get(`@R.ApiUrl/Company/${@ViewBag.id}/sync`)
+                .then(response => {
+                    toastr[response.status ? 'success' : 'error'](response.message);
+                    swal.close();
+                    if (response.status) {
+                        load();
+                    }
+                })
+                .catch(error => {
+                    swal.close();
+                    console.error('Error syncing company:', error);
+                    toastr.error('Failed to sync company data');
+                });
+        }
+
+        function autocomplete() {
+            $("#headCompSearch").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: `@R.ApiUrl/Company/S2`,
+                        dataType: "json",
+                        data: { query: request.term },
+                        appendTo: ".search",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.companyName,
+                                    value: item.companyName,
+                                    id: item.id
+                                };
+                            }));
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Autocomplete error:', error);
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    localStorage.setItem("comp_id", ui.item.id);
+                    localStorage.setItem("comp_name", ui.item.label);
+                    $('[name="company_name"]').text(ui.item.label);
+                    window.location = `@Url.Action("Company", "Home")/Edit/${ui.item.id}`;
+                },
+                minLength: 2
+            });
+        }
+
+        function copyToClipboard(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+
+            let textToCopy = input.value || input.textContent || "";
+            if (!textToCopy.trim()) return;
+
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    const successMsg = document.getElementById(inputId + "Copied");
+                    if (successMsg) {
+                        successMsg.style.display = "inline";
+                        setTimeout(() => {
+                            successMsg.style.display = "none";
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error("Failed to copy:", err);
+                    toastr.error('Failed to copy to clipboard');
+                });
+        }
+
+        function LoadCompanySwitchData(id)
+        {
+            var url = '@Url.Action("Company", "Home")';
+            window.location.href = url + "/Edit/" + id;
+        }
+    </script>
+
+    @*    <script>
+        var objCompany = {
+            id: 0,
+            refUser: 0,
+            companyName: "",
+            cin: "",
+            cinUpdatedOn: "",
+            incorporationDate: "",
+            companyContactNo: "",
+            email: "",
+            address: "",
+            companyType: "Company",
+            pan: "",
+            gstNo: "",
+            website: "",
+            createdBy: 0,
+            createdOn: "",
+            updatedBy: 0,
+            updatedOn: "",
+            isActive: true,
+            deletedOn: ""
+        }
+=======
+            function price_in_words(price) {
+                var sglDigit = ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine"],
+                    dblDigit = ["Ten", "Eleven", "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"],
+                    tensPlace = ["", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"],
+                    handle_tens = function (dgt, prevDgt) {
+                        return 0 == dgt ? "" : " " + (1 == dgt ? dblDigit[prevDgt] : tensPlace[dgt])
+                    },
+                    handle_utlc = function (dgt, nxtDgt, denom) {
+                        return (0 != dgt && 1 != nxtDgt ? " " + sglDigit[dgt] : "") + (0 != nxtDgt || dgt > 0 ? " " + denom : "")
+                    };
+                var str = "",
+                    digitIdx = 0,
+                    digit = 0,
+                    nxtDigit = 0,
+                    words = [];
+                if (price += "", isNaN(parseInt(price))) str = "";
+                else if (parseInt(price) > 0 && price.length <= 10) {
+                    for (digitIdx = price.length - 1; digitIdx >= 0; digitIdx--) switch (digit = price[digitIdx] - 0, nxtDigit = digitIdx > 0 ? price[digitIdx - 1] - 0 : 0, price.length - digitIdx - 1) {
+                        case 0:
+                            words.push(handle_utlc(digit, nxtDigit, ""));
+                            break;
+                        case 1:
+                            words.push(handle_tens(digit, price[digitIdx + 1]));
+                            break;
+                        case 2:
+                            words.push(0 != digit ? " " + sglDigit[digit] + " Hundred" + (0 != price[digitIdx + 1] && 0 != price[digitIdx + 2] ? " and" : "") : "");
+                            break;
+                        case 3:
+                            words.push(handle_utlc(digit, nxtDigit, "Thousand"));
+                            break;
+                        case 4:
+                            words.push(handle_tens(digit, price[digitIdx + 1]));
+                            break;
+                        case 5:
+                            words.push(handle_utlc(digit, nxtDigit, "Lakh"));
+                            break;
+                        case 6:
+                            words.push(handle_tens(digit, price[digitIdx + 1]));
+                            break;
+                        case 7:
+                            words.push(handle_utlc(digit, nxtDigit, "Crore"));
+                            break;
+                        case 8:
+                            words.push(handle_tens(digit, price[digitIdx + 1]));
+                            break;
+                        case 9:
+                            words.push(0 != digit ? " " + sglDigit[digit] + " Hundred" + (0 != price[digitIdx + 1] || 0 != price[digitIdx + 2] ? " and" : " Crore") : "")
+                    }
+                    str = words.reverse().join("")
+                } else str = "";
+                return str
+            }
+    </script>
+}
+>>>>>>> origin/development
+
+        var voCompany = {
+            id: 'required',
+            companyName: 'required',
+            cin: 'required',
+            incorporationDate: {
+                required: true,
+                date: true
+            },
+            companyContactNo: {
+                required: true,
+                mobile: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+                pan: {
+            required: false,
+            regex: /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/
+        },
+            // address: 'required',
+            companyType: 'required'
+        }
+        var vfCompany = null;
+
+        var objCompanyDetails = {
+            id: 0,
+            companyId: 0,
+            authorizedCapital: 0,
+            paidUpCapital: 0,
+            companyClass: "",
+            registrationNumber: 0,
+            category: "",
+            subCategory: "",
+            dateOfLastBalanceSheet: "",
+            lastAgmDate: "",
+            whetherListed: "",
+            roc: "",
+            addressBooksMaintainedAt: "",
+            businessActivity: "",
+            mainBusinessDivisionCode: "",
+            mainObjects: ""
+        }
+
+        var voCompanyDetails = {
+            id: 'required',
+            companyId: 'required',
+            authorizedCapital: {
+                // required: true,
+                number: true
+            },
+            paidUpCapital: {
+                // required: true,
+                number: true
+            },
+            // companyClass: "required",
+            registrationNumber: {
+                // required: true,
+                number: true
+            },
+            // category: "required",
+            // subCategory: "required",
+            dateOfLastBalanceSheet: {
+                // required: true,
+                date: true
+            },
+            lastAgmDate: {
+                // required: true,
+                date: true
+            },
+            // whetherListed: "required",
+            // roc: "required",
+            // addressBooksMaintainedAt: "required",
+            // businessActivity: "required",
+            // mainBusinessDivisionCode: "required",
+            // mainObjects: "required"
+        }
+        var vfCompanyDetails = null;
+
+        var objCompanyOtherDetails = {
+            id: 0,
+            companyId: 0,
+            tan: "",
+            brnNo: "",
+            foodLicenceNo: "",
+            msmeNo: "",
+            impExpCode: "",
+            tradeMarkNo: "",
+            cor: "",
+        }
+
+        var voCompanyOtherDetails = {
+            id: 'required',
+            companyId: 'required',
+            // tan: 'required',
+            // brnNo: 'required',
+            // foodLicenceNo: 'required',
+            // msmeNo: 'required',
+            // impExpCode: 'required',
+            // tradeMarkNo: 'required',
+            // cor: 'required',
+
+        }
+        var vfCompanyOtherDetails = null;
+
+        var objCompanyFinancialDetails = {
+            id: 0,
+            companyId: 0,
+            previousName: "",
+            previousBeginDate: "",
+            previousEndDate: "",
+            financialYearBeginMonth: "",
+            financialYearEndMonth: "",
+            otherCin: "",
+            otherCinBeginDate: "",
+            otherCinEndDate: "",
+            otherAddress: "",
+            otherAddressBeginDate: "",
+            otherAddressEndDate: "",
+        }
+
+        var voCompanyFinancialDetails = {
+            id: 'required',
+            companyId: 'required',
+            // previousName: 'required',
+            previousBeginDate: {
+                // required: true,
+                date: true
+            },
+            previousEndDate: {
+                // required: true,
+                date: true
+            },
+            // financialYearBeginMonth: 'required',
+            // financialYearEndMonth: 'required',
+            // otherCin: 'required',
+            otherCinBeginDate: {
+                // required: true,
+                date: true
+            },
+            otherCinEndDate: {
+                // required: true,
+                date: true
+            },
+            // otherAddress: 'required',
+            otherAddressBeginDate: {
+                // required: true,
+                date: true
+            },
+            otherAddressEndDate: {
+                // required: true,
+                date: true
+            },
+        }
+        var vfCompanyFinancialDetails = null;
+
+        $(document).ready(function () {
+            autocomplete()
+            load()
+            vfCompany = $('#frmCompany').validate({ rules: voCompany, onsubmit: () => { console.log('submit') } })
+            vfCompanyDetails = $('#frmCompanyDetails').validate({ rules: voCompanyDetails, ignore: [], onsubmit: () => { console.log('submit') } })
+            vfCompanyOtherDetails = $('#frmCompanyOtherDetails').validate({ rules: voCompanyOtherDetails, ignore: [], onsubmit: () => { console.log('submit') } })
+            vfCompanyFinancialDetails = $('#frmCompanyFinancialDetails').validate({ rules: voCompanyFinancialDetails, ignore: [], onsubmit: () => { console.log('submit') } })
+            $('.amt-words').change(function () {
+                if ($(this).val()) $(this).parent().find('.amount-in-words').text(price_in_words(parseInt($(this).val())));
+                else $(this).parent().find('.amount-in-words').text('');
+            })
+
+           
+        })
+
+        function save() {
+            let isValid = true;
+            if (!vfCompany.form()) isValid = false;
+            if (!vfCompanyDetails.form()) isValid = false;
+            if (!vfCompanyOtherDetails.form()) isValid = false;
+            if (!vfCompanyFinancialDetails.form()) isValid = false;
+
+            if (!isValid) return;
+
+            var obj = getObj(objCompany, '#frmCompany');
+            var objDetails = getObj(objCompanyDetails, '#frmCompanyDetails');
+            var objOtherDetails = getObj(objCompanyOtherDetails, '#frmCompanyOtherDetails');
+            var objFinancialDetails = getObj(objCompanyFinancialDetails, '#frmCompanyFinancialDetails');
+
+            obj["details"] = objDetails;
+            obj["otherDetails"] = objOtherDetails;
+            obj["financialDetails"] = objFinancialDetails;
+
+            console.log(obj)
+            $._post(`@R.ApiUrl/Company`, obj).then(x => { 
+                console.log(x)
+                        if (x.status) {
+            window.location.href = `/Home/Company/${x.responseObject.id}`;
+        } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+        
+        function load() { 
+            $._get(`@R.ApiUrl/Company/${@ViewBag.id}`).then(x => {
+                objCompany = x
+                objCompanyDetails = x.details
+                objCompanyOtherDetails = x.otherDetails
+                objCompanyFinancialDetails = x.financialDetails
+                setObj(x, "#frmCompany")
+                setObj(x.details, '#frmCompanyDetails');
+                setObj(x.otherDetails, '#frmCompanyOtherDetails');
+                setObj(x.financialDetails, '#frmCompanyFinancialDetails');
+                $('[name="company_name"]').text(objCompany.companyName);
+            })
+        }
+
+        function sync() { 
+            $._get(`@R.ApiUrl/Company/${@ViewBag.id}/sync`).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                if(r.status){
+                    load()
+                }
+            });
+            toastr.warning('Sync Job added to queue')
+        }
+
+        function autocomplete() {
+            $("#headCompSearch").autocomplete({
+                source: function (request, response) {
+                    // Send AJAX request to the API
+                    $.ajax({
+                        url: `@R.ApiUrl/Company/S2`,
+                        dataType: "json",
+                        data: {
+                            query: request.term
+                        },
+                        appendTo: ".search",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.companyName,
+                                    value: item.companyName,
+                                    id: item.id
+                                };
+                            }));
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    localStorage.setItem("comp_id", ui.item.id);
+                    localStorage.setItem("comp_name", ui.item.label);
+                    $('[name="company_name"]').text(ui.item.label);
+                    window.location = `@Url.Action("Company", "Home")/Edit/${ui.item.id}`
+                },
+                minLength: 2
+            });
+
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('input[name="hasNameChanged"]').on('change', function () {
+                if ($(this).val() === 'true') {
+                    $('#newCompanyNameWrapper').slideDown();
+                } else {
+                    $('#newCompanyNameWrapper').slideUp();
+                }
+            });
+        });
+    </script> *@
+    @*  <script>
+        function copyCIN() {
+            const cinInput = document.getElementById("cinInput");
+            cinInput.select();
+            cinInput.setSelectionRange(0, 99999); // For mobile compatibility
+
+            navigator.clipboard.writeText(cinInput.value).then(() => {
+                // Show success message next to the icon
+                const successMessage = document.getElementById("copySuccessMessage");
+                successMessage.style.display = "inline";
+
+                // Hide success message after 2 seconds
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 2000);
+            }).catch(err => {
+                console.error("Failed to copy CIN:", err);
+            });
+        }
+    </script> *@
+
+}

@@ -1,0 +1,38 @@
+.scrollX {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 1em;
+}
+
+    .scrollX::-webkit-scrollbar {
+        height: 8px;
+    }
+
+/* Track */
+    .scrollX::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+/* Handle */
+    .scrollX::-webkit-scrollbar-thumb {
+        background: #DADADA;
+        border-radius: 4px;
+    }
+
+    /* Handle on hover */
+        .scrollX::-webkit-scrollbar-thumb:hover {
+            background: #999999;
+        }
+
+.dt-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 768px) {
+    .dt-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px
+    }
+}

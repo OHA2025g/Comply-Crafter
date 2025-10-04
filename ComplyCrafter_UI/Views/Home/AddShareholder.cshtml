@@ -1,0 +1,1083 @@
+﻿@{
+    ViewData["Title"] = "Auditor Master";
+    ViewBag.ShowSearch = true;
+    ViewBag.ShowClear = true;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+
+</style>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">@ViewBag.ctrl Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frm">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+                       
+                        <div class="col-md-4 my-1 indi minor d-flex align-items-center">
+                            <div>
+                                <label class="form-label d-block">Has valid DIN</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" name="hasValidDin" id="hasValidDin" checked>
+                                    <label class="form-check-label" for="hasValidDin">Yes</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        <div class="col-md-8 my-1 indi minor">
+                            <label class="form-label">Director</label>
+                            <select class="js-states form-control num" id="directorS2" name="director"></select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Category</label>
+                            <select class="form-control" name="category">
+                                <option value="" selected>Select a category</option>
+                                <option>Indian</option>
+                                <option>Foreign</option>
+                                <option>NRI</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Subcategory</label>
+                            <select class="form-control" name="subCategory">
+                                <option value="" disabled selected>Select a subcategory</option>
+                                <option>Institutions</option>
+                                <option>Non Institutions</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-1">
+                            <label class="form-label">Under Subcategory</label>
+                            <select class="form-control" name="underSubCategory">
+                                <option value="" disabled selected>Select a under subcategory</option>
+                                <option>Individual</option>
+                                <option>Minor</option>
+                                <option>HUF</option>
+                                <option>Firm</option>
+                                <option>Body Corporate</option>
+                                <option>Government Company</option>
+                                <option>Central Govt</option>
+                                <option>State Govt</option>
+                                <option>Banks/FI</option>
+                                <option>Mutual Funds</option>
+                                <option>Venture Capital Funds</option>
+                                <option>Insurance Companies</option>
+                                <option>FIIs</option>
+                                <option>Trust</option>
+                                <option>Society</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        @* <div class="col-md-6 my-1">
+                            <label class="form-label">Type</label>
+                            <select class="form-control" name="type">
+                                <option value="" disabled selected>Select a type</option>
+                                <option>Equity</option>
+                                <option>Preference</option>
+                                <option>Any Other</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div> *@
+                        
+                        
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Salutation</label>
+                            @* <input type="text" class="form-control" name="salutation"> *@
+                            <select class="form-select" name="salutation" required>
+                                <option value="Mr.">Mr</option>
+                                <option value="Mrs.">Mrs</option>
+                                <option value="Miss">Miss</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 indi minor">
+                          
+                        </div>
+                        <div class="col-md-4 my-1 indi minor">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="firstName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-1 indi minor">
+                            <label class="form-label">Middle Name</label>
+                            <input type="text" class="form-control" name="middleName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-1 indi minor">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lastName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">CIN/LLPIN</label>
+                            <input type="text" class="form-control" name="cinReg">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">Unique Identification No./Registration No.</label>
+                            <input type="text" class="form-control" name="uniqueId">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">Date of incorporation/ Reg.</label>
+                            <input type="date" class="form-control" name="incorporationDate">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">Name of Body Corporate</label>
+                            <input type="text" class="form-control" name="companyName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Email</label>
+                            @* <input type="email" class="form-control" name="email"> *@
+                            <div class="input-group">
+                                <input type="email" class="form-control" name="email">
+                                <button type="button" class="btn btn-success btn-verify" style="">Verify</button>
+                                <input type="hidden" id="hdnEmailVerified" />
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        @* <div class="col-md-6 my-1">
+                            <label class="form-label">Mobile</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" class="form-control" name="mobile">
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div> *@
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Mobile</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" class="form-control is-invalid" name="mobile" aria-describedby="mobile-error" aria-invalid="true">
+                                <button type="button" class="btn btn-success btn-verify" style="">Verify</button>
+                                <div id="mobile-error" class="error invalid-feedback">Please enter a valid mobile number.</div>
+                                <input type="hidden" id="hdnMobileVerified" />
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Gender</label>
+                            <select class="form-control" name="gender">
+                                <option value=""  selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Marital Status</label>
+                            <select class="form-control" name="maritalStatus">
+                                <option value=""  selected>Select marital status</option>
+                                <option>Married</option>
+                                <option>Unmarried</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Date of birth</label>
+                            <input type="date" class="form-control" name="dob">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Passport</label>
+                            <input type="text" class="form-control" name="passport">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">PAN</label>
+                            <input type="text" class="form-control" name="pan"
+                                   pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"
+                                   title="PAN must be in format: AAAAA9999A"
+                                   maxlength="10" style="text-transform:uppercase">
+                            <div class="invalid-feedback">Please enter a valid PAN (e.g. ABCDE1234F).</div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Upload PAN</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="panUrl" accept=".jpg,.jpeg,.png,.pdf" id="panUrlFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewPanBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deletePanBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback">Please upload a valid PAN file (JPG, PNG, or PDF).</div>
+                        </div>
+
+
+                       <script>
+    const panInput = document.querySelector('[name="pan"]');
+    const regex = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+
+    function validatePAN() {
+        const pan = panInput.value.toUpperCase();
+        panInput.value = pan;  // Auto-format to uppercase
+        
+        // Clear previous validation states
+        panInput.classList.remove('is-valid', 'is-invalid');
+        
+        if (pan === '') {
+            // Handle empty input state
+            return;
+        }
+        
+        if (regex.test(pan)) {
+            panInput.classList.add('is-valid');
+        } else {
+            panInput.classList.add('is-invalid');
+        }
+    }
+
+    // Event listeners with proper debouncing
+    panInput.addEventListener('input', () => {
+        validatePAN();
+        // Force re-check even when programmatically changing value
+        panInput.dispatchEvent(new Event('change')); 
+    });
+    
+    panInput.addEventListener('blur', validatePAN);
+
+
+
+
+    $(document).ready(function () {
+    function toggleDirectorField() {
+
+        
+
+        if ($('#hasValidDin').is(':checked')) {
+            $('#directorS2').closest('.col-md-8').show();
+            $('.btn-verify').hide();
+        } else {
+            $('#directorS2').closest('.col-md-8').hide();
+            $('.btn-verify').show();
+
+            if($('#hdnMobileVerified').val())
+            {
+                $('input[name="mobile"]').siblings('.btn-verify').hide();
+                $('input[name="mobile"]').attr('readonly', 'readonly');
+            }else{
+                $('input[name="mobile"]').removeAttr('readonly');
+            }
+                                                                    if($('#hdnEmailVerified').val())
+            {
+                $('input[name="email"]').siblings('.btn-verify').hide();
+                $('input[name="email"]').attr('readonly', 'readonly');
+            }else{
+                $('input[name="email"]').removeAttr('readonly');
+            }
+                                    
+        }
+    }
+
+    // Initial check on page load
+    toggleDirectorField();
+
+    // Toggle on checkbox change
+    $('#hasValidDin').on('change', toggleDirectorField);
+});
+</script>
+
+                      
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="directorAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseDetails"
+                            aria-expanded="true"
+                            aria-controls="collapseDetails">
+                        Details
+                    </button>
+                </h2>
+                <div id="collapseDetails"
+                     class="accordion-collapse collapse show"
+                     aria-labelledby="detailsHeading"
+                     data-bs-parent="#directorAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="shareholder" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1 indi">
+                                        <label class="form-label">Spouse Name</label>
+                                        <input type="text" class="form-control" name="spouseName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 minor">
+                                        <label class="form-label">Gaurdian Name</label>
+                                        <input type="text" class="form-control" name="gaurdian">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Pincode</label>
+                                        <input type="text" class="form-control" name="pinCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" name="city">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">State</label>
+                                        <input type="text" class="form-control" name="state">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" name="country">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address Line 1</label>
+                                        <textarea class="form-control" name="addressLine1"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Father's Name</label>
+                                        <input type="text" class="form-control" name="fatherName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Mother's Name</label>
+                                        <input type="text" class="form-control" name="motherName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Occupation</label>
+                                        <input type="text" class="form-control" name="occupation">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Nationality</label>
+                                        <input type="text" class="form-control" name="nationality">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Voter Id</label>
+                                        <input type="text" class="form-control" name="voterId">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Aadhar No</label>
+                                        <input type="text" class="form-control" name="aadharNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                   
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label for="formFile" class="form-label">Upload Aadhar</label>
+                                        <div class="input-group">
+                                            <input class="form-control" type="file" name="aadharUrl" id="aadharUrlFile">
+                                            <button type="button" class="form-control btn btn-outline-secondary" id="viewAadharBtn" style="display:none;" target="_blank">
+                                                View
+                                            </button>
+                                            <button type="button" class="btn btn-danger" id="deleteAadharBtn" style="display:none;" target="_blank">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="save()">Save</button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var obj= {
+            id: 0,
+            refUser: 0,
+
+            category: "",
+            subCategory: "",
+            underSubCategory: "",
+            type: "",
+            hasValidDin: false,
+            director: 0,
+            salutation: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            gender: "",
+            maritalStatus: "",
+            email: "",
+            mobile: "",
+            pan: "",
+            passport: "",
+            dob: "",
+            cinReg: "",
+            uniqueId: "",
+            incorporationDate: "",
+            companyName: "",
+            IsMobileVerified: false,
+            IsEmailVerified: false,
+
+            // createdBy: 0,
+            // createdOn: "",
+            // updatedBy: 0,
+            // updatedOn: "",
+            // isActive: true,
+            // deletedOn: ""
+        }
+
+        var vo= {
+            id: 'required',
+
+            category: "required",
+            subCategory: "required",
+            underSubCategory: "required",
+            type: "required",
+            director: "required",
+            // gender: "required",
+            // maritalStatus: "required",
+            pan: "required",
+            mobile: {
+                required: true,
+                mobile: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            dob: {
+                // required: true,
+                date: true
+            }
+        }
+        var vf= null;
+
+        var objDetails = {
+            id: 0,
+            shareholder: 0,
+            addressLine1: "",
+            country: "",
+            state: "",
+            city: "",
+            pinCode: "",
+            fatherName: "",
+            motherName: "",
+            occupation: "",
+            nationality: "",
+            voterId: "",
+            aadharNo: "",
+            spouseName: "",
+            gaurdian: "",
+            panUrl: "",
+            aadharUrl: ""
+        }
+
+        var voDetails = {
+            id: 'required',
+            shareholder: "required",
+            dob: {
+                date: true
+            },
+            // passportExpiryDate: {
+            //     date: true
+            // },
+        }
+        var vfDetails = null;
+        // const institutions= [
+        //     "Individual", "Minor", "HUF", "Firm", "Body Corporate", "Government Company",
+        //     "Central Govt", "State Govt", "Banks/FI", "Mutual Funds", "Venture Capital Funds",
+        //     "Insurance Companies", "FIIs", "Trust", "Society"
+        // ]
+        // const nonInstitutions= [
+        //     "Individual", "Minor", "Firm", "Body Corporate", "Trust", "Society"
+        // ]
+
+        var isLoading = false;
+        var deletePan = false;
+        var deleteAadhar = false;
+
+         $('[name="pinCode"]').change(function(){
+                $.get(`@R.ApiUrl/Company/PinCode/`+ $('[name="pinCode"]').val()).then(r =>{
+                    console.log (r)
+                    $('[name="city"]').val(r[0].PostOffice[0].Region)
+                    $('[name="state"]').val(r[0].PostOffice[0].State)
+                    $('[name="country"]').val(r[0].PostOffice[0].Country)
+                } )
+            });
+
+        $(document).ready(function () {
+            vf= $('#frm').validate({ rules: vo, onsubmit: () => { console.log('submit') } })
+            // vfDetails = $('#frmDetails').validate({ rules: voDetails, ignore: [], onsubmit: () => { console.log('submit') } })
+            $('#directorS2').select2({
+                // minimumInputLength: 3,
+                ajax: {
+                    url: '@R.ApiUrl/Director/S2',
+                    dataType: 'json',
+                    processResults: function (data, params) {
+                        data = data.map(q => { q.text = `${q.firstName} ${q.middleName} ${q.lastName}`; return q; })
+                        return {
+                            results: data
+                        };
+                    },
+                },
+                theme: 'bootstrap-5',
+                // dropdownParent: $('#myModal').find('.modal-body'),
+                placeholder: 'Select Director',
+                templateResult: (data) => {
+                    if (!data.firstName) return data.text;
+                    else return $(`<p class="m-0">${data.firstName} ${data.middleName} ${data.lastName}</p>`)
+                }
+            });
+            $('#directorS2').on('change', function () {
+                if (isLoading) return; // Skip during load
+                var selected = $(this).select2('data')[0];
+                $._get(`@R.ApiUrl/Director/${selected.id}`).then(x => {
+
+                    $('[name="firstName"]').val(x["firstName"])
+                    $('[name="middleName"]').val(x["middleName"])
+                    $('[name="lastName"]').val(x["lastName"])
+                    $('[name="email"]').val(x["email"])
+                    $('[name="mobile"]').val(x["mobile"]);
+                    if ($('#hasValidDin').is(':checked')) {
+                        $('.btn-verify').hide();
+                    } else {
+                        $('.btn-verify').show();
+                    }
+                    $('[name="email"]').removeAttr('readonly');
+                    $('[name="mobile"]').removeAttr('readonly');
+                    $('[name="pan"]').val(x["pan"])
+                    $('[name="aadharNo"]').val(x["aadhar"])
+                    $('[name="salutation"]').val(x["details"]["salutation"])
+                    $('[name="addressLine1"]').val(x["details"]["address"])
+                    $('[name="country"]').val(x["details"]["country"])
+                    $('[name="state"]').val(x["details"]["state"])
+                    $('[name="city"]').val(x["details"]["city"])
+                    $('[name="pinCode"]').val(x["details"]["city"].toString())
+                    $('[name="fatherName"]').val(x["details"]["fatherName"])
+                    $('[name="dob"]').val(moment(x["details"]["dateOfBirth"]).format('YYYY-MM-DD'))
+                    $('[name="occupation"]').val(x["details"]["occupation"])
+                    $('[name="gender"]').val(x["details"]["gender"])
+                    $('[name="nationality"]').val(x["details"]["nationality"])
+                    $('[name="maritalStatus"]').val(x["details"]["maritalStatus"])
+                    $('[name="passport"]').val(x["details"]["passport"])
+                    
+                })
+
+            });
+
+            $('[name="category"]').change(function () {
+                var f = $(this).val() !== "Foreign";
+                // $('input[name="passport"]').prop('disabled', f);
+                $('input[name="pan"]').prop('disabled', !f);
+            });           
+
+            // $('[name="subCategory"]').change(function () {
+            //     var subCategoryValue = $(this).val();
+            //     $('[name="underSubCategory"]').empty();
+            //     $('[name="underSubCategory"]').append('<option value="" disabled selected>Select a under subcategory</option>');
+
+            //     if (subCategoryValue) {
+            //         var options = (subCategoryValue === 'Institutions') ? institutions : nonInstitutions
+            //         options.forEach(function (option) {
+            //             $('[name="underSubCategory"]').append(`<option>${option}</option>`);
+            //         });
+            //     }
+            // });
+
+            $('[name="underSubCategory"]').change(function () {
+                var val = $(this).val();
+                if (val === "Individual") {
+                    $('.other').find('select, input, textarea').prop('disabled', true);
+                    $('.minor').find('select, input, textarea').prop('disabled', true);
+                    $('.other').hide();
+                    $('.minor').hide();
+                    $('.indi').find('select, input, textarea').prop('disabled', false);
+                    $('.indi').show();
+                }
+                else if (val === "Minor") {
+                    $('.indi').find('select, input, textarea').prop('disabled', true);
+                    $('.other').find('select, input, textarea').prop('disabled', true);
+                    $('.indi').hide();
+                    $('.other').hide();
+                    $('.minor').find('select, input, textarea').prop('disabled', false);
+                    $('.minor').show();
+                }
+                else {
+                    $('.indi').find('select, input, textarea').prop('disabled', true);
+                    $('.minor').find('select, input, textarea').prop('disabled', true);
+                    $('.indi').hide();
+                    $('.minor').hide();
+                    $('.other').find('select, input, textarea').prop('disabled', false);
+                    $('.other').show();
+                }
+            });
+
+
+            load()
+        })
+
+        function validateDynamicForm()
+        {
+			var isValid = true;
+            var target = $('.accordion-button').data('bs-target');
+            $(target).collapse('show');
+
+            if ($('#hasValidDin').is(':checked')) {
+                $('#directorS2').closest('.col-md-8').hide();
+            } else {
+                $('#directorS2').closest('.col-md-8').show();
+            }
+
+            // var vPincode= $('[name="pincode"]');
+            // if (!/^\d{6}$/.test(vPincode.val())) {
+            //     vPincode.addClass("is-invalid").removeClass("is-valid");
+            //     isValid = false;
+            // } else if (/^0+$/.test(vPincode)) {
+            //     vPincode.addClass("is-invalid").removeClass("is-valid");
+            //     isValid = false;
+            // }
+            // else
+            //     vPincode.removeClass("is-valid");
+
+            return isValid;
+        }
+
+        async function save() {
+            if (!validateDynamicForm()) return;
+            let isValid = true;
+            if (!vf.form()) isValid = false;
+            if (!isValid) return;
+            var temp = getObj(obj, '#frm');
+            var tempDetails = getObj(objDetails, '#frmDetails');
+            temp["details"] = tempDetails;
+            console.log(temp);
+
+            temp.companyId = localStorage.getItem("comp_id");
+            if(temp.companyId <= 0 )
+            {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Please select a company'
+                })
+                return;
+
+            }
+
+            var x = await $._post(`@R.ApiUrl/@ViewBag.ctrl/Save`, temp);
+            if (x.status) {
+                var resp = await saveImgPath(x.responseObject.id);
+                if (resp.status) {
+                    window.location = `@Url.Action("Shareholder", "Home")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: "File not uploaded"
+                    })
+                }
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: x.message
+                })
+            }
+        }
+
+        async function saveImgPath(id) {
+            var formData = new FormData();
+
+            $('input[type="file"]').each(function () {
+                var fileInput = this;
+
+                if (fileInput.files.length > 0) {
+                    formData.append($(this).attr('name'), fileInput.files[0]);
+                }
+            });
+
+            // let hasFiles = false;
+            // for (let entry of formData.entries()) {
+            //     hasFiles = true;
+            //     break;
+            // }
+
+            // if (!hasFiles) {
+            //     return { status: true };
+            // }
+
+            return await $.ajax({
+                url: '@R.ApiUrl/@ViewBag.ctrl/' + id + '/image/' + deletePan + '/' + deleteAadhar,
+                data: formData,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+            });
+        }
+        function hidePanButton() {
+            $('#viewPanBtn').hide();
+            $('#deletePanBtn').hide();
+        }
+        function hideAadharButton() {
+            $('#viewAadharBtn').hide();
+            $('#deleteAadharBtn').hide();
+        }
+        function load() {
+            if (@ViewBag.id > 0) {
+                isLoading = true;
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/ById?id=${@ViewBag.id}`).then(x => {
+                    obj= x
+                    objDetails = x.details
+                    var directorOption = new Option(`${x.firstName} ${x.middleName} ${x.lastName}`, x.director, true, true);
+                    $('[name="director"]').append(directorOption).val(x.director).trigger('change.select2');
+                    setObj(x, "#frm")
+                    setObj(x.details, '#frmDetails');
+
+                    if(!x.hasValidDin)
+                    {
+                        $('#hdnEmailVerified').val(x.isEmailVerified);
+                        $('#hdnMobileVerified').val(x.isMobileVerified);
+                        if(x.isMobileVerified)
+                        {
+                            $('input[name="mobile"]').siblings('.btn-verify').hide();
+                            $('input[name="mobile"]').attr('readonly', 'readonly');
+                        }else{
+                            $('input[name="mobile"]').removeAttr('readonly');
+                        }
+                        if(x.isEmailVerified)
+                        {
+                            $('input[name="email"]').siblings('.btn-verify').hide();
+                            $('input[name="email"]').attr('readonly', 'readonly');
+                        }else{
+                            $('input[name="email"]').removeAttr('readonly');
+                        }
+                    }
+
+                    // Show/hide the PAN view button
+                    if (x.details && x.details.panUrl) {
+                        $("#panUrlFile").hide();
+                        $('#viewPanBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(x.details.panUrl, '_blank');
+                            });
+                        $('#deletePanBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Pan Card')) return;
+                                deletePan = true;
+                                hidePanButton();
+                                $("#panUrlFile").show();
+                            });
+                    } else {
+                        hidePanButton();
+                    }
+                    if (x.details && x.details.aadharUrl) {
+                        $("#aadharUrlFile").hide();
+                        $('#viewAadharBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(x.details.aadharUrl, '_blank');
+                            });
+                        $('#deleteAadharBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Aadhar Card')) return;
+                                deleteAadhar = true;
+                                hideAadharButton();
+                                $("#aadharUrlFile").show();
+                            });
+                    } else {
+                        hideAadharButton();
+                    }
+                    isLoading = false;
+                })
+            }
+        }
+
+        function verifyEmail($input) {
+            swal.fire({
+                title: 'Processing...'
+            });
+            swal.showLoading();
+            $.ajax({
+                url: `@R.ApiUrl/Email/SendEmailOTP`,
+                method: "GET",
+                data: {
+                    email: $input.val(),
+                    dirName: $('[name="firstName"]').val() + ' ' + $('[name="lastName"]').val()
+                },
+                success: function (res) {
+                    swal.close();
+                if (res && res.status) {
+                    // Step 3: Show OTP input
+                    swal.fire({
+                        title: 'Verify Email Address',
+                        text: 'We have sent a code to your Email Address for verification, please verify the code to proceed',
+                        input: 'text',
+                        inputAttributes: {
+                            maxlength: 6,
+                            placeholder: 'OTP'
+                        },
+                        preConfirm: v => {
+                            if (!v.match(/^\d{6}$/)) {
+                                swal.showValidationMessage('Please enter a valid OTP');
+                                return false;
+                            }
+                            // Replace with actual OTP check from server if available
+
+                            $.ajax({
+                                url: `@R.ApiUrl/Email/VerifyEmailOTP`,
+                                method: "GET",
+                                data: {
+                                    otp:v
+                                },
+                                success: function (res) {
+                                    if (res && res.status) {
+                                        swal.fire({
+                                            icon: 'success',
+                                            title: 'Success',
+                                            text: res.message
+                                        });
+                                        $input.attr('readonly', 'readonly');
+                                        $input.siblings('.btn-verify').hide();
+                                        verifyMobileEmail('email');
+                                    } else {
+                                        swal.showValidationMessage(res.message);
+                                        return false;
+                                    }
+                                },
+                                error: function () {
+                                    swal.showValidationMessage('Unable to send OTP at the moment. Please try again later.');
+                                    return false;
+                                }
+                            });
+
+                            return false;
+                        }
+                    }).then(r => {
+                        if (r.value) {
+                            $input.attr('readonly', 'readonly');
+                            $input.siblings('.btn-verify').hide();
+                        }
+                    });
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: res.message || 'Failed to send OTP. Please try again.'
+                    });
+                }
+            },
+            error: function () {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Server Error',
+                    text: 'Unable to send OTP at the moment. Please try again later.'
+                });
+            }
+        });
+        }
+
+        function verifyMobile($input) {
+            swal.fire({
+                title: 'Verify Mobile Number',
+                text: 'We have sent a code to your Mobile Number for verification, please verify the code to proceed',
+                input: 'text',
+                inputAttributes: {
+                    maxlength: 4,
+                    placeholder: 'OTP'
+                },
+                preConfirm: v => {
+                    if (!v.match(/^\d{4}$/)) {
+                        swal.showValidationMessage('Please enter a valid OTP');
+                        return false;
+                    }
+                    let last4 = $input.val().substr(-4); // last 4 digits of mobile
+                    if (v != last4) {
+                        swal.showValidationMessage('Incorrect OTP');
+                        return false;
+                    }
+
+                    swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Your OTP has been verified successfully.'
+                    });
+                    verifyMobileEmail('mobile');
+                    $input.attr('readonly', 'readonly');
+                    $input.siblings('.btn-verify').hide();
+                    return true;
+                }
+            }).then(r => {
+                if (r.value) {
+                    $input.attr('readonly', 'readonly');
+                    $input.siblings('.btn-verify').hide();
+                }
+            });
+        }
+
+        // Common click handler
+        $('.btn-verify').click(function () {
+            let $inp = $(this).siblings('input');
+            $inp.trigger('blur');
+
+            setTimeout(() => {
+                if ($inp.hasClass('is-invalid')) return;
+
+                let type = $inp.attr('name');
+                if (type === 'email') {
+                    verifyEmail($inp);
+                } else if (type === 'mobile') {
+                    verifyMobile($inp);
+                }
+            }, 200);
+        });
+
+        function verifyMobileEmail(type) {
+            let url = `${'@R.ApiUrl'}/@ViewBag.ctrl/MobileEmailVerify/@ViewBag.id/${type}`;
+            $.get(url).then(r => {
+            });
+        }
+
+
+        $(document).ready(function () {
+            const $inp = $('input[name="mobile"]');
+            const editableLen = 7;
+
+            // get last 3 digits dynamically from existing value
+            let originalVal = $inp.val().replace(/[^0-9]/g, ''); // keep only digits
+            let fixedDigits = originalVal.slice(-3); // last 3 digits
+
+            // initialize
+            //$inp.val(maskChar.repeat(editableLen) + fixedDigits);
+            $inp.on('click', function () {
+                fixedDigits = $inp.val().slice(-3);
+                $inp.val('');
+            });
+
+            // handle input
+            $inp.on('input', function () {
+                let val = $(this).val();
+                //fixedDigits = val.slice(-3);
+                // take only first 7 chars, allow digits or *
+                let editablePart = val.slice(0, editableLen).replace(/[^0-9*]/g, '');
+
+                // set back combined value
+                if (editablePart.length === 7) {
+                    $(this).val(editablePart + fixedDigits);
+                }
+            });
+
+            // prevent cursor inside fixed part
+            $inp.on('click keyup', function () {
+                if (this.selectionStart > editableLen) {
+                    this.setSelectionRange(editableLen, editableLen);
+                }
+            });
+        });
+
+
+        $(document).ready(function () {
+            const $inp = $('input[name="email"]');
+            const editableLen = 5;
+
+            // get last 3 digits dynamically from existing value
+            let originalVal = $inp.val().replace(/[^0-9]/g, ''); // keep only digits
+            let fixedDigits = originalVal.slice(-3); // last 3 digits
+
+            // initialize
+            //$inp.val(maskChar.repeat(editableLen) + fixedDigits);
+            $inp.on('click', function () {
+                fixedDigits = $inp.val().slice(editableLen, $inp.val().length);
+                $inp.val('');
+            });
+
+            // handle input
+            $inp.on('input', function () {
+                let val = $(this).val();
+                let editablePart = val.slice(0, editableLen).replace(/[^A-Za-z0-9]/g, '');
+
+                // set back combined value
+                if (editablePart.length === 5) {
+                    $(this).val(editablePart + fixedDigits);
+                }
+            });
+
+            // prevent cursor inside fixed part
+            $inp.on('click keyup', function () {
+                if (this.selectionStart > editableLen) {
+                    this.setSelectionRange(editableLen, editableLen);
+                }
+            });
+        });
+
+    </script>
+}

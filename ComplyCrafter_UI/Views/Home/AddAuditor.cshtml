@@ -1,0 +1,446 @@
+﻿<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+
+    .partner-form {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        background-color: #f8f9fa;
+    }
+
+        .partner-form:not(:first-child) {
+            margin-top: 20px;
+        }
+</style>
+
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">@ViewBag.ctrl Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frm">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+                        <!-- Category of Auditor -->
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Category of Auditor</label>
+                            <select class="form-control" name="category">
+                                <option value="" selected>Select a category</option>
+                                <option>Individual</option>
+                                <option>Auditors Firm (Proprietorship)</option>
+                                <option>Auditors Firm (Partnership / LLP)</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <!-- Type of Auditor -->
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Type of Auditor</label>
+                            <select class="form-control" name="auditorType">
+                                <option value="" selected>Select Auditor Type</option>
+                                <option>Auditor</option>
+                                <option>Secretarial Auditor</option>
+                                <option>Cost Auditor</option>
+                                <option>Internal Auditor</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Firm Registration Number</label>
+                            <input type="text" class="form-control" name="frn">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 d-flex justify-content-center align-items-center" style="height: 100px;">
+                            <button class="btn btn-lg btn-primary adf" onclick="prefillFrn()">Prefill</button>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Firm Name</label>
+                            <input type="text" class="form-control" name="firmName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">PAN</label>
+                            <input type="text" class="form-control" name="pan">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="firmEmail">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Pincode</label>
+                            <input type="text" class="form-control" name="pincode">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">City</label>
+                            <input type="text" class="form-control" name="city">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">State</label>
+                            <input type="text" class="form-control" name="state">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Country</label>
+                            <input type="text" class="form-control" name="country">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-12 my-1">
+                            <label class="form-label">Address Line 1</label>
+                            <textarea class="form-control" name="address"></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="directorAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails"
+                            id="btnDetail">
+                        PARTNER'S DETAILS
+                    </button>
+                </h2>
+                <div id="collapseDetails" class="accordion-collapse collapse"
+                     aria-labelledby="detailsHeading" data-bs-parent="#directorAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                         
+                            <div id="partnerFormsContainer">
+                                
+                                <div class="partner-form">
+                                    <form class="frmDetails">
+                                        <input type="hidden" class="num" value="0" name="id" />
+                                        <input type="hidden" class="num" value="0" name="auditor" />
+                                        <div class="row">
+                                            <div class="col-md-6 my-1">
+                                                <label class="form-label">Membership Number</label>
+                                                <input type="text" class="form-control" name="memberNo">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-1 d-flex justify-content-center align-items-center" style="height: 100px;">
+                                                <button type="button" class="btn btn-lg btn-primary" onclick="prefillPartner(this)">Prefill</button>
+                                            </div>
+                                            <div class="col-md-6 my-1 indi">
+                                                <label class="form-label">Name of Auditor</label>
+                                                <input type="text" class="form-control" name="name">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-1 minor">
+                                                <label class="form-label">Mobile Number</label>
+                                                <input type="text" class="form-control" name="mobile">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-1">
+                                                <label class="form-label">Email</label>
+                                                <input type="email" class="form-control" name="email">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-1">
+                                                <label class="form-label">Designation</label>
+                                                <input type="text" class="form-control" name="designation">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row mt-3">
+                                <div class="col-md-12 d-flex justify-content-end">
+                                    <button type="button" class="btn btn-primary" onclick="addPartner()">
+                                        <i class="fas fa-plus"></i> Add Partner
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="save()">Save</button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var obj = {
+            id: 0,
+            refUser: 0,
+            companyId:localStorage.getItem("comp_id"),
+            category: "",
+            frn: "",
+            firmName: "",
+            pan: "",
+            firmEmail: "",
+            address: "",
+            country: "",
+            state: "",
+            city: "",
+            pincode: ""
+        };
+
+        var vo = {
+            id: 'required',
+
+            category: "required",
+            frn: "required",
+            firmName: "required",
+            pan: "required",
+            firmEmail: {
+                required: true,
+                email: true
+            },
+            address: "required",
+            country: "required",
+            state: "required",
+            city: "required",
+            pincode: "required"
+        };
+        var vf = null;
+
+        var objDetails = {
+            id: 0,
+            auditor: 0,
+
+            memberNo: "",
+            name: "",
+            mobile: "",
+            email: "",
+            designation: ""
+        };
+
+        var voDetails = {
+            id: 'required',
+            shareholder: "required",
+            memberNo: "required",
+            name: "required",
+            email: {
+                required: true,
+                email: true
+            },
+            mobile: "required",
+            designation: "required"
+        };
+        var vfDetails = null;
+
+        $(document).ready(function () {
+            vf = $('#frm').validate({ rules: vo, onsubmit: () => { console.log('submit') } });
+            vfDetails = $('.frmDetails').validate({ rules: voDetails, ignore: [], onsubmit: () => { console.log('submit') } });
+
+            $('[name="category"]').change(function () {
+                var selectedCategory = $(this).val();
+                toggleDetailsForm(selectedCategory);
+            });
+
+            $('[name="pincode"]').change(function () {
+                $.get(`@R.ApiUrl/Company/PinCode/` + $('[name="pincode"]').val()).then(r => {
+                    console.log(r);
+                    $('[name="city"]').val(r[0].PostOffice[0].Region);
+                    $('[name="state"]').val(r[0].PostOffice[0].State);
+                     $('[name="country"]').val(r[0].PostOffice[0].Country)
+
+                });
+            });
+
+            load();
+        });
+
+        function toggleDetailsForm(category) {
+            if ( category === "Auditors Firm (Partnership / LLP)") {
+                // Show partner details form for "Auditors Firm"
+                $('.adf').show();  // Show partner details fields
+                $("#btnDetail").text("PARTNER'S DETAILS");
+            } else {
+                // Hide partner details form for other categories
+                $('.adf').hide();
+                $("#btnDetail").text("PROPRIETOR'S DETAILS");
+            }
+        }
+
+        async function save() {
+            let isValid = true;
+            if (!vf.form()) isValid = false;
+            if (!vfDetails.form()) isValid = false;
+            if (!isValid) return;
+
+            var temp = getObj(obj, '#frm');
+            //var tempDetails = getObj(objDetails, '#frmDetails');
+            temp["partners"] = [];
+            $('.frmDetails').each(function(index, element) {
+                var tempDetails = getObj(objDetails, element);
+                temp["partners"].push(tempDetails);
+            });
+
+            temp.companyId = localStorage.getItem("comp_id");
+            if(temp.companyId <= 0 )
+            {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Please select a company'
+                })
+                return;
+
+            }
+
+            var x = await $._post(`@R.ApiUrl/@ViewBag.ctrl/Save`, temp);
+            if (x.status) {
+                window.location = `@Url.Action("Auditor", "Home")`;
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: x.message
+                });
+            }
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/ById?id=${@ViewBag.id}`).then(x => {
+                    obj = x;
+                    objDetails = x.partners[0];
+                    setObj(x, "#frm");
+                    x.partners.forEach((partner, index) => {
+                        if(index != 0)
+                            addPartner();
+                        setObj(partner, $('.frmDetails')[index]);
+                    });
+                    toggleDetailsForm(x.category); // Call the function to show the correct form
+                });
+            }
+        }
+
+        function addPartner() {
+            const container = document.getElementById('partnerFormsContainer');
+            const firstForm = container.querySelector('.partner-form');
+
+            // Clone the form
+            const newForm = firstForm.cloneNode(true);
+
+            // Clear input values except hidden ones
+            const inputs = newForm.querySelectorAll('input');
+            inputs.forEach(input => {
+                if (input.type !== 'hidden') {
+                    input.value = '';
+                }
+            });
+
+            
+            if (!newForm.querySelector('.btn-close')) {
+                const closeBtn = document.createElement('button');
+                closeBtn.type = 'button';
+                closeBtn.className = 'btn-close';
+                closeBtn.setAttribute('aria-label', 'Close');
+                closeBtn.style.position = 'absolute';
+                closeBtn.style.top = '10px';
+                closeBtn.style.right = '10px';
+
+                closeBtn.onclick = function () {
+                    newForm.remove();
+                };
+
+                newForm.style.position = 'relative'; // Make sure the container is positioned
+                newForm.appendChild(closeBtn);
+            }
+
+            container.appendChild(newForm);
+
+            newForm.scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+        // Modified prefill function to work with specific form
+        function prefillPartner(button) {
+            const form = button.closest('.frmDetails');
+            // Your existing prefill logic, but operate on the specific form
+            // Example:
+            // form.querySelector('[name="name"]').value = "Prefilled Name";
+            // form.querySelector('[name="mobile"]').value = "1234567890";
+            // etc.
+        }
+
+        // // Function to collect all partner data
+        // function getAllPartnerData() {
+        //     const forms = document.querySelectorAll('.frmDetails');
+        //     const partners = [];
+
+        //     forms.forEach(form => {
+        //         const formData = new FormData(form);
+        //         const partner = {};
+
+        //         for (const [key, value] of formData.entries()) {
+        //             partner[key] = value;
+        //         }
+
+        //         partners.push(partner);
+        //     });
+
+        //     return partners;
+        // }
+
+        function delPartner() { }
+        function prefillFrn() { }
+        function prefillPartner() { }
+    </script>
+
+}

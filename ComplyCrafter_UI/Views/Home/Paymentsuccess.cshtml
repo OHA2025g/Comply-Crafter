@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Payment Success";
+}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="container py-5 text-center">
+    <div class="mb-4">
+        <i class="bi bi-check-circle-fill text-success fs-1"></i>
+    </div>
+    <h2 class="fw-bold text-success">Payment Successful</h2>
+    <p class="text-muted mb-4">Thank you! Your subscription has been activated successfully.</p>
+
+    <div class="card shadow-sm mx-auto" style="max-width: 500px;">
+        <div class="card-body">
+            <h5 class="mb-2">Transaction Details</h5>
+            <p class="mb-1"><strong>Transaction ID:</strong> @ViewBag.TransactionId</p>
+            <p class="mb-1"><strong>Plan:</strong> <span id="spnPlan"></span></p>
+            <p class="mb-1"><strong>Amount Paid:</strong> <span id="spnAmount"></span>/-</p>
+            <p class="mb-1"><strong>Status:</strong> <span class="text-success">Success</span></p>
+        </div>
+    </div>
+
+    <a href="@Url.Action("index", "Home")" class="btn btn-primary mt-4">Go to Dashboard</a>
+</div>
+<script>
+    $(document).ready(function(){
+        var vHeaderValue ='';
+        if('@ViewBag.TransactionId' != '')
+        {
+
+            $.ajax({
+                url: '@R.ApiUrl/Payment/Transaction',
+                data: { 'TransactionId':'@ViewBag.TransactionId'},
+                contentType: 'application/json',
+                type: 'GET',
+                success: data => {
+                    if (data.status) {
+                        $('#spnAmount').text(data.responseObject.transactionAmount);
+                        $('#spnPlan').text(data.responseObject.subscriptionPlanName);
+
+                        $.get('@($"{R.ApiUrl}/Email/PaymentConfirmationEmail?transactionId={ViewBag.TransactionId}")', function (response) {
+                            console.log('Success:', response);
+                        });
+                        let purSub = {
+                            PaymentId: data.responseObject.id,
+                            SubscriptionId: data.responseObject.SubscriptionId
+                        };
+
+                        $.ajax({
+                            url: '@R.ApiUrl/Subscription/Purchase',
+                            data: JSON.stringify(purSub),
+                            contentType: 'application/json',
+                            type: 'POST',
+                            headers: {
+                                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                            },
+                            success: data => {
+                                //debugger
+                                if (data.status) {
+                                    toastr.error('Your previous session is active in another browser.');
+                                }
+                                SaveSession();
+                            }
+                        });
+
+                    }else
+                    {
+                        toastr.error(data.message);
+                    }
+                }
+            });
+
+            
+        }
+        else
+            window.location.href = "/Home/Login";
+    });
+</script>

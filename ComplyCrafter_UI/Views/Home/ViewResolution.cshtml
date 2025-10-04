@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = null;
+}
+<div class="row">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px" name="title">Resolution</h3>
+            <div></div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h5 class="fw-bold mb-2">Agenda Preface</h5>
+                    <div class="txt-display" name="agenda"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h5 class="fw-bold mb-2">Minutes Preface</h5>
+                    <div class="txt-display" name="minutes"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-12">
+                    <h5 class="fw-bold mb-2">Resolution</h5>
+                    <div class="txt-display" name="resolution"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        
+        .txt-display{
+            text-align: justify;
+        }
+
+    </style>
+}
+
+@section Scripts {
+    <script>
+        var data;
+
+        $(document).ready(function () {
+            $.get(`@R.ApiUrl/Resolution/@ViewBag.id`).then(r => {
+                data = r;
+                $('[name="title"]').text(data.title);
+                $('[name="agenda"]').html(data.agendaText);
+                $('[name="minutes"]').html(data.meetingText);
+                $('[name="resolution"]').html(data.resolutionText);
+            })
+        });
+
+    </script>
+}

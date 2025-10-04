@@ -1,0 +1,251 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@R.AppName Admin">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="stacks">
+    <title>@R.AppName - Login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/assets/plugins/pace/pace.css" rel="stylesheet">
+    <link href="~/assets/css/main.min.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" href="~/img/favicon.png" />
+    <link rel="shortcut icon" href="~/img/favicon.png" />
+    <link rel="apple-touch-icon" href="~/img/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="~/assets/plugins/toastr/toastr.min.css" />
+    <script>
+        localStorage.setItem('authToken', '');
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e5ebfa, white) !important;
+        }
+
+        .auth-alts {
+            display: flex;
+            justify-content: center;
+            align-items: center; 
+        }
+
+        .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 1.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="app app-auth-sign-up align-content-stretch d-flex flex-wrap justify-content-end">
+        <div class="app-auth-background">
+        </div>
+        <div class="app-auth-container">
+            <div class="logo">
+                <a>@R.AppName</a>
+            </div>
+
+            <p class="auth-description">
+                Please enter your details to create an account.<br>
+                Already have an account? <a href="@Url.Action("Login", "Home")">Sign In</a>
+            </p>
+
+            <form>
+                <div class="auth-credentials row g-3">
+                    <div class="col-md-6">
+                        <label for="txtFirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="txtFirstName" placeholder="Enter first name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtLastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="txtLastName" placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtEmailId" class="form-label">Email ID</label>
+                        <input type="email" class="form-control" id="txtEmailId" placeholder="example@neptune.com" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtMobile" class="form-label">Phone Number</label>
+                        <input type="text" class="form-control" id="txtMobile" placeholder="Enter phone number" maxlength="10" inputmode="numeric" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtFirmName" class="form-label">Firm Name</label>
+                        <input type="text" class="form-control" id="txtFirmName" placeholder="Enter firm name" required>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="ddlProfession" class="form-label">Profession</label>
+                        <select class="form-select" id="ddlProfession" required>
+                            <option value="">Select profession</option>
+                            <option value="CA">CA</option>
+                            <option value="CS">CS</option>
+                            <option value="Lawyer">Lawyer</option>
+                            <option value="Other">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 d-none" id="otherProfessionWrapper">
+                        <label for="txtOtherProfession" class="form-label">Please specify</label>
+                        <input type="text" class="form-control" id="txtOtherProfession" placeholder="Enter your profession">
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtPassword" class="form-label">Create Password</label>
+                        <input type="password" class="form-control" id="txtPassword" placeholder="Create password" required>
+                        <div class="form-text text-danger d-none" id="passwordError">Password must be at least 8 characters.</div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <label for="txtConfirmPassword" class="form-label">Re-enter Password</label>
+                        <input type="password" class="form-control" id="txtConfirmPassword" placeholder="Confirm password" required>
+                        <div class="form-text text-danger d-none" id="confirmPasswordError">Passwords do not match.</div>
+                    </div>
+                </div>
+
+                <div class="auth-submit mt-4">
+                    @* <button type="submit" class="btn btn-primary w-100" id="btnSignUp">Sign Up</button> *@
+                    <a href="#" id="btnSignUp" class="btn btn-primary w-100">Sign Up</a>
+                </div>
+            </form>
+
+
+            <div class="divider"></div>
+            <div class="auth-alts">
+                <a href="@Url.Action("GoogleSignup", "Home")" class="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 w-75" style="height: 45px;">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width: 20px; height: 20px;">
+                    <span>Sign Up with Google</span>
+                </a>
+                @* <a class="auth-alts-google" asp-controller="Home" asp-action="GoogleSignup" class="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 w-75" style="height: 45px;">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width: 20px; height: 20px;">
+                    <span>Sign in with Google</span>
+                </a> *@
+            </div>
+        </div>
+
+    </div>
+    <script>
+        $(document).ready(function(){
+            $('#ddlProfession').on('change', function () {
+                const selectedValue = $(this).val();
+                const $otherField = $('#otherProfessionWrapper');
+
+                if (selectedValue === 'Other') {
+                    $otherField.removeClass('d-none');
+                } else {
+                    $otherField.addClass('d-none');
+                    $('#txtOtherProfession').val('');
+                }
+            });
+
+            if('@ViewBag.Message')
+            {
+                toastr.error('@ViewBag.Message');
+                setTimeout(function(){
+                    window.location = '@Url.Action("SignUp", "Home")';
+                },2000);
+            }
+            const $passwordInput = $('#txtPassword');
+            const $confirmPasswordInput = $('#txtConfirmPassword');
+            const $passwordError = $('#passwordError');
+            const $confirmPasswordError = $('#confirmPasswordError');
+
+            $('#btnSignUp').click(function () {
+
+                let valid = true;
+
+                // Reset errors
+                $passwordError.addClass('d-none');
+                $confirmPasswordError.addClass('d-none');
+                $passwordInput.removeClass('is-invalid');
+                $confirmPasswordInput.removeClass('is-invalid');
+
+                // Password length check
+                if ($passwordInput.val().length < 8) {
+                    $passwordError.removeClass('d-none');
+                    $passwordInput.addClass('is-invalid');
+                    valid = false;
+                }
+
+                // Password match check
+                if ($passwordInput.val() !== $confirmPasswordInput.val()) {
+                    $confirmPasswordError.removeClass('d-none');
+                    $confirmPasswordInput.addClass('is-invalid');
+                    valid = false;
+                }
+
+                if(valid)
+                {
+                    let appUser = {
+                        FirstName: $('#txtFirstName').val(),
+                        LastName: $('#txtLastName').val(),
+                        Name:$('#txtFirstName').val() +' ' + $('#txtLastName').val(),
+                        Email: $('#txtEmailId').val(),
+                        Mobile: $('#txtMobile').val(),
+                        FirmName: $('#txtFirmName').val(),
+                        Profession: $('#ddlProfession').val(),
+                        ProfessionOther: $('#txtOtherProfession').val(),
+                        Password: $('#txtPassword').val(),
+                    };
+                    $.ajax({
+                        url: '@R.ApiUrl/User/RegisterUser',
+                        data: JSON.stringify(appUser),
+                        contentType: 'application/json',
+                        type: 'POST',
+                        success: data => {
+                            //debugger
+                            if (data.status) {
+                                toastr.success(data.message);
+                                $('#btnSignUp').hide();
+                                SendVerificationEmail();
+                                setTimeout(function(){
+                                    window.location = '@Url.Action("VerifyOtp", "Home")' + '?emailId=' + $('#txtEmailId').val()+'&mobileNumber=' + $('#txtMobile').val();
+                                },3000);
+                            }
+                            else toastr.error(data.message);
+                        }
+                    });
+                }
+                else toastr.error('Invalid form details.');
+            });
+
+            function SendVerificationEmail()
+            {
+                $.ajax({
+                    url: '@R.ApiUrl/Email/SendEmail',
+                    data: {'Email':$('#txtEmailId').val(), 'EmailType':'emailverify'},
+                    contentType: 'application/json',
+                    type: 'GET',
+                    success: data => {
+                    }
+                });
+            }
+        });
+    </script>
+
+       
+    <!-- Javascripts -->
+    <script src="~/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/plugins/pace/pace.min.js"></script>
+    <script src="~/assets/js/main.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
+</body>
+</html>

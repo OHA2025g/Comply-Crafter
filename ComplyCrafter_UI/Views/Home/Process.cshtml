@@ -1,0 +1,108 @@
+﻿@{
+    ViewData["Title"] = @ViewBag.ctrl;
+}
+<div class="row">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Resolutions</h3>
+            <div></div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Category</label>
+                    <select class="form-control" name="category"></select>
+                </div>
+                <div class="col-md-4">
+                    <label>Sub Category</label>
+                    <select class="form-control" name="subcategory"></select>
+                </div>
+            </div>
+            <table id="tbl" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr.No </th>
+                        <th>Category </th>
+                        <th>Sub Category</th>
+                        <th>Agenda</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+   
+    <script>
+        $(document).ready(function () {
+            // Static sample data
+            const staticData = [
+                {
+                    id: 1,
+                    category: "Finance",
+                    subCategory: "Budget",
+                    title: "Annual Budget Approval"
+                },
+                {
+                    id: 2,
+                    category: "HR",
+                    subCategory: "Policy",
+                    title: "Remote Work Policy Update"
+                },
+                {
+                    id: 3,
+                    category: "Operations",
+                    subCategory: "Facilities",
+                    title: "Office Expansion Plan"
+                }
+            ];
+
+            // Populate category dropdown
+            const cats = [...new Set(staticData.map(q => q.category))].sort();
+            $('[name="category"]').html(`<option value="" selected>All</option>` + 
+                cats.map(c => `<option>${c}</option>`).join('')).change(function () {
+                    const cat = $(this).val();
+                    const scats = [...new Set(staticData.filter(q => q.category === cat)
+                        .map(q => q.subCategory))].sort();
+                    $('[name="subcategory"]').html(`<option value="" selected>All</option>` + 
+                        scats.map(c => `<option>${c}</option>`).join('')).change(reload);
+                    reload();
+                });
+
+            // Initialize table
+            const table = $('#tbl').DataTable({
+                data: staticData,
+                columns: [
+                    { render: (data, type, row, meta) => meta.row + 1 },
+                    { data: 'category' },
+                    { data: 'subCategory' },
+                    { data: 'title' },
+                    { 
+                        data: null, 
+                        render: (data, type, row) => 
+                            `<a href="@Url.Action("Process", "Home")/${row.id}" 
+                              class="btn btn-sm btn-outline-info">View</a>`
+                    }
+                ]
+            });
+
+            function reload() {
+                let filteredData = [...staticData];
+                const selectedCat = $('[name="category"]').val();
+                const selectedSubCat = $('[name="subcategory"]').val();
+
+                if (selectedCat) {
+                    filteredData = filteredData.filter(q => q.category === selectedCat);
+                }
+                if (selectedSubCat) {
+                    filteredData = filteredData.filter(q => q.subCategory === selectedSubCat);
+                }
+                
+                table.clear().rows.add(filteredData).draw();
+            }
+        });
+    </script>
+}

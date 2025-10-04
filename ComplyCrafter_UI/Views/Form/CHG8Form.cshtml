@@ -1,0 +1,558 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.CHG-8
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Application to Central Government for extension of time for filing particulars of registration of satisfaction of charge OR for rectification of omission or misstatement of any particular in respect of creation/ modification/ satisfaction of charge
+
+                    [Pursuant to section 77(1) read with 87 of The Companies Act, 2013 and rule 12(2) and 13 of The Companies (Registration of charges) Rules 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca/mca-forms-instruction-kit/Instruction%20Kit_CHG-8.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active" href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity's Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachment & DSC
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card">
+            <div class="col-xs-12 col-sm-11 col-md-11 form-row my-5 mx-3" style="height: auto;">
+                <p style="text-align: justify;">
+                    I, <input class="my-2" type="text" name="declarationName" id="declarationName" style="width: 25%;" required="" value=""> am authorized by the Board of Directors of the company vide resolution no. <input type="text" name="resolutionNo" class=" " id="resolutionno" style="width: 15%;" required="" value=""> dated <input type="date" name="declarationDate" id="declarationdate" style="width: 15%;" class="datepicker hasDatepicker" placeholder="" required="" value=""> to give this declration and to sign and submit this application . Further <br> <input type="checkbox" name="declarationcheckbox" id="declarationcheckbox" value="Y"> &nbsp; I do solemnly declare that I am the &nbsp;
+                    <select class="my-2 form-control " name="memberDesignation" id="memberDesignation" style="width: 15%;" required="">
+                        <option value="">Select Designation</option>
+                        <option value="Director">Director</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Company Secretary">Company Secretary</option>
+                        <option value="CFO">CFO</option>
+                        <option value="CEO">CEO</option>
+                        <option value="IRP">IRP</option>
+                        <option value="RP">RP</option>
+                        <option value="Liquidator">Liquidator</option>
+                        <option value="Authorised Representative">Authorised Representative</option>
+                    </select>
+                </p>
+            </div>
+            <div class="col-md-11 my-2 mx-2">
+                <label class="form-label">DIN of the director; PAN of the manager or CEO or CFO or IRP/RP/Liquidator or Authorised representative ; or membership number of company secretary</label>
+                <input type="text" placeholder="" class="form-control" value="" name="memberId" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-lg-6 my-1 mx-2">
+                <h6 class="typecharge" style=" border-bottom:1px solid black; display:inline-block;">
+                    Attachments
+                </h6>
+            </div>
+            <form id="frmCompany">
+                <input type="hidden" class="num" value="0" name="id" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" />
+
+                <div class="row mt-3" style="">
+
+
+                    <div class="row mt-2">
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                            Sr. No
+                        </div>
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-10 bold form-row">
+                            (a) Instrument creating / modifying / satisfying the charge;
+                        </div>
+                        <div class="row " id="">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1">
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row mt-2">
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                            Sr. No
+                        </div>
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-10 bold form-row">
+                            (b) Affidavit
+                        </div>
+                        <div class="row " id="">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1">
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-2">
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                            Sr. No
+                        </div>
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-10 bold form-row">
+                            (c) Confirmation from the charge holder
+                        </div>
+                        <div class="row " id="">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row my-2">
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                            Sr. No
+                        </div>
+                        <div class=" my-3 col-xs-12 col-sm-12 col-md-10 bold form-row">
+                            (d) Optional attachment(s) - if any
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                        </div>
+
+                    </div>
+
+                    <div id="equity" class="mb-3">
+                        <input type="hidden" name="l" id="l" value="1">
+
+                        <div class="row " id="">
+                        </div>
+                        <div class="row " id="">
+                            <div class=" my-2 col-xs-12 col-sm-12 col-md-1 form-row" align="center"> 1. </div>
+                            <div class="col-xs-12 col-sm-12 col-md-10 form-row">
+                                <input type="file" name="attachment_file[]" id="attachmentfile_2" class="2 my-2">
+                          
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+    </div>
+    </div>
+    </div>
+    @* tab-1 *@
+
+    <div id="part1" class="p-0">
+        <div class="col-md-12 p-0">
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                    <div class="col-lg-12 my-4">
+                        <label class="form-label d-block mb-2 fw-bold">3. This form is for condonation of</label>
+
+                        <div class="row">
+                            <!-- Left Option -->
+                            <div class="col-lg-6">
+                                <div class="form-check">
+                                    <input class="form-check-input mx-1" type="radio" id="condo-delay" name="condonationType" value="delayInRegistration" style="border-color:grey;">
+                                    <label class="form-check-label" for="condo-delay">
+                                        Delay in registration of satisfaction of Charge
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Right Option -->
+                            <div class="col-lg-6">
+                                <div class="form-check">
+                                    <input class="form-check-input mx-1" type="radio" id="condo-rectify" name="condonationType" value="rectificationOmission" style="border-color:grey;">
+                                    <label class="form-check-label" for="condo-rectify">
+                                        Rectification on account of Omission or mis-statement of any particular in respect
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Hidden Section for Charge Type (Right Aligned Below Rectification) -->
+                        <div class="row delayInRegistration mt-3" style="display:none;">
+                            <div class="col-lg-6 offset-lg-6 d-flex flex-wrap gap-4">
+                                <div class="form-check">
+                                    <input class="form-check-input mx-1" type="radio" id="charge-create" name="typeOfCharge" value="creationOfCharge" style="border-color:grey;">
+                                    <label class="form-check-label" for="charge-create">Creation of Charge</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input mx-1" type="radio" id="charge-modify" name="typeOfCharge" value="modificationOfCharge" style="border-color:grey;">
+                                    <label class="form-check-label" for="charge-modify">Modification of Charge</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input mx-1" type="radio" id="charge-satisfy" name="typeOfCharge" value="satisfactionOfCharge" style="border-color:grey;">
+                                    <label class="form-check-label" for="charge-satisfy">Satisfaction of Charge</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        <div class="col-lg-6 my-5">
+                            <label class="form-label" style="margin-right:1.2rem;">4. The application is made by:  </label>
+
+                            
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" name="applicationMadeBy" value="company">
+                            <label>
+                                Company
+                            </label>
+
+                            
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="applicationMadeBy" value="otherPerson">
+                            <label>
+                                Any other interested person
+                            </label>
+                        </div>
+
+                        <div class="col-lg-6 my-5">
+                            <label class="form-label" style="margin-right:1.2rem;">5. Form no. of the relevant form</label>
+
+                          
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" name="relevantForm" value="chg1" id="chg1">
+                            <label>
+                                CHG-1
+                            </label>
+
+                           
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="relevantForm" value="chg4" id="chg4">
+                            <label>
+                                CHG-4
+                            </label>
+
+                           
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="relevantForm" value="chg9" id="chg9">
+                            <label>
+                                CHG-9
+                            </label>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">SRN of the form selected above</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="srnOfFormSelected" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">6. Charge Identification Number(ID)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="chargeIdentificationNumber" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">7. (a) Date of creation/ modification/satisfaction of charge entered in the relevant form</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="dateOfCreationModificationSatisfaction" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">7. (b) Amount of charge created / modified / satisfied:</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="amountOfChargeCreatedModifiedSatisfied" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">7. (c) Name(s) of the charge holder(s)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="namesOfChargeHolders" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">7.(d) Particulars of the property or asset(s) charged (including complete address and location of the property)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="propertyOrAssetDetails" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">8. Reasons for delay/ omission/ mis-statement in filing and details of omission / mis-statement and the relief required</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="reasonsForDelayOmissionMisstatement" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <template id="rowTemp" class="mt-2">
+            <div class="row mt-3" id="">
+                <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center"> 2. </div>
+                <div class="col-xs-12 col-sm-12 col-md-10 form-row">
+                    <input type="file" name="attachment_file[]" id="attachmentfile_2" class="2 my-2">
+                </div> <div class="col-xl-1 col-lg-1 col-md-12 col-md-12 col-12 " align="center" style="padding-right:3rem;">
+                    <button type="button" name="remove" id="2" class="btn btn-danger btn_removeeq">X</button>
+                </div>
+            </div>
+        </template>
+
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+ <script>
+    $(document).ready(function () {
+      $(document).on("change", "input[name='condonationType']", function () {
+        const selectedVal = $("input[name='condonationType']:checked").val();
+
+        if (selectedVal === "rectificationOmission") {
+          $(".delayInRegistration").show();
+        } else {
+          $(".delayInRegistration").hide();
+          $("input[name='typeOfCharge']").prop("checked", false);
+        }
+      });
+    });
+</script>
+
+
+
+
+@section Scripts {
+
+    <script>
+               $(document).on("change", "[name='condonationType']", function () {
+            const type = $(this).val();
+
+            if (type === "delayInRegistration") {
+                $(".delayInRegistration").hide();
+                $("#chg4").prop("checked", true);
+                $("#chg1").prop("disabled", true).prop("checked", false);
+                $("#chg9").prop("disabled", true).prop("checked", false);
+                $("#chg4").prop("disabled", false);
+            } else if (type === "rectificationOmission") {
+                $(".delayInRegistration").slideDown();
+                // Reset CHG selections
+                $("#chg1, #chg4, #chg9").prop("checked", false).prop("disabled", true);
+            }
+        });
+
+        $(document).on("change", "[name='typeOfCharge']", function () {
+            const chargeType = $(this).val();
+
+            if (chargeType === "creationOfCharge" || chargeType === "modificationOfCharge") {
+                // Enable CHG-1 and CHG-9, disable CHG-4
+                $("#chg1, #chg9").prop("disabled", false);
+                $("#chg4").prop("disabled", true).prop("checked", false);
+            } else if (chargeType === "satisfactionOfCharge") {
+                // Enable CHG-4, disable CHG-1 and CHG-9
+                $("#chg4").prop("disabled", false);
+                $("#chg1, #chg9").prop("disabled", true).prop("checked", false);
+            }
+        });
+
+
+        let rowCount = 1;
+        $('#attachmentadd').click(function () {
+            rowCount++;
+            const templateContent = $('#rowTemp').html();
+            const newRow = $(templateContent.replace(/2/g, rowCount));
+            $('#equity').append(newRow);
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        $('#equity').on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove();
+            rowCount--;
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        function updateSerialNumbers() {
+            $('#equity .row').each(function (index) {
+                $(this).find('.form-row:first').text(index + 1 + '.');
+            });
+        }
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            condonationType:"",
+            typeOfCharge: "",
+            applicationMadeBy: "",
+            relevantForm: "",
+            srnOfFormSelected: "",
+            chargeIdentificationNumber: "",
+            dateOfCreationModificationSatisfaction: "",
+            amountOfChargeCreatedModifiedSatisfied: "",
+            namesOfChargeHolders: "",
+            propertyOrAssetDetails: "",
+            reasonsForDelayOmissionMisstatement: "",
+            // dec
+            declarationName: "",
+            resolutionNo: "",
+            declarationDate: "",
+            memberDesignation: "",
+            memberId: "",
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+          
+            $("#part2").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("CHG8", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("CHG8", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

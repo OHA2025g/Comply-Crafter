@@ -1,0 +1,1361 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+    string currentType = Context.Request.Query.ContainsKey("type") ? Context.Request.Query["type"].ToString() : null;
+    string currentForm = Context.Request.Query.ContainsKey("form") ? Context.Request.Query["form"].ToString() : null;
+    var id = ViewContext.RouteData.Values["id"]?.ToString();
+
+    // Check if we're in an Add or Edit action
+    var isAddOrEdit = (currentAction == "Add" || currentAction == "Edit");
+
+    var isDashboardActive = (currentController == "Home" && currentAction == "Index") ? "active" : "";
+
+    var mastersMainActions = new[] {
+        "Company", "Director", "Shareholder", "Debenture", "Auditor",
+        "Resolution", "ShareholderManagement", "Capital"
+    };
+
+    // Master menu active state
+    var isMastersActive = (currentController == "Home" &&
+                          (mastersMainActions.Contains(currentAction) ||
+                           mastersMainActions.Any(a => currentAction.StartsWith(a)) ||
+                           (isAddOrEdit && mastersMainActions.Contains(ViewContext.RouteData.Values["controller"]?.ToString())))) ? "active" : "";
+
+    // Individual master items active state
+    var isCompanyActive = (currentController == "Home" && currentAction == "Company") ||
+                         (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Company");
+    var isDirectorActive = (currentController == "Home" && currentAction == "Director") ||
+                          (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Director");
+    var isShareholderActive = (currentController == "Home" && currentAction == "Shareholder") ||
+                             (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Shareholder");
+    var isDebentureActive = (currentController == "Home" && currentAction == "Debenture") ||
+                           (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Debenture");
+    var isAuditorActive = (currentController == "Home" && currentAction == "Auditor") ||
+                          (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Auditor");
+    var isResolutionActive = (currentController == "Home" && currentAction == "Resolution") ||
+                            (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "Resolution");
+    var isShareholderManagementActive = (currentController == "Home" && currentAction == "ShareholderManagement") ||
+                                       (isAddOrEdit && ViewContext.RouteData.Values["controller"]?.ToString() == "ShareholderManagement");
+
+    
+    var capitalTypes = new[] { "Authorized", "Issued", "Subscribed", "Paid-up" };
+    var isCapitalActive = (currentController == "Home" && currentAction == "Capital" &&
+                          capitalTypes.Contains(currentType)) ? "active" : "";
+    var isAuthorizedActive = (currentController == "Home" && currentAction == "Capital" && currentType == "Authorized");
+    var isIssuedActive = (currentController == "Home" && currentAction == "Capital" && currentType == "Issued");
+    var isSubscribedActive = (currentController == "Home" && currentAction == "Capital" && currentType == "Subscribed");
+    var isPaidUpActive = (currentController == "Home" && currentAction == "Capital" && currentType == "Paid-up");
+
+   
+    var meetingTypes = new[] { "BM", "AGM", "EOGM", "CM" };
+    var isMeetingActive = (currentController == "Home" && currentAction == "Meeting" &&
+                          meetingTypes.Contains(currentType)) ? "active" : "";
+    var isBMActive = (currentController == "Home" && currentAction == "Meeting" && currentType == "BM");
+    var isAGMActive = (currentController == "Home" && currentAction == "Meeting" && currentType == "AGM");
+    var isEOGMActive = (currentController == "Home" && currentAction == "Meeting" && currentType == "EOGM");
+    var isCMActive = (currentController == "Home" && currentAction == "Meeting" && currentType == "CM");
+
+    // Forms
+    var isFormsActive = (currentController == "Form") ? "active" : "";
+
+    // Form categories
+    var formCategories = new[] {
+        "CHG1", "CHG4", "CHG6", "CHG8", "CHG9", // Charge related
+        "DPT3", "DPT4", // Deposit related
+        "DIR3", "DIR5", "DIR6", "DIR9", "DIR11", "DIR12", // DIN related
+        "NDH1", "NDH2", // Nidhi Services
+        "INC4", "INC22", "SH7", "MR1", // Change Services
+        "INC20A", "INC28", "PAS2", // Informational Services
+        "INC12", "INC24", "STK2", // Approval Services(ROC)
+        "INC23", // Approval Services(RD)
+        "MGT14", "MSC3", "PAS3", "PAS6", "GNL2", "GNL3", "SH8", "SH9", "SH11", "MSME", "MGT6", "BEN2", // Compliance Services
+        "AOC5", // Annual Filings
+        "RUNLLP", "RUN", // Incorporation
+        "IEPF5", "IEPF2", // IEPF Services
+        "Form3", "Form4", "Form5", "AccountnSolvency", "Charge", "Form11", "Form12", "Form15", "Form22", "Form23", "Form24", // LLP Form
+        "AOC4", "MGT7A", "ADT1", "AOC4CFS", "ADT3", "MSME1", "GNL1", // MCA Version 2
+        "boardreport", "MGT8", "MGT9" // Board Reports
+    };
+
+    // DMS
+    var isDMSActive = (currentController == "Home" && currentAction == "DMS") ? "active" : "";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@R.AppName Dashboard">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="stacks">
+    <title>@R.AppName @(ViewData["Title"] != null ? $"- {ViewData["Title"]}" : "")</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/assets/plugins/pace/pace.css" rel="stylesheet">
+    <link href="~/assets/plugins/highlight/styles/github-gist.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/r-3.0.3/sc-2.4.3/datatables.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.1.1/css/bootstrap5-toggle.min.css" rel="stylesheet">
+    <link href="~/assets/css/main.min.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" href="~/img/favicon.png" />
+    <link rel="shortcut icon" href="~/img/favicon.png" />
+    <link rel="apple-touch-icon" href="~/img/favicon.png" />
+    <link href="~/assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.css" rel="stylesheet">
+    <script src="~/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/themes/black-tie/jquery-ui.min.css" />
+    @if (ViewBag.BypassAuth != true)
+    {
+        <script>var url = '@R.ApiUrl/Auth/Validate'; $.ajaxSetup({ headers: { 'Authorization': `Bearer ${$.cookie("ComplyCrafterSessionId")}` } }); $.ajax({ url: url, type: 'GET', async: false, success: r => appuser = r.responseObject, error: _ => { window.location = '@Url.Action("Login", "Home")' } })</script>
+
+    }
+    @await RenderSectionAsync("Styles", required: false)
+
+    <style>
+        .accordion-menu > li > ul ul {
+            padding: 5px 0 5px 2px !important;
+        }
+
+        .app-menu > ul > li ul li a {
+            padding: 5px 10px !important;
+        }
+
+        .app-menu .fa {
+            font-size: 1.5em;
+        }
+
+        .app-menu a:hover .fa {
+            filter: none;
+        }
+        /* Highlight main active menu item */
+        li.active > a {
+            background-color: #f0f0f0;
+            font-weight: bold;
+            border-left: 3px solid #007bff;
+            color: #007bff !important;
+        }
+        /* Highlight active submenu item */
+        ul.sub-menu li.active > a,
+        ul.sub-menu-list li.active > a {
+            background-color: #e6f0ff;
+            font-weight: bold;
+            border-left: 3px solid #007bff;
+            color: #007bff !important;
+        }
+        /* Optional: styling for submenu */
+        ul.sub-menu, ul.sub-menu-list {
+            list-style: none;
+            padding-left: 15px;
+            margin: 0;
+        }
+
+            ul.sub-menu li a,
+            ul.sub-menu-list li a {
+                display: block;
+                padding: 8px 12px;
+                text-decoration: none;
+                color: #333;
+            }
+
+                ul.sub-menu li a:hover,
+                ul.sub-menu-list li a:hover {
+                    background-color: #f9f9f9;
+                    color: #007bff;
+                }
+        /* Make sure arrow icon also changes */
+        li.active > a .material-icons {
+            color: #007bff !important;
+        }
+    </style>
+   
+</head>
+
+<body>
+    <div class="app align-content-stretch d-flex flex-wrap">
+        <div class="app-sidebar app-sidebar-min">
+            <div class="logo" style="flex-shrink: 0; white-space: nowrap;">
+                <a href="@Url.Action("Index","Home")" class="logo-icon">
+                    <span class="logo-text d-none d-md-block">@R.AppName</span>
+                </a>
+            </div>
+
+         
+
+             <div class="app-menu">
+                <ul class="accordion-menu">
+                    <!-- Dashboard -->
+                    <li class="@isDashboardActive">
+                        <a href="@Url.Action("Index", "Home")">
+                            <img src="~/img/icon/dashboard.png" alt="Dashboard" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;" />
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+
+                    <!-- Masters -->
+                    <li class="@isMastersActive">
+                        <a href="javascript:void(0);">
+                            <img src="~/img/icon/Clients.png" alt="Masters" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;" />
+                            <span>Masters</span>
+                            <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@(isCompanyActive ? "active" : "")">
+                                <a href="@Url.Action("Company", "Home")">Company</a>
+                            </li>
+                            <li class="@(isDirectorActive ? "active" : "")">
+                                <a href="@Url.Action("Director", "Home")">Directors / KMP</a>
+                            </li>
+                            <li class="@(isShareholderActive ? "active" : "")">
+                                <a href="@Url.Action("Shareholder", "Home")">Shareholder</a>
+                            </li>
+
+                            <li >
+                                <a href="@Url.Action("Sharecertificate", "Home")">Share Certificate</a>
+                            </li>
+                            
+                            <li class="@(isDebentureActive ? "active" : "")">
+                                <a href="@Url.Action("Debenture", "Home")">Debenture</a>
+                            </li>
+                            <li class="@(isAuditorActive ? "active" : "")">
+                                <a href="@Url.Action("Auditor", "Home")">Auditor</a>
+                            </li>
+                            <li class="@(isResolutionActive ? "active" : "")">
+                                <a href="@Url.Action("Resolution", "Home")">Agenda(s)</a>
+                            </li>
+                            @* <li>
+                                <a href="javascript:void(0);" style="padding:5px 15px">
+                                    <span class="p-0">Checklist</span>
+                                    <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                                </a>
+                                <ul class="sub-menu-list">
+                                    <li >
+                                        <a href="@Url.Action("Standardchecklist", "Home")">Standard Checklist</a>
+                                    </li>
+                                    <li >
+                                        <a href="@Url.Action("Assignchecklist", "Home")">Assign checklist</a>
+                                    </li>
+                                    
+                                </ul>
+                            </li> *@
+                            <li class="@(isShareholderManagementActive ? "active" : "")">
+                                <a href="@Url.Action("ShareholderManagement", "Home")">Shareholder Management</a>
+                            </li>
+                            <li class="formList @(isCapitalActive)">
+                                <a href="javascript:void(0);" style="padding:5px 15px">
+                                    <span class="p-0">Capital Structure</span>
+                                    <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                                </a>
+                                <ul class="sub-menu-list">
+                                    <li >
+                                        <a href="@Url.Action("Capital", "Home", new { type = "CapitalAddclass" })">Add Class</a>
+                                    </li>
+                                    <li class="@(isAuthorizedActive ? "active" : "")">
+                                        <a href="@Url.Action("Capital", "Home", new { type = "Authorized" })">Authorized</a>
+                                    </li>
+                                    <li class="@(isIssuedActive ? "active" : "")">
+                                        <a href="@Url.Action("Capital", "Home", new { type = "Issued" })">Issued</a>
+                                    </li>
+                                    <li class="@(isSubscribedActive ? "active" : "")">
+                                        <a href="@Url.Action("Capital", "Home", new { type = "Subscribed" })">Subscribed</a>
+                                    </li>
+                                    <li class="@(isPaidUpActive ? "active" : "")">
+                                        <a href="@Url.Action("Capital", "Home", new { type = "Paid-up" })">Paid-up</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Meeting -->
+                    <li class="@isMeetingActive">
+                        <a href="javascript:void(0);">
+                            <img src="~/img/icon/Meeting.png" alt="Meeting Icon" style="width: 24px; height: 24px; vertical-align: middle;">
+                            <span>Meeting</span>
+                            <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="@(currentController == "Home" && currentAction == "Meeting" && currentType == "BM" ? "active" : "")">
+                                <a href="@Url.Action("Meeting", "Home", new { type = "BM" })">Board Meeting</a>
+                            </li>
+                            <li class="@(currentController == "Home" && currentAction == "Meeting" && currentType == "AGM" ? "active" : "")">
+                                <a href="@Url.Action("Meeting", "Home", new { type = "AGM" })">Annual General Meeting</a>
+                            </li>
+                            <li class="@(currentController == "Home" && currentAction == "Meeting" && currentType == "EOGM" ? "active" : "")">
+                                <a href="@Url.Action("Meeting", "Home", new { type = "EOGM" })">Extra Ordinary General Meeting</a>
+                            </li>
+                            <li class="@(currentController == "Home" && currentAction == "Meeting" && currentType == "CM" ? "active" : "")">
+                                <a href="@Url.Action("Meeting", "Home", new { type = "CM" })">Committee Meeting</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Forms -->
+                    <li class="@isFormsActive">
+                        <a href="javascript:void(0);">
+                            <img src="~/img/icon/Forms.png" alt="Edit" style="width: 20px; height: 20px; vertical-align: middle;">
+                            <span>Forms</span>
+                            <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="sub-menu-list @(currentController == "Form" && formCategories.Contains(currentAction) ? "active" : "")">
+                                <a href="javascript:void(0);">MCA Version 3<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                                <ul class="sub-menu">
+                                    <!-- Charge related forms -->
+                                    <li class="formList">
+                                        <a href="javascript:void(0);" style="padding:5px 15px">
+                                            <span class="p-0">Charge related forms</span>
+                                            <i class="material-icons has-sub-menu">keyboard_arrow_right</i>
+                                        </a>
+                                        <ul class="sub-menu-list">
+                                            <li class="@(currentController == "Form" && currentAction == "CHG1" ? "active" : "")">
+                                                <a href="@Url.Action("CHG1", "Form")">CHG1</a>
+                                            </li>
+                                            <li class="@(currentController == "Form" && currentAction == "CHG4" ? "active" : "")">
+                                                <a href="@Url.Action("CHG4", "Form")">CHG4</a>
+                                            </li>
+                                            <li class="@(currentController == "Form" && currentAction == "CHG6" ? "active" : "")">
+                                                <a href="@Url.Action("CHG6", "Form")">CHG6</a>
+                                            </li>
+                                            <li class="@(currentController == "Form" && currentAction == "CHG8" ? "active" : "")">
+                                                <a href="@Url.Action("CHG8", "Form")">CHG8</a>
+                                            </li>
+                                            <li class="@(currentController == "Form" && currentAction == "CHG9" ? "active" : "")">
+                                                <a href="@Url.Action("CHG9", "Form")">CHG9</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="formlist-dpt">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Deposit related forms</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-DPT">
+                                            <li>
+
+                                                <a href="@Url.Action("DPT3", "Form")">DPT3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DPT4", "Form")">DPT4</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-dir">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">DIN related forms</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-DIR">
+                                            <li>
+                                                <a href="@Url.Action("DIR3", "Form")">DIR3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DIR5", "Form")">DIR5</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DIR6", "Form")">DIR6</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DIR9", "Form")">DIR9</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DIR11", "Form")">DIR11</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("DIR12", "Form")">DIR12</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-ndh">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Nidhi Services</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-NDH">
+                                            <li>
+                                                <a href="@Url.Action("NDH2", "Form")">NDH1</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("NDH2", "Form")">NDH2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-inc">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Change Services</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-INC">
+                                            <li>
+                                                <a href="@Url.Action("INC4", "Form")">INC4</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("INC22", "Form")">INC22</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("SH7", "Form")">SH7</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("MR1", "Form")">MR1</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-inc2">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Informational Services</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-INC2">
+                                            <li>
+                                                <a href="@Url.Action("INC20A", "Form")">INC20A</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("INC28", "Form")">INC28</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("PAS2", "Form")">PAS2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-inc3">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Approval Services(ROC)</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-INC3">
+                                            <li>
+                                                <a href="@Url.Action("INC12", "Form")">INC12</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("INC24", "Form")">INC24</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("STK2", "Form")">STK2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-inc4">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Approval Services(RD)</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-INC4">
+                                            <li>
+                                                <a href="@Url.Action("INC23", "Form")">INC23</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-cs">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Compliance Services</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-CS">
+                                            <li>
+                                                <a href="@Url.Action("MGT14", "Form")">MGT14</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("MSC3", "Form")">MSC3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("PAS3", "Form")">PAS3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("PAS6", "Form")">PAS6</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("GNL2", "Form")">GNL2</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("GNL3", "Form")">GNL3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("SH8", "Form")">SH8</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("SH9", "Form")">SH9</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("SH11", "Form")">SH11</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("MSME", "Form")">MSME</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("MGT6", "Form")">MGT6</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("BEN2", "Form")">BEN2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-aoc5">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Annual Filings</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-AOC5">
+                                            <li>
+                                                <a href="@Url.Action("AOC5", "Form")">AOC5</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-run">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">Incorporation</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-RUN">
+                                            <li>
+                                                <a href="@Url.Action("RUNLLP", "Form")">RUNLLP</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("RUN", "Form")">RUN</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-iepf">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">IEPF Services</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-IEPF">
+                                            <li>
+                                                <a href="@Url.Action("IEPF5", "Form")">IEPF5</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("IEPF2", "Form")">IEPF2</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="formlist-llp">
+                                        <a href="#" style="padding:5px 15px"><span class="p-0">LLP Form</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                        <ul class="sub-menu-list-LLP">
+                                            <li>
+                                                <a href="@Url.Action("Form3", "Form")">Form3</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form4", "Form")">Form4</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form5", "Form")">Form5</a>
+                                            </li>
+                                            <li class="formlist-form8">
+                                                <a href="#" style="padding:5px 15px"><span class="p-0">Form8</span><i class="material-icons has-sub-menu ">keyboard_arrow_right</i></a>
+                                                <ul class="sub-menu-list-FORM8">
+                                                    <li>
+                                                        <a href="@Url.Action("AccountnSolvency", "Form")">AccountnSolvency</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="@Url.Action("Charge", "Form")">Charge</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form11", "Form")">Form11</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form12", "Form")">Form12</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form15", "Form")">Form15</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form22", "Form")">Form22</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form23", "Form")">Form23</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Form24", "Form")">Form24</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <!-- MCA Version 2 -->
+                            @* <li class="sub-menu-list @(currentController == "Form" && new[] { "AOC4", "MGT7A", "ADT1", "AOC4CFS", "ADT3", "MSME1", "GNL1" }.Contains(currentAction) ? "active" : "")">
+                                <a href="javascript:void(0);">MCA Version 2<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@(currentController == "Form" && currentAction == "AOC4" ? "active" : "")">
+                                        <a href="@Url.Action("AOC4", "Form")">AOC4</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "MGT7A" ? "active" : "")">
+                                        <a href="@Url.Action("MGT7A", "Form")">MGT7A</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "ADT1" ? "active" : "")">
+                                        <a href="@Url.Action("ADT1", "Form")">ADT1</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "AOC4CFS" ? "active" : "")">
+                                        <a href="@Url.Action("AOC4CFS", "Form")">AOC4CFS</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "ADT3" ? "active" : "")">
+                                        <a href="@Url.Action("ADT3", "Form")">ADT3</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "MSME1" ? "active" : "")">
+                                        <a href="@Url.Action("MSME1", "Form")">MSME1</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "GNL1" ? "active" : "")">
+                                        <a href="@Url.Action("GNL1", "Form")">GNL1</a>
+                                    </li>
+                                </ul>
+                            </li>
+ *@
+                            <!-- Board Reports -->
+                           @*  <li class="sub-menu-list @(currentController == "Form" && new[] { "boardreport", "MGT8", "MGT9" }.Contains(currentAction) ? "active" : "")">
+                                <a href="javascript:void(0);">Board Reports<i class="material-icons has-sub-menu">keyboard_arrow_right</i></a>
+                                <ul class="sub-menu-list">
+                                    <li class="@(currentController == "Form" && currentAction == "boardreport" ? "active" : "")">
+                                        <a href="@Url.Action("boardreport", "Form")">boardreport</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "MGT8" ? "active" : "")">
+                                        <a href="@Url.Action("MGT8", "Form")">MGT8</a>
+                                    </li>
+                                    <li class="@(currentController == "Form" && currentAction == "MGT9" ? "active" : "")">
+                                        <a href="@Url.Action("MGT9", "Form")">MGT9</a>
+                                    </li>
+                                </ul>
+                            </li> *@
+                        </ul>
+                    </li>
+
+                    <!-- DMS -->
+                    <li class="@isDMSActive">
+                        <a href="@Url.Action("DMS", "Home")">
+                            <img src="~/img/icon/process.png" alt="DMS" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">
+                            <span>DMS</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>  
+        </div>
+        <div class="app-container">
+            <div class="search">
+                <form>
+                    <input class="form-control" type="text" placeholder="Type here..." aria-label="Search" id="headCompSearch">
+                </form>
+                <a href="#" class="toggle-search"><i class="material-icons">close</i></a>
+            </div>
+            <div class="app-header">
+                <nav class="navbar navbar-light navbar-expand-lg">
+                    <div class="container-fluid">
+                        <div class="navbar-nav" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item d-block d-md-none">
+                                    <a class="nav-link hide-sidebar-toggle-button" href="#"><i class="material-icons">last_page</i></a>
+                                </li>
+                            </ul>
+                            @RenderSection("HeaderBlock", required: false)
+                        </div>
+                        <div class="d-flex">
+                            <ul class="navbar-nav">
+                                <li class="nav-item @(ViewBag.ShowClear != null ? "d-md-block" : "") d-none">
+                                    <a class="nav-link company-clear" href="#" onclick="clearCompany()">Clear Company&nbsp;&nbsp;<i class="material-icons">clear</i></a>
+                                </li>
+                                <li class="nav-item @(ViewBag.ShowSearch != null ? "d-md-block" : "") d-none">
+                                    <a class="nav-link toggle-search" href="#">Switch Company&nbsp;&nbsp;<i class="material-icons">search</i></a>
+                                </li>
+                                <li class="nav-item user">
+                                    <a class="nav-link nav-notifications-toggle" id="userDropdown" href="#" data-bs-toggle="dropdown">
+                                        <i class="fa fa-user-tie"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown" aria-labelledby="userDropdown">
+                                        <h6 class="dropdown-header"><script>document.write(appuser.name)</script></h6>
+                                        <div class="notifications-dropdown-list pointer">
+                                            <div class="notifications-dropdown-item">
+                                                <a href="@Url.Action("Profile", "Home")">
+                                                    <div class="d-flex">
+                                                        <i class="fa fa-user-circle me-2 my-auto"></i>
+                                                        <span class="my-auto">Profile</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+
+                                          @*   <div class="notifications-dropdown-item">
+                                                <a href="@Url.Action("Changepassword", "Home")">
+                                                    <div class="d-flex">
+                                                        <i class="fa fa-unlock-alt me-2 my-auto"></i>
+                                                        <span class="my-auto">Change Password</span>
+                                                    </div>
+                                                </a>
+                                            </div> *@
+                                            
+                                            <div class="notifications-dropdown-item">
+                                                <a href="@Url.Action("Logout", "Home")">
+                                                    <div class="d-flex">
+                                                        <i class="fa fa-lock me-2 my-auto"></i>
+                                                        <span class="my-auto">Logout</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="app-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="~/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/plugins/pace/pace.min.js"></script>
+    <script src="~/assets/js/main.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/assets/plugins/highlight/highlight.pack.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/r-3.0.3/sc-2.4.3/datatables.min.js"></script>
+    <script src="~/assets/plugins/moment/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.1.1/js/bootstrap5-toggle.jquery.min.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+
+
+
+    <script>
+
+        function refreshContent() {
+
+            setInterval(function () {
+                if (!$.cookie("ComplyCrafterBrowserId") || !$.cookie("ComplyCrafterSessionId")) {
+                    alert('We found a new session in another browser. You have been logged out.');
+                    $.removeCookie("ComplyCrafterBrowserId", { path: '/' });
+                    $.removeCookie("ComplyCrafterSessionId", { path: '/' });
+                    // Redirect to another page if cookie not found
+                    window.location.href = "/Home/Login"; // Change to your desired URL
+                }
+                else{
+                    checkSession();
+                }
+
+            }, 60 * 1000); // 60 seconds = 1 minute
+
+
+        }
+        function checkSession()
+        {
+            $(document).ready(function () {
+            let auth = {
+                EmailId: localStorage.getItem('CCUser'),
+                BrowserId: $.cookie("ComplyCrafterBrowserId"),
+                SessionId: $.cookie("ComplyCrafterSessionId")
+            };
+
+            $.ajax({
+                url: '@R.ApiUrl/Auth/CheckSession',
+                data: JSON.stringify(auth),
+                contentType: 'application/json',
+                type: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                },
+                success: data => {
+                    //debugger
+                    if (!data.status) {
+                        EndSession();
+                    }
+                },
+                error: function (xhr, status, error) {
+                    if (xhr.status === 401 || xhr.status === 403) {
+                        alert('Your session expired.');
+                        EndSession(); // You can redirect to login or show a modal
+                        setTimeout(function(){
+                            window.location = '@Url.Action("Login", "Home")';
+                        },2000);
+                    } else {
+                        console.error("Unexpected error:", status, error);
+                    }
+                }
+                });
+            });
+        }
+
+        function EndSession()
+        {
+            $(document).ready(function () {
+                let auth = {
+                    EmailId: localStorage.getItem('CCUser'),
+                    BrowserId: $.cookie("ComplyCrafterBrowserId")
+                };
+
+                $.ajax({
+                    url: '@R.ApiUrl/Auth/UpdateDuplicateSession',
+                    data: JSON.stringify(auth),
+                    contentType: 'application/json',
+                    type: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                    },
+                    success: data => {
+                        $.removeCookie("ComplyCrafterBrowserId", { path: '/' });
+                        $.removeCookie("ComplyCrafterSessionId", { path: '/' });
+                        window.location = '@Url.Action("Login", "Home")';
+                    }
+                });
+            });
+        }
+
+        const DATE_DISPLAY_FORMAT = 'DD/MM/YYYY';
+        const DATETIME_DISPLAY_FORMAT = 'DD/MM/YYYY hh:mm A';
+        const FORMAT_DATE = d => moment(d).format(DATE_DISPLAY_FORMAT);
+        const FORMAT_DATETIME = d => moment(d).format(DATETIME_DISPLAY_FORMAT);
+        const TIME_24_FORMAT = 'HH:mm';
+        const FORMAT_TIME_12 = t => moment(t, TIME_24_FORMAT).format('hh:mm A');
+        const FORMAT_CURRENCY = a => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(a).replace('₹', '₹ ');
+
+        var comp_id = 0;
+
+        $(document).ready(function () {
+            checkSession();
+            refreshContent();
+            if ($.validator) {
+                $.validator.methods.ctext = function (v, e) { return this.optional(e) || /^[A-Za-z\s]+$/.test(v) };
+                $.validator.messages.ctext = 'Please enter a valid value.';
+
+                $.validator.methods.mobile = function (v, e) { return this.optional(e) || /^\d{10}$/.test(v) };
+                $.validator.messages.mobile = 'Please enter a valid mobile number.';
+
+                $.validator.methods.email = function (v, e) { return this.optional(e) || /^[a-zA-Z0-9_.+-]+@@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/gm.test(v) };
+                $.validator.messages.email = 'Please enter a valid email id.';
+
+                $.validator.methods.pincode = function (v, e) { return this.optional(e) || /^\d{6}$/.test(v) };
+                $.validator.messages.pincode = 'Please enter a valid pincode.';
+
+                $.validator.setDefaults({
+                    errorElement: "div",
+                    errorPlacement: function (error, element) {
+                        error.addClass("invalid-feedback");
+                        if (element.prop("type") === "checkbox") {
+                            error.insertAfter(element.parent("label"));
+                        } else {
+                            $(element).parent().append(error);
+                        }
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass("is-invalid").removeClass("is-valid");
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).addClass("is-valid").removeClass("is-invalid");
+                        if (!$(element).val())
+                            $(element).removeClass("is-valid");
+                    },
+                });
+            }
+
+            if ($.fn.select2)
+                $.fn.select2.defaults.set("theme", "bootstrap-5");
+
+            if ($.fn.dataTable.defaults) {
+                $.extend(true, $.fn.dataTable.defaults, {
+                    "initComplete": function (settings, json) {
+                        $(this).find('td, th').css('padding', '10px');
+                    }
+                });
+            }
+        });
+    </script>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        $(document).on('select2:open', () => {
+            document.querySelector('.select2-search__field').focus();
+        });
+    </script>
+    <script>
+        $('.card-header, .card-body').addClass('px-3');
+    </script>
+    <script>
+        $(document).on("click", ".formList", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".formlist-dpt", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-DPT");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-DPT")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".formlist-dir", function () {
+            const subMenu = $(this).siblings(".sub-menu-list-DIR");
+
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-DIR")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-ndh", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-NDH");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-NDH")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-inc", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-INC");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-INC")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-inc2", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-INC2");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-INC2")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-form8", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-FORM8");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-FORM8")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+
+    </script>
+
+
+    <script>
+        $(document).on("click", ".formlist-inc3", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-INC3");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-INC3")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-inc4", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-INC4");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-INC4")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+
+    <script>
+        $(document).on("click", ".formlist-aoc5", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-AOC5");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-AOC5")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".formlist-run", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-RUN");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-RUN")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-iepf", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-IEPF");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-IEPF")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+
+    <script>
+        $(document).on("click", ".formlist-cs", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-CS");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-CS")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+    </script>
+    <script>
+        $(document).on("click", ".formlist-llp", function () {
+            // Toggle the 'open' class on the immediate sub-menu
+            const subMenu = $(this).siblings(".sub-menu-list-LLP");
+
+            // Add 'open' class and apply styles when opening
+            if (!subMenu.hasClass("open")) {
+                $(this).text()
+                subMenu.addClass("open ").css({
+                    display: "block", // Ensures the submenu is visible
+                    transition: "all 0.3s ease", // Optional for animation
+                });
+            } else {
+                // Remove 'open' class and styles when closing
+                subMenu.removeClass("open").css({
+                    display: "none", // Ensures the submenu is hidden
+                });
+            }
+
+            // Optionally, close other open menus within the same parent
+            $(this)
+                .closest(".sub-menu")
+                .find(".sub-menu-list-LLP")
+                .not(subMenu)
+                .removeClass("open")
+                .css({ display: "none" });
+        });
+
+           function autocomplete() {
+            $("#headCompSearch").autocomplete({
+                source: function (request, response) {
+                    // Send AJAX request to the API
+                    $.ajax({
+                        url: `@R.ApiUrl/Company/S2`,
+                        dataType: "json",
+                        data: {
+                            query: request.term
+                        },
+                        appendTo: ".search",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.companyName,
+                                    value: item.companyName,
+                                    id: item.id
+                                };
+                            }));
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $("#headCompSearch").val("");
+                    localStorage.setItem("comp_id", ui.item.id);
+                    localStorage.setItem("comp_name", ui.item.label);
+                    $('[name="company_name"]').text(ui.item.label);
+                    $(".toggle-search:not(.nav-link)").click();
+                    setTimeout(function(){
+                        if (typeof LoadCompanySwitchData !== 'undefined')
+                        {
+                            LoadCompanySwitchData(ui.item.id);
+                        }
+                    },200);
+                    setTimeout(function(){
+                    loadTbl();
+                    },100);
+                    setTimeout(function(){
+                        if (typeof CommonSwitchFunction !== 'undefined')
+                        {
+                            CommonSwitchFunction(ui.item.id);
+                        }
+                    },300);
+                },
+                minLength: 2
+            });
+        }
+
+        function clearCompany() {
+            localStorage.setItem("comp_id", 0);
+            localStorage.setItem("comp_name", '');
+            $('[name="company_name"]').text('');
+            loadTbl();
+        }
+
+        $(document).ready(function () {
+            // Set initial company name if exists in localStorage
+            $('[name="company_name"]').text(localStorage.getItem("comp_name"));
+
+            // Initialize autocomplete on input
+            autocomplete();
+
+            // Show the search bar and focus input when switch button is clicked
+            $(document).on("click", ".toggle-search", function () {
+                // Show or toggle the search bar here if it's hidden
+                $(".search").removeClass("d-none").show(); // Adjust this line if you use a different way to show the bar
+
+                // Focus on the input after a short delay to ensure it's visible
+                setTimeout(function () {
+                    $("#headCompSearch").focus();
+                }, 100);
+            });
+        });
+    </script>
+
+
+    <script>
+
+                $.ajaxSetup({
+            headers: {
+                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+            }
+        });
+        // $(document).ready(function () {
+        //     $('input[type="checkbox"]').bootstrapToggle();
+        // });
+    </script>
+</body>
+</html>

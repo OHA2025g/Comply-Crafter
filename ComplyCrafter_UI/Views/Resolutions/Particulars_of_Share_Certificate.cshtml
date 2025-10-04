@@ -1,0 +1,139 @@
+﻿@{
+    ViewData["Title"] = "Share Certificate Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+</style>
+
+<div class="card shadow-sm p-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h4 class="text-primary">Particulars of Share Certificate</h4>
+        
+    </div>
+
+    <form asp-action="Save" method="post">
+        <table class="custom-table">
+            <tbody>
+                <tr>
+                    <td><strong>Subscriber Name</strong></td>
+                    <td><input type="text" class="form-control" name="SubscriberName" value="Mr. Kiran Premchand Shah" /></td>
+                    <td><strong>Total Shares</strong></td>
+                    <td><input type="number" class="form-control" name="TotalShares" value="5000" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Date of Issue</strong></td>
+                    <td><input type="date" class="form-control" name="DateOfIssue" value="2024-11-19" /></td>
+                    <td><strong>Folio Number</strong></td>
+                    <td><input type="text" class="form-control" name="FolioNumber" value="01" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Whether subscription has been received?</strong></td>
+                    <td colspan="3">
+                        <label><input type="radio" name="SubscriptionReceived" value="Yes" checked /> Yes</label>
+                        <label class="ms-3"><input type="radio" name="SubscriptionReceived" value="No" /> No</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Date of receipt</strong></td>
+                    <td><input type="date" class="form-control" name="DateOfReceipt" value="2024-11-19" /></td>
+                    <td><strong>Amount Received</strong></td>
+                    <td><input type="number" class="form-control" name="AmountReceived" value="50000" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-custom mb-3">
+            <i class="fa fa-plus"></i> Add More
+        </button>
+
+        <table class="custom-table">
+            <tbody>
+                <tr>
+                    <td><strong>Signing Director</strong></td>
+                    <td>
+                        <select class="form-select" name="Director1">
+                            <option>Kiran Premchand Shah (07693548) (Director)</option>
+                        </select>
+                    </td>
+                    <td><strong>Signing Director</strong></td>
+                    <td>
+                        <select class="form-select" name="Director2">
+                            <option>Siddharth Ravi Prakash Singh (07900169) (Director)</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Authorized Signatory</strong></td>
+                    <td><input type="text" class="form-control" name="AuthorizedSignatory" placeholder="Authorized Signatory" /></td>
+                    <td><strong>Paid Up Value per share excluding premium</strong></td>
+                    <td><input type="number" class="form-control" name="PaidUpValue" value="10" /></td>
+                </tr>
+                <tr>
+                    <td><strong>Premium Amount per share (if any)</strong></td>
+                    <td><input type="number" class="form-control" name="PremiumAmount" value="0" /></td>
+                    <td><strong>How many share certificates do you want</strong></td>
+                    <td><input type="number" class="form-control" name="CertificatesCount" value="1" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>Sl.No</th>
+                    <th>Denomination of Share per Certificate</th>
+                    <th>Certificate No.</th>
+                    <th>Distinctive No.</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" class="form-control" name="SlNo" value="1" /></td>
+                    <td><input type="text" class="form-control" name="Denomination" value="5000" /></td>
+                    <td><input type="text" class="form-control" name="CertificateNo" value="1" /></td>
+                    <td><input type="text" class="form-control" name="DistinctiveNo" value="1-5000" /></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-success px-4">Submit</button>
+        </div>
+    </form>
+</div>

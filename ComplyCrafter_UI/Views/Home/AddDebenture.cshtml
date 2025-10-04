@@ -1,0 +1,733 @@
+﻿<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+</style>
+
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">@ViewBag.ctrl Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frm">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Category</label>
+                            <select class="form-control" name="category">
+                                <option value="" selected>Select a category</option>
+                                <option>Indian</option>
+                                <option>Foreign</option>
+                                <option>NRI</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Subcategory</label>
+                            <select class="form-control" name="subCategory">
+                                <option value="" disabled selected>Select a subcategory</option>
+                                <option>Institutions</option>
+                                <option>Non Institutions</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Under Subcategory</label>
+                            <select class="form-control" name="underSubCategory">
+                                <option value="" disabled selected>Select a under subcategory</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Person Type</label>
+                            <select class="form-control" name="type">
+                                <option value="" disabled selected>Select person type</option>
+                                <option>None</option>
+                                <option>Director</option>
+                                <option>Shareholder</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-1 dir">
+                            <label class="form-label">Director</label>
+                            <select class="js-states form-control num s2" tabindex="10" id="directorS2" name="director"></select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-1 sh">
+                            <label class="form-label">Shareholder</label>
+                            <select class="js-states form-control num s2" tabindex="10" id="shareholderS2" name="shareholder"></select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Salutation</label>
+                            <input type="text" class="form-control" name="salutation">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="firstName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Middle Name</label>
+                            <input type="text" class="form-control" name="middleName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lastName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" name="email">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Mobile</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" class="form-control" name="mobile">
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Gender</label>
+                            <select class="form-control" name="gender">
+                                <option value="" disabled selected>Select gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Marital Status</label>
+                            <select class="form-control" name="maritalStatus">
+                                <option value="" disabled selected>Select marital status</option>
+                                <option>Married</option>
+                                <option>Unmarried</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 indi minor">
+                            <label class="form-label">Date of birth</label>
+                            <input type="date" class="form-control" name="dob">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">PAN</label>
+                            <input type="text" class="form-control" name="pan">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label for="formFile" class="form-label">Upload Pan</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="panUrl" accept=".jpg,.jpeg,.png,.pdf" id="panUrlFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewPanBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deletePanBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Passport</label>
+                            <input type="text" class="form-control" name="passport">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 minor">
+                            <label class="form-label">Guardian</label>
+                            <input type="text" class="form-control" name="guardian">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">CIN/Reg No</label>
+                            <input type="text" class="form-control" name="cinRegNo">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">Date Of Incorporation/Reg</label>
+                            <input type="date" class="form-control" name="dateOfIncorporationReg">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="directorAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button" type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#collapseDetails"
+                            aria-expanded="true"
+                            aria-controls="collapseDetails">
+                        Details
+                    </button>
+                </h2>
+                <!-- Add `show` class here -->
+                <div id="collapseDetails"
+                     class="accordion-collapse collapse show"
+                     aria-labelledby="detailsHeading"
+                     data-bs-parent="#directorAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="shareholder" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1 indi">
+                                        <label class="form-label">Spouse Name</label>
+                                        <input type="text" class="form-control" name="spouseName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Pincode</label>
+                                        <input type="text" class="form-control" name="pinCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" name="city">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">State</label>
+                                        <input type="text" class="form-control" name="state">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" name="country">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address Line 1</label>
+                                        <textarea class="form-control" name="addressLine1"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Father's Name</label>
+                                        <input type="text" class="form-control" name="fatherName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Mother's Name</label>
+                                        <input type="text" class="form-control" name="motherName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Occupation</label>
+                                        <input type="text" class="form-control" name="occupation">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Nationality</label>
+                                        <input type="text" class="form-control" name="nationality">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Voter Id</label>
+                                        <input type="text" class="form-control" name="voterId">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1 indi minor">
+                                        <label class="form-label">Aadhar No</label>
+                                        <input type="text" class="form-control" name="aadharNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                   
+                                    <div class="col-md-6 my-1">
+                                        <label for="formFile" class="form-label">Upload Aadhar</label>
+                                        <div class="input-group">
+                                            <input class="form-control" type="file" name="aadharUrl" id="aadharUrlFile">
+                                            <button type="button" class="form-control btn btn-outline-secondary" id="viewAadharBtn" style="display:none;" target="_blank">
+                                                View
+                                            </button>
+                                            <button type="button" class="btn btn-danger" id="deleteAadharBtn" style="display:none;" target="_blank">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="save()">Save</button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var obj= {
+            id: 0,
+            refUser: 0,
+            companyId:localStorage.getItem("comp_id"),
+            category: "",
+            subCategory: "",
+            underSubCategory: "",
+            type: "",
+            hasValidDin: false,
+            director: 0,
+            shareholder: 0,
+            salutation: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            gender: "",
+            maritalStatus: "",
+            email: "",
+            mobile: "",
+            pan: "",
+            passport: "",
+            dob: "",
+            guardian: "",
+            cinRegNo: "",
+            dateOfIncorporationReg: "",
+
+            createdBy: 0,
+            // createdOn: "",
+            updatedBy: 0,
+            // updatedOn: "",
+            isActive: true,
+            // deletedOn: ""
+        }
+
+        var vo= {
+            id: 'required',
+
+            category: "required",
+            subCategory: "required",
+            underSubCategory: "required",
+            type: "required",
+            director: "required",
+            shareholder: "required",
+            gender: "required",
+            maritalStatus: "required",
+            pan: "required",
+            guardian: "required",
+            cinRegNo: "required",
+            mobile: {
+                required: true,
+                mobile: true
+            },
+            email: {
+                required: true,
+                email: true
+            },
+            dob: {
+                required: true,
+                date: true
+            },
+            dateOfIncorporationReg: {
+                required: true,
+                date: true
+            }
+        }
+        var vf= null;
+
+        var objDetails = {
+            id: 0,
+            shareholder: 0,
+            addressLine1: "",
+            country: "",
+            state: "",
+            city: "",
+            pinCode: "",
+            fatherName: "",
+            motherName: "",
+            occupation: "",
+            nationality: "",
+            voterId: "",
+            aadharNo: "",
+            spouseName: "",
+            panUrl: "",
+            aadharUrl: ""
+        }
+
+        var voDetails = {
+            id: 'required',
+            shareholder: "required",
+            dateOfBirth: {
+                date: true
+            },
+            passportExpiryDate: {
+                date: true
+            },
+        }
+        var vfDetails = null;
+
+        const institutions = ["Government Company", "Central Govt", "State Govt", "Banks/F1", "Mutual Funds", "Venture Capital Funds", "Insurance Companies", "Flis",]
+        const nonInstitutions= ["Individual", "Minor", "Firm", "Body Corporate", "Trust", "Society", "HUF", "Government Company"]
+
+        var isLoading = false;
+        var deletePan = false;
+        var deleteAadhar = false;
+
+        $(document).ready(function () {
+            vf= $('#frm').validate({ rules: vo, onsubmit: () => { console.log('submit') } })
+            // vfDetails = $('#frmDetails').validate({ rules: voDetails, ignore: [], onsubmit: () => { console.log('submit') } })
+            $('#directorS2').select2({
+                // minimumInputLength: 3,
+                ajax: {
+                    url: '@R.ApiUrl/Director/S2',
+                    dataType: 'json',
+                    processResults: function (data, params) {
+                        data = data.map(q => { q.text = `${q.firstName} ${q.middleName} ${q.lastName}`; return q; })
+                        return {
+                            results: data
+                        };
+                    },
+                },
+                theme: 'bootstrap-5',
+                // dropdownParent: $('#myModal').find('.modal-body'),
+                placeholder: 'Select Director',
+                templateResult: (data) => {
+                    if (!data.firstName) return data.text;
+                    else return $(`<p class="m-0">${data.firstName} ${data.middleName} ${data.lastName}</p>`)
+                }
+            });
+            $('#shareholderS2').select2({
+                // minimumInputLength: 3,
+                ajax: {
+                    url: '@R.ApiUrl/Shareholder/S2',
+                    dataType: 'json',
+                    processResults: function (data, params) {
+                        data = data.map(q => { q.text = `${q.firstName} ${q.middleName} ${q.lastName}`; return q; })
+                        return {
+                            results: data
+                        };
+                    },
+                },
+                theme: 'bootstrap-5',
+                dropdownParent: $('.card').first().find('.card-body'),
+                placeholder: 'Select Shareholder',
+                templateResult: (data) => {
+                    if (!data.firstName) return data.text;
+                    else return $(`<p class="m-0">${data.firstName} ${data.middleName} ${data.lastName}</p>`)
+                }
+            });
+
+            $('[name="category"]').change(function () {
+                var f = $(this).val() !== "Foreign";
+                $('input[name="passport"]').prop('disabled', f);
+                // $('input[name="pan"]').prop('disabled', !f);
+            });
+
+            $('[name="type"]').change(function () {
+                var val = $(this).val();
+                $('.dir').find('select, input, textarea').prop('disabled', true);
+                $('.sh').find('select, input, textarea').prop('disabled', true);
+                $('.dir').hide();
+                $('.sh').hide();
+                if (val === "Director") {
+                    $('.dir').find('select, input, textarea').prop('disabled', false);
+                    $('.dir').show();
+                } 
+                else if (val === "Shareholder") {
+                    $('.sh').find('select, input, textarea').prop('disabled', false);
+                    $('.sh').show();
+                }
+            });
+
+            $('#directorS2').on('change', function () {
+                var selected = $(this).select2('data')[0];
+                $._get(`@R.ApiUrl/Director/${selected.id}`).then(x => {
+
+                    $('[name="firstName"]').val(x["firstName"])
+                    $('[name="middleName"]').val(x["middleName"])
+                    $('[name="lastName"]').val(x["lastName"])
+                    $('[name="email"]').val(x["email"])
+                    $('[name="mobile"]').val(x["mobile"])
+                    $('[name="pan"]').val(x["pan"])
+                    $('[name="aadharNo"]').val(x["aadhar"])
+                    $('[name="salutation"]').val(x["details"]["salutation"])
+                    $('[name="addressLine1"]').val(x["details"]["address"])
+                    $('[name="country"]').val(x["details"]["country"])
+                    $('[name="state"]').val(x["details"]["state"])
+                    $('[name="city"]').val(x["details"]["city"])
+                    $('[name="pinCode"]').val(x["details"]["city"].toString())
+                    $('[name="fatherName"]').val(x["details"]["fatherName"])
+                    $('[name="dob"]').val(moment(x["details"]["dateOfBirth"]).format('YYYY-MM-DD'))
+                    $('[name="occupation"]').val(x["details"]["occupation"])
+                    $('[name="gender"]').val(x["details"]["gender"])
+                    $('[name="nationality"]').val(x["details"]["nationality"])
+                    $('[name="maritalStatus"]').val(x["details"]["maritalStatus"])
+                    $('[name="passport"]').val(x["details"]["passport"])
+                })
+
+            });
+
+            $('#shareholderS2').on('change', function () {
+                var selected = $(this).select2('data')[0];
+                $._get(`@R.ApiUrl/Shareholder/${selected.id}`).then(x => {
+
+                    $('[name="salutation"]').val(x["salutation"])
+                    $('[name="firstName"]').val(x["firstName"])
+                    $('[name="middleName"]').val(x["middleName"])
+                    $('[name="lastName"]').val(x["lastName"])
+                    $('[name="email"]').val(x["email"])
+                    $('[name="mobile"]').val(x["mobile"])
+                    $('[name="pan"]').val(x["pan"])
+                    $('[name="cinRegNo"]').val(x["cinReg"])
+                    $('[name="dateOfIncorporationReg"]').val(moment(x["incorporationDate"]).format('YYYY-MM-DD'))
+                    // $('[name="pan"]').val(x["companyName"])
+                    $('[name="spouseName"]').val(x["details"]["spouseName"])
+                    $('[name="guardian"]').val(x["details"]["gaurdian"])
+                    $('[name="aadharNo"]').val(x["details"]["aadharNo"])
+                    $('[name="voterId"]').val(x["details"]["voterId"])
+                    $('[name="addressLine1"]').val(x["details"]["addressLine1"])
+                    $('[name="country"]').val(x["details"]["country"])
+                    $('[name="state"]').val(x["details"]["state"])
+                    $('[name="city"]').val(x["details"]["city"])
+                    $('[name="pinCode"]').val(x["details"]["pinCode"].toString())
+                    $('[name="fatherName"]').val(x["details"]["fatherName"])
+                    $('[name="motherName"]').val(x["details"]["motherName"])
+                    $('[name="dob"]').val(moment(x["dob"]).format('YYYY-MM-DD'))
+                    $('[name="occupation"]').val(x["details"]["occupation"])
+                    $('[name="gender"]').val(x["gender"])
+                    $('[name="nationality"]').val(x["details"]["nationality"])
+                    $('[name="maritalStatus"]').val(x["maritalStatus"])
+                    $('[name="passport"]').val(x["passport"])
+                })
+
+            });
+
+            $('[name="subCategory"]').change(function () {
+                var subCategoryValue = $(this).val();
+                $('[name="underSubCategory"]').empty();
+                $('[name="underSubCategory"]').append('<option value="" disabled selected>Select a under subcategory</option>');
+
+                if (subCategoryValue) {
+                    var options = (subCategoryValue === 'Institutions') ? institutions : nonInstitutions
+                    options.forEach(function (option) {
+                        $('[name="underSubCategory"]').append(`<option>${option}</option>`);
+                    });
+                }
+            });
+
+            $('[name="underSubCategory"]').change(function () {
+                var val = $(this).val();
+                if (val === "Individual") {
+                    $('.other').find('select, input, textarea').prop('disabled', true);
+                    $('.minor').find('select, input, textarea').prop('disabled', true);
+                    $('.other').hide();
+                    $('.minor').hide();
+                    $('.indi').find('select, input, textarea').prop('disabled', false);
+                    $('.indi').show();
+                }
+                else if (val === "Minor") {
+                    $('.indi').find('select, input, textarea').prop('disabled', true);
+                    $('.other').find('select, input, textarea').prop('disabled', true);
+                    $('.indi').hide();
+                    $('.other').hide();
+                    $('.minor').find('select, input, textarea').prop('disabled', false);
+                    $('.minor').show();
+                }
+                else {
+                    $('.indi').find('select, input, textarea').prop('disabled', true);
+                    $('.minor').find('select, input, textarea').prop('disabled', true);
+                    $('.indi').hide();
+                    $('.minor').hide();
+                    $('.other').find('select, input, textarea').prop('disabled', false);
+                    $('.other').show();
+                }
+            });
+
+
+             $('[name="pinCode"]').change(function(){
+                $.get(`@R.ApiUrl/Company/PinCode/`+ $('[name="pinCode"]').val()).then(r =>{
+                    console.log (r)
+                    $('[name="city"]').val(r[0].PostOffice[0].Region)
+                    $('[name="state"]').val(r[0].PostOffice[0].State)
+                     $('[name="country"]').val(r[0].PostOffice[0].Country)
+                } )
+            });
+            
+            
+            load()
+
+        })
+
+        async function save() {
+            let isValid = true;
+            if (!vf.form()) isValid = false;
+            if (!isValid) return;
+            var temp = getObj(obj, '#frm');
+            var tempDetails = getObj(objDetails, '#frmDetails');
+            temp["details"] = tempDetails;
+            temp.companyId = localStorage.getItem("comp_id");
+            if(temp.companyId <= 0 )
+            {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Please select a company'
+                })
+                return;
+
+            }
+
+            var x = await $._post(`@R.ApiUrl/@ViewBag.ctrl/Save`, temp);
+            if (x.status) {
+                var resp = await saveImgPath(x.responseObject.id);
+                if (resp.status) {
+                    window.location = `@Url.Action("Debenture", "Home")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: "File not uploaded"
+                    })
+                }
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: x.message
+                })
+            }
+        }
+
+        async function saveImgPath(id) {
+            var formData = new FormData();
+
+            $('input[type="file"]').each(function () {
+                var fileInput = this;
+
+                if (fileInput.files.length > 0) {
+                    formData.append($(this).attr('name'), fileInput.files[0]);
+                }
+            });
+
+            // let hasFiles = false;
+            // for (let entry of formData.entries()) {
+            //     hasFiles = true;
+            //     break;
+            // }
+
+            // if (!hasFiles) {
+            //     return { status: true };
+            // }
+
+            return await $.ajax({
+                url: '@R.ApiUrl/@ViewBag.ctrl/' + id + '/image/' + deletePan + '/' + deleteAadhar,
+                data: formData,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+            });
+        }
+        function hidePanButton() {
+            $('#viewPanBtn').hide();
+            $('#deletePanBtn').hide();
+        }
+        function hideAadharButton() {
+            $('#viewAadharBtn').hide();
+            $('#deleteAadharBtn').hide();
+        }
+        function load() {
+            if (@ViewBag.id > 0) {
+                isLoading = true;
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/ById?id=${@ViewBag.id}`).then(x => {
+                    obj= x
+                    objDetails = x.details
+                    setObj(x, "#frm")
+                    setObj(x.details, '#frmDetails');
+                    var directorOption = new Option(`${x.firstName} ${x.middleName} ${x.lastName}`, x.director, true, true);
+                    $('[name="director"]').append(directorOption).val(x.director).trigger('change.select2');
+
+                    var shareholderOption = new Option(`${x.firstName} ${x.middleName} ${x.lastName}`, x.shareholder, true, true);
+                    $('[name="shareholder"]').append(shareholderOption).val(x.shareholder).trigger('change.select2');
+                    // Show/hide the PAN view button
+                    if (x.details && x.details.panUrl) {
+                        $("#panUrlFile").hide();
+                        $('#viewPanBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(x.details.panUrl, '_blank');
+                            });
+                        $('#deletePanBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Pan Card')) return;
+                                deletePan = true;
+                                hidePanButton();
+                                $("#panUrlFile").show();
+                            });
+                    } else {
+                        hidePanButton();
+                    }
+                    if (x.details && x.details.aadharUrl) {
+                        $("#aadharUrlFile").hide();
+                        $('#viewAadharBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(x.details.aadharUrl, '_blank');
+                            });
+                        $('#deleteAadharBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Aadhar Card')) return;
+                                deleteAadhar = true;
+                                hideAadharButton();
+                                $("#aadharUrlFile").show();
+                            });
+                    } else {
+                        hideAadharButton();
+                    }
+                    isLoading = false;
+                })
+            }
+        }
+    </script>
+}

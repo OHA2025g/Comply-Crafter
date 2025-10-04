@@ -1,0 +1,2701 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+
+
+
+
+<div class="card" id="tableView" style="padding:20px;">
+    <div class="table-responsive1">
+        <table border="1" style="border:1px solid black;border-collapse:collapse; width:100%;font-size:15px;">
+            <tbody>
+                <tr>
+                    <td style="text-align:center;width: 7%;"><strong>Sr. No.</strong></td>
+                    <td><strong>Particulars</strong></td>
+                    <td style="text-align:center;width: 20%;"><strong>Details</strong></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">1</td>
+                    <td>Registration and other details</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="registrationSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">2</td>
+                    <td>Turnover and net worth of the company (as defined in the Companies Act, 2013) </td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="turnoverSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">3</td>
+                    <td>Principal business activities of the company</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="activitySection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">4</td>
+                    <td>Particulars of associate companies (including joint ventures)</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="associateCompanySection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">5</td>
+                    <td>Share capital, debentures and other securities of the company</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="debenturesSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">6</td>
+                    <td>Share holding pattern</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="shareHoldingSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center;">7</td>
+                    <td>Number of promoters, members, debenture holders</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="promotersSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">8</td>
+                    <td>Meetings of members/class of members/board/committees of the board of directors</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="meetingSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">9</td>
+                    <td>Remuneration of directors and key managerial personnel</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="remunerationSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">10</td>
+                    <td>Matters related to certification of compliances and disclosures</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="certificationSection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">11</td>
+                    <td>Penalty and punishment - details thereof</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="penaltySection">Click here</a></td>
+                </tr>
+                <tr>
+                    <td style="text-align:center">12</td>
+                    <td>Other details and signing</td>
+                    <td style="text-align:center;text-decoration: underline;"><a href="javascript:;" class="toggleSection" data-target="othersSection">Click here</a></td>
+                </tr>
+            </tbody>
+        </table><br>
+    </div>
+</div>
+
+<div class="row m-auto" id="frm">
+    <div id="registrationSection" class="section" style="display: none;">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Registration and other details-1
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Registration and other details-2
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div style="text-align:right">
+                                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="part1" class="p-0">
+            @*  tab-1 *@
+            <div class="col-md-12 p-0">
+                <div class="card" style="padding:25px;">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-1 bold form-row mt-2">
+                            CIN
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                            <input type="text" class="form-control" name="cin" value="">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-1 bold form-row mt-2">
+                            GLN
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                            <input type="text" name="companyGln" class="form-control" value="">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-1 bold form-row mt-2">
+                            PAN
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-2 form-row">
+                            <input type="text" class="form-control" name="pan">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-1 bold form-row" align="center"><a id="prefillpan" class="btn btn-primary">Prefill</a></div>
+
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Name of the company
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="companyName" class="form-control">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Date of Incorporation
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="date" name="companyDateIncorporation" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Registered office address
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="companyAddress" class="form-control">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            E-mail ID of the company
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="email" name="companyEmail" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Website
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="companyWebsite" class="form-control">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Telephone number with STD code
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="telephone" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Type of the Company
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <select name="typeOfCompany" class="form-select" style="width: 100%;">
+                                <option>Select Type</option>
+                                <option value="PRIV" selected="selected">Private Company</option>
+                                <option value="OPC">One Person Company</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Category of the Company
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <select name="categoryCompany" class="form-select" style="width: 100%;">
+                                <option>Select Category</option>
+                                <option value="CLSH" selected="selected">Company limited by shares</option>
+                                <option value="CLAG">Company limited by guarantee</option>
+                                <option value="ULCM">Unlimited company</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row  mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row  mt-3">Sub-category of the Company</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <select name="subCategoryCompany" class="form-select" style="width: 100%;">
+                                <option>Select Category</option>
+                                <option value="NGOV" selected="selected">Indian Non-Government company</option>
+                                <option value="UGCM">Union Government Company</option>
+                                <option value="STGM">State Government Company</option>
+                                <option value="GACM">Guarantee and association company</option>
+                                <option value="SUFR">Subsidiary of Foreign Company</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row  mt-3">
+                            Whether company is having share capital
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row  mt-3">
+                            <label>    &nbsp;<input type="radio" name="companyShareCapital" value="YES" checked="">&nbsp; &nbsp;Yes</label>
+                            <label>    &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="companyShareCapital" value="NO">&nbsp; &nbsp; No</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Whether the form is filed for
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <label>   &nbsp;<input type="radio" name="formFiled" value="OPC">&nbsp; &nbsp;OPC</label>
+                            <label>   &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" value="Small Company" name="formFiled" checked="">&nbsp; &nbsp;Small Company</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 p-0" id="part2">
+            <div class="card" style="padding:25px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-4 bold form-row mt-4">
+                        Financial year
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row" style="text-align:center;">
+                        From &nbsp; <input type="date" name="financialYearFrom" id="" value="" class="hasDatepicker form-control">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row" style="text-align:center;">
+                        To &nbsp; &nbsp;<input type="date" name="financialYearTo" id="" value="" class="form-control hasDatepicker">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Whether Annual general meeting (AGM) held
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label> &nbsp;<input type="radio" name="annualGeneralMeeting" value="Yes"> &nbsp;&nbsp;&nbsp;Yes</label>
+                        <label> &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="annualGeneralMeeting" value="No" />&nbsp;&nbsp;&nbsp;No</label>
+                    </div>
+                    <div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            If yes, date of AGM
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="text-align:center;">
+                            <input type="date" name="dateAmg" class="form-control hasDatepicker">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Due date of AGM
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="text-align:center;">
+                        <input type="date" name="dueDateAmg" class="form-control hasDatepicker">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Whether any extension for AGM granted
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>   &nbsp;<input type="radio" name="extensionAgm" value="Yes">&nbsp; &nbsp;Yes</label>
+                        <label>  &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="extensionAgm" value="No">&nbsp; &nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        If yes, SRN of the application form filed for extension
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="srnApplicationExtention" class="datepicker form-control">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Extended due date of AGM after grant of extension
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="date" name="dueDateAgm2" class="datepicker hasDatepicker form-control">
+                    </div>
+                </div>
+                <div class="row mt-3" style="height: auto;" id="hidden_div3">
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3" style="height:130px">
+                        Specify the reasons for not holding the same
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-6 form-row mt-3" style="height:130px">
+                        <textarea name="reasonsSpecify" style="width:100%;height: 100px;"></textarea>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="turnoverSection" class="section" style="display:none;">
+        <div class="card" style="padding:20px;">
+            <div class="card-body">
+                <div style="text-align:right">
+                    <a href="registrationandother.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                    <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                </div>
+                <div>
+                    <h5 style="font-weight: bolder;margin-left: -10px">2. Turnover and net worth of the company (as defined in the Companies Act, 2013)</h5>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                            <br>
+                            <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3">
+                                (i) Total Turnover
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-6 form-row" style="text-align: center;">
+                                <input type="text" name="turnOver" style="width: 50%;" class="form-control" id="totalturnover">
+                            </div>
+                            <div style="margin-top: 70px;">
+                                <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3">
+                                    (ii) Net worth of the Company
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-6 form-row" style="text-align: center;">
+                                    <input type="text" name="netWorth" class="form-control" style="width: 50%;" value="826401">
+                                </div>
+                            </div><br>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="activitySection" class="section" style="display:none;">
+
+        <div class="card" style="padding:20px;">
+            <div style="text-align:right">
+                <a href="turnover.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+            </div>
+            <div>
+                <h5 style="font-weight: bolder">3. Principal Business Activities of the Company</h5>
+            </div>
+
+            <div class="table-responsive1">
+                <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                    <thead>
+                        <tr style="background:#8e949a; ">
+                            <th style="text-align: center;color:black; vertical-align: middle;">Sr. No.</th>
+                            <th style="text-align: center;   color:black; vertical-align: middle;">Main Activity group code</th>
+                            <th style="vertical-align: middle; color:black; text-align: center;">Description of Main Activity group</th>
+                            <th style="vertical-align: middle; color:black; text-align: center;">Business Activity Code</th>
+                            <th style="vertical-align: middle; color:black; text-align: center;">Description of Business Activity</th>
+                            <th style="vertical-align: middle; color:black; text-align: center;">% of turnover of the company</th>
+                            <th style="vertical-align: middle; color:black; text-align: center;">Remove</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tan_field">
+
+                        <tr id="rowtan_1">
+                            <td style="text-align:center;">1</td>
+                            <td>
+                                <select name="mainActGrpCod" class="subactivity_1 form-select" style="width:100%" id="subactivity_1">
+                                    <option value="">Select Activity</option>
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                    <option value="E">E</option>
+                                    <option value="F">F</option>
+                                    <option value="G">G</option>
+                                    <option value="H" selected="selected">H</option>
+                                    <option value="I">I</option>
+                                    <option value="J">J</option>
+                                    <option value="K">K</option>
+                                    <option value="L">L</option>
+                                    <option value="M">M</option>
+                                    <option value="N">N</option>
+                                    <option value="O">O</option>
+                                    <option value="P">P</option>
+                                    <option value="Q">Q</option>
+                                    <option value="R">R</option>
+                                    <option value="S">S</option>
+                                    <option value="T">T</option>
+                                    <option value="U">U</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-control" name="desMainActGrp"></td>
+                            <td><select name="subGroup" class="form-select"><option value="H7">H7</option></select></td>
+                            <td><input type="text" name="subActivityVal" class="form-control"></td>
+                            <td><input type="text" class="form-control" name="avrage"></td>
+                            <td style="text-align: center;"><button type="button" name="remove" id="1" class="btn btn-danger btn_removetan">X</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="associateCompanySection" class="section" style="display:none;">
+
+        <div class="card" style="padding:20px;">
+            <div class="card-body">
+                <div style="text-align:right">
+                    <button type="button" id="importdatabase" class="btn btn-primary mb-3"> Import from database</button>
+                    <a href="businessactivity.php?form_id=2617" class="btn btn-primary mb-3"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                    <a href="javascript:;" class="exitSection btn btn-primary mb-3"><i class="fa fa-sign-out"></i>  Exit</a>
+                </div>
+                <div>
+                    <h5 style="font-weight: bolder;">4. Particulars of Associate Companies (including joint ventures) (not applicable for OPC)</h5>
+                </div>
+                <div class="table-responsive1 mt-3">
+
+                    <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center; vertical-align: middle;">Sr. No.</th>
+                                <th style="text-align: center; vertical-align: middle;">Name of the company</th>
+                                <th style="vertical-align: middle;text-align: center;">CIN / FCRN</th>
+                                <th style="vertical-align: middle;text-align: center;">Associate/Joint Venture</th>
+                                <th style="vertical-align: middle;text-align: center;">% of shares held</th>
+                                <th style="vertical-align: middle;text-align: center;">Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tan_field">
+                            <tr>
+                                <td style="text-align:center;">1</td>
+                                <td><input type="text" name="nameCompany" class="form-control" style="width:100%"></td>
+                                <td><input type="text" name="cinFcrn" class="form-control" style="width:100%"></td>
+                                <td>
+                                    <select name="holdSubAossoc" class="form-select" style="width: 100%;">
+                                        <option value="">Select</option>
+                                        <option value="JVEN">Joint Venture</option>
+                                        <option value="ASSC">Associate</option>
+                                    </select>
+                                </td>
+                                <td><input type="text" class="form-control" name="percentShare"></td>
+                                <td></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="debenturesSection" class="section" style="display:none;">
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Share Capital-1
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part4" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Share Capital-2
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part5" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Share Capital-3
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part6" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Share Capital-4
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part7" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Share Capital-5
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div style="text-align:right">
+                                <a href="subsidaryandass.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="part3" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <h5>&nbsp;&nbsp;(a) Equity Share Capital</h5>
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                                <tbody style="background:#8e949a;">
+                                    <tr>
+                                        <th style="text-align: center;  color:black;">Particulars</th>
+                                        <th style="text-align: center;  color:black;">Authorised capital</th>
+                                        <th style="text-align: center;  color:black;">Issued capital</th>
+                                        <th style="text-align: center;  color:black;">Subscribed capital</th>
+                                        <th style="text-align: center;  color:black;">Paid up capital</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Total number of equity shares</td>
+                                        <td><input type="number" name="totalAuth" class="num form-control"></td>
+                                        <td><input type="number" name="totalIss" class="num form-control"></td>
+                                        <td><input type="number" name="totalSub" class="num form-control"></td>
+                                        <td><input type="number" name="totalPaid" class="num form-control"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total amount of equity shares (in Rupees)</td>
+                                        <td><input type="number" name="totalAuthAmount" class="num form-control"></td>
+                                        <td><input type="number" name="totalIssAmount" class="num form-control"></td>
+                                        <td><input type="number" name="totalSubAmount" class="num form-control"></td>
+                                        <td><input type="number" name="totalPaidAmount" class="num form-control"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="tan_field">
+
+                                <div id="rowtan_0">
+                                    <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                                        <tbody style="background:#8e949a;">
+                                            <tr>
+                                                <th style="text-align:center; color:black;">Class of Shares<br><input type="text" name="nameOfClass" class="form-control" /></th>
+                                                <th style="text-align:center; color:black;">Authorised capital</th>
+                                                <th style="text-align:center; color:black;">Issued capital</th>
+                                                <th style="text-align:center; color:black;">Subscribed capital</th>
+                                                <th style="text-align:center; color:black;">Paid up capital</th>
+                                                <td style="text-align:center; color:black;"><button type="button" name="remove" id="0" class="btn btn-danger btn_removetan">X</button> </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody id="example">
+                                            <tr>
+                                                <td>Number of equity shares</td>
+                                                <td><input type="number" name="authNoShare" class="num form-control"></td>
+                                                <td><input type="number" name="issNoShare" class="num form-control"></td>
+                                                <td><input type="number" name="subNoShare" class="num form-control"></td>
+                                                <td><input type="number" name="paidNoShare" class="num form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nominal value per share (in rupees)</td>
+                                                <td><input type="number" name="authAmtShare" class=" num form-control"></td>
+                                                <td><input type="number" name="issAmtShare" class=" num form-control"></td>
+                                                <td><input type="number" name="subAmtShare" class=" num form-control"></td>
+                                                <td><input type="number" name="paidAmtShare" class=" num form-control"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total amount of equity shares (in rupees)</td>
+                                                <td><input type="number" name="authAmtTotal" class=" num form-control"></td>
+                                                <td><input type="number" name="issAmtTotal" class=" num form-control"></td>
+                                                <td><input type="number" name="subAmtTotal" class=" num form-control"></td>
+                                                <td><input type="number" name="paidAmtTotal" class=" num form-control"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" name="tanAdd" id="tanadd" class="btn btn-primary" style="margin-left: 5px;margin-top: 10px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+                </div><br>
+                <div class="row">
+                    <h5>&nbsp;&nbsp;(b) Preference Share Capital</h5>
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                <tbody style="background:#8e949a;">
+                                    <tr>
+                                        <th style="text-align: center; color:black;">Particulars</th>
+                                        <th style="text-align: center; color:black;">Authorised capital</th>
+                                        <th style="text-align: center; color:black;">Issued capital</th>
+                                        <th style="text-align: center; color:black;">Subscribed capital</th>
+                                        <th style="text-align: center; color:black;">Paid up capital</th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Total number of preference shares</td>
+                                        <td><input type="number" name="preferenceSharesAuthorizedCount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesIssuedCount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesSubscribedCount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesPaidUpCount" class="form-control num"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total amount of preference shares (in Rupees)</td>
+                                        <td><input type="number" name="preferenceSharesAuthorizedAmount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesIssuedAmount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesSubscribedAmount" class="form-control num"></td>
+                                        <td><input type="number" name="preferenceSharesPaidUpAmount" class="form-control num"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div id="tan_field1">
+                                <div>
+                                    <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                        <tbody style="background:#8e949a;">
+                                            <tr>
+                                                <th style="text-align:center; color:black;">Class of Shares<br><input type="text" name="nameOfClass11" class="form-control" style="width:100%"></th>
+                                                <th style="text-align:center; color:black;">Authorised capital</th>
+                                                <th style="text-align:center; color:black;">Issued capital</th>
+                                                <th style="text-align:center; color:black;">Subscribed capital</th>
+                                                <th style="text-align:center; color:black;">Paid up capital</th>
+                                            </tr>
+                                        </tbody>
+                                        <tbody id="example">
+                                            <tr>
+                                                <td>Number of preference shares</td>
+                                                <td><input type="number" name="authNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="issNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="suNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="paidNoShare11" class="form-control num"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Nominal value per share (in rupees)</td>
+                                                <td><input type="number" name="authNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="issNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="subNoShare11" class="form-control num"></td>
+                                                <td><input type="number" name="paidNoShare11" class="form-control num"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total amount of preference shares (in rupees)</td>
+                                                <td><input type="number" name="authAmtTotal11" class="form-control num"></td>
+                                                <td><input type="number" name="issAmtTotal11" class="form-control num"></td>
+                                                <td><input type="number" name="subAmtTotal11" class="form-control num"></td>
+                                                <td><input type="number" name="paidAmtTotal11" class="form-control num"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" name="tanAdd1" id="tanadd1" class="btn btn-primary" style="margin-left: 5px;margin-top: 10px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+                </div><br>
+                <div class="row">
+                    <h5>&nbsp;&nbsp;(c) Unclassified Share Capital</h5>
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row">
+                        Total amount of unclassified shares
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-6  form-row">
+                        <input type="number" name="shareCapital" class="form-control num">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="part4" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="table-responsive1">
+
+                    <h5>&nbsp;(d) Break-up of paid-up share capital</h5>
+                    <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                        <tbody>
+                            <tr style="background:#8e949a;">
+                                <th style="text-align:center; color:black;"><strong>Class of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>No. of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Total nominal amount</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Total Paid-up amount</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Total Premium</strong></th>
+                            </tr>
+                            <tr>
+                                <td><strong>Equity shares</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>At the beginning of the year</td>
+                                <td><input type="number" name="equitySharesAtBeginningNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtBeginningNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtBeginningPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtBeginningPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>Increase during the year</td>
+                                <td><input type="number" name="equitySharesIncreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesIncreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesIncreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesIncreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>i. Pubic Issues</td>
+                                <td><input type="number" name="publicIssuesNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="publicIssuesNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="publicIssuesPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="publicIssuesPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>ii. Rights issue</td>
+                                <td><input type="number" name="rightsIssueNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="rightsIssueNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="rightsIssuePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="rightsIssuePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iii. Bonus issue</td>
+                                <td><input type="number" name="bonusIssueNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="bonusIssueNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="bonusIssuePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="bonusIssuePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iv. Private Placement/ Preferential allotment</td>
+                                <td><input type="number" name="privatePlacementNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="privatePlacementNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="privatePlacementPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="privatePlacementPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>v. ESOPs</td>
+                                <td><input type="number" name="esopsNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="esopsNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="esopsPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="esopsPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>vi. Sweat equity shares allotted</td>
+                                <td><input type="number" name="sweatEquityNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="sweatEquityNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="sweatEquityPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="sweatEquityPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>vii. Conversion of Preference share</td>
+                                <td><input type="number" name="preferenceConversionNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceConversionNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceConversionPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceConversionPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>viii. Conversion of Debentures</td>
+                                <td><input type="number" name="debentureConversionNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="debentureConversionNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="debentureConversionPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="debentureConversionPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>ix. GDRs/ADRs</td>
+                                <td><input type="number" name="gdrAdrNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="gdrAdrNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="gdrAdrPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="gdrAdrPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>x. Others, specify<br><input type="text" name="otherEquityDescription" class="form-control" style="width:100%;" value="NA"></td>
+                                <td><input type="number" name="otherEquityNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="otherEquityNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherEquityPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherEquityPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>Decrease during the year</td>
+                                <td><input type="number" name="equitySharesDecreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesDecreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesDecreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesDecreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>i. Buy-back of shares</td>
+                                <td><input type="number" name="buyBackNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="buyBackNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="buyBackPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="buyBackPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>ii. Shares forfeited</td>
+                                <td><input type="number" name="forfeitedSharesNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="forfeitedSharesNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="forfeitedSharesPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="forfeitedSharesPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iii. Reduction of share capital</td>
+                                <td><input type="number" name="capitalReductionNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="capitalReductionNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="capitalReductionPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="capitalReductionPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iv. Others, specify<br><input type="text" name="otherDecreaseDescription" class="form-control" style="width:100%;" value="NA"></td>
+                                <td><input type="number" name="otherDecreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="otherDecreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherDecreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherDecreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>At the end of the year</td>
+                                <td><input type="number" name="equitySharesAtEndNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtEndNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtEndPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="equitySharesAtEndPremium" class="form-control num"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="part5" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="table-responsive1">
+                    <h5>&nbsp;(d) Break-up of paid-up share capital-(II)</h5>
+                    <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                        <tbody>
+                            <tr style="background:#8e949a;">
+                                <th style="color:black; text-align:center;width: 20%;"><strong>Class of shares</strong></th>
+                                <th style="color:black; text-align:center;"><strong>No. of shares</strong></th>
+                                <th style="color:black; text-align:center;"><strong>Total nominal amount</strong></th>
+                                <th style="color:black; text-align:center;"><strong>Total Paid-up amount</strong></th>
+                                <th style="color:black; text-align:center;"><strong>Total Premium</strong></th>
+                            </tr>
+                            <tr>
+                                <td><strong>Preference shares</strong></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>At the beginning of the year</td>
+                                <td><input type="number" name="preferenceSharesAtBeginningNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtBeginningNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtBeginningPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtBeginningPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>Increase during the year</td>
+                                <td><input type="number" name="preferenceSharesIncreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesIncreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesIncreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesIncreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>i. Issues of shares</td>
+                                <td><input type="number" name="preferenceSharesIssuedNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesIssuedNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesIssuedPaidUpAmount" class="form-control num"> </td>
+                                <td><input type="number" name="preferenceSharesIssuedPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>ii. Re-issue of forfeited shares</td>
+                                <td><input type="number" name="preferenceSharesReissuedNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesReissuedNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesReissuedPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesReissuedPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iii. Others, specify<br><input type="text" name="otherPreferenceIncreaseDescription" class="form-control" style="width:100%" value="NA"></td>
+                                <td><input type="number" name="otherPreferenceIncreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceIncreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceIncreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceIncreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>Decrease during the year</td>
+                                <td><input type="number" name="preferenceSharesDecreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesDecreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesDecreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesDecreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>i. Redemption of shares</td>
+                                <td><input type="number" name="preferenceSharesRedeemedNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesRedeemedNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesRedeemedPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesRedeemedPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>ii. Shares forfeited</td>
+                                <td><input type="number" name="preferenceSharesForfeitedNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesForfeitedNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesForfeitedPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesForfeitedPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iii. Reduction of share capital</td>
+                                <td><input type="number" name="preferenceCapitalReductionNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceCapitalReductionNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceCapitalReductionPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceCapitalReductionPremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>iv. Others, specify<br><input type="text" name="otherPreferenceDecreaseDescription" class="form-control" style="width:100%" value="NA"></td>
+                                <td><input type="number" name="otherPreferenceDecreaseNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceDecreaseNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceDecreasePaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="otherPreferenceDecreasePremium" class="form-control num"></td>
+                            </tr>
+                            <tr>
+                                <td>At the end of the year</td>
+                                <td><input type="number" name="preferenceSharesAtEndNumberOfShares" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtEndNominalAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtEndPaidUpAmount" class="form-control num"></td>
+                                <td><input type="number" name="preferenceSharesAtEndPremium" class="form-control num"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="part6" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <h5 style="margin-left: -14px; text-align: justify;">(iii) Details of shares/Debentures Transfers since closure date of last financial year (or in the case of the first return at any time since the incorporation of the company)</h5>
+                    <div style="text-align:right;margin-top: -20px;">
+                        <button type="button" class="btn btn-primary" id="importsharetranfer">Import from database</button>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-1 bold form-row" style="text-align: center;margin-right: 30px;">
+                            <input type="checkbox" name="isNil" value="NIL" id="IS_NIL" checked="">&nbsp;&nbsp;<span>NIL</span>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                            Details being provided in a CD/Digital Media
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-2 form-row">
+                            &nbsp;&nbsp;<label><input type="radio" name="detailsProvidedInDigitalMedia" value="YES">&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="detailsProvidedInDigitalMedia" value="NO">&nbsp;&nbsp;No</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="detailsProvidedInDigitalMedia" value="NA">&nbsp;&nbsp;NA</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                            Separate sheet attached for details of transfers
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-2 form-row">
+                            <label>  &nbsp;&nbsp;<input type="radio" name="seprateSheetTransfers" value="YES">&nbsp;&nbsp;Yes</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="seprateSheetTransfers" value="NO">&nbsp;&nbsp;No</label>&nbsp;&nbsp;&nbsp;&nbsp;<label><input type="radio" name="seprateSheetTransfers" value="NA">&nbsp;&nbsp;NA</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Date of the previous annual general meeting
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                            <input type="date" name="previousAnnualMeetingDate" id="PREV_AGM_DATE" class="form-control hasDatepicker">
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <h4>Entry No. 1</h4>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row">Date of transfer</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="date" name="transferDate" class="form-control" style="width:100%" id="DATE_OF_TRANSFER"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row">Type of transfer</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3">
+                            <select name="transferType" class="form-control" style="width: 100%;">
+                                <option value="">Select Type</option>
+                                <option value="EQTY">Equity Shares</option>
+                                <option value="PREF">Preference Shares</option>
+                                <option value="DEBT">Debentures</option>
+                                <option value="STOC">Stock</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Number of Shares/ Debentures/ Units Transferred</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="number" class="form-control num" name="numberOfSharesTransferred" style="width:100%" id="NUM_OF_SHARES"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Amount per Share/ Debenture/Unit (in Rs.)</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="number" class="form-control num" name="amountPerShare" style="width:100%" id="AMT_PER_SHARE"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Ledger Folio of Transferor</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transferorLedgerFolio" style="width:100%" id="LEDGER_FOLIO_TFO"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Ledger Folio of Transferee</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transfereeLedgerFolio" style="width:100%" id="LEDGER_FOLIO_TRE"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Transferor's Name</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row" mt-2><input type="text" class="form-control" name="transferorFirstName" style="width:100%" id="TRANSFEROR_NAME" placeholder="first name"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transferorMiddleName" style="width:100%" id="TRANSFEROR_NAME1" placeholder="middle name"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transferorSurname" style="width:100%" id="TRANSFEROR_NAME2" placeholder="Surname"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 bold form-row mt-3">Transferee's Name</div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transfereeFirstName" style="width:100%" id="TRANSFEREE_NAME" placeholder="first name"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transfereeMiddleName" style="width:100%" id="TRANSFEREE_NAME1" placeholder="middle name"></div>
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3"><input type="text" class="form-control" name="transfereeSurname" style="width:100%" id="TRANSFEREE_NAME2" placeholder="Surname"></div>
+                    </div>
+                    <button type="button" name="tanadd3" id="tanadd3" class="btn btn-primary" style="margin-top: 10px; width:10rem; display: inline-block;"><i class="fa fa-plus"></i>  Add More</button>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div id="part7" class="p-0">
+            <div class="card" style="padding:20px;">
+                <h5 style="margin-left:-14px">(iv) Debentures (Outstanding as at the end of financial year)</h5>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center; color:black;"><strong>Particulars</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Number of units</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Nominal value per unit</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Total value</strong></th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Non-convertible debentures</td>
+                                        <td><input type="number" name="debenturesNumberOfUnits" class="form-control num" id="DEB_NUM_UNIT1" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="nominalValuePerUnit" class="form-control num" id="DEB_NOM_UNIT1" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="debTotalUnit1" class="form-control num" id="DEB_TOTAL_UNIT1" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Partly convertible debentures</td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesNumberOfUnits" class="form-control num" id="DEB_NUM_UNIT2" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesNominalValue" class="form-control num" id="DEB_NOM_UNIT2" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesTotalValue" class="form-control num" id="DEB_TOTAL_UNIT2" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fully convertible debentures</td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesNumberOfUnits" id="DEB_NUM_UNIT3" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesNominalValuePerUnit" id="DEB_NOM_UNIT3" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesTotalValue" id="DEB_TOTAL_UNIT3" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td><input type="number" name="totalDebenturesNumberOfUnits" id="DEB_NUM_UNIT4" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                        <td><input type="number" name="totalDebenturesNominalValuePerUnit "id="DEB_NOM_UNIT4" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                        <td><input type="number" name="totalDebenturesTotalValue" id="DEB_TOTAL_UNIT4" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <h5 style="margin-left:-14px">Details of debentures</h5>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center; color:black;"><strong>Class of debentures</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Outstanding as at the beginning of the year</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Increase during the year</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Decrease during the year</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Outstanding as at the end of the year</strong></th>
+                                    </tr>
+                                </tbody>
+                                <tbody>
+                                    <tr>
+                                        <td>Non-convertible debentures</td>
+                                        <td><input type="number" name="nonConvertibleDebenturesOutstandingAtBeginning" id="DE_DEB_OUTST_UNIT1" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="nonConvertibleDebenturesIncreaseDuringYear" id="DE_DEB_INCR_UNIT1" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="nonConvertibleDebenturesDecreaseDuringYear" id="DE_DEB_DEC_UNIT1" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="nonConvertibleDebenturesOutstandingAtEnd" id="DE_DEB_END_UNIT1" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Partly convertible debentures</td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesOutstandingAtBeginning"  id="DE_DEB_OUTST_UNIT2" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesIncreaseDuringYear" id="DE_DEB_INCR_UNIT2" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesDecreaseDuringYear" id="DE_DEB_DEC_UNIT2" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="partlyConvertibleDebenturesOutstandingAtEnd" id="DE_DEB_END_UNIT2" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fully convertible debentures</td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesOutstandingAtBeginning" id="DE_DEB_OUTST_UNIT3" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesIncreaseDuringYear" id="DE_DEB_INCR_UNIT3" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesDecreaseDuringYear" id="DE_DEB_DEC_UNIT3" class="form-control num" value="0" style="width: 100%;"></td>
+                                        <td><input type="number" name="fullyConvertibleDebenturesOutstandingAtEnd" id="DE_DEB_END_UNIT3" class="form-control num" value="0" readonly="" style="width: 100%;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <h5 style="margin-left:-14px">(v) Securities (other than shares and debentures)</h5>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <table border="1" class="table table-bordered table-hover " id="example4" style="width: 99%">
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center; color:black;"><strong>Type of Securities</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Number of Securities</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Nominal Value of each Unit</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Total Nominal Value</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Paid up Value of each Unit</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Total Paid up Value</strong></th>
+                                        <th style="text-align:center; color:black;"><strong>Remove</strong></th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field4">
+                                    <tr>
+                                        <td><input type="text" name="typeOfSecr" class="form-control"></td>
+                                        <td><input type="number" name="numberOfSecr" class="form-control num"></td>
+                                        <td><input type="number" name="nomvalOfSecr" class="form-control num"></td>
+                                        <td><input type="number" name="totalNomvalOfSecr" class="form-control num"></td>
+                                        <td><input type="number" name="paidNomvalOfSecr" class="form-control num"></td>
+                                        <td><input type="number" name="topaNomvalOfSecr" class="form-control num"></td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd4" id="tanadd4" class="btn btn-primary" style="margin-left: -5px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="shareHoldingSection" class="section" style="display: none;">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part8" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Promoters
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part9" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Public
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div style="text-align:right">
+                                <a href="sharecapital.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="part8" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="table-responsive1">
+                    <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                        <tbody>
+                            <tr style="background-color:#8e949a;">
+
+                                <th style="text-align:center;  color:black; vertical-align: middle;" rowspan="2"><strong>Sr. No.</strong></th>
+                                <th style="text-align:center;  color:black;vertical-align: middle;" rowspan="2"><strong>Category</strong></th>
+                                <th style="text-align:center;  color:black;" colspan="2"><strong>Equity</strong></th>
+                                <th style="text-align:center;  color:black;" colspan="2"><strong>Preference</strong></th>
+                            </tr>
+                            <tr style="background-color:#8e949a;">
+                                <th style="text-align:center; color:black;"><strong>Number of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Percentage</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Number of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Percentage</strong></th>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center;">1</td>
+                                <td>Individual/Hindu Undivided Family</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(i) Indian</td>
+                                <td><input type="number" name="indEqtNum" id="IND_EQT_NUM" class="form-control num" value="100000" style="width: 100%;"></td>
+                                <td><input type="text" name="indEqtPre" id="IND_EQT_PER" class="form-control num" value="100" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="indPreNum" id="IND_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="indPrePre" id="IND_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(ii) Non-resident Indian (NRI)</td>
+                                <td><input type="number" name="nriEqtNum" class="form-control num" id="NRI_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="nriEqtPre" class="form-control num" id="NRI_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="nriPreNum" class="form-control num" id="NRI_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="nriPrePre" class="form-control num" id="NRI_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(iii) Foreign national (other than NRI)</td>
+                                <td><input type="number" name="othEqtNum" id="OTH_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="othEqtPre" id="OTH_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="othPreNum" id="OTH_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="othPrePre" id="OTH_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">2</td>
+                                <td>Government</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(i) Central Government</td>
+                                <td><input type="number" name="cgovEqtNum" id="CGOV_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="cgovEqtPre" id="CGOV_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="cgovPreNum" id="CGOV_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="cgovPrePre" id="CGOV_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(ii) State Government</td>
+                                <td><input type="number" name="sgovEqtNum" class="form-control num" id="SGOV_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="sgovEqtPre" class="form-control num" id="SGOV_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="sgovPreNum" class="form-control num" id="SGOV_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="sgovPrePre" class="form-control num" id="SGOV_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(iii) Government companies</td>
+                                <td><input type="number" name="govcomEqtNum" class="form-control num" id="GOVCOM_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="govcomEqtPre" class="form-control num" id="GOVCOM_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="govcomPreNum" class="form-control num" id="GOVCOM_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="govcomPrePre" class="form-control num" id="GOVCOM_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">3</td>
+                                <td>Insurance companies</td>
+                                <td><input type="number" name="insurEqtNum" class="form-control num" id="INSUR_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="insurEqtPre" class="form-control num" id="INSUR_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="insurPreNum" class="form-control num" id="INSUR_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="insurPrePre" class="form-control num" id="INSUR_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">4</td>
+                                <td>Banks</td>
+                                <td><input type="number" name="banksEqtNum" class="form-control num" id="BANKS_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="banksEqtPre" class="form-control num" id="BANKS_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="banksPreNum" class="form-control num" id="BANKS_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="banksPrePre" class="form-control num" id="BANKS_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">5</td>
+                                <td>Financial institutions</td>
+                                <td><input type="number" name="finistEqtNum" id="FINIST_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="finistEqtPre" id="FINIST_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="finistPreNum" id="FINIST_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="finistPrePre" id="FINIST_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">6</td>
+                                <td>Foreign institutional investors</td>
+                                <td><input type="number" name="fitEqtNum" class="form-control num" id="FII_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="fitEqtPre" class="form-control num" id="FII_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="fitPreNum" class="form-control num" id="FII_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="fitPrePre" class="form-control num" id="FII_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">7</td>
+                                <td>Mutual funds</td>
+                                <td><input type="number" name="mfEqtNum" class="form-control num" id="MF_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="mfEqtPre" class="form-control num" id="MF_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="mfPreNum" class="form-control num" id="MF_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="mfPrePre" class="form-control num" id="MF_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">8</td>
+                                <td>Venture capital</td>
+                                <td><input type="number" name="vcEqtNum" class="form-control num" id="VC_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="vcEqtPre" class="form-control num" id="VC_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="vcPreNum" class="form-control num" id="VC_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="vcPrePre" class="form-control num" id="VC_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">9</td>
+                                <td>Body corporate (not mentioned above)</td>
+                                <td><input type="number" name="corpEqtNum" class="form-control num" id="CORP_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="corpEqtPre" class="form-control num" id="CORP_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="corpPreNum" class="form-control num" id="CORP_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="corpPrePre" class="form-control num" id="CORP_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">10</td>
+                                <td>Others</td>
+                                <td><input type="number" name="otherEqtNum" class="form-control num" id="OTHER_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="otherEqtPre" class="form-control num" id="OTHER_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="otherPreNum" class="form-control num" id="OTHER_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="otherPrePre" class="form-control num" id="OTHER_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>Total</td>
+                                <td><input type="number" name="totalEqtNum" id="TOTAL_EQT_NUM" class="form-control num" value="100000" style="width: 100%;" readonly=""></td>
+                                <td><input type="text" name="totalEqtPre" id="TOTAL_EQT_PER" class="form-control num" value="100" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="totalPreNum" id="TOTAL_PRE_NUM" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="text" name="totalPrePre" id="TOTAL_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-4 bold form-row" style="margin-left: 15px;">
+                        Total number of shareholders (promoters)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row" style="text-align:center;">
+                        <input type="number" name="numbersPromoters" class="form-control num" id="NUMBER_PROMOTERS" style="width: 50%;" value="2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="part9" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="table-responsive1">
+                    <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                        <tbody>
+                            <tr style="background-color:#8e949a;">
+
+                                <th style="text-align:center;  color:black; vertical-align: middle;" rowspan="2"><strong>Sr. No.</strong></th>
+                                <th style="text-align:center;  color:black;vertical-align: middle;" rowspan="2"><strong>Category</strong></th>
+                                <th style="text-align:center;  color:black;" colspan="2"><strong>Equity</strong></th>
+                                <th style="text-align:center;  color:black;" colspan="2"><strong>Preference</strong></th>
+                            </tr>
+                            <tr style="background-color:#8e949a;">
+                                <th style="text-align:center; color:black;"><strong>Number of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Percentage</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Number of shares</strong></th>
+                                <th style="text-align:center; color:black;"><strong>Percentage</strong></th>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center;">1</td>
+                                <td>Individual/Hindu Undivided Family</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(i) Indian</td>
+                                <td><input type="number" name="indEqtNumPub" id="IND_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="indEqtPrePub" id="IND_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="indPreNumPub" id="IND_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="indPrePrePub" id="IND_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(ii) Non-resident Indian (NRI)</td>
+                                <td><input type="number" name="nriEqtNumPub" class="form-control num" id="NRI_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="nriEqtPrePub" class="form-control num" id="NRI_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="nriPreNumPub" class="form-control num" id="NRI_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="nriPrePrePub" class="form-control num" id="NRI_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(iii) Foreign national (other than NRI)</td>
+                                <td><input type="number" name="othEqtNumPub" id="OTH_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="othEqtPrePub" id="OTH_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="othPreNumPub" id="OTH_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="othPrePrePub" id="OTH_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">2</td>
+                                <td>Government</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(i) Central Government</td>
+                                <td><input type="number" name="cgovEqtNumPub" id="CGOV_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="cgovEqtPrePub" id="CGOV_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="cgovPreNumPub" id="CGOV_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="cgovPrePrePub" id="CGOV_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(ii) State Government</td>
+                                <td><input type="number" name="sgovEqtNumPub" class="form-control num" id="SGOV_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="sgovEqtPrePub" class="form-control num" id="SGOV_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="sgovPreNumPub" class="form-control num" id="SGOV_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="sgovPrePrePub" class="form-control num" id="SGOV_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>(iii) Government companies</td>
+                                <td><input type="number" name="govcomEqtNumPub" class="form-control num" id="GOVCOM_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="govcomEqtPrePub" class="form-control num" id="GOVCOM_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="govcomPreNumPub" class="form-control num" id="GOVCOM_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="govcomPrePrePub" class="form-control num" id="GOVCOM_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">3</td>
+                                <td>Insurance companies</td>
+                                <td><input type="number" name="insurEqtNumPub" class="form-control num" id="INSUR_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="insurEqtPrePub" class="form-control num" id="INSUR_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="insurPreNumPub" class="form-control num" id="INSUR_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="insurPrePrePub" class="form-control num" id="INSUR_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">4</td>
+                                <td>Banks</td>
+                                <td><input type="number" name="banksEqtNumPub" class="form-control num" id="BANKS_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="banksEqtPrePub" class="form-control num" id="BANKS_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="banksPreNumPub" class="form-control num" id="BANKS_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="banksPrePrePub" class="form-control num" id="BANKS_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">5</td>
+                                <td>Financial institutions</td>
+                                <td><input type="number" name="finistEqtNumPub" id="FINIST_EQT_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="finistEqtPrePub" id="FINIST_EQT_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="finistPreNumPub" id="FINIST_PRE_NUM" class="form-control num" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="finistPrePrePub" id="FINIST_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">6</td>
+                                <td>Foreign institutional investors</td>
+                                <td><input type="number" name="fitEqtNumPub" class="form-control num" id="FII_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="fitEqtPrePub" class="form-control num" id="FII_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="fitPreNumPub" class="form-control num" id="FII_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="fitPrePrePub" class="form-control num" id="FII_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">7</td>
+                                <td>Mutual funds</td>
+                                <td><input type="number" name="mfEqtNumPub" class="form-control num" id="MF_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="mfEqtPrePub" class="form-control num" id="MF_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="mfPreNumPub" class="form-control num" id="MF_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="mfPrePrePub" class="form-control num" id="MF_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">8</td>
+                                <td>Venture capital</td>
+                                <td><input type="number" name="vcEqtNumPub" class="form-control num" id="VC_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="vcEqtPrePub" class="form-control num" id="VC_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="vcPreNumPub" class="form-control num" id="VC_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="vcPrePrePub" class="form-control num" id="VC_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">9</td>
+                                <td>Body corporate (not mentioned above)</td>
+                                <td><input type="number" name="corpEqtNumPub" class="form-control num" id="CORP_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="corpEqtPrePub" class="form-control num" id="CORP_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="corpPreNumPub" class="form-control num" id="CORP_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="corpPrePrePub" class="form-control num" id="CORP_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;">10</td>
+                                <td>Others</td>
+                                <td><input type="number" name="otherEqtNumPub" class="form-control num" id="OTHER_EQT_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="otherEqtPrePub" class="form-control num" id="OTHER_EQT_PER" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="otherPreNumPub" class="form-control num" id="OTHER_PRE_NUM" value="0" style="width: 100%;"></td>
+                                <td><input type="text" name="otherPrePrePub" class="form-control num" id="OTHER_PRE_PER" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center;"></td>
+                                <td>Total</td>
+                                <td><input type="number" name="totalEqtNumPub" id="TOTAL_EQT_NUM" class="form-control num" value="100000" style="width: 100%;" readonly=""></td>
+                                <td><input type="text" name="totalEqtPrePub" id="TOTAL_EQT_PER" class="form-control num" value="100" style="width: 100%;" readonly=""></td>
+                                <td><input type="number" name="totalPreNumPub" id="TOTAL_PRE_NUM" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                                <td><input type="text" name="totalPrePrePub" id="TOTAL_PRE_PER" class="form-control num" value="0" style="width: 100%;" readonly=""></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-4 bold form-row" style="margin-left: 15px;">
+                        Total number of shareholders (promoters)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row" style="text-align:center;">
+                        <input type="number" name="numbersPromotersPub" class="form-control num" id="NUMBER_PROMOTERS" style="width: 50%;" value="2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="promotersSection" class="section" style="display: none;">
+        <div class="card" style="padding:20px;">
+            <div class="card-body">
+                <div style="text-align:right">
+                    <a href="shareholdingpat.php?form_id=4196" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                    <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                </div>
+                <div>
+                    <h5 style="font-weight: bolder;">7. Number of Promoters, Members, Debenture Holders</h5>
+                </div>
+                <div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                            <div class="table-responsive1">
+                                <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                    <tbody>
+
+                                        <tr style="background-color:#8e949a;">
+
+                                            <th style="text-align:center; color:black; width: 50%;">Details</th>
+                                            <th style="text-align:center; color:black;">At the beginning of the year</th>
+                                            <th style="text-align:center; color:black;">At the end of the year</th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <td>Promoters</td>
+                                            <td><input type="number" name="numOfPromoters" class="form-control num"></td>
+                                            <td><input type="number" name="numOfPromoters1" class="form-control num"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Members (other than promoters)</td>
+                                            <td><input type="number" name="numOfMembers" class="form-control num" id="NUM_OF_MEMBERS"></td>
+                                            <td><input type="number" name="numOfMembers1" class="form-control num" id="NUM_OF_MEMBERS1"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Debenture holders</td>
+                                            <td><input type="number" name="numOfDeb" class="form-control num"></td>
+                                            <td><input type="number" name="numOfDeb1" class="form-control num"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="meetingSection" class="section" style="display: none;">
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part10" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Members
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part11" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Board
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part12" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attendance
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                            <div style="text-align:right">
+                                <a href="shareholdingpat.php?form_id=4196" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="part10" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1" id="get_agm">
+                            <h5>A. MEMBERS/CLASS /REQUISITIONED/NCLT/COURT CONVENED MEETINGS</h5><table border="1" class="table table-bordered table-hover " id="example80" style="width: 99%">
+
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="color:black; width:35%;vertical-align: middle;text-align:center;" rowspan="2">Type of meeting</th>
+                                        <th style="color:black; text-align:center;vertical-align: middle;" rowspan="2">Date of meeting</th>
+                                        <th style="color:black; text-align:center;vertical-align: middle;" rowspan="2">Total Number of Members entitled to attend meeting</th>
+                                        <th style="color:black; text-align:center;" colspan="2">Attendance</th>
+                                        <th style="color:black; text-align:center;vertical-align: middle;" rowspan="2">Remove</th>
+                                    </tr>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="color:black;">Number of members attended</th>
+                                        <th style="color:black;">% of total shareholding</th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field">
+
+
+                                    <tr id="rowtan1_2">
+                                        <td><input type="text" name="typeOfMeetings" class="form-control"></td>
+                                        <td><input type="date" name="dateOfMeeting" class="form-control datepicker1 hasDatepicker"></td>
+                                        <td><input type="number" name="totalMembers" class="form-control num" id="TOTAL_MEMBERS" style="width:100%"></td>
+                                        <td><input type="number" name="attendMmb" class="form-control num" id="NO_OF_EQUITY_SHR" style="width:100%;"></td>
+                                        <td><input type="text" name="attendPerc" class="form-control" style="width:100%;" id="ATTEND_PERC"></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="2" class="btn btn-danger btn_removetan1">X</button></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd" id="tanadd" class="btn btn-primary" style="margin-left: -12px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+            </div>
+
+        </div>
+
+        <div id="part11" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1" id="get_board">
+                            <h5>B. BOARD MEETINGS</h5><table border="1" class="table table-bordered table-hover " id="example16" style="width: 99%">
+
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center;  color:black;">Sr. No.</th>
+                                        <th style="text-align:center; color:black;">Date of meeting</th>
+                                        <th style="text-align:center; color:black;">Total Number of directors associated as on the date of meeting</th>
+                                        <th style="text-align:center; color:black;">Number of directors attended</th>
+                                        <th style="text-align:center; color:black;">% of attendance</th>
+                                        <th style="text-align:center; color:black;">Remove</th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field1">
+
+                                    <tr id="rowtan1_1">
+                                        <td style="text-align:center;">1</td>
+                                        <td><input type="date" name="DATE_OF_MEETINGS1[]" class="form-control"></td>
+                                        <td><input type="number" name="TOTAL_MEMBERS1[]" class="form-control num" id="TOTAL_MEMBERS11" style="width:100%" value="2"></td>
+                                        <td><input type="number" name="ATTEND_MEMBER1[]" class="form-control num" id="ATTEND_MEMBER11" style="width:100%;" value="2"></td>
+                                        <td><input type="text" name="ATTEND_PERC1[]" class="form-control" style="width:100%;" id="ATTEND_PERC11" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="1" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr id="rowtan1_2">
+                                        <td style="text-align:center;">2</td>
+                                        <td><input type="date" class="form-control" name="DATE_OF_MEETINGS1[]"></td>
+                                        <td><input type="number" class="form-control num" name="TOTAL_MEMBERS1[]" id="TOTAL_MEMBERS12" style="width:100%" value="2"></td>
+                                        <td><input type="number" class="form-control num" name="ATTEND_MEMBER1[]" id="ATTEND_MEMBER12" style="width:100%;" value="2"></td>
+                                        <td><input type="text" class="form-control" name="ATTEND_PERC1[]" style="width:100%;" id="ATTEND_PERC12" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="2" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr id="rowtan1_3">
+                                        <td style="text-align:center;">3</td>
+                                        <td><input type="date" name="DATE_OF_MEETINGS1[]" class="form-control" style="width:100%" placeholder="dd/mm/yyyy" class="datepicker2 hasDatepicker" value="14/08/2023" id="DATE_OF_MEETINGS1_3" onchange="checkForm(this); return false;"></td>
+                                        <td><input type="number" name="TOTAL_MEMBERS1[]" class="form-control num" id="TOTAL_MEMBERS13" style="width:100%" value="2"></td>
+                                        <td><input type="number" name="ATTEND_MEMBER1[]" class="form-control num" id="ATTEND_MEMBER13" style="width:100%;" value="2"></td>
+                                        <td><input type="text" name="ATTEND_PERC1[]" class="form-control" style="width:100%;" id="ATTEND_PERC13" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="3" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr id="rowtan1_4">
+                                        <td style="text-align:center;">4</td>
+                                        <td><input type="date" name="DATE_OF_MEETINGS1[]" class="form-control" style="width:100%" placeholder="dd/mm/yyyy" class="datepicker2 hasDatepicker" value="30/09/2023" id="DATE_OF_MEETINGS1_4" onchange="checkForm(this); return false;"></td>
+                                        <td><input type="number" name="TOTAL_MEMBERS1[]" class="form-control num" id="TOTAL_MEMBERS14" style="width:100%" value="2"></td>
+                                        <td><input type="number" name="ATTEND_MEMBER1[]" class="form-control num" id="ATTEND_MEMBER14" style="width:100%;" value="2"></td>
+                                        <td><input type="text" name="ATTEND_PERC1[]" class="form-control" style="width:100%;" id="ATTEND_PERC14" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="4" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr id="rowtan1_5">
+                                        <td style="text-align:center;">5</td>
+                                        <td><input type="date" class="form-control" name="DATE_OF_MEETINGS1[]" style="width:100%" placeholder="dd/mm/yyyy" class="datepicker2 hasDatepicker" value="15/11/2023" id="DATE_OF_MEETINGS1_5" onchange="checkForm(this); return false;"></td>
+                                        <td><input type="number" class="form-control num" name="TOTAL_MEMBERS1[]" id="TOTAL_MEMBERS15" style="width:100%" value="2"></td>
+                                        <td><input type="number" class="form-control num" name="ATTEND_MEMBER1[]" id="ATTEND_MEMBER15" style="width:100%;" value="2"></td>
+                                        <td><input type="text" class="form-control" name="ATTEND_PERC1[]" style="width:100%;" id="ATTEND_PERC15" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="5" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr id="rowtan1_6">
+                                        <td style="text-align:center;">6</td>
+                                        <td><input type="date" class="form-control" name="DATE_OF_MEETINGS1[]" style="width:100%" placeholder="dd/mm/yyyy" class="datepicker2 hasDatepicker" value="15/01/2024" id="DATE_OF_MEETINGS1_6" onchange="checkForm(this); return false;"></td>
+                                        <td><input type="number" class="form-control num" name="TOTAL_MEMBERS1[]" id="TOTAL_MEMBERS16" style="width:100%" value="2"></td>
+                                        <td><input type="number" class="form-control num" name="ATTEND_MEMBER1[]" id="ATTEND_MEMBER16" style="width:100%;" value="2"></td>
+                                        <td><input type="text" class="form-control" name="ATTEND_PERC1[]" style="width:100%;" id="ATTEND_PERC16" value="100" readonly=""></td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="6" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd1" id="tanadd1" class="btn btn-primary" style="margin-left: -12px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+            </div>
+        </div>
+
+        <div id="part12" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1" id="get_attendence">
+                            <h5>C. ATTENDANCE OF DIRECTORS</h5><table border="1" class="table table-bordered table-hover " id="example15" style="width: 99%">
+
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="color:black;  text-align:center;vertical-align: middle;" rowspan="2">Sr. No.</th>
+                                        <th style="color:black;  text-align:center;vertical-align: middle;width: 10%;" rowspan="2">DIN</th>
+                                        <th style="color:black;  text-align:center;vertical-align: middle;width: 15%;" rowspan="2">Name of the director</th>
+                                        <th style="color:black;  text-align:center;" colspan="3">Board Meetings</th>
+                                        <th style="color:black;  text-align:center;" colspan="3">Committee Meetings</th>
+                                        <th style="color:black;  text-align:center;vertical-align: middle;" rowspan="2">Whether attended AGM held on</th>
+                                        <th style="color:black;  text-align:center;vertical-align: middle;" rowspan="2">Remove</th>
+                                    </tr>
+                                    <tr style="background-color:#8e949a;">
+
+                                        <th style=" color:black;">Number of Meetings which director was entitled to attend</th>
+                                        <th style=" color:black;">Number of Meetings attended</th>
+                                        <th style=" color:black;">% of attendance</th>
+                                        <th style=" color:black;">Number of Meetings which director was entitled to attend</th>
+                                        <th style=" color:black;">Number of Meetings attended</th>
+                                        <th style=" color:black;">% of attendance</th>
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field2">
+
+                                    <tr>
+                                        <td style="text-align:center;">1</td>
+                                        <td>
+                                            <input type="number" class="form-control num" name="DIN_OF_DIRECTOR[]" value="09475141" style="width:100%">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="NAME_OF_DIRECTOR[]" value="Mokshank Dilipbhai Savla" style="width:100%">
+                                        </td>
+                                        <td><input type="number" class="form-control num" name="BOARD_TOTAL_MEETING[]" id="BOARD_TOTAL_MEETING1" style="width:100%" value="6"></td>
+                                        <td><input type="number" class="form-control num" name="BOARD_ATTEN_MEETING[]" id="BOARD_ATTEN_MEETING1" style="width:100%" value="6"></td>
+                                        <td><input type="text" class="form-control" name="BOARD_PERC_MEETING[]" id="BOARD_PERC_MEETING1" style="width:100%" value="100"></td>
+                                        <td><input type="number" class="form-control num" name="COMM_TOTAL_MEETING[]" id="COMM_TOTAL_MEETING1" style="width:100%" value="0"></td>
+                                        <td><input type="number" class="form-control num" name="COMM_ATTEN_MEETING[]" id="COMM_ATTEN_MEETING1" style="width:100%" value="0"></td>
+                                        <td><input type="text" class="form-control" name="COMM_PERC_MEETING[]" id="COMM_PERC_MEETING1" style="width:100%" value="0"></td>
+                                        <td>
+                                            <select name="AGM_ATTEND[]" class="form-select" style="width:100%">
+                                                <option value=""></option>
+                                                <option value="YES" selected="selected">Yes</option>
+                                                <option value="NO">No</option>
+                                                <option value="NA">Not Applicable</option>
+                                            </select>
+                                        </td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="1" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td style="text-align:center;">2</td>
+                                        <td>
+                                            <input type="number" class="form-control num" name="DIN_OF_DIRECTOR[]" value="09473752" style="width:100%">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="NAME_OF_DIRECTOR[]" value="Rakshit Dilip Savla" style="width:100%">
+                                        </td>
+                                        <td><input type="number" class="form-control num" name="BOARD_TOTAL_MEETING[]" id="BOARD_TOTAL_MEETING2" style="width:100%" value="6"></td>
+                                        <td><input type="number" class="form-control num" name="BOARD_ATTEN_MEETING[]" id="BOARD_ATTEN_MEETING2" style="width:100%" value="6"></td>
+                                        <td><input type="text" class="form-control" name="BOARD_PERC_MEETING[]" id="BOARD_PERC_MEETING2" style="width:100%" value="100"></td>
+                                        <td><input type="number" class="form-control num" name="COMM_TOTAL_MEETING[]" id="COMM_TOTAL_MEETING2" style="width:100%" value="0"></td>
+                                        <td><input type="number" class="form-control num" name="COMM_ATTEN_MEETING[]" id="COMM_ATTEN_MEETING2" style="width:100%" value="0"></td>
+                                        <td><input type="text" class="form-control" name="COMM_PERC_MEETING[]" id="COMM_PERC_MEETING2" style="width:100%" value="0"></td>
+                                        <td>
+                                            <select name="AGM_ATTEND[]" class="form-select" style="width:100%">
+                                                <option value=""></option>
+                                                <option value="YES" selected="selected">Yes</option>
+                                                <option value="NO">No</option>
+                                                <option value="NA">Not Applicable</option>
+                                            </select>
+                                        </td>
+                                        <td style="text-align: center;"><button type="button" name="remove" id="2" class="btn btn-danger btn_removetan1">X</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd2" id="tanadd2" class="btn btn-primary" style="margin-left:-12px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="remunerationSection" class="section" style="display: none;">
+
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part13" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            MD / Whole-time Directors / Manager
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part14" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Other directors
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div style="text-align:right">
+                                <a href="shareholdingpat.php?form_id=4196" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="part13" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <h5>(A) Remuneration to Managing Director, Whole-time Directors and/or Manager</h5><table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center; color:black; ">Sr. No.</th>
+                                        <th style="text-align:center; color:black; width: 20%;">Name</th>
+                                        <th style="text-align:center; color:black; ">Designation</th>
+                                        <th style="text-align:center; color:black; ">Gross Salary</th>
+                                        <th style="text-align:center; color:black; ">Commission</th>
+                                        <th style="text-align:center; color:black; ">Stock Option/ Sweat equity</th>
+                                        <th style="text-align:center; color:black; ">Others</th>
+                                        <th style="text-align:center; color:black; ">Total Amount</th>
+                                        <th style="text-align:center; color:black; ">Remove</th>
+
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field">
+                                    <tr>
+                                        <td style="text-align:center;">1</td>
+                                        <td><input type="text" class="form-control" name="dircName" id="DIRC_NAME1" style="width:100%;"></td>
+                                        <td><input type="text" class="form-control" name="dircDesini" id="DIRC_DESIN1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircGrossSale1" id="DIRC_GROSS_SAL1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircCommis1" id="DIRC_COMMIS1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircEqtSw1" id="DIRC_EQT_SW1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircOtherInc1" id="DIRC_OTHER_INC1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="totalInc1" id="TOTAL_INC1" style="width:100%;" readonly=""></td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd" id="tanadd" class="btn btn-primary" style="margin-left: -12px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+            </div>
+        </div>
+
+        <div id="part14" class="p-0">
+            <div class="card" style="padding:20px;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                        <div class="table-responsive1">
+                            <h5>(C) Remuneration to Other Directors</h5><table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+
+                                <tbody>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align:center; color:black; ">Sr. No.</th>
+                                        <th style="text-align:center; color:black; width: 20%;">Name</th>
+                                        <th style="text-align:center; color:black; ">Designation</th>
+                                        <th style="text-align:center; color:black; ">Gross Salary</th>
+                                        <th style="text-align:center; color:black; ">Commission</th>
+                                        <th style="text-align:center; color:black; ">Stock Option/ Sweat equity</th>
+                                        <th style="text-align:center; color:black; ">Others</th>
+                                        <th style="text-align:center; color:black; ">Total Amount</th>
+                                        <th style="text-align:center; color:black; ">Remove</th>
+
+                                    </tr>
+                                </tbody>
+                                <tbody id="tan_field">
+                                    <tr>
+                                        <td style="text-align:center;">1</td>
+                                        <td><input type="text" class="form-control" name="dircName1" id="DIRC_NAME1" style="width:100%;"></td>
+                                        <td><input type="text" class="form-control" name="dircDesini1" id="DIRC_DESIN1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircGrossSale2" id="DIRC_GROSS_SAL1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircCommis2" id="DIRC_COMMIS1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircEqtSw2" id="DIRC_EQT_SW1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="dircOtherInc2" id="DIRC_OTHER_INC1" style="width:100%;"></td>
+                                        <td><input type="number" class="form-control num" name="totalInc2" id="TOTAL_INC1" style="width:100%;" readonly=""></td>
+                                        <td></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" name="tanadd" id="tanadd" class="btn btn-primary" style="margin-left: -12px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="certificationSection" class="section" style="display: none;">
+        <div class="card" style="padding:20px;">
+            <div style="text-align:right">
+                <a href="remuneration.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+            </div>
+            <h5 style="margin-left: -10px;">(A) CERTIFICATION OF COMPLIANCES</h5>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                    <br>
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row">
+                        Whether the company has made compliances and disclosures in respect of applicable provisions of the Companies Act, 2013 during the year
+                    </div>ss
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="complinceMade" value="YES" checked="" required="">&nbsp;&nbsp;&nbsp;Yes</label><label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="complinceMade" value="NO" required="">&nbsp;&nbsp;&nbsp;No</label>
+                    </div>
+                    <div style="margin-top: 70px;">
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height:120px;">
+                            <span style="font-weight: bold;">If No, give reasons/observations </span> <br>
+                            <textarea style="width: 100%;height: 80%;" name="reason" class="form-control"></textarea>
+                        </div>
+                    </div><br>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="penaltySection" class="section" style="display: none;">
+        <div class="card" style="padding:20px;">
+            <div style="text-align:right">
+                <a href="remuneration.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+            </div>
+            <h5 style="margin-left:-10px;">(A) DETAILS OF PENALTIES / PUNISHMENT IMPOSED ON COMPANY/DIRECTORS /OFFICERS</h5>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                    <div class="table-responsive1">
+                        <table border="1" class="table table-bordered table-hover " id="example4" style="width: 99%">
+                            <tbody>
+                                <tr style="background-color:#8e949a;">
+                                    <th style="text-align:center; color:black; "><strong>Name of the company/ directors/ officers</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Name of the court/ concerned Authority</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Date of Order</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Name of the Act and section under which penalised / punished</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Details of penalty/ punishment</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Details of appeal (if any) including present status</strong></th>
+                                    <th style="text-align:center; color:black; "><strong>Remove</strong></th>
+                                </tr>
+                            </tbody>
+                            <tbody id="tan_field">
+                                <tr>
+                                    <td><input type="text" class="form-control" name="nameOfParty" id="NAME_OF_PARTY" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="nameOfcourt" id="NAME_OF_COURT" style="width:100%"></td>
+                                    <td><input type="date" class="form-control" name="dateOfOrder" id="DATE_OF_ORDER_1" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="sectionName" id="SECTION_NAME" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="detailsPentay" id="DETAILS_PENLTY" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="detailsAppeal" id="DETAILS_APPEAL" style="width:100%"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" name="tanadd" id="tanadd" class="btn btn-primary" style="margin-left: 5px;margin-top: 10px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+            </div><br>
+            <h5 style="margin-left:-10px;">(B) DETAILS OF COMPOUNDING OF OFFENCES</h5>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="height: auto;">
+                    <div class="table-responsive1">
+                        <table border="1" class="table table-bordered table-hover " id="example4" style="width: 99%">
+                            <tbody>
+                                <tr style="background-color:#8e949a;">
+                                    <th style="text-align:center; color:black;"><strong>Name of the company/ directors/ officers</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Name of the court/ concerned Authority</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Date of Order</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Name of the Act and section under which penalised / punished</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Particulars of offence</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Amount of compounding (in Rupees)</strong></th>
+                                    <th style="text-align:center; color:black;"><strong>Remove</strong></th>
+                                </tr>
+                            </tbody>
+                            <tbody id="tan_field1">
+                                <tr>
+                                    <td><input type="text" class="form-control" name="nameOfParty1" id="NAME_OF_PARTY1" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="nameOfCourt1" id="NAME_OF_COURT1" style="width:100%"></td>
+                                    <td><input type="date" class="form-control" name="nameOfOrder1"></td>
+                                    <td><input type="text" class="form-control" name="sectionName1" id="SECTION_NAME1" style="width:100%"></td>
+                                    <td><input type="text" class="form-control" name="detailsPenlty1" id="DETAILS_PENLTY1" style="width:100%"></td>
+                                    <td><input type="number" class="form-control" name="detailsAmt" id="DETAILS_AMT" style="width:100%"></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <button type="button" name="tanadd1" id="tanadd1" class="btn btn-primary" style="margin-left: 5px;margin-top: 10px; width:10rem;"><i class="fa fa-plus"></i>  Add More</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="othersSection" class="section" style="display: none;">
+        <div class="card" style="padding:20px;">
+            <div style="text-align:right">
+                <a href="remuneration.php?form_id=2617" class="btn btn-primary"><i class="fa fa-arrow-circle-left"></i>  Back</a>
+                <a href="javascript:;" class="exitSection btn btn-primary"><i class="fa fa-sign-out"></i>  Exit</a>
+            </div>
+            <label style="font-weight:bolder;text-decoration: underline;text-transform: uppercase;margin-left: -10px;">Declaration and Certification</label>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-4 bold form-row">
+                    Resolution Number and Date
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-4 form-row">
+                    Number <input type="text" class="form-control" name="resolutionNumber" value="10">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-4 form-row">
+                    Date <input type="date" name="resolutionDate" class="datepicker hasDatepicker form-control" id="resolutiondate">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                    Digitally signed by MD or Director or Manager or Secretary
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row" style="text-align: center;">
+                    <select name="signed" class="form-control" style="width:100%" id="signed"><option value="">Select Signatory</option><option selected="selected" value="09475141">Mokshank Dilipbhai Savla</option><option value="09473752">Rakshit Dilip Savla</option></select>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                    DIN/PAN
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row" style="text-align:center;">
+                    <input type="text" name="dinPan" class="form-control" id="DIN_PAN" value="09475141">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            //part1
+            companyGln: "",
+            pan: "",
+            companyDateIncorporation: "",
+            companyWebsite: "",
+            telephone: "",
+            typeOfCompany: "",
+            categoryCompany: "",
+            subCategoryCompany: "",
+            companyShareCapital: "",
+            formFiled: "",                   //14
+
+
+           
+            //Part2
+            financialYearFrom: "",
+            financialYearTo: "",
+            annualGeneralMeeting: "",
+            dateAmg: "",
+            dueDateAmg: "",
+            extensionAgm: "",
+            srnApplicationExtention: "",
+            dueDateAgm2: "",
+            reasonsSpecify: "",
+
+            //Turn Over
+            turnOver:"",
+            netWorth:"",             //11
+
+            //Debentures Section
+            //part 3
+            totalAuth:0,
+            totalIss:0,
+            totalSub:0,
+            totalPaid:0,
+            totalAuthAmount:0,
+            totalIssAmount:0,
+            totalSubAmount:0,
+            totalPaidAmount:0,
+
+
+            // Preference Shares Count
+            preferenceSharesAuthorizedCount: 0,
+            preferenceSharesIssuedCount: 0,
+            preferenceSharesSubscribedCount: 0,
+            preferenceSharesPaidUpCount: 0,
+
+            // Preference Shares Amount (in Rupees)
+            preferenceSharesAuthorizedAmount: 0,
+            preferenceSharesIssuedAmount: 0,
+            preferenceSharesSubscribedAmount: 0,
+            preferenceSharesPaidUpAmount: 0,
+
+            shareCapital: 0,  // total = 17
+
+            // part 4
+            equitySharesAtBeginningNumberOfShares: 0,
+            equitySharesAtBeginningNominalAmount: 0,
+            equitySharesAtBeginningPaidUpAmount: 0,
+            equitySharesAtBeginningPremium: 0,
+            equitySharesIncreaseNumberOfShares: 0,
+            equitySharesIncreaseNominalAmount: 0,
+            equitySharesIncreasePaidUpAmount: 0,
+            equitySharesIncreasePremium: 0,
+            publicIssuesNumberOfShares: 0,
+            publicIssuesNominalAmount: 0,
+            publicIssuesPaidUpAmount: 0,
+            publicIssuesPremium: 0,
+            rightsIssueNumberOfShares: 0,
+            rightsIssueNominalAmount: 0,
+            rightsIssuePaidUpAmount: 0,
+            rightsIssuePremium: 0,
+            bonusIssueNumberOfShares: 0,
+            bonusIssueNominalAmount: 0,
+            bonusIssuePaidUpAmount: 0,
+            bonusIssuePremium: 0,
+            privatePlacementNumberOfShares: 0,
+            privatePlacementNominalAmount: 0,
+            privatePlacementPaidUpAmount: 0,
+            privatePlacementPremium: 0,
+            esopsNumberOfShares: 0,
+            esopsNominalAmount: 0,
+            esopsPaidUpAmount: 0,
+            esopsPremium: 0,
+            sweatEquityNumberOfShares: 0,
+            sweatEquityNominalAmount: 0,
+            sweatEquityPaidUpAmount: 0,
+            sweatEquityPremium: 0,
+            preferenceConversionNumberOfShares: 0,
+            preferenceConversionNominalAmount: 0,
+            preferenceConversionPaidUpAmount: 0,
+            preferenceConversionPremium: 0,
+            debentureConversionNumberOfShares: 0,
+            debentureConversionNominalAmount: 0,
+            debentureConversionPaidUpAmount: 0,
+            debentureConversionPremium: 0,
+            gdrAdrNumberOfShares: 0,
+            gdrAdrNominalAmount: 0,
+            gdrAdrPaidUpAmount: 0,
+            gdrAdrPremium: 0,
+            otherEquityDescription: "",
+            otherEquityNumberOfShares: 0,
+            otherEquityNominalAmount: 0,
+            otherEquityPaidUpAmount: 0,
+            otherEquityPremium: 0,
+            equitySharesDecreaseNumberOfShares: 0,
+            equitySharesDecreaseNominalAmount: 0,
+            equitySharesDecreasePaidUpAmount: 0,
+            equitySharesDecreasePremium: 0,
+            buyBackNumberOfShares: 0,
+            buyBackNominalAmount: 0,
+            buyBackPaidUpAmount: 0,
+            buyBackPremium: 0,
+            forfeitedSharesNumberOfShares: 0,
+            forfeitedSharesNominalAmount: 0,
+            forfeitedSharesPaidUpAmount: 0,
+            forfeitedSharesPremium: 0,
+            capitalReductionNumberOfShares: 0,
+            capitalReductionNominalAmount: 0,
+            capitalReductionPaidUpAmount: 0,
+            capitalReductionPremium: 0,
+            otherDecreaseDescription: "",
+            otherDecreaseNumberOfShares: 0,
+            otherDecreaseNominalAmount: 0,
+            otherDecreasePaidUpAmount: 0,
+            otherDecreasePremium: 0,
+            equitySharesAtEndNumberOfShares: 0,
+            equitySharesAtEndNominalAmount: 0,
+            equitySharesAtEndPaidUpAmount: 0,
+            equitySharesAtEndPremium: 0,            //74
+
+
+            //part5
+            preferenceSharesAtBeginningNumberOfShares: 0,
+            preferenceSharesAtBeginningNominalAmount: 0,
+            preferenceSharesAtBeginningPaidUpAmount: 0,
+            preferenceSharesAtBeginningPremium: 0,
+            preferenceSharesIncreaseNumberOfShares: 0,
+            preferenceSharesIncreaseNominalAmount: 0,
+            preferenceSharesIncreasePaidUpAmount: 0,
+            preferenceSharesIncreasePremium: 0,
+            preferenceSharesIssuedNumberOfShares: 0,
+            preferenceSharesIssuedNominalAmount: 0,
+            preferenceSharesIssuedPaidUpAmount: 0,
+            preferenceSharesIssuedPremium: 0,
+            preferenceSharesReissuedNumberOfShares: 0,
+            preferenceSharesReissuedNominalAmount: 0,
+            preferenceSharesReissuedPaidUpAmount: 0,
+            preferenceSharesReissuedPremium: 0,
+            otherPreferenceIncreaseDescription: "NA",
+            otherPreferenceIncreaseNumberOfShares: 0,
+            otherPreferenceIncreaseNominalAmount: 0,
+            otherPreferenceIncreasePaidUpAmount: 0,  //20
+            otherPreferenceIncreasePremium: 0,
+            preferenceSharesDecreaseNumberOfShares: 0,
+            preferenceSharesDecreaseNominalAmount: 0,
+            preferenceSharesDecreasePaidUpAmount: 0,
+            preferenceSharesDecreasePremium: 0,
+            preferenceSharesRedeemedNumberOfShares: 0,
+            preferenceSharesRedeemedNominalAmount: 0,
+            preferenceSharesRedeemedPaidUpAmount: 0,
+            preferenceSharesRedeemedPremium: 0,
+            preferenceSharesForfeitedNumberOfShares: 0,
+            preferenceSharesForfeitedNominalAmount: 0,
+            preferenceSharesForfeitedPaidUpAmount: 0,
+            preferenceSharesForfeitedPremium: 0,
+            preferenceCapitalReductionNumberOfShares: 0,
+            preferenceCapitalReductionNominalAmount: 0,  //35
+            preferenceCapitalReductionPaidUpAmount: 0,
+            preferenceCapitalReductionPremium: 0,
+            otherPreferenceDecreaseDescription: "NA",
+            otherPreferenceDecreaseNumberOfShares: 0,
+            otherPreferenceDecreaseNominalAmount: 0,
+            otherPreferenceDecreasePaidUpAmount: 0,
+            otherPreferenceDecreasePremium: 0,
+            preferenceSharesAtEndNumberOfShares: 0,
+            preferenceSharesAtEndNominalAmount: 0,
+            preferenceSharesAtEndPaidUpAmount: 0,
+            preferenceSharesAtEndPremium: 0,                 //46
+
+            //part6
+            isNil:false,
+            detailsProvidedInDigitalMedia:"",
+            seprateSheetTransfers:"",
+            previousAnnualMeetingDate:"",
+
+             //part 7
+            //debentures
+            debenturesNumberOfUnits: 0,
+            nominalValuePerUnit: 0,
+            debTotalUnit1: 0,
+            partlyConvertibleDebenturesNumberOfUnits: 0,
+            partlyConvertibleDebenturesNominalValue: 0,
+            partlyConvertibleDebenturesTotalValue: 0,
+            fullyConvertibleDebenturesNumberOfUnits: 0,
+            fullyConvertibleDebenturesNominalValuePerUnit: 0,
+            fullyConvertibleDebenturesTotalValue: 0,
+            totalDebenturesNumberOfUnits: 0,
+            totalDebenturesNominalValuePerUnit: 0,
+            totalDebenturesTotalValue: 0,
+            
+
+             //details of debentures
+            // Non-convertible debentures
+            nonConvertibleDebenturesOutstandingAtBeginning: 0,
+            nonConvertibleDebenturesIncreaseDuringYear: 0,
+            nonConvertibleDebenturesDecreaseDuringYear: 0,
+            nonConvertibleDebenturesOutstandingAtEnd: 0,
+
+            // Partly convertible debentures
+            partlyConvertibleDebenturesOutstandingAtBeginning: 0,
+            partlyConvertibleDebenturesIncreaseDuringYear: 0,
+            partlyConvertibleDebenturesDecreaseDuringYear: 0,
+            partlyConvertibleDebenturesOutstandingAtEnd: 0,
+
+            // Fully convertible debentures
+            fullyConvertibleDebenturesOutstandingAtBeginning: 0,
+            fullyConvertibleDebenturesIncreaseDuringYear: 0,
+            fullyConvertibleDebenturesDecreaseDuringYear: 0,
+            fullyConvertibleDebenturesOutstandingAtEnd: 0,      //24
+
+            //part 8
+            indEqtNum: 0,
+            indEqtPre: 0,
+            indPreNum: 0,
+            indPrePre: 0,
+
+            // Individual/Hindu Undivided Family - NRI
+            nriEqtNum: 0,
+            nriEqtPre: 0,
+            nriPreNum: 0,
+            nriPrePre: 0,
+
+            // Individual/Hindu Undivided Family - Foreign national
+            othEqtNum: 0,
+            othEqtPre: 0,
+            othPreNum: 0,
+            othPrePre: 0,
+
+            // Government - Central
+            cgovEqtNum: 0,
+            cgovEqtPre: 0,
+            cgovPreNum: 0,
+            cgovPrePre: 0,
+
+            // Government - State
+            sgovEqtNum: 0,
+            sgovEqtPre: 0,
+            sgovPreNum: 0,
+            sgovPrePre: 0,
+
+            // Government - Government companies
+            govcomEqtNum: 0,
+            govcomEqtPre: 0,
+            govcomPreNum: 0,
+            govcomPrePre: 0,
+
+            // Insurance companies
+            insurEqtNum: 0,
+            insurEqtPre: 0,
+            insurPreNum: 0,
+            insurPrePre: 0,
+
+            // Banks
+            banksEqtNum: 0,
+            banksEqtPre: 0,
+            banksPreNum: 0,
+            banksPrePre: 0,
+
+            // Financial institutions
+            finistEqtNum: 0,
+            finistEqtPre: 0,
+            finistPreNum: 0,
+            finistPrePre: 0,
+
+            // Foreign institutional investors
+            fitEqtNum: 0,
+            fitEqtPre: 0,
+            fitPreNum: 0,
+            fitPrePre: 0,
+
+            // Mutual funds
+            mfEqtNum: 0,
+            mfEqtPre: 0,
+            mfPreNum: 0,
+            mfPrePre: 0,
+
+            // Venture capital
+            vcEqtNum: 0,
+            vcEqtPre: 0,
+            vcPreNum: 0,
+            vcPrePre: 0,
+
+            // Body corporate
+            corpEqtNum: 0,
+            corpEqtPre: 0,
+            corpPreNum: 0,
+            corpPrePre: 0,
+
+            // Others
+            otherEqtNum: 0,
+            otherEqtPre: 0,
+            otherPreNum: 0,
+            otherPrePre: 0,
+
+            // Totals
+            totalEqtNum: 0,
+            totalEqtPre: 0,
+            totalPreNum: 0,
+            totalPrePre: 0,
+
+            numbersPromoters:0,   //61
+
+            //part9
+            // Individual/Hindu Undivided Family - Indian
+            indEqtNumPub: 0,
+            indEqtPrePub: 0,
+            indPreNumPub: 0,
+            indPrePrePub: 0,
+
+            // Individual/Hindu Undivided Family - NRI
+            nriEqtNumPub: 0,
+            nriEqtPrePub: 0,
+            nriPreNumPub: 0,
+            nriPrePrePub: 0,
+
+            // Individual/Hindu Undivided Family - Foreign national
+            othEqtNumPub: 0,
+            othEqtPrePub: 0,
+            othPreNumPub: 0,
+            othPrePrePub: 0,
+
+            // Government - Central
+            cgovEqtNumPub: 0,
+            cgovEqtPrePub: 0,
+            cgovPreNumPub: 0,
+            cgovPrePrePub: 0,
+
+            // Government - State
+            sgovEqtNumPub: 0,
+            sgovEqtPrePub: 0,
+            sgovPreNumPub: 0,
+            sgovPrePrePub: 0,
+
+            // Government - Government companies
+            govcomEqtNumPub: 0,
+            govcomEqtPrePub: 0,
+            govcomPreNumPub: 0,
+            govcomPrePrePub: 0,
+
+            // Insurance companies
+            insurEqtNumPub: 0,
+            insurEqtPrePub: 0,
+            insurPreNumPub: 0,
+            insurPrePrePub: 0,
+
+            // Banks
+            banksEqtNumPub: 0,
+            banksEqtPrePub: 0,
+            banksPreNumPub: 0,
+            banksPrePrePub: 0,
+
+            // Financial institutions
+            finistEqtNumPub: 0,
+            finistEqtPrePub: 0,
+            finistPreNumPub: 0,
+            finistPrePrePub: 0,
+
+            // Foreign institutional investors
+            fitEqtNumPub: 0,
+            fitEqtPrePub: 0,
+            fitPreNumPub: 0,
+            fitPrePrePub: 0,
+
+            // Mutual funds
+            mfEqtNumPub: 0,
+            mfEqtPrePub: 0,
+            mfPreNumPub: 0,
+            mfPrePrePub: 0,
+
+            // Venture capital
+            vcEqtNumPub: 0,
+            vcEqtPrePub: 0,
+            vcPreNumPub: 0,
+            vcPrePrePub: 0,
+
+            // Body corporate
+            corpEqtNumPub: 0,
+            corpEqtPrePub: 0,
+            corpPreNumPub: 0,
+            corpPrePrePub: 0,
+
+            // Others
+            otherEqtNumPub: 0,
+            otherEqtPrePub: 0,
+            otherPreNumPub: 0,
+            otherPrePrePub: 0,
+
+            // Totals
+            totalEqtNumPub: 100000,
+            totalEqtPrePub: 100,
+            totalPreNumPub: 0,
+            totalPrePrePub: 0,
+
+            // Promoters
+            numbersPromotersPub: 0,   //61
+
+
+            //promotersSection
+            // Promoters
+            numOfPromoters: 0,        // Beginning of year
+            numOfPromoters1: 0,       // End of year
+
+            // Members (other than promoters)
+            numOfMembers: 0,          // Beginning of year
+            numOfMembers1: 0,         // End of year
+
+            // Debenture holders
+            numOfDeb: 0,              // Beginning of year
+            numOfDeb1: 0  ,            // End of year
+
+            //10.certificationSection
+            complinceMade:"",
+            reason:"",                   //08
+             
+            //penaltySection
+            resolutionNumber:"",
+            resolutionDate:"",
+            signed:"",
+            dinPan:"",
+
+
+        }
+
+        $(".toggleSection").on("click", function (e) {
+            e.preventDefault();
+            // Hide the table view
+            $("#tableView").hide();
+
+            // Read which section to show via the data-target attribute
+            var targetSection = $(this).data("target");
+
+            // Show the targeted section
+            $("#" + targetSection).show();
+        });
+
+        // When any Exit button is clicked within a section:
+        $(".exitSection").on("click", function (e) {
+            e.preventDefault();
+            // Hide all sections with the common class "section"
+            $(".section").hide();
+            // Show the table view again
+            $("#tableView").show();
+        });
+
+        // When the Back button is clicked within a section:
+        $(".backSection").on("click", function (e) {
+            e.preventDefault();
+            // Find the closest section that this Back button resides in and hide it
+            $(this).closest(".section").hide();
+            // Show the table view again
+            $("#tableView").show();
+        });
+
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part4").hide();
+            $("#part5").hide();
+            $("#part6").hide();
+            $("#part7").hide();
+            $("#part9").hide();
+            $("#part12").hide();
+            $("#part14").hide();
+
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+                $("#part5").hide();
+                $("#part6").hide();
+                $("#part7").hide();
+                $("#part8").hide();
+                $("#part9").hide();
+                $("#part10").hide();
+                $("#part11").hide();
+                $("#part12").hide();
+                $("#part13").hide();
+                $("#part14").hide();
+
+
+
+
+
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

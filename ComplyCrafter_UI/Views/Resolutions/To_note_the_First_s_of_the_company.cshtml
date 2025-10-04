@@ -1,0 +1,218 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To note the First {Director}s of the company`;
+    let agendaHeading = `To note the First {Director}s of the company`;
+    let minuteHeading = `To note the First {Director}s of the company`;
+    let agendaPreface = `
+    The Board shall discuss and confirm the list of first Directors of the Company and then pass the following resolution with or without modification:
+    `;
+    let minutePreface = `
+    The Board discussed and confirmed the list of first Directors of the Company and passed the following resolution.        `;
+    let resolutionForNoticePara1 = `
+    "RESOLVED THAT the Board of Directors do and hereby confirm that the following are the first Directors of the Company:
+
+    1.        [Name of Director]
+    2.        [Name of Director]
+
+    RESOLVED FURTHER THAT the Directors of the Company do and hereby take note of the relevant e-forms filed with the Registrar of Companies at the time of incorporation with respect to the above Directors."
+    `;
+    let resolutionForNoticePara2 = ``;
+    let resolutionForMinutesPara1 = `
+    "RESOLVED THAT the Board of Directors do and hereby confirm that the following are the first Directors of the Company:
+
+    1.        [Name of Director]
+    2.        [Name of Director]
+
+    RESOLVED FURTHER THAT the Directors of the Company do and hereby take note of the relevant e-forms filed with the Registrar of Companies at the time of incorporation with respect to the above Directors."
+
+
+    `;
+    let resolutionForMinutesPara2 = ``;
+</script>
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+<style>
+    .custom-table .form-control {
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table td, .custom-table th {
+        border: 1px solid #000 !important;
+        vertical-align: middle;
+        padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table .table-title {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table .btn-sm {
+        padding: 1px 6px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+</style>
+
+
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <table class="custom-table">
+            <tbody>
+                <tr>
+                    <td><strong>Name of Director</strong></td>
+                    <td>
+                        <input type="text" class="form-control" name="appointedDirector" placeholder="Enter Director's Name" />
+                    </td>
+                    <td><strong>DIN</strong></td>
+                    <td>
+                        <input type="text" class="form-control" name="appointedDirectorDIN" placeholder="Enter DIN" />
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Designation</strong></td>
+                    <td>
+                        <select class="form-control" name="designation">
+                            <option value="">Select</option>
+                            <option>Director</option>
+                            <option>Managing Director</option>
+                            <option>Whole-time Director</option>
+                            <option>Independent Director</option>
+                        </select>
+                    </td>
+                    <td><strong>Effective Date of Appointment</strong></td>
+                    <td>
+                        <input type="date" name="appointmentDate" class="form-control" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td colspan="4" class="table-title">Authorization For Resolution</td>
+                </tr>
+
+                <tr class="authorizedRow">
+                    <td><strong>Name of Authorized Person</strong></td>
+                    <td>
+                        <select class="form-control director" name="appointedDirector">
+                            <option value="">Select name</option>
+                        </select>
+                    </td>
+                    <td colspan="2" class="text-center">
+                        <input type="hidden" name="id" class="num" value="0">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails",
+                 new AgendaViewModelEnabler()
+                    {
+                        enableNoticeCertificateTable = false,
+                        enableResolutionForNoticePara2 = false,
+                        enableMinutesCertificateTable = false,
+                        enableResolutionForMinutesPara2 = false,
+                    }
+                 )
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+
+<script id="resolnFunction">
+    function addAuthorizedRow() {
+        let table = document.querySelector('.custom-table tbody');
+        if (!table) return;
+        let newRow = document.createElement('tr');
+        newRow.classList.add('authorizedRow');
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeAuthorizedRow(this)">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td colspan="3">
+                    <p name="appointedDirector"></p>
+                </td>
+            `;
+        }
+
+        table.appendChild(newRow);
+    }
+
+    function removeAuthorizedRow(button) {
+        button.closest('tr').remove();
+    }
+
+    function resetTableAuthorized() {
+        if (!isLayOut) return;
+
+        $('.authorizedRow').remove();
+        $('.custom-table tbody').append(`
+            <tr class="authorizedRow">
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                </td>
+            </tr>
+        `);
+    }
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

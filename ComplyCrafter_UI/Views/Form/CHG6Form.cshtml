@@ -1,0 +1,1004 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.CHG-6
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Notice of appointment or cessation of receiver or manager
+
+                    [Pursuant to section 84(1) and pursuant to Section 384 of the Companies Act, 2013 and Rule 9 of the Companies (Registration of charges) Rules 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca/mca-forms-instruction-kit/Instruction%20Kit_CHG-6.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity's Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachment & DSC
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <div id="part2" class="p-0">
+        <div class="card">
+            <div class="col-md-12 my-5 mx-3">
+                <h6 class="typecharge" style="border-bottom:1px solid black; display:inline-block;">
+                    DECLARATION
+                </h6>
+                <h6 class="textheader2 my-2">
+                    I declare that, whatever stated above is true correct and complete and nothing material has been suppressed including the attachments to this form. I am duly authorised to sign this form.
+                </h6>
+            </div>
+
+            <!-- PAN (Read-only) -->
+            <div class="col-md-11 my-2 mx-2">
+                <label class="form-label">PAN of the receiver or manager</label>
+                <input type="text" placeholder="" class="form-control" value="not fetching value" name="panNumber2" readonly style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05); background-color: #e9ecef;">
+                <div class="invalid-feedback"></div>
+            </div>
+
+            <!-- Attachments Header -->
+            <div class="col-lg-6 my-3 mx-2">
+                <h6 class="typecharge" style="border-bottom:1px solid black; display:inline-block;">
+                    ATTACHMENTS
+                </h6>
+            </div>
+
+            <!-- First Attachment: Instrument copy -->
+            <div class="row mt-3 mx-1">
+                <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                    Sr. No
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                    (a) Copy of instrument appointing receiver/manager
+                </div>
+            </div>
+
+            <div class="row mt-2 mx-1">
+                <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                    1.
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                    <input type="file" name="instrument_file" class="form-control">
+                </div>
+            </div>
+
+            <!-- Optional Attachment Section -->
+            <div class="row mt-5 mx-1">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        (c) Optional attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div id="equity">
+                    <input type="hidden" name="l" id="l" value="1">
+                    <div class="row mt-2">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                            <input type="file" name="attachment_file[]" id="attachmentfile_1" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Red Warning Note -->
+            <div class="col-md-12 my-4 mx-2">
+                <span style="color:red; font-weight:bold;">
+                    Note: Attention is drawn to provisions of Section 447, Section 448 and Section 449 of the Companies Act, 2013 which provide for punishment for fraud, punishment for false statement / certificate and punishment for false evidence respectively.
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div id="part1" class="p-0">
+
+
+
+        @*  tab-1 *@
+
+        <div class="card">
+            <div class="col-md-12 p-0">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-lg-7 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">3. (a) This notice is being filed by </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="filledBy" value="person_appointing_receiver_or_manager">
+                            <label>
+                                Person appointing receiver or manager
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="filledBy" value="person_appointed_as_receiver_or_manager">
+                            <label>
+                                Person appointed as receiver or manager
+                            </label>
+                        </div>
+                        <div class="col-lg-5 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">3. (b) Type of notice</label>
+
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="noticeType" value="appointment">
+                            <label>Appointment</label>
+
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="noticeType" value="cessation">
+                            <label>Cessation</label>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between mx-3 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">4. Particulars of receiver or manager</p>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">(a) Income tax permanent account number (PAN)</label>
+                            <input type="text" placeholder="" class="form-control" name="panNumber" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">(b) Name</label>
+                            <input type="text" placeholder="" class="form-control" name="receiverName" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-md-12 my-3">
+                            <h6 class="typecharge" style="border-bottom:1px solid black; display:inline-block;">
+                                (c) Address of receiver or manager
+                            </h6>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Line 1</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="addressLine1" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Line 2</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="addressLine2" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-3">
+                            <label class="form-label">Country</label>
+                            <select class="form-select" aria-label="Default select example" name="country">
+
+                                <option value="">Select country</option>
+                                <option value="Afghanistan ">Afghanistan </option>
+                                <option value="Albania ">Albania </option>
+                                <option value="Algeria ">Algeria </option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Andorra, Principality of ">Andorra, Principality of </option>
+                                <option value="Angola">Angola</option>
+                                <option value="Anguilla ">Anguilla </option>
+                                <option value="Antarctica">Antarctica</option>
+                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                <option value="Argentina ">Argentina </option>
+                                <option value="Armenia">Armenia</option>
+                                <option value="Aruba">Aruba</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Bahrain">Bahrain</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Barbados ">Barbados </option>
+                                <option value="Belarus">Belarus</option>
+                                <option value="Belgium ">Belgium </option>
+                                <option value="Belize">Belize</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Bermuda ">Bermuda </option>
+                                <option value="Bhutan, Kingdom of">Bhutan, Kingdom of</option>
+                                <option value="Bolivia ">Bolivia </option>
+                                <option value="Bosnia and Herzegovina ">Bosnia and Herzegovina </option>
+                                <option value="Botswana">Botswana</option>
+                                <option value="Bouvet Island">Bouvet Island</option>
+                                <option value="Brazil ">Brazil </option>
+                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                <option value="Brunei">Brunei</option>
+                                <option value="Bulgaria ">Bulgaria </option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Cameroon">Cameroon</option>
+                                <option value="Canada ">Canada </option>
+                                <option value="Cape Verde ">Cape Verde </option>
+                                <option value="Cayman Islands ">Cayman Islands </option>
+                                <option value="Central African Republic ">Central African Republic </option>
+                                <option value="Chad ">Chad </option>
+                                <option value="Chile ">Chile </option>
+                                <option value="China ">China </option>
+                                <option value="Christmas Island ">Christmas Island </option>
+                                <option value="Cocos (Keeling) Islands ">Cocos (Keeling) Islands </option>
+                                <option value="Colombia ">Colombia </option>
+                                <option value="Comoros">Comoros</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Cook Islands">Cook Islands</option>
+                                <option value="Costa Rica ">Costa Rica </option>
+                                <option value="Cote DIvoire">Cote DIvoire</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Cuba ">Cuba </option>
+                                <option value="Cyprus ">Cyprus </option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Czechoslavakia">Czechoslavakia</option>
+                                <option value="Denmark ">Denmark </option>
+                                <option value="Djibouti">Djibouti</option>
+                                <option value="Dominica ">Dominica </option>
+                                <option value="Dominican Republic ">Dominican Republic </option>
+                                <option value="East Timor">East Timor</option>
+                                <option value="Ecuador ">Ecuador </option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="El Salvador ">El Salvador </option>
+                                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                <option value="Eritrea">Eritrea</option>
+                                <option value="Estonia">Estonia</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Falkland Islands">Falkland Islands</option>
+                                <option value="Faroe Islands ">Faroe Islands </option>
+                                <option value="Fiji ">Fiji </option>
+                                <option value="Finland ">Finland </option>
+                                <option value="France ">France </option>
+                                <option value="French Guiana">French Guiana</option>
+                                <option value="French Polynesia">French Polynesia</option>
+                                <option value="French Southern Territories and Antarctic Lands ">French Southern Territories and Antarctic Lands </option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia, The ">Gambia, The </option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Germany ">Germany </option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Gibraltar ">Gibraltar </option>
+                                <option value="Great Britain (United Kingdom) ">Great Britain (United Kingdom) </option>
+                                <option value="Greece ">Greece </option>
+                                <option value="Greenland ">Greenland </option>
+                                <option value="Grenada ">Grenada </option>
+                                <option value="Guadeloupe">Guadeloupe</option>
+                                <option value="Guam">Guam</option>
+                                <option value="Guatemala ">Guatemala </option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti ">Haiti </option>
+                                <option value="Heard Island and McDonald Islands (Territory of Australia)">Heard Island and McDonald Islands (Territory of Australia)</option>
+                                <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                <option value="Honduras ">Honduras </option>
+                                <option value="Hong Kong ">Hong Kong </option>
+                                <option value="Hungary ">Hungary </option>
+                                <option value="Iceland ">Iceland </option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Iraq ">Iraq </option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Israel ">Israel </option>
+                                <option value="Italy ">Italy </option>
+                                <option value="Jamaica ">Jamaica </option>
+                                <option value="Japan ">Japan </option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="Kazakstan or Kazakhstan">Kazakstan or Kazakhstan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Kiribati">Kiribati</option>
+                                <option value="Korea, North">Korea, North</option>
+                                <option value="Korea, South">Korea, South</option>
+                                <option value="Kuwait ">Kuwait </option>
+                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                <option value="Lao Peoples Democratic Republic (Laos)">Lao Peoples Democratic Republic (Laos)</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Lebanon ">Lebanon </option>
+                                <option value="Lesotho">Lesotho</option>
+                                <option value="Liberia ">Liberia </option>
+                                <option value="Libya (Libyan Arab Jamahiriya)">Libya (Libyan Arab Jamahiriya)</option>
+                                <option value="Liechtenstein ">Liechtenstein </option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Luxembourg ">Luxembourg </option>
+                                <option value="Macau ">Macau </option>
+                                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                                <option value="Madagascar">Madagascar</option>
+                                <option value="Malawi">Malawi</option>
+                                <option value="Malaysia ">Malaysia </option>
+                                <option value="Maldives ">Maldives </option>
+                                <option value="Mali">Mali</option>
+                                <option value="Malta ">Malta </option>
+                                <option value="Marshall Islands">Marshall Islands</option>
+                                <option value="Martinique (French) ">Martinique (French) </option>
+                                <option value="Mauritania ">Mauritania </option>
+                                <option value="Mauritius ">Mauritius </option>
+                                <option value="Mayotte">Mayotte</option>
+                                <option value="Mexico ">Mexico </option>
+                                <option value="Micronesia">Micronesia</option>
+                                <option value="Moldova">Moldova</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Mongolia">Mongolia</option>
+                                <option value="Montserrat ">Montserrat </option>
+                                <option value="Morocco ">Morocco </option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Myanmar">Myanmar</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="Nauru">Nauru</option>
+                                <option value="Nepal ">Nepal </option>
+                                <option value="Netherlands ">Netherlands </option>
+                                <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                <option value="New Caledonia ">New Caledonia </option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Nicaragua ">Nicaragua </option>
+                                <option value="Niger ">Niger </option>
+                                <option value="Nigeria ">Nigeria </option>
+                                <option value="Niue">Niue</option>
+                                <option value="Norfolk Island ">Norfolk Island </option>
+                                <option value="Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)">Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)</option>
+                                <option value="Norway ">Norway </option>
+                                <option value="Oman, Sultanate of (Former Muscat and Oman)">Oman, Sultanate of (Former Muscat and Oman)</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Palau">Palau</option>
+                                <option value="Palestinian State">Palestinian State</option>
+                                <option value="Panama ">Panama </option>
+                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                <option value="Paraguay ">Paraguay </option>
+                                <option value="Peru ">Peru </option>
+                                <option value="Philippines ">Philippines </option>
+                                <option value="Pitcairn Island">Pitcairn Island</option>
+                                <option value="Poland ">Poland </option>
+                                <option value="Portugal ">Portugal </option>
+                                <option value="Puerto Rico ">Puerto Rico </option>
+                                <option value="Qatar, State of ">Qatar, State of </option>
+                                <option value="Reunion (French)">Reunion (French)</option>
+                                <option value="Romania ">Romania </option>
+                                <option value="Russia - USSR">Russia - USSR</option>
+                                <option value="Russian Federation ">Russian Federation </option>
+                                <option value="Rwanda (Rwandese Republic)">Rwanda (Rwandese Republic)</option>
+                                <option value="Saint Helena ">Saint Helena </option>
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                <option value="Saint Lucia ">Saint Lucia </option>
+                                <option value="Saint Pierre and Miquelon ">Saint Pierre and Miquelon </option>
+                                <option value="Saint Vincent and the Grenadines ">Saint Vincent and the Grenadines </option>
+                                <option value="Samoa">Samoa</option>
+                                <option value="San Marino ">San Marino </option>
+                                <option value="Sao Tome and Principe ">Sao Tome and Principe </option>
+                                <option value="Saudi Arabia ">Saudi Arabia </option>
+                                <option value="Senegal ">Senegal </option>
+                                <option value="Serbia, Republic of">Serbia, Republic of</option>
+                                <option value="Seychelles ">Seychelles </option>
+                                <option value="Sierra Leone ">Sierra Leone </option>
+                                <option value="Singapore ">Singapore </option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Slovenia ">Slovenia </option>
+                                <option value="Solomon Islands">Solomon Islands</option>
+                                <option value="Somalia">Somalia</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                <option value="Spain ">Spain </option>
+                                <option value="Sri Lanka (Former Serendib, Ceylon) ">Sri Lanka (Former Serendib, Ceylon) </option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Svalbard (Spitzbergen) and Jan Mayen Islands ">Svalbard (Spitzbergen) and Jan Mayen Islands </option>
+                                <option value="Swaziland">Swaziland</option>
+                                <option value="Sweden ">Sweden </option>
+                                <option value="Switzerland ">Switzerland </option>
+                                <option value="Syria (Syrian Arab Republic)">Syria (Syrian Arab Republic)</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Tajikistan">Tajikistan</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Tokelau ">Tokelau </option>
+                                <option value="Tonga">Tonga</option>
+                                <option value="Trinidad and Tobago ">Trinidad and Tobago </option>
+                                <option value="Tromelin Island ">Tromelin Island </option>
+                                <option value="Tunisia ">Tunisia </option>
+                                <option value="Turkey ">Turkey </option>
+                                <option value="Turkmenistan">Turkmenistan</option>
+                                <option value="Turks and Caicos Islands ">Turks and Caicos Islands </option>
+                                <option value="Tuvalu">Tuvalu</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States ">United States </option>
+                                <option value="United States Minor Outlying Islands ">United States Minor Outlying Islands </option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Uzbekistan">Uzbekistan</option>
+                                <option value="Vanuatu">Vanuatu</option>
+                                <option value="Vatican City State (Holy See)">Vatican City State (Holy See)</option>
+                                <option value="Venezuela ">Venezuela </option>
+                                <option value="Vietnam ">Vietnam </option>
+                                <option value="Virgin Islands">Virgin Islands</option>
+                                <option value="Virgin Islands, British ">Virgin Islands, British </option>
+                                <option value="Wallis and Futuna Islands ">Wallis and Futuna Islands </option>
+                                <option value="Western Sahara">Western Sahara</option>
+                                <option value="Yemen ">Yemen </option>
+                                <option value="Yugoslavia ">Yugoslavia </option>
+                                <option value="Zaire">Zaire</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Pin code/Zip Code</label>
+                            <input type="number" placeholder="" class="form-control num" value="" name="zipCode" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Area/Locality</label>
+                            <select class="form-select" name="locality" aria-label="Default select example">
+                                <option selected>Select Locality</option>
+                               
+                            </select>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">City</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="city" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">District</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="district" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">State / UT</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="state" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-md-12 my-2" id="appointmentDateDiv">
+                            <label class="form-label">5. Date of appointment</label>
+                            <input type="date" name="appointmentDate" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        
+                        <div class="col-md-12 my-2" id="cessationDateDiv" style="display: none;">
+                            <label class="form-label">6. Date of cessation</label>
+                            <input type="date" name="cessationDate" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-6 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">7. Whether the appointment or cessation is</label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" name="appointmentType" value="orderOfCourt">
+                            <label>
+                                Pursuant to an order of the court
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="appointmentType" value="instrument">
+                            <label>
+                                Pursuant to any instrument
+                            </label>
+                        </div>
+
+                        <div class="col-md-6 my-2 appointmentType" style="display:none">
+                            <label class="form-label">8. (a) Number of charges</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="numberOfCharges" id="numberOfCharges" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; display: flex;" class="orderofthecourt mt-3">8<span style="text-transform: lowercase;">(b)</span> Pursuance to an order of court</label>
+
+                        <table class="appointmentType" style="display:none">
+                            <thead>
+                                <tr>
+                                    <th id="reference">Court reference</th>
+                                    <th id="date">Date of Court order</th>
+                                    <th>Charge ID</th>
+                                    <th>Appointment relating to whole of the property of the company</th>
+                                    <th>
+                                        Appointment relating to income arising from whole of the property of the company
+                                    </th>
+                                </tr>
+
+                            </thead>
+                            <tbody id="tblCourtBody">
+                            </tbody>
+                        </table>
+
+
+                        <div id="specifiedPropertySection" style="display: none; margin-top: 2rem;">
+                            <h6><b>9(a) LIST OF SPECIFIED PROPERTY OF THE COMPANY IN CASE THE APPOINTMENT RELATES TO SPECIFIED PROPERTY OF THE COMPANY</b></h6>
+
+                            <div class="row my-2">
+                                <div class="col-md-3">
+                                    <label>Number of assets</label>
+                                    <input type="number" class="form-control" id="numberOfAssets" value="0" min="0">
+                                </div>
+                            </div>
+
+                            <div class="row bold form-row mt-2">
+                                <div class="col-md-1">S. No.</div>
+                                <div class="col-md-5">Type of assets</div>
+                                <div class="col-md-6">Brief description of the part of asset</div>
+                            </div>
+
+                            <div id="assetRows"></div>
+                        </div>
+
+
+                        <div id="incomePropertySection" style="display: none; margin-top: 2rem;">
+                            <h6><b>9(b) LIST OF SPECIFIED PROPERTY OF THE COMPANY IN CASE THE APPOINTMENT RELATES TO INCOME ARISING FROM SPECIFIED PROPERTY OF THE COMPANY (IS NO IS SELECTED IN INCOME)</b></h6>
+
+                            <div class="row my-2">
+                                <div class="col-md-3">
+                                    <label>Number of assets</label>
+                                    <input type="number" class="form-control" id="numberOfIncomeAssets" value="0" min="0">
+                                </div>
+                            </div>
+
+                            <div class="row bold form-row mt-2">
+                                <div class="col-md-1">S. No.</div>
+                                <div class="col-md-5">Type of assets</div>
+                                <div class="col-md-6">Brief description of the part of asset</div>
+                            </div>
+
+                            <div id="incomeAssetRows"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="tempCourt">
+        <tr>
+            <td>
+                <input type="text" class="alphanumeric" style="width: 100%;" required placeholder="Enter Here">
+            </td>
+            <td>
+                <input type="date" class="courtInstrumentDate datepicker" style="width: 100%;" required>
+            </td>
+            <td>
+                <select class="chargeIdSelect form-control" required>
+                    <option>Select Charge Id</option>
+                </select>
+            </td>
+            <td>
+                <div class="form-row" style="width:100%">
+                    <input type="radio" name="propertyWhole_{{ROWID}}" value="Y" class="propertyRadio" data-row="{{ROWID}}"> Yes &nbsp;&nbsp;
+                    <input type="radio" name="propertyWhole_{{ROWID}}" value="N" class="propertyRadio" data-row="{{ROWID}}"> No
+                </div>
+            </td>
+            <td>
+                <div class="form-row">
+                    <input type="radio" name="incomeWhole_{{ROWID}}" value="Y"> Yes &nbsp;&nbsp;
+                    <input type="radio" name="incomeWhole_{{ROWID}}" value="N"> No
+                </div>
+            </td>
+        </tr>
+    </template>
+
+
+
+
+
+    <template id="rowTemp" class="mt-2">
+        <div class="row mt-3" id="">
+            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center"> 2. </div>
+            <div class="col-xs-12 col-sm-12 col-md-10 form-row">
+                <input type="file" name="attachment_file[]" id="attachmentfile_2" class="2 my-2">
+            </div> <div class="col-xl-1 col-lg-1 col-md-12 col-md-12 col-12 " align="center" style="padding-right:3rem;">
+                <button type="button" name="remove" id="2" class="btn btn-danger btn_removeeq">X</button>
+            </div>
+        </div>
+    </template>
+
+
+  
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+
+
+
+
+<script>
+      $(document).on("change", "[name='zipCode']", function () {
+        const pin = $(this).val().trim();
+
+        // Validate PIN format
+        if (pin.length !== 6 || isNaN(pin)) {
+            $(this).addClass("is-invalid");
+            $(this).next(".invalid-feedback").text("Please enter a valid 6-digit PIN code").show();
+            return;
+        } else {
+            $(this).removeClass("is-invalid").next(".invalid-feedback").text("").hide();
+        }
+
+      
+      $.get(`@R.ApiUrl/Company/PinCode/${pin}`)
+            .then(response => {
+                if (response && response[0]?.PostOffice?.length > 0) {
+                    const info = response[0].PostOffice[0];
+
+                    $("[name='country']").val(info.Country || '');
+                    $("[name='state']").val(info.State || '');
+                    $("[name='city']").val(info.Region || '');
+                    $("[name='district']").val(info.District || '');
+
+                    // Fill locality dropdown
+                    const areaSelect = $("[name='locality']");
+                    areaSelect.empty().append(`<option value="">Select Locality</option>`);
+
+                    response[0].PostOffice.forEach(postOffice => {
+                        areaSelect.append(`<option value="${postOffice.Name}">${postOffice.Name}</option>`);
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Data Found',
+                        text: 'Could not find area details for this PIN code.'
+                    });
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Something went wrong while fetching PIN code details.'
+                });
+            });
+    });
+
+    </script>
+
+<script>
+    $(document).ready(function () {
+        // Listen for change in asset number input
+        $('#numberOfAssets').on('input', function () {
+            const count = parseInt($(this).val(), 10);
+            const $container = $('#assetRows');
+
+            // Clear existing rows
+            $container.empty();
+
+            // Generate new rows
+            for (let i = 1; i <= count; i++) {
+                const row = `
+                    <div class="row mt-1">
+                        <div class="col-md-1">${i}</div>
+                        <div class="col-md-5">
+                            <select class="form-control">
+                                <option>Select Type of Assets</option>
+                                // <option>Land</option>
+                                // <option>Building</option>
+                                // <option>Machinery</option>
+                                // <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Enter brief description">
+                        </div>
+                    </div>
+                `;
+                $container.append(row);
+            }
+        });
+    });
+</script>
+
+<script>
+
+         let chargeRowCount = 0;
+
+    function addCourtRow() {
+        chargeRowCount++;
+        let templateHtml = $('#tempCourt').html().replace(/{{ROWID}}/g, chargeRowCount);
+        $('#tblCourtBody').append(templateHtml);
+    }
+
+      $(document).ready(function () {
+       
+        $(document).on('change', '.propertyRadio', function () {
+            let showSpecifiedSection = false;
+            $('input.propertyRadio:checked').each(function () {
+                if ($(this).val() === 'N') {
+                    showSpecifiedSection = true;
+                    return false;
+                }
+            });
+            $('#specifiedPropertySection').toggle(showSpecifiedSection);
+            $('#numberOfAssets').val(showSpecifiedSection ? 1 : 0);
+        });
+
+        
+        $(document).on('change', 'input[name^="incomeWhole_"]', function () {
+            let showIncomeSection = false;
+            $('input[name^="incomeWhole_"]:checked').each(function () {
+                if ($(this).val() === 'N') {
+                    showIncomeSection = true;
+                    return false;
+                }
+            });
+            $('#incomePropertySection').toggle(showIncomeSection);
+            $('#numberOfIncomeAssets').val(showIncomeSection ? 1 : 0);
+        });
+    });
+
+
+
+
+
+        $(document).ready(function () {
+        $('#numberOfIncomeAssets').on('input', function () {
+            const count = parseInt($(this).val(), 10);
+            const $container = $('#incomeAssetRows');
+            $container.empty();
+
+            for (let i = 1; i <= count; i++) {
+                const row = `
+                    <div class="row mt-1">
+                        <div class="col-md-1">${i}</div>
+                        <div class="col-md-5">
+                            <select class="form-control">
+                                <option>Select Type of Assets</option>
+                                <option>Land</option>
+                                <option>Building</option>
+                                <option>Machinery</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Enter brief description">
+                        </div>
+                    </div>
+                `;
+                $container.append(row);
+            }
+        });
+    });
+
+</script>
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('input[name="noticeType"]').change(function () {
+                let selected = $(this).val();
+                if (selected === 'cessation') {
+                    $('#appointmentDateDiv').hide();
+                    $('#cessationDateDiv').show();
+                } else {
+                    
+                    $('#appointmentDateDiv').show();
+                    $('#cessationDateDiv').hide();
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).on("input", "#numberOfCharges",function(){
+            let charges = $(this).val()
+            let html = $("#tempCourt").html()
+            $("#tblCourtBody").html("")
+            for(i=1;i<=charges;i++){
+                $("#tblCourtBody").append(html)
+            }
+        })
+
+        $(document).on("change", "[name='appointmentType']", function () {
+            let type= $(this).val()
+            $(".appointmentType").show()
+            if (type == "orderOfCourt") {
+                $("#reference").text("Court reference")
+                $("#date").text("Date of Court order")
+            }else{
+                $("#reference").text("Description of instrument")
+                $("#date").text("Date of instrument")
+            }
+        })
+
+
+        let rowCount = 1;
+        $('#attachmentadd').click(function () {
+            rowCount++;
+            const templateContent = $('#rowTemp').html();
+            const newRow = $(templateContent.replace(/2/g, rowCount));
+            $('#equity').append(newRow);
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        $('#equity').on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove();
+            rowCount--;
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        function updateSerialNumbers() {
+            $('#equity .row').each(function (index) {
+                $(this).find('.form-row:first').text(index + 1 + '.');
+            });
+        }
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            filledBy: "", // Default value for radio buttons (no selection)
+            noticeType: "", // Default value for radio buttons (no selection)
+            panNumber: "", // Default value for PAN (empty string)
+            receiverName: "", // Default value for receiver's name (empty string)
+            addressLine1: "", // Default value for address line 1 (empty string)
+            addressLine2: "", // Default value for address line 2 (empty string)
+            country: "", // Default value for country (no selection)
+            zipCode: 0, // Default value for zip code (empty string)
+            locality: "", // Default value for locality (no selection)
+            city: "", // Default value for city (empty string)
+            district: "", // Default value for district (empty string)
+            state: "", // Default value for state (empty string)
+            appointmentDate: "", // Default value for appointment date (empty string)
+            appointmentType: "", // Default value for radio buttons (no selection)
+            numberOfCharges: "",// Default value for number of charges (empty string)
+
+            // Declaration
+            panNumber2: "",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("CHG6", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                    let html = $("#tempCourt").html()
+                    $("#tblCourtBody").html("")
+                    for (i = 1; i <= x.numberOfCharges; i++) {
+                        $("#tblCourtBody").append(html)
+                    }
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("CHG6", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

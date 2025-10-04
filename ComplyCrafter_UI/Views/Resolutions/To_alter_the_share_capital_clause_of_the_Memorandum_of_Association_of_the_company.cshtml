@@ -1,0 +1,468 @@
+﻿@{
+    ViewData["Title"] = "share capital clause Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">share capital clause Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <div class="section-heading"></div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+
+
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                        <select class="form-select" name="AuthorizedSignatory">
+                            <option value="">Select Director</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="shareCapitalSection">
+                <h4 class="mb-4 border-bottom pb-2">Share Capital Details</h4>
+                <div class="col-md-6 mb-4">
+                    <label class="form-label"><strong>Event Date</strong></label>
+                    <input type="date" class="form-control" value="2025-09-21">
+                </div>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>No. of shares</th>
+                            <th>Nominal Value</th>
+                            <th>Total amount</th>
+                            <th>Main Class</th>
+                            <th>Sub Class, (if any)</th>
+                            <th style="width: 60px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="equityRows">
+                        <tr>
+                            <td rowspan="1">Equity</td>
+                            <td><input type="text" class="form-control" placeholder="No of Share"></td>
+                            <td><input type="text" class="form-control" placeholder="Nominal value"></td>
+                            <td><input type="text" class="form-control" placeholder="Equity Capital"></td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Select Main Class</option>
+                                    <option>Class A</option>
+                                    <option>Class B</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Select Sub Class</option>
+                                    <option>Subclass 1</option>
+                                    <option>Subclass 2</option>
+                                </select>
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addEquityRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tbody id="preferenceRows">
+                        <tr>
+                            <td rowspan="1">Preference</td>
+                            <td><input type="text" class="form-control" placeholder="No of Share"></td>
+                            <td><input type="text" class="form-control" placeholder="Nominal value"></td>
+                            <td><input type="text" class="form-control" placeholder="Preference Capital"></td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Select Main Class</option>
+                                    <option>Class A</option>
+                                    <option>Class B</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Select Sub Class</option>
+                                    <option>Subclass 1</option>
+                                    <option>Subclass 2</option>
+                                </select>
+                            </td>
+                            <td style="text-align: center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addPreferenceRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="mt-4">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label"><strong>Unclassified Capital</strong></label>
+                            <input type="text" class="form-control" placeholder="Unclassified Capital">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label"><strong>Total Authorized Capital</strong></label>
+                            <input type="text" class="form-control" placeholder="Total Authorized Capital">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label"><strong>Total Authorized Capital</strong></label>
+                            <input type="text" class="form-control" placeholder="Total Authorized Capital">
+                        </div>
+                    </div>
+                </div>
+
+                <h4 class="mb-4 border-bottom pb-2 mt-4">Details of Board Meeting for Recommending This Proposal in General Meeting</h4>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Do you want to incorporate this agenda in existing Board Meeting?</strong></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="boardMeeting" id="boardYes" value="yes">
+                                <label class="form-check-label" for="boardYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="boardMeeting" id="boardNo" value="no" checked>
+                                <label class="form-check-label" for="boardNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Select Existing Meeting</strong></label>
+                        <select class="form-select">
+                            <option>1/5/04/2025</option>
+                            <option>Other date</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h4 class="mb-4 border-bottom pb-2 mt-4">General Meeting for Approving the Increment of Authorized Capital</h4>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Type of Meeting:</strong></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="meetingType" id="agm" value="agm">
+                                <label class="form-check-label" for="agm">AGM</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="meetingType" id="eem" value="eem" checked>
+                                <label class="form-check-label" for="eem">EEM</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Do you want to incorporate this agenda in existing General Meeting?</strong></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="generalMeeting" id="generalYes" value="yes">
+                                <label class="form-check-label" for="generalYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="generalMeeting" id="generalNo" value="no" checked>
+                                <label class="form-check-label" for="generalNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Date of General Meeting</strong></label>
+                        <input type="date" class="form-control" value="2025-09-21">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Time of General Meeting</strong></label>
+                        <input type="time" class="form-control" value="16:39">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Does the AGM contain a clause authorizing the increment in authorized share capital?</strong></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="agmClause" id="clauseYes" value="yes">
+                                <label class="form-check-label" for="clauseYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="agmClause" id="clauseNo" value="no" checked>
+                                <label class="form-check-label" for="clauseNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Does the AOA contain a clause authorizing the increment in authorized share capital?</strong></label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aoaClause" id="aoaClauseYes" value="yes">
+                                <label class="form-check-label" for="aoaClauseYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="aoaClause" id="aoaClauseNo" value="no" checked>
+                                <label class="form-check-label" for="aoaClauseNo">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda
+                </div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To alter the share capital clause of the Memorandum of Association of the company</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda Heading <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To alter the share capital clause of the Memorandum of Association of the company">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Minute Heading <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To alter the share capital clause of the Memorandum of Association of the company">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda Preface
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The board to take note of the [declaration-declarations] from [Name of director(s) & Designation] in form DIR-8 as required under the provisions of section 164 of the Companies Act, 2013, confirming that [he-she-they] [has-have] not been disqualified from being appointed as director of the company. The board may pass the following resolution to record and confirm the receipt of the [declaration-declarations]:
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Minute Preface
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The board was informed about the receipt of [declaration-declarations] from [Name of director(s) & Designation] in form DIR-8 as required under the provisions of section 164 of the Companies Act, 2013, confirming that [he-she-they] had not been disqualified from being appointed as director of the company. The said [declaration-declarations] [was-were] presented before the board. The board passed the following resolution to record and confirm the receipt of the [declaration-declarations]:
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution for Notice
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+“RESOLVED THAT pursuant to the provisions of section 164 of the Companies Act, 2013 read with Rule 14 (1) of Companies (Appointment and Qualification of Director) Rules, 2014, the [declaration-declarations] in form DIR-8 received from [Name of director(s) & Designation] of the Company, confirming that [he-she-they] [has-have] not been disqualified from being appointed as Director of the Company, as placed before the Board, be and are hereby noted and taken on record.
+
+RESOLVED FURTHER THAT [Name of Authorized Director, Designation] be and is hereby authorized to submit a copy of the above-said resolution to the Auditors of the Company for the purpose of their comments in the Auditor's Report.”
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution for Minutes
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">
+“RESOLVED THAT pursuant to the provisions of section 164 of the Companies Act, 2013 read with Rule 14 (1) of Companies (Appointment and Qualification of Director) Rules, 2014, the [declaration-declarations] in form DIR-8 received from [Name of director(s) & Designation] of the Company, confirming that [he-she-they] [has-have] not been disqualified from being appointed as Director of the Company, as placed before the Board, be and are hereby noted and taken on record.
+
+RESOLVED FURTHER THAT [Name of Authorized Director, Designation] be and is hereby authorized to submit a copy of the above-said resolution to the Auditors of the Company for the purpose of their comments in the Auditor's Report.”
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution Signatory Details
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Name of Signatory</th>
+                                <th>DIN / PAN</th>
+                                <th>Date of Signing</th>
+                                <th style="width: 80px; text-align:center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <select class="form-select">
+                                        <option value="">Select Signatory</option>
+                                        <option>John Doe</option>
+                                        <option>Jane Smith</option>
+                                        <option>Michael Johnson</option>
+                                        <option>Emily Davis</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                                </td>
+                                <td>
+                                    <input type="date" class="form-control">
+                                </td>
+                                <td style="text-align:center;">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</div>
+
+                                    <script>
+                                             function addEquityRow() {
+        const equityRows = document.getElementById('equityRows');
+        const newRow = equityRows.insertRow();
+
+        newRow.innerHTML = `
+            <td>Equity</td>
+            <td><input type="text" class="form-control" placeholder="No of Share"></td>
+            <td><input type="text" class="form-control" placeholder="Nominal value"></td>
+            <td><input type="text" class="form-control" placeholder="Equity Capital"></td>
+            <td>
+                <select class="form-select">
+                    <option>Select Main Class</option>
+                    <option>Class A</option>
+                    <option>Class B</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select">
+                    <option>Select Sub Class</option>
+                    <option>Subclass 1</option>
+                    <option>Subclass 2</option>
+                </select>
+            </td>
+            <td style="text-align: center;">
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">-</button>
+            </td>
+        `;
+    }
+
+    function addPreferenceRow() {
+        const preferenceRows = document.getElementById('preferenceRows');
+        const newRow = preferenceRows.insertRow();
+
+        newRow.innerHTML = `
+            <td>Preference</td>
+            <td><input type="text" class="form-control" placeholder="No of Share"></td>
+            <td><input type="text" class="form-control" placeholder="Nominal value"></td>
+            <td><input type="text" class="form-control" placeholder="Preference Capital"></td>
+            <td>
+                <select class="form-select">
+                    <option>Select Main Class</option>
+                    <option>Class A</option>
+                    <option>Class B</option>
+                </select>
+            </td>
+            <td>
+                <select class="form-select">
+                    <option>Select Sub Class</option>
+                    <option>Subclass 1</option>
+                    <option>Subclass 2</option>
+                </select>
+            </td>
+            <td style="text-align: center;">
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">-</button>
+            </td>
+        `;
+    }
+
+    function deleteRow(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>

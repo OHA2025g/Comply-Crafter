@@ -1,0 +1,198 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To authorize the issuance of {share} certificates to the subscribers to the Memorandum and Article of Association`;
+    let agendaHeading = `To authorize the issuance of {share} certificates to the subscribers to the Memorandum and Article of Association`;
+    let minuteHeading = `Issue of share certificates to the Subscribers`;
+    let agendaPreface = `
+    The subscribers to the Memorandum of Association of the Company have each agreed to take and have taken {No of Shares} ({No of shares in words}) equity shares in the Company. Pursuant to Section 2(55) of the Companies Act, 2013, and other applicable provisions, if any, the names of the said subscribers to the Memorandum of Association shall be entered in the Register of Members and the equity share certificates are required to be issued to them. The Board shall review the matter and pass the following resolution if thought fit:
+    `;
+    let minutePreface = `
+    The subscribers to the Memorandum of Association of the Company have each agreed to take and have taken {No of Shares} ({No of shares in words}) equity shares in the Company. Pursuant to Section 2(55) of the Companies Act, 2013, and other applicable provisions, if any, the names of the said subscribers to the Memorandum of Association shall be entered in the Register of Members and the equity share certificates are required to be issued to them. The matter was discuused, and the following resolution was passed in the regard:
+    `;
+    let resolutionForNoticePara1 = `
+    “RESOLVED THAT the names of the subscribers to the memorandum of association be entered in the Register of Members with respect to the equity shares for which they have subscribed to and the company shall receive full payment, as detailed below:
+
+    `;
+    let resolutionForNoticePara2 = `
+    RESOLVED FURTHER THAT a duly stamped Share Certificate be issued to the subscribers to the memorandum under the signatures of [Name of Director 1], and [Name of Director 2] Directors of the Company.”
+    `;
+    let resolutionForMinutesPara1 = `
+    “RESOLVED THAT the names of the subscribers to the memorandum of association be entered in the Register of Members with respect to the equity shares for which they have subscribed to and the company shall receive full payment, as detailed below:
+
+    `;
+    let resolutionForMinutesPara2 = `
+    RESOLVED FURTHER THAT a duly stamped Share Certificate be issued to the subscribers to the memorandum under the signatures of [Name of Director 1], and [Name of Director 2] Directors of the Company.”
+    `;
+</script>
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+<style>
+    .custom-table-subscriber .form-control {
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table-subscriber td, .custom-table-subscriber th {
+        border: 1px solid #000 !important;
+        vertical-align: middle;
+        padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table-subscriber .table-title {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table-subscriber .btn-sm {
+        padding: 1px 6px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+</style>
+
+
+
+
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+    @if (ViewBag.UseLayout == true)
+    {
+        <table class="custom-table-subscriber" id="subscriberTable">
+            <thead>
+                <tr>
+                    <th>Sr. No.</th>
+                    <th>Name of the subscribers</th>
+                    <th>Folio No.</th>
+                    <th>Number of shares</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td><input class="form-control w-75" type="text" name="subscriberName" value="" placeholder="Enter name"></td>
+                    <td><input class="form-control w-75" type="text" name="folioNo" value="" placeholder="Folio No."></td>
+                    <td><input class="form-control w-75 num" type="number" name="numberOfShare" value="0" placeholder="Number of shares"></td>
+                    <td>
+                        <input type="hidden" name="id" class="num" value="0">
+                        <button type="button" class="btn btn-danger btn-sm form-control removeRow" onclick="removeSubscriber(this)">X</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="custom-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <button type="button" class="addRow btn btn-primary btn-sm mt-2 w-100" onclick="addSubscriber()">Add More</button>
+                        <div style="display: flex; gap: 20px; margin-top: 15px;">
+                            <div style="flex: 1;">
+                                <label><strong>Select Director 1</strong></label>
+                                <select class="form-control director" name="director1Approver">
+                                </select>
+                            </div>
+                            <div style="flex: 1;">
+                                <label><strong>Select Director 2</strong></label>
+                                <select class="form-control director" name="director2Approver">
+                                </select>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+
+        @*  <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Category
+            </div>
+            <div class="col-md-9">
+                <select name="category" class="form-control">
+                    <option>Share Capital</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Sub Category
+            </div>
+            <div class="col-md-9">
+                <select name="subCategory" class="form-control">
+                    <option>Share Certificates</option>
+                </select>
+            </div>
+            </div> *@
+
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails", new AgendaViewModelEnabler())
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+
+<script>
+    function addSubscriber() {
+        const table = document.querySelector('#subscriberTable tbody');
+        if (!table) return;
+        const rowCount = table.rows.length + 1;
+        const newRow = table.insertRow();
+
+        newRow.innerHTML = `
+            <td>${rowCount}.</td>
+            <td><input class="form-control w-75" type="text" name="subscriberName" value="" placeholder="Enter name"></td>
+            <td><input class="form-control w-75" type="text" name="folioNo" value="" placeholder="Folio No."></td>
+            <td><input class="form-control w-75 num" type="number" name="numberOfShare" value="0" placeholder="Number of shares"></td>
+            <td>
+                <input type="hidden" name="id" class="num" value="0">
+                <button type="button" class="btn btn-danger btn-sm form-control removeRow" onclick="removeSubscriber(this)">X</button>
+            </td>
+        `;
+    }
+
+    function removeSubscriber(button) {
+        const row = button.closest('tr');
+        row.remove();
+        // Re-number rows
+        document.querySelectorAll('#subscriberTable tbody tr').forEach((tr, index) => {
+            tr.cells[0].innerText = `${index + 1}.`;
+        });
+    }
+
+    function resetTableSubscriber() {
+        if (!isLayOut) return;
+        $('#subscriberTable tbody').empty();
+        addSubscriber();
+    }
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

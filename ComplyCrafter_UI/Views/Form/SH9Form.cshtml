@@ -1,0 +1,544 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+    input{
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.SH-9
+                </h3>
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Declaration of solvency
+                    [Pursuant to section 68(6) of the Companies Act, 2013 and rule 17(3) of the Companies (Share Capital and Debentures) Rules, 2014]
+                </p>
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_Kit_SH-9.pdf" target="_blank">
+                    Refer instruction kit for filing the form
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Company Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="accordion" id="companyAccordion">
+                <div class="accordion-item">
+                    <div id="collapseDetails" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                        <div class="card">
+                            <div class="card-body">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                        <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                            Company Information
+                                        </p>
+                                    </div>
+                                    <div class="col-md-6 my-2">
+                                        <label class="form-label">1. (a)*Corporate Identity Number(CIN)</label>
+                                        <input type="text" placeholder="" class="form-control" value="" name="cin" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-2">
+                                        <label class="form-label">2. (a) *Name of the Company</label>
+                                        <input type="text" placeholder="" class="form-control" value="" name="companyName" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-lg-6 my-2">
+                                        <label class="form-label">(b) *Registered office address</label>
+                                        <input type="text" placeholder="" class="form-control" value="" name="companyAddress" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-lg-6 my-2">
+                                        <label class="form-label"> (c) E-mail id</label>
+                                        <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                        <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                            Listing Details
+
+                                        </p>
+                                    </div>
+
+
+                                    <div class="row form-check mt-3 ">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">
+                                            3. (a) *Whether the company is listed
+                                        </div>
+                                        <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                                            <label>    <input type="radio" class="isregulated" value="Y" required name="companyWhether">&nbsp; Yes &nbsp;&nbsp;</label>
+                                            <label>     <input type="radio" name="companyWhether" class="isregulated" value="N" required>&nbsp; No</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                        <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                            Other Details
+                                        </p>
+                                    </div>
+                                    <div class="col-lg-12 my-2">
+                                        <label class="form-label"> 4. (a) *Date of Board of Directors’ resolution authorising buy-back of securities</label>
+                                        <input type="date" placeholder="" class="form-control" value="" name="resolutionDirectors" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" >
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                        <div class="col-lg-6 my-3">
+                                        <label class="form-label"> (b) (i) Date of special resolution of members authorising the buy-back of securities</label>
+                                        <input type="date" placeholder="" class="form-control" value="" name="specialDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-lg-6 my-3">
+                                        <label class="form-label">(ii) *Service Request Number (SRN) of Form MGT - 14</label>
+                                        <input type="text" placeholder="" class="form-control" value="" name="serviceNumber" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;>
+            <div id="tab2" class="tab-pane animated  custon-tab-style1 active">
+                <div class="guideLoading guideServiceLoading dvloader" style="display: none;"></div>
+                <form action="" role="form" id="fupForm2" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Company Declaration</label><br>
+                    <div class="row" style="height: auto">
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                            <p style="text-align: justify;">We declare that we have received a report from the company’s auditors stating that they have inquired into the company’s state of affairs, the amount of the permissible capital payment for the securities in question is in their view properly determined and that the audited accounts on the basis of which calculation with reference to buy back is done is not more than six months old from the date of offer document.</p>
+                            <p style="text-align: justify;">We solemnly affirm and declare that we have made full inquiry into the affairs of the company as a result of which we have formed an opinion that the Company is capable of meeting its total liabilities and that the company will not be rendered insolvent within a period of one year from the date of making this declaration</p>
+                            <p style="text-align: justify;">
+                                We solemnly declare that we have made a full enquiry into the affairs of the company including the assets and liabilities of this company and have noted that the shareholders by a special resolution dated  &nbsp;* <input type="date" name="resolutionnumber" placeholder="" value="" id="resolutiondate2" readonly="readonly"> &nbsp;and the resolution passed by the Board at its meeting held on &nbsp;* <input type="date" name="resolutionPass" class="datepicker hasDatepicker" id="resolutiondate" placeholder="" value="">&nbsp;  have approved the buy-back of  &nbsp; <input type="number" name="approved" placeholder="Number of shares" id="numberOfWrod" class="numbers" value="" required="" style="margin-top: 5px;" maxlength="15"> &nbsp;(in numbers) &nbsp;* <input type="text" name="sharesInWords" id="meetingWords" placeholder="Number of shares In words" value="" required="" style="margin-top: 5px;" readonly="readonly"> &nbsp; (in words) shares or other specified  securities as per the provisions of section 68 of the Companies Act, 2013. Verified this day the &nbsp;*
+                                <select name="CompaniesAct" class="CompaniesDay" id="CompaniesDay" required="" style="margin-top: 5px;" disabled="disabled">
+                                    <option value="">Select Date</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                    <option value="13">13</option>
+                                    <option value="14">14</option>
+                                    <option value="15">15</option>
+                                    <option value="16">16</option>
+                                    <option value="17">17</option>
+                                    <option value="18">18</option>
+                                    <option value="19">19</option>
+                                    <option value="20">20</option>
+                                    <option value="21">21</option>
+                                    <option value="22">22</option>
+                                    <option value="23">23</option>
+                                    <option value="24">24</option>
+                                    <option value="25">25</option>
+                                    <option value="26">26</option>
+                                    <option value="27">27</option>
+                                    <option value="28">28</option>
+                                    <option value="29">29</option>
+                                    <option value="30">30</option>
+                                    <option value="31">31</option>
+                                </select>
+                                &nbsp; day of &nbsp;*
+                                <select name="dayof" class="dayof" required="">
+                                    <option value="">Select Month</option>
+                                    <option value="January">January</option>
+                                    <option value="February">February</option>
+                                    <option value="March">March</option>
+                                    <option value="April">April</option>
+                                    <option value="May">May</option>
+                                    <option value="June">June</option>
+                                    <option value="July">July</option>
+                                    <option value="August">August</option>
+                                    <option value="September">September</option>
+                                    <option value="October">October</option>
+                                    <option value="November">November</option>
+                                    <option value="December">December</option>
+                                </select>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                            <span style="font-weight: bold;">Designation</span>
+                            <div lass="input text">
+                                <select name="Designation" id="Designation" class="form-select" required="">
+                                    <option value="">Select Designation</option>
+                                    <option value="Director">Director </option>
+                                    <option value="Managing Director">Managing Director</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <span style="font-weight: bold;">Director's Name</span>
+                            <div class="input text" id="change_designation">
+                                <input type="text" name="nameDirector" id="nameDirector" class="form-control nameDirector" value=""></div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <span style="font-weight: bold;">DIN of the director</span>
+                            <div class="input text">
+                                <input type="text" name="firstDirectorDin" class="form-control directorDin" value="" maxlength="8" required="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px; ">
+                            <span style="font-weight: bold;">Designation</span>
+                            <div lass="input text">
+                                <select name="secondDirectorsDesignation" id="DirectorsName" class="form-select" required="">
+                                    <option value="">Select Designation</option>
+                                    <option value="Director">Director </option>
+                                    <option value="Managing Director">Managing Director</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <span style="font-weight: bold;">Director's Name</span>
+                            <div class="input text" id="change_designation_2">
+                                <input type="text" name="secondDirectorName" id="dinofdirector" class="form-control dinofdirector" value="" required=""></div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <span style="font-weight: bold;">DIN of the director</span>
+                            <div class="input text">
+                                <input type="text" name="secondDirectorsDIN" class="form-control nameofdirectorDin" value="" maxlength="8" required="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <label style="font-weight: bold; font-size: 15px; text-decoration: underline; margin: 0px 5px; " class="mt-3">Attachments</label>
+                    <br><br>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-1 bold form-row mt-2" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 bold form-row mt-2">
+                            (a) *Statement of assets and liabilities
+                        </div>
+                    </div>
+
+                    <div id="equity1 mt-3">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row mt-2" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row mt-2">
+                                <input type="file" accept="pdf, jpeg" required="" name="liabilities" id="liabilities_1" class="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-1 bold form-row mt-2" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 bold form-row mt-2">
+                            (b) *Auditor’s Report
+                        </div>
+                    </div>
+
+                    <div id="equity2 mt-3">
+
+                        <div class="row mt-2">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row mt-2" align="center">
+                                2.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row mt-2">
+                                <input type="file" name="Report" required="" id="Report_1" class="1" accept="pdf, jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-1 bold form-row mt-2" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 bold form-row mt-2">
+                            (c) *Affidavit as per rule 17(3)
+                        </div>
+                    </div>
+                    <div id="equity3 mt-3">
+
+                        <div class="row mt-2" id="rowel1">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row mt-2" align="center">
+                                3.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row mt-2">
+                                <input type="file" name="Affidavit" required="" id="Affidavit_1" class="1" accept="pdf, jpeg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">  
+                        <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-2" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-2">
+                            (d) Optional attachment(s) - if any
+                        </div>
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-2" align="center">
+                            <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                        </div>
+                    </div>
+
+                    <div id="equity4">
+                        <input type="hidden" name="l" id="l" value="1">
+                        <div class="row mt-2" id="rowq1">
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-2">
+                                <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="height: auto">
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto; border: none;">
+                            <p style="color: red; font-weight: bold;">The provisions of Companies Act, 2013 and rules made thereunder relating to buy-back of securities have been complied with in respect of the securities bought back and the details relating to such buy-back is being filed in this form</p>
+                        </div>
+                    </div>
+                    <template id="rowTemp" class="mt-2">
+                        <div class="row" id="rowq2"><div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">                                    2.                                  </div>                                     <div class="col-xs-12 col-sm-12 col-md-10 form-row">                                       <input type="file" name="attachment_file[]" id="attachmentfile_12" class="2">                                     </div> <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 " align="center"><button type="button" name="remove" id="2" class="btn btn-danger btn_removeeq">X</button></div></div>
+                    </template>
+                </form>
+            </div> 
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+<script>
+    function numberToWords(n) {
+        const a = ["", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+                   "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen",
+                   "eighteen", "nineteen"];
+        const b = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+
+        if (n === 0) return "zero";
+
+        if (n < 20) return a[n];
+        if (n < 100) return b[Math.floor(n / 10)] + (n % 10 ? "-" + a[n % 10] : "");
+        if (n < 1000) return a[Math.floor(n / 100)] + " hundred" + (n % 100 ? " and " + numberToWords(n % 100) : "");
+        if (n < 1000000) return numberToWords(Math.floor(n / 1000)) + " thousand" + (n % 1000 ? " " + numberToWords(n % 1000) : "");
+        if (n < 1000000000) return numberToWords(Math.floor(n / 1000000)) + " million" + (n % 1000000 ? " " + numberToWords(n % 1000000) : "");
+        return "Number too large";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const numberInput = document.getElementById("numberOfWrod");
+        const wordsInput = document.getElementById("meetingWords");
+
+        numberInput.addEventListener("input", function () {
+            const value = parseInt(this.value);
+            if (!isNaN(value) && value >= 0) {
+                wordsInput.value = numberToWords(value).replace(/^\w/, c => c.toUpperCase());
+            } else {
+                wordsInput.value = "";
+            }
+        });
+    });
+</script>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            // part-1
+            companyWhether: "",
+            resolutionDirectors: "",
+            specialDate: "",
+            serviceNumber: "",
+
+            // part-2
+            resolutionNumber:0,
+            resolutionPass:"",
+            approved:"",
+            sharesInWords: "",
+            companiesAct:"",
+            dayOf:"",
+            designation:"",
+            nameDirector:"",
+            firstDirectorDin:"",
+            secondDirectorsDesignation: "",
+            secondDirectorName: "",
+            secondDirectorsDIN: "",
+            liabilities:"",
+            report:"",
+            affidavit:"",
+            attachmentFile:"",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+        let rowCount = 1; // Initialize row count
+
+        // Add new row
+        $('#attachmentadd').click(function () {
+            rowCount++; // Increment row count
+
+            // Get the template content
+            const templateContent = $('#rowTemp').html();
+
+            // Replace the placeholder "2" with the current row count
+            const newRow = $(templateContent.replace(/2/g, rowCount));
+
+            // Append the new row to the container
+            $('#equity4').append(newRow);
+
+            // Update the hidden input value
+            $('#l').val(rowCount);
+        });
+
+        // Remove row
+        $('#equity4').on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove(); // Remove the closest row
+            rowCount--; // Decrement row count
+            $('#l').val(rowCount); // Update the hidden input value
+        });
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+    </script>
+
+}

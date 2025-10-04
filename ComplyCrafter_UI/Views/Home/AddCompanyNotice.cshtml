@@ -1,0 +1,232 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div id="frm">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">
+                Company Notice 
+            </h3>
+        </div>
+        <div class="card-body">
+            <input type="hidden" class="num" value="0" name="id" />
+            <input type="hidden" class="num" value="0" name="companyId" />
+            <div class="row">
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Type</label>
+                    <input type="text" placeholder="" class="form-control" name="type" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Issue Date</label>
+                    <input type="date" class="form-control" name="issueDate">
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="col-md-4 my-2">
+                    <label class="form-label">Meeting Date</label>
+                    <input type="date" class="form-control" name="meetingDate">
+                    <div class="invalid-feedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="cardsContainer"></div>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-12 my-1">
+                <label class="form-label">Select Resolutiion</label>
+                <select class="js-states form-control num" id="resolutionS2" name="resolutionS2"></select>
+                <div class="invalid-feedback"></div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+            type: "",
+            issueDate: "",
+            meetingDate: "",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+            type: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+            $('#resolutionS2').select2({
+                // minimumInputLength: 3,
+                ajax: {
+                    url: '@R.ApiUrl/Resolution/S2',
+                    dataType: 'json',
+                    processResults: function (data, params) {
+                        data = data.map(q => { q.text = `${q.title}`; return q; })
+                        return {
+                            results: data
+                        };
+                    },
+                },
+                theme: 'bootstrap-5',
+                placeholder: 'Select Resolution',
+                templateResult: (data) => {
+                    if (!data.title) return data.text;
+                    else return $(`<p class="m-0">${data.title}</p>`)
+                }
+            });
+
+
+            $('#resolutionS2').on('change', function () {
+                var selected = $(this).select2('data')[0];
+                if (selected == undefined) return;
+                const cardsContainer = $('#cardsContainer');
+                const cardsHtml = cardTemplate(selected);
+                cardsContainer.append(cardsHtml);
+                $('#resolutionS2').val(null).trigger('change');
+
+            });
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            let isValid = true;
+            if (!vfFrm.form()) isValid = false;
+
+            if (!isValid) return;
+            var obj = getObj(frm, '#frm');
+            const resolutions = [];
+            $('#cardsContainer .card').each(function () {
+
+                const resolutionData = {};
+                $(this).find('input').each(function () {
+                    const fieldName = $(this).attr('name');
+                    const fieldValue = $(this).val();
+                    if (fieldValue) {
+                        resolutionData[fieldName] = fieldValue;
+                    }
+                });
+                resolutions.push(resolutionData);
+            });
+            obj.resolution = JSON.stringify(resolutions);
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    // window.location = `@Url.Action("Company", "Home")/@ViewBag.cid/Notice`
+                    print(x.responseObject.id)
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                    JSON.parse(x.resolution).map(item => {
+                        $.get(`@R.ApiUrl/Resolution/${item.resolutionId}`).then(r => {
+                            const cardsContainer = $('#cardsContainer');
+                            const cardsHtml = $(cardTemplate(r));
+                            setObj(item, cardsHtml)
+                            cardsContainer.append(cardsHtml);
+                        }).catch(error => {
+                            console.error("Error loading data: ", error);
+                        });
+                    })
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("Company", "Home")/Notice`
+                return;
+            }
+            $("[name='companyId']").val(company);
+        }
+
+        function delResolution(event) {
+            $(event.target).closest('.card').remove();
+        }
+
+        function print(id) {
+            window.location = `@Url.Action("CompanyNoticePrint", "Home")/`+id
+        }
+
+        function cardTemplate(data) {
+            var text = data.agendaText;
+
+            const uniqueMatches = [...new Set(text.match(/{([^}]+)}/g).map(m => m.slice(1, -1)))];
+
+            let cardBody = '';
+
+            if (uniqueMatches.length > 0) {
+                cardBody = `
+                    <div class="card-body">
+                        <div class="row">
+                `;
+
+                uniqueMatches.forEach(function (item) {
+                    var title = item;
+                    item = item.replace(/\s+/g, '_');
+                    const inputType = item.toLowerCase().includes('date') ? 'date' : 'text';
+
+                    cardBody += `
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">${title}</label>
+                            <input type="${inputType}" placeholder="" class="form-control" name="${item}" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    `;
+                });
+
+                cardBody += `</div></div>`;
+            }
+            return `
+                <div class="card">
+                    <input type="hidden" class="num" value="${data.id}" name="resolutionId" />
+                    <div class="card-header d-flex justify-content-between mb-3">
+                        <h3 class="card-title mb-0 fs-4" style="margin-top:1px">${data.title}</h3>
+                        <button class="btn btn-sm btn-outline-danger" onclick="delResolution(event)">
+                            <i class="fa fa-minus px-2 fs-6"></i>Remove
+                        </button>
+                    </div>
+                    ${cardBody}
+                </div>
+            `;
+        }   
+
+    </script>
+
+}

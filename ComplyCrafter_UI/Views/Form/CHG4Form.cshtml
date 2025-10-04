@@ -1,0 +1,1176 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none;
+    }
+
+    .textheader:hover a {
+        color: red;
+    }
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.CHG-4
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Particulars for satisfaction of charge thereof
+
+                    [Pursuant to section 82(1) of the Companies Act, 2013 and Rule 8(1) and 13 of the Companies (Registration of charges) Rules 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca/mca-forms-instruction-kit/Instruction%20Kit_CHG-4.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity's Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & DSC Company
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachment
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part3" class="p-0">
+        <div class="card">
+            <form id="frmCompany3">
+                <div class="row mt-5" style="">
+                    <h6 class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </h6>
+                    <h6 class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                        Optional attachment(s) - if any
+                    </h6>
+                    <div id="equity2">
+
+                        <div class="row mt-3 mb-3" id="rowel1 ">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row ">
+                                <input type="file" name="instrumentCreating" id="InstrumentCreating_1" class="1" required="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                            Attachments
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            <button type="button" name="attachmentAdd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                        </div>
+
+                    </div>
+                    <div id="equity">
+                        <input type="hidden" name="l" id="l" value="1">
+
+                        <div class="row " id="">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                                <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1">
+                            </div>
+                        </div>
+                       
+                    </div>
+
+                </div>
+                <template id="rowTemp">
+                    <div class="row mt-3" id="rowq2">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            2.
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-10 form-row">
+                            <input type="file" name="optionalAttachment" id="attachmentfile_12" class="2">
+                        </div>
+                        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 " align="center">
+                            <button type="button" name="remove" id="2" class="btn btn-danger btn_removeeq">X</button>
+                        </div>
+                    </div>
+                </template>
+            </form>
+        </div>
+    </div>
+
+    <div class="card" id="part2">
+        <div class="col-xs-12 col-sm-3 col-md-12 form-row my-3" style="padding: 10px; height: auto;">
+            <p style="text-align: justify;">
+                <input type="checkbox" name="chkAuthorised" value="Y" id="" required="">&nbsp;
+                I am authorized by the Board of Directors of the Company vide resolution no&nbsp;
+                <input type="text" name="resolutionNumber" style="width: 10%;" value="" id="resolutionNumber" required="">&nbsp;
+                Dated&nbsp;
+                <input type="date" name="declarationDate" id="declarationDate" value=""
+                       class="datepicker hasDatepicker form-control d-inline-block"
+                       style="width: 10%; display: inline;" required="">&nbsp;
+
+                <span class="invalid-feedback d-block" style="font-size: 0.875em;"></span>
+                &nbsp; to sign this form and declare that all the requirements of Companies Act, 2013 and the rules made thereunder
+                in respect of the subject matter of this form and matters incidental thereto have been complied with.
+                I also declare that all the information given herein above is true, correct and complete and as per the attached
+                charge instrument(s) or document(s) and nothing material has been suppressed.
+                A copy of the attached charge instrument(s) or document(s) is/are available at the registered office or principal
+                place of business in India of the company.
+            </p>
+
+            <input type="hidden" class="num" value="0" name="parentId" />
+            <input type="hidden" class="num" value="0" name="id" />
+        </div>
+
+        <div class="col-xs-12 col-sm-3 col-md-12 form-row" style="padding: 10px;height: auto;">
+            &nbsp; <input type="checkbox" value="Y" id="checkbox1" name="terms">&nbsp; &nbsp;
+            <span style="font-weight: bold;">I further declare that:</span>
+            <ol style="margin-top: 10px;">
+                <li style="text-align: justify;">The delay in filing the particulars of creation/modification, was accidental or due to inadvertence or some other sufficient cause and are or is not of a nature to prejudice the position of the charge holder, shareholders or creditors of the company;</li>
+                <li style="text-align: justify;"> No prejudice would be caused to the charge holder(s) or any other creditor(s) of the company, if the delay is condoned;</li>
+                <li style="text-align: justify;"> The company has not created or modified any other charge(s) whatsoever on the assets of the company, since the creation / modification of the present charge;</li>
+                <li style="text-align: justify;">The company is carrying on the business as on the date of filing this application and no proceedings to wind-up the company have commenced or are pending against the company;</li>
+                <li style="text-align: justify;"> There is no litigation proceedings pending before any court of law for which condonation of delay is being filed; </li>
+                <li style="text-align: justify;">The company has not applied for striking off the name of the company from the register of Registrar of Companies</li>
+            </ol>
+
+        </div>
+        <div class="card-body">
+            <form id="frmCompany2">
+                @*                 <input type="hidden" class="num" value="0" name="id" style="    box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" />
+                    *@                <div class="row">
+                    <!-- Hidden field for company ID -->
+                    <input type="hidden" name="companyId" value="">
+
+                    <!-- Designation Dropdown -->
+                    <div class="col-12 my-2">
+                        <label class="form-label">Designation</label>
+                        <select class="form-select" name="designation" id="designation">
+                            <option value="">Select Designation</option>
+                            <option value="Director">Director</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Company Secretary">Company Secretary</option>
+                            <option value="CFO">CFO</option>
+                            <option value="CEO">CEO</option>
+                            <option value="IRP">IRP</option>
+                            <option value="RP">RP</option>
+                            <option value="Liquidator">Liquidator</option>
+                            <option value="Authorised Representative">Authorised Representative</option>
+                        </select>
+                    </div>
+
+                    <!-- Identification Field Label -->
+                    <div class="col-12 my-2">
+                        <label class="form-label">
+                            DIN of the Director; PAN of the Manager, CEO, CFO, IRP/RP, Liquidator or Authorised Representative;
+                            or Membership Number of Company Secretary
+                        </label>
+
+
+                        <input type="text" class="form-control" name="managerPan" id="managerPan" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+
+
+                        <select name="managerPan" id="drpDirector" class="form-select" style="display:none">
+                            <option value="">Select Director</option>
+                        </select>
+
+                        <select name="managerPan" id="drpManager" class="form-select" style="display:none">
+                            <option value="">Select Manager</option>
+                        </select>
+
+                        <select name="managerPan" id="drpCeo" class="form-select" style="display:none">
+                            <option value="">Select CEO</option>
+                        </select>
+
+                        <select name="managerPan" id="drpCfo" class="form-select" style="display:none">
+                            <option value="">Select CFO</option>
+                        </select>
+
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-12 my-2">
+                        <label class="form-label" style="border-bottom:1px solid black; display:inline-block;">Declaration & DSC_Charge Holder / ARC / Assignee</label>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-1 form-row" align="center">
+                                <input type="checkbox" name="checkbox3" value="Y" id="checkbox1" required="">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-11 form-row"><p style="text-align: justify;"> I/we confirm that the attached charge instrument(s) or document(s) is/are true copies of the original which is/are available with the charge holder and/or assignee and all the information and particulars mentioned above are derived there from are concisely and correctly stated. I/we am/are duly authorised to sign this form</p></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-3 col-md-1 form-row" align="center"><input type="checkbox" name="checkbox4" value="Y" id=""></div>
+                            <div class="col-xs-12 col-sm-3 col-md-11 form-row"><p style="text-align: justify;"> I/we am/are a multilateral/International financial institution who has/have been exempted from payment of income tax in India under the UN Privileges and Immunities Act.</p></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row my-2">
+                        Pan of Charge Holder
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row ">
+                        <input type="text" name="panChargeHolder" id="panChargeHolder" class="form-control" value="" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row my-2">
+                        Pan of ARC/Assignee
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <input type="text" name="panAssignee" id="panAssignee " class="form-control" value="">
+                    </div>
+
+
+                    <div class="col-md-12 my-4">
+                        <label class="form-label" style="border-bottom:1px solid black">Certificate by Practicing Professionalf</label>
+                        <p style="text-align: justify;">I declare that I have been duly engaged for the purpose of certification of this form. It is hereby certified that I have gone through the provisions of the Companies Act, 2013 and rules thereunder for the subject matter of this form and matters incidental thereto and I have verified the above particulars (including attachment(s)) from the original/certified records maintained by the Company/applicant which is subject matter of this form and found them to be true, correct and complete and no information material to this form has been suppressed. I further certify that:</p>
+
+
+                        <p style="text-align: justify;">i The said records have been properly prepared, signed by the required officers of the Company and maintained as per the relevant provisions of the Companies Act, 2013 and were found to be in order;</p>
+                        <p style="text-align: justify;">ii All the required attachments have been completely and legibly attached to this form. </p>
+                    </div>
+                    @*  <div class="col-md-12 my-2 " >
+                        <label class="form-label">
+                        (b) If Modification then Charge ID
+                        </label>
+                        <select class="form-select" aria-label="Default select example" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" name="modificationCharge">
+                        <option>Select Charge Id</option>
+                        <option>12345</option>
+                        </select>
+                        </div> *@
+
+                    <div class="col-xs-12 col-sm-12 col-md-12 bold form-row">Certificate by CA or CS or CoA   </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row my-3">
+                        &nbsp; &nbsp;
+                        <input type="radio" name="professionalType" value="Chartered accountant (in whole-time practice)">&nbsp; Chartered accountant (in whole-time practice) &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="professionalType" value="Cost accountant (in whole-time practice)">&nbsp; Cost accountant (in whole-time practice) &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="professionalType" value="Company secretary (in whole-time practice)">&nbsp; Company secretary (in whole-time practice)
+                    </div>
+
+                    <div class="col-xs-12 col-sm-12 col-md-3 bold form-row my-3">Whether associate or fellow :  </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row my-3">
+                        &nbsp; &nbsp; &nbsp;<input type="radio" name="professionalFlag" value="Associate">&nbsp; &nbsp; Associate &nbsp; &nbsp; &nbsp; <input type="radio" name="professionalFlag" value="Fellow">&nbsp; Fellow
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row CERT_PRACTICE_NO1 my-3 nameofpcs" style="display:none">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row CERT_PRACTICE_NO1 my-3 nameofpcs" style="display:none">
+                        <select name="nameofpcs" class="form-control" id="nameofpcs">
+                            <option value="">Select PCS</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row my-3 memberShipNumber" style="display:none">
+
+                        Membership number
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row memberShipNumber" style="display:none">
+                        <input type="text" name="memberShipNumber" id="memberShipNumber" class="form-control" value="" required="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+
+        @*     tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="card">
+                <div class="  d-flex justify-content-between mx-3 pt-3 ">
+                    <h6 class="card-title mb-0 fs-4" style="margin-top:1px">Details of charge instrument and Type</h6>
+                </div>
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="2" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1.Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)<span class="text-danger">*</span></label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a)Name of the Company<span class="text-danger">*</span></label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (b)Address of the registered office or principal place of business in India of the company<span class="text-danger">*</span></label>
+                            <input type="text" placeholder="" class="form-control " value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (c)E-mail ID of the company<span class="text-danger">*</span></label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">3.Date of satisfaction of charge in full<span class="text-danger">*</span></label>
+                            <input type="date" placeholder="" class="form-control" value="" name="satisfactionDate" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="row align-items-end">
+                            <div class="col-md-5 my-2">
+                                <label class="form-label">Charge creation identification (ID) number</label>
+                                <select class="form-select" name="chargeCreationNumber" id="chargeCreationNumber">
+                                    <option value="">Select Charge ID</option>
+                                </select>
+                            </div>
+                            <div class="col-md-5 my-2">
+                                <label class="form-label">MCA User</label>
+                                <select class="form-select" name="rcaUser">
+                                    <option value="">Select MCA User</option>
+                                    <option>pakshal.shah2003@gmail.com</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 my-2">
+                                <label class="form-label d-block">&nbsp;</label>
+                                <button type="button" class="btn btn-primary w-100">
+                                    Prefill from MCA
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <h6 class="typecharge" style=" border-bottom:1px solid black; display:inline-block;">
+                                Whether the form is being filed
+                            </h6>
+                        </div>
+
+                        <div class="col-md-6 my-3" id="satisfaction-radio-group">
+                            <label class="form-label" style="margin-right:1.2rem;">
+                                (i) Beyond 30 days but within 300 days from the date of satisfaction
+                            </label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" value="yes" name="isValidSatisfactionDate">
+                            <label>Yes</label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" value="no" name="isValidSatisfactionDate">
+                            <label>No</label>
+                        </div>
+
+                       
+                        <div class="col-md-6 my-2 reason-delay-wrapper">
+                            <label class="form-label">
+                                If yes, give reasons for the delay and mention the duration of delay
+                            </label>
+                            <input type="text" class="form-control" value="" id="reasonOfDelay" name="reasonOfDelay"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-5 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">Whether the applicant is</label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" value="Company" name="isCompany">
+                            <label>
+                                Company
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" value="Chargeholder" name="isCompany">
+                            <label>
+                                Chargeholder
+                            </label>
+                        </div>
+                        <div class="col-lg-7 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">Whether the charge is satisfied in favour of asset reconstruction company or assignee</label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" value="satified" name="isSatisfiedCharge">
+                            <label>
+                                Yes
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" value="unsatisfied" name="isSatisfiedCharge">
+                            <label>
+                                No
+                            </label>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <h6 class="typecharge" style=" border-bottom:1px solid black; display:inline-block;">
+                                Particulars of the charge holder or ARC or assignee
+                            </h6>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Name of the charge holder</label>
+                            <select class="form-select" name="chgHolderName" id="chgHolderName">
+                                <option value="">Select charge holder</option>
+                                <option value="Abhyudaya Co-Operative Bank Limited">Abhyudaya Co-Operative Bank Limited</option>
+                                <option value="Adarsh Co-operative Bank Ltd">Adarsh Co-operative Bank Ltd</option>
+                                <option value="Axis Bank Limited">Axis Bank Limited</option>
+                                <option value="Bangiya Gramin Vikash Bank">Bangiya Gramin Vikash Bank</option>
+                                <option value="Bank of India">Bank of India</option>
+                                <option value="Canara Bank">Canara Bank</option>
+                                <option value="Central Madhya Pradesh Gramin Bank">Central Madhya Pradesh Gramin Bank</option>
+                                <option value="Chhattisgarh Gramin Bank">Chhattisgarh Gramin Bank</option>
+                                <option value="CIMB Bank Berhad">CIMB Bank Berhad</option>
+                                <option value="CITI BANK N.A.">CITI BANK N.A.</option>
+                                <option value="CITY UNION BANK LIMITED">CITY UNION BANK LIMITED</option>
+                                <option value="DBS Bank Ltd">DBS Bank Ltd</option>
+                                <option value="DENA BANK">DENA BANK</option>
+                                <option value="DHANLAXMI BANK LIMITED">DHANLAXMI BANK LIMITED</option>
+                                <option value="DNB ASIA LTD">DNB ASIA LTD</option>
+                                <option value="HDB FINANCIAL SERVICES LIMITED">HDB FINANCIAL SERVICES LIMITED</option>
+                                <option value="HDFC BANK LIMITED">HDFC BANK LIMITED</option>
+                                <option value="IDBI Bank Limited">IDBI Bank Limited</option>
+                                <option value="IDBI TRUSTEESHIP SERVICES LIMITED">IDBI TRUSTEESHIP SERVICES LIMITED</option>
+                                <option value="IFCI LIMITED">IFCI LIMITED</option>
+                                <option value="Indian bank">Indian bank</option>
+                                <option value="Indian Bank">Indian Bank</option>
+                                <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                                <option value="Indnian Overseas Bank">Indnian Overseas Bank</option>
+                                <option value="Industrial Bank of Korea">Industrial Bank of Korea</option>
+                                <option value="ING VYSYA BANK LIMITED">ING VYSYA BANK LIMITED</option>
+                                <option value="J. P. MORGAN ADVISORS INDIA PRIVATE LIMITED">J. P. MORGAN ADVISORS INDIA PRIVATE LIMITED</option>
+                                <option value="J.P. MORGAN SECURITIES INDIA PRIVATE LIMITED">J.P. MORGAN SECURITIES INDIA PRIVATE LIMITED</option>
+                                <option value="JHARNESHWAR NAGRIK SAHAKARI BANK MARYADIT">JHARNESHWAR NAGRIK SAHAKARI BANK MARYADIT</option>
+                                <option value="JP Morgan Chase Bank, N.A.">JP Morgan Chase Bank, N.A.</option>
+                                <option value="Kallappanna Awade Ichalkaranji Janta Sahakari Bank Limited">Kallappanna Awade Ichalkaranji Janta Sahakari Bank Limited</option>
+                                <option value="Karnataka Bank Ltd.">Karnataka Bank Ltd.</option>
+                                <option value="Karnataka State Financial Corporation">Karnataka State Financial Corporation</option>
+                                <option value="KERALA STATE FINANCIAL ENTERPRISES LTD">KERALA STATE FINANCIAL ENTERPRISES LTD</option>
+                                <option value="Kokan Merchantile Co-operative Bank Ltd.">Kokan Merchantile Co-operative Bank Ltd.</option>
+                                <option value="KRISHNA GRAMEENA BANK">KRISHNA GRAMEENA BANK</option>
+                                <option value="LAKSHMI VILAS BANK LIMITED">LAKSHMI VILAS BANK LIMITED</option>
+                                <option value="Maharashtra State Financial Corporation">Maharashtra State Financial Corporation</option>
+                                <option value="MANINAGAR CO. OP. BANK LTD.">MANINAGAR CO. OP. BANK LTD.</option>
+                                <option value="Model Co-op. Bank Limited">Model Co-op. Bank Limited</option>
+                                <option value="Nagarik Samabay Bank Limited">Nagarik Samabay Bank Limited</option>
+                                <option value="Nagpur Nagarik sahakari Bank Limited">Nagpur Nagarik sahakari Bank Limited</option>
+                                <option value="New India Co-op Bank Limited">New India Co-op Bank Limited</option>
+                                <option value="NORTH EASTERN DEVELOPMENT FINANCE CORPORATION LIMITED">NORTH EASTERN DEVELOPMENT FINANCE CORPORATION LIMITED</option>
+                                <option value="Prathama Bank">Prathama Bank</option>
+                                <option value="Punjab and Maharashtra Co-operative Bank Limited">Punjab and Maharashtra Co-operative Bank Limited</option>
+                                <option value="Purvanchal Bank">Purvanchal Bank</option>
+                                <option value="SAHARA HOUSINGFINA CORPORATION LIMITED">SAHARA HOUSINGFINA CORPORATION LIMITED</option>
+                                <option value="Saraspur Nagarik Co. Operative Bank Limited">Saraspur Nagarik Co. Operative Bank Limited</option>
+                                <option value="SBICAP TRUSTEE COMPANY LIMITED">SBICAP TRUSTEE COMPANY LIMITED</option>
+                                <option value="Shikshak Sahakari Bank Limited">Shikshak Sahakari Bank Limited</option>
+                                <option value="Shree Mahavir Sahakari Bank Ltd">Shree Mahavir Sahakari Bank Ltd</option>
+                                <option value="Shree Mahesh Co-op Bank Ltd">Shree Mahesh Co-op Bank Ltd</option>
+                                <option value="SIDBI">SIDBI</option>
+                                <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                <option value="State Bank of India">State Bank of India</option>
+                                <option value="State Bank Of Travancore">State Bank Of Travancore</option>
+                                <option value="Syndicate Bank">Syndicate Bank</option>
+                                <option value="TAMILNAD MERCANTILE BANK LIMITED">TAMILNAD MERCANTILE BANK LIMITED</option>
+                                <option value="TATA CAPITAL FINANCIAL SERVICES LIMITED">TATA CAPITAL FINANCIAL SERVICES LIMITED</option>
+                                <option value="TATA CAPITAL HOUSING FINANCE LIMITED">TATA CAPITAL HOUSING FINANCE LIMITED</option>
+                                <option value="Tata Cleantech Capital Limited">Tata Cleantech Capital Limited</option>
+                                <option value="The Adarsh Co-operative Bank Limited">The Adarsh Co-operative Bank Limited</option>
+                                <option value="The Bharat Co-operative Bank(Mumbai) LTD">The Bharat Co-operative Bank(Mumbai) LTD</option>
+                                <option value="THE CATHOLIC SYRIAN BANK LTD">THE CATHOLIC SYRIAN BANK LTD</option>
+                                <option value="The Chanasma Nagrik Sahakari Bank Ltd">The Chanasma Nagrik Sahakari Bank Ltd</option>
+                                <option value="The City Co-operative Bank Limited">The City Co-operative Bank Limited</option>
+                                <option value="The Hongkong and Shanghai Banking Corporation Limited">The Hongkong and Shanghai Banking Corporation Limited</option>
+                                <option value="The Jalgaon Peoples Co-op Bank Limited">The Jalgaon Peoples Co-op Bank Limited</option>
+                                <option value="The Jammu and Kashmir Bank Limited">The Jammu and Kashmir Bank Limited</option>
+                                <option value="The Kalupur Commercial Co-Operative Bank Limited">The Kalupur Commercial Co-Operative Bank Limited</option>
+                                <option value="The Kunbi Sahakari Bank Limited">The Kunbi Sahakari Bank Limited</option>
+                                <option value="THE PANDHARPUR URBAN CO-OP. BANK LTD.">THE PANDHARPUR URBAN CO-OP. BANK LTD.</option>
+                                <option value="The Royal Bank of Scotland N. V.">The Royal Bank of Scotland N. V.</option>
+                                <option value="The Shirpur People Co-op Bank Limited">The Shirpur People Co-op Bank Limited</option>
+                                <option value="THE SOUTH INDIAN BANK LIMITED">THE SOUTH INDIAN BANK LIMITED</option>
+                                <option value="The Sutex Co-operative Bank Ltd.">The Sutex Co-operative Bank Ltd.</option>
+                                <option value="The Zoroastrian Co-operative Bank Limited">The Zoroastrian Co-operative Bank Limited</option>
+                                <option value="Tirupati Urban Co-op. Bank Limited">Tirupati Urban Co-op. Bank Limited</option>
+                                <option value="TJSB Sahakari Bank Limited">TJSB Sahakari Bank Limited</option>
+                                <option value="UCO Bank">UCO Bank</option>
+                                <option value="United Bank of India">United Bank of India</option>
+                                <option value="Utkal Grameen Bank">Utkal Grameen Bank</option>
+                                <option value="Vijaya Bank">Vijaya Bank</option>
+                                <option value="Yashwant Co-operative Bank Ltd.">Yashwant Co-operative Bank Ltd.</option>
+                                <option value="YES BANK LIMITED">YES BANK LIMITED</option>
+                                <option value="Others">Others</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">In case of others, CIN (if applicable)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="otherCin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Name</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="chgName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Email</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="chgEmail" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">Address</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="chgAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <h6 class="typecharge" style=" border-bottom:1px solid black; display:inline-block;">
+                                Particulars of creation of original charge and subsequent modifications
+                            </h6>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Charge creation date</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="chargeCreationDate" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Charge last modified date (if applicable)</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="lastModifiedDate" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Final amount secured (in INR)</label>
+                            <input type="number" placeholder="" class="form-control num" value="" name="securedAmount" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Amount secured by the charge in words</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="securedAmountInWords" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">In case amount secured by the charge is in foreign currency, mention details</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="foreignCurrency" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">Submit</button>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        const dropdownMap = {
+            "Director": {
+                dropdownId: "#drpDirector",
+                api: "https://dev-api.complycrafter.com/api/Director/ByCompany/",
+                valueKey: "din",
+                labelKeys: ["firstName", "middleName", "lastName"]
+            },
+            "Manager": {
+                dropdownId: "#drpManager",
+                api: "https://dev-api.complycrafter.com/api/Manager/ByCompany/",
+                valueKey: "pan",
+                labelKeys: ["firstName", "middleName", "lastName"]
+            },
+            "CEO": {
+                dropdownId: "#drpCeo",
+                api: "https://dev-api.complycrafter.com/api/Ceo/ByCompany/",
+                valueKey: "pan",
+                labelKeys: ["firstName", "middleName", "lastName"]
+            },
+            "CFO": {
+                dropdownId: "#drpCfo",
+                api: "https://dev-api.complycrafter.com/api/Cfo/ByCompany/",
+                valueKey: "pan",
+                labelKeys: ["firstName", "middleName", "lastName"]
+            }
+        };
+
+        $("#designation").on("change", function () {
+            const designation = $(this).val();
+            const companyId = $("[name='companyId']").val();
+
+
+            $("#managerPan").show();
+            $("#drpDirector, #drpManager, #drpCeo, #drpCfo").hide().empty().append(`<option value="">Select ${designation}</option>`);
+
+
+            if (dropdownMap[designation]) {
+                const config = dropdownMap[designation];
+                const apiUrl = config.api + companyId;
+
+                $("#managerPan").hide();
+                const $targetDropdown = $(config.dropdownId).show();
+
+
+                $.getJSON(apiUrl, function (data) {
+                    if (Array.isArray(data) && data.length > 0) {
+                        data.forEach(function (item) {
+                            const nameParts = config.labelKeys.map(k => item[k] || "").filter(Boolean);
+                            const fullName = nameParts.join(" ");
+                            const value = item[config.valueKey] || "";
+                            if (value) {
+                                $targetDropdown.append(
+                                    $("<option></option>").val(value).text(`${fullName} (${value})`)
+                                );
+                            }
+                        });
+                    } else {
+                        $targetDropdown.append('<option disabled>No records found</option>');
+                    }
+                }).fail(function () {
+                    $targetDropdown.append('<option disabled>Error fetching data</option>');
+                });
+            }
+        });
+    });
+</script>
+
+
+
+
+@section Scripts {
+    <script>
+           let dateOfIncorporation = null;
+        let isIncorpDateLoaded = false;
+
+
+
+                      $(document).on("change", "[name='isValidSatisfactionDate']", function () {
+            const value = $(this).val();
+
+            if (value === "yes") {
+                $(".reason-delay-wrapper").show();
+                $("#reasonOfDelay").prop("readonly", false);
+
+               
+                $("#satisfaction-radio-group").removeClass("col-md-12").addClass("col-md-6");
+            } else {
+                $(".reason-delay-wrapper").hide();
+                $("#reasonOfDelay").prop("readonly", true).val('');
+                $("#reasonOfDelay").removeClass("is-invalid");
+                $("#reasonOfDelay").siblings(".invalid-feedback").hide();
+
+               
+                $("#satisfaction-radio-group").removeClass("col-md-6").addClass("col-md-12");
+            }
+        });
+
+
+       
+
+
+
+
+
+
+
+
+
+                $(document).on("change", "[name='satisfactionDate']", function () {
+            const selectedDate = new Date($(this).val());
+            const $input = $(this);
+            const $error = $input.siblings(".invalid-feedback");
+
+            // Skip validation if incorporation date hasn't loaded yet
+            if (!isIncorpDateLoaded || !dateOfIncorporation || isNaN(selectedDate)) return;
+
+            if (selectedDate < dateOfIncorporation) {
+                $input.addClass("is-invalid");
+                $error.text("Satisfaction date cannot be before Date of Incorporation.").show();
+            } else {
+                $input.removeClass("is-invalid");
+                $error.text("").hide();
+            }
+        });
+
+
+             
+
+
+
+
+            $(document).on("change", "[name='declarationDate']", function () {
+            const selectedDate = new Date($(this).val());
+
+            let error = '';
+            if (dateOfIncorporation && selectedDate < dateOfIncorporation) {
+                error = "Declaration Date cannot be before the Date of Incorporation.";
+            }
+
+            if (error) {
+                $(this).addClass("is-invalid");
+                $(this).next(".invalid-feedback").text(error).show();
+            } else {
+                $(this).removeClass("is-invalid");
+                $(this).next(".invalid-feedback").text("").hide();
+            }
+        });
+
+
+        $(document).on("change", "[name='isValidSatisfactionDate']", function () {
+            let isValidSatisfactionDate = $(this).val()
+            if (isValidSatisfactionDate == "yes") {
+                $("#reasonOfDelay").removeAttr("readonly")
+                $(".requiredApplication").hide()
+
+            }else{
+                $("#reasonOfDelay").attr("readonly","")
+                $(".requiredApplication").show()
+            }
+        })
+
+
+      
+
+
+                $(document).on("change", "[name='professionalType']", function () {
+            let type = $(this).val();
+
+            $(".nameofpcs").hide();            // Hide name of CS by default
+            $(".memberShipNumber").show();     // Always show membership box
+
+            if (type === "Company secretary (in whole-time practice)") {
+                $(".nameofpcs").show(); // Show name of PCS
+
+                // Allow alphanumeric
+                $("#memberShipNumber").off("input").on("input", function () {
+                    this.value = this.value.replace(/[^a-zA-Z0-9]/g, '');
+                });
+            } else {
+                // Allow digits only
+                $("#memberShipNumber").off("input").on("input", function () {
+                    this.value = this.value.replace(/\D/g, '');
+                });
+            }
+        });
+
+
+
+
+        
+        // Optional: Run once on page load in case it's preselected
+        $(document).ready(function () {
+            $("[name='professionalType']:checked").trigger("change");
+        });
+
+
+
+        let rowCount = 1;
+        $('#attachmentadd').click(function () {
+            rowCount++;
+            const templateContent = $('#rowTemp').html();
+            const newRow = $(templateContent.replace(/2/g, rowCount));
+            $('#equity').append(newRow);
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        $('#equity').on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove();
+            rowCount--;
+            $('#l').val(rowCount);
+            updateSerialNumbers();
+        });
+
+        function updateSerialNumbers() {
+            $('#equity .row').each(function (index) {
+                $(this).find('.form-row:first').text(index + 1 + '.');
+            });
+        }
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            // Existing fields
+            cin: "",                        // Corporate Identity Number (CIN) or FCRN (Disabled)
+            companyName: "",                 // Name of the Company (Disabled)
+            companyAddress: "",              // Address of the registered office (Disabled)
+            companyEmail: "",                // E-mail ID of the company (Disabled)
+            satisfactionDate: "",            // Date of satisfaction of charge in full
+            chargeCreationNumber: "",        // Charge creation identification (ID) number
+            rcaUser: "",                     // MCA User (Select User)
+
+            // Satisfaction date related fields
+            isValidSatisfactionDate: "",     // Beyond 30 days but within 300 days (Radio button - Yes/No)
+            reasonOfDelay: "",               // If yes, reason for delay (Text input)
+            requiredApplication: "",         // Beyond 300 days, application required (Radio button - Yes/No)
+            isCompany: "",                   // Whether the applicant is a Company or Chargeholder (Radio button)
+            isSatisfiedCharge: "",           // Whether the charge is satisfied in favor of asset reconstruction company or assignee (Radio button)
+
+            // Chargeholder related fields
+            chgHolderName: "",               // Name of the charge holder
+            otherCin: "",                    // CIN (if applicable) for others
+            chgName: "",                     // Name of the individual (chargeholder)
+            chgEmail: "",                    // Email of the chargeholder
+            chgAddress: "",                  // Address of the chargeholder
+
+            // Charge details
+            chargeCreationDate: "",          // Charge creation date
+            lastModifiedDate: "",            // Charge last modified date (if applicable)
+            securedAmount: "",               // Final amount secured (in INR)
+            securedAmountInWords: "",        // Amount secured by the charge in words
+            foreignCurrency: "",             // In case amount secured is in foreign currency, mention details
+
+            // Declaration
+            authorised:false,
+            resolutionNumber: "",
+            declarationDate: "",
+            chkDeclaration:false,
+           
+            designation: "",
+            managerPan: "",
+            declaration:false,
+            taxDeclaration:false,
+            panChargeHolder: "",
+            panAssignee: "",
+            signedByDesignation:"",
+            signedByPan:"",
+            signedByEmailId:"",
+           
+
+
+            modificationCharge: "",
+            professionalType: "",
+
+            professionalFlag: "",
+            companySecretary: "",
+            memberShipNumber: "",
+
+            //Part 3
+            instrumentCreating:"",
+            optionalAttachment:""
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        $("input[name='registration']").on('change', function () {
+            let checkedValue = $(this).val()
+            if (checkedValue == "creation") {
+                $("#drpModification").hide()
+            } else {
+                $("#drpModification").show()
+            }
+        });
+
+
+        $("#designation").change(function () {
+            const val = $(this).val();
+            $("#drpDirector, #drpManager, #drpCeo, #drpCfo, #managerPan").hide();
+            if (val === "Director") $("#drpDirector").show();
+            else if (val === "Manager") $("#drpManager").show();
+            else if (val === "CEO") $("#drpCeo").show();
+            else if (val === "CFO") $("#drpCfo").show();
+            else $("#managerPan").show();
+        });
+
+        $("#DESIGNATION").trigger("change");
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("CHG4", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+                function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("CHG4", "Form")`
+                return;
+            }
+
+            $._get(`@R.ApiUrl/Company/${company}`).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+                dateOfIncorporation = new Date(x.incorporationDate);
+                isIncorpDateLoaded = true;
+
+
+
+
+
+
+
+
+              
+               
+                $._get(`https://dev-api.complycrafter.com/api/Company/${x.id}/charges`).then(data => {
+                    const $dropdown = $('#chargeCreationNumber');
+                    $dropdown.empty().append('<option value="">Select Charge ID</option>');
+
+                    if (Array.isArray(data) && data.length > 0) {
+                        data.forEach(function (item) {
+                            if (item.chargeId) {
+                                $dropdown.append(`<option value="${item.chargeId}">${item.chargeId}</option>`);
+                            }
+                        });
+                    } else {
+                        $dropdown.append('<option disabled>No Charge IDs found</option>');
+                    }
+                }).catch(() => {
+                    $('#chargeCreationNumber').append('<option disabled>Error fetching Charge IDs</option>');
+                });
+            });
+        }
+
+
+
+
+
+
+
+         
+
+    </script>
+    <script>
+       
+        function validateForm() {
+            let isValid = true;
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').hide();
+
+            
+            if (!$('input[name="registration"]:checked').length) {
+                markInvalid('[name="registration"]', 'Please select creation or modification');
+                isValid = false;
+            }
+
+            if ($('input[name="registration"]:checked').val() === "modification" &&
+                !$('#modificationChargeDropdown').val()) {
+                markInvalid('#modificationChargeDropdown', 'Please select Charge ID for modification');
+                isValid = false;
+            }
+
+            if (!$('input[name="applicant"]:checked').length) {
+                markInvalid('[name="applicant"]', 'Please select applicant type');
+                isValid = false;
+            }
+
+            if (!$('#instrumentDate').val()) {
+                markInvalid('#instrumentDate', 'Please enter instrument date');
+                isValid = false;
+            }
+
+            if (!$('input[name="charge"]:checked').length) {
+                markInvalid('[name="charge"]', 'Please specify if charge is created/modified outside India');
+                isValid = false;
+            }
+
+            if (!$('[name="natureAndDescription"]').val()) {
+                markInvalid('[name="natureAndDescription"]', 'Please enter nature and description');
+                isValid = false;
+            }
+
+          
+            if (!$('[name="propertyDescription"]:checked').length) {
+                markInvalid('.typecharge', 'Please select at least one property description');
+                isValid = false;
+            }
+
+         
+            if (!$('[name="chkAuthorised"]').is(':checked')) {
+                markInvalid('[name="chkAuthorised"]', 'This declaration is required');
+                isValid = false;
+            }
+
+            if (!$('#resolutionNumber').val()) {
+                markInvalid('#resolutionNumber', 'Please enter resolution number');
+                isValid = false;
+            }
+
+            if (!$('#declarationDate').val()) {
+                markInvalid('#declarationDate', 'Please enter declaration date');
+                isValid = false;
+            }
+
+            if (!$('[name="terms"]').is(':checked')) {
+                markInvalid('[name="terms"]', 'You must agree to the terms');
+                isValid = false;
+            }
+
+            if (!$('#designation').val()) {
+                markInvalid('#designation', 'Please select designation');
+                isValid = false;
+            }
+
+            if (!$('#managerPan').val() &&
+                !$('#drpDirector').val() &&
+                !$('#drpManager').val() &&
+                !$('#drpCeo').val() &&
+                !$('#drpCfo').val()) {
+                markInvalid('#managerPan', 'Please enter identification details');
+                isValid = false;
+            }
+
+            
+            if (!$('#InstrumentCreating_1').val()) {
+                markInvalid('#InstrumentCreating_1', 'Please upload instrument file');
+                isValid = false;
+            }
+
+           
+            if (!isValid) {
+                const firstError = $('.is-invalid').first();
+                if (firstError.length) {
+                    $('html, body').animate({
+                        scrollTop: firstError.offset().top - 100
+                    }, 500);
+                }
+            }
+
+            return isValid;
+        }
+
+        function markInvalid(selector, message) {
+            const $element = $(selector);
+            $element.addClass('is-invalid');
+
+            let $feedback = $element.next('.invalid-feedback');
+            if (!$feedback.length) {
+                $feedback = $('<div class="invalid-feedback">' + message + '</div>');
+                $element.after($feedback);
+            } else {
+                $feedback.text(message);
+            }
+            $feedback.show();
+        }
+
+        function save(event) {
+            event.preventDefault();
+
+            if (!validateForm()) {
+                return;
+            }
+
+            
+            Swal.fire({
+                icon: 'success',
+                title: 'Validation Complete',
+                text: 'All required fields are filled correctly!',
+                confirmButtonText: 'Continue'
+            });
+
+           
+        }
+    </script>
+
+    <style>
+     
+        .is-invalid {
+            border-color: #dc3545 !important;
+            box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+        }
+
+        .invalid-feedback {
+            display: none;
+            width: 100%;
+            margin-top: 0.25rem;
+            font-size: 0.875em;
+            color: #dc3545;
+        }
+
+        .required label::after {
+            content: " *";
+            color: #dc3545;
+        }
+    </style>
+
+    
+    <script>
+        $(document).ready(function() {
+            // Add required indicators
+            $('input[required], select[required]').each(function() {
+                const $label = $('label[for="' + $(this).attr('id') + '"]');
+                if ($label.length) {
+                    $label.addClass('required');
+                }
+            });
+        });
+    </script>
+
+}

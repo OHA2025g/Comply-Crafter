@@ -1,0 +1,443 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To approve the consolidation of {share certificate}`;
+    let agendaHeading = `To approve the consolidation of {share certificate}`;
+    let minuteHeading = `To approve the consolidation of {share certificate}`;
+    let agendaPreface = `The Company has received a request letter along with necessary documents from the shareholder(s) of the Company, to consolidate the share certificates held by such shareholder(s) into one share certificate.
+
+    The Board may review the matter and if thought fit, the following resolution may be passed in this regard: `;
+    let minutePreface = `The Company had received a request letter along with necessary documents from the shareholder(s) of the Company, to consolidate the share certificates held by such shareholder(s) into one share certificate.
+
+    The Board reviewed the matter and passed the following resolution in this regard:`;
+    let resolutionForNoticePara1 = `
+    “RESOLVED THAT the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to issue new share certificate(s) pursuant to consolidation and further cancellation of the following share certificates:
+
+    {Certificate Table}
+
+
+
+
+
+
+
+    RESOLVED FURTHER THAT the new Share Certificates be issued in the name of the shareholders and that {Name of Two Directors who are authorized to sign} directors of the Company and {Name of Authorized Signatory} Authorized Signatory of the Company be and are hereby authorized to sign the share certificates and that the common seal of the Company, if any, be affixed on the Share Certificates in their presence and that the corresponding old Share Certificate be cancelled and be kept in custody and necessary entries be made in the Register of Members of the Company.
+
+    RESOLVED FURTHER THAT necessary entries be made in the Register of Members and Register of Renewed and Duplicate Share certificates to give effect to the above resolution.”`;
+    let resolutionForNoticePara2 = ``;
+    let resolutionForMinutesPara1 = `
+    “RESOLVED THAT the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to issue new share certificate(s) pursuant to consolidation and further cancellation of the following share certificates:
+
+    {Certificate Table}
+
+
+
+
+
+
+
+    RESOLVED FURTHER THAT the new Share Certificates be issued in the name of the shareholders and that {Name of Two Directors who are authorized to sign} directors of the Company and {Name of Authorized Signatory} Authorized Signatory of the Company be and are hereby authorized to sign the share certificates and that the common seal of the Company, if any, be affixed on the Share Certificates in their presence and that the corresponding old Share Certificate be cancelled and be kept in custody and necessary entries be made in the Register of Members of the Company.
+
+    RESOLVED FURTHER THAT necessary entries be made in the Register of Members and Register of Renewed and Duplicate Share certificates to give effect to the above resolution.”`;
+    let resolutionForMinutesPara2 = ``;
+</script>
+<style>
+    .table-bordered-custom {
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    .table-bordered-custom th,
+    .table-bordered-custom td {
+    border: 1px solid black;
+    padding: 6px;
+    text-align: center;
+    }
+</style>
+<style>
+    .custom-table .form-control {
+    height: 28px;
+    padding: 2px 6px;
+    font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table td, .custom-table th {
+    border: 1px solid #000 !important;
+    vertical-align: middle;
+    padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table .table-title {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table .btn-sm {
+    padding: 1px 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    }
+</style>
+<style>
+    /* Container */
+    .product-sales-area {
+    font-family: Arial, sans-serif;
+    color: #222;
+    }
+
+    /* Section Titles */
+    h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 20px 0 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 6px;
+    color: #222;
+    }
+
+    h5 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #333;
+    }
+
+    h6 {
+    font-size: 16px;
+    font-weight: 600;
+    margin: 15px 0 10px;
+    color: #444;
+    }
+
+    /* Form Rows */
+    .form-row, .row.mb-2, .row {
+    margin-bottom: 12px;
+    font-size: 14px;
+    align-items: center;
+    }
+
+    .bold {
+    font-weight: 600;
+    }
+
+    label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+    }
+
+    /* Inputs & Selects */
+    .form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 6px 8px;
+    width: 100%;
+    }
+
+    input[type="radio"] {
+    margin-right: 6px;
+    }
+
+    /* Buttons */
+    .btn {
+    padding: 6px 14px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 5px;
+    }
+
+    .btn-primary {
+    background: #007bff;
+    border: none;
+    color: #fff;
+    }
+
+    .btn-primary:hover {
+    background: #0056b3;
+    }
+
+    /* Certificate Entries Section */
+    .entry-block {
+    border: 1px solid #e2e2e2;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    background: #fdfdfd;
+    }
+
+    /* Documents Section */
+    .documents-header {
+    font-weight: 600;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 8px;
+    }
+
+    .documents-row {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+    font-size: 14px;
+    align-items: center;
+    }
+
+    .documents-row i {
+    font-size: 16px;
+    }
+</style>
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+    <div class="@(ViewBag.UseLayout == true ? "product-sales-area mg-tb-30" : "")">
+        <div class="@(ViewBag.UseLayout == true ? "container-fluid" : "")">
+            <form method="post" enctype="multipart/form-data" id="frmAgenda">
+                @if (ViewBag.UseLayout == true)
+                {
+                    <div class="custom-section-approval-certificate-consolidation">
+                        <!-- SECTION 1 : Approval of Certificate Split -->
+                        <h4>Approval of Certificate Consolidation</h4>
+
+                        <div class="row approval">
+                            <div class="col-md-12 bold form-row">
+                                Approval Mode: &nbsp;
+                                <label><input type="radio" name="approvalMode" value="Board meeting"> In Board Meeting</label> &nbsp;&nbsp;
+                                <label><input type="radio" name="approvalMode" value="Circular Resolution"> By Circular Resolution</label>
+                            </div>
+                        </div>
+
+                        <!-- Board Meeting -->
+                        <div id="boardmeeting">
+                            <div class="row">
+                                <div class="col-md-12 bold form-row">
+                                    Do you want to incorporate this agenda in existing Board Meeting? &nbsp;
+                                    <label><input type="radio" name="incorporateAgendaInExistingBoardMeeting" value="Yes"> Yes</label> &nbsp;&nbsp;
+                                    <label><input type="radio" name="incorporateAgendaInExistingBoardMeeting" value="No"> No</label>
+                                </div>
+                            </div>
+
+                            <!-- Existing Meeting -->
+                            <div class="row" id="existmeetingyes">
+                                <div class="col-md-3 bold form-row">Select Existing Meeting</div>
+                                <div class="col-md-9 form-row">
+                                    <select name="existingBoardMeeting" class="form-control m_id" id="m_id">
+                                        <option value="">Select Existing Meeting</option>
+                                        <option value="143245" selected>15/04/2025</option>
+                                        <option value="94757">30/09/2024</option>
+                                        <option value="94756">14/08/2024</option>
+                                        <option value="94755">15/06/2024</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- New Meeting -->
+                            <div class="row" id="existmeetingno" style="display:none;">
+                                <div class="col-md-3 bold form-row">Date of New Meeting</div>
+                                <div class="col-md-3 form-row">
+                                    <input type="text" name="dateOfNewMeeting" id="meetingdate" class="form-control datepicker" placeholder="dd/MM/yyyy">
+                                </div>
+                                <div class="col-md-3 bold form-row">Time of New Meeting</div>
+                                <div class="col-md-3 form-row">
+                                    <div class="input-group date">
+                                        <input id="datetimepicker2" type="text" name="timeOfNewMeeting" class="form-control timing" placeholder="HH:mm tt">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Circular Resolution -->
+                        <div id="circular" style="display:none;">
+                            <div class="row">
+                                <div class="col-md-4 bold form-row">Date of Passing Circular Resolution</div>
+                                <div class="col-md-8 form-row">
+                                    <input type="text" name="dateOfPassingCircularResolution" id="circularresdate" class="form-control datepicker" placeholder="Date of Passing Circular Resolution">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Authorized Signatory -->
+                        <div class="row">
+                            <div class="col-md-4 bold form-row">Name of the Authorized Signatory</div>
+                            <div class="col-md-8 form-row">
+                                <select name="authorizedSignatory" required class="form-control director">
+                                    <option value="">Select Director</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- SECTION 2 : Particulars of Certificates -->
+                    <h4>Particulars of Certificates</h4>
+
+                    <div id="certificateEntries">
+                        <div id="entriesContainer">
+                            <div class="entry-block card p-3 mb-3 rowContiner">
+                                <h5 class="entry-title">Entry No. <span class="serial">1</span></h5>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label><strong>Type of share</strong></label>
+                                        <select class="form-control" name="typeOfShare">
+                                            <option value="">Select Type of Share</option>
+                                            <option>Equity</option>
+                                            <option>Preference</option>
+                                            <option>Debentures</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label><strong>Name of Shareholder</strong></label>
+                                        <select class="form-control" name="shareholder">
+                                            <option value="">Select Shareholder Name</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-2">
+                                    <div class="col-md-6">
+                                        <label><strong>Date of Issue</strong></label>
+                                        <input type="date" class="form-control" name="dateOfIssue">
+                                    </div>
+                                </div>
+
+                                <button type="button" class="btn btn-danger mt-3 remove-entry" style="display:none;">
+                                    <input type="hidden" name="id" class="num" value="0">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+
+                        <button type="button" id="addMore" class="btn btn-primary" onclick="addParticularsOfCertificates();">+ Add More</button>
+                    </div>
+                }
+                @await Html.PartialAsync("SharedResolutionView/_AgendaDetails",
+                         new AgendaViewModelEnabler()
+                {
+                    enableAgendaDropDown = false,
+                    enableAgendaHeading = false,
+                    enableMinuteHeading = false,
+                    enableNoticeCertificateTable = false,
+                    enableResolutionForNoticePara2 = false,
+                    enableMinutesCertificateTable = false,
+                    enableResolutionForMinutesPara2 = false,
+                    enableResolutionSignatory = true
+                }
+                         )
+                @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    let entryCount = 1;
+
+    function addParticularsOfCertificates() {
+        let container = document.getElementById("entriesContainer");
+        if (!container) return;
+        entryCount++;
+        let newEntry = container.firstElementChild.cloneNode(true);
+
+        // Update title
+        newEntry.querySelector(".entry-title").innerHTML = `Entry No. <span class="serial">${entryCount}</span>`;
+
+        // Clear inputs & selects
+        newEntry.querySelectorAll("input, select").forEach(el => {
+            if (el.tagName === "SELECT") {
+                el.selectedIndex = 0; // reset dropdown
+            }
+            else if ($(el).attr('name') == 'id') {
+                $(el).val(0);
+            }
+            else {
+                el.value = ""; // reset text/date inputs
+            }
+        });
+
+        // Show remove button for cloned entries
+        newEntry.querySelector(".remove-entry").style.display = "inline-block";
+
+        container.appendChild(newEntry);
+    }
+
+    // Handle remove button
+    $('#entriesContainer').on("click", ".remove-entry", function (e) {
+        e.target.closest(".entry-block").remove();
+        entryCount--;
+        renumberSrNo();
+    });
+
+    function renumberSrNo() {
+        Array.from($('#entriesContainer .entry-block')).forEach(function (r, i) {
+          const srCell = $(r).find('.serial');
+          if (srCell) srCell.text(i + 1);
+        });
+      }
+
+    function resetParticularsOfCertificates() {
+        if (!isLayOut) return;
+
+        entryCount = 1;
+        $('#certificateEntries .remove-entry:not([style="display:none;"])').trigger('click');
+    }
+
+    $(document).ready(function () {
+        function toggleMeetingSections() {
+            var meetingType = $("input[name='approvalMode']:checked").val();
+            var existMeeting = $("input[name='incorporateAgendaInExistingBoardMeeting']:checked").val();
+            console.log(meetingType);
+            console.log(existMeeting);
+
+            if (meetingType === "Board meeting") {
+                $("#boardmeeting").show();
+                $("#circular").hide();
+
+                if (existMeeting === "Yes") {
+                    $("#existmeetingyes").show();
+                    $("#existmeetingno").hide();
+                } else if (existMeeting === "No") {
+                    $("#existmeetingyes").hide();
+                    $("#existmeetingno").show();
+                } else {
+                    // Default state if nothing selected
+                    $("#existmeetingyes").hide();
+                    $("#existmeetingno").hide();
+                }
+            }
+            else if (meetingType === "Circular Resolution") {
+                $("#boardmeeting").hide();
+                $("#circular").show();
+            }
+            else {
+                // If no option is selected
+                $("#boardmeeting").hide();
+                $("#circular").hide();
+                $("#existmeetingyes").hide();
+                $("#existmeetingno").hide();
+            }
+        }
+
+        // Event bindings
+        $("input[name='approvalMode'], input[name='incorporateAgendaInExistingBoardMeeting']").on("change", toggleMeetingSections);
+
+        // Run once on page load
+        toggleMeetingSections();
+    });
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

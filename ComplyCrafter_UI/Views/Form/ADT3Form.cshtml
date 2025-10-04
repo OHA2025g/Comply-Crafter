@@ -1,0 +1,775 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Cessation of Auditor
+
+
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Particulars of Cessation
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item" style="display:none" id="info">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab" >
+                                        <span class="ms-1">
+                                            Info for E-form
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Document
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Name of the Auditor
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <div class="btn-group bootstrap-select form-control">
+                            <div class="dropdown-menu open" role="combobox">
+                                <div class="bs-searchbox">
+                                    <input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search">
+                                </div><ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                    <li data-original-index="0" class="selected"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true"><span class="text">Select Auditor</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                </ul>
+                            </div>
+                            <select name="auditor" required="" style="width: 100%;" id="resigningdir" data-live-search="true" class="form-select selectpicker" tabindex="-98">
+                                <option value="">Select Auditor</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Category
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select class="form-select" name="category" id="category" required="">
+                            <option value="">Select Reason</option>
+                            <option value="Resignation">Resignation</option>
+                            <option value="Death">Death</option>
+                            <option value="Disqualification">Disqualification</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row resigning mt-3" style="display:none">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Reason for resigning
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select class="form-select" name="reason" id="reason">
+                            <option value="">Select Reason</option>
+                            <option value="Due to pre-occupation in other assignment">Due to pre-occupation in other assignment </option>
+                            <option value="Due to Illness">Due to Illness </option>
+                            <option value="Due to relocation">Due to relocation </option>
+                            <option value="Due to change in occupation">Due to change in occupation </option>
+                            <option value="Due to change in management">Due to change in management  </option>
+                            <option value="Due to family reason">Due to family reason </option>
+                            <option value="Due to personal reason">Due to personal reason  </option>
+                            <option value="Other">Other  </option>
+                        </select>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Place of Resignation Letter
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" name="resignationPlace" value="" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row mt-3" id="otherreason" style="display:none">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Other Reason
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                        <input type="text" style="width: 100%;" class="form-control" name="otherReason" value="" autocomplete="off">
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3 form-row bold resigning mt-3">Date of Resignation Letter</div>
+                    <div class="col-md-3 form-row bold deceased mt-3" style="display:none">Date of Death</div>
+                    <div class="col-md-3 form-row bold existing mt-3" style="display:none">Date of becoming disqualified</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="date" style="width: 100%;" class="datepicker hasDatepicker form-control" name="letterDate" id="letterdate" value="" autocomplete="off">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row resigning mt-3">
+                        Effective Date of Resignation
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row resigning mt-3">
+                        <input type="date" style="width: 100%;" class="datepicker hasDatepicker form-control" name="effectiveDate" id="effectivedate" value="" autocomplete="off">
+                    </div>
+                    <div class="col-md-3 form-row bold existing mt-3" style="display:none">Place of Disqualified Letter</div>
+                    <div class="col-md-3 form-row existing mt-3" style="display:none">
+                        <input name="placeDisqualified" class="form-control" autocomplete="off" type="text" value="">
+                    </div>
+                </div>
+
+
+                <!--  <div class="row">
+                             <div class="col-xs-12 col-sm-6 col-md-6 bold form-row">Do you want to incorporate this agenda in existing Board Meeting ?&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio"  name="existmeeting" value="Yes" > Yes&nbsp;&nbsp;
+                              <input type="radio" name="existmeeting" value="No" > No
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">Name of the Authorized Signatory
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row"> <select name="chairman" required=""  style="width: 100%;" id="chairman"> <option value="">Select Director</option><option value="09475141">Mokshank Dilipbhai Savla(Director)</option><option value="09473752">Rakshit Dilip Savla(Director)</option>                </select>
+                        </div>
+                      </div>
+
+
+                      <div class="row" id="existmeetingyes">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">Select Existing Meeting
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-9 form-row"> <select name="m_id" style="width: 100%;"  class="director"><option value="">Select Existing Meeting</option> <option value="91670">30/09/2024</option><option value="91678">14/08/2024</option><option value="91677">15/06/2024</option><option value="91671">09/04/2024</option><option value="91656">15/01/2024</option><option value="91655">15/11/2023</option><option value="91648">30/09/2023</option><option value="91647">14/08/2023</option><option value="91645">15/06/2023</option><option value="91642">09/04/2023</option>            </select>
+                    </div>
+
+                  </div>
+
+
+                  <div class="row" id="existmeetingno">
+                   <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">Date of Meeting
+                   </div>
+                   <div class="col-xs-12 col-sm-3 col-md-3 form-row"><input type="text" style="width: 100%;" class="datepicker"   name="meetingdate" id="meetingdate" value="" autocomplete="off" >
+                   </div>
+                   <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">Time of Meeting
+                   </div>
+                   <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                      <div class='input-group date'>
+                    <input id="datetimepicker2" type="text" name="timing" style="z-index:1;" value="" class="form-control input-small timing">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+
+
+
+
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="deathintimation mt-3" style="display:none">
+                    <label>Information for Death Intimation Letter</label>
+                    <div class="row mt-3">
+                        <div class="col-md-3 form-row bold mt-3">Name of Relative</div>
+                        <div class="col-md-3 form-row mt-3">
+                            <input name="relativeName" class="form-control " placeholder="Name of Relative" id="relativeName" title="Name of Relative" autocomplete="off" type="text" value="">
+                        </div>
+                        <div class="col-md-3 form-row bold mt-3">Relation</div>
+                        <div class="col-md-3 form-row mt-3">
+                            <input name="relation" class="form-control" placeholder="Relation" id="relation" title="Relation" autocomplete="off" type="text" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="deathintimation" style="display:none">
+                    <div class="row mt-3">
+                        <div class="col-md-3 form-row bold mt-3">Date of Intimation Letter</div>
+                        <div class="col-md-3 form-row mt-3">
+                            <input name="intimationDate" type="date" class="form-control datepicker hasDatepicker" placeholder="Date" id="dateintimation" title="Date" autocomplete="off" type="text" value="">
+                        </div>
+                        <div class="col-md-3 form-row bold mt-3">Place</div>
+                        <div class="col-md-3 form-row mt-3">
+                            <input name="place" class="form-control " placeholder="Place" id="place" title="Place" autocomplete="off" type="text" value="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="part2" class="p-0" >
+        <div class="card" style="padding:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Corporate identity number (CIN)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%;" class="form-control" id="CIN" name="cin" autocomplete="off" value="U22219MH2022PTC375586" readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Category of Auditor
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp;
+                        <label>   <input type="radio" name="auditorCategory" autocomplete="off" value="INDV">&nbsp; &nbsp;<span>Individual</span>&nbsp; &nbsp; &nbsp; &nbsp;</label>
+                        <label>  <input type="radio" name="auditorCategory" autocomplete="off" value="FIRM">&nbsp; &nbsp;<span>Firm</span></label>
+                    </div>
+                </div>
+                <label style="font-weight:bolder;text-decoration: underline;margin-left: -10px;" class="mt-3">PARTICULARS OF AUDITOR OR AUDITOR'S FIRM</label>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        PAN of auditor or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%;" class="form-control" id="PAN" name="pan" autocomplete="off" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Name of the auditor or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%;" class="form-control" name="auditorName" id="NAME_OF_AUDITOR" autocomplete="off" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Membership Number of auditor or FRN
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" id="MEMBERSHIP" name="membership" autocomplete="off" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Address of the auditor or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%;" name="auditorAddress" class="form-control" id="ADDRESS_OF_AUDTR" autocomplete="off" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        City
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <div class="btn-group bootstrap-select form-control">
+
+                            <div class="dropdown-menu open" role="combobox">
+                                <div class="bs-searchbox">
+                                    <input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search">
+                                </div>
+                                <ul class="dropdown-menu inner" role="listbox" aria-expanded="false">
+                                    <li data-original-index="0" class="selected">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+                                            <span class="text">Select City</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <select name="city" id="CITY" style="width:100%;" class="form-select selectpicker" type="text" data-live-search="true" tabindex="-98">
+                                <option value="">Select City</option>
+                                <option value="Adilabad">Adilabad</option>
+                                <option value="Agra">Agra</option>
+                                <option value="Ahmedabad">Ahmedabad</option>
+                                <option value="Ahmednagar">Ahmednagar</option>
+                                <option value="Aizawl">Aizawl</option>
+                                <option value="Ajmer">Ajmer</option>
+                                <option value="Akola">Akola</option>
+                                <option value="Alappuzha">Alappuzha</option>
+                                <option value="Aligarh">Aligarh</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        State
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <div class="btn-group bootstrap-select form-control">
+                            <div class="dropdown-menu open" role="combobox">
+                                <div class="bs-searchbox">
+                                    <input type="text" class="form-control" autocomplete="off" role="textbox" aria-label="Search">
+                                </div>
+                                <ul class="dropdown-menu inner" role="listbox" aria-expanded="false" name="">
+                                    <li data-original-index="0" class="selected">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="true">
+                                            <span class="text">Select State</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="1">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Andaman and Nicobar Islands</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="2">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Andhra Pradesh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="3">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Arunachal Pradesh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="4">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Assam</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="5">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Bihar</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="6">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Chandigarh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="7">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Chhattisgarh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="8">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Dadra and Nagar Haveli</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="9">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Daman and Diu</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="10">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Delhi</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="11">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Goa</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="12">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Gujarat</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="13">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Haryana</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="14">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Himachal Pradesh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="15">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Jammu and Kashmir</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="16">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Jharkhand</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="17">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Karnataka</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="18">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Kerala</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="19">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Lakshadweep</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="20">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Madhya Pradesh</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="21">
+                                        <a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false">
+                                            <span class="text">Maharashtra</span>
+                                            <span class="glyphicon glyphicon-ok check-mark"></span>
+                                        </a>
+                                    </li>
+                                    <li data-original-index="22"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Manipur</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="23"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Meghalaya</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="24"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Mizoram</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="25"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Nagaland</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="26"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Orissa</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="27"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Puducherry</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="28"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Punjab</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="29"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Rajasthan</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="30"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Sikkim</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="31"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Tamil Nadu</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="32"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Telangana</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="33"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Tripura</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="34"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Uttar Pradesh</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="35"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">Uttarakhand</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                    <li data-original-index="36"><a tabindex="0" class="" data-tokens="null" role="option" aria-disabled="false" aria-selected="false"><span class="text">West Bengal</span><span class="glyphicon glyphicon-ok check-mark"></span></a></li>
+                                </ul>
+                            </div>
+                            <select name="state" id="STATE" style="width:100%;" class="form-select selectpicker" type="text" data-live-search="true" tabindex="-98">
+                                <option value="">Select State</option>
+                                <option value="AN">Andaman and Nicobar Islands</option>
+                                <option value="AP">Andhra Pradesh</option>
+                                <option value="AR">Arunachal Pradesh</option>
+                                <option value="AS">Assam</option>
+                                <option value="BR">Bihar</option>
+                                <option value="CH">Chandigarh</option>
+                                <option value="CT">Chhattisgarh</option>
+                                <option value="DN">Dadra and Nagar Haveli</option>
+                                <option value="DD">Daman and Diu</option>
+                                <option value="DL">Delhi</option>
+                                <option value="GA">Goa</option>
+                                <option value="GJ">Gujarat</option>
+                                <option value="HR">Haryana</option>
+                                <option value="HP">Himachal Pradesh</option>
+                                <option value="JK">Jammu and Kashmir</option>
+                                <option value="JH">Jharkhand</option>
+                                <option value="KA">Karnataka</option>
+                                <option value="KL">Kerala</option>
+                                <option value="LD">Lakshadweep</option>
+                                <option value="MP">Madhya Pradesh</option>
+                                <option value="MH">Maharashtra</option>
+                                <option value="MN">Manipur</option>
+                                <option value="ME">Meghalaya</option>
+                                <option value="MI">Mizoram</option>
+                                <option value="NL">Nagaland</option>
+                                <option value="OR">Orissa</option>
+                                <option value="PY">Puducherry</option>
+                                <option value="PB">Punjab</option>
+                                <option value="RJ">Rajasthan</option>
+                                <option value="SK">Sikkim</option>
+                                <option value="TN">Tamil Nadu</option>
+                                <option value="TG">Telangana</option>
+                                <option value="TR">Tripura</option>
+                                <option value="UP">Uttar Pradesh</option>
+                                <option value="UT">Uttarakhand</option>
+                                <option value="WB">West Bengal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Pin code
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" style="width: 100%;" id="PIN_CODE" class="num form-control" name="pinCode" autocomplete="off" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Email id of the audior or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="email" style="width: 100%;" class="form-control" name="audiorEmail" id="EMAILID_AUDITOR" autocomplete="off" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Date of appointment of the auditor or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="date" style="width: 100%;" id="DATE_OF_APPNTMNT" name="appointmentDate" autocomplete="off" class="datepicker hasDatepicker form-control" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Date of resignation of the auditor or firm
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="date" style="width: 100%;" name="resignationDate" id="DATE_F_RESGNATN" autocomplete="off" class="datepicker hasDatepicker form-control" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3" style="height: 75px;">
+                        Reasons for resignation and any other facts relevant to the resignation
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-6 form-row mt-3" style="height: 75px;">
+                        <textarea name="resignationReasons" id="REASON_RESGNATN" class="form-control" style="width:100%;height: 60px;"></textarea>
+                    </div>
+                </div>
+                <label style="font-weight:bolder;text-decoration: underline;margin-left: -10px;" class="mt-3    ">DECLARATION</label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Designation
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select name="designation" id="DESIGNATION" style="width:100%;" class="form-select">
+                            <option value="">Select Designation</option>
+                            <option value="ADTR">Auditor</option>
+                            <option value="PART">Partner of the audit firm</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3">
+                        Whether Associate or Fellow
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <label>&nbsp; &nbsp; &nbsp;<input type="radio" name="fellowAssociate" id="ASSOCIATE_FELLOW" autocomplete="off" value="ASS">&nbsp; &nbsp;<span>Associate</span>&nbsp; &nbsp; &nbsp;</label>
+                        <label><input type="radio" name="fellowAssociate" id="ASSOCIATE_FELLOW" autocomplete="off" value="FW">&nbsp; &nbsp;<span>Fellow</span>&nbsp; &nbsp; &nbsp;</label>
+                        <label><input type="radio" name="fellowAssociate" value="NONE">&nbsp;&nbsp;<span>NA</span></label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Membership Number
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" style="width: 100%;" id="MEMBERSHIP_NUM" name="membershipNumber" class="num form-control" autocomplete="off" value="">
+                    </div>
+                </div>
+                <br>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:20px;">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 bold form-row" style="text-decoration:underline;">
+                    TITLE OF DOCUMENT
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="text-decoration:underline;text-align: center;">
+                    VIEW
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="text-decoration:underline;text-align: center;">
+                    WORD FILE
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="text-decoration:underline;text-align: center;">
+                    PDF FILE
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            auditor: "",
+            category: "",
+            reason: "",
+            resignationPlace: "",
+            otherReason: "",
+            letterDate: "",
+            effectiveDate: "",
+            placeDisqualified: "",
+            relativeName: "",
+            relation: "",
+            intimationDate: "",
+            place: "",
+
+            //Part2
+            auditorCategory: "",
+            pan: "",
+            auditorName: "",
+            membership: "",
+            auditorAddress: "",
+            city: "",
+            state: "",
+            pinCode: 0,
+            audiorEmail: "",
+            appointmentDate: "",
+            resignationDate: "",
+            resignationReasons: "",
+            designation: "",
+            fellowAssociate: "",
+            membershipNumber: 0,
+
+
+        }
+
+        $(document).on("change", "#category", function () {
+            let cat = $(this).val()
+            $(".resigning").hide()
+            $(".deathintimation").hide()
+            $(".deceased").hide()
+            $('.existing').hide()
+            $("#info").hide();
+            if (cat == "Resignation") {
+                $(".resigning").show()
+                $("#info").show();
+            } else if (cat == "Death") {
+                $(".deathintimation").show()
+                $(".deceased").show()
+            } else if (cat == "Disqualification") {
+                $('.existing').show()
+            }
+        })
+        $(document).on("change", "#reason", function () {
+            let reason = $(this).val()
+
+            if (reason == "Other") {
+                $("#otherreason").show()
+            } else {
+                $("#otherreason").hide()
+            }
+        })
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('DATE_F_RESGNATN').setAttribute('max', today);
+        document.getElementById('DATE_OF_APPNTMNT').setAttribute('max', today);
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

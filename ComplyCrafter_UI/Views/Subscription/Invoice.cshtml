@@ -1,0 +1,147 @@
+﻿@using ComplyCrafter_Data
+@model UserSubscriptionDetails
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Invoice - @Model.subscriptionPlan.PlanName</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .invoice-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border: 1px solid #dee2e6;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+
+        .text-end {
+            text-align: right;
+        }
+
+        .text-danger
+        {
+            color: #ff4857 !important;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #dee2e6;
+        }
+
+        .fw-bold {
+            font-weight: bold;
+        }
+
+        .btn-print {
+            margin-top: 20px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .btn-print button {
+                padding: 10px 20px;
+                font-size: 14px;
+                background: #007bff;
+                color: white;
+                border: none;
+                cursor: pointer;
+                border-radius: 4px;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="invoice-container">
+        <div class="section">
+            <h2>Invoice</h2>
+            <div style="display: flex; justify-content: space-between;">
+                <div>
+                    <strong>From:</strong><br />
+                    ComplyCrafter. Ltd.<br />
+                    123, Tech Park Road<br />
+                    Andheri East, Mumbai - 400069<br />
+                    GSTIN: 27ABCDE1234F1Z5
+                </div>
+
+                <div class="text-end">
+                    <strong>To:</strong><br />
+                    @Model.user.Name<br />
+                    @Model.user.Email<br />
+                    Date: @Model.userSubscription.PurchasedOn.ToString("dd MMMM, yyyy")<br />
+                    Invoice #: 1221323412
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <strong>Plan:</strong> @Model.subscriptionPlan.PlanName
+            @if (!string.IsNullOrEmpty(Model.subscriptionPlan.CouponCode))
+            {
+                <p><strong>Coupon Applied:</strong> @Model.subscriptionPlan.CouponCode (@Model.subscriptionPlan.DiscountPercentage% off)</p>
+            }
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th class="text-end">Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Base Price</td>
+                        <td class="text-end">@Model.subscriptionPlan.PlanAmount</td>
+                    </tr>
+                    <tr>
+                        <td>Discount (@Model.subscriptionPlan.DiscountPercentage%)</td>
+                        <td class="text-end text-danger">-@Model.subscriptionPlan.DiscountAmount</td>
+                    </tr>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td class="text-end">@Model.subscriptionPlan.SubTotal</td>
+                    </tr>
+                    <tr>
+                        <td>GST (@Model.subscriptionPlan.GSTPercentage%)</td>
+                        <td class="text-end">@Model.subscriptionPlan.GSTAmount</td>
+                    </tr>
+                    <tr>
+                        <th>Total Payable</th>
+                        <th class="text-end">@Model.subscriptionPlan.TotalAmount</th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p class="text-end">Thank you for your subscription!</p>
+
+        <div class="btn-print">
+            <button onclick="window.print()">🖨️ Print / Download</button>
+        </div>
+    </div>
+</body>
+</html>

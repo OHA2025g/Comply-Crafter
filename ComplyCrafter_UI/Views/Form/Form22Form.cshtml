@@ -1,0 +1,750 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    LLP Form No. 22
+                </h3>
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Notice of intimation of order of Court/ Tribunal/ Central Government to the Registrar
+
+                    [Pursuant to rule 35(11), 35(17) and 41(4) of Limited Liability Partnership Rules, 2009]
+                </p>
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_Kit_LLP_Form_No_22.pdf" target="_blank">
+                    Refer instruction kit for filing the form
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                           LLP/FLLP details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            DSC Details & Attachment
+                                        </span>
+                                    </a>
+                                </li>                        
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        <input type="hidden" class="num" value="0" name="id" />
+        <input type="hidden" class="num" value="0" name="companyId" />
+        <div class="card" style=" padding:25px;">
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">LLP/FLLP details</label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        1. LLPIN or FLLPIN
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="cin" class="form-control"  >
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (a) Name of the LLP or FLLP
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="companyName" class="form-control" id="company_name"  >
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3" style="height: 68px;">
+                        2. (b) Address of the registered office of the LLP or principal place of business in India of Foreign LLP
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3" style="height: 68px;">
+                        <input type="text" name="companyAddress" class="form-control"   style="height: 54px;">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (c) Email ID
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="companyEmail" class="form-control" id="company_email" value="" >
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (d)Jurisdiction of Police Station
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="jurisdictionOfPoliceStation" class="form-control" id="" value="Bandra West" maxlength="160">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Order details</label>
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4"style="margin-left: 0px;">
+                        <b>3. (a) *Order passed by</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 addcontent mt-3"style="margin-left: 0px;"><strong>(b) Name of the National Company Law Tribunal</strong></div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>(c) Location</b>
+                    </div>
+                </div>
+                 
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <select type="text" name="orderPassed" class="form-select" id="order_passed" required="">
+                            <option value="">Select here</option>
+                            <option value="Court">Court</option>
+                            <option value="Central Government">Central Government</option>
+                            <option value="National Company Law Tribunal">National Company Law Tribunal</option>
+                            <option value="National Company Law Appellate Tribunal">National Company Law Appellate Tribunal</option>
+                            <option value="Any other competent authority">Any other competent authority</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="nameOfOrderPassed" class="form-control" required="" maxlength="160" placeholder="Enter here">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;" id=""><select name="location" id="location" class="form-select" required=""><option value="">Select Location</option><option value="New Delhi">New Delhi</option><option value="Ahmedabad">Ahmedabad</option><option value="Allahabad">Allahabad</option><option value="Amravati">Amravati</option><option value="Bengaluru">Bengaluru</option><option value="Chandigarh">Chandigarh</option><option value="Chennai">Chennai</option><option value="Cuttack">Cuttack</option><option value="Guwahati">Guwahati</option><option value="Hyderabad">Hyderabad</option><option value="Indore">Indore</option><option value="Jaipur">Jaipur</option><option value="Kochi">Kochi</option><option value="Kolkata">Kolkata</option><option value="Mumbai">Mumbai</option><option value="Others">Others</option></select></div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 showonothers mt-3" style="margin-left: -10px;display:none;">
+                        <b>Specify others</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>(d) Petition or application number</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>(e) Order number</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 showonothers mt-3"style="margin-left: 0px;">
+                        <input type="text" name="specifyOthers" id="" value="" class="form-control" maxlength="160">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="applicationNumber" id="" value="" class="form-control" required="" maxlength="50" placeholder="Enter here">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="orderNumber" id="" class="form-control" value="" required="" maxlength="50" placeholder="Enter here">
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>4. Date of passing the order</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 mt-3"style="margin-left: 0px;">
+                        <b>5. Relevant Act under which order is passed</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="date" name="dateOfPassingOrder" id="dateofpassing_order" value="" class="form-control datepicker hasDatepicker" placeholder="" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3" style="margin-left: 8px;height: 36px;width: 64%;">
+                        &nbsp; &nbsp; <label> <input type="radio" name="relevantAct" value="LLP Act 2008" required=""> &nbsp; LLP Act 2008 &nbsp; &nbsp;</label>
+                        <label>   <input type="radio" name="relevantAct" value="Insolvency and Bankruptcy Code 2016" required=""> &nbsp; Insolvency and Bankruptcy Code 2016 &nbsp; &nbsp;</label>
+                        <label>   <input type="radio" name="relevantAct" value="Others" required=""> &nbsp; Others</label>
+                    </div>
+                </div>
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-6 showonllpact2008 mt-3" style="display: none;">
+                        <b>3. (a) Section of LLP Act, 2008 and relevant Rules under which order is passed</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-6 showonbankruptcy2016 mt-3" style="display: none;">
+                        <b>3. (b) Section of Insolvency and Bankruptcy Code, 2016 under which order is passed</b>
+                    </div>
+                    <div class="row mt-3" >
+                        <div class="col-xs-12 col-sm-4 col-md-6 showonllpact2008 mt-3" style="display: none;">
+                            <select type="text" name="sectionOfLlp2008" class="form-select" id="sectionofllp2008" required="required">
+                                <option value="">Select section</option>
+                                <option value="60(3) read with Rule 35(11)- Compromise or Arrangement of LLP">60(3) read with Rule 35(11)- Compromise or Arrangement of LLP</option>
+                                <option value="62(3) read with Rule 35(17)- Reconstruction or Amalgamation of LLP">62(3) read with Rule 35(17)- Reconstruction or Amalgamation of LLP</option>
+                                <option value="64 and rule 35(17)- Liquidation">64 and rule 35(17)- Liquidation</option>
+                                <option value="39 and rule 41(4)- Compounding of offence">39 and rule 41(4)- Compounding of offence</option>
+                                <option value="For amalgamated / inactive LLP / FLLP to Active">For amalgamated / inactive LLP / FLLP to Active</option>
+                                <option value="For dissolved / Under Liquidation LLP to Active">For dissolved / Under Liquidation LLP to Active</option>
+                                <option value="Appeal order w.r.t. conversion of firm / company into LLP">Appeal order w.r.t. conversion of firm / company into LLP</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-6 showonbankruptcy2016 mt-3"  style="display: none;">
+                            <select type="text" name="sectionOfInsolvency" class="form-select" id="sectionofinsolvency">
+                                <option value="">Select section</option>
+                                <option value="7-Admission of CIRP filed by financial creditor">7-Admission of CIRP filed by financial creditor</option>
+                                <option value="9-Admission of CIRP filed by operational creditor">9-Admission of CIRP filed by operational creditor</option>
+                                <option value="10-Admission of CIRP filed by corporate debtor">10-Admission of CIRP filed by corporate debtor</option>
+                                <option value="12A-Withdrawal of application admitted under section 7, 9 or 10">12A-Withdrawal of application admitted under section 7, 9 or 10</option>
+                                <option value="22(3)- Replacement of IRP / RP">22(3)- Replacement of IRP / RP</option>
+                                <option value="31-Approval of resolution plan">31-Approval of resolution plan</option>
+                                <option value="33-Order of Liquidation">33-Order of Liquidation</option>
+                                <option value="54 - Dissolution">54 - Dissolution</option>
+                                <option value="59(8)- Dissolution (Vol. Liq.)">59(8)- Dissolution (Vol. Liq.)</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    <div class="col-xs-12 col-sm-8 col-md-12 mt-3"style="margin-left: 0px;">
+                        <b>
+                            6. Number of days within which order is to be filed with Registrar (To be entered pursuant to aforesaid sections or in terms of Court order or Tribunal order or order of the competent authority, as the case may be)
+                        </b>
+                    </div>
+                </div>
+
+             
+                    <div class="col-xs-12 col-sm-8 col-md-12 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="noOfDays" id="" value="" class="form-control" required="">
+                    </div>
+                </div>
+
+                <label class="showonllpactothers mt-3" style="display:none" >(c) Specify others</label>
+
+                <div class="row showonllpactothers mt-3" style="display:none">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Section details
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="otherSectionDetails" id="othersectiondetails" class="form-control" value="" maxlenth="25" placeholder="Enter here">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Section description
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="otherSectionDes" id="" class="form-control" value="" maxlenth="100" placeholder="Enter here">
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>7. Date of application to Court or Tribunal or competent authority for issue of certified copy of order</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>8. Date of issue of certified copy of order</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="date" name="applicationDate" id="application_date" value="" class="form-control datepicker hasDatepicker" placeholder="dd/mm/yyyy" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="date" name="issueDate" id="issue_date" value="" class="form-control datepicker hasDatepicker" placeholder="dd/mm/yyyy" required="">
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>9. Due date by which order is to be filed with Registrar</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 mt-3"style="margin-left: 0px;">
+                        <b>10. Description of order</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="date" name="dueDate" id="due_date" value="" class="form-control datepicker hasDatepicker" placeholder=""  required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="descriptionOrder" id="description_order" value="" class="form-control" placeholder="Enter here" maxlength="2000" required="">
+                    </div>
+                </div>
+
+                <div class="row showoncompounding mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>11 In case of compounding of offence, enter Service request number (SRN)(s) of Form 31</b>
+                    </div>
+                </div>
+
+                <div class="row showoncompounding mt-3" style="">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="compoundingSrn" id="compounding_srn" value="" class="form-control" placeholder="Enter here" maxlength="10">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="offenceSrn" id="offence_srn" value="" class="form-control" placeholder="Enter here" maxlength="10">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="form31Srn" id="form31_srn" value="" class="form-control" placeholder="Enter here" maxlength="10">
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>12. SRN of relevant Form (Mention the SRN of relevant Form 22 or any other form; if applicable)</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <b>13. Whether cost involved or not</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3 showoncostyes" style="margin-left: -10px; display: none;">
+                        <b>If yes, details of cost paid</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                        <input type="text" name="srnForm22" id="srn_form22" value="" class="form-control" placeholder="Enter here" maxlength="10">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 34px;width: 359px;">
+                        <label>       <input type="radio" name="whetherCostInvolved" class="whethercostinvolved" value="Y"> &nbsp; Yes &nbsp;</label>
+                        <label>  <input type="radio" name="whetherCostInvolved" class="whethercostinvolved" value="N"> &nbsp; No</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 showoncostyes mt-3" style="margin-left: 5px; display: none;">
+                        <input type="text" name="detailsOfCostPaid" id="detailsofcostpaid" value="" class="form-control" placeholder="Enter here" required="required">
+                    </div>
+                </div>
+
+                <div id="showonsomeoptions" style="">
+                    <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Details of IRP/RP</label>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 bold mt-3"style="margin-left: 0px;">
+                            14. Details of Interim Resolution Professional (IRP)/ Details of Resolution Professional (RP) / Details of liquidator
+                        </div>
+                    </div>
+
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="row mt-3" style="margin-bottom: 0px;">
+                            <div class="col-xs-12 col-sm-4 col-md-4 "style="margin-left: 0px;">
+                            <b>(a) Income-tax permanent account number (Income-tax PAN)</b>
+                        </div>
+                            <div class="row mt-3" style="margin-bottom: 0px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>(b) IBBI Registration No.</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>(c) Name</b>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="panNumberIrp" id="pannumber_irp" value="" class="form-control" placeholder="Enter here" >
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="registrationNoIrp" id="registrationno_irp" value="" class="form-control" placeholder="Enter here" maxlength="30">
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="nameIrp" id="name_irp" value="" class="form-control" placeholder="Enter here" maxlength="160">
+                        </div>
+                    </div>
+
+                            <div class="row mt-3" style="margin-bottom: 0px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>(d) Mobile No</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>(e) Email ID</b>
+                        </div>
+                    </div>
+
+                         <div class="row mt-3">
+                           <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="mobilenoIrp" id="" value="" class="form-control" placeholder="Enter here">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="emailIrp" id="" value="" class="form-control" placeholder="Enter here" >
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3"style="margin-left: 0px;">
+                            (f) Address
+                        </div>
+                    </div>
+                            <div class="row mt-3" style="margin-bottom: 0px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>Address Line 1</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>Address Line 2</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>Country</b>
+                        </div>
+                    </div>
+
+                            <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="addLine1Irp" id="" value="" class="form-control" placeholder="Enter here" maxlength="100">
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="addLine2Orp" id="" value="" class="form-control" placeholder="Enter here" maxlength="100">
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input name="countryIrp" id="country_irp" class="form-control" value="">
+                        </div>
+                    </div>
+
+                            <div class="row mt-3" style="margin-bottom: 0px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>PIN code / Zip Code</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>Area/Locality</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>City</b>
+                        </div>
+                    </div>
+
+                            <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="pinCodeIrp" id=" " value="" class="form-control" placeholder="Enter here">
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <select type="text" name="localityIrp" id=" " class="form-select">
+                                <option value="">Select locality</option>
+                            </select>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="cityIrp" id="" value="" class="form-control" >
+                        </div>
+                    </div>
+
+                        <div class="row mt-3" style="margin-bottom: 0px;">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>District</b>
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <b>State / UT</b>
+                        </div>
+                    </div>
+
+                            <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="districtIrp" id="" value="" class="form-control" >
+                        </div>
+                                <div class="col-xs-12 col-sm-4 col-md-4 mt-3"style="margin-left: 0px;">
+                            <input type="text" name="stateIrp" id="" value="" class="form-control" >
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card" style=" padding:25px;">
+            <form action="" role="form" method="post" enctype="multipart/form-data" id=""> 
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        (b) Optional attachment(s) – if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                        <button type="button" name="attachmentAdd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                    </div>
+                </div>
+
+
+                <div id="equity2" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row">
+                            <input type="file" name="attachmentFile" id="" class="1">
+                        </div>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 0px -10px 6px;" class="mt-3">Verification</label>
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <label> <input type="checkbox" name="verificationCheckbox1" id="" required="">&nbsp; To the best of my knowledge and belief, the information given in this form and its attachments is correct and complete. I have gone through the provisions of the Limited Liability Partnership Act, 2008 and the rules framed thereunder. I have been authorized to sign and submit this form.<br><br></label>
+                        <label>   <input type="checkbox" name="verificationCheckbox2"  id="" required="">&nbsp; I, being a designated partner/ authorised representative / administrator of the LLP / FLLP, am authorized to sign and submit this form.</label>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Designation
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select type="text" name="designationAuth" id="designationAuth" class="form-select" required="">
+                            <option value="">Select Designation</option>
+                            <option value="Designated Partner">Designated Partner</option>
+                            <option value="Authorised Representative">Authorised Representative</option>
+                            <option value="LLP Administrator">LLP Administrator</option>
+                            <option value="Liquidator">Liquidator</option>
+                            <option value="Interim Resolution Professional (IRP)">Interim Resolution Professional (IRP)</option>
+                            <option value="Resolution Professional (RP)">Resolution Professional (RP)</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold showonotherdesignation mt-3" style="display:none">
+                        Name
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row showonotherdesignation mt-3" style="display:none">
+                        <input type="text" name="nameAuthrePresentative" class="form-control" value="" id="" placeholder="Enter here">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold showondesignatedpartner mt-3" style="display:none">
+                        Name of Designated Partner
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row showondesignatedpartner mt-3" style="display:none">
+                        <select type="text" name="nameDesignatedPartner" id="nameofdesignatedpartner" class="form-select" required="required">
+                            <option value="">Select Designated partner</option>
+                            <option value="07727600"> Imran Faruk Memon</option>
+                            <option value="07356321"> Vatsal  Thirani</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold changehtml mt-3">Designated Partner Identification Number (DPIN)</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="dpinPartner" id="dpin_partner" class="form-control" value="" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Capacity
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="capacity" id="" class="form-control" value="" maxlength="160">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).on('change', '#order_passed', function () {
+            var selected = $(this).val();
+            if (selected) {
+                $('.addcontent strong').text('(b) Name of the ' + selected);
+                $('input[name="nameOfOrderPassed"]').attr('placeholder', 'Enter name of the ' + selected);
+            } else {
+                $('.addcontent strong').text('(b) Name of the National Company Law Tribunal');
+                $('input[name="nameOfOrderPassed"]').attr('placeholder', 'Enter here');
+            }
+        });
+
+        $(document).on('change', '[name="relevantAct"]', function () {
+            $(".showonllpact2008").hide()
+            $(".showonbankruptcy2016").hide()
+            $(".showonllpactothers").hide()
+            var selected = $(this).val();
+            if (selected == "LLP Act 2008") {
+                $(".showonllpact2008").show()
+            } else if (selected == "Insolvency and Bankruptcy Code 2016") {
+                $(".showonbankruptcy2016").show()
+            } else {
+                $(".showonllpactothers").show()
+            }
+        });
+
+        $(document).on('change','[name="whetherCostInvolved"]', function () {
+       
+            var selected = $(this).val();
+            if (selected == "Y") {
+                $(".showoncostyes").show()
+            } else {
+                $(".showoncostyes").hide()
+            }
+        });
+
+
+        $(document).on("change", "#designationAuth", function () {
+            let designation = $(this).val()
+            $(".showondesignatedpartner").hide()
+            $(".showonotherdesignation").hide()
+
+            if (designation == 'Designated Partner') {
+                $(".showondesignatedpartner").show()
+            }else{
+                $(".showonotherdesignation").show()
+            }
+        
+        })
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+           
+            // part-1
+
+            jurisdictionOfPoliceStation:"",
+            orderPassed:"",
+            nameOfOrderPassed:"",
+            location:"",
+            specifyOthers:"",
+            applicationNumber:"",
+            orderNumber:"",
+            dateOfPassingOrder:"",
+            relevantAct:"",
+            sectionOfLlp2008:"",
+            sectionOfInsolvency:"",
+            noOfDays:"",
+            otherSectionDetails:"",
+            otherSectionDes:"",
+            applicationDate:"",
+            dueDate:"",
+            descriptionOrder:"",
+            compoundingSrn:"",
+            offenceSrn:"",
+            form31Srn:"",
+            srnForm22:"",
+            whetherCostInvolved:"",
+            detailsOfCostPaid:"",
+            registrationNoIrp:"",
+            panNumberIrp:"",
+            nameIrp:"",
+            mobilenoIrp:"",
+            emailIrp:"",
+            addLine1Irp:"",
+            addLine2Orp:"",
+            countryIrp:"",
+            pinCodeIrp:"",
+            localityIrp:"",
+            cityIrp:"",
+            stateIrp:"",
+            districtIrp:"",
+            issueDate:"",
+
+
+            // part-2
+            attachmentFile:"",
+            verificationCheckbox1:false,
+            verificationCheckbox2:false,
+            designationAuth:"",
+            nameAuthrePresentative:"",
+            nameDesignatedPartner:"",
+            dpinPartner:"",
+            capacity:"",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("FORM22", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("FORM22", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

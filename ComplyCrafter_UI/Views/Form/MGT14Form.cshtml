@@ -1,0 +1,874 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    .modal-dialog {
+        max-width: 85% !important;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.MGT-14
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    One Person Company - Change in Member/Nominee
+
+                    [Pursuant to Section 3(1) of the Companies Act, 2013 and Rule 4 (4),(5) & (6) of The Companies (Incorporation) Rules, 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca/mca-forms-instruction-kit/Instruction%20Kit_MGT-14.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity information
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <div id="part2" class="p-0">
+        <div class="card  p-0" style="padding:20px !important;">
+
+            <div class="row">
+                <div class="col-md-4 my-3">
+                    <label class="form-label">
+                        *Designation
+                    </label>
+                    <select name="designation" id="designation" class="form-select my-4" required="">
+                        <option value="">Select Designation</option>
+                        <option value="Director" style="">Director</option>
+                        <option value="Manager" style="">Manager</option>
+                        <option class="Secretary" style="">Secretary</option>
+                        <option value="Company Secretary" style="">Company Secretary</option>
+                        <option value="CFO" style="">CFO</option>
+                        <option value="CEO" style="">CEO</option>
+                        <option value="Insolvency Resolution Professional" style="display:none;">Insolvency Resolution Professional</option>
+                        <option value="Resolution Professional" style="display:none;">Resolution Professional</option>
+                        <option value="Liquidator" style="display:none;">Liquidator</option>
+                    </select>
+                </div>
+                <div class="col-md-8 my-3">
+                    <label class="form-label">
+                        Director identification number of the director; or DIN or PAN of the manager or CEO or CFO or Interim Resolution Professional (IRP) or Resolution Professional (RP) or Liquidator; or Membership number of the Company secretary
+                    </label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" name="din" placeholder="" class="form-control" value="">
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Declaration
+                    </p>
+                </div>
+
+                <div class="row Declarationattach" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;">
+                        <p style="text-align: justify;">I am authorised by the Board of Directors of the Company vide resolution no <input type="text" class="num" name="resolutionNumber" id="ResolutionNum" value="" placeholder="Resolution Number"> dated &nbsp; <input type="date" name="resolutionDate" id="ResolutionDate" class="datepicker hasDatepicker" placeholder="" value="" onchange="checkForm(this); return false;"> to sign this form and declare that all the requirements of Companies Act, 2013 and the rules made thereunder in respect of the subject matter of this form and matters incidental thereto have been complied with.</p>
+
+                        <p style="text-align: justify;">I further declare that:</p>
+
+                        <p style="text-align: justify;">1. Whatever is stated in this form and in the attachments thereto is true, correct and complete and no information material to the subject matter of this form has been suppressed or concealed and is as per the original records maintained by the company.</p>
+
+                        <p style="text-align: justify;">(iii) I have not been declared as proclaimed offender by any Economic Offence Court or Judicial Magistrate Court or High Court or any other Court,</p>
+
+                        <p style="text-align: justify;">2. All the required attachments have been completely and legibly attached to this form. It is also certified that copy of the resolution(s) or agreement(s) filed herewith is or are a true copy(s) of the original.</p>
+
+                        <p style="text-align: justify;">3. Any application, writ petition or suit had not been filed regarding the matter in respect of which this petition / application has been made, before any court of law or any other authority or any other Bench or the Board and not any such application, writ petition or suit is pending before any of them.</p>
+
+                        <p style="text-align: justify;">I further declare that </p>
+
+                        <p style="text-align: justify;">"The amendments done in Articles of Association (AOA) and / or Memorandum of Association (MOA) are restricted to the purpose (s) selected in the form </p>
+                    </div>
+                </div>
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Certificate by Practicing Professionals
+                    </p>
+                </div>
+                <div class="row" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;">
+                        <p style="text-align: justify;">I declare that I have been duly engaged for the purpose of certification of this form. It is hereby certified that I have gone through the provisions of the Companies Act, 2013 and Rules thereunder relevant to this form and I have verified the above particulars (including attachment(s)) from the original records maintained by the Company/applicant which is subject matter of this form and found them to be true, correct and complete and no information material to this form has been suppressed. I further verify that:</p>
+
+                        <p style="text-align: justify;">i. The said records have been properly prepared, signed by the required officers of the Company and maintained as per relevant provision of the companies act, 2013 and were found to be in order;</p>
+
+                        <p style="text-align: justify;">ii. All the required attachments have been completely and legibly attached to this form.</p>
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-3 col-md-8 form-row">
+                        <span class="form-label">Category (in whole time practice)</span>
+                        <input type="radio" name="categoryType" value="Chartered Accountant (in whole-time practice)">&nbsp; Chartered accountant &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="categoryType" value="Company Secretary (in whole-time practice)">&nbsp; Company Secretary &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="categoryType" value="Cost Accountant (in whole-time practice)">&nbsp; Cost Accountant
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 bold form-row nameofpcs" style="display: block;">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row nameofpcs" style="display: block;">
+                        <select name="companySecretary" id="nameofpcs" style="width: 100%;" class="form-select" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required="required">
+                            <option value="">Select Secretary</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row my-2">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Whether associate or fellow
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        &nbsp;&nbsp;
+                        <input type="radio" name="whetherAssosiateOrFellow" value="Associate">&nbsp;Associate &nbsp;<input type="radio" name="whetherAssosiateOrFellow" value="Fellow">&nbsp;Fellow
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Membership number or Certificate of practice number
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <input type="text" name="membershipNumber" id="membershipNumber" class="form-control num" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" value="" required="required">
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Attachments
+                    </p>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        1. Copy(s) of resolution(s) along with copy of explanatory statement under section 102
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="roweq1">
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        1.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                        <input type="file" name="resolutionCopy" id="attachmentfile_1" class="1" accept=".pdf,.xlsx">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        3. Optional attachment(s)- if any
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="roweq1">
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        1.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                        <input type="file" name="optionalAttatchment" id="attachmentfile_1" class="1" accept=".pdf,.xlsx">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+
+
+
+        @*  tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="accordion" id="companyAccordion">
+                <div class="accordion-item">
+
+
+                    <div id="collapseDetails" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                        <div class="card">
+
+                            <div class="card-body">
+                                <form id="frmCompanyDetails">
+                                    <input type="hidden" class="num" value="0" name="id" />
+                                    <input type="hidden" class="num" value="0" name="companyId" />
+                                    <div class="row">
+                                        <div class="row" style="height: auto;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;color: red;">
+                                                <p style="text-align: justify;">1.“Stakeholders, please note that you are required to submit MOA and AOA of the Company as link filing which will open after you submit the Form-MGT-14, if you choose any of the following purposes. You are not required to attach the PDF of MOA &amp; AOA in the Form.”</p>
+                                                <ul style="margin: 0px 0px 0px 20px;line-height: 0.5;">
+                                                    <li>
+                                                        <p style="text-align: justify;">(i) Change of address of registered office resulting in change in State within the jurisdiction of same RoC or outside the jurisdiction of existing RoC</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(ii) Alteration in Memorandum of Association except in case of change in name, registered office, object clause or change in authorized share capital</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(iii) Alteration in memorandum for change in name</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(iv) Alteration in object clause</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(v) Entrenchment of Articles</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(vi) Alteration of Articles</p>
+                                                    </li>
+                                                    <li>
+                                                        <p style="text-align: justify;">(vii) Alteration in memorandum for change in name</p>
+                                                    </li>
+                                                </ul>
+                                                <p style="text-align: justify;">2. “If you are choosing any of the purpose mentioned above, you cannot choose any other purpose along with the same”.</p>
+                                            </div>
+                                        </div>
+                                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                                Company Information
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">1. (a). *Corporate Identity Number(CIN)</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="U22219MH2022PTC375586" class="form-control" value="" name="cin" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">2. (a) *Name of the Company</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="AKSHAY GRAPHICS PRIVATE LIMITED" class="form-control" value="" name="companyName" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">(b) *Registered office address</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="SHOP NO 3 VERTEX VIKAS CHS LTD   WING A SIR M V RD BHD POLICE STN ANDHERI, MUMBAI, Mumbai City, Maharashtra, India, 400069" class="form-control" value="" name="companyAddress" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">(c) *email id</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="akshaygraphics69@gmail.com" class="form-control" value="" name="companyEmail" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                                Type and details of resolution
+                                            </p>
+                                        </div>
+                                        <div class="row  my-3">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row">
+                                                <span style="" class="form-label">3. Registration of</span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                                <input type="checkbox" name="resolution" id="Register" value="Resolution">&nbsp; Resolution(s) &nbsp; &nbsp; &nbsp;
+                                                <input type="checkbox" name="agreement" id="agreement" value="Agreement">&nbsp; Agreement &nbsp; &nbsp; &nbsp;
+                                                <input type="checkbox" name="postalBallot" id="postalBallot" value="Postal ballot resolution(s) under Section 110">&nbsp; Postal ballot resolution(s) under Section 110 &nbsp; &nbsp;
+                                            </div>
+                                        </div>
+                                        <div id="resolutionFields" class="row" style="display: none;">
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    4 .(a) Date of dispatch of notice for passing of resolution(s)
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="noticeDispatchDate" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    (b) Date of passing of resolution(s)
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="passingResolutionDate" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                        </div>
+
+                                        <div id="ballotFields" class="row" style="display: none;">
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    5 .(a) Date of dispatch of notice for passing of postal ballot resolution(s)
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="dispatchBallotDate" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    (b) Date of passing of postal ballot resolution(s)
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="postalBallotResolutiontDate" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                                <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                                    Information about resolution
+                                                </p>
+                                            </div>
+                                            <div class="row numberForms mt-2">
+                                                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mb-5">
+                                                    Select Purpose of passing the resolution
+                                                </div>
+
+
+                                                <!-- Button trigger modal -->
+
+                                                <div data-bs-toggle="modal" data-bs-target="#exampleModal" class="col-xs-12 col-sm-2 col-md-2 form-row" style="text-align: center;">
+                                                    <a class="btn btn-md btn-primary sectionsdrop" style="width: 100%;">View section</a>
+                                                </div>
+
+                                                    <div class="col-xs-12 col-sm-4 col-md-4 bold form-row resolutionNumber">
+                                                        6. Number of resolution(s) for which the form is being filed
+                                                    </div>
+                                                    <div class="col-xs-12 col-sm-3 col-md-3 form-row resolutionNumber">
+                                                        <input type="number" class="form-control num" style=" box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" name="numberOfResolution" id="NumberofFiled" value="" required="required">
+                                                    </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div id="agreementFields" class="row" style="display: none;">
+                                            <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                                <p class="card-title mb-0 " style="margin-top:1px;">
+                                                    9. Details of Agreement
+                                                </p>
+                                            </div>
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    (a) Date of agreement
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="agreementDate" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-6 my-3">
+                                                <label class="form-label">
+                                                    (b) Mention the section of the Companies Act, 2013 under which the agreement is entered
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" name="companiesAct" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+
+                                            <div class="col-md-12 my-3">
+                                                <label class="form-label">
+                                                    (c) Mention the purpose for which the agreement is entered
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" name="agreementPurpose" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+                                            <div class="col-md-12 my-3">
+                                                <label class="form-label">
+                                                    (d) Subject matter of the agreement
+                                                </label>
+                                                <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" name="agreementSubject" placeholder="" class="form-control" value="">
+                                                <div class="invalid-feedback"></div>
+                                            </div>
+
+                                            <div class="col-md-12 my-3">
+                                                <label class="form-label">
+                                                    (e) Indicate the authority adopting the agreement
+                                                </label>
+                                                <select name="authority" id="IndicateAuthority " class="form-select">
+                                                    <option value="">Select</option>
+                                                    <option value="Board of Directors">Board of Directors</option>
+                                                    <option value="Shareholders">Shareholders</option>
+                                                    <option value="Class of Shareholders">Class of Shareholders</option>
+                                                    <option value="Creditors">Creditors</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 my-3">
+                                            <label class="form-label">
+                                                10. Service request number (SRN) of Form INC-28
+                                            </label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" name="srn" placeholder="" class="form-control" value="">
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="dscInForm2" style="padding:10px; background:#fff;">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header" style="margin-top:0px;text-align:center">
+                                    <small><h4 style="color: black;">Select Purpose of passing the resolution</h4></small>
+                                </h1>
+                                <form action="" method="post" id="fupForm_section" enctype="multipart/form-data">
+                                    <div class="row" style="margin-left: 0px;height: auto;">
+                                        <div class="col-xs-12 col-sm-6 col-md-6" style="height: auto;">
+                                            <table border="1" class="table table-bordered table-hover" style="width: 99%">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align:center; background-color:#8e949a; color:black;">Sections</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="1"> &nbsp; Entrenchment of Articles</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="2"> &nbsp; Change of address of the registered office outside the limit of the city / town / village where the registered office is situated but within the same RoC and State</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="3"> &nbsp; Change of address of registered office resulting in change in RoC within the same State</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="4"> &nbsp; Change of address of registered office resulting in change in State within the jurisdiction of same RoC or outside the jurisdiction of existing RoC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="5"> &nbsp; Alteration in Memorandum of Association except in case of change in name, registered office, object clause or change in authorized share capital</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="6"> &nbsp; Alteration in authorized share capital</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="7"> &nbsp; Alteration in memorandum for change in name</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="8"> &nbsp; Alteration in object clause</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="9"> &nbsp; Alteration of Articles</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="9"> &nbsp; Conversion of public company into private company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="10"> &nbsp; Conversion of private company into public company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="11"> &nbsp; Conversion of company limited by guarantee into a company limited by shares</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="12"> &nbsp; Conversion of Unlimited Liability Company into a Company Limited by shares</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="13"> &nbsp; Conversion of Unlimited Liability Company into a Company Limited by guarantee</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="14"> &nbsp; Allotment of Securities</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="15"> &nbsp; Approval of scheme for providing financial assistance for purchase of its own shares</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="16"> &nbsp; Buyback of shares or specified securities</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="17"> &nbsp; Appointment of more than Fifteen Directors</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="18"> &nbsp; Reappointment of Independent Director after a term of 5 consecutive years</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="19"> &nbsp; Restricting the number of Directorship which can be held by the Company's Director</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="20"> &nbsp; To fix remuneration payable to directors including managing director or whole time director or manager</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="21"> &nbsp; Appointment of MD, WTD or Manager</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="22"> &nbsp; Agreement relating to appointment, reappointment or renewal of appointment or variation of terms of appointment of a managing director</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="23"> &nbsp; Application to Registrar to remove name of company from register of companies</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="24"> &nbsp; To adopt table F in schedule</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="25"> &nbsp; Application to Registrar for obtaining the status of Dormant company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="26"> &nbsp; Variation in terms of Contract referred to in the prospectus or objects for which the prospectus was issued</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="27"> &nbsp; Registers and returns to be kept at a place other than where registered office is situated</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="28"> &nbsp; Removal of auditor before the expiry of his term</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="29"> &nbsp; Resolutions passed in pursuance of exercise of powers of Board of Directors</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+
+                                        <div class="col-xs-12 col-sm-6 col-md-6" style="height: auto;">
+                                            <table border="1" class="table table-bordered table-hover" style="width: 99%">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align:center;  background-color:#8e949a; color:black;">Sections</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="31"> &nbsp; Sell, lease or otherwise disposal of the whole, or substantially the whole, of the undertaking</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="32"> &nbsp; Loans to Director or any person in whom Director is interested</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="33"> &nbsp; Inter corporate loans and investments or guarantee or security in excess of the prescribed limits</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="34"> &nbsp; Authorization for related party transactions</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="35"> &nbsp; To request the Government to investigate the affairs of the company and to appoint inspectors</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="36"> &nbsp; Change in objects of the company in case company has unutilized amount of money raised through issue of prospectus</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="37"> &nbsp; Issue of Global Depository Receipts in any foreign country</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="38"> &nbsp; Removal of retiring auditor not to be reappointed at Annual General Meeting</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="39"> &nbsp; Remit or give time for repayment of any debt due from a director</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="40"> &nbsp; Invest otherwise in trust securities the amount of compensation received by it as a result of any merger or amalgamation</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="41"> &nbsp; Invest otherwise in trust securities the amount of compensation received by it as a result of any merger or amalgamation</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="42"> &nbsp; Investigation into the affairs of the company by Serious Fraud Investigation Office</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="43"> &nbsp; Others under Companies Act,2013</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="44"> &nbsp; Waiver of amount recoverable from Director</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="45"> &nbsp; Conversion from Section 8 company to any other kind (before RD approval in INC-18)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="46"> &nbsp; Conversion from Section 8 company to any other kind (after RD approval in INC-18)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="47"> &nbsp; Conversion from Section 8 company to any other kind (after RD approval in INC-18)</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="48"> &nbsp; Conversion to Section 8 company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="49"> &nbsp; Conversion of OPC into Private Company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="50"> &nbsp; Conversion of OPC into Public Company</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="51"> &nbsp; Conversion of Private Company into OPC</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="52"> &nbsp; Variation of shareholders rights</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="53"> &nbsp; Reduction of share capital</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="54"> &nbsp; Acceptance of Deposits from Members</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="55"> &nbsp; Removal of Director before expiry of term</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="56"> &nbsp; Loans or investments by company exceeding prescribed limits</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="57"> &nbsp; Acquisition by Nidhi Company of another company by purchase of securities or controlling the composition of the Board of Directors of any other company or entering into any arrangement for the change of its management</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="58"> &nbsp; Voluntary liquidation</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="checkbox" name="resolutionPurpose" value="59"> &nbsp; Others under Insolvency and Bankruptcy Code, 2016</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+
+                                    <input type="submit" name="submitsection" class="btn btn-primary" style="margin-left: 17px;height: 36px;">
+
+
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            //Part 2
+            designation: "",
+            din: "",
+            resolutionNumber: 0,
+            resolutionDate: "",
+            categoryType: "",
+            companySecretary: "",
+            whetherAssosiateOrFellow: "",
+            membershipNumber: 0,
+            resolutionCopy: "",
+            optionalAttatchment: "",
+
+
+            //Part 2
+            resolution: "",
+            agreement: "",
+            postalBallot: "",
+            noticeDispatchDate: "",
+            passingResolutionDate: "",
+            dispatchBallotDate: "",
+            postalBallotResolutiontDate: "",
+            numberOfResolution: 0,
+            agreementDate: "",
+            companiesAct: "",
+            agreementPurpose: "",
+            agreementSubject: "",
+            authority: "",
+            srn: "",
+            resolutionPurpose: ""
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        $("input[name='resolution']").change(function () {
+            if ($(this).is(":checked")) {
+                $(".resolutionNumber").show()
+
+                $("#resolutionFields").slideDown(); // Show fields
+            } else {
+                $("#resolutionFields").slideUp(); // Hide fields
+            }
+        });
+
+        $("input[name='agreement']").change(function () {
+            if ($(this).is(":checked")) {
+
+                $("#agreementFields").slideDown(); // Show fields
+            } else {
+                $("#agreementFields").slideUp(); // Hide fields
+            }
+        });
+
+        $("input[name='postalBallot']").change(function () {
+            if ($(this).is(":checked")) {
+                $(".resolutionNumber").show()
+                $("#ballotFields").slideDown(); // Show fields
+            } else {
+                $("#ballotFields").slideUp(); // Hide fields
+            }
+        });
+
+        function save(event) {
+
+
+            event.preventDefault();
+            var strArray = $("input[name='resolutionPurpose']:checked")
+                .map(function () { return this.value; }) // Get values
+                .get()
+                .join(',');
+
+            console.log("strArray", strArray)
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            obj.resolutionPurpose = strArray;
+
+            console.log(obj)
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                    $('[name="resolutionPurpose"]').prop('checked', false)
+                    frm.resolutionPurpose.split(',').forEach(m => $('[name="resolutionPurpose"][value="' + m + '"]').prop('checked', true))
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

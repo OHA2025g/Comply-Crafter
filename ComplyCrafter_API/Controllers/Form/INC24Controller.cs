@@ -1,0 +1,42 @@
+using AlphaUtil.Core;
+using AlphaUtil.Core.Models;
+using Microsoft.AspNetCore.Mvc;
+using ComplyCrafter_BL;
+using ComplyCrafter_Data;
+
+namespace ComplyCrafter_API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class INC24Controller : BaseController<INC24, INC24View>
+    {
+        private readonly IINC24 _impl;
+
+        public INC24Controller(IINC24 impl) : base(impl)
+        {
+            this._impl = impl;
+        }
+
+        [HttpGet("{id}/Status/{status}")]
+        public Response? ChangeActiveStatus(int id = 0, bool status = false)
+        {
+            INC24? obj = _impl.GetById(id);
+            if (obj.IsNull())
+                return new Response(false, "Entry not found");
+            obj.IsActive = status;
+            var r = _impl.ChangeActiveStatus(obj!);
+            if (r.IsNull())
+                return new Response(false, CONST.ChangeStatusError);
+            return new Response(true, CONST.ChangeStatusSuccess);
+        }
+
+        [HttpGet("GetByCompany/{id}")]
+        public IEnumerable<INC24View> GetByCompany(int id = 0)
+        {
+            IEnumerable<INC24View> res = _impl.GetByCompany(id);
+            return res;
+
+        }
+    }
+
+}

@@ -1,0 +1,867 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    LLP Form No. 24
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Application to the Registrar for striking off name
+
+                    [Pursuant to rule 37 of Limited Liability Partnership Rules, 2009 and Section 75 of The Limited Liability Partnership Act 2008]
+                </p>
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_Kit_LLP_Form_No_24.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            LLP/FLLP details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            DSC Details & Attachment
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+
+        <div class="card" style=" padding:25px;">
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        1. Limited Liability Partnership Identification Number (LLPIN)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" id="cin" name="cin" value="AAN-1801" readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (a) Name of the Limited Liability Partnership (LLP)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" name="companyName" id="LLPName" value="BANDRA HOSPITALITY LLP" readonly="">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (b) Address of the registered office of the LLP
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%" id="company_address" class="form-control" name="companyAddress" value="29A NOOTAN NAGAR GURUNANAK ROAD   BANDRA WEST, MUMBAI, Mumbai City, Maharashtra, India, 400050" readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        2. (c) Email ID of the LLP
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%" id="company_email" name="companyEmail" class="form-control" value="ashitshah1988@gmail.com" readonly="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        3. Reasons for making the application
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                        <input type="text" class="form-control" name="applicationReason" id="reasonForApplication" value="" required="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;"">
+                        <span style="font-weight: bold;"> 4. Whether action has been initiated by Registrar as per Rule 37(1)?</span>
+                        <div class="input text form-row" style="margin-top: 10px;height: 38px;">
+                            &nbsp; &nbsp;
+                            <label><input type="radio" name="isActionInitiated" class="actionHasBeenIntiatedByRegistrarAsPerRule371" value="true">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+                            <label> <input type="radio" name="isActionInitiated" class="actionHasBeenIntiatedByRegistrarAsPerRule371" value="false">&nbsp; No</label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">5. Whether up to date Income-tax returns filed</span>
+                        <div class="input text form-row mt-3" style="margin-top: 28px;height: 38px;">
+                            <label>    &nbsp; &nbsp;<input type="radio" name="incomeTaxUpdated" value="Yes">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+                            <label>   <input type="radio" name="incomeTaxUpdated" value="No">&nbsp; No</label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3 ">
+                        <span style="font-weight: bold;">6. Date from which the LLP ceased to carry on business (DD/MM/YYYYY) </span>
+                        <input type="date" style="margin-top: 10px;height: 36px;" class="form-control datepicker hasDatepicker" placeholder="" name="ceasedLlpDate" id="dateFromWhichTheLlpceased" value="" >
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">7. Regulator details</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;"">
+                        <span style="font-weight: bold;">(a). Whether the LLP's activities is/are regulated under any Law/ Rules/ Regulations?</span>
+                        <div class="input text form-row" style="margin-top: 4px;height: 35px;">
+                            &nbsp; &nbsp;<label>
+                                <input type="radio" name="llpUnderLaw" class="llpactivityRegulatedBySectoralRegulator" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;
+                            </label>
+                            <label> <input type="radio" name="llpUnderLaw" class="llpactivityRegulatedBySectoralRegulator" value="N">&nbsp; No</label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 nameOfRegulator mt-3" style="">
+                        <span style="font-weight: bold;">(b). If Yes, specify name of the Regulator and law under which this entity is regulated</span>
+                        <div class="input text" style="margin-top: 5px;"><input type="text" name="regulatorName" id="nameOfRegulator" class="form-control" value=""></div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 dateOfApprovalOfRegulatoryBody mt-3" style="">
+                        <span style="font-weight: bold;">(c). Date of obtaining the approval/NOC of regulatory body (DD/MM/YYYY)</span>
+                        <div class="input text" style="margin-top: 5px;"><input type="date" class="datepicker form-control hasDatepicker" placeholder="" name="nocApprovalDate" id="dateOfApprovalOfRegulatoryBody" value="" ></div>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">8. Prosecution details</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-6 col-md-6 mt-3" style="margin-left: 0px;"">
+                        <span style="font-weight: bold;">(a) Whether there are any prosecutions pending against or involving the LLP or any of its partners / designated partners</span>
+                        <div class="input text form-row mt-3" style="margin-top: 5px;height: 33px;">
+                            &nbsp; &nbsp;<label>
+                                <input type="radio" name="prosecutionsPending" class="prosecutionsPending" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;
+                            </label>
+                            <label>  <input type="radio" name="prosecutionsPending" class="prosecutionsPending" value="N">&nbsp; No</label>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-6 col-md-6 numberOfProsecutions mt-3" style="">
+                        <span style="font-weight: bold;">(i) Number of prosecution(s) pending against or involving the LLP or any of its</span>
+                        <div class="input number" style="margin-top: 21px;"><input type="text" name="numberOfProsecutions" id="numberOfProsecutions" class="form-control" value=""></div>
+                    </div>
+                </div>
+
+                <div id="detailsofpendingprosecution">
+                </div><br>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        9. Statement of Accounts disclosing Nil Assets and Nil Liabilities [sub-clause (a) of clause (II) of sub-rule (1A) to rule 37(1)]
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (a) Statement of Account as on date
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="date" name="statementOfAccDate" class="datepicker form-control hasDatepicker" id="statementOfAccDate" placeholder="" value="" >
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        Particulars: (Brief break up in respect of each item needs to be given)
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        (b) Source of Funds:
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (i) Capital
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" name="capital" class="form-control num" id="capital" value=""> </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (ii) Reserves and Surplus (including balance in Profit and Loss Account)
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" name="reservesAndSurplus" class="form-control num" id="reservesAndSurplus" value=""> </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        (iii) Loan Funds
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(1) Secured Loans from Financial Institutions</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="securedLoansFromFi" class="form-control num" id="securedLoansFromFi" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(2) Secured Loans from Banks</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="securedLoansFromBank" class="form-control num" id="securedLoansFromBank" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(3) Secured Loans from Govt.</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="securedLoansFromGovt" class="form-control num" id="securedLoansFromGovt" value="">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(4) Others Secured loans</span>
+                        <div lass="input number mt-2">
+                            <input type="number" name="othersSecuredLoans" class="form-control num" id="othersSecuredLoans" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(5) Debentures</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="debentures" class="form-control num" id="debentures" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(6) Unsecured loans</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="unsecuredLoans" class="form-control num" id="unsecuredLoans" value="">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(7) Deposits and interest thereon</span>
+                        <div lass="input number mt-2">
+                            <input type="number" name="depositsAndInterest" class="form-control num" id="depositsAndInterestThereon" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(8) Total Loan Funds</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="totalLoanFunds" class="form-control num" id="totalLoanFunds" value="" readonly="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(iv) Total [b(i)+b(ii)+b(iii)(8)]</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="total" class="form-control num" id="total" value="" readonly="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        (c) Application of Funds:
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(i) Fixed Assets</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="fixedAssets" class="form-control num" id="fixedAssets" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(ii) Investments</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="investments" class="form-control num" id="investments" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(iii) Current Assets, Loans and Advances</span>
+                        <div class="input number mt-2">
+                            <input type="number"  name="currentAssets" class="form-control num" id="currentAssets" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 bold mt-3" style="margin-left: 0px;"">
+                        (iv) Current Liabilities and Provisions
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(1) Creditor</span>
+                        <div class="input number mt-2">
+                            <input name="creditors" class="form-control" id="creditors" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(2) Unpaid Dividend</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="unpaidDividend" class="form-control num" id="unpaidDividend" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(3) Payables</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="payables" class="form-control num" id="payables" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(4) Others</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="others" class="form-control num" id="others" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(5) Total Current Liabilities and provisions</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="totalCurrentLiabilities" class="form-control num" id="totalCurrentLiabilities" value="" readonly="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(v) Net Current Assets [c(iii)-c(iv)(5)]</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="netCurrentAssets" class="form-control num" id="netCurrentAssets" value="" readonly="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: 0px;">
+                        <span style="font-weight: bold;">(vi) Miscellaneous expenditure to the extent not written off or adjusted</span>
+                        <div class="input number mt-2">
+                            <input type="number" name="miscellaneousExpenditure" class="form-control num" id="miscellaneousExpenditure" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(vii) Profit and Loss Account (Debit Balance)</span>
+                        <div class="input number " style="margin-top: 31px;">
+                            <input type="number" name="profitAndLossAccount" class="form-control num" id="profitAndLossAccount" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">(viii) Total [c(i)+c(ii)+c(v)+c(vi)+c(vii)]</span>
+                        <div class="input number " style="margin-top: 31px;">
+                            <input type="number" name="total2" class="form-control num" id="total2" value="" readonly="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+
+        <div class="card" style="padding:25px;">
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm2">
+                <div class="row mt-3" style="margin-bottom:0px;">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold mt-3" style="margin-left: -10px;">Name</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold mt-3" style="margin-left: -10px;">Place</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold mt-3" style="margin-left: -10px;">Designation</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold mt-3" style="margin-left: -10px;">Membership / Certificate of Practice Number</div>
+                </div>
+                <div class="row mt-1">
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="margin-left: 0px; ">
+                        <div xlass="input text">
+                            <input name="name" class="form-control" id="name" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="input text">
+                            <input name="place" class="form-control" id="place" value="">
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="input text">
+                            <input name="designation" class="form-control" id="designation" value="Chartered Accountant" readonly="">
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="input text">
+                            <input name="membershipNumber" class="form-control" id="membershipNumber" value="">
+                        </div>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">To be digitally signed by a designated partner</label>
+
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                        Name of the Designated partner
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select name="partnerName" class="form-select" id="partner_DIN" style="width: 100%;">
+                            <option value="">Select Designated Partner</option>
+                            <option value="07727600">Imran Faruk Memon</option>
+                            <option value="07356321">Vatsal  Thirani</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        DPIN of the Designated partner
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="partnerDpin" id="verificationDin" class="form-control" value="">
+
+                    </div>
+                </div>
+
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Verification_To be digitally signed by a designated partner</label>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <label>    <p style="text-align: justify;"> <input type="checkbox" name="selfDeclaration" value="Y" id="checkBox1" required="">&nbsp; To the best of my knowledge and belief, the information given in the application and its attachments is correct and complete. I am aware that I shall be liable for prosecution under Section 37 of the LLP Act, 2008 if any part of the statements made or information furnished herein contain any misstatement which is false in any material particular or omission of any material fact.</p></label>
+                        <label>
+                                <p style="text-align: justify;"> <input type="checkbox" name="assetsDeclaration" value="Y" id="checkBox2" required="">&nbsp; Assets of the LLP shall be made available for payment of liabilities even after date of order for removal of name of LLP from register. </p>
+                            </label>
+                        <label>   <p style="text-align: justify;"><input type="checkbox" name="liabilityDclaration" value="Y" id="checkBox3" required="">&nbsp; The liability of every DP of LLP dissolved shall continue and may be enforced as if the limited liability partnership had not been dissolved. </p></label>
+                    </div>
+                </div>
+
+                <div id="showattachment">
+                    <div class="row  mt-3">
+                        <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                            (a) Copy of authority to make the application duly signed by all partners
+                        </div>
+                    </div>
+                    <div id="equity1">
+                        <div class="row mt-3" id="rowel1">
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                                <input type="file" name="authorityCopy" id="InstrumentCreating_1" class="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="showonwith">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                            (b) Copy of acknowledgment of latest Income-tax return
+                        </div>
+                    </div>
+                    <div id="equity2">
+                        <div class="row mt-3" id="rowet1">
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                                <input type="file" name="acknowledgmentCopy" id="Incometax_1" class="1">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div id="satisfactionattachment">
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                            (c) Form 8_Statement of Account Solvency and Charges
+                        </div>
+                    </div>
+                    <div id="equity3">
+                        <div class="row mt-3" id="rowel1">
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                                <input type="file" name="statementCopy" id="Form8_1" class="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3 ">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                        (d) Form 11_Annual Return of LLP
+                    </div>
+                </div>
+                <div id="equity4">
+                    <div class="row mt-3" id="rowel1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="returnCopy" id="Form11_1" class="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                        (e) Copy of order / NoC of the concerned regulatory authority
+                    </div>
+                </div>
+                <div id="equity5">
+                    <div class="row mt-3" id="rowel1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="orderCopy" id="Nocauthority_1" class="1">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                        (f) Affidavit signed by designated partners [sub-clause (b) of (ii) of sub-rule (1A) to rule 37(1)]
+                    </div>
+                </div>
+                <div id="equity6">
+                    <div class="row mt-3" id="rowel1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3 ">
+                            <input type="file" name="signedAffidavit" id="Affidavitpartners_1" class="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        (g) Optional attachment(s)- if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                        <button type="button" name="attachmentAdd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                    </div>
+                </div>
+                <div id="equity7">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+            </form>   
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+
+        $(document).on("change", "[name='llpUnderLaw']", function () {
+            let llpUnderLaw = $(this).val();
+            if (llpUnderLaw == "N") {
+                $(".nameOfRegulator").hide()
+                $(".dateOfApprovalOfRegulatoryBody").hide()
+
+            } else {
+                $(".nameOfRegulator").show()
+                $(".dateOfApprovalOfRegulatoryBody").show()
+            }
+        });
+
+        $(document).on("change", "[name='prosecutionsPending']", function () {
+            let prosecutionsPending = $(this).val();
+            if (prosecutionsPending == "N") {
+                $(".numberOfProsecutions").hide()
+            } else {
+                $(".numberOfProsecutions").show()
+            }
+        });
+
+
+        function calculateLoanFunds() {
+            const securedLoansFromFi = Number($('#securedLoansFromFi').val()) || 0;
+            const securedLoansFromBank = Number($('#securedLoansFromBank').val()) || 0;
+            const securedLoansFromGovt = Number($('#securedLoansFromGovt').val()) || 0;
+            const othersSecuredLoans = Number($('#othersSecuredLoans').val()) || 0;
+            const debentures = Number($('#debentures').val()) || 0;
+            const unsecuredLoans = Number($('#unsecuredLoans').val()) || 0;
+            const depositsAndInterest = Number($('#depositsAndInterestThereon').val()) || 0;
+
+            const totalLoanFunds = securedLoansFromFi + securedLoansFromBank +
+                securedLoansFromGovt + othersSecuredLoans +
+                debentures + unsecuredLoans + depositsAndInterest;
+
+            $('#totalLoanFunds').val(totalLoanFunds);
+            return totalLoanFunds;
+        }
+
+        function calculateTotalFunds() {
+            const capital = Number($('#capital').val()) || 0;
+            const reservesAndSurplus = Number($('#reservesAndSurplus').val()) || 0;
+            const loanFunds = calculateLoanFunds(); 
+            const totalFunds = capital + reservesAndSurplus + loanFunds;
+            $('#total').val(totalFunds);
+        }
+
+        $(document).on('input', '#capital, #reservesAndSurplus, #securedLoansFromFi, #securedLoansFromBank, #securedLoansFromGovt, #othersSecuredLoans, #debentures, #unsecuredLoans, #depositsAndInterestThereon', function () {
+            calculateLoanFunds();
+            calculateTotalFunds();
+        });
+
+        function calculateCurrentLiabilities() {
+            let creditors = Number($('#creditors').val()) || 0;
+            let unpaidDividend = Number($('#unpaidDividend').val()) || 0;
+            let payables = Number($('#payables').val()) || 0;
+            let others = Number($('#others').val()) || 0;
+
+            let totalCurrentLiabilities = creditors + unpaidDividend + payables + others;
+            $('#totalCurrentLiabilities').val(totalCurrentLiabilities);
+            return totalCurrentLiabilities;
+        }
+
+        function calculateNetCurrentAssets() {
+            let currentAssets = Number($('#currentAssets').val()) || 0;
+            let totalCurrentLiabilities = calculateCurrentLiabilities(); 
+
+            let netCurrentAssets = currentAssets - totalCurrentLiabilities;
+            $('#netCurrentAssets').val(netCurrentAssets);
+            return netCurrentAssets;
+        }
+
+        function calculateTotal2() {
+            let fixedAssets = Number($('#fixedAssets').val()) || 0;         
+            let investments = Number($('#investments').val()) || 0;            
+            let netCurrentAssets = calculateNetCurrentAssets();               
+            let miscellaneousExpenditure = Number($('#miscellaneousExpenditure').val()) || 0;
+            let profitAndLossAccount = Number($('#profitAndLossAccount').val()) || 0;       
+
+            let total2 = fixedAssets + investments + netCurrentAssets + miscellaneousExpenditure + profitAndLossAccount;
+            $('#total2').val(total2);
+        }
+
+        $(document).on('input', '#fixedAssets, #investments, #currentAssets, #creditors, #unpaidDividend, #payables, #others, #miscellaneousExpenditure, #profitAndLossAccount', function () {
+            calculateCurrentLiabilities();
+            calculateNetCurrentAssets();
+            calculateTotal2();
+        });
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            //Part1
+      
+            applicationReason: "",
+            isActionInitiated: "",
+            incomeTaxUpdated: "",
+            ceasedLlpDate: "",
+            llpUnderLaw: "",
+            regulatorName: "",
+            nocApprovalDate: "",
+            prosecutionsPending: "",
+            numberOfProsecutions: 0,
+            statementOfAccDate: "",
+            capital: 0,
+            reservesAndSurplus: 0,
+            securedLoansFromFi: 0,
+            securedLoansFromBank: 0,
+            securedLoansFromGovt: 0,
+            othersSecuredLoans: 0,
+            debentures: 0,
+            unsecuredLoans: 0,
+            depositsAndInterest: 0,
+            totalLoanFunds: 0,
+            total: 0,
+            fixedAssets: 0,
+            investments: 0,
+            currentAssets: 0,
+            creditors: 0,
+            unpaidDividend: 0,
+            payables: 0,
+            others: 0,
+            totalCurrentLiabilities: 0,
+            netCurrentAssets: 0,
+            miscellaneousExpenditure: 0,
+            profitAndLossAccount: 0,
+            total2: 0,
+
+            //Part 2
+
+            name: "",
+            place: "",
+            designation: "", // Pre-filled and readonly
+            membershipNumber: "",
+            partnerName: "", // Selected value from the dropdown
+            partnerDpin: "",
+            selfDeclaration: "", // Checkbox value (Y/N)
+            assetsDeclaration: "", // Checkbox value (Y/N)
+            liabilityDclaration: "", // Checkbox value (Y/N)
+            authorityCopy: "", // File input
+            acknowledgmentCopy: "", // File input
+            statementCopy: "", // File input
+            returnCopy: "", // File input
+            orderCopy: "", // File input
+            signedAffidavit: "", // File input
+            optionalAttachment: "" // File input
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("FORM24", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("FORM24", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

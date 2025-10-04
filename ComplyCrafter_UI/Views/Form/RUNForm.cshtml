@@ -1,0 +1,265 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form RUN
+
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Reserve Unique Name
+
+                    (For change of name only)
+
+                    (Pursuant to section 4 and 13 of Companies Act,2013 read with rule 8,9 and 29 of Companies(Incorporation)Rules,2014)
+                </p>
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_RUN%20Company.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+                </a>
+            </div>
+        </div>
+    </div>
+
+  <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity Details
+                                        </span>
+                                    </a>
+                                </li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div> 
+
+    <div id="part1" class="p-0">
+        <div class="card" style=" padding:25px;">
+            <div class="tab-content">
+                <br>
+                <div id="Details" class="tab-pane in active animated  custon-tab-style1">
+                    <div class="guideLoading guideServiceLoading" id="dvloader" style="display: none;"></div>
+                    <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-5 col-md-5 bold" style="margin-left:-12px;">
+                                Type of Application
+                            </div>
+                        </div>
+                        <input type="hidden" class="num" value="0" name="id" />
+                        <input type="hidden" class="num" value="0" name="companyId" />
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                                *CIN
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="margin-left: -10px;">
+                                <input type="text" name="cin" id="CorporateCin" readonly="" value="U22219MH2022PTC375586" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                                *Proposed Name 1
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="margin-left: -10px;">
+                                <input type="text" name="proposedName" id="Proposedfirst" value="" required="" class="form-control">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                                Proposed Name 2
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3 mt-3" style="margin-left: -10px;">
+                                <input type="text" name="proposedSecondName" id="Proposedsecond" value="" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold" style="margin-left:-10px;">
+                                *Comments
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 mt-3 " style="margin-left: 0px;margin-top:-12px;">
+
+                                <input type="text" name="applicationComments" class="form-control" id="ApplicationComments" style="width: 100%;height: 40px;margin-left: -11px;margin-top: -4px;" value="" required="">
+                            </div>
+                        </div>
+
+                        <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 0px -10px 10px;" class="mt-3">Attachments</label>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                                Sr. No
+                            </div>
+                            <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                                Optional attachment(s)- if any
+                            </div>
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                                <button type="button" name="attachmentAdd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                            </div>
+                        </div>
+
+                        <div id="equity8" class="mt-3">
+                            <input type="hidden" name="l" id="l" value="1">
+                            <div class="row mt-3" id="rowq1">
+                                <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                                    1.
+                                </div>
+                                <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                                    <input type="file" name="attachmentFile" id="attachmentfile_1" class="1" accept=".jpg,.pdf">
+                                </div>
+                            </div>
+                        </div>
+                        <template id="rowTemp" class="mt-4">
+                            <div class="row" id="rowq2"><div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">                                    2.                                  </div>                                     <div class="col-xs-12 col-sm-12 col-md-10 form-row">                                       <input type="file" name="attachment_file[]" id="attachmentfile_12" class="2">                                     </div> <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 " align="center"><button type="button" name="remove" id="2" class="btn btn-danger btn_removeeq">X</button></div></div>
+                        </template>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+           
+            proposedName:"",
+            proposedSecondName:"",
+            applicationComments:"",
+            attachmentFile:"",
+        }
+
+        let rowCount = 1; // Initialize row count
+        $('#attachmentadd').click(function () {
+            rowCount++; 
+            const templateContent = $('#rowTemp').html();
+            const newRow = $(templateContent.replace(/2/g, rowCount));
+            $('#equity8').append(newRow);
+            $('#l').val(rowCount);
+        });
+
+        // Remove row
+        $('#equity8').on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove(); // Remove the closest row
+            rowCount--; // Decrement row count
+            $('#l').val(rowCount); // Update the hidden input value
+        });
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+          
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("RUN", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("RUN", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

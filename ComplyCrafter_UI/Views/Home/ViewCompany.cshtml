@@ -1,0 +1,1113 @@
+﻿@{
+    ViewData["Title"] = "Company";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+    .cbp_tmtimeline {
+        list-style: none;
+        padding: 20px 0;
+        position: relative;
+        margin: 0;
+    }
+
+        /* Vertical timeline line */
+        .cbp_tmtimeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #dee2e6; /* Lighter gray line */
+            left: 80px;
+            margin-left: -1px;
+        }
+
+        .cbp_tmtimeline > li {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+    /* Date label (e.g., Today, 11 Jan) */
+    .cbp_tmtime {
+        display: block;
+        width: 70px;
+        padding-right: 15px;
+        position: absolute;
+        text-align: right;
+        font-size: 0.75rem;
+        color: #6c757d;
+    }
+
+    .status-today .cbp_tmtime {
+        font-weight: bold;
+        color: #0d6efd;
+    }
+
+    .cbp_tmtime span {
+        display: block;
+    }
+
+    /* Node/circle icon on the line */
+    .cbp_tmicon {
+        width: 15px;
+        height: 15px;
+        position: absolute;
+        left: 80px;
+        top: 8px;
+        margin-left: -7.5px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6rem;
+        text-align: center;
+        line-height: 1;
+    }
+
+    /* Completed item (filled blue with checkmark) */
+    .status-completed .cbp_tmicon {
+        background: #0d6efd;
+        color: white;
+        font-weight: bold;
+    }
+
+        .status-completed .cbp_tmicon::before {
+            content: '\2713';
+            font-size: 0.6rem;
+        }
+
+    /* Upcoming item (outlined circle) */
+    .status-upcoming .cbp_tmicon {
+        background: #ffffff;
+        border: 2px solid #adb5bd;
+    }
+
+    /* Today item (filled blue circle) */
+    .status-today .cbp_tmicon {
+        background: #0d6efd;
+        color: white;
+        border: none;
+    }
+
+    .status-today.status-upcoming .cbp_tmicon {
+        background: #ffffff;
+        border: 2px solid #0d6efd;
+    }
+
+    /* Timeline content box */
+    .cbp_tmlabel {
+        margin: 0 0 15px 100px;
+        background: #f8f9fa;
+        padding: 0.6rem 0.8rem;
+        border-radius: 0.25rem;
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border: 1px solid #e9ecef;
+        font-size: 0.75rem;
+        line-height: 1.4;
+        transition: background 0.3s ease;
+    }
+
+        .cbp_tmlabel:hover {
+            background: #f1f3f5;
+        }
+
+    /* Today background highlight */
+    .status-today .cbp_tmlabel {
+        background: #e3f2fd;
+        border-color: #90caf9;
+    }
+
+    /* Left and Right content inside the timeline card */
+    .timeline-left, .timeline-right {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .timeline-right {
+        text-align: right;
+        align-items: flex-end;
+        white-space: nowrap;
+        font-size: 0.7rem;
+        color: #6c757d;
+    }
+
+    /* Text styles */
+    .timeline-title {
+        font-weight: 600;
+        color: #343a40;
+        margin-bottom: 2px;
+        font-size: 0.85rem;
+    }
+
+    .timeline-description, .timeline-attribute, .timeline-status {
+        font-size: 0.7rem;
+        color: #6c757d;
+        line-height: 1.3;
+    }
+
+    .timeline-attribute {
+        margin-top: 3px;
+    }
+
+    /* Month Headers */
+    .timeline-month-header {
+        font-weight: bold;
+        color: #495057;
+        margin-bottom: 15px;
+        padding-left: 100px;
+        font-size: 0.8rem;
+        margin-top: 1.5rem;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 3px;
+    }
+</style>
+<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+</style>
+
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <div>
+                <h3 class="card-title mb-1 fs-4" style="margin-top:1px" name="companyName"></h3>
+                <h5 class="mb-0 fs-5" style="margin-top:1px" name="companyTypeView"></h5>
+                <p class="mb-0" style="margin-top:1px"><i class="fa fa-list me-2"></i><span name="cin"></span></p>
+                <p class="mb-0" style="margin-top:1px"><i class="fa fa-phone me-2"></i><a class="tel" name="companyContactNo"></a></p>
+                <p class="mb-0" style="margin-top:1px"><i class="fa fa-envelope me-2"></i><a class="email" name="email"></a></p>
+            </div>
+            <div>
+                <a class="btn btn-sm btn-outline-primary" target="_blank"
+                   href="@Url.Action("ViewCompanyPDF", new { companyid = ViewBag.id })">
+                    <i class="fa fa-download px-2 fs-6"></i>Download PDF
+                </a>
+                <a class="btn btn-sm btn-outline-primary" href="Edit/@ViewBag.id"><i class="fa fa-pencil px-2 fs-6"></i>Edit</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Company Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frmCompany">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+
+                        <div class="col-md-12 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Company Name</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('companyNameInput')" title="Copy Company Name"></i>
+                                <span class="text-success" id="companyNameInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="companyName" id="companyNameInput" readonly>
+                                <button class="btn btn-outline-primary" type="button" onclick="sync()">Sync</button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Corporate Identification Number (CIN)</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('cinInput')" title="Copy CIN"></i>
+                                <span class="text-success" id="cinInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="cin" id="cinInput" readonly value="U12345MH2023PTC123456">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Incorporation Date</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('incorporationDateInput')" title="Copy Date"></i>
+                                <span class="text-success" id="incorporationDateInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="date" class="form-control" name="incorporationDate" id="incorporationDateInput" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Company Type</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('companyTypeSelect')" title="Copy Company Type"></i>
+                                <span class="text-success" id="companyTypeSelectCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            @* <select class="form-control" name="companyType" id="companyTypeSelect" disabled>
+                                <option value="">Select Company</option>
+                                <option value="Company">Company</option>
+                                <option value="Private">Private Limited</option>
+                                <option value="Public">Public Limited</option>
+                                <option value="Private(One Person Company)">One Person (OPC) Private Limited</option>
+                                <option value="LLP">Limited Liability Partnership (LLP)</option>
+                            </select> *@
+                            <input type="text" class="form-control" name="companyType" id="companyTypeSelect" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Email</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('emailInput')" title="Copy Email"></i>
+                                <span class="text-success" id="emailInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="email" class="form-control" name="email" id="emailInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-12 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Registered Address</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('addressInput')" title="Copy Address"></i>
+                                <span class="text-success" id="addressInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <textarea class="form-control" name="address" id="addressInput" readonly></textarea>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Website</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('websiteInput')" title="Copy Website"></i>
+                                <span class="text-success" id="websiteInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="website" id="websiteInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>Contact Number</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('contactNumberInput')" title="Copy Contact Number"></i>
+                                <span class="text-success" id="contactNumberInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="companyContactNo" id="contactNumberInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>PAN</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('panInput')" title="Copy PAN"></i>
+                                <span class="text-success" id="panInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="pan" id="panInput">
+                                @* <button class="btn btn-primary" type="button">Prefill</button> *@
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1 mt-2">
+                            <label class="form-label d-flex align-items-center justify-content-between">
+                                <span>GST Number</span>
+                                <i class="bi bi-copy ms-2" style="cursor:pointer;" onclick="copyToClipboard('gstNoInput')" title="Copy GST"></i>
+                                <span class="text-success" id="gstNoInputCopied" style="display:none; font-size:0.9em;">Copied!</span>
+                            </label>
+                            <input type="text" class="form-control" name="gstNo" id="gstNoInput">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                    </div>
+                </form>
+
+
+                <script>
+                    function copyToClipboard(inputId) {
+                        const input = document.getElementById(inputId);
+                        if (!input) return;
+
+                        let textToCopy = "";
+
+                        if (input.tagName === "INPUT" || input.tagName === "TEXTAREA") {
+                            textToCopy = input.value;
+                        } else if (input.tagName === "SELECT") {
+                            textToCopy = input.options[input.selectedIndex]?.text || "";
+                        } else {
+                            textToCopy = input.textContent || "";
+                        }
+
+                        if (!textToCopy.trim()) return; // Avoid copying empty strings
+
+                        navigator.clipboard.writeText(textToCopy).then(() => {
+                            const successMsg = document.getElementById(inputId + "Copied");
+                            if (successMsg) {
+                                successMsg.style.display = "inline";
+                                setTimeout(() => {
+                                    successMsg.style.display = "none";
+                                }, 2000);
+                            }
+                        }).catch(err => {
+                            console.error("Failed to copy: ", err);
+                        });
+                    }
+                </script>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="companyAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                        Details
+                    </button>
+                </h2>
+                <div id="collapseDetails" class="accordion-collapse collapse" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Authorized Capital</label>
+                                        <input type="number" class="form-control num amt-words" value="0" name="authorizedCapital" readonly>
+                                        <div class="amount-in-words"></div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Paid Up Capital</label>
+                                        <input type="number" class="form-control num amt-words" value="0" name="paidUpCapital" readonly>
+                                        <div class="amount-in-words"></div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    @*                                     <div class="col-md-6 my-1">
+                                        <label class="form-label">Company Class</label>
+                                        <input type="text" class="form-control" name="companyClass">
+                                        <div class="invalid-feedback"></div>
+                                    </div> *@
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Registration Number</label>
+                                        <input type="number" class="form-control num" value="0" name="registrationNumber" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Category</label>
+                                        <input type="text" class="form-control" name="category" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Subcategory</label>
+                                        <input type="text" class="form-control" name="subCategory" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Date Of Last Balance Sheet</label>
+                                        <input type="date" class="form-control" name="dateOfLastBalanceSheet" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Last AGM Date</label>
+                                        <input type="date" class="form-control" name="lastAgmDate" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Whether Listed</label>
+                                        <input type="text" class="form-control" name="whetherListed" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">RoC</label>
+                                        <input type="text" class="form-control" name="roc" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Type of Company</label>
+                                        <input type="text" class="form-control" name="TypeofCompany" readonly>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address Books Maintained At</label>
+                                        <textarea class="form-control" name="addressBooksMaintainedAt"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Business Activity</label>
+                                        <input type="text" class="form-control" name="businessActivity">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Main Business Division Code</label>
+                                        <input type="text" class="form-control" name="mainBusinessDivisionCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Main Objects</label>
+                                        <input type="text" class="form-control" name="mainObjects">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="OtherDetailsheading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOtherDetails" aria-expanded="false" aria-controls="collapseOtherDetails">
+                        Other Details
+                    </button>
+                </h2>
+                <div id="collapseOtherDetails" class="accordion-collapse collapse" aria-labelledby="OtherDetailsheading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyOtherDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Tan</label>
+                                        <input type="text" class="form-control" name="tan">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Brn Number</label>
+                                        <input type="text" class="form-control" name="brnNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Food Licence Number</label>
+                                        <input type="text" class="form-control" name="foodLicenceNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Msme Number</label>
+                                        <input type="text" class="form-control" name="msmeNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Import Export Code</label>
+                                        <input type="text" class="form-control" name="impExpCode">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Trademark Number</label>
+                                        <input type="text" class="form-control" name="tradeMarkNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">COR</label>
+                                        <input type="text" class="form-control" name="cor">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="FinancialDetailsheading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFinancialDetails" aria-expanded="false" aria-controls="collapseFinancialDetails">
+                        Financial Details
+                    </button>
+                </h2>
+                <div id="collapseFinancialDetails" class="accordion-collapse collapse" aria-labelledby="FinancialDetailsheading" data-bs-parent="#companyAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmCompanyFinancialDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="companyId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous Name</label>
+                                        <input type="text" class="form-control" name="previousName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous Begin Date</label>
+                                        <input type="date" class="form-control" name="previousBeginDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Previous End Date</label>
+                                        <input type="date" class="form-control" name="previousEndDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Financial Year Begin Month</label>
+                                        <input type="text" class="form-control" name="financialYearBeginMonth">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Financial Year End Month</label>
+                                        <input type="text" class="form-control" name="financialYearEndMonth">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN</label>
+                                        <input type="text" class="form-control" name="otherCin">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN Begin Date</label>
+                                        <input type="date" class="form-control" name="otherCinBeginDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other CIN End Date</label>
+                                        <input type="date" class="form-control" name="otherCinEndDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address</label>
+                                        <input type="text" class="form-control" name="otherAddress">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1"></div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address Begin Date</label>
+                                        <input type="date" class="form-control" name="otherAddressBeginDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Other Address End Date</label>
+                                        <input type="date" class="form-control" name="otherAddressEndDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <!-- Has Company Name Changed -->
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label d-block">Has Company Name Changed?</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasNameChanged" value="true" id="nameChangedYes">
+                                            <label class="form-check-label" for="nameChangedYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasNameChanged" value="false" id="nameChangedNo" checked>
+                                            <label class="form-check-label" for="nameChangedNo">No</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1" id="newCompanyNameWrapper" style="display: none;">
+                                        <label for="newCompanyName" class="form-label">Old Company Name</label>
+                                        <input type="text" class="form-control" id="newCompanyName" name="newCompanyName" placeholder="Enter Old company name">
+                                    </div>
+
+                                    <!-- Does Company Have Other CIN -->
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label d-block">Does Company Have Other CIN?</label>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasOtherCin" value="true" id="otherCinYes">
+                                            <label class="form-check-label" for="otherCinYes">Yes</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="hasOtherCin" value="false" id="otherCinNo" checked>
+                                            <label class="form-check-label" for="otherCinNo">No</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*  <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="save()">Save</button>
+    </div> *@
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row mt-2">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title fs-5">Company Info</div>
+                        <hr />
+                        <p class="mb-0" style="margin-top:1px">Date of Incorporation:&nbsp;<span name="incorporationDate" type="date"></span></p>
+                        <p class="mb-0" style="margin-top:1px">Authorized Capital:&nbsp;<span name="authorizedCapital" type="amount"></span></p>
+                        <p class="mb-0" style="margin-top:1px">Paid Up Capital:&nbsp;<span name="paidUpCapital" type="amount"></span></p>
+                        <p class="mb-0" style="margin-top:1px">Last AGM Date:&nbsp;<span name="lastAgmDate" type="date"></span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title fs-5">Directors</div>
+                        <hr />
+                        <div id="directors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title fs-5">Index Of Charges</div>
+                        <hr />
+                        <div id="charges"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title fs-5">Reminders</div>
+                        <hr />
+                        <div class="d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <i class="fa fa-2x fa-bell text-primary user-icon me-2"></i>
+                                <div class="my-auto">
+                                    <p class="fs-6 mb-0 fw-bold text-truncate">Annual General Meeting</p>
+                                    <p class="text-muted mb-0">Date: 31/03/2025</p>
+                                </div>
+                            </div>
+                            <div>
+                                @*<a class="btn btn-sm btn-outline-primary" href="javascript:void(0)"><i class="fa fa-eye px-2 fs-6"></i>View</a>*@
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between my-2">
+                            <div class="d-flex">
+                                <i class="fa fa-2x fa-bell text-primary user-icon me-2"></i>
+                                <div class="my-auto">
+                                    <p class="fs-6 mb-0 fw-bold text-truncate">Board Meeting</p>
+                                    <p class="text-muted mb-0">Date: 15/04/2025</p>
+                                </div>
+                            </div>
+                            <div>
+                                @*<a class="btn btn-sm btn-outline-primary" href="javascript:void(0)"><i class="fa fa-eye px-2 fs-6"></i>View</a>*@
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body" style="max-height: 80vh; overflow-y: scroll;">
+                <ul class="cbp_tmtimeline">
+
+                    <li><div class="timeline-month-header">October 2025</div></li>
+
+                    <li class="status-upcoming">
+                        <time class="cbp_tmtime">
+                            <span>25 Oct</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Annual General Meeting</div>
+                                <div class="timeline-description">Review of the financial year.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Attachment</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Pending</div>
+                                <div class="timeline-status">Scheduled</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><div class="timeline-month-header">August 2025</div></li>
+
+                    <li class="status-today">
+                        <time class="cbp_tmtime">
+                            <span>Today</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">Quarterly performance review.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Meeting Minutes</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">In Progress</div>
+                                <div class="timeline-status">High Priority</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><div class="timeline-month-header">January 2025</div></li>
+
+                    <li class="status-completed">
+                        <time class="cbp_tmtime">
+                            <span>11 Jan</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">Approval of annual budget.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Resolutions</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Completed</div>
+                                <div class="timeline-status">Approved</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><div class="timeline-month-header">December 2024</div></li>
+
+                    <li class="status-completed">
+                        <time class="cbp_tmtime">
+                            <span>04 Dec</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">Strategic planning session.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Presentation</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Completed</div>
+                                <div class="timeline-status">Archived</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="status-completed">
+                        <time class="cbp_tmtime">
+                            <span>04 Dec</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">Discussion on expansion.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Report</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Completed</div>
+                                <div class="timeline-status">Minutes Sent</div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><div class="timeline-month-header">November 2024</div></li>
+
+                    <li class="status-completed">
+                        <time class="cbp_tmtime">
+                            <span>29 Nov</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">End-of-year review.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Summary Doc</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Completed</div>
+                                <div class="timeline-status">Finalized</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="status-completed">
+                        <time class="cbp_tmtime">
+                            <span>11 Nov</span>
+                        </time>
+                        <div class="cbp_tmicon"></div>
+                        <div class="cbp_tmlabel">
+                            <div class="timeline-left">
+                                <div class="timeline-title">Board Meeting</div>
+                                <div class="timeline-description">Project kickoff.</div>
+                                <div class="timeline-attribute"><i class="fa fa-link"></i> Project Plan</div>
+                            </div>
+                            <div class="timeline-right">
+                                <div class="timeline-status">Completed</div>
+                                <div class="timeline-status">Initiated</div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Select Company</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="col-lg-12">
+                    <div class="card-body">
+                        <table id="tblCompany" class="display nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Sr No</th>
+                                    <th>CIN Number</th>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<template id="tmplDirector">
+    <div class="d-flex justify-content-between my-2">
+        <div class="d-flex">
+            <i class="fa fa-2x fa-user-tie text-primary user-icon me-2"></i>
+            <div class="my-auto">
+                <p class="fs-6 mb-0 fw-bold">${d.firstName} ${d.middleName} ${d.lastName}</p>
+                <p class="text-muted mb-0">DIN: ${d.din}</p>
+                <p class="text-muted mb-0">AppointmentDate: ${moment(d.appointmentDate).format(DATE_DISPLAY_FORMAT)}</p>
+            </div>
+        </div>
+        <div>
+            <a class="btn btn-sm btn-outline-primary fs-6" href="~/Home/Director/Edit/${d.id}">Edit</a>
+        </div>
+    </div>
+</template>
+
+<template id="tmplCharge">
+    <div class="d-flex justify-content-between my-2">
+        <div class="my-auto">
+            <p class="fs-6 mb-0 fw-bold text-truncate">${c.name}</p>
+            <p class="text-muted mb-0">Amount: ${amount(c.amount)}</p>
+            <p class="text-muted mb-0">Status: ${c.status}</p>
+            <p class="text-muted mb-0">Date: ${moment(c.creationDate).format(DATE_DISPLAY_FORMAT)}</p>
+        </div>
+        <div>
+            @* <a class="btn btn-sm btn-outline-primary fs-6" href="javascript:void(0)">View</a> *@
+        </div>
+    </div>
+</template>
+
+
+@section Styles {
+
+    <link rel="stylesheet" href="~/assets/plugins/timeline/default.css" />
+    <link rel="stylesheet" href="~/assets/plugins/timeline/component.css" />
+    <link rel="stylesheet" href="~/assets/plugins/timeline/custom.css" />
+    <style>
+
+        td, th {
+            text-align: center !important;
+        }
+
+            th.text-right, th.text-start {
+                text-align: center !important;
+            }
+
+
+        .fa.user-icon {
+            font-size: 1.5em !important;
+            background-color: #2269f433;
+            padding: 0.55em;
+            border-radius: 50%;
+            height: 2em;
+            width: 2em;
+        }
+    </style>
+
+}
+
+
+
+
+@section Scripts {
+
+
+    <script>
+        const types = {
+            'Company': 'Company',
+            'Private': 'Private Limited Company',
+            'Public': 'Public Limited Company',
+            'LLP': 'Limited Liability Partnership',
+        }
+
+        $(document).ready(function () {
+            $.get(`@R.ApiUrl/Company/@ViewBag.id`).then(r => {
+                console.log(r);
+                r.companyTypeView = types[r.companyType];
+                setObjView(r.details);
+                setObjView(r);
+                $('a.tel').each(() => { $(this).attr('href', `tel:` + $(this).text()); });
+                $('a.email').each(() => { $(this).attr('href', `mailto:` + $(this).text()); });
+                $.get(`@R.ApiUrl/Director/ByCompany/${r.id}`).then(ds => $('#directors').html(ds.map(d => eval('`' + $('#tmplDirector').html() + '`')).join('')));
+                // $.get(`@R.ApiUrl/Company/${r.id}/charges`).then(cs => $('#charges').html(cs.map(c => eval('`' + $('#tmplCharge').html() + '`')).join('')));
+                let cs = r.charges; // <-- get charges array from response
+
+                $('#charges').html(
+                  cs.map(c => eval('`' + $('#tmplCharge').html() + '`')).join('')
+                );
+            });
+
+            $(document).on('click', '.cbp_tmlabel h2', function () {
+                $(this).closest('.cbp_tmlabel').find('.collapse').collapse('toggle');
+            })
+        });
+
+    </script>
+    @* ------------------------------------------------------ *@
+
+    <script>
+        // Removed all validation objects (voCompany, voCompanyDetails, etc.)
+        // Removed all form validation initialization
+        // Removed save function
+        // Removed sync function
+        // Removed autocomplete function
+        // Removed edit-related event handlers
+            //TEST
+        $(document).ready(function () {
+            // Initialize all fields as read-only
+            $('input, select, textarea').prop('readonly', true).prop('disabled', false);
+            $('select').prop('disabled', true); // Special handling for select elements
+            $('input[type="radio"], input[type="checkbox"]').prop('disabled', true);
+
+            // Load data without edit capabilities
+            load();
+
+            // Keep amount words conversion if needed for display
+            $('.amt-words').each(function() {
+                if ($(this).val()) {
+                    $(this).parent().find('.amount-in-words').text(price_in_words(parseInt($(this).val())));
+                }
+            });
+        });
+
+        function load() {
+            $._get(`@R.ApiUrl/Company/${@ViewBag.id}`).then(x => {
+                // Set values without validation
+                setObj(x, "#frmCompany");
+                setObj(x.details, '#frmCompanyDetails');
+                setObj(x.otherDetails, '#frmCompanyOtherDetails');
+                setObj(x.financialDetails, '#frmCompanyFinancialDetails');
+
+                // Update display elements
+                $('[name="company_name"]').text(x.companyName);
+
+                // Convert amounts to words after data load
+                $('.amt-words').each(function() {
+                    const value = $(this).val();
+                    if (value) {
+                        $(this).parent().find('.amount-in-words').text(price_in_words(parseInt(value)));
+                    }
+                });
+
+                // Handle radio button states
+                if (x.financialDetails?.hasNameChanged) {
+                    $('#newCompanyNameWrapper').show();
+                }
+                if (x.financialDetails?.hasOtherCin) {
+                    $('#otherCinYes').prop('checked', true);
+                }
+            });
+        }
+
+        // ------------------------------------------------------
+        // Added generic copy-to-clipboard function
+        // ------------------------------------------------------
+        function copyToClipboard(inputId) {
+            const input = document.getElementById(inputId);
+            if (!input) return;
+
+            // Get value based on element type
+            let textToCopy = "";
+            if (input.tagName === "SELECT") {
+                textToCopy = input.options[input.selectedIndex]?.text || "";
+            } else if (input.tagName === "TEXTAREA" || input.tagName === "INPUT") {
+                textToCopy = input.value;
+            } else {
+                textToCopy = input.textContent;
+            }
+
+            if (!textToCopy.trim()) return;
+
+            navigator.clipboard.writeText(textToCopy)
+                .then(() => {
+                    const successMsg = document.getElementById(inputId + "Copied");
+                    if (successMsg) {
+                        successMsg.style.display = "inline";
+                        setTimeout(() => {
+                            successMsg.style.display = "none";
+                        }, 2000);
+                    }
+                })
+                .catch(err => {
+                    console.error("Failed to copy:", err);
+                    alert("Failed to copy to clipboard");
+                });
+        }
+
+        $('#btnDownloadPDF').click(function(){
+             var target = $('.accordion-button').data('bs-target');
+            $(target).collapse('show');
+             window.print();
+        });
+
+    </script>
+}
+

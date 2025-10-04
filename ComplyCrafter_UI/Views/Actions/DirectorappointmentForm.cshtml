@@ -1,0 +1,1017 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    select {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Director Appointment
+                </h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                        <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Appointment of Director
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Details of Director
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Interest in Other Entities
+                                    </span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part4" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Documents
+                                    </span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="card" style="padding:25px;">
+
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+
+
+
+                <!--     <div class="row">
+                     <div class="col-xs-12 col-sm-6 col-md-6 bold form-row">Whether Appointee has obtained DIN ?&nbsp; <input type="radio" required=""  name="obtaineddin" value="Yes" > Yes &nbsp; &nbsp;
+                      <input type="radio" name="obtaineddin" value="No" > No
+                    </div>
+                  </div>  -->
+                <div id="obtaineddin">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold  form-row mt-3">Designation for appointment </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                            <select class="form-select" name="category" id="category">
+                                <option value="">Select Designation</option>
+                                <option value="Additional Director">Additional Director</option>
+                                <option value="Additional Independent Director">Additional Independent Director</option>
+                                <option value="Additional Woman Director">Additional Woman Director</option>
+                                <option value="Alternate Director">Alternate Director</option>
+                                <option value="Appointment of Directors in Casual Vacancy">Appointment of Director in Casual Vacancy</option>
+                                <option value="Director Appointment at General Meeting">Director Appointment at General Meeting</option>
+                                <option value="Independent Director">Independent Director</option>
+                                <option value="Nominee Director">Nominee Director</option>
+                                <!-- <option value="Reappointment of Independent Director" >Reappointment of Independent Director</option> -->
+
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Category </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                            <select class="form-select" name="subCategory" id="subcategory">
+                                <option value="">Select Category</option>
+                                <option value="Promoter">Promoter </option>
+                                <option value="Professional">Professional </option>
+                                <option value="Independent">Independent </option>
+                                <option value="Small Shareholder’s Director">Small Shareholder’s Director </option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                            The Appointee is &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <label>  <input type="radio" name="appointeeType" value="Chairman"> Chairman&nbsp; &nbsp;</label>
+                            <label>   <input type="radio" name="appointeeType" value="Executive Director"> Executive Director&nbsp; &nbsp;</label>
+                            <label>  <input type="radio" name="appointeeType" value="Non-Executive Director"> Non-Executive Director </label>
+                        </div>
+                    </div>
+                    <label class="showonnominee mt-3" style="margin-left: -10px; text-transform: uppercase;">Particulars of nominating authority</label>
+                    <div class="row showonnominee mt-3" style="">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Name of Nominating Authority
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="bankName" class="form-control" value="" autocomplete="off">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Name of Authorised Signatory
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="nomAuthSign" class="form-control" value="" autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="row showonnominee mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Designation
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="nomAuthDesi" class="form-control" value="" autocomplete="off">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            DIN/PAN
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="nomAuthDinPan" class="form-control" value="" autocomplete="off" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="row showonnominee mt-3" style="">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Date of Signing
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="date" name="nomAuthDate" value="" autocomplete="off" class="form-control datepicker hasDatepicker">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Place of Signing
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="nomAuthPlace" class="form-control" value="" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <h5 style="text-decoration: underline; text-transform: uppercase; margin-left: -12px;" class="mt-3" id="showonlyingerenral">Board Meeting for Proposing Appointment</h5>
+
+                    <div class="row approval mt-3" style="">
+                        <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                            Approval Mode:&nbsp; &nbsp;
+                            <label>
+                                <input type="radio" name="typeMeeting" value="Board meeting" class="approval_radio"> In Board meeting &nbsp;&nbsp;
+                            </label>
+                            <label>   <input type="radio" name="typeMeeting" value="Circular Resolution" class="approval_radio">  By Circular Resolution</label>
+                        </div>
+                    </div>
+                    <div id="boardmeeting">
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                                Do you want to incorporate this agenda in existing Board Meeting ?&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                <label> <input type="radio" name="existMeeting" value="Yes" checked="checked" class="boardmeeting_radio" required="required"> Yes&nbsp;&nbsp;</label>
+                                <label>   <input type="radio" name="existMeeting" value="No" class="boardmeeting_radio" required="required"> No</label>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3" id="existmeetingyes">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                Select Existing Meeting
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                                <select name="existingMeeting" style="width: 100%;" class="form-select" id="m_id">
+                                    <option value="">Select Existing Meeting</option>
+                                    <option value="101376">15/12/2024</option>
+                                    <option selected="selected" value="96935">02/12/2024</option>
+                                    <option value="95383">21/11/2024</option>
+                                    <option value="95144">15/11/2024</option>
+                                    <option value="95142">15/10/2024</option>
+                                    <option value="95141">15/09/2024</option>
+                                    <option value="79723">29/08/2024</option>
+                                    <option value="74828">14/08/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row mt-3" id="existmeetingno">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                Date of Meeting
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="date" style="width: 100%;" class="datepicker hasDatepicker form-control" name="meetingDate" id="meetingdate">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                Time of Meeting
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <div class="input-group date">
+                                    <input id="datetimepicker2" type="time" name="timing" style="z-index:1;" class="form-control input-small timing">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="circular" style="">
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                Date of Passing Circular Resolution
+                            </div>
+                            <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                                <input type="date" style="width: 100%;" class="datepicker hasDatepicker form-control" id="circularresdate" name="circularResDate" placeholder="Date of Passing Circular Resolution" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            Name of the Authorized Signatory
+                        </div>
+                        <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                            <select name="chairman" required="" style="width: 100%;" class="director form-select">
+                                <option value="">Select Director</option>
+                                <option value="06750200">Anjali  Chaturvedi(Director)</option>
+                                <option value="06750234">Nirbhay Chaturvedi Nandkishore(Director)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="agmmeetingdetails" style="">
+                        <h5 style="text-decoration: underline;text-transform: uppercase;margin-left: -12px" class="mt-3">General Meeting for approving appointment</h5>
+                        <div class="row agmmeeting21 mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                                Type of Meeting ?&nbsp; &nbsp;
+                                <label> <input type="radio" name="whichMeeting" value="AGM" class="agmmeeting21_radio"> AGM &nbsp;&nbsp;</label>
+                                <label>  <input type="radio" name="whichMeeting" value="EGM" class="agmmeeting21_radio"> EGM</label>
+                            </div>
+                        </div>
+                        <div class="row agmmeeting mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                                Do you want to incorporate this agenda in existing General Meeting ?&nbsp; &nbsp;
+                                <label>
+                                    <input type="radio" name="existMeetingAgm" value="Yes" class="agmmeeting21_radio"> Yes&nbsp;&nbsp;
+                                </label>
+                                <label>      <input type="radio" name="existMeetingAgm" value="No" class="agmmeeting21_radio "> No</label>
+                            </div>
+                        </div>
+                        <div class="agmmeeting mt-3">
+                            <div class="row mt-3" id="existagmyes" style="">
+                                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                    Select Existing General Meeting
+                                </div>
+                                <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                                    <select name="mIdAgm" class="form-select" style="width: 100%;" id="meetingagm"><option value="">Select Existing AGM</option>                       </select>
+                                    <select name="mIdEgm" class="form-select mt-3" style="width: 100%;" id="meetingegm"><option value="">Select Existing EGM</option> <option value="6166">30/08/2024</option>                      </select>
+                                </div>
+                            </div>
+                            <div class="row mt-3" id="existagmno">
+                                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                    Date of General Meeting
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                    <input type="date" style="width: 100%;" class="datepicker hasDatepicker form-control" name="meetingDateAgm">
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                                    Time of General Meeting
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                    <div class="input-group date">
+                                        <input id="datetimepicker1" type="time" name="timingAgm" style="z-index:1;" value="" class="form-control input-small timing">
+                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-0" id="part2">
+        <div class="card" style="padding:25px;">
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    DIN
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="text" style="width: 100%;" class="form-control" required="" id="din" name="din" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    OR
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <select class="form-control director" name="ddlDirector">
+                        <option selected disabled>Select Director</option>
+                    </select>
+                </div>
+                <div class="guideLoading guideServiceLoading dvloader" style="" align="center"></div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Name
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="text" style="width: 100%;" required="" class="form-control" id="appointeename" name="appointeeName" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Father's Name
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                    <input type="text" style="width: 100%;" required="" class="form-control" id="fname" name="fName" value="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                    Gender
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <select class="form-select" required="" name="gender" id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    DOB
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row">
+                    <input type="date" style="width: 100%;" id="dob" required="" name="dob" value="" class="form-control hasDatepicker">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Address
+                </div>
+                <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                    <input type="text" class="form-control" required="" name="address" value="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Email
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="email" style="width: 100%;" class="form-control" id="email" required="" name="email" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Mobile Number
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                    <input type="text" style="width: 100%;" maxlength="10" required="" class="numbers form-control" id="mobile" name="mobile" value="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    PAN
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="text" style="width: 100%;" class="form-control" id="pan" maxlength="10" name="pan" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Nationality
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                    <input type="text" style="width: 100%;" class="form-control" id="nationality" required="" name="nationality" value="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Occupation
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="text" style="width: 100%;" id="occupation" class="form-control" required="" name="occupation" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Date of appointment
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                    <input type="date" class="datepicker hasDatepicker form-control" style="width: 100%;" required="" name="dateAppointment" value="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Date of consent
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input type="date" class="datepicker hasDatepicker form-control" style="width: 100%;" required="" id="dateconsent" name="dateConsent" value="">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Place of signing consent
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3">
+                    <input type="text" style="width: 100%;" id="placeconsent" class="form-control" required="" name="placeConsent" value="" autocomplete="off">
+                </div>
+            </div>
+
+
+            <div class="row" id="issecurity_clear" style="">
+                <div class="col-xs-12 col-sm-12 col-md-12 bold form-row mt-3">
+                    Is the appointee required to obtain the security clearance from the Ministry of Home Affairs, Government of India ?&nbsp;
+                    <label>  <input type="radio" name="isSecurityClear" value="Yes"> Yes&nbsp;&nbsp;</label>
+                    <label>
+                        <input type="radio" name="isSecurityClear" value="No"> No
+                    </label>
+                </div>
+
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 bold form-row mt-3">
+                    Is the applicant member of any Professional Institute ?&nbsp;
+                    <label>
+                        <input type="radio" required="" name="isMemInstitute" value="Yes"> Yes&nbsp;&nbsp;
+                    </label>
+                    <label>    <input type="radio" name="isMemInstitute" value="No"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row ismeminstitute mt-3">
+                    Professional Institute Name
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row ismeminstitute">
+                    <input type="text" style="width: 100%;" name="institueName" class="form-control" id="instituename" value="" autocomplete="off">
+                </div>
+            </div>
+            <div class="ismeminstitute mt-3">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Membership No.
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" style="width: 100%;" class="form-control num" name="membershipNo" id="membershipno" value="" autocomplete="off">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Certificate of Practice No
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" style="width: 100%;" class="form-control num" name="practiceNo" id="practiceno" value="" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="part3" class="p-0">
+
+        <div class="card" style="padding:25px;">
+
+            <h4>Interest in Other Entites</h4>
+            <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3">
+                    CIN
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Company Name
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3">
+                    Date of Appointment
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3">
+                    Designation
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                    Other, if any
+                </div>
+            </div>
+            <div id="interestRowContainer">
+                <input type="hidden" name="i" id="i" value="1">
+
+               @*  <div class="row interestRow" >
+                    <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                        <input type="text" style="width: 100%;" name="cin" autocomplete="off" placeholder="CIN" class="form-control">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3  form-row">
+                        <input type="text" style="width: 100%;" name="companyName" autocomplete="off" placeholder="Company Name" class="form-control">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                        <input type="date" style="width: 100%;" name="startDate" class="form-control startdate hasDatepicker" autocomplete="off" placeholder="Date of Appointment" id="startdate_1">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                        <select name="designation" class="form-select" style="width: 100%;">
+                            <option value="">Select Designation </option>
+                            <option value="Managing Director">Managing Director</option>
+                            <option value="Chief Executive Officer">Chief Executive Officer</option>
+                            <option value="Whole Time Director">Whole Time Director</option>
+                            <option value="Chief Financial Officer">Chief Financial Officer</option>
+                            <option value="Secretary">Secretary</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Company Secretary">Company Secretary</option>
+                            <option value="Alternate Director">Alternate Director</option>
+                            <option value="Director appointed in Casual Vacancy">Director appointed in Casual Vacancy</option>
+                            <option value="Nominee Director">Nominee Director</option>
+                            <option value="Director">Director</option>
+                            <option value="Additional Director">Additional Director</option>
+                            <option value="Designated Partner">Designated Partner</option>
+                            <option value="Partner">Partner</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>  <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                        <input type="text" style="width: 100%;" name="other" autocomplete="off" placeholder="Other, if any" class="form-control" id="other_1" readonly="">
+                    </div>              <div class="col-xs-12 col-sm-1 col-md-1" align="center">
+                        <button type="button" name="remove" id="1" class="btn btn-danger btn_remove">X</button>
+                    </div>
+                </div> *@
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4">
+                    <a id="addRow" class="btn btn-primary"><i class="fa fa-plus" style="font-size:12px !important;"> Add row</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part4" class="p-0">
+        <div class="card" style="padding:25px;">
+            <div id="TabRedirect" class="tab-pane flipInX custon-tab-style1 active">
+                <br>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3" style="text-decoration:underline;">
+                        TITLE OF DOCUMENT
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3" style="text-decoration:underline;text-align: center;">
+                        SIGNING DATE
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row mt-3" style="text-decoration:underline;text-align: center;">
+                        SIGNING PLACE
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" style="text-decoration:underline;text-align: center;">
+                        VIEW
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" style="text-decoration:underline;text-align: center;">
+                        WORD
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" style="text-decoration:underline;text-align: center;">
+                        PDF
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 bold form-row mt-3">
+                        DIR 2
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" style="text-align:center;">
+                        <a href="view.php?app_id=&amp;type=dir2&amp;m_id=96935" target="_blank"><span class="icon_style"><i style="text-align:center;" class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="javascript:void(0);" onclick="getfdocfileapp('','96935','dir2')"><span class="icon_style"><i style="text-align:center;" class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="downloadpdf.php?app_id=&amp;type=dir2&amp;m_id=96935" target="_blank"><span class="icon_style"><i style="text-align:center;" class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">
+                        APPOINTMENT LETTER
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="date" name="dateOfSigning" id="appointkmp_date_signoth" class="datepicker hasDatepicker form-control" style="width: 100%;">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="text" name="placeOfConsent" id="appointkmp_place_signoth" class="form-control" style="width: 100%;" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" style="text-align:center;">
+                        <a id="view_appointmentkmpoth"><span class="icon_style"><i class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="javascript:void(0);" onclick="getfdocfileapp('','96935','appointment')"><span class="icon_style"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3" align="center">
+                        <a id="pdf_appointmentkmpoth"><span class="icon_style"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">
+                        INTEREST IN OTHER ENTITIES
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="date" name="dateOfSigningConsent" id="consentkmp_date_sign" class="datepicker hasDatepicker form-control" style="width: 100%;">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="text" name="placeOfConsentConsent" class="form-control" id="consentkmp_place_sign" style="width: 100%;" value="">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" style="text-align:center;">
+                        <a id="view_consentkmp"><span class="icon_style"><i class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+
+                        <a href="javascript:void(0);" onclick="getfdocfileapp('','96935','interest')">
+
+                            <span class="icon_style"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3" align="center">
+                        <a id="pdf_consentkmp"><span class="icon_style"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-7 col-md-7 bold form-row mt-3">CREATE DIR-8</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <a href="related-party.php?app_id=&amp;id=82642&amp;types=appointment">GO TO RELATED PARTY</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" style="text-align:center;">
+                        <a href="view.php?app_id=&amp;type=appdir8&amp;dirid=82642&amp;apptype=appdir8" target="_blank"><span class="icon_style"><i class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+
+                        <a href="javascript:void(0);" onclick="getfdocdir8('','82642','appdir8' ,'appdir8')">
+
+                            <!--  <a href="download.php?app_id=&type=appdir8&dirid=82642&apptype=appdir8"> --><span class="icon_style"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="downloadpdf.php?app_id=&amp;type=appdir8&amp;dirid=82642&amp;apptype=appdir8" target="_blank"><span class="icon_style"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-7 col-md-7 bold form-row mt-3">CREATE MBP-1</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <a href="related-party.php?app_id=&amp;id=82642&amp;types=appointment">GO TO RELATED PARTY</a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" style="text-align:center;">
+                        <a href="view.php?app_id=&amp;type=appmbp1&amp;dirid=82642&amp;apptype=appdir8" target="_blank"><span class="icon_style"><i class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="javascript:void(0);" onclick="getfdocdir8('','82642','appmbp1' ,'appdir8')">
+
+                            <!-- <a href="download.php?app_id=&type=appmbp1&dirid=82642&apptype=appdir8"> --><span class="icon_style"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span>
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1  form-row download mt-3">
+                        <a href="downloadpdf.php?app_id=&amp;type=appmbp1&amp;dirid=82642&amp;apptype=appdir8" target="_blank"><span class="icon_style"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">CTC OF BR-</div><div class="col-xs-12 col-sm-2 col-md-2 form-row" align="center">
+                        <a href="add-meeting-records.php?m_id=96935" target="_blank">GO TO BM</a>
+                    </div><div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" align="center"><a href="javascript:void(0)" id="" onclick="addsignatory(this,'','updatesignatoryctc','')">Signatory of CTC</a></div> <div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"> <a href="view.php?type=ctc&amp;m_id=96935&amp;rid=" target="_blank"><span class="icon_style1"><i class="fa fa-eye" title="View"></i></span></a></div><div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"><a href="javascript:void(0);" onclick="getfdocfilectc('', '96935','ctc')"><span class="icon_style1"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span></a></div><div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"><a href="downloadpdf.php?type=ctc&amp;m_id=96935&amp;rid=" target="_blank"><span class="icon_style1"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a></div>
+                </div><div class="row">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">CTC OF BR-</div><div class="col-xs-12 col-sm-2 col-md-2 form-row" align="center">
+                        <a href="add-meeting-records.php?m_id=96935" target="_blank">GO TO BM</a>
+                    </div><div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" align="center"><a href="javascript:void(0)" id="" onclick="addsignatory(this,'','updatesignatoryctc','')">Signatory of CTC</a></div> <div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"> <a href="view.php?type=ctc&amp;m_id=96935&amp;rid=" target="_blank"><span class="icon_style1"><i class="fa fa-eye" title="View"></i></span></a></div><div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"><a href="javascript:void(0);" onclick="getfdocfilectc('', '96935','ctc')"><span class="icon_style1"><i class="fa fa-file-word-o" aria-hidden="true" title="Word File"></i></span></a></div><div class="col-xs-12 col-sm-2 col-md-1 form-row" align="center"><a href="downloadpdf.php?type=ctc&amp;m_id=96935&amp;rid=" target="_blank"><span class="icon_style1"><i class="fa fa-file-pdf-o" aria-hidden="true" title="PDF File"></i></span></a></div>
+                </div>
+                <!-- <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-7 bold form-row">PLAN BOARD MEETING FOR THIS AGENDA
+                </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row"> <a href="add-meeting-records.php?m_id=96935"  target="_blank">GO TO MEETING</a>
+                </div>
+                        </div> -->
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+            cin: "",
+            companyName: "",
+            // part-1
+
+            category: "",
+            subCategory: "",
+            appointeeType: "",
+            bankName: "",
+            nomAuthSign: "",
+            nomAuthDesi: "",
+            nomAuthDinPan: "",
+            nomAuthDate: "",
+            nomAuthPlace: "",
+            typeMeeting: "",
+            existMeeting: "",
+            existingMeeting: "",
+            meetingDate: "",
+            timing: "",
+            circularResDate: "",
+            chairman: "",
+            whichMeeting: "",
+            existMeetingAgm: "",
+            mIdAgm: "",
+            mIdEgm: "",
+            meetingDateAgm: "",
+            timingAgm: "",
+
+
+            // part-2
+
+            din: "",
+            appointeeName: "",
+            fName: "",
+            gender: "",
+            dob: "",
+            address: "",
+            email: "",
+            mobile: "",
+            pan: "",
+            nationality: "",
+            occupation: "",
+            dateAppointment: "",
+            dateConsent: "",
+            placeConsent: "",
+            issecurityClear: "",
+            isMemInstitute: "",
+            institueName: "",
+            membershipNo: 0,
+            practiceNo: 0,
+
+
+            // part-3
+
+            // startDate: "",
+            // designation: "",
+            // other: "",
+
+            // part-4
+            dateOfSigning: "",
+            placeOfConsent: "",
+            dateOfSigningConsent: "",
+            placeOfConsentConsent: "",
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+            $(".showonnominee").hide()
+            $(".approval").hide()
+            $("#existmeetingyes").hide()
+            $("#existmeetingno").hide()
+            $("#showonlyingerenral").hide()
+            $("#boardmeeting").hide()
+            $("#agmmeetingdetails").hide()
+            $(".ismeminstitute").hide()
+            $("#part2").hide();
+            $("#part3").hide();
+            $("#part4").hide();
+
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+            $.get(`@R.ApiUrl/Director`).then(r => {
+                $('[name="ddlDirector"]')
+                .append(r.map(d => `<option value="${d.din}">${d.firstName} ${d.middleName} ${d.lastName}</option>`).join(''))
+                    .change(function () {
+                        var dir = r.find(d => d.din == $('[name="ddlDirector"]').val())
+                        $.get(`@R.ApiUrl/Director/${dir.id}`).then(d => {
+                            console.log('Selected Director', d);
+                            $('[name="appointeeName"]').val(`${d.firstName} ${d.middleName} ${d.lastName}`);
+                            $('[name="fName"]').val(d.middleName);
+                            $('[name="gender"]').val(d.details.gender);
+                            $('[name="dob"]').val(d.details.dateOfBirth);
+                            $('[name="address"]').val(d.details.permanentAddress);
+                            $('[name="email"]').val(d.email);
+                            $('[name="mobile"]').val(d.mobile);
+                            $('[name="pan"]').val(d.pan);
+                            $('[name="nationality"]').val(d.details.nationality);
+                            $('[name="occupation"]').val(d.details.occupation);
+                        })
+                    })
+            })
+            
+        })
+        var html= ""
+        $(document).on("click", "#addRow", function () {
+             html = `
+                              <div class="row interestRow mt-2" >
+                            <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                                <input type="text" style="width: 100%;" name="cin" autocomplete="off" placeholder="CIN" class="form-control">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3  form-row">
+                                <input type="text" style="width: 100%;" name="companyName" autocomplete="off" placeholder="Company Name" class="form-control">
+                            </div>
+                            <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                                <input type="date" style="width: 100%;" name="startDate" class="form-control startdate hasDatepicker" autocomplete="off" placeholder="Date of Appointment" id="startdate_1">
+                            </div>
+                            <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                                <select name="designation" class="form-select" style="width: 100%;">
+                                    <option value="">Select Designation </option>
+                                    <option value="Managing Director">Managing Director</option>
+                                    <option value="Chief Executive Officer">Chief Executive Officer</option>
+                                    <option value="Whole Time Director">Whole Time Director</option>
+                                    <option value="Chief Financial Officer">Chief Financial Officer</option>
+                                    <option value="Secretary">Secretary</option>
+                                    <option value="Manager">Manager</option>
+                                    <option value="Company Secretary">Company Secretary</option>
+                                    <option value="Alternate Director">Alternate Director</option>
+                                    <option value="Director appointed in Casual Vacancy">Director appointed in Casual Vacancy</option>
+                                    <option value="Nominee Director">Nominee Director</option>
+                                    <option value="Director">Director</option>
+                                    <option value="Additional Director">Additional Director</option>
+                                    <option value="Designated Partner">Designated Partner</option>
+                                    <option value="Partner">Partner</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>  <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                                <input type="text" style="width: 100%;" name="other" autocomplete="off" placeholder="Other, if any" class="form-control" id="other_1" readonly="">
+                            </div>              <div class="col-xs-12 col-sm-1 col-md-1" align="center">
+                                <button type="button" name="remove" id="1" class="btn btn-danger btn_remove">X</button>
+                            </div>
+                        </div>
+              
+             `
+            $("#interestRowContainer").append(html)
+        })
+
+        $(document).on("click", "[name='remove']",function(){
+            $(this).closest(".interestRow").remove()
+        })
+
+        $(document).on("change", "[name='isMemInstitute']", function () {
+            let ismeminstitute = $(this).val()
+            if (ismeminstitute == "Yes") {
+                $(".ismeminstitute").show()
+            } else {
+                $(".ismeminstitute").hide()
+            }
+               
+        })
+
+        $(document).on("change", "[name='existMeetingAgm']", function () {
+            let ismeminstitute = $(this).val()
+            $("#existagmno").hide()
+            $("#existagmyes").hide()
+            if (ismeminstitute == "Yes") {
+                $("#existagmyes").show()
+            } else {
+                $("#existagmno").show()
+            }
+
+        })
+
+        $(document).on("change", "#category", function () {
+           let category = $(this).val()
+            $(".approval").show()
+            $(".showonnominee").hide()
+            $("#agmmeetingdetails").hide()
+
+
+            if (category == "Director Appointment at General Meeting" || category == "Independent Director") {
+                $("#agmmeetingdetails").show()
+                $("#showonlyingerenral").show()
+            } else if (category == "Nominee Director") {
+                $(".showonnominee").show()
+            } else if (category == "Appointment of Directors in Casual Vacancy") {
+                $("[name='typeMeeting']").prop("checked", false)         
+                $("#boardmeeting").show()
+                $(".approval").hide()
+            }
+           
+
+        })
+        $(document).on("change", "[name='typeMeeting']", function () {
+            let type = $(this).val()
+            if (type == "Board meeting") {
+                $("#boardmeeting").show()
+            }else{
+                $("#boardmeeting").hide()
+
+            }
+        })
+
+        $(document).on("change", "[name='existMeeting']", function () {
+            let type = $(this).val()
+            if (type == "Yes") {
+                $("#existmeetingyes").show()
+                $('#existmeetingno').hide()
+            } else {
+                $("#existmeetingyes").hide()
+                $('#existmeetingno').show()
+            }
+        })
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/Action/@(ViewBag.ctrl)`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("Director", "Actions")/appointment`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/Action/@(ViewBag.ctrl)/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("Director", "Actions")/DirectorAppointment`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+        function checkExistingBM(radio) {
+            if (radio.value === "Yes" && radio.checked) {
+                $(".ebm").show()
+                $(".nebm").hide()
+            } else {
+                $(".nebm").show()
+                $(".ebm").hide()
+            }
+        }
+        function checkExistingGM(radio) {
+            if (radio.value === "Yes" && radio.checked) {
+                $(".egm").show()
+                $(".negm").hide()
+            } else {
+                $(".negm").show()
+                $(".egm").hide()
+            }
+        }
+        function checkMeetingType(radio) {
+            if (radio.value === "AGM" && radio.checked) {
+                $(".tagm").show()
+                $(".tegm").hide()
+            } else {
+                $(".tegm").show()
+                $(".tagm").hide()
+            }
+        }
+    </script>
+
+}

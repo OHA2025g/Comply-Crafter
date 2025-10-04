@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["Title"] = "Auditor Master";
+    ViewBag.ShowSearch = true;
+    ViewBag.ShowClear = true;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">@ViewBag.ctrl</h3>
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1 active" href="javascript:;" data-role="auditor" data-bs-toggle="tab">
+                        <span class="ms-1">Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="secretarial" data-bs-toggle="tab">
+                        <span class="ms-1">Secretarial Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="cost" data-bs-toggle="tab">
+                        <span class="ms-1">Cost Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="internal" data-bs-toggle="tab">
+                        <span class="ms-1">Internal Auditors</span>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-sm btn-outline-primary" onclick="add()"><i class="fa fa-plus px-2 fs-6"></i>Add</button>
+        </div>
+        <div class="card-body">
+            <table id="tbl" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Firm Name</th>
+                        <th>Auditor Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+                        @* <th>Active Status</th> *@
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            initTabs();
+            loadTbl();
+        });
+
+        function initTabs() {
+            $('[role="tablist"] .nav-link').on('click', function () {
+                $('.nav-link').removeClass('active');
+                $(this).addClass('active');
+                loadTbl();
+            });
+        }
+
+        function getColumns() {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            const baseColumns = [
+                {
+                    render: function (data, type, row, meta) {
+                        return meta.row + 1;
+                    }
+                },
+                { data: 'firmName' },
+                {
+                    data: type === 'auditor' ? 'partnerName' : 'auditorName'
+                },
+                {
+                    data: type === 'auditor' ? 'address' : 'addressOfFirmAuditor'
+                },
+                {
+                    data: type === 'auditor' ? 'firmEmail' : 'auditorEmail'
+                },
+                {
+                    data: type === 'auditor' ? 'partnerMobile' : 'auditorMobile'
+                },
+                // {
+                //     data: 'isActive',
+                //     render: function (isActive, type, row) {
+                //         return `
+                //             <input type="checkbox" class="status-toggle" data-toggle="toggle" data-on="Active" data-size="sm"
+                //                 data-id="${row.id}" data-off="Inactive" ${isActive ? 'checked' : ''}
+                //                 onchange="changeActive(${row.id}, ${isActive})"
+                //                 data-onstyle="success" data-offstyle="danger">
+                //         `;
+                //     }
+                // },
+                {
+                    data: null,
+                    orderable: false,
+                    render: function (data, type, row) {
+                        return `
+                            <div class="d-flex justify-content-center">
+                                        <a onclick="view(${row.id})" class="mx-2" style="color: blue; cursor: pointer;" title="View Shareholder">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a onclick="edit(${row.id})" class="mx-2" style="color: green; cursor: pointer;" title="Edit Shareholder">
+                                            <i class="fa fa-pencil-alt"></i>
+                                        </a>
+                                        <a onclick="del(${row.id})" class="mx-2" style="color: red; cursor: pointer;" title="Delete Shareholder">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </a>
+                                    </div>
+                        `;
+                    }
+                }
+            ];
+            return baseColumns;
+        }
+
+        function loadTbl() {
+            const $tbl = $('#tbl');
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+
+            if ($.fn.DataTable.isDataTable($tbl)) {
+                $tbl.DataTable().destroy();
+            }
+
+            $tbl.DataTable({
+                ajax: {
+                    url: type === 'auditor' ? '@R.ApiUrl/Auditor/List' : '@R.ApiUrl/OtherAuditor/List',
+                    data: type === 'auditor' ? {companyId: localStorage.getItem("comp_id")} : { type: type,companyId: localStorage.getItem("comp_id")},
+                    dataSrc: ""
+                },
+                columns: getColumns(),
+                order: [],
+                drawCallback: function () {
+                    $('input[data-toggle="toggle"]').each(function () {
+                        if (!$(this).hasClass('initialized')) {
+                            $(this).bootstrapToggle();
+                            $(this).addClass('initialized');
+                        }
+                    });
+                }
+            });
+        }
+
+        function changeActive(id, currentStatus) {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            const endpoint = type === 'auditor'
+                ? `@R.ApiUrl/Auditor/${id}/Status/${!currentStatus}`
+                : `@R.ApiUrl/OtherAuditor/${id}/Status/${!currentStatus}`;
+
+            $.get(endpoint).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload();
+            });
+        }
+
+        function del(id) {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            if (!confirm(`Are you sure you want to delete this ${type}?`)) return;
+
+            const endpoint = type === 'auditor'
+                ? `@R.ApiUrl/Auditor/${id}/delete`
+                : `@R.ApiUrl/OtherAuditor/${id}/delete`;
+
+            $.get(endpoint).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload();
+            });
+        }
+
+        function add() {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            const baseUrl = type === 'auditor'
+                ? '@Url.Action("Auditor", "Home")/Add'
+                : '@Url.Action("OtherAuditor", "Home")/Add';
+            window.location = `${baseUrl}?type=${type}`;
+        }
+
+        function edit(id) {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            const baseUrl = type === 'auditor'
+                ? '@Url.Action("Auditor", "Home")/Edit'
+                : '@Url.Action("OtherAuditor", "Home")/Edit';
+            window.location = `${baseUrl}/${id}?type=${type}`;
+        }
+    </script>
+}

@@ -1,0 +1,817 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No. GNL-2
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Form for submission of documents with the Registrar
+
+                    [Pursuant to the rule 12(2) of the Companies (Registration Offices and Fees) Rules, 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_Kit_GNL-2.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity's Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachment
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+
+
+
+        @*  tab-1 *@
+
+        <div class="card">
+            <div class="col-md-12 p-0">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+
+                        <div class="d-flex justify-content-between mx-2 mb-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Company Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">1.(a) *Corporate Identity Number (CIN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">1. (b) *Name of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-4 my-2">
+                            <label class="form-label">1 .(d) *Email id</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">
+                                1. (c) *Address of the registered office of the company
+                            </label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyAddress" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-2 mt-1 mb-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Purpose of the form
+                            </p>
+                        </div>
+                        <label style="text-decoration: none;margin: 0px  5px;" class="form-label">2. (a) *Please indicate the document being filed</label>
+
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="1"> Prospectus</label>
+                        </div>
+
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="2"> Red Herring Prospectus</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="3"> Circular or Circular in the form of Advertisement inviting Deposits in DPT-1</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="4"> Private placement offer letter or Record of a private placement offer to be kept by the company </label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="5"> Form 149 of the Companies (Court) Rules, 1959 </label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="6"> Form 152 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="7"> Form 153 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="8"> Form 154 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="9"> Form 156 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="10"> Form 157 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="11"> Form 159 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="12"> Form 158 of the Companies (Court) Rules, 1959</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="13"> Final Report on Completion of liquidation process by Liquidator</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="14"> Affidavit under Section 59 of the Insolvency and Bankruptcy Code, 2016</label>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 mt-2">
+                            <label style="text-decoration: none;font-weight: normal;"> <input type="radio" name="filedDocument" required="" value="15"> Others</label>
+                        </div>
+
+
+                        <div class="col-lg-12 my-3 othersContainer" style="display:none">
+                            <label class="form-label">(b) If others, then specify</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="others"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <label style="text-decoration:underline; font-weight: bolder; margin: 0px  5px; display: none;" class="AdvertisementInviting mt-2">Advertisement Inviting Deposits</label>
+
+
+                        <div class="col-lg-4 my-2 advContainer" style="display:none">
+                            <label class="form-label">3. (a) Expected date of issue of Advertisement</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="issuedAdvertisementDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-4 my-2 depositAccptanceContainer" style="display:none">
+                            <label class="form-label">(b) Expected opening date of Acceptance of Deposits</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="openingAcceptance" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-4 my-2 advertisementContainer" style="display:none">
+                            <label class="form-label">(c) Expected date of expiry of validity of advertisement or circular</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="expectedAdvertisementDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                         
+
+                        <label style="font-weight: bolder;text-decoration:underline;  display: none;" class="referencesLabel">References</label>
+                        <div class="col-lg-12 my-2 actContainer" style="display:none">
+                            <label class="form-label">4.(a) *Act under which the document is being filed</label>
+                            <select name="referenceAct" id="ReferenceField" class="form-select sectionofActs" required="required">
+                                <option value="">Select Acts</option>
+                                <option value="Companies Act, 2013">Companies Act, 2013</option>
+                                <option value="Companies Act, 1956">Companies Act, 1956</option>
+                                <option value="Insolvency and Bankruptcy Code, 2016">Insolvency and Bankruptcy Code, 2016</option>
+                            </select>
+                        </div>
+
+                        <label style="font-weight: bolder; text-decoration: underline; display: none;" class="my-2 SectionOfCode">4(b) *Section(s) of the Companies Act, 2013 or the Companies Act, 1956 or Insolvency and Bankruptcy Code 2016, under which the document is being filed</label>
+                        <div class="row my-2 CompaniesAct" style="display: none;">
+                            <div class="col-xs-12 col-sm-4 col-md-6 bold form-row">
+                                4(b)(ii) *Section(s) of the Companies Act, 1956 under which the document is being filed
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-6 form-row">
+                                <select class="form-control" name="companiesAct" id="SectionAct" required="required"><option value="">Select section</option><option value="Section 1">Section 1</option><option value="Section 2">Section 2</option><option value="Section 3">Section 3</option><option value="Section 4">Section 4</option><option value="Section 5">Section 5</option><option value="Section 6">Section 6</option><option value="Section 7">Section 7</option><option value="Section 8">Section 8</option><option value="Section 9">Section 9</option><option value="Section 10">Section 10</option><option value="Section 11">Section 11</option><option value="Section 12">Section 12</option><option value="Section 13">Section 13</option><option value="Section 14">Section 14</option><option value="Section 15">Section 15</option><option value="Section 16">Section 16</option><option value="Section 17">Section 17</option><option value="Section 18">Section 18</option><option value="Section 19">Section 19</option><option value="Section 20">Section 20</option><option value="Section 21">Section 21</option><option value="Section 22">Section 22</option><option value="Section 23">Section 23</option><option value="Section 24">Section 24</option><option value="Section 25">Section 25</option><option value="Section 26">Section 26</option><option value="Section 27">Section 27</option><option value="Section 28">Section 28</option><option value="Section 29">Section 29</option><option value="Section 30">Section 30</option><option value="Section 31">Section 31</option><option value="Section 32">Section 32</option><option value="Section 33">Section 33</option><option value="Section 34">Section 34</option><option value="Section 35">Section 35</option><option value="Section 36">Section 36</option><option value="Section 37">Section 37</option><option value="Section 38">Section 38</option><option value="Section 39">Section 39</option><option value="Section 40">Section 40</option><option value="Section 41">Section 41</option><option value="Section 42">Section 42</option><option value="Section 43">Section 43</option><option value="Section 44">Section 44</option><option value="Section 45">Section 45</option><option value="Section 46">Section 46</option><option value="Section 47">Section 47</option><option value="Section 48">Section 48</option><option value="Section 49">Section 49</option><option value="Section 50">Section 50</option><option value="Section 51">Section 51</option><option value="Section 52">Section 52</option><option value="Section 53">Section 53</option><option value="Section 54">Section 54</option><option value="Section 55">Section 55</option><option value="Section 56">Section 56</option><option value="Section 57">Section 57</option><option value="Section 58">Section 58</option><option value="Section 59">Section 59</option><option value="Section 60">Section 60</option><option value="Section 61">Section 61</option><option value="Section 62">Section 62</option><option value="Section 63">Section 63</option><option value="Section 64">Section 64</option><option value="Section 65">Section 65</option><option value="Section 66">Section 66</option><option value="Section 67">Section 67</option><option value="Section 68">Section 68</option><option value="Section 69">Section 69</option><option value="Section 70">Section 70</option><option value="Section 71">Section 71</option><option value="Section 72">Section 72</option><option value="Section 73">Section 73</option><option value="Section 74">Section 74</option><option value="Section 75">Section 75</option><option value="Section 76">Section 76</option><option value="Section 77">Section 77</option><option value="Section 78">Section 78</option><option value="Section 79">Section 79</option><option value="Section 80">Section 80</option><option value="Section 81">Section 81</option><option value="Section 82">Section 82</option><option value="Section 83">Section 83</option><option value="Section 84">Section 84</option><option value="Section 85">Section 85</option><option value="Section 86">Section 86</option><option value="Section 87">Section 87</option><option value="Section 88">Section 88</option><option value="Section 89">Section 89</option><option value="Section 90">Section 90</option><option value="Section 91">Section 91</option><option value="Section 92">Section 92</option><option value="Section 93">Section 93</option><option value="Section 94">Section 94</option><option value="Section 95">Section 95</option><option value="Section 96">Section 96</option><option value="Section 97">Section 97</option><option value="Section 98">Section 98</option><option value="Section 99">Section 99</option><option value="Section 100">Section 100</option><option value="Section 101">Section 101</option><option value="Section 102">Section 102</option><option value="Section 103">Section 103</option><option value="Section 104">Section 104</option><option value="Section 105">Section 105</option><option value="Section 106">Section 106</option><option value="Section 107">Section 107</option><option value="Section 108">Section 108</option><option value="Section 109">Section 109</option><option value="Section 110">Section 110</option><option value="Section 111">Section 111</option><option value="Section 112">Section 112</option><option value="Section 113">Section 113</option><option value="Section 114">Section 114</option><option value="Section 115">Section 115</option><option value="Section 116">Section 116</option><option value="Section 117">Section 117</option><option value="Section 118">Section 118</option><option value="Section 119">Section 119</option><option value="Section 120">Section 120</option><option value="Section 121">Section 121</option><option value="Section 122">Section 122</option><option value="Section 123">Section 123</option><option value="Section 124">Section 124</option><option value="Section 125">Section 125</option><option value="Section 126">Section 126</option><option value="Section 127">Section 127</option><option value="Section 128">Section 128</option><option value="Section 129">Section 129</option><option value="Section 130">Section 130</option><option value="Section 131">Section 131</option><option value="Section 132">Section 132</option><option value="Section 133">Section 133</option><option value="Section 134">Section 134</option><option value="Section 135">Section 135</option><option value="Section 136">Section 136</option><option value="Section 137">Section 137</option><option value="Section 138">Section 138</option><option value="Section 139">Section 139</option><option value="Section 140">Section 140</option><option value="Section 141">Section 141</option><option value="Section 142">Section 142</option><option value="Section 143">Section 143</option><option value="Section 144">Section 144</option><option value="Section 145">Section 145</option><option value="Section 146">Section 146</option><option value="Section 147">Section 147</option><option value="Section 148">Section 148</option><option value="Section 149">Section 149</option><option value="Section 150">Section 150</option><option value="Section 151">Section 151</option><option value="Section 152">Section 152</option><option value="Section 153">Section 153</option><option value="Section 154">Section 154</option><option value="Section 155">Section 155</option><option value="Section 156">Section 156</option><option value="Section 157">Section 157</option><option value="Section 158">Section 158</option><option value="Section 159">Section 159</option><option value="Section 160">Section 160</option><option value="Section 161">Section 161</option><option value="Section 162">Section 162</option><option value="Section 163">Section 163</option><option value="Section 164">Section 164</option><option value="Section 165">Section 165</option><option value="Section 166">Section 166</option><option value="Section 167">Section 167</option><option value="Section 168">Section 168</option><option value="Section 169">Section 169</option><option value="Section 170">Section 170</option><option value="Section 171">Section 171</option><option value="Section 172">Section 172</option><option value="Section 173">Section 173</option><option value="Section 174">Section 174</option><option value="Section 175">Section 175</option><option value="Section 176">Section 176</option><option value="Section 177">Section 177</option><option value="Section 178">Section 178</option><option value="Section 179">Section 179</option><option value="Section 180">Section 180</option><option value="Section 181">Section 181</option><option value="Section 182">Section 182</option><option value="Section 183">Section 183</option><option value="Section 184">Section 184</option><option value="Section 185">Section 185</option><option value="Section 186">Section 186</option><option value="Section 187">Section 187</option><option value="Section 188">Section 188</option><option value="Section 189">Section 189</option><option value="Section 190">Section 190</option><option value="Section 191">Section 191</option><option value="Section 192">Section 192</option><option value="Section 193">Section 193</option><option value="Section 194">Section 194</option><option value="Section 195">Section 195</option><option value="Section 196">Section 196</option><option value="Section 197">Section 197</option><option value="Section 198">Section 198</option><option value="Section 199">Section 199</option><option value="Section 200">Section 200</option><option value="Section 201">Section 201</option><option value="Section 202">Section 202</option><option value="Section 203">Section 203</option><option value="Section 204">Section 204</option><option value="Section 205">Section 205</option><option value="Section 206">Section 206</option><option value="Section 207">Section 207</option><option value="Section 208">Section 208</option><option value="Section 209">Section 209</option><option value="Section 210">Section 210</option><option value="Section 211">Section 211</option><option value="Section 212">Section 212</option><option value="Section 213">Section 213</option><option value="Section 214">Section 214</option><option value="Section 215">Section 215</option><option value="Section 216">Section 216</option><option value="Section 217">Section 217</option><option value="Section 218">Section 218</option><option value="Section 219">Section 219</option><option value="Section 220">Section 220</option><option value="Section 221">Section 221</option><option value="Section 222">Section 222</option><option value="Section 223">Section 223</option><option value="Section 224">Section 224</option><option value="Section 225">Section 225</option><option value="Section 226">Section 226</option><option value="Section 227">Section 227</option><option value="Section 228">Section 228</option><option value="Section 229">Section 229</option><option value="Section 230">Section 230</option><option value="Section 231">Section 231</option><option value="Section 232">Section 232</option><option value="Section 233">Section 233</option><option value="Section 234">Section 234</option><option value="Section 235">Section 235</option><option value="Section 236">Section 236</option><option value="Section 237">Section 237</option><option value="Section 238">Section 238</option><option value="Section 239">Section 239</option><option value="Section 240">Section 240</option><option value="Section 241">Section 241</option><option value="Section 242">Section 242</option><option value="Section 243">Section 243</option><option value="Section 244">Section 244</option><option value="Section 245">Section 245</option><option value="Section 246">Section 246</option><option value="Section 247">Section 247</option><option value="Section 248">Section 248</option><option value="Section 249">Section 249</option><option value="Section 250">Section 250</option><option value="Section 251">Section 251</option><option value="Section 252">Section 252</option><option value="Section 253">Section 253</option><option value="Section 254">Section 254</option><option value="Section 255">Section 255</option><option value="Section 256">Section 256</option><option value="Section 257">Section 257</option><option value="Section 258">Section 258</option><option value="Section 259">Section 259</option><option value="Section 260">Section 260</option><option value="Section 261">Section 261</option><option value="Section 262">Section 262</option><option value="Section 263">Section 263</option><option value="Section 264">Section 264</option><option value="Section 265">Section 265</option><option value="Section 266">Section 266</option><option value="Section 267">Section 267</option><option value="Section 268">Section 268</option><option value="Section 269">Section 269</option><option value="Section 270">Section 270</option><option value="Section 271">Section 271</option><option value="Section 272">Section 272</option><option value="Section 273">Section 273</option><option value="Section 274">Section 274</option><option value="Section 275">Section 275</option><option value="Section 276">Section 276</option><option value="Section 277">Section 277</option><option value="Section 278">Section 278</option><option value="Section 279">Section 279</option><option value="Section 280">Section 280</option><option value="Section 281">Section 281</option><option value="Section 282">Section 282</option><option value="Section 283">Section 283</option><option value="Section 284">Section 284</option><option value="Section 285">Section 285</option><option value="Section 286">Section 286</option><option value="Section 287">Section 287</option><option value="Section 288">Section 288</option><option value="Section 289">Section 289</option><option value="Section 290">Section 290</option><option value="Section 291">Section 291</option><option value="Section 292">Section 292</option><option value="Section 293">Section 293</option><option value="Section 294">Section 294</option><option value="Section 295">Section 295</option><option value="Section 296">Section 296</option><option value="Section 297">Section 297</option><option value="Section 298">Section 298</option><option value="Section 299">Section 299</option><option value="Section 300">Section 300</option><option value="Section 301">Section 301</option><option value="Section 302">Section 302</option><option value="Section 303">Section 303</option><option value="Section 304">Section 304</option><option value="Section 305">Section 305</option><option value="Section 306">Section 306</option><option value="Section 307">Section 307</option><option value="Section 308">Section 308</option><option value="Section 309">Section 309</option><option value="Section 310">Section 310</option><option value="Section 311">Section 311</option><option value="Section 312">Section 312</option><option value="Section 313">Section 313</option><option value="Section 314">Section 314</option><option value="Section 315">Section 315</option><option value="Section 316">Section 316</option><option value="Section 317">Section 317</option><option value="Section 318">Section 318</option><option value="Section 319">Section 319</option><option value="Section 320">Section 320</option><option value="Section 321">Section 321</option><option value="Section 322">Section 322</option><option value="Section 323">Section 323</option><option value="Section 324">Section 324</option><option value="Section 325">Section 325</option><option value="Section 326">Section 326</option><option value="Section 327">Section 327</option><option value="Section 328">Section 328</option><option value="Section 329">Section 329</option><option value="Section 330">Section 330</option><option value="Section 331">Section 331</option><option value="Section 332">Section 332</option><option value="Section 333">Section 333</option><option value="Section 334">Section 334</option><option value="Section 335">Section 335</option><option value="Section 336">Section 336</option><option value="Section 337">Section 337</option><option value="Section 338">Section 338</option><option value="Section 339">Section 339</option><option value="Section 340">Section 340</option><option value="Section 341">Section 341</option><option value="Section 342">Section 342</option><option value="Section 343">Section 343</option><option value="Section 344">Section 344</option><option value="Section 345">Section 345</option><option value="Section 346">Section 346</option><option value="Section 347">Section 347</option><option value="Section 348">Section 348</option><option value="Section 349">Section 349</option><option value="Section 350">Section 350</option><option value="Section 351">Section 351</option><option value="Section 352">Section 352</option><option value="Section 353">Section 353</option><option value="Section 354">Section 354</option><option value="Section 355">Section 355</option><option value="Section 356">Section 356</option><option value="Section 357">Section 357</option><option value="Section 358">Section 358</option><option value="Section 359">Section 359</option><option value="Section 360">Section 360</option><option value="Section 361">Section 361</option><option value="Section 362">Section 362</option><option value="Section 363">Section 363</option><option value="Section 364">Section 364</option><option value="Section 365">Section 365</option><option value="Section 366">Section 366</option><option value="Section 367">Section 367</option><option value="Section 368">Section 368</option><option value="Section 369">Section 369</option><option value="Section 370">Section 370</option><option value="Section 371">Section 371</option><option value="Section 372">Section 372</option><option value="Section 373">Section 373</option><option value="Section 374">Section 374</option><option value="Section 375">Section 375</option><option value="Section 376">Section 376</option><option value="Section 377">Section 377</option><option value="Section 378">Section 378</option><option value="Section 379">Section 379</option><option value="Section 380">Section 380</option><option value="Section 381">Section 381</option><option value="Section 382">Section 382</option><option value="Section 383">Section 383</option><option value="Section 384">Section 384</option><option value="Section 385">Section 385</option><option value="Section 386">Section 386</option><option value="Section 387">Section 387</option><option value="Section 388">Section 388</option><option value="Section 389">Section 389</option><option value="Section 390">Section 390</option><option value="Section 391">Section 391</option><option value="Section 392">Section 392</option><option value="Section 393">Section 393</option><option value="Section 394">Section 394</option><option value="Section 395">Section 395</option><option value="Section 396">Section 396</option><option value="Section 397">Section 397</option><option value="Section 398">Section 398</option><option value="Section 399">Section 399</option><option value="Section 400">Section 400</option><option value="Section 401">Section 401</option><option value="Section 402">Section 402</option><option value="Section 403">Section 403</option><option value="Section 404">Section 404</option><option value="Section 405">Section 405</option><option value="Section 406">Section 406</option><option value="Section 407">Section 407</option><option value="Section 408">Section 408</option><option value="Section 409">Section 409</option><option value="Section 410">Section 410</option><option value="Section 411">Section 411</option><option value="Section 412">Section 412</option><option value="Section 413">Section 413</option><option value="Section 414">Section 414</option><option value="Section 415">Section 415</option><option value="Section 416">Section 416</option><option value="Section 417">Section 417</option><option value="Section 418">Section 418</option><option value="Section 419">Section 419</option><option value="Section 420">Section 420</option><option value="Section 421">Section 421</option><option value="Section 422">Section 422</option><option value="Section 423">Section 423</option><option value="Section 424">Section 424</option><option value="Section 425">Section 425</option><option value="Section 426">Section 426</option><option value="Section 427">Section 427</option><option value="Section 428">Section 428</option><option value="Section 429">Section 429</option><option value="Section 430">Section 430</option><option value="Section 431">Section 431</option><option value="Section 432">Section 432</option><option value="Section 433">Section 433</option><option value="Section 434">Section 434</option><option value="Section 435">Section 435</option><option value="Section 436">Section 436</option><option value="Section 437">Section 437</option><option value="Section 438">Section 438</option><option value="Section 439">Section 439</option><option value="Section 440">Section 440</option><option value="Section 441">Section 441</option><option value="Section 442">Section 442</option><option value="Section 443">Section 443</option><option value="Section 444">Section 444</option><option value="Section 445">Section 445</option><option value="Section 446">Section 446</option><option value="Section 447">Section 447</option><option value="Section 448">Section 448</option><option value="Section 449">Section 449</option><option value="Section 450">Section 450</option><option value="Section 451">Section 451</option><option value="Section 452">Section 452</option><option value="Section 453">Section 453</option><option value="Section 454">Section 454</option><option value="Section 455">Section 455</option><option value="Section 456">Section 456</option><option value="Section 457">Section 457</option><option value="Section 458">Section 458</option><option value="Section 459">Section 459</option><option value="Section 460">Section 460</option><option value="Section 461">Section 461</option><option value="Section 462">Section 462</option><option value="Section 463">Section 463</option><option value="Section 464">Section 464</option><option value="Section 465">Section 465</option><option value="Section 466">Section 466</option><option value="Section 467">Section 467</option><option value="Section 468">Section 468</option><option value="Section 469">Section 469</option><option value="Section 470">Section 470</option><option value="Section 471">Section 471</option><option value="Section 472">Section 472</option><option value="Section 473">Section 473</option><option value="Section 474">Section 474</option><option value="Section 475">Section 475</option><option value="Section 476">Section 476</option><option value="Section 477">Section 477</option><option value="Section 478">Section 478</option><option value="Section 479">Section 479</option><option value="Section 480">Section 480</option><option value="Section 481">Section 481</option><option value="Section 482">Section 482</option><option value="Section 483">Section 483</option><option value="Section 484">Section 484</option><option value="Section 485">Section 485</option><option value="Section 486">Section 486</option><option value="Section 487">Section 487</option><option value="Section 488">Section 488</option><option value="Section 489">Section 489</option><option value="Section 490">Section 490</option><option value="Section 491">Section 491</option><option value="Section 492">Section 492</option><option value="Section 493">Section 493</option><option value="Section 494">Section 494</option><option value="Section 495">Section 495</option><option value="Section 496">Section 496</option><option value="Section 497">Section 497</option><option value="Section 498">Section 498</option><option value="Section 499">Section 499</option><option value="Section 500">Section 500</option><option value="Section 501">Section 501</option><option value="Section 502">Section 502</option><option value="Section 503">Section 503</option><option value="Section 504">Section 504</option><option value="Section 505">Section 505</option><option value="Section 506">Section 506</option><option value="Section 507">Section 507</option><option value="Section 508">Section 508</option><option value="Section 509">Section 509</option><option value="Section 510">Section 510</option><option value="Section 511">Section 511</option><option value="Section 512">Section 512</option><option value="Section 513">Section 513</option><option value="Section 514">Section 514</option><option value="Section 515">Section 515</option><option value="Section 516">Section 516</option><option value="Section 517">Section 517</option><option value="Section 518">Section 518</option><option value="Section 519">Section 519</option><option value="Section 520">Section 520</option><option value="Section 521">Section 521</option><option value="Section 522">Section 522</option><option value="Section 523">Section 523</option><option value="Section 524">Section 524</option><option value="Section 525">Section 525</option><option value="Section 526">Section 526</option><option value="Section 527">Section 527</option><option value="Section 528">Section 528</option><option value="Section 529">Section 529</option><option value="Section 530">Section 530</option><option value="Section 531">Section 531</option><option value="Section 532">Section 532</option><option value="Section 533">Section 533</option><option value="Section 534">Section 534</option><option value="Section 535">Section 535</option><option value="Section 536">Section 536</option><option value="Section 537">Section 537</option><option value="Section 538">Section 538</option><option value="Section 539">Section 539</option><option value="Section 540">Section 540</option><option value="Section 541">Section 541</option><option value="Section 542">Section 542</option><option value="Section 543">Section 543</option><option value="Section 544">Section 544</option><option value="Section 545">Section 545</option><option value="Section 546">Section 546</option><option value="Section 547">Section 547</option><option value="Section 548">Section 548</option><option value="Section 549">Section 549</option><option value="Section 550">Section 550</option><option value="Section 551">Section 551</option><option value="Section 552">Section 552</option><option value="Section 553">Section 553</option><option value="Section 554">Section 554</option><option value="Section 555">Section 555</option><option value="Section 556">Section 556</option><option value="Section 557">Section 557</option><option value="Section 558">Section 558</option><option value="Section 559">Section 559</option><option value="Section 560">Section 560</option><option value="Section 561">Section 561</option><option value="Section 562">Section 562</option><option value="Section 563">Section 563</option><option value="Section 564">Section 564</option><option value="Section 565">Section 565</option><option value="Section 566">Section 566</option><option value="Section 567">Section 567</option><option value="Section 568">Section 568</option><option value="Section 569">Section 569</option><option value="Section 570">Section 570</option><option value="Section 571">Section 571</option><option value="Section 572">Section 572</option><option value="Section 573">Section 573</option><option value="Section 574">Section 574</option><option value="Section 575">Section 575</option><option value="Section 576">Section 576</option><option value="Section 577">Section 577</option><option value="Section 578">Section 578</option><option value="Section 579">Section 579</option><option value="Section 580">Section 580</option><option value="Section 581">Section 581</option><option value="Section 582">Section 582</option><option value="Section 583">Section 583</option><option value="Section 584">Section 584</option><option value="Section 585">Section 585</option><option value="Section 586">Section 586</option><option value="Section 587">Section 587</option><option value="Section 588">Section 588</option><option value="Section 589">Section 589</option><option value="Section 590">Section 590</option><option value="Section 591">Section 591</option><option value="Section 592">Section 592</option><option value="Section 593">Section 593</option><option value="Section 594">Section 594</option><option value="Section 595">Section 595</option><option value="Section 596">Section 596</option><option value="Section 597">Section 597</option><option value="Section 598">Section 598</option><option value="Section 599">Section 599</option><option value="Section 600">Section 600</option><option value="Section 601">Section 601</option><option value="Section 602">Section 602</option><option value="Section 603">Section 603</option><option value="Section 604">Section 604</option><option value="Section 605">Section 605</option><option value="Section 606">Section 606</option><option value="Section 607">Section 607</option><option value="Section 608">Section 608</option><option value="Section 609">Section 609</option><option value="Section 610">Section 610</option><option value="Section 611">Section 611</option><option value="Section 612">Section 612</option><option value="Section 613">Section 613</option><option value="Section 614">Section 614</option><option value="Section 615">Section 615</option><option value="Section 616">Section 616</option><option value="Section 617">Section 617</option><option value="Section 618">Section 618</option><option value="Section 619">Section 619</option><option value="Section 620">Section 620</option><option value="Section 621">Section 621</option><option value="Section 622">Section 622</option><option value="Section 623">Section 623</option><option value="Section 624">Section 624</option><option value="Section 625">Section 625</option><option value="Section 626">Section 626</option><option value="Section 627">Section 627</option><option value="Section 628">Section 628</option><option value="Section 629">Section 629</option><option value="Section 630">Section 630</option><option value="Section 631">Section 631</option><option value="Section 632">Section 632</option><option value="Section 633">Section 633</option><option value="Section 634">Section 634</option><option value="Section 635">Section 635</option><option value="Section 636">Section 636</option><option value="Section 637">Section 637</option><option value="Section 638">Section 638</option><option value="Section 639">Section 639</option><option value="Section 640">Section 640</option><option value="Section 641">Section 641</option><option value="Section 642">Section 642</option><option value="Section 643">Section 643</option><option value="Section 644">Section 644</option><option value="Section 645">Section 645</option><option value="Section 646">Section 646</option><option value="Section 647">Section 647</option><option value="Section 648">Section 648</option><option value="Section 649">Section 649</option><option value="Section 650">Section 650</option><option value="Section 651">Section 651</option><option value="Section 652">Section 652</option><option value="Section 653">Section 653</option><option value="Section 654">Section 654</option><option value="Section 655">Section 655</option><option value="Section 656">Section 656</option><option value="Section 657">Section 657</option><option value="Section 658">Section 658</option><option value="Section 659">Section 659</option><option value="Section 660">Section 660</option><option value="Section 661">Section 661</option><option value="Section 662">Section 662</option><option value="Section 663">Section 663</option><option value="Section 664">Section 664</option><option value="Section 665">Section 665</option><option value="Section 666">Section 666</option><option value="Section 667">Section 667</option><option value="Section 668">Section 668</option><option value="Section 669">Section 669</option><option value="Section 670">Section 670</option></select>
+                            </div>
+                        </div>
+                        <label style="font-weight:bolder;margin: 0px  5px;text-decoration: underline;text-transform: uppercase;" class="my-2 resolutionLabel">Special Resolution and Other Details</label>
+
+                        <div class="col-lg-6 my-3 srnContainer">
+                            <label class="form-label">5. (a) *Service request number of Form MGT-14</label>
+                            <input type="text" placeholder="" class="form-control num" value="" name="srn" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-6 my-3 resolutionContainer">
+                            <label class="form-label">
+                                5. (b) *Date of passing special (SR) or ordinary resolution (OR) (DD/MM/YYYY)
+                            </label>
+                            <input type="date" placeholder="" class="form-control" value="" name="specialResolutionDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-lg-6 my-3 eventDateContainer">
+                            <label class="form-label">
+                                6. (a) *Date of event
+                            </label>
+                            <input type="date" placeholder="" class="form-control" value="" name="eventDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-3 declarationContainer" style="display:none">
+                            <label class="form-label">
+                                6. (b) Date of declaration by majority of directors (DD/MM/YYYY)
+                            </label>
+                            <input type="date" placeholder="" class="form-control" value="" name="directorsDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form action="" role="form" id="fupForm2" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                <label style="font-weight:bolder;text-decoration: underline;margin: 0px 5px;text-transform: uppercase;">Attachments</label>
+                <div class="row prospectus mt-2 prospectus" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (a) Copy of prospectus
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="prospectusDocument" id="prospectus" class="1">
+                        <input type="hidden" name="data[boardfinal][1][uniquename]" value="copyOfProspectus">
+                    </div>
+                </div>
+                <div class="row redherring mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (b) Copy of red herring prospectus
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row">
+                        <input type="file" name="herringDocument" id="herring" class="1">
+                        <input type="hidden" name="data[boardfinal][2][uniquename]" value="copyOfRedHerringPro">
+                    </div>
+                </div>
+                <div class="row circularfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (c) Circular or Circular in the form of Advertisement inviting Deposits in DPT-1
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="advertisementDocument" id="Advertisement" class="1">
+                        <input type="hidden" name="data[boardfinal][3][uniquename]" value="circularInFormOfAdv">
+                    </div>
+                </div>
+                <div class="row placementfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (d) Private placement offer letter or record of private placement offer letter to be kept by the company
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="placementDocument" id="placement" class="1">
+                        <input type="hidden" name="data[boardfinal][4][uniquename]" value="privatePlacementOff">
+                    </div>
+                </div>
+                <div class="row Companiesfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (e) Form 149 of the Companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companiesDocument" id="Companies" class="1">
+                        <input type="hidden" name="data[boardfinal][5][uniquename]" value="form149OfTheCompani">
+                    </div>
+                </div>
+                <div class="row companiesRulesfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (f) Form 152 of the companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companiesRulesDocument" id="companiesRules" class="1">
+                        <input type="hidden" name="data[boardfinal][6][uniquename]" value="form152OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies153file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (g) Form 153 of the Companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies153Document" id="Companies153" class="1">
+                        <input type="hidden" name="data[boardfinal][7][uniquename]" value="form153OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies154file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (h) Form 154 of the Companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies154Document" id="Companies154" class="1">
+                        <input type="hidden" name="data[boardfinal][8][uniquename]" value="form154OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies156file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (i) Form 156 of the Companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies156Document" id="Companies156" class="1">
+                        <input type="hidden" name="data[boardfinal][9][uniquename]" value="form156OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies157file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (j) Form 157 of the companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies157Document" id="Companies157" class="1">
+                        <input type="hidden" name="data[boardfinal][10][uniquename]" value="form157OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies158file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (k) Form 158 of the companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies158Document" id="Companies158" class="1">
+                        <input type="hidden" name="data[boardfinal][11][uniquename]" value="form158OfTheCompani">
+                    </div>
+                </div>
+                <div class="row Companies159file mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (l) Form 159 of the Companies (Court) Rules, 1959
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="companies159Document" id="Companies159" class="1">
+                        <input type="hidden" name="data[boardfinal][12][uniquename]" value="form159OfTheCompani">
+                    </div>
+                </div>
+                <div class="row liquidationfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (m) Final Report on Completion of liquidation process by Liquidator
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="liquidationDocument" id="liquidation" class="1">
+                        <input type="hidden" name="data[boardfinal][13][uniquename]" value="liquidationProcessB">
+                    </div>
+                </div>
+                <div class="row relevantfile mt-2" style="display:none">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (n) Any other relevant document
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="relevantDocument" id="relevant" class="1">
+                        <input type="hidden" name="data[boardfinal][14][uniquename]" value="anyOtherRelevantDoc">
+                    </div>
+                </div>
+                <div class="row auditedfile mt-2" style="height: auto; display: none;">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold" style="height: 70px;">
+                        (o) Audited financial statements and record of business operations of the company for the previous two years or for the period since its incorporation, whichever is later
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2" style="height: 70px;">
+                        <input type="file" name="financialDocument" id="financial" class="1" required="required">
+                        <input type="hidden" name="data[boardfinal][15][uniquename]" value="auditedFinancialSta">
+                    </div>
+                </div>
+                <div class="row assetsFile mt-2" style="display: none;">
+                    <div class="col-xs-5 col-sm-5 col-md-5 form-row bold">
+                        (p) A report of the valuation of the assets of the company, if any, prepared by a Registered Valuer
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-2">
+                        <input type="file" name="valuationDocument" id="valuation" class="1" required="required">
+                        <input type="hidden" name="data[boardfinal][16][uniquename]" value="valuationOfTheAsset">
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row">
+                        (q) Optional attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary" style="padding: 4px 7px;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px  !important;"></i></button>
+                    </div>
+                </div>
+
+                <div id="equity18" data-counter="1">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row sr-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row">
+                            <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+                <label style="font-weight:bolder;text-decoration: underline;margin: 0px 5px;text-transform: uppercase;" class="mt-2 verifiddetails">Verification</label>
+                <div class="row verifiddetails" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;padding: 10px;">
+                        <p style="text-align: justify;">To the best of my knowledge and belief, the information given in this form and its attachments is correct and complete.</p>
+
+                        <p style="text-align: justify;">I have been authorised by the board of directors' resolution dated &nbsp; &nbsp; <input type="date" name="resolutionDate" id="ResolutionDate" class="datepicker hasDatepicker" placeholder="" style="width: 15%;" value=""> &nbsp; to sign and submit this form.</p>
+                    </div>
+                </div>
+
+                <div class="row verifiddetails mt-2" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="height: 51px;">
+                        Name
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="height: 51px;">
+                        Capacity
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="height: 51px;">
+                        Designation
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 bold form-row" style="height: auto;">
+                        Director identification number of the director or membership numberof the secretary or DIN/PAN of the Manager / CEO / CFO / IRP / RP / Liquidator
+                    </div>
+                </div>
+
+                <div class="row verifiddetails mt-2">
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                        <input class="form-control" name="name" id="Name" readonly="readonly">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                        <input type="text" class="form-control" name="capacity" id="Capacity" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                        <select class="form-select" name="designation" id="designation">
+                            <option value="">Select Designation</option>
+                            <option value="Director">Director</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Company Secretary">Company Secretary</option>
+                            <option value="CFO">CEO</option>
+                            <option value="CEO">CFO</option>
+                            <option value="IRP/RP/Liquidator">IRP/RP/Liquidator</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6 form-row">
+                        <input type="text" name="din" id="DirectorDin" class="form-control" value="">
+                    </div>
+                </div>
+
+                <template id="rowTemplate">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            <!-- Sr. No will be updated dynamically -->
+                        </div>
+                        <div class="col-xs-12 col-sm-10 col-md-10 form-row">
+                            <input type="file" name="optionalAttachment" class="attachment-file">
+                        </div>
+                        <div class="col-xs-12 col-sm-1 col-md-1" align="center">
+                            <button type="button" class="btn btn-danger remove-row" style="padding: 4px 7px;">
+                                <i class="fa fa-times" style="margin:0px 0px 0px 0px  !important;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </template>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("input[name='filedDocument']").on("change", function () {
+            const selectedValue = $(this).val();
+
+            if (["13", "14", "15"].includes(selectedValue)) {
+                $(".referencesLabel").show();
+                $(".actContainer").show();
+                $(".SectionOfCode").show();
+                $(".CompaniesAct").show();
+                $("#ReferenceField, #SectionAct").prop("required", true);
+            } else {
+                $(".referencesLabel").hide();
+                $(".actContainer").hide();
+                $(".SectionOfCode").hide();
+                $(".CompaniesAct").hide();
+                $("#ReferenceField, #SectionAct").prop("required", false).val("");
+            }
+
+            if (selectedValue === "15") {
+                $(".othersContainer").show();
+                $("input[name='others']").prop("required", true);
+            } else {
+                $(".othersContainer").hide();
+                $("input[name='others']").prop("required", false).val("");
+            }
+
+            if (selectedValue === "14") {
+                $(".declarationContainer").show();
+                $("input[name='directorsDate']").prop("required", true);
+            } else {
+                $(".declarationContainer").hide();
+                $("input[name='directorsDate']").prop("required", false).val("");
+            }
+        });
+    });
+</script>
+
+
+
+@section Scripts {
+    <script>
+        $(document).on("change", "[name='filedDocument']", function () {
+            let filedDocument = $(this).val()
+            $(".prospectus").hide()
+            $(".redherring").hide()
+            $(".circularfile").hide()
+            $(".placementfile").hide()
+            $(".Companiesfile").hide()
+            $(".companiesRulesfile").hide()
+            $(".Companies153file").hide()
+            $(".Companies154file").hide()
+            $(".Companies156file").hide()
+            $(".Companies157file").hide()
+            $(".Companies158file").hide()
+            $(".Companies159file").hide()
+            $(".liquidationfile").hide()
+            $(".relevantfile").hide()
+            $(".auditedfile").hide()
+            $(".assetsFile").hide()
+
+            if (filedDocument == "1" || filedDocument == "2" || filedDocument == "4" || filedDocument == "5" || filedDocument == "6" || filedDocument == "7" || filedDocument == "8" || filedDocument == "9" || filedDocument == "10" || filedDocument == "11" || filedDocument == "12") {
+                $(".resolutionLabel").show()
+                $(".resolutionContainer").show()
+                $(".resolutionContainer").show()
+                $(".declarationContainer").show()
+                $(".AdvertisementInviting").hide()
+                $(".advContainer").hide()
+                $(".depositAccptanceContainer").hide()
+                $(".referencesLabel").hide()
+                $(".advertisementContainer").hide()
+                $(".othersContainer").hide()
+                $(".actContainer").hide()
+                $(".declarationContainer").hide()
+                $(".othersContainer").hide()
+
+
+                if (filedDocument == "1") {
+                    $(".prospectus").show()
+
+                }
+                else if (filedDocument == "2") {
+                    $(".redherring").show()
+                }
+                else if (filedDocument == "4") {
+                    $(".placementfile").show()
+                }
+                else if (filedDocument == "5") {
+                    $(".Companiesfile").show()
+                }
+                else if (filedDocument == "6") {
+                    $(".companiesRulesfile").show()
+                }
+                else if (filedDocument == "7") {
+                    $(".Companies153file").show()
+                }
+                else if (filedDocument == "8") {
+                    $(".Companies154file").show()
+                }
+                else if (filedDocument == "9") {
+                    $(".Companies156file").show()
+                }
+                else if (filedDocument == "10") {
+                    $(".Companies157file").show()
+                }
+                else if (filedDocument == "11") {
+                    $(".Companies158file").show()
+                }
+                else if (filedDocument == "12") {
+                    $(".Companies159file").show()
+                }
+
+            }
+
+            else if (filedDocument == "3") {
+
+                $(".AdvertisementInviting").show()
+                $(".advContainer").show()
+                $(".depositAccptanceContainer").show()
+                $(".advertisementContainer").show()
+                $(".prospectus").hide()
+                $(".redherring").hide()
+
+                $(".circularfile").show()
+                $(".referencesLabel").hide()
+                $(".actContainer").hide()
+            }
+            else if (filedDocument == "13") {
+                $(".referencesLabel").show()
+                $(".actContainer").show()
+                $(".liquidationfile").show()
+            }
+            else if (filedDocument == "14") {
+                $(".referencesLabel").show()
+                $(".actContainer").show()
+                $(".declarationContainer").show()
+                $(".auditedfile").show()
+                $(".assetsFile").show()
+            }
+            else if (filedDocument == "15") {
+                $(".referencesLabel").show()
+                $(".actContainer").show()
+                $(".declarationContainer").hide()
+                $(".othersContainer").show()
+                $(".relevantfile").hide()
+
+            }
+        })
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            // Part 1
+            filedDocument: "",
+            issuedAdvertisementDate: "",
+            openingAcceptance: "",
+            expectedAdvertisementDate: "",
+            others: "",
+            referenceAct: "",
+            companiesAct: "",
+            srn: 0,
+            specialResolutionDate: "",
+            eventDate: "",
+            directorsDate: "",
+
+            // Part 2
+            prospectusDocument:"",
+            herringDocument:"",
+            advertisementDocument:"",
+            placementDocument:"",
+            companiesDocument:"",
+            companiesRulesDocument:"",
+            companies153Document:"",
+            companies154Document:"",
+            companies156Document:"",
+            companies157Document:"",
+            companies158Document:"",
+            companies159Document:"",
+            liquidationDocument:"",
+            relevantDocument:"",
+            financialDocument:"",
+            valuationDocument:"",
+            optionalAttachment:"",
+            name:"",
+            resolutionDate:"",
+            capacity:"",
+            designation:"",
+            din:"",
+
+        }
+        $(document).on("change","#ReferenceField", function () {
+            $(".CompaniesAct").show()
+        })
+        $("#attachmentadd").on("click", function () {
+            let rowCount = $("#equity18").children(".row").length;
+            let counter = rowCount + 1; 
+
+            let template = document.getElementById("rowTemplate");
+            let newRow = template.content.cloneNode(true); 
+
+            $(newRow).find("div.col-xs-12.col-sm-1.col-md-1.form-row").text(counter + ".");
+            $(newRow).find("input[type='file']").attr("id", "attachmentfile_" + counter);
+
+            $("#equity18").append(newRow);
+            $("#equity18").data("counter", counter);
+        });
+
+        $(document).on("click", ".remove-row", function () {
+            if ($("#equity18").children(".row").length > 1) { 
+                $(this).closest(".row").remove();
+
+                $("#equity18 .row").each(function (index) {
+                    $(this).find("div.col-xs-12.col-sm-1.col-md-1.form-row").text((index + 1) + ".");
+                });
+
+                let rowCount = $("#equity18").children(".row").length;
+                $("#equity18").data("counter", rowCount);
+            } else {
+                alert("At least one row must remain.");
+            }
+        });
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("GNL2", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("GNL2", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

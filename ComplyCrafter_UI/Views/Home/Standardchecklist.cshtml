@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = @ViewBag.ctrl;
+}
+<div class="row">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Resolutions</h3>
+            <div></div>
+        </div>
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label>Category</label>
+                    <select class="form-control" name="category"></select>
+                </div>
+                <div class="col-md-4">
+                    <label>Sub Category</label>
+                    <select class="form-control" name="subcategory"></select>
+                </div>
+            </div>
+            <table id="tbl" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr.No </th>
+                        <th>Category </th>
+                        <th>Sub Category</th>
+                        <th>Agenda</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        var data;
+
+        $(document).ready(function () {
+            $.get(`@R.ApiUrl/@ViewBag.ctrl`).then(r => {
+                data = r;
+                var cats = data.map(q => q.category).distinct().sort();
+                $('[name="category"]').html(`<option value="" selected>All</option>` + cats.map(c => `<option>${c}</option>`).join('')).change(function () {
+                    var cat = $(this).val();
+                    var scats = data.filter(q => q.category == cat).map(q => q.subCategory).distinct().sort();
+                    $('[name="subcategory"]').html(`<option value="" selected>All</option>` + scats.map(c => `<option>${c}</option>`).join('')).change(reload);
+                    reload();
+                });
+                load()
+            })
+        });
+
+        function load() {
+            $('#tbl').DataTable().destroy()
+            d = $('#tbl').DataTable({
+                data: data,
+                columns: [
+                    { render: (a, b, c, d) => d.row + 1 },
+                    { data: 'category' },
+                    { data: 'subCategory' },
+                    { data: 'title' },
+                    { data: null, render: (a, b, c) => `<a href="@Url.Action("Resolution", "Home")/${c.id}" class="btn btn-sm btn-outline-info">View</a>` },
+                ]
+            });
+        }
+
+        function reload() {
+            $('#tbl').DataTable().clear()
+            var newData = [...data];
+            if ($('[name="category"]').val()) newData = newData.filter(q => q.category == $('[name="category"]').val());
+            if ($('[name="subcategory"]').val()) newData = newData.filter(q => q.subCategory == $('[name="subcategory"]').val());
+            $('#tbl').DataTable().rows.add(newData).draw()
+        }
+
+
+    </script>
+}

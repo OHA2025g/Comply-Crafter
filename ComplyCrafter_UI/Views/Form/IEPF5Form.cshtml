@@ -1,0 +1,675 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No. IEPF-5
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Application to the Authority for claiming unpaid amounts and shares out of Investor Education and Protection Fund(IEPF)
+
+                    [Pursuant to Section 125 (3) of the Companies Act, 2013 and rule 7 of the Investor Education and Protection Fund Authority (Accounting, Audit, Transfer and Refund) Rules,2016]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_Kit_Form_No_IEPF_5.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Company, Applicant details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Shares & Amount claimed details
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachments & Declaration
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        <div class="card" style=" padding:25px;">
+            <div id="tab1" class="tab-pane in active animated  custon-tab-style1">
+                <div class="guideLoading guideServiceLoading dvloader" style=""></div>
+                <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 0px -10px 10px;">Applicant details</label><br>
+                    <label style="font-weight: bolder; text-decoration: none; text-transform: none; margin: 0px -10px 10px;">Particulars of the applicant</label><br>
+                    <div class="row mt-1">
+                        <div class="col-xs-12 col-sm-12 col-md-3 form-row bold mt-1">1. (a) *Category of Applicant</div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 form-row mt-1">
+                            <label>     &nbsp; &nbsp; <input type="radio" name="applicantCategory" class="ApplicantCategory" value="Individual" required=""> &nbsp; Individual &nbsp;</label>
+                            <label>    <input type="radio" name="applicantCategory" class="ApplicantCategory" value="Entity" required=""> &nbsp; Entity</label>
+                        </div>
+                    </div>
+                    <div class="individualData" style="display:none">
+                        <label style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase; " class="mt-3 showonindividual">Individual's details</label><br>
+                        <div class="row showonindividual mt-3" style="margin-bottom: 0px; ">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2" style="margin-left: -12px;">(b) First Name</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(c) Middle Name</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(d) Last Name</div>
+                        </div>
+                        <div class="row showonindividual mt-3" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                                <input type="text" class="form-control isindividual" name="applicantFirstName" id="ApplicantFirstName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control" name="applicantMiddleName" id="ApplicantMiddleName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control isindividual" name="applicantLastName" id="ApplicantLastName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="row showonindividual mt-3" style="margin-bottom: 0px;">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -12px;">(e) Father's First Name</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3">(f) Father's Middle Name</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3">(g) Father's Last Name</div>
+                        </div>
+                        <div class="row showonindividual mt-3" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                                <input type="text" class="form-control" name="applicantFathersFirstName" id="ApplicantFathersFirstName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control" name="applicantFathersMiddleName" id="ApplicantFathersMiddleName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control" name="applicantFathersLastName" id="ApplicantFathersLastName" value="" placeholder="Enter Here" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="row showonindividual mt-3" style="margin-bottom: 0px; ">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">(h) *Date of Birth (DD/MM/YYYY)</div>
+                        </div>
+                        <div class="row showonindividual mt-3" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                                <input type="date" class="form-control datepicker isindividual hasDatepicker" name="applicantDob" id="ApplicantDob" value="" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="entityData">
+
+                    </div>
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase;" class=" mt-3 showonentity">Entity details</label><br>
+                    <div class="row showonentity mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2" style="margin-left: -12px;">(i) Type of the Entity</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(j) *CIN / FCRN / LLPIN / FLLPIN / Registration No.</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2"> *Name of Entity</div>
+                    </div>
+                    <div class="row showonentity mt-3" style="">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                            <select class="form-select isentity" name="typeOfEntity" id="TypeOfEntity">
+                                <option value="">Select Here</option>
+                                <option value="Company">Company</option>
+                                <option value="LLP">LLP</option>
+                                <option value="Foreign Company">Foreign Company</option>
+                                <option value="Foreign LLP">Foreign LLP</option>
+                                <option value="HUF">HUF</option>
+                                <option value="Sole Proprietorship">Sole Proprietorship</option>
+                                <option value="Partnership">Partnership</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <input type="text" class="form-control isentity" name="entityIdentificationNo" id="EntityIdentificationNo" value="" placeholder="Enter Here">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <input type="text" class="form-control isentity" name="entityName" id="EntityName" value="" placeholder="Enter Here">
+                        </div>
+                    </div>
+                    <div class="row showonentity mt-3" style="margin-bottom: 0px; ">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">(l) Date of Incorporation (DD/MM/YYYY)</div>
+                    </div>
+                    <div class="row showonentity mt-3" style="">
+                        <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                            <input type="date" class="form-control isentity" name="entityIncorporateDate" id="EntityIncorporateDate" value="" placeholder="">
+                        </div>
+                    </div>
+                    <label style="font-weight:bolder;text-decoration: none;margin: 0px -10px 8px;text-transform: uppercase;" class="mt-3 changecss">Contact Details of Applicant (<span style="color: red;">"Please enter +91 before entering 10 digit mobile number if mobile number belongs to India")</span></label>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">(m) * Address of the applicant</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold">(n) Phone number</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                            <input type="text" class="form-control lettersandnum" name="applicantAddress" id="ApplicantAddressLine1" value="" required="" placeholder="Enter Here" maxlength="160">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <input type="number" class="form-control onlynumbers" name="applicantPhoneNo" id="ApplicantPhoneNo" value="" placeholder="Enter Here" maxlength="13">
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bold" style="margin-left: -12px;">
+                            (o) *Mobile Number (with Country code)
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bold mt-3">(p) *Enter OTP for Mobile Number</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-3" style="margin-left: -12px;">
+                            <input type="number" name="applicantMobile" id="ApplicantMobileNoWithCountryCode" class="form-control onlynumbers" maxlength="13" placeholder="Enter Here" value="" required="">
+                            <input type="hidden" name="mobileNumber" id="mobilenumber" value="">
+                            <p id="mobileotpverificationerror" style="color: red;"></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                            <a class="btn btn-primary" id="sendmoblieotp">Send OTP / Resend OTP</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-3">
+                            <input type="text" name="applicantMobileOtp" id="ApplicantMobileOtp" class="form-control onlynumbers" placeholder="Enter OTP here" minlength="4" maxlength="6" value="" required="" >
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3">
+                            <a class="btn btn-primary" id="verifymobileotp" style="">Verify OTP</a>
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bold mt-3" style="margin-left: -12px;">(q) *E-mail ID</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 bold mt-3">(r) *Enter OTP for E-mail ID</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3"></div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-3" style="margin-left: -12px;">
+                            <input type="email" name="applicantEmailId" id="ApplicantEmailId" class="form-control" placeholder="Enter Here" value="" required="" >
+                            <input type="hidden" name="emailIdFidden" id="emailidhidden" value="">
+                            <p id="emailotpverificationerror" style="color: red;"></p>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                            <a class="btn btn-primary" id="sendemailotp">Send OTP / Resend OTP</a>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 mt-3">
+                            <input type="text" name="applicantEmailOtp" id="ApplicantEmailOtp" class="form-control" placeholder="Enter OTP here" minlength="4" maxlength="6" value="" required="">
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 mt-3">
+                            <a class="btn btn-primary" id="verifyemailotp" style="">Verify OTP</a>
+                        </div>
+                    </div>
+                    <div class="row showonindividual mt-3" style="">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">(s) Aadhaar Number</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="applicantAadharNo" class="form-control" id="ApplicantAadharNo" maxlength="12" value="" placeholder="Enter Here" >
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row adhaarattach_filename mt-4" style="">
+                            <input type="file" name="aadhaarAttach" id="Aadhaarattach">
+                        </div>
+
+                    </div>
+                    <div class="row showonindividual mt-3" style="">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">(t) Passport, OCI and PIO card number in case of foreigners and NRI</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="passport" class="form-control" id="ApplicantPassportOciPioCardNo" value="" placeholder="Enter Here"  maxlength="20">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row passportattach_filename mt-4" style="">
+                            <input type="file" name="passportAttach" id="passportattach">
+                        </div>
+
+                    </div>
+                    <div class="row showonindividual mt-3" style="margin-bottom: 0px; ">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -12px;">(u) *PAN of the applicant</div>
+                    </div>
+                    <div class="row showonindividual mt-3" style="">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                            <input type="text" class="form-control isindividual" name="applicantPan" id="ApplicantPan" value="" placeholder="Enter Here" maxlength="10">
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-4">
+                            <input type="button" class="btn btn-primary verifydetails" id="verifypan" value="Verify PAN">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <p id="showerror" style="color: red;"></p>
+                        </div>
+                    </div>
+                    <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;" class="mt-3">Company /Bank details</label><br>
+                    <label style="font-weight:bolder;text-decoration: none;margin: 0px -10px 5px;text-transform: none;" class="mt-3">2 *Particulars of the company from which the amount is due</label><br>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -12px;">(a) *Corporate Identity number (CIN) of company / Bank Corporate Identification number (BCIN)</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3">(b) *Name of the company/bank</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3">(c) *Address of the registered office of the company/bank</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                            <input type="text" class="form-control" name="bcin" id="CinBcin" value="" required="" placeholder="Enter Here" >
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <input type="text" class="form-control" name="companyNameBank" id="CompanyName" value="" required="" placeholder="Enter Here" readonly="">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                            <input type="text" class="form-control" name="companyRegOfficeAddress" id="CompanyRegOfficeAddressLine1" value="" required="" placeholder="Enter Here" readonly="">
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">(d) *Email ID of the company/bank</div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                            <input type="text" class="form-control" name="companyEmailId" id="CompanyEmailId" value="" required="" placeholder="Enter Here" readonly="">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-3">3. (a) *Is it a case covered under rule 7(8) &amp; 7(9) of IEPF Rules, 2016</div>
+                        <div class="col-xs-12 col-sm-12 col-md-3 form-row mt-3">
+                            <label>   &nbsp; &nbsp; <input type="radio" name="coveredRules" class="WhetherCaseCoveredUnderRule78and79OfIepfRules2016" value="Y" required=""> &nbsp; Yes &nbsp;</label>
+                            <label>   <input type="radio" name="coveredRules" class="WhetherCaseCoveredUnderRule78and79OfIepfRules2016" value="N" required=""> &nbsp; No</label>
+                        </div>
+                    </div>
+                    <div class="row showoncase mt-3" style="margin-bottom: 0px; ">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2" style="margin-left: -12px;">(b) Name of original security holder</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(c) Relation of claimant with security holder</div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(d) Number of Nominee/Legal heirs/ Successors/ Administrator/ Others holders.</div>
+                    </div>
+                    <div class="row showoncase mt-1" style="">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-2" style="margin-left: -12px;">
+                            <input type="text" class="form-control caserequired" name="securityHolderName" id="security_holdername" value="" placeholder="Enter Here" maxlength="160">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-2">
+                            <input type="text" class="form-control caserequired" name="securityHolderRelation" id="security_holderrelation" value="" placeholder="Enter Here" maxlength="160">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-2">
+                            <input type="text" class="form-control caserequired" name="noNominee" id="no_nominee" value="" placeholder="Enter Here" maxlength="2">
+                        </div>
+                    </div>
+
+                    <div id="beneficiary_container" class="showoncase mt-3">
+                    </div>
+                    <div class="row showoncase mt-4" style="height: auto; ">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold">(f) Self attested copy of death certificate</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row deathcer__hidden_class">
+                            <input type="file" name="deathCertificate" id="deathcer" class="1">
+                        </div>
+                    </div>
+                    <div class="row showoncase mt-3" style="height: auto; ">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold">(g) Succession certificate/Probate/Will</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row willcer__hidden_class">
+                            <input type="file" name="willCertificate" id="willcer" class="1">
+                        </div>
+                    </div>
+                    <div class="row showoncase mt-3" style="height: auto; ">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold">(h) No Objection Certificate from other holder</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row noobjcer__hidden_class">
+                            <input type="file" name="noObjCertificate" id="noobjcer" class="1">
+                        </div>
+                    </div>
+                    <div class="row showoncase mt-3" style="height: auto;">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold">(i) Indemnity Bond and surety affidavit</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row indemnity__hidden_class">
+                            <input type="file" name="indemnity" id="indemnity" class="1">
+                        </div>
+                    </div>
+                    <div class="row showoncase mt-3" style="height: auto; ">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold">(j) Any other document required under rules</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row otherdoc__hidden_class">
+                            <input type="file" name="otherDoc" id="otherdoc" class="1">
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:25px;">
+            <div class="tab-content">
+                <br>
+                <div id="tab2" class="tab-pane in animated  custon-tab-style1 active">
+                    <form action="" role="form" id="fupForm2" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Details of the Claim</label><br>
+                        <div class="row mt-2">
+                            <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-2">4. *Type of Claim</div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 form-row mt-2">
+                                <label>&nbsp; &nbsp; <input type="radio" name="claimType" class="ClaimType" value="Amount" required=""> &nbsp; Amount &nbsp; &nbsp;</label>
+                                <label><input type="radio" name="claimType" class="claimType" value="Amount and Shares" required=""> &nbsp; Amount and Shares</label>
+                            </div>
+                        </div>
+                        <label style="font-weight: bolder; text-decoration: none; margin: 0px -10px 5px; text-transform: none; display: none;" class="foliodetails">5. Details of shares claimed (More than one Folio for one company/bank can be added)</label><br>
+                        <div class="row foliodetails mt-3" style="">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">5. (a) Number of Folio</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="numberOfFolio" class="form-control numbers" id="NumberOfFolio" maxlength="2" value="" placeholder="Enter Here">
+                            </div>
+                        </div>
+                        <div class="table-responsive edittable mt-3" id="foliodetails" style="overflow-x: unset;">
+                            <table border="1" style="table-layout: auto; text-overflow: ellipsis;">
+                            </table>
+                        </div><br>
+                        <label style="font-weight: bolder; text-decoration: none; margin: 0px -10px 5px; text-transform: none; display: inline-block;" class="amtdetails">Details of amount claimed</label><br>
+                        <div class="row amtdetails mt-3" style="display: block;">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">6. (a) Number of claims</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="numberOfClaims" class="form-control numbers" id="NumberOfClaims" maxlength="2" value="" placeholder="Enter Here" required="required">
+                            </div>
+                        </div>
+                        <div class="row showonnoofclaims mt-2" style="">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold mt-3" style="margin-left: -12px;">
+                                (b) Year wise details of securities/deposits for which the amount is claimed
+                            </div>
+                        </div>
+                        <div class="table-responsive edittable mt-3" id="claimeddetails" style="overflow-x: unset;">
+                            <table border="1" style="table-layout: auto; text-overflow: ellipsis;">
+                            </table>
+                        </div><br>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold changecssRefund mt-3" style="margin-left: -12px; margin-top: 0px;">7 Refund Account Details(Details of Bank account in which refund shall be credited)</div>
+                        </div>
+                        <div class="row changecssrefdet" style="margin-bottom: 0px; margin-top: 0px;">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2" style="margin-left: -12px;">(a) *Bank account number</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(b) *Bank Name</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold mt-2">(c) *IFSC Code</div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+                                <input type="number" class="form-control" name="bankAccountNumber" id="BankAccountNumberInWhichRefundShallBeCredited" value="" required="" placeholder="Enter Here">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control" name="bankName" id="BankNameInWhichRefundShallBeCredited" value="" required="" placeholder="Enter Here" maxlength="160">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                                <input type="text" class="form-control" name="ifscCode" id="IfscCodeInWhichRefundShallBeCredited" value="" required="" placeholder="Enter Here" maxlength="20">
+                            </div>
+                        </div>
+                        <div class="row mt-2" style="margin-bottom: 0px;">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -12px;">(d) *Bank Branch</div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold showamtshares" style="">(e) *Demat account number in which shares shall be credited</div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-xs-12 col-sm-4 col-md-4 mt-2" style="margin-left: -12px;">
+                                <input type="text" class="form-control" name="bankBranch" id="BankBranchInWhichRefundShallBeCredited" value="" required="" placeholder="Enter Here" maxlength="160">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 showamtshares mt-2" style="">
+                                <input type="text" class="form-control" name="dematAccountNumber" id="DematAccountNumberInWhichSharesShallBeCredited" value="" placeholder="Enter Here" maxlength="20">
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:20px;">
+            <div id="tab3" class="tab-pane in animated  custon-tab-style1 active">
+                <form action="" role="form" id="fupForm3" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                    <div class="row mt-2" style="height: auto;">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold mt-3">(a) *Client Master List of De-mat A/c of the claimant / Transaction statement for demat holding</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row clientslist__hidden_class mt-3">
+                            <input type="file" name="clientsList" id="clientslist" class="1" required="">
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="height: auto;">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold mt-3" style="height: 104px;">(b) *Proof of entitlement (Entitlement letter issued by company/Bonds/Debentures/Fixed Deposit receipts/Certificate of share/Interest warrant/Dividend warrant, Application No./Statement of transaction, documents for loss of original share certificates as per rules etc.)</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row entitle__hidden_class mt-5" style="height: 104px;">
+                            <input type="file" name="entitle" id="entitle" class="1" required="">
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="height: auto;">
+                        <div class="col-xs-12 col-sm-5 col-md-5 form-row bold mt-3">(c) *Bank cheque copy</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row cheque__hidden_class mt-3">
+                            <input type="file" name="cheque" id="cheque" class="1" required="">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-1 bold form-row mt-3" align="center">Sr. No</div>
+                        <div class="col-xs-12 col-sm-12 col-md-10 bold form-row mt-3">(d) Optional Attachment(s) - if any</div>
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row mt-3" align="center">
+                            <button type="button" name="attachmentAdd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                        </div>
+                    </div>
+                    <div id="equity8" class="mt-3">
+                        <input type="hidden" name="l" id="l" value="1">
+                        <div class="row mt-3" id="roweq1">
+                            <div class="col-xs-12 col-sm-12 col-md-1 form-row mt-3" align="center">1.</div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 form-row mt-3">
+                                <input type="file" name="attachmentFile" id="attachmentfile_1" class="1" accept=".pdf,.xlsx">
+                            </div>
+                        </div>
+                    </div>
+                    <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;" class="mt-3">Declaration</label>
+                    <div class="row mt-1" style="height: auto">
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                            <p style="text-align: justify;">I declare that all the requirements of Companies Act, 2013 and the rules made thereunder in respect of the subject matter of this form and matters incidental thereto have been complied with. I further declare that all the information given herein above is true, correct and complete including the attachments to this form and nothing material has been suppressed. <br> I declare that I have not claimed/ will not claim, the shares and/or amount claimed under the same folio and/or for same financial year on any earlier occasion for this company/bank. <br> <input type="checkbox" name="declaration" value="Y" required=""> &nbsp; * I understand that I, am the claimant and after filing the refund claim in this form online, shall send the attachments prescribed below to Nodal Officer (IEPF) of the company / bank at its registered office in an envelope marked “claim for refund from IEPF Authority” for initiating the verification for claim  <br><br> 1. Print out of duly filled claim form with claimant signature <br>2 .Copy of acknowledgement<br>2 .Copy of acknowledgement<br>3 .Indemnity Bond (original) with claimant signature<br>4.In case of refund of matured deposit or debenture, original certificate thereto<br>5.Copy of Aadhaar Card<br>6. Proof of entitlement (certificate of share/Interest warrant Application No. etc.)<br>7. Cancelled Cheque leaf<br>8. Copy of Passport, OCI and PI card in case of foreigners and NRI<br>9.Other optional document,(if any)</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            // cin: "",
+            // companyName: "",
+            // companyAddress: "",
+            // companyEmail: "",
+
+            // part-1
+
+            applicantCategory: "",
+            applicantFirstName: "",
+            applicantMiddleName: "",
+            applicantLastName: "",
+            applicantFathersFirstName: "",
+            applicantFathersMiddleName: "",
+            applicantFathersLastName: "",
+            applicantDob: "",
+            typeOfEntity: "",
+            entityIdentificationNo: "",
+            entityName: "",
+            entityIncorporateDate: "",
+            applicantAddress: "",
+            applicantPhoneNo: 0,
+            applicantMobile: "",
+            // mobileNumber: "",
+            applicantMobileOtp: "",
+            applicantEmailId: "",
+            // emailIdFidden: "",
+            applicantEmailOtp: "",
+            applicantAadharNo: "",
+            aadhaarAttach: "",
+            passport: "",
+            passportAttach: "",
+            applicantPan: "",
+            bcin: "",
+            companyNameBank: "",
+            companyRegOfficeAddress: "",
+            companyEmailId: "",
+            coveredRules: "",
+            securityHolderName: "",
+            securityHolderRelation: "",
+            noNominee: "",
+            deathCertificate: "",
+            willCertificate: "",
+            noObjCertificate: "",
+            indemnity: "",
+            otherDoc: "",
+
+            // part-2
+
+            claimType: "",
+            numberOfFolio: "",
+            numberOfClaims: "",
+            bankAccountNumber: "",
+            bankName: "",
+            ifscCode: "",
+            bankBranch: "",
+            dematAccountNumber: "",
+
+            // part-3
+
+            clientsList: "",
+            entitle: "",
+            cheque: "",
+            attachmentFile: "",
+            declaration:""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+        $('input[name="applicantCategory"]').change(function () {
+            if ($(this).val() === "Individual") {
+                // Show individual fields
+                $('.individualData').show();
+                // Hide entity fields
+                $('.showonentity').hide();
+            } else if ($(this).val() === "Entity") {
+                // Show entity fields
+                $('.showonentity').show();
+                // Hide individual fields
+                $('.individualData').hide();
+            }
+        });
+
+        // Trigger change event on page load if a radio button is already selected
+        if ($('input[name="applicantCategory"]:checked').val() === "Individual") {
+            $('.showonindividual').show();
+            $('.showonentity').hide();
+        } else if ($('input[name="applicantCategory"]:checked').val() === "Entity") {
+            $('.showonentity').show();
+            $('.showonindividual').hide();
+        }
+        $(document).on("change", "[name='coveredRules']", function () {
+            let isRuleApplied = $(this).val()
+            if (isRuleApplied == "Y") {
+                $(".showoncase").show()
+            } else {
+                $(".showoncase").hide()
+            }
+        })
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("IEPF5", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("IEPF5", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

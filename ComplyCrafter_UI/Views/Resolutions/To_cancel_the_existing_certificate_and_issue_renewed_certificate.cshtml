@@ -1,0 +1,228 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To cancel the existing share certificate and issue renewed share certificate`;
+    let agendaHeading = `To cancel the existing share certificate and issue renewed share certificate`;
+    let minuteHeading = `Cancellation of the existing share certificate and issuance of renewed share certificate`;
+    let agendaPreface = `
+    The company has received a request from shareholders of the Company for the replacement of the existing share certificates which are old, defaced, mutilated, worn out and decrepit. It has been requested to issue renewed share certificate in place of the old certificates.
+
+    Hence, it is proposed to cancel the old share certificates and issue new share certificates to the requested member, details of which are mentioned in the resolution.
+
+    The board may discuss the resolution and pass the following resolution in this regard:
+                    `;
+    let minutePreface = `
+    The Company had received request from shareholders of the Company for the replacement of the existing share certificates which are old, defaced, mutilated, worn out, and decrepit. It had been requested to issue renewed share certificate in place of the old certificates.
+            `;
+    let resolutionForNoticePara1 = `
+    “RESOLVED THAT pursuant to the provisions of the sub-section (2) of Section 46 of the Companies Act, 2013 read with Rule 6 of Companies (Share Capital and Debentures) Rules, 2014, and any other provisions as may be applicable, the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to cancel the old share certificates and replace with the new share certificates.
+
+    “RESOLVED FURTHER THAT old share certificates stand canceled upon issuance of new share certificates details of the same are as follows.
+
+    [Table of Share Certificates]
+            `;
+    let resolutionForNoticePara2 = `
+    RESOLVED FURTHER THAT the new share certificate shall be issued as per the above list under the signature of any two directors of the Company and be counter signed by any authorized signatory of the Company, under the common seal of the company, if applicable. And also state on the face thereof the words “Duplicate issued in lieu of certificate No.____”.
+
+    RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions
+            `;
+    let resolutionForMinutesPara1 = `
+    “RESOLVED THAT pursuant to the provisions of the sub-section (2) of Section 46 of the Companies Act, 2013 read with Rule 6 of Companies (Share Capital and Debentures) Rules, 2014, and any other provisions as may be applicable, the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to cancel the old share certificates and replace with the new share certificates.
+
+    “RESOLVED FURTHER THAT old share certificates stand canceled upon issuance of new share certificates details of the same are as follows.
+
+    [Table of Share Certificates]
+            `;
+    let resolutionForMinutesPara2 = `
+    RESOLVED FURTHER THAT the new share certificate shall be issued as per the above list under the signature of any two directors of the Company and be counter signed by any authorized signatory of the Company, under the common seal of the company, if applicable. And also state on the face thereof the words “Duplicate issued in lieu of certificate No.____”.
+
+    RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions
+            `;
+</script>
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+<style>
+    .custom-table .form-control {
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table td, .custom-table th {
+        border: 1px solid #000 !important;
+        vertical-align: middle;
+        padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table .table-title {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table .btn-sm {
+        padding: 1px 6px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+</style>
+
+
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+    @if (ViewBag.UseLayout == true)
+    {
+        <table class="custom-table">
+            <tbody>
+                <tr>
+                    <td><strong>Share Type</strong></td>
+                    <td>
+                        <select class="form-control" name="shareType">
+                            <option value="">Select</option>
+                            <option>Equity</option>
+                            <option>Preference</option>
+                            <option>Debentures</option>
+                        </select>
+                    </td>
+                    <td><strong>Number of Shares</strong></td>
+                    <td>
+                        <input type="number" class="form-control num" name="numberOfShares" placeholder="Enter quantity">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" class="table-title">Authorization For Resolution</td>
+                </tr>
+
+                <tr class="authorizedRow">
+                    <td><strong>Name of Authorized Person</strong></td>
+                    <td>
+                        <select class="form-control director" name="appointedDirector">
+                            <option value="">Select name</option>
+                        </select>
+                    </td>
+                    <td colspan="2" class="text-center">
+                        <input type="hidden" name="id" class="num" value="0">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+
+        @*  <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Category
+            </div>
+            <div class="col-md-9">
+                <select name="category" class="form-control">
+                    <option>Share Capital</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Sub Category
+            </div>
+            <div class="col-md-9">
+                <select name="subCategory" class="form-control">
+                    <option>Share Certificates</option>
+                </select>
+            </div>
+            </div> *@
+
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails", new AgendaViewModelEnabler())
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+<script id="resolnFunction">
+    function addAuthorizedRow() {
+        let table = document.querySelector('.custom-table tbody');
+        if (!table) return;
+        let newRow = document.createElement('tr');
+        newRow.classList.add('authorizedRow');
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeAuthorizedRow(this)">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td colspan="3">
+                    <p name="appointedDirector"></p>
+                </td>
+            `;
+        }
+
+        table.appendChild(newRow);
+    }
+
+    function removeAuthorizedRow(button) {
+        button.closest('tr').remove();
+    }
+
+    function resetTableAuthorized() {
+        if (!isLayOut) return;
+
+        $('.authorizedRow').remove();
+        $('.custom-table tbody').append(`
+            <tr class="authorizedRow">
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                </td>
+            </tr>
+        `);
+    }
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

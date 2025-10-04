@@ -1,0 +1,34 @@
+﻿.cbp_tmtimeline {
+    font-size: 0.7em;
+}
+
+    .cbp_tmtimeline:before {
+        left: 27.5%;
+    }
+
+    .cbp_tmtimeline > li .cbp_tmtime {
+        padding-right: 70px;
+        width: 30%;
+    }
+
+        .cbp_tmtimeline > li .cbp_tmtime span:last-child {
+            font-size: 2em;
+        }
+
+    .cbp_tmtimeline > li .cbp_tmlabel {
+        margin: 0 0 15px 33.2%;
+        padding: 1em;
+    }
+        .cbp_tmtimeline > li .cbp_tmlabel h2 {
+            border: none !important;
+            padding: 0 !important;
+            cursor: pointer;
+        }
+
+        .cbp_tmtimeline > li .cbp_tmlabel p {
+            margin-bottom: 0 !important;
+        }
+
+    .cbp_tmtimeline > li .cbp_tmicon {
+        left: 27.5%;
+    }

@@ -1,0 +1,470 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form RUN LLP
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Reserve Unique Name-LLP
+
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_RUN%20LLP.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div id="part1" class="p-0">
+        <div class="card" style=" padding:20px;">
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">1. Purpose of filing</label>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-row mt-3 d-flex">
+                        <label>    &nbsp; &nbsp; <input type="radio" name="purpose" value="New Incorporation" disabled=""> &nbsp; New Incorporation &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                        <label>
+                            <input type="radio" name="purpose" value="Conversion of firm into LLP" disabled=""> &nbsp; Conversion of firm into LLP &nbsp; &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label>
+                            <input type="radio" name="purpose" value="Conversion of private company/unlisted public company into LLP" checked=""> &nbsp; Conversion of private company/unlisted public company into LLP &nbsp; &nbsp; &nbsp; &nbsp;
+                        </label>
+                        <label>     <input type="radio" name="purpose" value="Change of name of existing LLP" disabled=""> &nbsp; Change of name of existing LLP</label>
+                    </div>
+                </div>
+                <div class="row listedcompany mt-3">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 form-row bold mt-4">
+                        2. (a) CIN
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-row mt-3">
+                        <input type="text" name="cin" id="company_cin" style="width: 100%;" class="form-control" value="U22219MH2022PTC375586">
+                    </div>
+                </div>
+               @*  <div class="row listedllp mt-3" style="">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 form-row bold mt-4">
+                        2. (b)LLPIN
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-row mt-3">
+                        <input type="text" name="llpLlpin" id="llp_llpin" style="width: 100%;" class="form-control" value="">
+                    </div>
+                </div> *@
+                <div class="row search_code mt-3">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 form-row bold mt-3">
+                        Search and select industry sub-class (NIC Codes)
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 form-row mt-3" style="display:flex; align-items:Center;">
+                        <input type="hidden" name="countCheck" id="count_check" class="form-control" value="1">
+                        <input type="text" name="searchCode" id="search_code" style="width: 90%;" class="form-control" placeholder="Search here">
+                        <span class="fa fa-search errspan" style="border:1px solid #ffffff; border-radius:10px; padding:10px; box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05)" id="openSearchModal"></span>
+                    </div>
+                </div>
+                <div class="nic_codes mt-3" style="">
+                    
+                </div>
+                <div class="row mt-3 " style="margin-bottom: 0px;">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bold mt-3 " style="margin-left: -10px;">3.(a) Main NIC Code (sub-class) of industrial activity of the company</div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bold mt-3" style="margin-left: -10px;">3.(b) Description of the main sub-class</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 mt-3" style="margin-left: -10px;">
+                        <!-- <input type="text" name="NICcodes" id="NICcodes" class="form-control" readonly="" value=""> -->
+                        <textarea name="codesNic" id="NICcodes" readonly="" class="form-control" style="width: 100%;background-color: #eee;height: 60px;"></textarea>
+                    </div>
+                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 mt-3" style="margin-left: -10px;">
+                        <!--  <input type="text" name="NICCodesDesc" id="NICCodesDesc" class="form-control" value="" readonly=""> -->
+                        <textarea name="nicCodesDesc" id="NICCodesDesc" class="form-control" readonly="" style="width: 100%;background-color: #eee;height: 60px;"></textarea>
+                    </div>
+                </div>
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bold mt-3" style="margin-left: -10px;">4.(a) *Proposed Name 1 </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 bold" style="margin-left: -10px;">4.(b)  Proposed Name 2 </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-2" style="margin-left: -10px;">
+                        <input type="text" name="proposedName1" id="proposedname1" class="form-control requiredinput" required="" value="">
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 mt-2" style="margin-left: -10px;">
+                        <input type="text" name="proposedName2" id="proposedname2" class="form-control" value="">
+                    </div>
+                </div>
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">Attachment</label>
+                <div class="row mt-3">
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 form-row bold mt-3">
+                        PDF or JPEG only, Max 10 MB
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 form-row mt-3">
+                        <input type="file" name="attachmentFileName" id="attachment_filename" accept="application/pdf, application/vnd.ms-excel">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="searchModal">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Select Company</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body" style="max-height: 70vh; overflow-y: auto;">
+                    <form action="" method="post" id="fupForm_niccode" enctype="multipart/form-data">
+                        <div class="row" style="margin-left: 0px;">
+                            <div class="col-xs-10 col-sm-10 col-md-10 form-row">
+                                <input type="text" name="search_code1" id="search_code1" style="width: 90%;" class="form-control" placeholder="Search here">
+                                <span class="fa fa-search errspan"></span>
+                            </div>
+                            <div class="col-xs-2 col-sm-2 col-md-2" align="center" style="margin-top: 6px;">
+                                <button class="btn btn-primary" id="addniccode">Add</button>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-left: 0px;height: auto;">
+                            <div class="col-xs-12 col-sm-12 col-md-12" style="height: auto;">
+                                <table border="1" class="table table-bordered table-hover dataTable" id="example1" style="width: 99%">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:left;width:15%;">Sub Class</th>
+                                            <th style="text-align:left;">Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="1" > &nbsp; 98200</td>
+                                            <td>Undifferentiated service-producing activities of private households for own use</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="2"> &nbsp; 98100</td>
+                                            <td>Undifferentiated goods-producing activities of private households for own use</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="3"> &nbsp; 97000</td>
+                                            <td>Activities of households as employers of domestic personnel</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="4"> &nbsp; 96908</td>
+                                            <td>General household maintenance activities like grooming of the floor, dusting, cleaning of utensils etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="5"> &nbsp; 96907</td>
+                                            <td>Activities of aaya, dhai, governess, baby sitter etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="6"> &nbsp; 96906</td>
+                                            <td>Astrological and spiritualists’ activities</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="7"> &nbsp; 96905</td>
+                                            <td>Activities of sauna and steam baths, massage salons etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="8"> &nbsp; 96904</td>
+                                            <td>Coin-operated personal service machines such as photo booths, weighing machines, blood pressure checking machines etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="9"> &nbsp; 96903</td>
+                                            <td>Shoe shiners, porters, valet car parkers etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="10"> &nbsp; 96092</td>
+                                            <td>Pet care services such as boarding, grooming and training pets etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="11"> &nbsp; 96091</td>
+                                            <td>Social activities such as escort services, marriage bureaus</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="12"> &nbsp; 96090</td>
+                                            <td>Other personal service activities n.e.c.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="13"> &nbsp; 96030</td>
+                                            <td>Funeral and related activities</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="14"> &nbsp; 96020</td>
+                                            <td>Hairdressing and other beauty treatment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="15"> &nbsp; 96010</td>
+                                            <td>Washing and (dry-) cleaning of textile and fur products</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="16"> &nbsp; 95494</td>
+                                            <td>Motor driving school (non-professional)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="17"> &nbsp; 95299</td>
+                                            <td>Repair of other personal and household goods n.e.c.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="18"> &nbsp; 95295</td>
+                                            <td>Repair of musical instruments</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="19"> &nbsp; 95294</td>
+                                            <td>Repair of watches, clocks and their parts</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="20"> &nbsp; 95293</td>
+                                            <td>Repair and alteration of jewellery</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="21"> &nbsp; 95292</td>
+                                            <td>Repair and alteration of clothing</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="22"> &nbsp; 95291</td>
+                                            <td>Repair of bicycles</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="23"> &nbsp; 95290</td>
+                                            <td>Repair of personal and household goods, n.e.c.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="24"> &nbsp; 95240</td>
+                                            <td>Repair of furniture and home furnishings</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="25"> &nbsp; 95230</td>
+                                            <td>Repair of footwear and leather goods</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="26"> &nbsp; 95222</td>
+                                            <td>Repair and servicing of home and garden equipment such lawn mowerrs, edgers, trimmers etc.</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="27"> &nbsp; 95221</td>
+                                            <td>Repair and servicing of household appliances ( refrigerators, stoves, washing machines, clothes dryers, room air conditioners, etc. )</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="28"> &nbsp; 95210</td>
+                                            <td>Repair of consumer electronics</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="29"> &nbsp; 95120</td>
+                                            <td>Repair of communication equipment</td>
+                                        </tr>
+                                        <tr>
+                                            <td><input type="checkbox" name="nicCode" value="30"> &nbsp; 95112</td>
+                                            <td>Repair and maintenance of automated terminals like automatic teller machines, point-of-sale (POS) terminals, not mechanically operated</td>
+                                        </tr>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template id="nic-row-template">
+        <div class="row dynamic-nic-code mt-3">
+            <div class="col-lg-4 d-flex">
+                <input type="radio" name="nicCodeSerial" class="nic-radio" value="">
+                <input type="text" class="form-control nic-code" readonly style="width:90%; margin-left:10px;" value="">
+            </div>
+            <div class="col-lg-7">
+                <input type="text" class="form-control nic-desc" readonly value="">
+            </div>
+            <div class="col-lg-1" align="center">
+                <button type="button" class="btn btn-danger remove-nic-code">X</button>
+            </div>
+        </div>
+    </template>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            // part-1
+            purpose: "",          
+            nicCodeSerial: "",
+            codesNic: "",
+            nicCodesDesc: "",
+            proposedName1: "",
+            proposedName2: "",
+            attachmentFileName: "",
+        }
+
+        $(document).on("click", "#openSearchModal", function () {
+            // Show the Bootstrap modal
+            $("#searchModal").modal("show");
+        });
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+        })
+        function updateMainNicCodes() {
+            var codes = [];
+            $('.nic_codes .nic-code').each(function () {
+                codes.push($(this).val());
+            });
+            $('#NICcodes').val(codes.join(', '));
+        }
+
+        $('#addniccode').click(function (e) {
+            e.preventDefault(); // Prevent form submission
+            $('.nic_codes').empty();
+            $('#fupForm_niccode input[name="nicCode"]:checked').each(function () {
+                var $row = $(this).closest('tr');
+                var cellText = $row.find('td:first').text().trim();
+                var codeMatch = cellText.match(/\d+/);
+                var code = codeMatch ? codeMatch[0] : "";
+                var desc = $row.find('td:nth-child(2)').text().trim();
+                var $template = $($('#nic-row-template').html());
+                $template.find('.nic-radio').val(code);
+                $template.find('.nic-code').val(code);
+                $template.find('.nic-desc').val(desc);
+                $('.nic_codes').append($template);
+            });
+            updateMainNicCodes();
+            $('#searchModal').modal('hide');
+        });
+
+        $(document).on('click', '.remove-nic-code', function () {
+            $(this).closest('.dynamic-nic-code').remove();
+            updateMainNicCodes();
+        });
+
+        $(document).on('change', 'input[name="nicCodeSerial"]', function () {
+            var $dynamicRow = $(this).closest('.dynamic-nic-code');
+            var selectedDesc = $dynamicRow.find('.nic-desc').val();
+            $('#NICCodesDesc').val(selectedDesc).trigger("change");
+        });
+
+        function save(event) {
+            event.preventDefault();
+            var strArray = $("input[name='cin']:checked")
+                .map(function () { return this.value; }) // Get values
+                .get()
+                .join(',');
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("RUNLLP", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                    var codesNicArray = frm.codesNic.split(',').map(code => code.trim());
+                    $('#example1 tbody tr').each(function () {
+                        var $row = $(this);
+                        var cellText = $row.find('td:first').text().trim();
+                        var codeMatch = cellText.match(/\d+/);
+                        var code = codeMatch ? codeMatch[0] : "";
+                        if (codesNicArray.includes(code)) {
+                            $row.find('input[type="checkbox"]').prop('checked', true);
+                            var desc = $row.find('td:nth-child(2)').text().trim();
+                            var $template = $($('#nic-row-template').html());
+                            $template.find('.nic-radio').val(code);
+                            $template.find('.nic-code').val(code);
+                            $template.find('.nic-desc').val(desc);
+
+                            $('.nic_codes').append($template);
+                        }
+                    });
+                    $(".dynamic-nic-code").each(function(){
+                        let nicCode = $(this).find(".nic-radio").val()
+                        if (nicCode == frm.nicCodeSerial){
+                            $('.nic-radio').prop('checked', true);
+                        }
+                    })
+                    updateMainNicCodes();
+                 
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("RUNLLP", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+    </script>
+}

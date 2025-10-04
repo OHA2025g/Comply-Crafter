@@ -1,0 +1,149 @@
+﻿@if (ViewBag.UseLayout == true)
+{
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Resolution Signatory Details
+        </div>
+        <div class="col-md-9">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select director" name="signingDirector">
+                                <option value="">Select Signatory</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Enter DIN / PAN" name="dinPan">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="signingDate">
+                        </td>
+                        <td style="text-align:center;">
+                            <input type="hidden" name="id" class="num" value="0">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    @* <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Resolution Signatory Details
+        </div>
+        <div class="col-md-9">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div> *@
+}
+
+<script>
+    function addSignatoryRow() {
+        let tableBody = document.querySelector("#signatoryTable tbody");
+        if (!tableBody) return;
+        let rowCount = tableBody.rows.length + 1;
+
+        let newRow = document.createElement("tr");
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td>
+                    <select class="form-select director" name="signingDirector">
+                        <option value="">Select Signatory</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Enter DIN / PAN" name="dinPan">
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="signingDate">
+                </td>
+                <td style="text-align:center;">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeSignatoryRow(this)">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td>${rowCount}</td>
+                <td>
+                    <p name="signingDirector"></p>
+                </td>
+                <td>
+                    <p name="dinPan"></p>
+                </td>
+                <td>
+                    <p name="signingDate" type="date"></p>
+                </td>
+            `;
+        }
+
+        tableBody.appendChild(newRow);
+    }
+
+    function removeSignatoryRow(button) {
+        let row = button.closest("tr");
+        row.remove();
+
+        // Re-number rows
+        document.querySelectorAll("#signatoryTable tbody tr").forEach((tr, index) => {
+            tr.cells[0].innerText = index + 1;
+        });
+    }
+
+    function resetTableSignatory() {
+        if (!isLayOut) return;
+
+        $('#signatoryTable tbody').empty();
+        $('#signatoryTable tbody').append(`
+            <tr>
+                <td>1</td>
+                <td>
+                    <select class="form-select director" name="signingDirector">
+                        <option value="">Select Signatory</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" placeholder="Enter DIN / PAN" name="dinPan">
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="signingDate">
+                </td>
+                <td style="text-align:center;">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                </td>
+            </tr>
+        `);
+    }
+</script>

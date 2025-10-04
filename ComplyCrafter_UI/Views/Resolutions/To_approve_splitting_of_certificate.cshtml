@@ -1,0 +1,597 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+<style>
+    .custom-table .form-control {
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table td, .custom-table th {
+        border: 1px solid #000 !important;
+        vertical-align: middle;
+        padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table .table-title {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table .btn-sm {
+        padding: 1px 6px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+</style>
+<style>
+    /* Container */
+    .product-sales-area {
+        font-family: Arial, sans-serif;
+        color: #222;
+    }
+
+    /* Section Titles */
+    h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin: 20px 0 15px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 6px;
+        color: #222;
+    }
+
+    h5 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 15px;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 5px;
+        color: #333;
+    }
+
+    h6 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 15px 0 10px;
+        color: #444;
+    }
+
+    /* Form Rows */
+    .form-row, .row.mb-2, .row {
+        margin-bottom: 12px;
+        font-size: 14px;
+        align-items: center;
+    }
+
+    .bold {
+        font-weight: 600;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 4px;
+        font-weight: 500;
+    }
+
+    /* Inputs & Selects */
+    .form-control {
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+        padding: 6px 8px;
+        width: 100%;
+    }
+
+    input[type="radio"] {
+        margin-right: 6px;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 6px 14px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+    .btn-primary {
+        background: #007bff;
+        border: none;
+        color: #fff;
+    }
+
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+
+    /* Certificate Entries Section */
+    .entry-block {
+        border: 1px solid #e2e2e2;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 6px;
+        background: #fdfdfd;
+    }
+
+    /* Documents Section */
+    .documents-header {
+        font-weight: 600;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 8px;
+    }
+
+    .documents-row {
+        border-bottom: 1px solid #eee;
+        padding: 10px 0;
+        font-size: 14px;
+        align-items: center;
+    }
+
+        .documents-row i {
+            font-size: 16px;
+        }
+</style>
+
+<div class="card p-4 shadow-sm mt-3">
+    <div class="product-sales-area mg-tb-30">
+        <div class="container-fluid">
+            <form method="post" enctype="multipart/form-data">
+
+                <!-- SECTION 1 : Approval of Certificate Split -->
+                <h4>Approval of Certificate Split</h4>
+
+                <div class="row approval">
+                    <div class="col-md-12 bold form-row">
+                        Approval Mode: &nbsp;
+                        <label><input type="radio" name="whichmeeting" value="Board meeting"> In Board Meeting</label> &nbsp;&nbsp;
+                        <label><input type="radio" name="whichmeeting" value="Circular Resolution"> By Circular Resolution</label>
+                    </div>
+                </div>
+
+                <!-- Board Meeting -->
+                <div id="boardmeeting">
+                    <div class="row">
+                        <div class="col-md-12 bold form-row">
+                            Do you want to incorporate this agenda in existing Board Meeting? &nbsp;
+                            <label><input type="radio" name="existmeeting" value="Yes"> Yes</label> &nbsp;&nbsp;
+                            <label><input type="radio" name="existmeeting" value="No"> No</label>
+                        </div>
+                    </div>
+
+                    <!-- Existing Meeting -->
+                    <div class="row" id="existmeetingyes">
+                        <div class="col-md-3 bold form-row">Select Existing Meeting</div>
+                        <div class="col-md-9 form-row">
+                            <select name="m_id" class="form-control m_id" id="m_id">
+                                <option value="">Select Existing Meeting</option>
+                                <option value="143245" selected>15/04/2025</option>
+                                <option value="94757">30/09/2024</option>
+                                <option value="94756">14/08/2024</option>
+                                <option value="94755">15/06/2024</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- New Meeting -->
+                    <div class="row" id="existmeetingno" style="display:none;">
+                        <div class="col-md-3 bold form-row">Date of New Meeting</div>
+                        <div class="col-md-3 form-row">
+                            <input type="text" name="meetingdate" id="meetingdate" class="form-control datepicker" value="15/04/2025">
+                        </div>
+                        <div class="col-md-3 bold form-row">Time of New Meeting</div>
+                        <div class="col-md-3 form-row">
+                            <div class="input-group date">
+                                <input id="datetimepicker2" type="text" name="timing" class="form-control timing" value="7:14 PM">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Circular Resolution -->
+                <div id="circular" style="display:none;">
+                    <div class="row">
+                        <div class="col-md-4 bold form-row">Date of Passing Circular Resolution</div>
+                        <div class="col-md-8 form-row">
+                            <input type="text" name="circularresdate" id="circularresdate" class="form-control datepicker" placeholder="Date of Passing Circular Resolution">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Authorized Signatory -->
+                <div class="row">
+                    <div class="col-md-4 bold form-row">Name of the Authorized Signatory</div>
+                    <div class="col-md-8 form-row">
+                        <select name="chairman" required class="form-control director">
+                            <option value="">Select Director</option>
+                            <option value="07693548">Kiran Premchand Shah</option>
+                            <option value="07691455">Pakshal Kiran Shah</option>
+                        </select>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- SECTION 2 : Particulars of Certificates -->
+                <h4>Particulars of Certificates</h4>
+
+                <div id="certificateEntries">
+                    <div id="entriesContainer">
+                        <div class="entry-block card p-3 mb-3">
+                            <h5 class="entry-title">Entry No. 1</h5>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Type of share</label>
+                                    <select class="form-control">
+                                        <option value="">Select Type of Share</option>
+                                        <option>Equity</option>
+                                        <option>Preference</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>List of Existing Share Certificate</label>
+                                    <select class="form-control">
+                                        <option value="">Select Share Certificate</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label>Existing Certificate No.</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Total No. of Shares</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-6">
+                                    <label>Date of Issue of new certificate</label>
+                                    <input type="date" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>How many share certificates do you want?</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                            </div>
+
+                            <button type="button" class="btn btn-danger mt-3 remove-entry" style="display:none;">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+
+                   
+                    <button type="button" id="addMore" class="btn btn-primary">+ Add More</button>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">
+                            Agenda Preface
+                        </div>
+                        <div class="col-md-9">
+                            <textarea rows="6" class="form-control">
+                            The Chairman will inform the Board that the Company has received a request from {shareholder-shareholders} for splitting share certificates. The Board shall review the matter and if found in order, the share certificate appearing in the name of {shareholder-shareholders} who {has-have} made the request be split into {Number of Certificates} certificates, will be issued split share certificates. The Board may pass the following resolution in this regard:    
+                            </textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">
+                            Minute Preface
+                        </div>
+                        <div class="col-md-9">
+                            <textarea rows="6" class="form-control">
+The Chairman will inform the Board that the Company has received a request from {shareholder-shareholders} for splitting share certificates. The Board shall review the matter and if found in order, the share certificate appearing in the name of {shareholder-shareholders} who {has-have} made the request be split into {Number of Certificates} certificates, will be issued split share certificates. The matter was discuused, and the following resolution was passed in the regard:
+</textarea>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">
+                            Resolution for Notice
+                        </div>
+                        <div class="col-md-9">
+                            <textarea rows="12" class="form-control">
+“RESOLVED THAT the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to split the [share] certificate of [Name of the Shareholder] with respect to the letter to split the [share] certificate received from him/her in the following manner:
+        </textarea>
+
+                            <table class="table-bordered-custom" id="holderTable">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Sr. No.</th>
+                                        <th rowspan="2">Name on the certificate</th>
+                                        <th rowspan="2">No of securities</th>
+                                        <th rowspan="2">New Certificate No.</th>
+                                        <th colspan="2">Distinctive No.</th>
+                                        <th rowspan="2">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <th>From</th>
+                                        <th>To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="srno">1</td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm addRow">+</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+                            <textarea rows="5" class="form-control mt-3">
+RESOLVED FURTHER THAT the old [share] certificate be and are hereby cancelled and new [share] certificates as detailed above be and are hereby issued, signed by any two directors of the Company and be counter signed by any authorized signatory of the Company, under the common seal of the company. And also state on the face thereof the words “Spilted issued in lieu of certificate No.”.
+
+RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions”
+</textarea>
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">
+                            Resolution for Minutes
+                        </div>
+                        <div class="col-md-9">
+                            <textarea rows="12" class="form-control">
+“RESOLVED THAT the consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to split the [share] certificate of [Name of the Shareholder] with respect to the letter to split the [share] certificate received from him/her in the following manner:
+        </textarea>
+
+                            <!-- Table for Share Certificates -->
+                            <table class="table-bordered-custom" id="holderTable2">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Sr. No.</th>
+                                        <th rowspan="2">Name on the certificate</th>
+                                        <th rowspan="2">No of securities</th>
+                                        <th rowspan="2">New Certificate No.</th>
+                                        <th colspan="2">Distinctive No.</th>
+                                        <th rowspan="2">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <th>From</th>
+                                        <th>To</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="srno">1</td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary btn-sm addRow">+</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <textarea rows="5" class="form-control mt-3">
+RESOLVED FURTHER THAT the old [share] certificate be and are hereby cancelled and new [share] certificates as detailed above be and are hereby issued, signed by any two directors of the Company and be counter signed by any authorized signatory of the Company, under the common seal of the company. And also state on the face thereof the words “Spilted issued in lieu of certificate No.”.
+
+RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions”
+ </textarea>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                        <h6>Signatory of New Certificates</h6>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <label>Signing Director 1</label>
+                                <select class="form-control"><option>Select Director</option></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Signing Director 2</label>
+                                <select class="form-control"><option>Select Director</option></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label>Authorized Signatory</label>
+                                <input type="text" class="form-control" placeholder="Authorized Signatory" />
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <hr>
+
+               
+
+                <!-- Submit -->
+                <div class="row mt-3 justify-content-end">
+                    <div class="col-md-2 text-end">
+                        <input type="submit" name="submit" class="btn btn-primary" value="Submit">
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // initialize both tables
+      ['holderTable', 'holderTable2'].forEach(initTable);
+
+      function initTable(tableId) {
+        const table = document.getElementById(tableId);
+        if (!table) return;
+
+        const tbody = table.tBodies[0];
+        if (!tbody || !tbody.rows.length) return;
+
+        // set buttons for first row
+        setButtons(tbody.rows[0], true);
+
+        // delegate clicks for + and - buttons
+        table.addEventListener('click', function (e) {
+          const btn = e.target.closest('button');
+          if (!btn) return;
+
+          const row = btn.closest('tr');
+
+          // Add row
+          if (btn.classList.contains('addRow')) {
+            const template = tbody.rows[0];
+            const newRow = template.cloneNode(true);
+
+            // clear inputs
+            newRow.querySelectorAll('input').forEach(function (inp) {
+              if (inp.type === 'checkbox' || inp.type === 'radio') {
+                inp.checked = false;
+              } else {
+                inp.value = '';
+              }
+            });
+
+            // new row only has remove (-) button
+            setButtons(newRow, false);
+
+            tbody.appendChild(newRow);
+            renumberSrNo(tbody);
+          }
+
+          // Remove row
+          if (btn.classList.contains('removeRow')) {
+            row.remove();
+            renumberSrNo(tbody);
+          }
+        });
+
+        // initial numbering
+        renumberSrNo(tbody);
+      }
+
+      function setButtons(row, isFirstRow) {
+        const actionCell = row.cells[row.cells.length - 1];
+        if (isFirstRow) {
+          actionCell.innerHTML = '<button type="button" class="btn btn-primary btn-sm addRow">+</button>';
+        } else {
+          actionCell.innerHTML = '<button type="button" class="btn btn-danger btn-sm removeRow">-</button>';
+        }
+      }
+
+      function renumberSrNo(tbody) {
+        Array.from(tbody.rows).forEach(function (r, i) {
+          const srCell = r.querySelector('.srno');
+          if (srCell) srCell.textContent = i + 1;
+        });
+      }
+    });
+</script>
+
+
+
+
+<script>
+    let entryCount = 1;
+
+    document.getElementById("addMore").addEventListener("click", function () {
+        entryCount++;
+        let container = document.getElementById("entriesContainer");
+        let newEntry = container.firstElementChild.cloneNode(true);
+
+        // Update title
+        newEntry.querySelector(".entry-title").innerText = "Entry No. " + entryCount;
+
+        // Clear inputs
+        newEntry.querySelectorAll("input, select").forEach(el => el.value = "");
+
+        // Show remove button for new entries
+        newEntry.querySelector(".remove-entry").style.display = "inline-block";
+
+        container.appendChild(newEntry);
+    });
+
+    // Handle remove button
+    document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("remove-entry")) {
+            e.target.closest(".entry-block").remove();
+        }
+    });
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        function toggleMeetingSections() {
+            var meetingType = $("input[name='whichmeeting']:checked").val();
+            var existMeeting = $("input[name='existmeeting']:checked").val();
+
+            if (meetingType === "Board meeting") {
+                $("#boardmeeting").show();
+                $("#circular").hide();
+
+                if (existMeeting === "Yes") {
+                    $("#existmeetingyes").show();
+                    $("#existmeetingno").hide();
+                } else if (existMeeting === "No") {
+                    $("#existmeetingyes").hide();
+                    $("#existmeetingno").show();
+                } else {
+                    // Default state if nothing selected
+                    $("#existmeetingyes").hide();
+                    $("#existmeetingno").hide();
+                }
+            }
+            else if (meetingType === "Circular Resolution") {
+                $("#boardmeeting").hide();
+                $("#circular").show();
+            }
+            else {
+                // If no option is selected
+                $("#boardmeeting").hide();
+                $("#circular").hide();
+                $("#existmeetingyes").hide();
+                $("#existmeetingno").hide();
+            }
+        }
+
+        // Event bindings
+        $("input[name='whichmeeting'], input[name='existmeeting']").on("change", toggleMeetingSections);
+
+        // Run once on page load
+        toggleMeetingSections();
+    });
+</script>
+

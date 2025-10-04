@@ -1,0 +1,236 @@
+﻿@{
+    ViewData["Title"] = "Director Details";
+    ViewBag.ShowSearch = false;
+    ViewBag.ShowClear = false;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Director / KMP Details</h3>
+            <button class="btn btn-sm btn-outline-secondary" onclick="window.history.back()">
+                <i class="fa fa-arrow-left px-2 fs-6"></i>Back
+            </button>
+        </div>
+        <div class="card-body">
+            <div id="loadingSpinner" class="text-center p-5">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p class="mt-2">Loading director details...</p>
+            </div>
+            <div id="directorDetails" style="display: none;">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5 class="border-bottom pb-2">Personal Information</h5>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Full Name:</label>
+                            <div class="col-sm-8" id="fullName"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">DIN:</label>
+                            <div class="col-sm-8" id="din"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Father's Name:</label>
+                            <div class="col-sm-8" id="fatherName"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Date of Birth:</label>
+                            <div class="col-sm-8" id="dob"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Gender:</label>
+                            <div class="col-sm-8" id="gender"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Nationality:</label>
+                            <div class="col-sm-8" id="nationality"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="border-bottom pb-2">Contact Information</h5>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Email:</label>
+                            <div class="col-sm-8" id="email"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Mobile:</label>
+                            <div class="col-sm-8" id="mobile"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Address:</label>
+                            <div class="col-sm-8" id="address"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">City:</label>
+                            <div class="col-sm-8" id="city"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">State:</label>
+                            <div class="col-sm-8" id="state"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">PIN Code:</label>
+                            <div class="col-sm-8" id="pinCode"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <h5 class="border-bottom pb-2">Professional Details</h5>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Designation:</label>
+                            <div class="col-sm-8" id="designation"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Appointment Date:</label>
+                            <div class="col-sm-8" id="appointmentDate"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">DSC Expiry:</label>
+                            <div class="col-sm-8" id="dscExpiry"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">DIN Status:</label>
+                            <div class="col-sm-8" id="dinStatus"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">KYC Status:</label>
+                            <div class="col-sm-8" id="kycStatus"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="border-bottom pb-2">Document Details</h5>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">PAN:</label>
+                            <div class="col-sm-8" id="pan"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Aadhaar:</label>
+                            <div class="col-sm-8" id="aadhaar"></div>
+                        </div>
+                        <div class="row mb-2">
+                            <label class="col-sm-4 fw-bold">Passport:</label>
+                            <div class="col-sm-8" id="passport"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-end mt-4">
+                    <button class="btn btn-sm btn-outline-primary me-2" onclick="editDirector()">
+                        <i class="fa fa-pencil-square px-2 fs-6"></i>Edit
+                    </button>
+                    <button class="btn btn-sm btn-outline-danger" onclick="deleteDirector()">
+                        <i class="fa fa-trash-alt px-2 fs-6"></i>Delete
+                    </button>
+                </div>
+            </div>
+            <div id="errorMessage" class="alert alert-danger text-center" style="display: none;">
+                Failed to load director details. Please try again.
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Get director ID from URL
+            const pathParts = window.location.pathname.split('/');
+            const directorId = pathParts[pathParts.length - 1];
+
+            if (directorId && !isNaN(directorId)) {
+                loadDirectorDetails(directorId);
+            } else {
+                $('#loadingSpinner').hide();
+                $('#errorMessage').text('Invalid director ID').show();
+            }
+        });
+
+        function loadDirectorDetails(id) {
+            $.ajax({
+                url: `@R.ApiUrl/Director/${id}`,
+                method: 'GET',
+                success: function(response) {
+                    $('#loadingSpinner').hide();
+
+                    if (response && response.id) {
+                        populateDirectorData(response);
+                        $('#directorDetails').show();
+                    } else {
+                        $('#errorMessage').text('Director not found').show();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#loadingSpinner').hide();
+                    $('#errorMessage').text('Error loading director details: ' + error).show();
+                    console.error('Error loading director:', error);
+                }
+            });
+        }
+
+        function populateDirectorData(director) {
+            // Personal Information
+            $('#fullName').text(`${director.firstName || ''} ${director.middleName || ''} ${director.lastName || ''}`);
+            $('#din').text(director.din || 'N/A');
+            $('#fatherName').text(director.fatherName || 'N/A');
+            $('#dob').text(director.dob ? FORMAT_DATE(director.dob) : 'N/A');
+            $('#gender').text(director.gender || 'N/A');
+            $('#nationality').text(director.nationality || 'N/A');
+
+            // Contact Information
+            $('#email').text(director.email || 'N/A');
+            $('#mobile').text(director.mobile || 'N/A');
+            $('#address').text(director.address || 'N/A');
+            $('#city').text(director.city || 'N/A');
+            $('#state').text(director.state || 'N/A');
+            $('#pinCode').text(director.pinCode || 'N/A');
+
+            // Professional Details
+            $('#designation').text(director.designation || 'N/A');
+            $('#appointmentDate').text(director.appointmentDate ? FORMAT_DATE(director.appointmentDate) : 'N/A');
+            $('#dscExpiry').text(director.dscExpiry ? FORMAT_DATE(director.dscExpiry) : 'N/A');
+            $('#dinStatus').text(director.dinStatus || 'N/A');
+            $('#kycStatus').text(director.dirKycStatus || 'N/A');
+
+            // Document Details
+            $('#pan').text(director.pan || 'N/A');
+            $('#aadhaar').text(director.aadhaar || 'N/A');
+            $('#passport').text(director.passport || 'N/A');
+        }
+
+        function editDirector() {
+            const pathParts = window.location.pathname.split('/');
+            const directorId = pathParts[pathParts.length - 1];
+            window.location.href = `@Url.Action("Director", "Home")/Edit/${directorId}`;
+        }
+
+        function deleteDirector() {
+            const pathParts = window.location.pathname.split('/');
+            const directorId = pathParts[pathParts.length - 1];
+
+            if (confirm('Are you sure you want to delete this director?')) {
+                $.get(`@R.ApiUrl/Director/${directorId}/delete`)
+                    .then(response => {
+                        toastr[response.status ? 'success' : 'error'](response.message);
+                        if (response.status) {
+                            // Redirect to list page after successful deletion
+                            setTimeout(() => {
+                                window.location.href = '@Url.Action("Director", "Home")';
+                            }, 1500);
+                        }
+                    })
+                    .catch(error => {
+                        toastr.error('Error deleting director');
+                        console.error('Delete error:', error);
+                    });
+            }
+        }
+
+        
+    </script>
+}

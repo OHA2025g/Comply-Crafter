@@ -1,0 +1,596 @@
+﻿@{
+    ViewData["Title"] = "Director Appointment Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">Appointment of Director & Related Details</h4>
+
+    <form asp-action="Save" method="post">
+
+
+        <div class="section-heading">APPOINTMENT OF DIRECTOR</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Designation for Appointment</strong></label>
+                    <select class="form-select" name="Designation">
+                        <option value="">Select Designation</option>
+                        <option>Director</option>
+                        <option>Managing Director</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Category</strong></label>
+                    <select class="form-select" name="Category">
+                        <option value="">Select Category</option>
+                        <option>Executive</option>
+                        <option>Non-Executive</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="form-label d-block"><strong>The Appointee is</strong></label>
+                    <div>
+                        <label class="me-3"><input type="radio" name="Appointee" value="Chairman"> Chairman</label>
+                        <label class="me-3"><input type="radio" name="Appointee" value="Executive"> Executive Director</label>
+                        <label><input type="radio" name="Appointee" value="Non-Executive" checked> Non-Executive Director</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Passing Circular Resolution</strong></label>
+                    <input type="date" class="form-control" name="ResolutionDate" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="Signatory">
+                        <option value="">Select</option>
+                        <option>Kiran Premchand Shah (07693548) (Director)</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="section-heading">DETAILS OF DIRECTOR</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3 align-items-end">
+                <div class="col-md-4">
+                    <label class="form-label"><strong>DIN</strong></label>
+                    <input type="text" class="form-control" name="DIN" value="08866956" />
+                </div>
+                @*  <div class="col-md-4">
+                    <label class="form-label d-block">&nbsp;</label>
+                    <button type="button" class="btn btn-sm btn-outline-primary w-100">Prefill from MCA <i class="fa fa-database ms-1"></i></button>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label d-block">&nbsp;</label>
+                    <button type="button" class="btn btn-sm btn-outline-secondary w-100">Import from Database <i class="fa fa-database ms-1"></i></button>
+                </div> *@
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name</strong></label>
+                    <input type="text" class="form-control" name="Name" value="Aalisha Shah" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Father's Name</strong></label>
+                    <input type="text" class="form-control" name="FatherName" value="Viral Shah" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Gender</strong></label>
+                    <select class="form-select" name="Gender">
+                        <option>Male</option>
+                        <option selected>Female</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>DOB</strong></label>
+                    <input type="date" class="form-control" name="DOB" value="1992-08-16" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="form-label"><strong>Address</strong></label>
+                    <input type="text" class="form-control" name="Address" value="201 A Mangal Kunj Mount Pleasant Road Near Sahyadri Guest House Malabar Hill S, Mumbai, 400054, Maharashtra, India" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Email</strong></label>
+                    <input type="email" class="form-control" name="Email" value="aalisha92@gmail.com" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Mobile Number</strong></label>
+                    <input type="text" class="form-control" name="Mobile" value="+919820653381" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>PAN</strong></label>
+                    <input type="text" class="form-control" name="PAN" value="JEOPS7411Q" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Nationality</strong></label>
+                    <input type="text" class="form-control" name="Nationality" value="India" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Occupation</strong></label>
+                    <input type="text" class="form-control" name="Occupation" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Appointment</strong></label>
+                    <input type="date" class="form-control" name="AppointmentDate" value="2025-09-06" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Consent</strong></label>
+                    <input type="date" class="form-control" name="ConsentDate" value="2025-09-06" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Place of Signing Consent</strong></label>
+                    <input type="text" class="form-control" name="ConsentPlace" />
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="form-label d-block"><strong>Is the applicant member of any Professional Institute?</strong></label>
+                    <div>
+                        <label class="me-3">
+                            <input type="radio" name="InstituteMember" value="Yes"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="InstituteMember" value="No"> No
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="instituteFields" style="display:none;">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Professional Institute Name</strong></label>
+                        <input type="text" class="form-control" name="InstituteName">
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Membership No.</strong></label>
+                        <input type="text" class="form-control" name="MembershipNo">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Certificate of Practice No</strong></label>
+                        <input type="text" class="form-control" name="PracticeNo">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="section-heading">Interest in Other Entities</div>
+
+        <table class="custom-table" id="interestTable">
+            <thead>
+                <tr>
+                    <th>CIN</th>
+                    <th>Company Name</th>
+                    <th>Date of Appointment</th>
+                    <th>Designation</th>
+                    <th>Other, if any</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <br>
+        <button type="button" class="btn btn-primary" onclick="addInterestRow()">
+            <i class="fa fa-plus"></i> Add row
+        </button>
+
+
+
+
+
+        <!-- SECTION 5: DOCUMENTS -->
+        <div class="section-heading">DOCUMENTS</div>
+        <table class="custom-table">
+            <thead>
+                <tr>
+                    <th>TITLE OF DOCUMENT</th>
+                    <th>SIGNING DATE</th>
+                    <th>SIGNING PLACE</th>
+                    <th>VIEW</th>
+                    <th>WORD</th>
+                    <th>PDF</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>DIR 2</td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>APPOINTMENT LETTER</td>
+                    <td><input type="date" class="form-control" /></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>INTEREST IN OTHER ENTITIES</td>
+                    <td><input type="date" class="form-control" /></td>
+                    <td><input type="text" class="form-control" /></td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>CREATE DIR-8</td>
+                    <td colspan="2"><a href="#" class="text-primary">GO TO RELATED PARTY</a></td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>CREATE MBP-1</td>
+                    <td colspan="2"><a href="#" class="text-primary">GO TO RELATED PARTY</a></td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>CTC OF BR-</td>
+                    <td><a href="#" class="text-primary">GO TO BM</a></td>
+                    <td>Signatory of CTC</td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+                <tr>
+                    <td>CTC OF BR-</td>
+                    <td><a href="#" class="text-primary">GO TO BM</a></td>
+                    <td>Signatory of CTC</td>
+                    <td><i class="fa fa-eye text-primary"></i></td>
+                    <td><i class="fa fa-file-word text-info"></i></td>
+                    <td><i class="fa fa-file-pdf text-danger"></i></td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select name="agenda" class="form-control">
+                    <option>To appoint {Name of Director} as Nominee Director</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To appoint {Name of Director} as Nominee Director">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To appoint {Name of Director} as Nominee Director">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+      </textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Notice
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Minutes
+            </div>
+            <div class="col-md-9">
+                <textarea rows="12" class="form-control">
+
+</textarea>
+            </div>
+        </div>
+
+        <!-- Resolution Signatory Table -->
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution Signatory Details
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control">
+                            </td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">
+                    Submit Resolution
+                </button>
+            </div>
+        </div>
+
+
+
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+    function addInterestRow() {
+        let table = document.getElementById("interestTable").getElementsByTagName("tbody")[0];
+        let newRow = table.insertRow();
+
+        newRow.innerHTML = `
+            <td><input type="text" class="form-control" name="CIN[]"></td>
+            <td><input type="text" class="form-control" name="CompanyName[]"></td>
+            <td><input type="date" class="form-control" name="DateOfAppointment[]"></td>
+            <td><input type="text" class="form-control" name="Designation[]"></td>
+            <td><input type="text" class="form-control" name="Other[]"></td>
+            <td>
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        `;
+    }
+
+    function removeRow(btn) {
+        let row = btn.closest("tr");
+        row.remove();
+    }
+</script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const radios = document.querySelectorAll('input[name="InstituteMember"]');
+        const fields = document.getElementById('instituteFields');
+
+        radios.forEach(radio => {
+            radio.addEventListener('change', function () {
+                if (this.value === "Yes") {
+                    fields.style.display = "block";
+                } else {
+                    fields.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    function addSignatoryRow() {
+        let tableBody = document.querySelector("#signatoryTable tbody");
+        let rowCount = tableBody.rows.length + 1;
+
+        let newRow = document.createElement("tr");
+        newRow.innerHTML = `
+            <td>${rowCount}</td>
+            <td>
+                <select class="form-select">
+                    <option value="">Select Signatory</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Michael Johnson</option>
+                    <option>Emily Davis</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+            </td>
+            <td>
+                <input type="date" class="form-control">
+            </td>
+            <td style="text-align:center;">
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">-</button>
+            </td>
+        `;
+
+        tableBody.appendChild(newRow);
+    }
+
+    function removeRow(button) {
+        let row = button.closest("tr");
+        row.remove();
+
+        // Re-number rows
+        document.querySelectorAll("#signatoryTable tbody tr").forEach((tr, index) => {
+            tr.cells[0].innerText = index + 1;
+        });
+    }
+</script>
+<script>
+    function addAuthorizedRow() {
+        let table = document.querySelector('.custom-table tbody');
+        let newRow = document.createElement('tr');
+
+        newRow.innerHTML = `
+            <td><strong>Name of Authorized Person</strong></td>
+            <td>
+                <select class="form-control">
+                    <option value="">Select name</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Michael Johnson</option>
+                    <option>Emily Davis</option>
+                </select>
+            </td>
+            <td colspan="2" class="text-center">
+                <button type="button" class="btn btn-danger btn-sm" onclick="removeRow(this)">-</button>
+            </td>
+        `;
+
+        table.appendChild(newRow);
+    }
+
+    function removeRow(button) {
+        button.closest('tr').remove();
+    }
+</script>
+
+
+
+
+
+
+

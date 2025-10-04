@@ -1,0 +1,615 @@
+﻿@{
+    Layout = null; 
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@R.AppName Dashboard">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="stacks"> 
+    <title>@R.AppName</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/assets/plugins/pace/pace.css" rel="stylesheet">
+    <link href="~/assets/plugins/highlight/styles/github-gist.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/r-3.0.3/sc-2.4.3/datatables.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.1.1/css/bootstrap5-toggle.min.css" rel="stylesheet">
+    <link href="~/assets/css/main.min.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link href="~/assets/plugins/select2/css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2-bootstrap-5-theme@1.3.0/dist/select2-bootstrap-5-theme.min.css" />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" href="~/img/favicon.png" />
+    <link rel="shortcut icon" href="~/img/favicon.png" />
+    <link rel="apple-touch-icon" href="~/img/favicon.png" />
+    <link href="~/assets/plugins/toastr/toastr.min.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+    <script src="~/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/themes/black-tie/jquery-ui.min.css" />
+        <script>var url = '@R.ApiUrl/Auth/ValidateCompany'; $.ajaxSetup({ headers: { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` } }); $.ajax({ url: url, type: 'GET', async: false, success: r => appuser = r.responseObject, error: _ => { window.location = '@Url.Action("CustomerLogin", "Home")' } })</script>
+
+    <style>
+        .accordion-menu > li > ul ul {
+            padding: 5px 0 5px 2px !important;
+        }
+
+        .app-menu > ul > li ul li a {
+            padding: 5px 10px !important;
+        }
+
+        .app-menu .fa {
+            font-size: 1.5em;
+        }
+
+        .app-menu a:hover .fa {
+            filter: none;
+        }
+
+    </style>
+
+    <style>
+        .is-invalid + .select2-container--bootstrap-5 .select2-selection, .was-validated select:invalid + .select2-container--bootstrap-5 .select2-selection {
+            border-color: #dc3545 !important;
+        }
+
+        .is-valid + .select2-container--bootstrap-5 .select2-selection, .was-validated select:valid + .select2-container--bootstrap-5 .select2-selection {
+            border-color: #4bad48 !important;
+        }
+
+        .select2-container .select2-selection, .select2-container .selection {
+            padding-top: 9px;
+            padding-bottom: 9px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app align-content-stretch d-flex flex-wrap">
+        <div class="app-sidebar app-sidebar-min">
+            <div class="logo">
+                <a href="@Url.Action("DMS","Customer")" class="logo-icon w-100"><span class="logo-text d-none d-md-block">@R.AppName</span></a>
+            </div>
+            <div class="app-menu">
+                <ul class="accordion-menu">
+                    <li class="">
+                        <a href="@Url.Action("DMS","Customer")" class=""><i class="fa fa-file-signature"></i><span>DMS</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="app-container">
+            <div class="search">
+                <form>
+                    <input class="form-control" type="text" placeholder="Type here..." aria-label="Search" id="headCompSearch">
+                </form>
+                <a href="#" class="toggle-search"><i class="material-icons">close</i></a>
+            </div>
+            <div class="app-header">
+                <nav class="navbar navbar-light navbar-expand-lg">
+                    <div class="container-fluid">
+                        <div class="navbar-nav" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item d-block d-md-none">
+                                    <a class="nav-link hide-sidebar-toggle-button" href="#"><i class="material-icons">last_page</i></a>
+                                </li>
+                            </ul>
+                            <h4 name="company_name"><script>document.write(appuser.companyName)</script></h4>
+                        </div>
+                        <div class="d-flex">
+                            <ul class="navbar-nav">
+                                <li class="nav-item @(ViewBag.ShowSearch != null ? "d-md-block" : "") d-none">
+                                    <a class="nav-link toggle-search" href="#">Switch Company&nbsp;&nbsp;<i class="material-icons">search</i></a>
+                                </li>
+                                <li class="nav-item user">
+                                    <a class="nav-link nav-notifications-toggle" id="userDropdown" href="#" data-bs-toggle="dropdown">
+                                        <i class="fa fa-user-tie"></i>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end notifications-dropdown" aria-labelledby="userDropdown">
+                                        <h6 class="dropdown-header"><script>document.write(appuser.companyName)</script></h6>
+                                        <div class="notifications-dropdown-list pointer">
+                                            <div class="notifications-dropdown-item">
+                                                <a href="@Url.Action("CustomerLogin", "Home")">
+                                                    <div class="d-flex">
+                                                        <i class="fa fa-lock me-2 my-auto"></i>
+                                                        <span class="my-auto">Logout</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="app-content">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        <main role="main" class="pb-3">
+                            <div class="row m-auto">
+                                <div class="card">
+                                    <div class="card-header d-flex justify-content-between mb-3">
+                                        <h3 class="card-title mb-0 fs-4" style="margin-top:1px">
+                                            Documents
+                                        </h3>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="add()"><i class="fa fa-plus px-2 fs-6"></i>Add</button>
+                                    </div>
+                                    <div class="card-body">
+                                        <table id="tbl" class="display nowrap" style="width:100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Sr.No </th>
+                                                    <th>Form Name </th>
+                                                    <th>Event Date </th>
+                                                    <th>Original Files </th>
+                                                    <th>Client Uploads </th>
+                                                    <th>Action</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody></tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal" id="myModal">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">DMS</h4>
+                                            <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form id="frm">
+                                                <div class="row">
+                                                    <div class="col-md-6 my-2 form-group">
+                                                        <label class="form-label">Form</label>
+                                                        <select class="form-control" name="formName">
+                                                            <option>ADJ</option>
+                                                            <option>ADT-1</option>
+                                                            <option>ADT-2</option>
+                                                            <option>ADT-3</option>
+                                                            <option>AGILE PRO</option>
+                                                            <option>Annual Return_Physical</option>
+                                                            <option>AOC-4</option>
+                                                            <option>AOC-4 CFS</option>
+                                                            <option>AOC-4 CFS NBFC</option>
+                                                            <option>AOC-4 NBFC</option>
+                                                            <option>AOC-4(XBRL)</option>
+                                                            <option>AOC-5</option>
+                                                            <option>Balance Sheet_Physical</option>
+                                                            <option>BEN-2</option>
+                                                            <option>CFI(CSR)</option>
+                                                            <option>CFSS-2020</option>
+                                                            <option>CG-1</option>
+                                                            <option>CHG-1</option>
+                                                            <option>CHG-4</option>
+                                                            <option>CHG-6</option>
+                                                            <option>CHG-8</option>
+                                                            <option>CHG-9</option>
+                                                            <option>Company Name Reservation</option>
+                                                            <option>CRA-2</option>
+                                                            <option>CRA-4</option>
+                                                            <option>CRL-1</option>
+                                                            <option>CSR-1</option>
+                                                            <option>CSR-2</option>
+                                                            <option>DIR-3</option>
+                                                            <option>DIR-3 KYC</option>
+                                                            <option>DIR-3C</option>
+                                                            <option>DIR-5</option>
+                                                            <option>DIR-6</option>
+                                                            <option>DIR-9</option>
+                                                            <option>DIR-10</option>
+                                                            <option>DIR-11</option>
+                                                            <option>DIR-12</option>
+                                                            <option>DPT-1</option>
+                                                            <option>DPT-3</option>
+                                                            <option>DPT-4</option>
+                                                            <option>FC-1</option>
+                                                            <option>FC-2</option>
+                                                            <option>FC-3</option>
+                                                            <option>FC-4</option>
+                                                            <option>FORM 1A_1956</option>
+                                                            <option>FORM 1AD_1956</option>
+                                                            <option>FORM 2</option>
+                                                            <option>FORM-3_Incorporation</option>
+                                                            <option>FORM-3_Modification</option>
+                                                            <option>FORM-4</option>
+                                                            <option>FORM-4A</option>
+                                                            <option>FORM-5</option>
+                                                            <option>FORM 5_1956</option>
+                                                            <option>FORM-8 (Statement of Account and Solvency)</option>
+                                                            <option>FORM-8 (Charge)</option>
+                                                            <option>FORM-9</option>
+                                                            <option>FORM-11</option>
+                                                            <option>FORM-12</option>
+                                                            <option>FORM-14</option>
+                                                            <option>FORM-15</option>
+                                                            <option>FORM-17</option>
+                                                            <option>FORM-18</option>
+                                                            <option>FORM-18_1956</option>
+                                                            <option>FORM 20B_1956</option>
+                                                            <option>FORM 21_1956</option>
+                                                            <option>FORM 21A_1956</option>
+                                                            <option>FORM-22</option>
+                                                            <option>FORM-23_LLP</option>
+                                                            <option>FORM 23_1956</option>
+                                                            <option>FORM 23AAA_1956</option>
+                                                            <option>FORM 23AAB_1956</option>
+                                                            <option>FORM 23AC_1956</option>
+                                                            <option>FORM 23ACA_1956</option>
+                                                            <option>FORM 23AC-XBRL_1956</option>
+                                                            <option>FORM 23ACA-XBRL_1956</option>
+                                                            <option>FORM 23B_1956</option>
+                                                            <option>FORM 23C_1956</option>
+                                                            <option>FORM 23D</option>
+                                                            <option>FORM-24</option>
+                                                            <option>FORM 24A_1956</option>
+                                                            <option>FORM 24AAA_1956</option>
+                                                            <option>FORM 24AB_1956</option>
+                                                            <option>FORM 24B_1956</option>
+                                                            <option>FORM-25</option>
+                                                            <option>FORM 25C</option>
+                                                            <option>FORM-27</option>
+                                                            <option>FORM-28</option>
+                                                            <option>FORM-29</option>
+                                                            <option>FORM-31</option>
+                                                            <option>FORM-32_LLP</option>
+                                                            <option>FORM-32_1956</option>
+                                                            <option>FORM 61_1956</option>
+                                                            <option>FORM 62</option>
+                                                            <option>FORM 63_1956</option>
+                                                            <option>FORM 64_1956</option>
+                                                            <option>FORM 65_1956</option>
+                                                            <option>FORM 66_1956</option>
+                                                            <option>FORM A-XBRL </option>
+                                                            <option>FORM I-XBRL</option>
+                                                            <option>FORM REFUND</option>
+                                                            <option>FTE</option>
+                                                            <option>GNL-1</option>
+                                                            <option>GNL-2</option>
+                                                            <option>GNL-3</option>
+                                                            <option>GNL-4</option>
+                                                            <option>ICP</option>
+                                                            <option>INC-1</option>
+                                                            <option>INC-3</option>
+                                                            <option>INC-4</option>
+                                                            <option>INC-13(e-MOA)</option>
+                                                            <option>INC-31(e-AOA)</option>
+                                                            <option>INC-33(e-MOA)</option>
+                                                            <option>INC-34(e-AOA)</option>
+                                                            <option>INC-6</option>
+                                                            <option>INC-12</option>
+                                                            <option>INC-18</option>
+                                                            <option>INC-20</option>
+                                                            <option>INC-20A</option>
+                                                            <option>INC-22</option>
+                                                            <option>INC-22A</option>
+                                                            <option>INC-23</option>
+                                                            <option>INC-24</option>
+                                                            <option>INC-27</option>
+                                                            <option>INC-28</option>
+                                                            <option>FiLLiP</option>
+                                                            <option>RUN</option>
+                                                            <option>RUN LLP</option>
+                                                            <option>MGT-3</option>
+                                                            <option>MGT-6</option>
+                                                            <option>MGT-7</option>
+                                                            <option>MGT-7A</option>
+                                                            <option>MGT-10</option>
+                                                            <option>MGT-14</option>
+                                                            <option>MGT-15</option>
+                                                            <option>MR-1</option>
+                                                            <option>MR-2</option>
+                                                            <option>MSC-1</option>
+                                                            <option>MSC-3</option>
+                                                            <option>MSME</option>
+                                                            <option>NDH-1</option>
+                                                            <option>NDH-2</option>
+                                                            <option>NDH-3</option>
+                                                            <option>NDH-4</option>
+                                                            <option>PAS-2</option>
+                                                            <option>PAS-3</option>
+                                                            <option>PAS-4</option>
+                                                            <option>PAS-6</option>
+                                                            <option>RD-1</option>
+                                                            <option>SCP</option>
+                                                            <option>SH-7</option>
+                                                            <option>SH-8</option>
+                                                            <option>SH-9</option>
+                                                            <option>SH-11</option>
+                                                            <option>Search</option>
+                                                            <option>Spice+ Part A</option>
+                                                            <option>Spice+ Part B</option>
+                                                            <option>Spice INC-9</option>
+                                                            <option>SPICE+ MOA</option>
+                                                            <option>SPICE+ AOA</option>
+                                                            <option>URC-1</option>
+                                                            <option>Stamp Duty Fee for CERTIFICATE OF INCORPORATION</option>
+                                                            <option>Fee For Company Incorporation</option>
+                                                            <option>Fee for Certified Copies</option>
+                                                            <option>Other</option>
+                                                        </select>
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+                                                    <div class="col-md-6 my-2 form-group">
+                                                        <label class="form-label">Event Date</label>
+                                                        <input type="date" class="form-control" name="eventDate" />
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+                                                    <div class="col-md-6 my-2 form-group">
+                                                        <label class="form-label">Financial Year</label>
+                                                        <input type="number" class="form-control num" name="financialYear" />
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 my-2 form-group">
+                                                        <label class="form-label">Form Upload</label>
+                                                        <input type="file" class="form-control" name="formOriginal" />
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+                                                    <div class="col-md-6 my-2 form-group">
+                                                        <label class="form-label">Challan Upload</label>
+                                                        <input type="file" class="form-control" name="challanOriginal" />
+                                                        <div class="invalid-feedback"></div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-success" onclick="save()">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Javascripts -->
+    <script src="~/assets/plugins/bootstrap/js/popper.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/plugins/pace/pace.min.js"></script>
+    <script src="~/assets/js/main.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/assets/plugins/highlight/highlight.pack.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/bs5/dt-2.1.8/b-3.2.0/b-colvis-3.2.0/b-html5-3.2.0/r-3.0.3/sc-2.4.3/datatables.min.js"></script>
+    <script src="~/assets/plugins/moment/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap5-toggle@5.1.1/js/bootstrap5-toggle.jquery.min.js"></script>
+    <script src="~/assets/plugins/select2/js/select2.full.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+
+
+
+    <script>
+        const DATE_DISPLAY_FORMAT = 'DD-MMM-YYYY';
+        const DATETIME_DISPLAY_FORMAT = 'DD-MMM-YYYY hh:mm A';
+        const FORMAT_DATE = d => moment(d).format(DATE_DISPLAY_FORMAT);
+        const FORMAT_DATETIME = d => moment(d).format(DATETIME_DISPLAY_FORMAT);
+        const TIME_24_FORMAT = 'HH:mm';
+        const FORMAT_TIME_12 = t => moment(t, TIME_24_FORMAT).format('hh:mm A');
+        const FORMAT_CURRENCY = a => new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR' }).format(a).replace('₹', '₹ ')
+        var comp_id = 0;
+        $(document).ready(function () {
+            if ($.validator) {
+                $.validator.methods.ctext = function (v, e) { return this.optional(e) || /^[A-Za-z\s]+$/.test(v) };
+                $.validator.messages.ctext = 'Please enter a valid value.';
+                $.validator.methods.mobile = function (v, e) { return this.optional(e) || /^\d{10}$/.test(v) };
+                $.validator.messages.mobile = 'Please enter a valid mobile number.';
+                $.validator.methods.email = function (v, e) { return this.optional(e) || /^[a-zA-Z0-9_.+-]+@@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/gm.test(v) };
+                $.validator.messages.email = 'Please enter a valid email id.';
+                $.validator.methods.pincode = function (v, e) { return this.optional(e) || /^\d{6}$/.test(v) };
+                $.validator.messages.pincode = 'Please enter a valid pincode.';
+                $.validator.setDefaults({
+                    errorElement: "div",
+                    errorPlacement: function (error, element) {
+                        error.addClass("invalid-feedback");
+                        if (element.prop("type") === "checkbox") {
+                            error.insertAfter(element.parent("label"));
+                        } else {
+                            $(element).parent().append(error);
+                        }
+                    },
+                    highlight: function (element, errorClass, validClass) {
+                        $(element).addClass("is-invalid").removeClass("is-valid");
+                    },
+                    unhighlight: function (element, errorClass, validClass) {
+                        $(element).addClass("is-valid").removeClass("is-invalid");
+                        if (!$(element).val())
+                            $(element).removeClass("is-valid");
+                    },
+                });
+            }
+            if ($.fn.select2)
+                $.fn.select2.defaults.set("theme", "bootstrap-5");
+
+            if ($.fn.dataTable.defaults) {
+                $.extend(true, $.fn.dataTable.defaults, {
+                    "initComplete": function (settings, json) {
+                        $(this).find('td, th').css('padding', '10px');
+                    }
+                });
+            }
+
+
+        });
+    </script>
+
+    <script>
+
+        function getFinancialYear() {
+            const currentDate = new Date();
+            let year = currentDate.getFullYear();
+            if (currentDate.getMonth() < 3) { // If before April
+                year--;
+            }
+            return year;
+        }
+
+        $(document).ready(function () {
+            loadTbl()
+        });
+
+        function getFinancialYear() {
+            const currentDate = new Date();
+            let year = currentDate.getFullYear();
+            if (currentDate.getMonth() < 3) { // If before April
+                year--;
+            }
+            return year;
+        }
+
+        function loadTbl() {
+            $('#tbl').DataTable().destroy()
+            d = $('#tbl').DataTable({
+                ajax: {
+                    url: `@R.ApiUrl/@ViewBag.ctrl/Company`,
+                    dataSrc: ""
+                },
+                // dom: '<lBf>rtip',
+                columns: [
+                    {
+                        "targets": 0,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    { data: 'formName' },
+                    { data: 'eventDate', render: FORMAT_DATE },
+                    { render: (a, b, c) => `<a href="${c.formOriginal}" target="_blank" class="btn btn-sm btn-outline-info mx-2">FORM</button><a href="${c.challanOriginal}" target="_blank" class="btn btn-sm btn-outline-info mx-2">CHALLAN</button>`, className: 'text-center' },
+                    { render: (a, b, c) => `<a href="${c.formClient}" target="_blank" class="btn btn-sm btn-outline-info mx-2 ${c.formClient ? '' : 'd-none'}">FORM</button><a href="${c.challanClient}" target="_blank" class="btn btn-sm btn-outline-info mx-2 ${c.challanClient ? '' : 'd-none'}">CHALLAN</button>`, className: 'text-center' },
+                    {
+                        data: null,
+                        render: function (a, b, c) {
+                            var btn1 = `
+                                <input type="file" class="d-none" onchange="uploadFile(this)" />
+                                <button type="button" target="_blank" class="btn btn-sm btn-outline-success mx-2" onclick="upload(this, 'form')">Upload Form</button>
+                                <button type="button" target="_blank" class="btn btn-sm btn-outline-success mx-2" onclick="upload(this, 'challan')">Upload Challan</button>
+                            `
+                            return btn1
+
+                        }, orderable: false
+                    },
+                    { render: (a, b, c) => setRowContent(c), className: 'd-none rowData' }
+                ],
+                order: [],
+            }).on('draw.dt', function () {
+                $('.dataTables_length').parent().removeClass('d-flex').removeClass('justify-content-between').addClass('d-flex').addClass('justify-content-between')
+                $('input[data-toggle="toggle"]:not(\'.initialized\')').bootstrapToggle().addClass('initialized');
+            });
+        }
+
+        function upload(ctrl, ftype) {
+            $(ctrl).siblings('input[type="file"]').attr('ftype', ftype).trigger('click');
+        }
+
+        function uploadFile(ctrl) {
+            var rd = getRowContent(ctrl);
+            var ftype = $(ctrl).attr('ftype');
+            var formData = new FormData();
+            formData.append('file', $(ctrl)[0].files[0]);
+            $.ajax({
+                url: '@R.ApiUrl/@ViewBag.ctrl/' + rd.id + '/ClientUpload/' + ftype,
+                data: formData,
+                type: 'POST',
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    if(data.status){
+                        toastr.success(data.message);
+                        $('#tbl').DataTable().ajax.reload()
+                    }
+                    else
+                        toastr.error(data.message);
+                },
+                error: function (error) {
+                    // alert(error);
+                }
+            });
+        }
+
+        async function save() {
+            var obj = getObj(objDMS, '#myModal');
+            var isValid = true;
+            if (!vfFrm.form()) isValid = false;
+            if (!obj.id && !$('[name="formOriginal"]')[0].files.length) {
+                $('[name="formOriginal"]').validateInput(false, 'Please upload form file');
+                isValid = false;
+            } else $('[name="formOriginal"]').validateInput(true);
+            if (!obj.id && !$('[name="challanOriginal"]')[0].files.length) {
+                $('[name="challanOriginal"]').validateInput(false, 'Please upload challan file');
+                isValid = false;
+            } else $('[name="challanOriginal"]').validateInput(true);
+            if (!isValid) return;
+            obj.companyId = comp_id;
+            var r = await $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj);
+            if (r.status) {
+                obj.id = r.responseObject.id;
+                if ($('[name="formOriginal"]')[0].files.length) {
+                    var formData = new FormData();
+                    formData.append('file', $('[name="formOriginal"]')[0].files[0]);
+                    await $.ajax({
+                        url: '@R.ApiUrl/@ViewBag.ctrl/' + obj.id + '/Upload/form',
+                        data: formData,
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            // alert(data);
+                        },
+                        error: function (error) {
+                            // alert(error);
+                        }
+                    });
+                }
+                if ($('[name="challanOriginal"]')[0].files.length) {
+                    var formData = new FormData();
+                    formData.append('file', $('[name="challanOriginal"]')[0].files[0]);
+                    await $.ajax({
+                        url: '@R.ApiUrl/@ViewBag.ctrl/' + obj.id + '/Upload/challan',
+                        data: formData,
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            // alert(data);
+                        },
+                        error: function (error) {
+                            // alert(error);
+                        }
+                    });
+                }
+                toastr.success(r.message);
+                $('#tbl').DataTable().ajax.reload();
+                $('#myModal').modal('hide')
+            }
+            else toastr.error(r.message);
+        }
+
+        $('.card-header, .card-body').addClass('px-3');
+    </script>
+</body>
+</html>

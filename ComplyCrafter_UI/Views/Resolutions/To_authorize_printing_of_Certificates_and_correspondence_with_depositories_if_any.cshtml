@@ -1,0 +1,225 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To authorize printing of Share Certificates and correspondence with depositories, if any`;
+    let agendaHeading = `To authorize printing of Share Certificates and correspondence with depositories, if any`;
+    let minuteHeading = `Printing of Share Certificate`;
+    let agendaPreface = `
+    The Chairperson shall inform the Board regarding the printing of the share certificates for allotment of shares to the subscribers to the memorandum of association as well as for any further issue of capital. The Board shall review the matter and pass the following resolution if thought fit:
+                    `;
+    let minutePreface = `
+    The Chairperson informed the Board that it would be necessary to print share certificates for allotment of shares to the subscribers to the memorandum of association as well as for any further issue of capital. A format of the share certificate in Form SH-1 in terms of Rule 5 of the Companies (Share Capital and Debentures) Rules, 2014 was placed before the Board for its perusal. The Board reviewed the same and passed the following resolution in this regard:`;
+    let resolutionForNoticePara1 = `
+            “RESOLVED THAT {Number of shares} equity share certificates of the Company be printed, in the format placed before the Meeting and initialed by the Chairperson for the purpose of identification, and that the certificates bear serial number. {Serial Number From & to}.
+
+    RESOLVED FURTHER THAT the aforesaid blank share certificates be kept in safe custody with {Name of Director}, {Designation} {and Name of Director2 Designation2} of the Company.
+
+    RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions” `;
+    let resolutionForNoticePara2 = ``;
+    let resolutionForMinutesPara1 = `
+    “RESOLVED THAT {Number of shares} equity share certificates of the Company be printed, in the format placed before the Meeting and initialed by the Chairperson for the purpose of identification, and that the certificates bear serial number. {Serial Number From & to}.
+
+    RESOLVED FURTHER THAT the aforesaid blank share certificates be kept in safe custody with {Name of Director}, {Designation} {and Name of Director2 Designation2} of the Company.
+
+    RESOLVED FURTHER THAT any of the directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions”`;
+    let resolutionForMinutesPara2 = ``;
+</script>
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+<style>
+    .custom-table .form-control {
+        height: 28px;
+        padding: 2px 6px;
+        font-size: 13px;
+    }
+
+    /* Keep table borders clean and aligned */
+    .custom-table td, .custom-table th {
+        border: 1px solid #000 !important;
+        vertical-align: middle;
+        padding: 4px 6px;
+    }
+
+    /* Make the heading row subtle */
+    .custom-table .table-title {
+        background-color: #f1f1f1;
+        font-weight: bold;
+        padding: 6px;
+    }
+
+    /* Adjust small button size */
+    .custom-table .btn-sm {
+        padding: 1px 6px;
+        font-size: 12px;
+        line-height: 1.2;
+    }
+</style>
+
+
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <table class="custom-table">
+            <tbody>
+                <tr>
+
+                    <td><strong>Number of Shares</strong></td>
+                    <td>
+                        <input type="number" class="form-control num" name="numberOfShares" placeholder="Enter quantity">
+                    </td>
+
+                    <td>
+                        <strong>
+                            Serial  Number From & To
+
+                        </strong>
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="serialNumberFromTo" placeholder="Serial Number From & To">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="4" class="table-title">Select Signatory</td>
+                </tr>
+
+                <tr class="authorizedRow">
+                    <td><strong>Name of Authorized Person</strong></td>
+                    <td>
+                        <select class="form-control director" name="appointedDirector">
+                            <option value="">Select name</option>
+                        </select>
+                    </td>
+                    <td colspan="2" class="text-center">
+                        <input type="hidden" name="id" class="num" value="0">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+
+        @*  <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Category
+            </div>
+            <div class="col-md-9">
+                <select name="category" class="form-control">
+                    <option>Share Capital</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Sub Category
+            </div>
+            <div class="col-md-9">
+                <select name="subCategory" class="form-control">
+                    <option>Share Certificates</option>
+                </select>
+            </div>
+            </div> *@
+
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails",
+                 new AgendaViewModelEnabler()
+        {
+            enableNoticeCertificateTable = false,
+            enableResolutionForNoticePara2 = false,
+            enableMinutesCertificateTable = false,
+            enableResolutionForMinutesPara2 = false,
+        }
+                 )
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+
+<script id="resolnFunction">
+    function addAuthorizedRow() {
+        let table = document.querySelector('.custom-table tbody');
+        if (!table) return;
+        let newRow = document.createElement('tr');
+        newRow.classList.add('authorizedRow');
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeAuthorizedRow(this)">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td colspan="3">
+                    <p name="appointedDirector"></p>
+                </td>
+            `;
+        }
+
+        table.appendChild(newRow);
+    }
+
+    function removeAuthorizedRow(button) {
+        button.closest('tr').remove();
+    }
+
+    function resetTableAuthorized() {
+        if (!isLayOut) return;
+
+        $('.authorizedRow').remove();
+        $('.custom-table tbody').append(`
+            <tr class="authorizedRow">
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                </td>
+            </tr>
+        `);
+    }
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

@@ -1,0 +1,1716 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No. SH-8
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    [Pursuant to section 68 of the Companies Act, 2013 and rule 17(2) of the Companies (Share Capital and Debentures) Rules, 2014]
+
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_SH-8.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Tab 1
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Tab 2
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Dsc details and Attachment
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="card">
+            <div class="col-md-12 p-0">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+
+                        <div class="d-flex justify-content-between mx-2 mb-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Company Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. (a).*Corporate Identity Number(CIN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">(b) *Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">(c) *Registered office address</label>
+                            <input type="text" placeholder="SHOP NO 3 VERTEX VIKAS CHS LTD   WING A SIR M V RD BHD POLICE STN ANDHERI, MUMBAI, Mumbai City, Maharashtra, India, 400069" class="form-control" value="" name="companyAddress" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">(d) *email id</label>
+                            <input type="email" placeholder="akshaygraphics69@gmail.com" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                    <label style=" text-transform: uppercase; text-decoration:underline; font-weight: bolder; margin: 0px  5px; display: inline-block;" class="AdvertisementInviting mt-2">
+                            2. Share capital
+                        </label>
+
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">*Date as on (DD/MM/YYYY)</label>
+                            <input type="date" placeholder="" class="form-control " value="" name="capitalDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <label style="text-transform: uppercase; text-decoration: underline; font-weight: bolder; margin: 0px 5px; display: inline-block;">
+                            (a) Equity Share Capital
+                        </label>
+
+                        <!-- Input to control number of classes -->
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">*Number of classes</label>
+                            <input type="number" id="equityShareClasses" placeholder="Enter number of share classes" class="form-control mb-3" />
+                        </div>
+
+                        <!-- Container where capital tables will be injected -->
+                        <div id="shareCapitalContainer"></div>
+
+
+                        <label style=" text-transform: uppercase; text-decoration:underline; font-weight: bolder; margin: 0px  5px; display: inline-block;" class="AdvertisementInviting mt-2">
+                            (b) Preference share capital
+
+                        </label>
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">*Number of classes</label>
+                            <input type="text" placeholder="" class="form-control num" value="" name="preferenceShareClasses" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div id="preferenceShareContainer" class="mt-3"></div>
+
+
+
+                        <label style=" text-transform: uppercase; text-decoration:underline; font-weight: bolder; margin: 0px  5px; display: inline-block;" class="AdvertisementInviting mt-2">
+                            (c) Others
+
+                        </label>
+
+                        <div class="row">
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row " style="height:5rem;">
+                                <b>
+                                    Description of share capital
+                                </b> <br>
+                                <input type="text" name="shareDescription" id="Descriptionshare" value="" class="form-control">
+
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold" style="height:5rem;">
+                                Authorised capital
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row bold" style="height:5rem;">
+                                Issued capital
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row bold" style="height:5rem;">
+                                Subscribed capital
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row bold" style="height:5rem;">
+                                Paid up capital
+                            </div>
+
+
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                                Number of shares
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="number" name="numberOfSharesAutherizeCapital" id="numberofSharesAutherizeCapital" value="" class="form-control num" required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="numberOfSharesOfIssuedCapital" id="numberOfSharesOfIssuedCapital" value="" class="form-control num" required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="numberOfSharesSubscribedCapital" id="numberOfSharesSubscribedCapital" value="" class="form-control num" required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="numberOfSharesPaidUp" id="numberOfSharesPaidUp" value="" class="form-control num" required="">
+                            </div>
+
+                            <input type="hidden" name="hiddenOther" id="hiddenmaxother" value="">
+                            <input type="hidden" name="hiddenPref" id="hiddepnmaxpref" value="">
+                            <input type="hidden" name="hiddenEquity" id="hiddepnmaxequity" value="">
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+
+                                Nominal amount per share (in INR)
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3 ">
+                                <input type="number" name="nominalOfSharesEqtyAuth" id="nominalOfsharesEqtyAuth" value="" class="form-control num Nominalofshare" required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="nominalNumberOfSharesIssuedCapital" id="numberofsharesIssuedCapital" value="" class="form-control num " required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="nominalSharesSubs" id="nominalofsharesSubscribedCapital" value="" class="num form-control Nominalofshare" required="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="number" name="nominalSharesPaidUp" id="nominalofsharesPaidUp" value="" class="num Nominalofshare form-control numericInput" required="">
+                            </div>
+
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                                Total amount (in INR)
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="totalAuthorised" id="jamountEqtyAuth" value="" class="form-control num" readonly="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="text" name="totalIssued" id="jamountEqtuityIssue" value="" class="form-control num" readonly="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="text" name="totalSubscribed" id="jamountEqtySubs" value="" class="form-control num" readonly="">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                                <input type="text" name="totalPaidUp" id="jamountEqtyPaidUp" value="" class="form-control num" readonly="">
+                            </div>
+                        </div>
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">(d) *Total Unclassified authorised share capital</label>
+                            <input type="number" placeholder="" class="form-control num" value="" name="UnclassifiedShareTotal" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+                        <label style=" text-transform: uppercase; text-decoration:underline; font-weight: bolder; margin: 0px  5px; display: inline-block;" class="AdvertisementInviting mt-2">
+                            3. Details of paid up equity capital, paid up capital and free reserve
+                        </label>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">*Date (as on)</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="equityCapitalDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">*Total paid up equity share capital</label>
+                            <input type="number" placeholder="" class="form-control num dec" value="" name="totalPaidUpEquity" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">*Free reserves</label>
+                            <input type="number" placeholder="" class="form-control num" value="" name="freeReservesCapital" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">*Securities Premium</label>
+                            <input type="number" placeholder="" class="form-control num" value="" name="premiumSecurities" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">4. (a)*Date of completion of last buy-back</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="dateOfCompletion" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">4. (b) *Proposed/ expected date of opening of offer</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="expectedProposedDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">4. (c) *Proposed completion date of buy-back</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="proposedCompletionDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">4. (d) *Proposed date of extinguishment of the shares or securities</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="extinguishmentDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px  5px;text-transform: uppercase;" class="mt-3">5. Source of the buy-back would be</label>
+
+                        <div class="row mt-3">
+
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row bold  " style="">
+                                <label style="margin-top: 11px;text-decoration: none;"></label> checkbox
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row bold mt-3" style="height:5rem;text-align: center;">
+                                <label style="margin-top:15px;text-decoration: none;"> Source</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="height:5rem;text-align: center;">
+                                <b> Amount as on </b><br>
+                                <input type="date" name="amountDate" id="AmountDate" class="form-control datepicker hasDatepicker" placeholder="" value="" readonly>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3" style="height:5rem;">
+                                <label style="margin-top: 15px;text-decoration: none;margin-left: 32px;"> Amount utilized for buy-back</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-2">
+                                <input type="checkbox" name="freeReserves" id="Proposeddate" value="Y" style="margin: 11px 28px;">
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3">
+                                Free Reserve
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="freeReserveAmount" id="FreeReservepre" value="" class="form-control num" readonly>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="buyBackReservesAmount" id="premiumSecurityAccount" value="" class="form-control numbers num" readonly="readonly">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-2">
+                                <input type="checkbox" name="securityPremiumAccount" id="NumberPremiumAuth" value="Y" style="margin: 11px 28px;">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3">
+                                Securities Premium Account
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="securitiesPremiumAmount" id="SecuritiesAccount" value="" class="form-control num"  readonly>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="securityBuyBackAmount" id="SecuritiespremiumAccount" value="" class="form-control numbers num" readonly="readonly">
+                            </div>
+
+
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-2">
+                                <input type="checkbox" name="otherSpecifiedSecurities" id="ProceedsCapitalpre" value="Y" style="margin: 11px 28px;">
+                            </div>
+
+                            <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3">
+                                Proceeds out of fresh issue of any shares or other specified securities
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="otherSpecifiedSecuritiesAmount" id="otherSpecifiedSecurityAmount" value="" class="form-control numbers num" >
+                            </div>
+
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input type="text" name="otherSpecifiedSecuritiesBuyBack" id="specifiedPaidUp" value="" class="form-control numbers num" readonly="readonly">
+                            </div>
+                        </div>
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px  5px;text-transform: uppercase;" class="mt-3">6. Particulars of the securities authorized to be bought back</label>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12  bold mt-3">
+                            (a) Shares or other securities to be bought back
+                        </div>
+
+                        <div class="row mt-2" id="checkboxshare">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row bold ">
+                                <input type="checkbox" name="equityShares" id="equityShares" class="equitycheckclass" value="Equity Shares" disabled=""> Equity Shares &nbsp; &nbsp; <input type="checkbox" name="perferenceShares" id="perferenceShares" class="equitycheckclass" value="Preference Shares" disabled=""> Preference Shares &nbsp; &nbsp; <input type="checkbox" name="otherShares" id="otherShares" value="Others" class="equitycheckclass" disabled=""> Others
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-12 mt-4">
+                            <label class="form-label">(a). (i) *Number of classes to be bought back</label>
+                            <input type="number" placeholder="" class="form-control num" name="classesNumber" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" min="0" />
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-12 mt-4">
+                            <label class="form-label">(g) *Total proposed amount of buy back (assuming maximum securities bought back as per plan)</label>
+                            <input type="number" placeholder="" class="form-control" name="totalBuyBackAmount" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" min="0" />
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <label style="font-weight:bolder;text-decoration: underline;margin: 0px 5px;text-transform: uppercase;" class="mt-3">7. (a) *Mode of buy-back</label>
+
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row  ">
+                                <label>   <input type="checkbox" name="existingHolders" id="existingHolders" class="buybackcheck" value="Y"> &nbsp; Existing security-holders on a proportionate basis</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row  ">
+                                <label>  <input type="checkbox" name="openMarket" class="buybackcheck" id="openMarket" value="Y"> &nbsp; Open market</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row ">
+                                <input type="checkbox" name="oddLotsListed" class="buybackcheck" id="oddlotsListed" value="Y"> &nbsp; Odd-lots of listed securities
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row  ">
+                                <label>  <input type="checkbox" name="employeesStock" class="buybackcheck" id="employeesStock" value="Y"> &nbsp; Employees Stock Option</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3  form-row mt-3 ">
+                                <label>  <input type="checkbox" name="sweatEquity" class="buybackcheck" id="sweatEquity" value="Y"> &nbsp; Sweat equity</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3  ">
+                                <label> <input type="checkbox" name="anyOtherMode" class="buybackcheck" id="anyotherMode" value="Y"> &nbsp; Any other mode</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label class="form-label">(b) If any other mode, please specify the details</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="specifyDetails" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label class="form-label">8. (a) *Article number authorising buy-back</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="articleAuthorising" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label class="form-label">(b) *Date of Board of Directors’ resolution authorising buy-back of securitiesinput</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="directorsDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 mt-3">
+                            <label class="form-label">(c) (i) Date of passing the special resolution (DD/MM/YYYY)</label>
+                            <input type="date" placeholder="" class="form-control" value="" name="resolutionDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label class="form-label">(ii) Service Request Number (SRN) of Form MGT - 14</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="srn" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:25px;">
+            <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-align: justify; text-transform: uppercase;" class="mt-3">9. Shareholding of the promoters, directors and key manager personnel of the company and also the directors of such company which is promoter of the company</label>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center">
+                    S. No.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row bold text-center">
+                    Particulars
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold text-center">
+                    Equity shares
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold text-center">
+                    Preference share
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold text-center">
+                    Other, if any
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold text-center">
+                    Total
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center" style="height: 85px;">
+                    1.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row  " style="height: 85px;">
+                    Number of shares as on the date preceding to the date of board meeting in which the buy-back got approved
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="equitySharesPreceding" id="datePreceding" class="form-control numbers firstaddnumber totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="preferenceSharesPreceding" id="dateofBoard" class="form-control numbers firstaddnumber totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="otherSharesPreceding" id="dateinMeeting" class="form-control numbers firstaddnumber totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="totalSharesPreceding" id="gotApproved" class="form-control numbers num" style="height: 71px" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center" style="height: 85px;">
+                    2.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row " style="height: 85px;">
+                    Shares purchased during the period of 12 months preceding the date of board meeting approving buy-back
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="equitySharesPurchased" id="monthsPurchased" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="preferenceSharesPurchased" id="monthsDuring" class="form-control numbers firstaddnumber totalvalueofletter num" maxlength="10" style="height: 71px" value="" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="otherSharesPurchased" id="monthsPreceding" class="form-control numbers firstaddnumber totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="height: 85px;">
+                    <input type="text" name="" id="totalSharesPurchased" class="form-control numbers num" style="height: 71px" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center" style="height: 85px;">
+                    3.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row  " style="height: 85px;">
+                    *Shares purchased during the period from date of board meeting approving buy-back till the date of letter of offer
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="equitySharesPurchasedAfterMeeting" id="letterofoffer" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row  " style="height: 85px;">
+                    <input type="text" name="preferenceSharesPurchasedAfterMeeting" id="letterPeriod" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row " style="height: 85px;">
+                    <input type="text" name="otherSharesPurchasedAfterMeeting" id="letterApproving" class="form-control numbers totalvalueofletter num" style="height: 71px" value=" " maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row  " style="height: 85px;">
+                    <input type="text" name="totalSharesPurchasedAfterMeeting" id="letterbuyBack" class="form-control numbers num" style="height: 71px" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center">
+                    4.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                    Maximum price paid for the above
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 ">
+                    <input type="text" name="maxPriceEquity" id="theAbove" class="form-control numbers avrageofvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                    <input type="text" name="maxPricePreference" id="thePrice" class="form-control numbers avrageofvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 ">
+                    <input type="text" name="maxPriceOther" id="thePaid" class="form-control numbers avrageofvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 ">
+                    <input type="text" name="totalMaxPrice" id="theMacimum" class="form-control numbers num" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center">
+                    5.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                    Date on which the above maximum price was paid
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="date" name="maxPriceDateEquity" id="wasPaid" class="form-control datepicker totalvalueofletter hasDatepicker " placeholder="" value="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                    <input type="date" name="maxPriceDatePreference" id="wasWiich" class="form-control datepicker totalvalueofletter hasDatepicker " placeholder="" value="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                    <input type="date" name="maxPriceDateOther" id="wasPrice" class="form-control datepicker totalvalueofletter hasDatepicker " placeholder="" value="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="text" name="totalMaxPriceDate" id="wasDateon" class="form-control" readonly="" value="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row text-center" style="height: 85px;">
+                    6.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3 " style="height: 85px;">
+                    Shares sold during the period of 12 months preceding the date of board meeting approving buy- back
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="height: 85px;">
+                    <input type="text" name="equitySharesSold" id="soldDuring" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 " style="height: 85px;">
+                    <input type="text" name="preferenceSharesSold" id="thesoldMonths" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="height: 85px;">
+                    <input type="text" name="otherSharesSold" id="meetingtheSold" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 " style="height: 85px;">
+                    <input type="text" name="totalSharesSold" id="precetheSold" class="form-control numbers num" style="height: 71px" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center" style="height: 85px;">
+                    7.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3 " style="height: 85px;">
+                    Shares sold during the period from date of board meeting approving buy-back till the date of letter of offer
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="height: 85px;">
+                    <input type="text" name="equitySharesSoldAfterMeeting" id="tillOffer" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 " style="height: 85px;">
+                    <input type="text" name="preferenceSharesSoldAfterMeeting" id="tillPeriod" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 " style="height: 85px;">
+                    <input type="text" name="otherSharesSoldAfterMeeting" id="tillMeeting" class="form-control numbers totalvalueofletter num" style="height: 71px" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 " style="height: 85px;">
+                    <input type="text" name="totalSharesSoldAfterMeeting" id="tillApproving" class="form-control numbers num" style="height: 71px" value="" maxlength="10" readonly="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center mt-2">
+                    8.
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-2">
+                    Maximum price received for the above
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="text" name="maxPriceReceivedEquity" id="thereceived" class="form-control numbers avargesecondvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                    <input type="text" name="maxPriceReceivedPreference" id="thereceivedFor" class="form-control numbers avargesecondvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="text" name="maxPriceReceivedOther" id="thereceivedAbove" class="form-control numbers avargesecondvalue totalvalueofletter num" value="" maxlength="10" required="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="text" name="totalMaxPriceReceived" id="thereceivedPrice" class="form-control numbers num" value="" maxlength="10" readonly="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center">
+                    9.
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                    Date on which the above maximum price was received
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="date" name="maxPriceReceivedDateEquity" id="onDare" class="form-control datepicker hasDatepicker" placeholder="" value="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                    <input type="date" name="maxPriceReceivedDatePreference" id="onwhich" class="form-control datepicker hasDatepicker" placeholder="" value="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2">
+                    <input type="date" name="maxPriceReceivedDateOther" id="onwasReceived" class="form-control datepicker hasDatepicker" placeholder="" value="">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 ">
+                    <input type="text" name="totalMaxPriceReceivedDate" id="onthePrice" class="form-control" readonly="" value="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-1 form-row bold text-center" style="height: 62px">
+                    10.
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-2" style="height: 62px">
+                    Balance of number of shares held as on the date of letter of offer
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2" style="height: 62px">
+                    <input type="text" name="balanceEquityShares" id="balanceOf" class="form-control num" style="height: 49px" value="" placeholder="0" readonly="">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row  mt-2" style="height: 62px">
+                    <input type="text" name="balancePreferenceShares" id="thebalanceOffer" class="form-control num" style="height: 49px" value="" readonly="" placeholder="0">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2" style="height: 62px">
+                    <input type="text" name="balanceOtherShares" id="thebalanceHeld" class="form-control num" style="height: 49px" value="" readonly="" placeholder="0">
+                </div>
+
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2 " style="height: 62px">
+                    <input type="text" name="totalBalanceShares" id="thebalanceLetter" class="form-control num" style="height: 49px" value="" readonly="" placeholder="0">
+                </div>
+
+            </div>
+
+            <label style="font-weight:bolder;text-decoration: underline;margin: 0px  5px;text-transform: uppercase;" class="mt-3">10. *The shareholding pattern before buy-back of shares or other specified securities:</label>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center mt-3" style="height: 82px;">
+                    S. No.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row bold mt-3" style="height: 82px;">
+                    Category of security holders
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="height: 82px;">
+                    <b> Securities held before buy-back as on </b>
+                    <br>
+                    <input type="date" name="securityDate" id="SecuritiesOfDate" class="datepicker form-control hasDatepicker" value="" >
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    1.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Government(Central and State)
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-2" style="">
+                    <input type="number" name="governmentHolders" id="governmentCas" class="form-control securityholders numbers" value="">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    2.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Government Companies
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="governmentCompaniesHolders" id="governmentCompanies" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center mt-3" style="">
+                    3.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3" style="">
+                    Public financial institutions
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="">
+                    <input type="number" name="publicFinancialHolder" id="publicFinancial" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center mt-3" style="">
+                    4.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3" style="">
+                    Nationalized or other bank(s)
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="">
+                    <input type="number" name="nationalizedBank" id="nationalizedBank" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center mt-3" style="">
+                    5.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Mutual Funds
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="mutualFunds" id="mutualFunds" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center mt-3" style="">
+                    6.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3" style="">
+                    Venture Capital
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="">
+                    <input type="number" name="ventureCapital" id="VentureCapital" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="height: 63px;">
+                    7.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="height: 63px;">
+                    Foreign holdings (Foreign Institutional Investors, Foreign companies, Non-resident Indians, Foreign financial institutions or Overseas corporate bodies)
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="height: 63px;">
+                    <input type="number" name="foreignFinancial" id="foreignFinancial" class="form-control securityholders numbers" style="height: 50px" value="">
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    8.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Bodies Corporate (not mentioned above)
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="bodiesCorporate" id="bodiesCorporate" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    9.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Directors or relatives of directors
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="relativesOfDirectors" id="relativesOfdirectors" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    10.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Other top fifty shareholders (other than mentioned above)
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="otherTopFifty" id="otherTopFifty" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center" style="">
+                    11.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row" style="">
+                    Others
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row" style="">
+                    <input type="number" name="others" id="topFiftyother" class="form-control securityholders numbers" style="" value="">
+                </div>
+            </div>
+           
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center">
+                    12.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                    Total
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                    <input type="number" name="total" id="topFiftytotal" class="form-control" value="" readonly>
+                </div>
+            </div>
+
+         
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-1 col-md-1 form-row bold text-center">
+                    13.
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                    Total number of shareholders
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row">
+                    <input type="number" name="totalShareHolder" id="totalShareholders" class="form-control" min="0" value="" required>
+                </div>
+            </div>
+
+            <label style="font-weight:bolder;text-decoration: underline;margin: 0px  5px;text-transform: uppercase;">Debt equity ratio</label>
+
+            <div class="row mt-2">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold" style="height: 65px;">
+                    11. (a) *Whether government notification for the ratio higher than 2:1 is applicable?
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row" style="height: 65px;">
+                    <input type="radio" name="governmentRatio" id="Whetherratio" value="Y"> Yes
+                    <input type="radio" name="governmentRatio" id="higherWhether" value="N"> No
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold" style="height: 65px;">
+                    (b) *Date of Board of Directors’ resolution authorising buy-back of securities
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row" style="height: 65px;">
+                    <input type="radio" name="boardOfResolution" id="boardofResolition" value="2:1"> 2:1
+                    <input type="radio" name="boardOfResolution" id="buybackOfboard" value="6:1"> 6:1
+                </div>
+            </div>
+          
+
+            <div class="col-md-6 mt-3">
+                <label class="form-label">(c) *Pre buy-back debt to capital and free reserve ratio</label>
+                <input type="number" placeholder="" class="form-control" value="" name="reserveDebt" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-6 mt-3">
+                <label class="form-label">(d) *Post buy-back debt to capital and free reserve ratio</label>
+                <input type="number" placeholder="" class="form-control" value="" name="reservePost" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                <div class="invalid-feedback"></div>
+            </div>
+                <label class="mt-3" style="font-weight:bolder;text-decoration: none;margin: 0px  5px;text-align: justify;text-transform: uppercase;">12. *Whether there is any subsisting default, or if the default is remedied and a period of three years has not lapsed after such default ceased to subsist, in respect of the following: </label>
+
+                <div class="mt-3">
+                    <ul>
+                        <li>(a) Repayment of deposit&nbsp;</li>
+                        <li>(b) Repayment of interest payable on deposits above&nbsp;</li>
+                        <li>(c) Repayment of debentures&nbsp;</li>
+                        <li>(d) Repayment of preference shares&nbsp;</li>
+                        <li>(e) Payment of dividend to shareholders&nbsp;</li>
+                        <li>(f) Repayment of term loans to any financial institution or bank&nbsp;)</li>
+                        <li>(g) Repayment of interest on the term loans mentioned above</li>
+                    </ul>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        &nbsp; <input type="radio" name="repaymentDeposit" id="repaymenrDeposit" value="true"> &nbsp; Yes &nbsp;
+                        <input type="radio" name="repaymentDeposit" value="false"> &nbsp; No
+                    </div>
+                </div>
+
+                <label class="mt-3" style="font-weight:bolder;text-decoration: none;margin: 0px  5px;text-transform: uppercase;">13. *Whether there is any default in complying with the provisions of the following sections: </label>
+
+                <div class="mt-3">
+                    <ul>
+                        <li>(a) Section 92 (annual return)</li>
+                        <li>(b) Section 123 (declaration of dividend)&nbsp;</li>
+                        <li>(c) Section 127 (punishment for failure to distribute dividends)&nbsp;&nbsp;</li>
+                        <li>(d) Section 129 (financial statement)</li>
+                    </ul>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <label>
+                            &nbsp; <input type="radio" name="annualReturn" id="annualReturn" value="Y"> &nbsp; Yes &nbsp; </label>
+                                <label>  <input type="radio" name="annualReturn" id="financialStatement" value="N"> &nbsp; No </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:25px !important;">
+            <form action="" role="form" id="fupForm3" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <label style="font-weight:bolder;text-decoration: none;margin: 0px  5px;text-transform: uppercase;">Company Declaration </label><br>
+                <p style="text-align: justify;">It is hereby declared that all the attachments and the information given in this form are true and correct to the best of my knowledge. Further declared that:</p>
+                <p style="text-align: justify;">(a) All requirements of section 68(3) have been complied with.</p>
+                <p style="text-align: justify;">(b) No defaults are subsisting in repayment of deposits or interest payment there on, redemption of debentures or payment of interest thereon or redemption of preference shares or payment of dividend to any shareholder or repayment of any term loan or interest payable thereon to any financial institutions or banking company and the company is not prohibited for buy-back by operation of law within the meaning of section 70 of the Act;</p>
+                <p style="text-align: justify;">
+                    (c) The Board of directors has made a full enquiry into the affairs and prospects of the company and that they have formed the opinion :
+                    i. as regards its prospects for the year immediately following the date of the letter of offer that, having regard to their intentions with respect to the management of the company's business during that year and to the amount and character of the financial resources which will in their view be available to the company during that year, the company will be able to meet its liabilities as and when they fall due and will not be rendered insolvent within a period of one year from that date; and
+                    ii. in forming their opinion for the above purposes, the directors have taken into account the liabilities as if the company were being wound up under the provisions of the Companies Act, 2013 (including prospective and contingent liabilities)
+                </p>
+                <p style="text-align: justify;">We declare that we have received a report from the company’s auditors stating that they have inquired into the company’s state of affairs, the amount of the permissible capital payment for the securities in question is in their view properly determined and that the audited accounts on the basis of which calculation with reference to buy back is done is not more than six months old from the date of offer document</p>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">Designation</span>
+                        <div class="input text">
+                            <select name="firstDesignation" id="Designation_us" class="form-select" required="">
+                                <option value="">Select Designation</option>
+                                <option value="Director">Director </option>
+                                <option value="Managing Director">Managing Director</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">Director's Name</span>
+                        <div class="input text" id="change_designation"><input type="text" name="firstDirectorName" id="firsDirectorName" class="form-control Director_name" value="" required=""></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">DIN of the director</span>
+                        <div class="input text">
+                            <input type="text" name="firstDirectorsDin" class="form-control director_din" value="" maxlength="8" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">Designation</span>
+                        <div lass="input text">
+                            <select name="secondDesignation" id="DesignationlreLevant" class="form-select" required="">
+                                <option value="">Select Designation</option>
+                                <option value="Director">Director </option>
+                                <option value="Managing Director">Managing Director</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">Director's Name</span>
+                        <div class="input text" id="change_designation_2"><input type="text" name="secondDirectorName" id="DirectorRead" class="form-control DirectorRead" value="" required=""></div>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <span style="font-weight: bold;">DIN of the director</span>
+                        <div class="input text">
+                            <input type="text" name="secondDirectorDIN" class="form-control directorField" value="" maxlength="8" required="">
+                        </div>
+                    </div>
+                </div>
+
+                <label class="mt-3" style="font-weight:bolder;text-decoration: underline;margin: 0px  5px;text-transform: uppercase;">Attachments</label><br><br>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(a) Unaudited financial statement (if applicable)</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="UnauditedFinancialStatement" id="Unaudited_1" class="1" accept=".pdf, .jpeg, .jpg, .png">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 indemnityBonds_remove_hide" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger Unaudited">X</button>
+                    </div>
+                </div>
+
+                <div class="row copy_Stock_Exchange mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(b) Statutory approval received (If any) </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="statutoryApproval" id="Statutory_1" class="1" accept=".pdf, .jpeg, .jpg, .png">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger Statutory">X</button>
+                    </div>
+                </div>
+
+                <div class="row copy_Stock_Exchange mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(c) *Declaration by audior(s) </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="auditorDeclaration" id="audior_1" class="1" accept=".pdf, .jpeg, .jpg, .png" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger audior">X</button>
+                    </div>
+                </div>
+
+
+                <div class="row copy_Stock_Exchange mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(d) *Copy of the board resolution</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="boardResolutionCopy" id="resolution_1" class="1" accept=".pdf, .jpeg, .jpg, .png" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger resolution">X</button>
+                    </div>
+                </div>
+
+
+            <div id="attachmentSection">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row text-center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row">
+                        (e) Optional Attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row text-center">
+                        <button type="button" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px;">
+                            <i class="fa fa-plus" style="margin:0 !important;"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- This is the container where rows will be added -->
+                <div id="attachmentRows"></div>
+            </div>
+
+
+                <div id="equity6" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                  @*   <div class="row" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row">
+                            <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1" accept=".pdf, .jpeg,">
+                        </div>
+                    </div> *@
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+
+</div>
+<script>
+    function renumberAttachments() {
+        const rows = document.querySelectorAll('.attachment-row');
+        rows.forEach((row, index) => {
+            row.querySelector('.attachment-number').innerText = index + 1;
+        });
+    }
+
+    function createAttachmentRow() {
+        const row = document.createElement('div');
+        row.className = 'row mt-2 attachment-row';
+
+        row.innerHTML = `
+            <div class="col-xs-12 col-sm-1 col-md-1 form-row text-center attachment-number">
+                <!-- Number will be filled in renumberAttachments -->
+            </div>
+            <div class="col-xs-12 col-sm-10 col-md-10 form-row">
+                <input type="file" name="optionalAttachment[]" class="form-control">
+            </div>
+            <div class="col-xs-12 col-sm-1 col-md-1 form-row text-center">
+                <button type="button" class="btn btn-danger btn-sm remove-attachment">
+                    <i class="fa fa-minus"></i>
+                </button>
+            </div>
+        `;
+
+        document.getElementById('attachmentRows').appendChild(row);
+        renumberAttachments();
+    }
+
+    // Add first row on page load
+    window.addEventListener('DOMContentLoaded', function () {
+        createAttachmentRow();
+    });
+
+    // Add row on "+" button click
+    document.getElementById('attachmentadd').addEventListener('click', function () {
+        createAttachmentRow();
+    });
+
+    // Remove row on "-" click and renumber
+    document.addEventListener('click', function (e) {
+        if (e.target.closest('.remove-attachment')) {
+            e.target.closest('.attachment-row').remove();
+            renumberAttachments();
+        }
+    });
+</script>
+
+
+
+
+<script>
+    document.querySelectorAll('input[name="governmentRatio"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            const twoToOne = document.getElementById('boardofResolition');
+            const sixToOne = document.getElementById('buybackOfboard');
+
+            if (this.value === 'Y') {
+                twoToOne.disabled = true;
+                twoToOne.checked = false;
+                sixToOne.disabled = false;
+            } else if (this.value === 'N') {
+                sixToOne.disabled = true;
+                sixToOne.checked = false;
+                twoToOne.disabled = false;
+            }
+        });
+    });
+</script>
+<script>
+    function calculateTotal() {
+      let total = 0;
+      const inputIds = [
+        'governmentCas',
+        'governmentCompanies',
+        'publicFinancial',
+        'nationalizedBank',
+        'mutualFunds',
+        'VentureCapital',
+        'foreignFinancial',
+        'bodiesCorporate',
+        'relativesOfdirectors',
+        'otherTopFifty',
+        'topFiftyother'
+      ];
+
+      inputIds.forEach(id => {
+        const val = parseFloat(document.getElementById(id).value) || 0;
+        total += val;
+      });
+
+      document.getElementById('topFiftytotal').value = total;
+    }
+
+    // Run calculation on page load and on input
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateTotal();
+      document.querySelectorAll('.securityholders').forEach(input => {
+        input.addEventListener('input', calculateTotal);
+      });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        function checkEquitySection() {
+            const equityVal = $('#equityShareClasses').val();
+            if (equityVal && parseInt(equityVal) > 0) {
+                $('#equityShares').prop('disabled', false);
+            } else {
+                $('#equityShares').prop('disabled', true).prop('checked', false);
+            }
+        }
+
+        function checkPreferenceSection() {
+            const preferenceVal = $('input[name="preferenceShareClasses"]').val();
+            if (preferenceVal && parseInt(preferenceVal) > 0) {
+                $('#perferenceShares').prop('disabled', false);
+            } else {
+                $('#perferenceShares').prop('disabled', true).prop('checked', false);
+            }
+        }
+
+        function checkOtherSection() {
+            const desc = $('#Descriptionshare').val();
+            const numShares = $('#numberofSharesAutherizeCapital').val();
+            if (desc.trim() !== '' || numShares.trim() !== '') {
+                $('#otherShares').prop('disabled', false);
+            } else {
+                $('#otherShares').prop('disabled', true).prop('checked', false);
+            }
+        }
+    Number of classes to be bought back
+        checkEquitySection();
+        checkPreferenceSection();
+        checkOtherSection();
+
+       
+        $('#equityShareClasses').on('input', checkEquitySection);
+        $('input[name="preferenceShareClasses"]').on('input', checkPreferenceSection);
+        $('#Descriptionshare, #numberofSharesAutherizeCapital').on('input', checkOtherSection);
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+       
+        $('input[name="equityCapitalDate"], input[name="freeReservesCapital"], input[name="premiumSecurities"]').on('change', function () {
+          
+            let equityDate = $('input[name="equityCapitalDate"]').val();
+            $('#AmountDate').val(equityDate);
+
+           
+            let freeReservesCapital = $('input[name="freeReservesCapital"]').val();
+            $('#FreeReservepre').val(freeReservesCapital);
+
+          
+            let premiumSecurities = $('input[name="premiumSecurities"]').val();
+            $('#SecuritiesAccount').val(premiumSecurities);
+
+          
+            $('#premiumSecurityAccount').val('');
+            $('#SecuritiespremiumAccount').val('');
+            $('#otherSpecifiedSecurityAmount').val('');
+            $('#specifiedPaidUp').val('');
+        });
+    });
+</script>
+
+
+
+<script>
+    document.getElementsByName("preferenceShareClasses")[0].addEventListener("input", function () {
+        const count = parseInt(this.value) || 0;
+        const container = document.getElementById("preferenceShareContainer");
+        container.innerHTML = ''; // Clear previous entries
+
+        for (let i = 1; i <= count; i++) {
+            const block = document.createElement("div");
+            block.className = "my-3 p-2";
+            block.style.border = "1px solid #f5c6cb";
+            block.style.background = "#f8d7da";
+
+            block.innerHTML = `
+            <table class="table table-bordered mb-0" style="background-color: white;">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20%;">
+                    <div>Class of shares [Class]</div>
+                    <input type="text" name="prefShareClass_${i}" class="form-control mt-1" />
+                  </th>
+                  <th>Authorised capital</th>
+                  <th>Issued capital</th>
+                  <th>Subscribed capital</th>
+                  <th>Paid up capital</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Number of preference shares</td>
+                  <td><input type="number" name="prefAuthShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefIssuedShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefSubShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefPaidShares_${i}" class="form-control" /></td>
+                </tr>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Nominal amount per share (in INR)</td>
+                  <td><input type="number" name="prefAuthNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefIssuedNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefSubNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="prefPaidNominal_${i}" class="form-control" /></td>
+                </tr>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Total amount (in INR)</td>
+                  <td><input type="number" name="prefAuthTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="prefIssuedTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="prefSubTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="prefPaidTotal_${i}" class="form-control bg-light" readonly /></td>
+                </tr>
+              </tbody>
+            </table>
+            `;
+
+            container.appendChild(block);
+
+            const fields = ["prefAuth", "prefIssued", "prefSub", "prefPaid"];
+            fields.forEach(type => {
+                const shareInput = block.querySelector(`[name="${type}Shares_${i}"]`);
+                const nominalInput = block.querySelector(`[name="${type}Nominal_${i}"]`);
+                const totalInput = block.querySelector(`[name="${type}Total_${i}"]`);
+
+                function calculateTotal() {
+                    const shares = parseFloat(shareInput.value) || 0;
+                    const nominal = parseFloat(nominalInput.value) || 0;
+                    totalInput.value = shares * nominal;
+                }
+
+                shareInput.addEventListener("input", calculateTotal);
+                nominalInput.addEventListener("input", calculateTotal);
+            });
+        }
+    });
+</script>
+
+<script>
+    document.getElementById("equityShareClasses").addEventListener("input", function () {
+        const count = parseInt(this.value) || 0;
+        const container = document.getElementById("shareCapitalContainer");
+        container.innerHTML = ''; // Clear previous entries
+
+        for (let i = 1; i <= count; i++) {
+            const block = document.createElement("div");
+            block.className = "my-3 p-2";
+            block.style.border = "1px solid #f5c6cb";
+            block.style.background = "#f8d7da";
+
+            block.innerHTML = `
+            <table class="table table-bordered mb-0" style="background-color: white;">
+              <thead class="table-light">
+                <tr>
+                  <th style="width: 20%;">
+                    <div>Class of shares [Class]</div>
+                    <input type="text" name="shareClass_${i}" class="form-control mt-1" />
+                  </th>
+                  <th>Authorised capital</th>
+                  <th>Issued capital</th>
+                  <th>Subscribed capital</th>
+                  <th>Paid up capital</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Number of equity shares</td>
+                  <td><input type="number" name="authShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="issuedShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="subShares_${i}" class="form-control" /></td>
+                  <td><input type="number" name="paidShares_${i}" class="form-control" /></td>
+                </tr>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Nominal amount per share (in INR)</td>
+                  <td><input type="number" name="authNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="issuedNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="subNominal_${i}" class="form-control" /></td>
+                  <td><input type="number" name="paidNominal_${i}" class="form-control" /></td>
+                </tr>
+                <tr>
+                  <td class="align-middle fw-bold text-center">Total amount (in INR)</td>
+                  <td><input type="number" name="authTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="issuedTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="subTotal_${i}" class="form-control bg-light" readonly /></td>
+                  <td><input type="number" name="paidTotal_${i}" class="form-control bg-light" readonly /></td>
+                </tr>
+              </tbody>
+            </table>
+            `;
+
+            container.appendChild(block);
+
+            // Add event listeners for calculation
+            const fields = ["auth", "issued", "sub", "paid"];
+            fields.forEach(type => {
+                const shareInput = block.querySelector(`[name="${type}Shares_${i}"]`);
+                const nominalInput = block.querySelector(`[name="${type}Nominal_${i}"]`);
+                const totalInput = block.querySelector(`[name="${type}Total_${i}"]`);
+
+                function calculateTotal() {
+                    const shares = parseFloat(shareInput.value) || 0;
+                    const nominal = parseFloat(nominalInput.value) || 0;
+                    totalInput.value = shares * nominal;
+                }
+
+                shareInput.addEventListener("input", calculateTotal);
+                nominalInput.addEventListener("input", calculateTotal);
+            });
+        }
+    });
+</script>
+
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,   
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            capitalDate: "",
+            equityShareClasses: 0, 
+            preferenceShareClasses: 0, 
+            shareDescription: "", 
+            numberOfSharesAutherizeCapital: 0,
+            nominalNumberOfSharesIssuedCapital: 0,
+
+            numberOfSharesOfIssuedCapital: 0,
+            numberOfSharesSubscribedCapital: 0,
+            numberOfSharesPaidUp: 0,
+            nominalOfSharesEqtyAuth: 0,
+            nominalSharesSubs: 0, 
+            nominalSharesPaidUp: 0,
+            totalAuthorised: 0,
+            totalIssued: 0, 
+            totalSubscribed: 0, 
+            totalPaidUp: 0, 
+            UnclassifiedShareTotal: "", 
+
+            // Details of paid up equity capital, paid up capital, and free reserve
+            equityCapitalDate: "", 
+            totalPaidUpEquity: "",
+            freeReservesCapital: "",
+            premiumSecurities: "",
+
+            // Buy-back details
+            dateOfCompletion: "",
+            expectedProposedDate: "", 
+            proposedCompletionDate: "", 
+            extinguishmentDate: "",
+
+            // Source of the buy-back
+            freeReserves: "",
+            securityPremiumAccount:"",
+            otherSpecifiedSecurities:"",
+            amountDate: "", 
+            freeReserveAmount: 0, 
+            buyBackReservesAmount: 0,
+            securitiesPremiumAmount: 0,
+            securityBuyBackAmount: 0,
+            otherSpecifiedSecuritiesAmount: 0, 
+            otherSpecifiedSecuritiesBuyBack: 0, 
+
+            equityShares: 0,
+            perferenceShares: 0, 
+            otherShares: 0,
+            classesNumber: 0,
+            totalBuyBackAmount: 0,
+
+            existingHolders: "",
+            openMarket: "", 
+            oddLotsListed: "", 
+            employeesStock: "", 
+            sweatEquity: "",
+            anyOtherMode: "",
+            specifyDetails: "", 
+
+            articleAuthorising: "",
+            directorsDate: "", 
+            resolutionDate: "",
+            srn: "",
+
+            //Part 2
+            // Table rows for shareholding details (row 1)
+            equitySharesPreceding: 0,
+            preferenceSharesPreceding: 0,
+            otherSharesPreceding: 0,
+            totalSharesPreceding: 0,
+
+            // Row 2 (note: although the original HTML had an empty name for the total field, it is assumed to be "totalSharesPurchased")
+            equitySharesPurchased: 0,
+            preferenceSharesPurchased: 0,
+            otherSharesPurchased: 0,
+            totalSharesPurchased: 0,
+
+            // Row 3
+            equitySharesPurchasedAfterMeeting: 0,
+            preferenceSharesPurchasedAfterMeeting: 0,
+            otherSharesPurchasedAfterMeeting: 0,
+            totalSharesPurchasedAfterMeeting: 0,
+
+            // Row 4
+            maxPriceEquity: 0,
+            maxPricePreference: 0,
+            maxPriceOther: 0,
+            totalMaxPrice: 0,
+
+            // Row 5
+            maxPriceDateEquity: "",
+            maxPriceDatePreference: "",
+            maxPriceDateOther: "",
+            totalMaxPriceDate: "",
+
+            // Row 6
+            equitySharesSold: 0,
+            preferenceSharesSold: 0,
+            otherSharesSold: 0,
+            totalSharesSold: 0,
+
+            // Row 7
+            equitySharesSoldAfterMeeting: 0,
+            preferenceSharesSoldAfterMeeting: 0,
+            otherSharesSoldAfterMeeting: 0,
+            totalSharesSoldAfterMeeting: 0,
+
+            // Row 8
+            maxPriceReceivedEquity: 0,
+            maxPriceReceivedPreference: 0,
+            maxPriceReceivedOther: 0,
+            totalMaxPriceReceived: 0,
+
+            // Row 9
+            maxPriceReceivedDateEquity: "",
+            maxPriceReceivedDatePreference: "",
+            maxPriceReceivedDateOther: "",
+            totalMaxPriceReceivedDate: "",
+
+            // Row 10
+            balanceEquityShares: 0,
+            balancePreferenceShares: 0,
+            balanceOtherShares: 0,
+            totalBalanceShares: 0,
+
+            // Shareholding pattern before buy-back
+            securityDate: "",
+
+            governmentHolders: "",
+            governmentCompaniesHolders: "",
+            publicFinancialHolder: "",
+            nationalizedBank: "",
+            mutualFunds: "",
+            ventureCapital: "",
+            foreignFinancial: "",
+            bodiesCorporate: "",
+            relativesOfdirectors: "",
+            otherTopFifty: "",
+            others: "",
+            total: 0,
+            totalShareHolder: 0,
+
+            // Debt equity ratio section
+            governmentRatio: "",
+            boardOfResolution: "",
+            reserveDebt: "",
+            reservePost: "",
+
+            // Defaults section
+            repaymentDeposit: "",
+            annualReturn: "",
+
+            //Part 3
+            firstDesignation: "",
+            firstDirectorName: "",
+            firstDirectorsDin: "",
+            secondDesignation: "",
+            secondDirectorName: "",
+            secondDirectorDIN: "",
+            UnauditedFinancialStatement:"",
+            auditorDeclaration: "",
+            statutoryApproval: "",
+            boardResolutionCopy: "",
+            optionalAttachment: "",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function calculateTotals() {
+            // For Authorised Capital
+            var authShares = parseFloat($("#numberofSharesAutherizeCapital").val()) || 0;
+            var authNominal = parseFloat($("#nominalOfsharesEqtyAuth").val()) || 0;
+            var authTotal = authShares * authNominal;
+            $("#jamountEqtyAuth").val(authTotal.toFixed(2));
+
+            // For Issued Capital
+            var issuedShares = parseFloat($("#numberOfSharesOfIssuedCapital").val()) || 0;
+            var issuedNominal = parseFloat($("#numberofsharesIssuedCapital").val()) || 0;
+            var issuedTotal = issuedShares * issuedNominal;
+            $("#jamountEqtuityIssue").val(issuedTotal.toFixed(2));
+
+            // For Subscribed Capital
+            var subscribedShares = parseFloat($("#numberOfSharesSubscribedCapital").val()) || 0;
+            var subscribedNominal = parseFloat($("#nominalofsharesSubscribedCapital").val()) || 0;
+            var subscribedTotal = subscribedShares * subscribedNominal;
+            $("#jamountEqtySubs").val(subscribedTotal.toFixed(2));
+
+            // For Paid Up Capital
+            var paidUpShares = parseFloat($("#numberOfSharesPaidUp").val()) || 0;
+            var paidUpNominal = parseFloat($("#nominalofsharesPaidUp").val()) || 0;
+            var paidUpTotal = paidUpShares * paidUpNominal;
+            $("#jamountEqtyPaidUp").val(paidUpTotal.toFixed(2));
+
+            // Optional: Calculate grand total of equity capital
+            // var grandTotal = authTotal + issuedTotal + subscribedTotal + paidUpTotal;
+            // $("#grandTotal").val(grandTotal.toFixed(2));
+        }
+
+        // Attach the calculateTotals function to input events on relevant fields.
+        // This will trigger calculation every time a user enters or changes a value.
+        $("input.num").on("input", calculateTotals);
+
+        $('#Proposeddate').change(function () {
+            if ($(this).is(':checked')) {
+                $('#premiumSecurityAccount').prop('readonly', false); // Remove readonly
+            } else {
+                $('#premiumSecurityAccount').prop('readonly', true); // Add readonly
+            }
+        });
+
+        // Checkbox for securities premium account
+        $('#NumberPremiumAuth').change(function () {
+            if ($(this).is(':checked')) {
+                $('#SecuritiespremiumAccount').prop('readonly', false); // Remove readonly
+            } else {
+                $('#SecuritiespremiumAccount').prop('readonly', true); // Add readonly
+            }
+        });
+
+        // Checkbox for other specified securities
+        $('#ProceedsCapitalpre').change(function () {
+            if ($(this).is(':checked')) {
+                $('#specifiedPaidUp').prop('readonly', false); // Remove readonly
+            } else {
+                $('#specifiedPaidUp').prop('readonly', true); // Add readonly
+            }
+        });
+
+
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("SH8", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("SH8", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

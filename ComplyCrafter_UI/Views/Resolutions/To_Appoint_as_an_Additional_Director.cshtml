@@ -1,0 +1,449 @@
+﻿@{
+    ViewData["Title"] = "Director Appointment Form";
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To Appoint {Name of Director} as an Additional Director`;
+    let agendaHeading = `To Appoint {Name of Director} as an Additional Director`;
+    let minuteHeading = `To Appoint {Name of Director} as an Additional Director`;
+    let agendaPreface = `
+           The Chairman shall inform the Board, that it is proposed to appoint {Name of Appointee} as an Additional Director who will hold the office up to the date of the ensuing Annual General Meeting. The Company has received {his/her} consent in Form DIR-2 and declaration in Form DIR-8 that {he/she} is not disqualified to be appointed as Director in accordance with the provisions of Section 164 of Companies Act 2013. The shall pass the following resolution with or without modification in this regard:
+    `;
+    let minutePreface = `
+       The Chairman informed the Board, that it is proposed to appoint {Name of Appointee} as an Additional Director who will hold the office up to the date of the ensuing Annual General Meeting. The Company has received {his/her} consent in Form DIR-2 and declaration in Form DIR-8 that {he/she} is not disqualified to be appointed as Director in accordance with the provisions of Section 164 of Companies Act 2013. The matter was discussed and the following resolution was passed unanimously:`;
+    let resolutionForNoticePara1 = `
+           “RESOLVED THAT pursuant to Section 161(1) of the Companies Act, 2013 read with Rule 8 & Rule 18 of the Companies (Appointment and Qualification of Directors) Rules, 2014 and applicable provisions of Articles of Association of the Company, {Name of Appointee}, be and is hereby appointed as an Additional Director on the Board of Directors of the Company with effect from {Date of Appointment} to hold office upto the next annual general meeting of the Company.
+
+    RESOLVED FURTHER THAT any of the Directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolution.”
+    `;
+    let resolutionForNoticePara2 = ``;
+    let resolutionForMinutesPara1 = `
+          “RESOLVED THAT pursuant to Section 161(1) of the Companies Act, 2013 read with Rule 8 & Rule 18 of the Companies (Appointment and Qualification of Directors) Rules, 2014 and applicable provisions of Articles of Association of the Company, {Name of Appointee}, be and is hereby appointed as an Additional Director on the Board of Directors of the Company with effect from {Date of Appointment} to hold office upto the next annual general meeting of the Company.
+
+    RESOLVED FURTHER THAT any of the Directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolution.”
+     `;
+    let resolutionForMinutesPara2 = ``;
+</script>
+<style>
+    .custom-table-interest {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table-interest td, .custom-table-interest th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table-interest th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="@(ViewBag.UseLayout == true ? "card shadow-sm p-4" : "")">
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="text-primary mb-3">Appointment of Director & Related Details</h4>
+    }
+
+    <form method="post" id="frmAgenda">
+        @if (ViewBag.UseLayout == true)
+        {
+            <!-- SECTION 1: Appointment -->
+            <div class="section-heading">APPOINTMENT OF DIRECTOR</div>
+            <table class="custom-table full-width">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="p-3 border">
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label"><strong>Designation for Appointment</strong></label>
+                                        <select class="form-select" name="designation">
+                                            <option value="">Select Designation</option>
+                                            <option>Director</option>
+                                            <option>Managing Director</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"><strong>Category</strong></label>
+                                        <select class="form-select" name="category">
+                                            <option value="">Select Category</option>
+                                            <option>Executive</option>
+                                            <option>Non-Executive</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-12">
+                                        <label class="form-label d-block"><strong>The Appointee is</strong></label>
+                                        <div>
+                                            <label class="me-3"><input type="radio" name="appointeeIs" value="Chairman"> Chairman</label>
+                                            <label class="me-3"><input type="radio" name="appointeeIs" value="Executive"> Executive Director</label>
+                                            <label><input type="radio" name="appointeeIs" value="Non-Executive" checked> Non-Executive Director</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label"><strong>Date of Passing Circular Resolution</strong></label>
+                                        <input type="date" class="form-control" name="dateOfPassingCircularResolution" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                                        <select class="form-select director" name="authorizedSignatory">
+                                            <option value="">Select</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="section-heading">DETAILS OF DIRECTOR</div>
+            <div class="p-3 border custom-director-detail">
+
+                <div class="row mb-3 align-items-end">
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>DIN</strong></label>
+                        <input type="text" class="form-control" name="din" value="" />
+                    </div>
+                    @*  <div class="col-md-4">
+                    <label class="form-label d-block">&nbsp;</label>
+                    <button type="button" class="btn btn-sm btn-outline-primary w-100">Prefill from MCA <i class="fa fa-database ms-1"></i></button>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label d-block">&nbsp;</label>
+                    <button type="button" class="btn btn-sm btn-outline-secondary w-100">Import from Database <i class="fa fa-database ms-1"></i></button>
+                </div> *@
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Name</strong></label>
+                        <input type="text" class="form-control" name="name" value="" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Father's Name</strong></label>
+                        <input type="text" class="form-control" name="fatherName" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Gender</strong></label>
+                        <select class="form-select" name="gender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>DOB</strong></label>
+                        <input type="date" class="form-control" name="dateOfBirth" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label"><strong>Address</strong></label>
+                        <input type="text" class="form-control" name="address" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Email</strong></label>
+                        <input type="email" class="form-control" name="email" value="" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Mobile Number</strong></label>
+                        <input type="text" class="form-control" name="mobile" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>PAN</strong></label>
+                        <input type="text" class="form-control" name="pan" value="" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Nationality</strong></label>
+                        <input type="text" class="form-control" name="country" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Occupation</strong></label>
+                        <input type="text" class="form-control" name="occupation" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Date of Appointment</strong></label>
+                        <input type="date" class="form-control" name="dateOfAppointment" value="" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Date of Consent</strong></label>
+                        <input type="date" class="form-control" name="dateOfConsent" value="" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Place of Signing Consent</strong></label>
+                        <input type="text" class="form-control" name="placeOfSigningConsent" />
+                    </div>
+                </div>
+
+
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label d-block"><strong>Is the applicant member of any Professional Institute?</strong></label>
+                        <div>
+                            <label class="me-3">
+                                <input type="radio" name="applicantFromProfessionalInstitute" value="Yes"> Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="applicantFromProfessionalInstitute" value="No"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="instituteFields" style="display:none;">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><strong>Professional Institute Name</strong></label>
+                            <input type="text" class="form-control" name="professionalInstituteName">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><strong>Membership No.</strong></label>
+                            <input type="text" class="form-control" name="membershipNo">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><strong>Certificate of Practice No</strong></label>
+                            <input type="text" class="form-control" name="certificatePracticeNo">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="section-heading">Interest in Other Entities</div>
+
+            <table class="custom-table-interest" id="interestTable">
+                <thead>
+                    <tr>
+                        <th>CIN</th>
+                        <th>Company Name</th>
+                        <th>Date of Appointment</th>
+                        <th>Designation</th>
+                        <th>Other, if any</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+
+            <br>
+            <button type="button" class="btn btn-primary" onclick="addInterestRow()">
+                <i class="fa fa-plus"></i> Add row
+            </button>
+
+
+
+
+
+            <!-- SECTION 5: DOCUMENTS -->
+            <div class="section-heading">DOCUMENTS</div>
+            <table class="custom-table-interest">
+                <thead>
+                    <tr>
+                        <th>TITLE OF DOCUMENT</th>
+                        <th>SIGNING DATE</th>
+                        <th>SIGNING PLACE</th>
+                        <th>VIEW</th>
+                        <th>WORD</th>
+                        <th>PDF</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DIR 2</td>
+                        <td></td>
+                        <td></td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>APPOINTMENT LETTER</td>
+                        <td><input type="date" class="form-control" /></td>
+                        <td><input type="text" class="form-control" /></td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>INTEREST IN OTHER ENTITIES</td>
+                        <td><input type="date" class="form-control" /></td>
+                        <td><input type="text" class="form-control" /></td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>CREATE DIR-8</td>
+                        <td colspan="2"><a href="#" class="text-primary">GO TO RELATED PARTY</a></td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>CREATE MBP-1</td>
+                        <td colspan="2"><a href="#" class="text-primary">GO TO RELATED PARTY</a></td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>CTC OF BR-</td>
+                        <td><a href="#" class="text-primary">GO TO BM</a></td>
+                        <td>Signatory of CTC</td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                    <tr>
+                        <td>CTC OF BR-</td>
+                        <td><a href="#" class="text-primary">GO TO BM</a></td>
+                        <td>Signatory of CTC</td>
+                        <td><i class="fa fa-eye text-primary"></i></td>
+                        <td><i class="fa fa-file-word text-info"></i></td>
+                        <td><i class="fa fa-file-pdf text-danger"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+            <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        }
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails",
+                 new AgendaViewModelEnabler()
+        {
+            enableNoticeCertificateTable = false,
+            enableResolutionForNoticePara2 = false,
+            enableMinutesCertificateTable = false,
+            enableResolutionForMinutesPara2 = false,
+        }
+                 )
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+
+<script>
+    function addInterestRow() {
+        let table = document.getElementById("interestTable");
+        if (!table) return;
+        table = table.getElementsByTagName("tbody")[0];
+        let newRow = table.insertRow();
+
+        newRow.innerHTML = `
+            <td><input type="text" class="form-control" name="cin"></td>
+            <td><input type="text" class="form-control" name="companyName"></td>
+            <td><input type="date" class="form-control" name="dateOfAppointment"></td>
+            <td><input type="text" class="form-control" name="designation"></td>
+            <td><input type="text" class="form-control" name="otherIfAny"></td>
+            <td>
+                <button type="button" class="btn btn-danger btn-sm btn-removeInterest" onclick="removeInterestRow(this)">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        `;
+    }
+
+    function removeInterestRow(btn) {
+        let row = btn.closest("tr");
+        row.remove();
+    }
+
+    function resetInterestRow() {
+        if (!isLayOut) return;
+
+        $('#interestTable tbody .btn-removeInterest').trigger('click');
+    }
+
+    $(document).ready(function () {
+        const fields = document.getElementById('instituteFields');
+
+        $('input[name="applicantFromProfessionalInstitute"]').on('change', function () {
+                if (this.value === "Yes") {
+                    fields.style.display = "block";
+                } else {
+                    fields.style.display = "none";
+                }
+            });
+    });
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>
+
+
+
+
+
+
+

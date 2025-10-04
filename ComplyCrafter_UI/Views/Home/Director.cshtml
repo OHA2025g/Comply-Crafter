@@ -1,0 +1,158 @@
+﻿@{
+    ViewData["Title"] = "Director Master";
+    ViewBag.ShowSearch = true;
+    ViewBag.ShowClear = true;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">List of Directors / KMP</h3>
+            <button class="btn btn-sm btn-outline-primary" onclick="add()"><i class="fa fa-plus px-2 fs-6"></i>Add</button>
+        </div>
+        <div class="card-body">
+            <table id="tbl" class="display nowrap w-100" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Director</th>
+                        <th>Contact</th>
+                        <th>DSC Expiry</th>
+                        <th>DSC Status</th>
+                        <th>DIN Status</th>
+                        @* <th>Status</th> *@
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+        loadTbl()
+        });
+        function loadTbl() {
+        var urlAdd = '';
+        if (localStorage.getItem("comp_name"))
+        urlAdd += '/List?companyId=' + localStorage.getItem("comp_id")
+        if ($.fn.DataTable.isDataTable('#tbl')) {
+        $('#tbl').DataTable().destroy();
+        }
+
+                let table = $('#tbl').DataTable({
+                    ajax: {
+                        url: `@R.ApiUrl/Director/List?companyId=` + localStorage.getItem("comp_id"),
+                        dataSrc: ""
+                    },
+                    columns: [
+                        {
+                            data: null,
+                            render: (data, type, row, meta) => meta.row + 1
+                        },
+                        { render: (a, b, c) => `<p class="my-auto lh-1" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 170px;" title="${c.firstName} ${c.middleName} ${c.lastName}">${c.firstName} ${c.middleName} ${c.lastName}</p><p>${c.din}</p>` },
+                        { render: (a, b, c) => `<p class="my-auto lh-1">${c.mobile ?? ''}</p><p>${c.email}</p>` },
+                        { data: 'dscExpiry', render: (a) => a ? FORMAT_DATE(a) : '' },
+                        { data: 'dinStatus' },
+                        { data: 'dirKycStatus' },
+                        // {
+                        //     data: 'isActive',
+                        //     render: (data, type, row) => `
+                        //               <input type="checkbox" data-toggle="toggle" data-on="Active" data-size="sm" data-id="${row.id}" data-off="Inactive" ${data ? 'checked' : ''} onchange="changeActive(${row.id}, ${data})" data-onstyle="success" data-offstyle="danger">
+                        //             `
+                        // },
+                        {
+                            data: null,
+                            orderable: false,
+                            render: function (data, type, row) {
+                                return `
+                                    <div class="d-flex justify-content-center">
+                                        <a onclick="view(${row.id})" class="mx-2" style="color: blue; cursor: pointer;" title="View Director">
+                                            <i class="fa fa-eye"></i>
+                                        </a>
+                                        <a onclick="edit(${row.id})" class="mx-2" style="color: green; cursor: pointer;" title="Edit Director">
+                                            <i class="fa fa-pencil-square"></i>
+                                        </a>
+                                        <a onclick="del(${row.id})" class="mx-2" style="color: red; cursor: pointer;" title="Delete Director">
+                                            <i class="fa fa-trash-alt"></i>
+                                        </a>
+                                    </div>`;
+                            }
+                        },
+                    ],
+                    order: [],
+                    "drawCallback": function (settings) {
+                        $('.dataTables_length').parent().removeClass('d-flex').removeClass('justify-content-between').addClass('d-flex').addClass('justify-content-between')
+                        $('input[data-toggle="toggle"]:not(.initialized)').bootstrapToggle().addClass('initialized');
+                    }
+                });
+            }
+            function changeActive(id, currentStatus, desiredStatus) {
+                $.get(`@R.ApiUrl/Director/${id}/Status/${!currentStatus}`).then(r => {
+                    toastr[r.status ? 'success' : 'error'](r.message);
+                    $('#tbl').DataTable().ajax.reload()
+                })
+            }
+            function del(id) {
+                if (!confirm('Are you sure you want to delete this Director')) return;
+                $.get(`@R.ApiUrl/Director/${id}/delete`).then(r => {
+                    toastr[r.status ? 'success' : 'error'](r.message);
+                    $('#tbl').DataTable().ajax.reload()
+                })
+            }
+            const dinPattern = /^\d{8}$/;
+            function add() {
+                swal.fire({
+                    icon: 'info',
+                    title: 'Add new Director / KMP',
+                    text: 'Enter your Director Identification Number (DIN), or proceed manually',
+                    input: 'text',
+                    inputPlaceholder: 'DIN',
+                    confirmButtonText: 'Proceed',
+                    customClass: {
+                        confirmButton: 'btn btn-outline-primary'
+                    },
+                    preConfirm: function (txt) {
+                        return (txt === '' || dinPattern.test(txt)) ? txt : swal.showValidationMessage('Please enter a valid DIN or Name');
+                    }
+                }).then(r => {
+                    if (r.value == "") {
+                        window.location = `@Url.Action("Director", "Home")/Add`;
+                        return;
+                    }
+                    if (r.value) {
+                        swal.fire('Fetching details...');
+                        swal.showLoading();
+                        createDirector(r.value)
+                    }
+                })
+            }
+
+                    function view(id) {
+            window.location = '@Url.Action("Director", "Home")' + '/Details/' + id;
+        }
+
+                    function edit(id) {
+            window.location = '@Url.Action("Director", "Home")' + '/Edit/' + id;
+        }
+            function createDirector(din) {
+                $._get(`@R.ApiUrl/Director/Create/` + din).then(x => {
+                    if (x.status) {
+                        clearCompany();
+                        window.location = `@Url.Action("Director", "Home")/Add/${x.responseObject}`
+                    } else {
+                        swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: x.message
+                        })
+                    }
+                })
+            }
+    </script>
+}

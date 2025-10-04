@@ -1,0 +1,53 @@
+using AlphaUtil.Core;
+using AlphaUtil.Core.Models;
+using Microsoft.AspNetCore.Mvc;
+using ComplyCrafter_BL;
+using ComplyCrafter_Data;
+
+namespace ComplyCrafter_API.Controllers
+{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ShareholderManagementController : BaseController<ShareholderManagement, ShareholderManagementView>
+    {
+        private readonly IShareholderManagement _impl;
+
+        public ShareholderManagementController(IShareholderManagement impl) : base(impl)
+        {
+            this._impl = impl;
+        }
+
+        //[HttpPost]
+        //public override Response Save(ShareholderManagement obj)
+        //{
+        //    if (User == null) User = new AppUser { Id = -1 };
+        //    obj.PreInsert(User!);
+        //    var r = _impl.Save(obj);
+        //    if (r.IsNull())
+        //        return new Response(false, CONST.SaveError);
+        //    return new Response(true, CONST.SaveSuccess, r!);
+        //}
+
+        [HttpGet("{id}/Status/{status}")]
+        public Response? ChangeActiveStatus(int id = 0, bool status = false)
+        {
+            ShareholderManagement? obj = _impl.GetById(id);
+            if (obj.IsNull())
+                return new Response(false, "Entry not found");
+            obj.IsActive = status;
+            var r = _impl.ChangeActiveStatus(obj!);
+            if (r.IsNull())
+                return new Response(false, CONST.ChangeStatusError);
+            return new Response(true, CONST.ChangeStatusSuccess);
+        }
+
+        [HttpGet("GetByCompany/{id}")]
+        public IEnumerable<ShareholderManagementView> GetByCompany(int id = 0)
+        {
+            IEnumerable<ShareholderManagementView> res = _impl.GetByCompany(id);
+            return res;
+
+        }
+    }
+
+}

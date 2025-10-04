@@ -1,0 +1,1284 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.SH-7
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Notice of situation or change of situation of registered oftice
+
+                    [Pursuant to section 12(2) & (4) of The Companies Act, 2013 and Rule 25 and 27 of The Companies (lncorporation) Rules, 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_SH-7.pdff" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+      <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Company Information
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Redemption & Revised capital structure
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <div id="part1" class="p-0">
+
+        @*  tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+
+
+                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                1. Particulars of the company
+                            </p>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                2. Purpose of the form
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="increaseShareCapital"
+                                           name="formPurpose"
+                                           value="Increase in share capital independently by company"
+                                           required />
+                                    &nbsp; Increase in share capital independently by company
+                                </label> <br>
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="increaseNumberOfMembers"
+                                           name="formPurpose"
+                                           value="Increase in number of members" />
+                                    &nbsp; Increase in number of members
+                                </label> <br>
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="increaseShareCapitalWithOrder"
+                                           name="formPurpose"
+                                           value="Increase in share capital with Central Government order" />
+                                    &nbsp; Increase in share capital with Central Government order
+                                </label> <br>
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="consolidationOrDivision"
+                                           name="formPurpose"
+                                           value="Consolidation or division etc" />
+                                    &nbsp; Consolidation or division etc
+                                </label><br>
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="redemptionOfPreferenceShares"
+                                           name="formPurpose"
+                                           value="Redemption of redeemable preference shares" />
+                                    &nbsp; Redemption of redeemable preference shares
+                                </label> <br>
+                                <label style="text-decoration: none;font-weight: normal; padding-bottom:3px;">
+                                    <input type="radio"
+                                           id="cancellationOfUnissuedShares"
+                                           name="formPurpose"
+                                           value="Cancellation of unissued shares of one class and increase in shares of another class" />
+                                    &nbsp; Cancellation of unissued shares of one class and increase in shares of another class
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row showon54" style="display: block;">
+
+                            <div class="col-xs-12 col-sm-9 col-md-11 form-row bold">
+                                3. In accordance with section 61(1) of the Companies Act, 2013 that by &nbsp;
+                                <label>
+                                    <input type="radio"
+                                           id="ordinary"
+                                           name="shareType"
+                                           value="Ordinary"
+                                           required />
+                                    Ordinary
+                                </label>
+                                &nbsp;
+                                <label>
+                                    <input type="radio"
+                                           id="special"
+                                           name="shareType"
+                                           value="Special"
+                                           required />
+                                    Special
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 my-3">
+                            <label class="form-label">(a) resolution at the meeting of the members of the company held on</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="date"
+                                   placeholder=""
+                                   class="form-control"
+                                   name="resolutionDate"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-3">
+                            <label class="form-label">(b) Service request number (SRN) of related Form MGT-14</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="text"
+                                   placeholder=""
+                                   class="form-control"
+                                   name="srnNumber"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">Particulars</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">No. of members</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">No. of shares held by them</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">Members present at meeting where the decision of alteration was taken</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="membersPresent"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="sharesHeld"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">Members who voted in favour of the proposal</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="membersVotedFor"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="sharesVotedFor"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">Members who voted against the proposal</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="membersVotedAgainst"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="sharesVotedAgainst"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label">Members who abstained from voting</label>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="membersAbstained"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="sharesAbstained"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                4. The authorized share capital of the company has been increased from
+                            </p>
+                        </div>
+
+
+                        @* ////////////////////////// *@
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;">
+                                <br>
+                                <div class="table-responsive">
+                                    <table id="shareTable" border="1" style="table-layout: auto; text-overflow: ellipsis;">
+                                        <thead>
+                                            <tr style="font-size: 12px;">
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Type of Shares</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Class of shares</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Nominal value per share (in INR)</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Existing number of shares</th>
+                                                <th style="text-align: center; background-color:#8e949a;">Whether revision required</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Additional number of shares</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Revised number of shares</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Existing total value</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Revised total value</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">Total addition</th>
+                                                <th style="text-align: center;vertical-align: middle; background-color:#8e949a;">
+                                                    Brief description of the conditions (e.g., voting rights, dividend rights, winding-up rights, etc.)
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row my-3">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <button type="button" onclick="shareTableAdd()" class="btn btn-primary"><i class="fa fa-plus"></i> Add Row</button>
+                                &nbsp; &nbsp;
+                                <button type="button" onclick="shareTableRemove()" class="btn btn-danger" style="margin-top: 0px;"><i class="glyphicon glyphicon-remove"></i> Delete Row</button>
+                            </div>
+                        </div>
+
+
+
+
+                        @* ////////////////////////// *@
+
+
+
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                5. The number of members in the company has been increased from
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">Existing</label>
+                            <input type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="existingMembers"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">Revised</label>
+                            <input type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="revisedMembers"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">Difference (Addition)</label>
+                            <input type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="differenceMembers"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">(d) Maximum number of members excluding past and present employees</label>
+                            <input type="number"
+                                   placeholder=""
+                                   class="form-control num"
+                                   name="maxMembersExcludingEmployees"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+                        <div class="row" style="height: auto;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px; height: auto;">
+                                <p style="text-align: justify;">
+                                    6 (a) In accordance with sub-section (6) of section 62 of the Companies Act, 2013, the authorised share capital of the company has been increased consequent upon an order number
+                                    <input type="text" value="" class="numbers" name="orderNumber" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                    dated
+                                    <input type="date" class="datepicker hasDatepicker" name="orderDate" placeholder="" value="" required style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                    of the
+                                    <input type="radio" class="Government" name="governmentType" value="Union"> Union Government
+                                    <input type="radio" class="Government" name="governmentType" value="State"> State Government of
+                                    <select style="width: 15%;" name="state" required>
+                                        <option value="">Select State</option>
+                                        <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                        <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                        <option value="Assam">Assam</option>
+                                        <option value="Bihar">Bihar</option>
+                                        <option value="Chandigarh">Chandigarh</option>
+                                        <option value="Chhattisgarh">Chhattisgarh</option>
+                                        <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                        <option value="Daman and Diu">Daman and Diu</option>
+                                        <option value="Delhi">Delhi</option>
+                                        <option value="Goa">Goa</option>
+                                        <option value="Gujarat">Gujarat</option>
+                                        <option value="Haryana">Haryana</option>
+                                        <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                        <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                        <option value="Jharkhand">Jharkhand</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Kerala">Kerala</option>
+                                        <option value="Lakshadweep">Lakshadweep</option>
+                                        <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                        <option value="Maharashtra">Maharashtra</option>
+                                        <option value="Manipur">Manipur</option>
+                                        <option value="Meghalaya">Meghalaya</option>
+                                        <option value="Mizoram">Mizoram</option>
+                                        <option value="Nagaland">Nagaland</option>
+                                        <option value="Orissa">Orissa</option>
+                                        <option value="Puducherry">Puducherry</option>
+                                        <option value="Punjab">Punjab</option>
+                                        <option value="Rajasthan">Rajasthan</option>
+                                        <option value="Sikkim">Sikkim</option>
+                                        <option value="Tamil Nadu">Tamil Nadu</option>
+                                        <option value="Telangana">Telangana</option>
+                                        <option value="Tripura">Tripura</option>
+                                        <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                        <option value="Uttarakhand">Uttarakhand</option>
+                                        <option value="West Bengal">West Bengal</option>
+                                    </select>
+                                    under sub-section (4) of section 62 for conversion of
+                                    <input type="checkbox" name="debentures"> Debentures
+                                    <input type="checkbox" name="loans"> Loans into shares
+                                </p>
+                            </div>
+                        </div>
+
+
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label" for="orderReceivedDate">(b) A copy of the aforesaid order was received by the company from Central Government on (DD/MM/YYYY)</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" id="orderReceivedDate" name="orderReceivedDate" class="form-control" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-xs-4 col-sm-4 col-md-4">
+                            <div class="form-control my-3">
+                                <label class="form-label">(c) Whether any appeal has been filed before the Tribunal against the order of Central Government?</label>
+                                <input type="radio" id="appealYes" name="appealFiled" value="yes" required> &nbsp; Yes &nbsp;
+                                <input type="radio" id="appealNo" name="appealFiled" value="no" required> &nbsp; No
+                            </div>
+                        </div>
+
+                        <div class="col-md-4 my-3">
+                            <label class="form-label" for="tribunalOrderDate">(c)(i) Date of passing the order by Tribunal</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" id="tribunalOrderDate" name="tribunalOrderDate" class="form-control" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="orderReceiptDate">(ii) Date of receipt of such order</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" id="orderReceiptDate" name="orderReceiptDate" class="form-control" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="srnInc28">(d) SRN of INC-28 in which the order of Central Government / Tribunal is filed</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" id="srnInc28" name="srnInc28" class="form-control" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+
+
+                        <div class="col-md-12 my-3">
+                            <label class="form-label" for="companyNoticeDate">7 Notice is hereby given that in accordance with section 61 of the Companies Act, 2013, that the company has on</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" id="companyNoticeDate" name="companyNoticeDate" class="form-control" required>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                (a) Type of Impact
+                            </p>
+                        </div>
+
+                        <div class="row my-2">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row">
+                                &nbsp; &nbsp;
+                                <label style="text-decoration: none; font-weight: normal;">
+                                    <input type="checkbox" id="impactConsolidated" name="impactConsolidated" value="consolidated" class="checkrequired"> Consolidated
+                                </label> &nbsp; &nbsp;
+                                <label style="text-decoration: none; font-weight: normal;">
+                                    <input type="checkbox" id="impactConverted" name="impactConverted" value="converted" class="checkrequired"> Converted
+                                </label> &nbsp; &nbsp;
+                                <label style="text-decoration: none; font-weight: normal;">
+                                    <input type="checkbox" id="impactReconverted" name="impactReconverted" value="reconverted" class="checkrequired"> Reconverted
+                                </label> &nbsp; &nbsp;
+                                <label style="text-decoration: none; font-weight: normal;">
+                                    <input type="checkbox" id="impactSubdivided" name="impactSubdivided" value="subdivided" class="checkrequired"> Subdivided
+                                </label> &nbsp; &nbsp;
+                                <label style="text-decoration: none; font-weight: normal;">
+                                    <input type="checkbox" id="impactCancellation" name="impactCancellation" value="cancellation" class="checkrequired"> Cancellation of unissued shares
+                                </label>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" id="part3">
+            <div class="row mt-3" style="">
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        13 Existing capital structure before taking into consideration the changes vide points 4, 6, 7 and 12 above
+                    </p>
+                </div>
+                <div style="overflow-x: scroll;">
+                    <table id="existingTable" border="1" style="border-collapse:collapse;width:200%; table-layout: auto; text-overflow: ellipsis;">
+                        <thead style="background-color:#8e949a;">
+                            <tr style="font-size: 15px;">
+                                <th rowspan="2" style="text-align: center;vertical-align: middle;">Type of Shares</th>
+                                <th rowspan="2" style="text-align: center;vertical-align: middle;">Class of shares</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Existing Authorised Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Existing Issued Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Existing Subscribed Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Existing Paid up Capital</th>
+                            </tr>
+                            <tr style="font-size: 15px;">
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="capital-details">
+                        </tbody>
+                    </table>
+
+                    <div class="row my-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <button type="button" onclick="structureTableAdd('existing')" class="btn btn-primary"><i class="fa fa-plus"></i> Add Row</button>
+                            &nbsp; &nbsp;
+                        <button type="button" onclick="structureTableRemove('existing')" class="btn btn-danger" style="margin-top: 0px;"><i class="glyphicon glyphicon-remove"></i> Delete Row</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3" style="">
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        14 Revised capital structure after taking into consideration the changes vide points 4, 6, 7 and 13 above
+                    </p>
+                </div>
+                <div style="overflow-x: scroll;">
+                    <table id="revisedTable" border="1" style="border-collapse:collapse;width:200%; table-layout: auto; text-overflow: ellipsis;">
+                        <thead style="background-color:#8e949a;">
+                            <tr style="font-size: 15px;">
+                                <th rowspan="2" style="text-align: center;vertical-align: middle;">Type of Shares</th>
+                                <th rowspan="2" style="text-align: center;vertical-align: middle;">Class of shares</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Revised Authorised Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Revised Issued Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Revised Subscribed Capital</th>
+                                <th colspan="3" style="text-align: center;vertical-align: middle;">Revised Paid up Capital</th>
+                            </tr>
+                            <tr style="font-size: 15px;">
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Number of Shares</th>
+                                <th style="text-align: center;vertical-align: middle;">Nominal value per share (in INR)</th>
+                                <th style="text-align: center;vertical-align: middle;">Total Amount of shares (in INR)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="capital-details">
+                        </tbody>
+                    </table>
+
+                    <div class="row my-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <button type="button" onclick="structureTableAdd('revised')" class="btn btn-primary"><i class="fa fa-plus"></i> Add Row</button>
+                            &nbsp; &nbsp;
+                        <button type="button" onclick="structureTableRemove('revised')" class="btn btn-danger" style="margin-top: 0px;"><i class="glyphicon glyphicon-remove"></i> Delete Row</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row my-3">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 form-row bold">
+                    15 *Whether articles of association have been altered
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 form-row">
+                &nbsp; &nbsp; <input type="radio" name="articlesAltered" id="altered" value="Yes" required> Yes &nbsp; &nbsp;
+                <input type="radio" name="articlesAltered" id="altered" value="No" required> No &nbsp;
+                </div>
+            </div>
+
+            <div class="row my-3">
+
+                <div class="col-xs-6 col-sm-6 col-md-6 form-row bold">
+                    16 *Whether memorandum of association have been altered
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 form-row">
+                &nbsp; &nbsp; <input type="radio" name="memorandumAltered" id="memorandumAltered" value="Yes" required=""> Yes &nbsp; &nbsp;
+                <input type="radio" name="memorandumAltered" id="memorandumAltered" value="N0" required=""> No &nbsp;
+                </div>
+            </div>
+
+          
+    </div>
+
+
+    <div id="part2" class="p-0">
+        <div class="card  p-0">
+            <div class="row">
+
+                <div class="d-flex justify-content-between mx-1 pt-2 mb-3">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        17. Particulars of payment of stamp duty
+                    </p>
+                </div>
+
+                <div class="col-md-12 my-2">
+                    <label class="form-label" for="stampState"> (a) State or UT in respect of which stamp duty is paid or to be paid</label>
+                    <input type="text" id="stampState" name="stampState" placeholder="" class="form-control" value="" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide the state or UT name.</div>
+                </div>
+
+                <div class="d-flex justify-content-between mx-1 pt-5">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">(b) Details of stamp duty to be paid electronically through MCA 21 System</p>
+                </div>
+
+                <div class="col-md-8 my-2">
+                    <label class="form-label" for="stampDutyAmount">(b)(i) *Amount of stamp duty to be paid</label>
+                    <input type="text" id="stampDutyAmount" name="stampDutyAmount" placeholder="" class="form-control num" value="" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide the amount of stamp duty.</div>
+                </div>
+
+                <div class="col-lg-4 my-5">
+                    <p style="color: red;">* Stamp duty amount will be autofilled when you submit the form on MCA</p>
+                </div>
+
+                <div class="col-md-12 my-2">
+                    <label class="form-label" for="stampDetails">(c) *In case maximum stamp duty payable has already been paid, provide details of form(s) filled earlier (SRN or receipt number, form number, date of filing, amount of stamp duty paid)</label>
+                    <input type="text" id="stampDetails" name="stampDetails" placeholder="" class="form-control" value="" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback"></div>
+                </div>
+
+
+            <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Declaration by the company
+                </p>
+            </div>
+
+
+                <div class="row" style="height: auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;">
+                        <p>
+                            I &nbsp;
+                            <input type="text" id="decName" name="decName" value="" placeholder="Enter your name" required style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            &nbsp; , a &nbsp;
+                            <select id="designation" name="designation" style="width: 15%; box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                                <option value="">Select</option>
+                                <option value="Director">Director</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Company Secretary">Company Secretary</option>
+                                <option value="CEO">CEO</option>
+                                <option value="CFO">CFO</option>
+                            </select>
+                        </p>
+                        <div class="invalid-feedback" style="display:none;">Please fill out this field.</div>
+
+                            &nbsp; of the company declare that all the requirements of Companies Act, 2013 and the rules made thereunder have been complied with. I am authorized by the board of directors to give this declaration and to sign and submit this form. It is further declared and verified that:
+                        </p>
+                        <p style="text-align: justify;"> 1. Whatever is stated in this form and in the attachments thereto is true, correct and complete and no information material to the subject matter of this form has been supressed or concealed and is as per the original records, maintained by the promoters subscribing to the Memorandum of Association and Articles of Association. </p>
+                        <p style="text-align: justify;"> 2. All the required attachments have been completely, correctly and legibly attached to this form. </p>
+                        <p style="text-align: justify;"> 3.  I further declare that the company has paid correct stamp duty as per applicable Stamp Duty</p>
+                        <p style="text-align: justify;">
+                            4. In case of redemption of preference shares out of profits of the company, amount equal to nominal amount of shares to be redeemed has been transferred to Capital Redemption Reserve"
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6 my-2">
+                    <label class="form-label" for="designation2">*Designation</label>
+                    <select id="designation2" name="designation2" class="form-select" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" aria-label="Select Designation" required>
+                        <option value="" selected>Select Designation</option>
+                        <option value="Director">Director</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Company Secretary">Company Secretary</option>
+                        <option value="CFO">CFO</option>
+                        <option value="CEO">CEO</option>
+                    </select>
+                    <div class="invalid-feedback">Please select a designation.</div>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <label class="form-label" for="identifier">*DIN of the director; or DIN or PAN of the manager or CEO or CFO; or Membership number of the Company secretary</label>
+                    <input type="text" id="identifier" name="identifier" placeholder="Enter DIN/PAN/Membership number" class="form-control" value="" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" required>
+                    <div class="invalid-feedback">Please provide the required identifier.</div>
+                </div>
+
+
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Certificate by Practicing Professionals
+                    </p>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: 179px;">
+                    <p style="text-align: justify;">I declare that I have been duly engaged for the purpose of certification of this form. It is hereby certified that I have gone through the provisions of the Companies Act,  2013  and Rules thereunder for the subject matter of this form and matters incidental thereto and I have verified the above particulars [including attachment(s)] from the original/certified records maintained by the Company/applicant which is subject matter of this form and found them to be true, correct and complete and no information material to this form has been suppressed.<br></p>
+
+                    <p style="text-align: justify;">
+                        I further certify that: <br>
+                        1) The said records have been properly prepared, signed by the required officers of the Company and maintained as per the relevant provisions of the Companies Act, 2013 and were found to be in order;<br>
+                        2) All the required attachments have been completely and legibly attached to this form;
+                    </p>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Category [In whole time practice]
+                    </div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                        &nbsp;<input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="radio" name="category" value="charteredAccountant" required>&nbsp; Chartered Accountant &nbsp;
+                        <input type="radio" name="category" value="costAccountant" required>&nbsp; Cost Accountant or&nbsp;
+                        <input type="radio" name="category" value="companySecretary" required>&nbsp;Company Secretary
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row CERT_PRACTICE_NO1" style="display: block;">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row CERT_PRACTICE_NO1" style="text-align: center; display: block;">
+                        <select style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" name="pcs" aria-label="Default select example">
+                            <option value="">Select PCS</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row my-3 mb-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Whether associate or fellow
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        &nbsp;<input type="radio" name="membershipStatus" value="associate" required>&nbsp; Associate&nbsp;
+                        <input type="radio" name="membershipStatus" value="fellow" required>&nbsp;Fellow&nbsp;
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Membership number or Certificate of practice number
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <input type="text" class="form-control membershipnumber" name="membershipNumber" value="" required>
+                    </div>
+                </div>
+
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+Attactments                        </p>
+                </div>
+
+                <div class="row showon0and5th">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                        (b) Copy of the resolution for alterations of capital
+
+                    </div>
+                </div>
+                <div id="equity2" class="showon0and5th my-3">
+
+                    <div class="row" id="rowel1">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            1.
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                            <input type="file" name="resolution" id="resolution_1" class="1" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        (c) Optional Attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                    </div>
+
+                </div>
+                <div id="equity2" class="showon0and5th my-3">
+
+                    <div class="row" id="rowel1">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                            1.
+
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                            <input type="file" name="resolution" id="resolution_1" class="1" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+
+            formPurpose: "", // Will store the selected purpose, e.g., "Increase in share capital independently by company"
+            
+            //3 start
+            shareType: "", // Will store the selected value, e.g., "Ordinary" or "Special"
+            resolutionDate: "", // Will store the selected date for the resolution meeting
+            srnNumber: "",      // Will store the SRN number for related Form MGT-14
+            
+            membersPresent: 0, // Number of members present at the meeting
+            sharesHeld: 0,     // Number of shares held by them
+            membersVotedFor: 0, // Number of members who voted in favor
+            sharesVotedFor: 0,  // Number of shares who voted in favor
+            membersVotedAgainst: 0, // Number of members who voted against
+            sharesVotedAgainst: 0,  // Number of shares who voted against
+            membersAbstained: 0, // Number of members who abstained
+            sharesAbstained: 0,  // Number of shares who abstained
+            //3 end
+        
+            //4 start
+            //4 end
+
+            //5 start
+            existingMembers: 0,       // Existing number of members
+            revisedMembers: 0,        // Revised number of members
+            differenceMembers: 0,     // Difference in members (Addition)
+            maxMembersExcludingEmployees: 0,  // Maximum number of members excluding past and present employees
+            //5 end
+
+            //6 start
+            orderNumber: "", // The order number (text input)
+            orderDate: "",   // The order date (date input)
+            governmentType: "", // Selected government type (radio button: Union or State)
+            state: "", // Selected state (dropdown)
+            debentures: false, // Whether debentures are selected (checkbox)
+            loans: false, // Whether loans are selected (checkbox)
+
+            orderReceivedDate: "",
+            appealFiled: "",
+            tribunalOrderDate: "",
+            orderReceiptDate: "",
+            srnInc28: "",
+            //6 end
+
+            //7 start
+
+            companyNoticeDate: "",
+            impactConsolidated: false,
+            impactConverted: false,
+            impactReconverted: false,
+            impactSubdivided: false,
+            impactCancellation: false,
+            //7 end
+
+            articlesAltered:"",
+            memorandumAltered:"",
+
+            stampState: "", // Stores the state or UT name
+            stampDutyAmount: "", // Stores the amount of stamp duty
+            stampDetails: "", // Stores details of previously paid stamp duty
+
+            decName: "",       // Stores the name entered in the text input
+            designation: "",      // Stores the selected designation
+            designation2: "", // Stores the selected designation
+            identifier: "",   // Stores the DIN, PAN, or Membership number
+
+            category: "",
+            pcs: "",
+            membershipStatus: "",
+            membershipNumber: ""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        var tbl1 = {
+            id: 0,
+            parentId: 0,
+            typeOfShares: "",  // Default value is empty string
+            classOfShares: "",  // Default value is empty string
+            nominalValuePerShare: 0,  // Default value is 0
+            existingNumberOfShares: 0,  // Default value is 0
+            revisionRequired: "",  // Default value is empty string
+            additionalNumberOfShares: 0,  // Default value is 0
+            revisedNumberOfShares: 0,  // Default value is 0
+            existingTotalValue: 0,  // Default value is 0
+            revisedTotalValue: 0,  // Default value is 0
+            totalAddition: 0,  // Default value is 0
+            briefDescriptionOfConditions: ""  // Default value is empty string
+        };
+
+        var tbl2 = {
+            id: 0,
+            parentId: 0,
+            shareType: "",         
+            classOfShares: "",             
+            authNumberOfShares: 0,         
+            authNominalValue: 0,           
+            authTotalAmount: 0,            
+            issuedNumberOfShares: 0,       
+            issuedNominalValue: 0,         
+            issuedTotalAmount: 0,          
+            subscribedNumberOfShares: 0,   
+            subscribedNominalValue: 0,     
+            subscribedTotalAmount: 0,      
+            paidUpNumberOfShares: 0,       
+            paidUpNominalValue: 0,         
+            paidUpTotalAmount: 0           
+        };
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+
+            obj.shares = $.makeArray($('#shareTable tbody tr')).map(tr => getObj(tbl1, tr));
+
+            var existingTable = [];
+            $('#existingTable tbody tr').each(function () {
+                d = getObj(tbl2, this)
+                existingTable.push(d);
+            });
+            obj.existingStructure = existingTable;
+
+            var revisedTable = [];
+            $('#revisedTable tbody tr').each(function () {
+                d = getObj(tbl2, this)
+                revisedTable.push(d);
+            });
+            obj.revisedStructure = revisedTable;
+
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                    if (x.shares.length > 0) {
+                        x.shares.forEach(function () {
+                            shareTableAdd()
+                        });
+                        $('#shareTable tbody tr').each(function (index) {
+                            setObj(x.shares[index], this);
+                        });
+                    } else {
+                        shareTableAdd()
+                    }
+
+
+                    if (x.existingStructure.length > 0) {
+                        x.existingStructure.forEach(function () {
+                            structureTableAdd("existing")
+                        });
+                        $('#existingTable tbody tr').each(function (index) {
+                            setObj(x.existingStructure[index], this);
+                        });
+                    } else {
+                        structureTableAdd("existing")
+                    }
+
+                    if (x.revisedStructure.length > 0) {
+                        x.revisedStructure.forEach(function () {
+                            structureTableAdd("revised")
+                        });
+                        $('#revisedTable tbody tr').each(function (index) {
+                            setObj(x.revisedStructure[index], this);
+                        });
+                    } else {
+                        structureTableAdd("revised")
+                    }
+                })
+            } else {
+                shareTableAdd()
+                structureTableAdd("existing")
+                structureTableAdd("revised")
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+        function shareTableAdd() {
+            const newRow = `
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <select name="typeOfShares" class="description form-control-select" style="width: 100%;">
+                            <option value="">Select</option>
+                            <option value="Equity">Equity</option>
+                            <option value="Preference">Preference</option>
+                            <option value="Unclassified">Unclassified</option>
+                        </select>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="text" name="classOfShares" class="1" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="nominalValuePerShare" class="num 1" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="existingNumberOfShares" class="1 rights num" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <select name="revisionRequired" class="1 alone" style="width: 100%;">
+                            <option value="">Select</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="additionalNumberOfShares" class="1 diploma num" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="revisedNumberOfShares" class="1 num" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="existingTotalValue" class="1 num" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="revisedTotalValue" class="1 num" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="totalAddition" class="num 1" style="width: 100%;" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="text" name="briefDescriptionOfConditions" class="1" style="width: 100%;" required>
+                    </td>
+
+                    <!-- Hidden input fields for id and parentId -->
+                    <td style="display: none;">
+                        <input type="number" class="num" name="id" value="0" id="id">
+                        <input type="number" class="num" name="parentId" value="0" id="parentId">
+                    </td>
+                </tr>`;
+            $('#shareTable tbody').append(newRow);
+
+        }
+        function shareTableRemove() {
+            const rowCount = $('#shareTable tbody tr').length;
+
+            if (rowCount > 1) {
+                $('#shareTable tbody tr:last').remove();
+            } else {
+                alert('At least one row must be present in the table.');
+            }
+
+        }
+
+        function structureTableAdd(type) {
+            const newRow = `
+                <tr>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <select name="shareType" class="vertical" required>
+                            <option value="">Select</option>
+                            <option value="Equity">Equity</option>
+                            <option value="Preference">Preference</option>
+                            <option value="Unclassified">Unclassified</option>
+                        </select>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="text" name="classOfShares" class="points" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="authNumberOfShares" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="authNominalValue" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="authTotalAmount" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="issuedNumberOfShares" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="issuedNominalValue" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="issuedTotalAmount" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="subscribedNumberOfShares" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="subscribedNominalValue" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="subscribedTotalAmount" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="paidUpNumberOfShares" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="paidUpNominalValue" class="num" required>
+                    </td>
+                    <td style="text-align: center;vertical-align: middle;">
+                        <input type="number" name="paidUpTotalAmount" class="num" required>
+                    </td>
+
+                    <!-- Hidden input fields for id and parentId -->
+                    <td style="display: none;">
+                        <input type="number" class="num" name="id" value="0" id="id">
+                        <input type="number" class="num" name="parentId" value="0" id="parentId">
+                    </td>
+                </tr>`;
+            $(`#${type}Table tbody`).append(newRow);
+
+        }
+        function structureTableRemove(type) {
+            const rowCount = $(`#${type}Table tbody tr`).length;
+
+            if (rowCount > 1) {
+                $(`#${type}Table tbody tr:last`).remove();
+            } else {
+                alert('At least one row must be present in the table.');
+            }
+
+        }
+
+    </script>
+
+}

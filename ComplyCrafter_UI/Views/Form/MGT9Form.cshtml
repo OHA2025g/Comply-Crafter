@@ -1,0 +1,945 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    MGT-9
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="card" style="padding:25px;">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <div class="form-group d-flex" style="overflow: hidden;">
+                    <label class="col-md-6" style="margin-top:8px;">I. REGISTRATION AND OTHER DETAILS: </label>
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="input select">
+                            <select name="financialYear" class="form-select" required="required" id="AnnualFilingFinancialyear">
+                                <option value="">Select Financial Year</option>
+                                <option value="2000-01">2000-01</option>
+                                <option value="2001-02">2001-02</option>
+                                <option value="2002-03">2002-03</option>
+                                <option value="2003-04">2003-04</option>
+                                <option value="2004-05">2004-05</option>
+                                <option value="2005-06">2005-06</option>
+                                <option value="2006-07">2006-07</option>
+                                <option value="2007-08">2007-08</option>
+                                <option value="2008-09">2008-09</option>
+                                <option value="2009-10">2009-10</option>
+                                <option value="2010-11">2010-11</option>
+                                <option value="2011-12">2011-12</option>
+                                <option value="2012-13">2012-13</option>
+                                <option value="2013-14">2013-14</option>
+                                <option value="2014-15">2014-15</option>
+                                <option value="2015-16">2015-16</option>
+                                <option value="2016-17">2016-17</option>
+                                <option value="2017-18">2017-18</option>
+                                <option value="2018-19">2018-19</option>
+                                <option value="2019-20">2019-20</option>
+                                <option value="2020-21">2020-21</option>
+                                <option value="2021-22">2021-22</option>
+                                <option value="2022-23">2022-23</option>
+                                <option value="2023-24">2023-24</option>
+                                <option value="2024-25">2024-25</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" align="right">
+                        <a href="company.php?tag=mgt9" class="btn btn-default"><i class="fa fa-arrow-circle-left"></i>  Update Company Master</a>
+                    </div>
+                </div>
+
+                <table class="table table-bordered mt-3">
+                    <tbody>
+                        <tr>
+                            <td style="font-weight: bold;">CIN</td>
+                            <td>U74999MH2017PTC289529 </td>
+                            <td style="font-weight: bold;">Registration Date </td>
+                            <td>13-01-2017 </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Company Name </td>
+                            <td>PRIYA EXPRESS PRIVATE LIMITED  </td>
+                            <td style="font-weight: bold;">Category / Sub-Category of the Company  </td>
+                            <td>
+                                Company limited by shares / Non-government company
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Address of the Registered office   </td>
+                            <td> SHOP NO 5 SHIV KRUPA CHS   OLD NAGARDAS ROAD ANDHERI EAST, MUMBAI, Mumbai City, Maharashtra, India, 400069 </td>
+                            <td style="font-weight: bold;">Whether Listed</td>
+                            <td>Unlisted      </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;">Email </td>
+                            <td>*****al.shah2003@gmail.com  </td>
+                            <td style="font-weight: bold;">Phone No.  </td>
+                            <td>
+                                +91 9769279733
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="registrationdl" style="">
+                    <div class="form-group" style="overflow: hidden;">
+                        <label class="col-md-3" style="margin-top:8px;">Registrar and Transfer Agent ? </label>
+                        <div class="col-md-2">
+                            <div class="input radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="isRegistrarAgent" id="MGT9IsRegistraragentYes" class="is_registraragent" value="yes" style="">Yes
+                                </label>
+                                <label class="radio-inline"><input type="radio" name="isRegistrarAgent" id="MGT9IsRegistraragentNo" class="is_registraragent" value="no" style="" checked="checked">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+
+                    <div id="is_registraragent" style="">
+                        <table class="table table-bordered mt-3">
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold;">Name of Registrar and Transfer Agent</td>
+                                    <td> <input name="registrarAgentName" class="form-control" placeholder="Name of Registrar and Transfer Agent" id="registraragentname" type="text"> </td>
+                                    <td style="font-weight: bold;">Address of Registrar and Transfer Agent</td>
+                                    <td><input name="registrarAgentAddress" class="form-control" placeholder="Address of Registrar and Transfer Agent" id="registraragentaddress" type="text"> </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Phone No</td>
+                                    <td><input name="registrarAgentPhone" class="form-control numbers" placeholder="Phone No." id="registraragentphone" type="text"> </td>
+                                    <td style="font-weight: bold;">Email  </td>
+                                    <td>
+                                        <input name="registrarAgentEmail" class="form-control" placeholder="Email" id="registraragentemail" type="email">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+
+
+                <div class="form-group" style="overflow: hidden;">
+                    <label class="col-md-6" style="margin-top:15px;">II. PRINCIPAL BUSINESS ACTIVITIES OF THE COMPANY</label>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 " style="font-weight: 700;font-size: 15px;">
+                        No. of business activities contributing 10 % or more of the total turnover
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input text"><input name="noOfBusiness" class="form-control numbers num" placeholder="No of business activities" id="no_of_business" title="No of business activities" type="text"></div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+                <div id="info_business"></div>
+
+                <div style="clear:both;"></div>
+                <div class="form-group" style="overflow: hidden;">
+                    <label class="col-md-6" style="margin-top:15px;">III. PARTICULARS OF HOLDING, SUBSIDIARY AND ASSOCIATE COMPANIES -</label>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-6 " style="font-weight: 700;font-size: 15px;">
+                        No. of Holding, Subsidiary and Associate Companies
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input text"><input name="noOfHolding" class="form-control numbers num" placeholder="No of Holding, Subsidiary and Associate Companies" id="no_of_holding" title="No of Holding" type="text" value=""></div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+                <div id="info_holding">
+                </div>
+
+                <div style="clear:both;"></div>
+                <div class="form-group" style="overflow: hidden;">
+                    <label class="col-md-12" style="margin-top:15px;">IV. INDEBTEDNESS</label>
+                    <label class="col-md-12" style="margin-top:15px;">Indebtedness of the Company including interest outstanding/accrued but not due for payment</label>
+
+                </div>
+
+                <div style="clear:both;"></div>
+                <div class="form-group" style="overflow: hidden;">
+                    <div class="table-responsive">
+                        <table class="table table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th style="text-align:center;">Secured Loans excluding deposits</th>
+                                    <th style="text-align:center;">Unsecured Loans</th>
+                                    <th style="text-align:center;">Deposits</th>
+                                    <th style="text-align:center;">Total Indebtedness</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; width: 40%">Indebtedness at the beginning of the financial year</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>i) Principal Amount</td>
+                                    <td>
+                                        <div class="input text">
+                                            <input name="securedPrincipalBeg" class="form-control numbers num" id="securedPrincipalbeg" type="text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input text">
+                                            <input name="unsecuredPrincipalBeg" class="form-control numbers num" id="unsecuredPrincipalbeg" type="text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input text">
+                                            <input name="depositPrincipalBeg" class="form-control numbers num" id="depositPrincipalbeg" type="text">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="input text">
+                                            <input name="totalPrincipalBeg" class="form-control numbers num" id="totalPrincipalbeg" type="text">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>ii) Interest due but not paid</td>
+                                    <td><div class="input text"><input name="securedInterestDueBeg" class="form-control numbers num" id="securedInterestduebeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredInterestDeuBeg" class="form-control num" id="unsecuredInterestduebeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositInterestDeuBeg" class="form-control num" id="depositInterestduebeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalInterestDeuBeg" class="form-control num" id="totalInterestduebeg" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>iii) Interest accrued but not due</td>
+                                    <td><div class="input text"><input name="securedInterestAccruedBeg" class="form-control num" id="securedInterestaccruedbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredInterestAccruedBeg" class="form-control num" id="unsecuredInterestaccruedbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositInterestAccruedBeg" class="form-control num" id="depositInterestaccruedbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalInterestAccruedBeg" class="form-control num" id="totalInterestaccruedbeg" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total (i+ii+iii)</td>
+                                    <td><div class="input text"><input name="totalSecuredBeg" class="form-control num" id="Totalsecuredbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalUnsecuredBeg" class="form-control num" id="Totalunsecuredbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalDepositBeg" class="form-control num" id="Totaldepositbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalBeg" class="form-control num" id="Totaltotalbeg" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Change in Indebtedness during the financial year</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>Addition</td>
+                                    <td><div class="input text"><input name="securedAdditionBeg" class="form-control num" id="securedAdditionbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredAdditionBeg" class="form-control num" id="unsecuredAdditionlbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositAdditionBeg" class="form-control num" id="depositAdditionbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalAdditionBeg" class="form-control num" id="totalAdditionbeg" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>Reduction</td>
+                                    <td><div class="input text"><input name="securedReductionBeg" class="form-control num" id="securedReductionbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredReductionBeg" class="form-control num" id="unsecuredReductionlbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositReductionBeg" class="form-control num" id="depositReductionbeg" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalReductionBeg" class="form-control num" id="totalReductionbeg" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Net Change</td>
+                                    <td><div class="input text"><input name="securedNetChange" class="form-control num" id="securedNetChange" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredNetChange" class="form-control num" id="unsecuredNetChange" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositNetChange" class="form-control num" id="depositNetChange" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalNetChange" class="form-control num" id="totalNetChange" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Indebtedness at the end of the financial year</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>i) Principal Amount</td>
+                                    <td><div class="input text"><input name="securedPrincipalEnd" class="form-control num" id="securedPrincipalend" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredPrincipalEnd" class="form-control num" id="unsecuredPrincipalend" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositPrincipalEnd" class="form-control num" id="depositPrincipalend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalPrincipalEnd" class="form-control num" id="totalPrincipalend" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>ii) Interest due but not paid</td>
+                                    <td><div class="input text"><input name="securedInterestDueEnd" class="form-control num" id="securedInterestDueend" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredInterestDueEnd" class="form-control num" id="unsecuredInterestDueend" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositInterestDueEnd" class="form-control num" id="depositInterestDueend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalInterestDueEnd" class="form-control num" id="totalInterestDueend" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td>iii) Interest accrued but not due</td>
+                                    <td><div class="input text"><input name="securedInterestAccruedEnd" class="form-control num" id="securedInterestAccruedend" type="text"></div></td>
+                                    <td><div class="input text"><input name="unsecuredInterestAccruedEnd" class="form-control num" id="unsecuredInterestAccruedend" type="text"></div></td>
+                                    <td><div class="input text"><input name="depositInterestAccruedEnd" class="form-control num" id="depositInterestAccruedend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalInterestAccruedEnd" class="form-control num" id="totalInterestAccruedend" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Total (i+ii+iii)</td>
+                                    <td><div class="input text"><input name="totalSecuredEnd" class="form-control num" id="Totalsecuredend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalUnsecuredEnd" class="form-control num" id="Totalunsecuredend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalDepositEnd" class="form-control num" id="Totaldepositend" type="text"></div></td>
+                                    <td><div class="input text"><input name="totalEnd" class="form-control num" id="Totaltotalend" type="text"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div style="clear:both;"></div>
+                <label style="margin-top:15px;">V. REMUNERATION OF DIRECTORS AND KEY MANAGERIAL PERSONNEL</label>
+
+                <br>
+                <label style="margin-top:12px;">A. Remuneration to Managing Director, Whole-time Directors/Manager:</label>
+
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <label class="radio-inline mt-2">
+                    <input type="radio" name="isRemuneration" id="" class="isRemuneration" value="applicable">Applicable
+                </label>
+                <label class="radio-inline mt-2"><input type="radio" name="isRemuneration" value="not applicable" id="MGT9is_remunerationNo" class="isRemuneration" value="Not Applicable" checked="checked">Not Applicable</label>
+                <br>
+                <br>
+                <div id="is_remuneration" style="">
+                    <div class="form-group">
+                        <div class="col-md-6 " style="font-weight: 700;font-size: 15px;">
+                            No. of Persons who are  Managing Director, Whole-time Directors and/or Manager:
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="input text"><input name="noOfPersons" class="form-control numbers" placeholder="No of Persons who are  Managing Director, Whole-time Directors and/or Manager " id="no_of_persons" title="No of Holding" type="text"></div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div id="info_persons"></div>
+                </div>
+                <hr>
+                <div style="clear:both;"></div>
+                <label>B. Remuneration to other directors:</label>
+
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <label class="radio-inline">
+                    <input type="radio" name="isRemunerationOther" id="MGT9is_remuneration_otherYes" class="is_remuneration_other" value="Applicable" style="">Applicable
+                </label>
+                <label class="radio-inline"><input type="radio" name="isRemunerationOther" id="MGT9is_remuneration_otherNo" class="is_remuneration_other" value="Not Applicable" style="" checked="checked">Not Applicable</label>
+                <br>
+                <br>
+                <div style="clear:both;"></div>
+                <div id="is_remuneration_other" style="">
+                    <div class="form-group" style="overflow: hidden;">
+                        <div class="col-md-3 " style="font-weight: 700;font-size: 15px;">
+                            No of Independent Directors:
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="input text"><input name="noOfIndependentDirectors" class="form-control numbers" placeholder="No of Independent Directors" id="no_of_independentdirectors" title="No of Independent Directors" type="text"></div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div id="info_independentdirectors"></div>
+                    <div style="clear:both;"></div>
+                    <div class="form-group" style="overflow: hidden;">
+                        <div class="col-md-3 " style="font-weight: 700;font-size: 15px;">
+                            No of Non-Executive Directors:
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="input text"><input name="noOfNonExecutiveDirectors" class="form-control numbers num" placeholder="No of Non-Executive Directors" id="no_of_nonexecutivedirectors" title="No of Non-Executive Directors" type="text"></div>
+                        </div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <div id="info_nonexecutivedirectors"></div>
+
+                    <div style="clear:both;"></div>
+                    <div class="form-group" style="overflow: hidden;">
+                        <div class="col-md-3 " style="font-weight: 700;font-size: 15px;">
+                            Overall Ceiling as per the Act:
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="input text"><input name="overAllCeiling" class="form-control" placeholder="Overall Ceiling as per the Act" id="overallceiling" title="Overall Ceiling as per the Act" type="text"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+
+                <div style="clear:both;"></div>
+
+                <label>C. Remuneration to KMP other than MD/ WTD/Manager:</label>
+                &nbsp; &nbsp; &nbsp; &nbsp;
+                <label class="radio-inline">
+                    <input type="radio" name="isRemunerationOtherKmp" id="MGT9is_remuneration_otherYes" class="is_remuneration_otherkmp" value="Applicable" style="">Applicable
+                </label>
+                <label class="radio-inline"><input type="radio" name="isRemunerationOtherKmp" id="MGT9is_remuneration_otherkmpNo" class="is_remuneration_otherkmp" value="Not Applicable" style="" checked="checked">Not Applicable</label>
+                <br>
+                <br>
+                <div id="is_remuneration_otherkmp" style="">
+                    <label>CEO Details</label>
+
+                    <table class="table table-bordered ">
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">Name</td>
+                                <td colspan="3"><input name="ceoName" class="form-control" placeholder="Name" id="ceoname" title="Name" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="ceoSalary" class="form-control num" placeholder="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" title="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" id="ceosalary" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Stock Option</td>
+                                <td>
+                                    <input name="ceoStock" class="form-control num" placeholder="Stock Option" title="Stock Option" id="ceostock" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(b) Value of perquisites u/s 17(2) Income-tax Act, 1961</td>
+                                <td>    <input name="ceoValue" class="form-control num" placeholder="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" id="ceovalue" title="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" type="text">   </td>
+                                <td style="font-weight: bold;">Sweat Equity</td>
+                                <td>   <input name="ceoSweat" class="form-control num" placeholder="Sweat Equity" id="ceosweat" title="Sweat Equity" type="text"> </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">(c) Profits in lieu of salary under section 17(3) Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="ceoProfit" class="form-control num" placeholder="(c)  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" id="ceoprofit" title="(c)  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Commission as % of profit</td>
+                                <td>
+                                    <input name="ceoCommisionPer" class="form-control num" placeholder="Commission as % of profit" id="ceocommisionper" title="Commission as % of profit" type="text">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">Gross salary (a+b+c)</td>
+                                <td>    <input name="ceoGross" class="form-control num" placeholder="Gross salary (a+b+c)" id="ceogross" title="Gross salary (a+b+c)" type="text">  </td>
+                                <td style="font-weight: bold;">Commission Other</td>
+                                <td>   <input name="ceoCommisionOther num" class="form-control" placeholder="Commission Other" id="ceocommisionother" title="Commission Other" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Other amount received (specify)</td>
+                                <td colspan="3"><input name="ceoOtherAmount" class="form-control num" placeholder="Other amount received (specify)" id="ceotheramount" title="Other amount received (specify)" type="text">  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <div style="clear:both;"></div>
+                    <label>Company Secretary Details</label>
+
+                    <table class="table table-bordered ">
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">Name</td>
+                                <td colspan="3"><input name="secName" class="form-control" placeholder="Name" id="Secname" title="Name" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="secSalary" class="form-control num" placeholder="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" title="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" id="Secsalary" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Stock Option</td>
+                                <td>
+                                    <input name="secStock" class="form-control num" placeholder="Stock Option" title="Stock Option" id="Secstock" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(b) Value of perquisites u/s 17(2) Income-tax Act, 1961</td>
+                                <td>   <input name="secValue" class="form-control num" placeholder="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" id="Secvalue" title="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" type="text">  </td>
+                                <td style="font-weight: bold;">Sweat Equity</td>
+                                <td>  <input name="secSweat" class="form-control num" placeholder="Sweat Equity" id="Secsweat" title="Sweat Equity" type="text"> </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">(c) Profits in lieu of salary under section 17(3) Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="secProfit" class="form-control num" placeholder="(c )  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" id="Secprofit" title="(c )  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Commission as % of profit</td>
+                                <td>
+                                    <input name="secCommisionPer" class="form-control num" placeholder="Commission as % of profit" id="Seccommisionper" title="Commission as % of profit" type="text">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">Gross salary (a+b+c)</td>
+                                <td>    <input name="secGross" class="form-control num" placeholder="Gross salary (a+b+c)" id="Secgross" title="Gross salary (a+b+c)" type="text">  </td>
+                                <td style="font-weight: bold;">Commission Other</td>
+                                <td>  <input name="secCommisionOther" class="form-control num" placeholder="Commission Other" id="Seccommisionother" title="Commission Other" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Other amount received (specify)</td>
+                                <td colspan="3"><input name="secOtherAmount" class="form-control num" placeholder="Other amount received (specify)" id="Sectheramount" title="Other amount received (specify)" type="text">  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div style="clear:both;"></div>
+
+                    <label>CFO Details</label>
+
+                    <table class="table table-bordered ">
+                        <tbody>
+                            <tr>
+                                <td style="font-weight: bold;">Name</td>
+                                <td colspan="3"><input name="cfoName" class="form-control" placeholder="Name" id="Secname" title="Name" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="cfoSalary" class="form-control num" placeholder="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" title="(a) Salary as per provisions contained in section 17(1) of the Income-tax Act, 1961" id="CFOsalary" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Stock Option</td>
+                                <td>
+                                    <input name="cfoStock" class="form-control num" placeholder="Stock Option" title="Stock Option" id="CFOstock" type="text">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">(b) Value of perquisites u/s 17(2) Income-tax Act, 1961</td>
+                                <td>   <input name="cfoValue" class="form-control num" placeholder="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" id="CFOvalue" title="(b) Value of perquisites u/s 17(2) Income-tax Act, 1961" type="text">  </td>
+                                <td style="font-weight: bold;">Sweat Equity</td>
+                                <td>  <input name="cfoSweat" class="form-control num" placeholder="Sweat Equity" id="CFOsweat" title="Sweat Equity" type="text"> </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">(c) Profits in lieu of salary under section 17(3) Income-tax Act, 1961</td>
+                                <td>
+                                    <input name="cfoProfit" class="form-control num" placeholder="(c )  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" id="CFOprofit" title="(c )  Profits in lieu of salary under section 17(3) Income-tax Act, 1961" type="text">
+                                </td>
+                                <td style="font-weight: bold;">Commission as % of profit</td>
+                                <td>
+                                    <input name="cfoCommisionPer" class="form-control num" placeholder="Commission as % of profit" id="CFOcommisionper" title="Commission as % of profit" type="text">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;">Gross salary (a+b+c)</td>
+                                <td>   <input name="cfoGross" class="form-control num" placeholder="Gross salary (a+b+c)" id="CFOgross" title="Gross salary (a+b+c)" type="text">  </td>
+                                <td style="font-weight: bold;">Commission Other</td>
+                                <td> <input name="cfoCommisionOther" class="form-control num" placeholder="Commission Other" id="CFOcommisionother" title="Commission Other" type="text">  </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Other amount received (specify)</td>
+                                <td colspan="3"><input name="cfoOtherAmount" class="form-control num" placeholder="Other amount received (specify)" id="CFOtheramount" title="Other amount received (specify)" type="text">  </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr>
+
+                <div style="clear:both;"></div>
+                <div class="form-group" style="overflow: hidden;">
+                    <label style="margin-top:8px;">VI. PENALTIES / PUNISHMENT/ COMPOUNDING OF OFFENCES: </label>
+                    &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label class="radio-inline">
+                        <input type="radio" name="isPenalties" id="MGT9is_penaltiesYes" class="is_penalties" value="Applicable" style="">Applicable
+                    </label>
+                    <label class="radio-inline"><input type="radio" name="isPenalties" id="MGT9is_penaltiesNo" class="is_penalties" value="Not Applicable" style="" checked="">Not Applicable</label>
+                    <br><br>
+                    <div id="is_penalties" style="">
+                        <table class="table table-bordered ">
+                            <thead>
+                                <tr>
+                                    <th style="width: 30%;">Type</th>
+                                    <th style="text-align:center;">Section</th>
+                                    <th style="text-align:center;">Description</th>
+                                    <th style="text-align:center;">Details of fees imposed</th>
+                                    <th style="text-align:center;">Penalty imposed by:</th>
+                                    <th style="text-align:center;">Details of Appeal Made (if any)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td colspan="6" style="font-weight: bold;">A. COMPANY</td></tr>
+
+                                <tr>
+                                    <td style="font-weight: bold;">Penalty</td>
+                                    <td><div class="input text"><input name="companySectionPenalty" class="form-control " id="companysectionpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDescriptioinPenalty" class="form-control " id="companydescriptioinpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyFeesPenalty" class="form-control num" id="companyfeespenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyImposedPenalty" class="form-control " id="companyimposedpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDetailPenalty" class="form-control " id="companydetailpenalty" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Punishment</td>
+                                    <td><div class="input text"><input name="companySectionPunishment" class="form-control " id="companysectionPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDescriptioinPunishment" class="form-control " id="companydescriptioinPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyFeesPunishment" class="form-control " id="companyfeesPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyImposedPunishment" class="form-control " id="companyimposedPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDetailPunishment" class="form-control " id="companydetailPunishment" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Compounding</td>
+                                    <td><div class="input text"><input name="companySectionCompounding" class="form-control " id="companysectioncompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDescriptioinCompounding" class="form-control " id="companydescriptioincompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyFeesCompounding" class="form-control " id="companyfeescompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyImposedCompounding" class="form-control " id="companyimposedcompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="companyDetailCompounding" class="form-control " id="companydetailcompounding" type="text"></div></td>
+                                </tr>
+
+                                <tr><td colspan="6" style="font-weight: bold;">B. DIRECTORS</td></tr>
+
+                                <tr>
+                                    <td style="font-weight: bold;">Penalty</td>
+                                    <td><div class="input text"><input name="directorSectionPenalty" class="form-control " id="directorsectionpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDescriptioinPenalty" class="form-control " id="directordescriptioinpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorFeesPenalty" class="form-control " id="directorfeespenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorImposedPenalty" class="form-control " id="directorimposedpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDetailPenalty" class="form-control " id="directordetailpenalty" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Punishment</td>
+                                    <td><div class="input text"><input name="directorSectionPunishment" class="form-control " id="directorsectionPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDescriptioinPunishment" class="form-control " id="directordescriptioinPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorFeesPunishment" class="form-control " id="directorfeesPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorImposedPunishment" class="form-control " id="directorimposedPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDetailPunishment" class="form-control " id="directordetailPunishment" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Compounding</td>
+                                    <td><div class="input text"><input name="directorSectionCompounding" class="form-control " id="directorsectioncompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDescriptioinCompounding" class="form-control " id="directordescriptioincompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorFeesCompounding" class="form-control " id="directorfeescompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorImposedCompounding" class="form-control " id="directorimposedcompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="directorDetailCompounding" class="form-control " id="directordetailcompounding" type="text"></div></td>
+                                </tr>
+
+                                <tr><td colspan="6" style="font-weight: bold;">C. OTHER OFFICERS IN DEFAULT</td></tr>
+
+                                <tr>
+                                    <td style="font-weight: bold;">Penalty</td>
+                                    <td><div class="input text"><input name="officerSectionPenalty" class="form-control " id="officersectionpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDescriptioinPenalty" class="form-control " id="officerdescriptioinpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerFeesPenalty" class="form-control " id="officerfeespenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerImposedPenalty" class="form-control " id="officerimposedpenalty" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDetailPenalty" class="form-control " id="officerdetailpenalty" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Punishment</td>
+                                    <td><div class="input text"><input name="officerSectionPunishment" class="form-control " id="officersectionPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDescriptioinPunishment" class="form-control " id="officerdescriptioinPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDeesPunishment" class="form-control " id="officerfeesPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDmposedPunishment" class="form-control " id="officerimposedPunishment" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDetailPunishment" class="form-control " id="officerdetailPunishment" type="text"></div></td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold;">Compounding</td>
+                                    <td><div class="input text"><input name="officerSectionCompounding" class="form-control " id="officersectioncompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDescriptioinCompounding" class="form-control " id="officerdescriptioincompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerFeesCompounding" class="form-control " id="officerfeescompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerImposedCompounding" class="form-control " id="officerimposedcompounding" type="text"></div></td>
+                                    <td><div class="input text"><input name="officerDetailCompounding" class="form-control " id="officerdetailcompounding" type="text"></div></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+           //Part 1
+            financialYear: "",
+            isRegistrarAgent: "", // default to "no" as per checked radio
+            registrarAgentName: "",
+            registrarAgentAddress: "",
+            registrarAgentPhone: "",
+            registrarAgentEmail: "",
+
+            // II. PRINCIPAL BUSINESS ACTIVITIES
+            noOfBusiness: 0,
+
+            // III. HOLDING, SUBSIDIARY AND ASSOCIATE COMPANIES
+            noOfHolding: 0,
+
+            // IV. INDEBTEDNESS
+            // Beginning of Year
+            securedPrincipalBeg: 0,
+            unsecuredPrincipalBeg: 0,
+            depositPrincipalBeg: 0,
+            totalPrincipalBeg: 0,
+            securedInterestDueBeg: 0,
+            unsecuredInterestDeuBeg: 0,
+            depositInterestDeuBeg: 0,
+            totalInterestDeuBeg: 0,
+            securedInterestAccruedBeg: 0,
+            unsecuredInterestAccruedBeg: 0,
+            depositInterestAccruedBeg: 0,
+            totalInterestAccruedBeg: 0,
+            totalSecuredBeg: 0,
+            totalUnsecuredBeg: 0,
+            totalDepositBeg: 0,
+            totalBeg: 0,
+
+            // Changes During Year
+            securedAdditionBeg: 0,
+            unsecuredAdditionBeg: 0,
+            depositAdditionBeg: 0,
+            totalAdditionBeg: 0,
+            securedReductionBeg: 0,
+            unsecuredReductionBeg: 0,
+            depositReductionBeg:0,
+            totalReductionBeg: 0,
+            securedNetChange: 0,
+            unsecuredNetChange: 0,
+            depositNetChange: 0,
+            totalNetChange: 0, //100
+
+            // End of Year
+            securedPrincipalEnd: 0,
+            unsecuredPrincipalEnd: 0,
+            depositPrincipalEnd: 0,
+            totalPrincipalEnd: 0,
+            securedInterestDueEnd: 0,
+            unsecuredInterestDueEnd: 0,
+            depositInterestDueEnd: 0,
+            totalInterestDueEnd: 0,
+            securedInterestAccruedEnd: 0,
+            unsecuredInterestAccruedEnd: 0,
+            depositInterestAccruedEnd: 0,
+            totalInterestAccruedEnd: 0,
+            totalSecuredEnd: 0,
+            totalUnsecuredEnd: 0,
+            totalDepositEnd: 0,
+            totalEnd: 0,
+
+            // V. REMUNERATION OF DIRECTORS AND KEY MANAGERIAL PERSONNEL
+            isRemuneration: "", // default as per checked radio
+            noOfPersons: 0,
+            isRemunerationOther: "", // default as per checked radio
+            noOfIndependentDirectors: 0,
+            noOfNonExecutiveDirectors: 0,
+            overAllCeiling: "",
+            // C. Remuneration to KMP other than MD/ WTD/Manager
+            isRemunerationOtherKmp: "", // default as per checked radio
+
+            // CEO Details
+            ceoName: "",
+            ceoSalary: 0,
+            ceoStock: 0,
+            ceoValue: 0,
+            ceoSweat: 0,
+            ceoProfit: 0,
+            ceoCommisionPer: 0,
+            ceoGross: 0,
+            ceoCommisionOther:0,
+            ceoOtherAmount: 0,
+
+            // Company Secretary Details
+            secName: "",
+            secSalary: 0,
+            secStock: 0,
+            secValue: 0,
+            secSweat: 0,
+            secProfit: 0,
+            secCommisionPer:0, //60
+            secGross: 0,
+            secCommisionOther: 0,
+            secOtherAmount: 0,
+
+            // CFO Details
+            cfoName: "",
+            cfoSalary: 0,
+            cfoStock: 0,
+            cfoValue: 0,
+            cfoSweat: 0,
+            cfoProfit: 0,
+            cfoCommisionPer: 0,
+            cfoGross: 0,
+            cfoCommisionOther: 0,
+            cfoOtherAmount: 0,
+
+            // VI. PENALTIES / PUNISHMENT/ COMPOUNDING OF OFFENCES
+            isPenalties: "", // default as per checked radio
+
+            // A. COMPANY
+            companySectionPenalty: "",
+            companyDescriptioinPenalty: "",
+            companyFeesPenalty: 0,
+            companyImposedPenalty: "",
+            companyDetailPenalty: "",
+
+            companySectionPunishment: "",
+            companyDescriptioinPunishment: "",
+            companyFeesPunishment: "",
+            companyImposedPunishment: "",
+            companyDetailPunishment: "",
+
+            companySectionCompounding: "",
+            companyDescriptioinCompounding: "",
+            companyFeesCompounding: "",
+            companyImposedCompounding: "",
+            companyDetailCompounding: "",
+
+            // B. DIRECTORS
+            directorSectionPenalty: "", //30
+            directorDescriptioinPenalty: "",
+            directorFeesPenalty: "",
+            directorImposedPenalty: "",
+            directorDetailPenalty: "",
+
+            directorSectionPunishment: "",
+            directorDescriptioinPunishment: "",
+            directorFeesPunishment: "",
+            directorImposedPunishment: "",
+            directorDetailPunishment: "",
+
+            directorSectionCompounding: "",
+            directorDescriptioinCompounding: "",
+            directorFeesCompounding: "",
+            directorImposedCompounding: "",
+            directorDetailCompounding: "",
+
+            // C. OTHER OFFICERS IN DEFAULT
+            officerSectionPenalty: "",
+            officerDescriptioinPenalty: "",
+            officerFeesPenalty: "",
+            officerImposedPenalty: "",
+            officerDetailPenalty: "",
+
+            officerSectionPunishment: "",
+            officerDescriptioinPunishment: "",
+            officerDeesPunishment: "",
+            officerDmposedPunishment: "",
+            officerDetailPunishment: "",
+
+            officerSectionCompounding: "",
+            officerDescriptioinCompounding: "",
+            officerFeesCompounding: "",
+            officerImposedCompounding: "",
+            officerDetailCompounding: ""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

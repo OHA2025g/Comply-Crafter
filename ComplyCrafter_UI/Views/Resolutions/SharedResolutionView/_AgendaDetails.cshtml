@@ -1,0 +1,449 @@
+﻿@model AgendaViewModelEnabler;
+
+@if (ViewBag.UseLayout == true)
+{
+    @if (Model.enableAgendaDropDown)
+    {
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select class="form-control" name="agenda">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+    }
+
+    @if (Model.enableAgendaHeading)
+    {
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="agendaHeading" value="">
+            </div>
+        </div>
+    }
+
+    @if (Model.enableMinuteHeading)
+    {
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="minuteHeading" value="">
+            </div>
+        </div>
+    }
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Agenda Preface
+        </div>
+        <div class="col-md-9">
+            <textarea rows="6" class="form-control" name="agendaPreface"></textarea>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Minute Preface
+        </div>
+        <div class="col-md-9">
+            <textarea rows="6" class="form-control" name="minutePreface"></textarea>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Resolution for Notice
+        </div>
+        <div class="col-md-9">
+            <textarea rows="12" class="form-control" name="resolutionForNoticePara1"></textarea>
+
+            @if (Model.enableNoticeCertificateTable)
+            {
+                <!-- Table for Share Certificates -->
+                <table class="table-bordered-custom mt-3">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Sr. No.</th>
+                            <th rowspan="2">Name of Holder</th>
+                            <th rowspan="2">Folio No.</th>
+                            <th rowspan="2">Certificate No.</th>
+                            <th colspan="2">Distinctive No.</th>
+                            <th rowspan="2">Type of securities</th>
+                            <th rowspan="2">No of securities</th>
+                            <th rowspan="2">New Certificate No.</th>
+                            <th rowspan="2">Action</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                    </thead>
+                    <tbody id="securitiesTable1">
+                        <tr>
+                            <td><input type="text" class="form-control" name="srNo" value="1"></td>
+                            <td><input type="text" class="form-control" name="nameOfHolder"></td>
+                            <td><input type="text" class="form-control" name="folioNo"></td>
+                            <td><input type="text" class="form-control" name="certificateNo"></td>
+                            <td><input type="text" class="form-control" name="distinctiveNoFrom"></td>
+                            <td><input type="text" class="form-control" name="distinctiveNoTo"></td>
+                            <td><input type="text" class="form-control" name="typeOfSecurities"></td>
+                            <td><input type="number" class="form-control num" name="noOfSecurities"></td>
+                            <td><input type="text" class="form-control" name="newCertificateNo"></td>
+                            <td class="text-center">
+                                <input type="hidden" name="id" class="num" value="0">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addRowCert('securitiesTable1')">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+            @if (Model.enableResolutionForNoticePara2)
+            {
+                <textarea rows="5" class="form-control mt-3" name="resolutionForNoticePara2"></textarea>
+            }
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Resolution for Minutes
+        </div>
+        <div class="col-md-9">
+            <textarea rows="12" class="form-control" name="resolutionForMinutesPara1"></textarea>
+            @if (Model.enableMinutesCertificateTable)
+            {
+                <!-- Table for Share Certificates -->
+                <table class="table-bordered-custom mt-3">
+                    <thead>
+                        <tr>
+                            <th rowspan="2">Sr. No.</th>
+                            <th rowspan="2">Name of Holder</th>
+                            <th rowspan="2">Folio No.</th>
+                            <th rowspan="2">Certificate No.</th>
+                            <th colspan="2">Distinctive No.</th>
+                            <th rowspan="2">Type of securities</th>
+                            <th rowspan="2">No of securities</th>
+                            <th rowspan="2">New Certificate No.</th>
+                            <th rowspan="2">Action</th>
+                        </tr>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                        </tr>
+                    </thead>
+                    <tbody id="securitiesTable2">
+                        <tr>
+                            <td><input type="text" class="form-control" name="srNo" value="1"></td>
+                            <td><input type="text" class="form-control" name="nameOfHolder"></td>
+                            <td><input type="text" class="form-control" name="folioNo"></td>
+                            <td><input type="text" class="form-control" name="certificateNo"></td>
+                            <td><input type="text" class="form-control" name="distinctiveNoFrom"></td>
+                            <td><input type="text" class="form-control" name="distinctiveNoTo"></td>
+                            <td><input type="text" class="form-control" name="typeOfSecurities"></td>
+                            <td><input type="number" class="form-control num" name="noOfSecurities"></td>
+                            <td><input type="text" class="form-control" name="newCertificateNo"></td>
+                            <td class="text-center">
+                                <input type="hidden" name="id" class="num" value="0">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addRowCert('securitiesTable2')">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
+            @if (Model.enableResolutionForMinutesPara2)
+            {
+                <textarea rows="5" class="form-control mt-3" name="resolutionForMinutesPara2"></textarea>
+            }
+        </div>
+    </div>
+
+    @if (Model.enableResolutionSignatory)
+    {
+        <h6>Signatory of New Certificates</h6>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <label>Signing Director 1</label>
+                <select class="form-control director" name="signingDirector1"><option>Select Director</option></select>
+            </div>
+            <div class="col-md-4">
+                <label>Signing Director 2</label>
+                <select class="form-control director" name="signingDirector2"><option>Select Director</option></select>
+            </div>
+            <div class="col-md-4">
+                <label>Authorized Signatory</label>
+                <input type="text" class="form-control" name="authorizedSignatory" placeholder="Authorized Signatory" />
+            </div>
+        </div>
+    }
+}
+else
+{
+    @* <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Agenda Heading <span class="text-danger">*</span>
+        </div>
+        <div class="col-md-9">
+            <p name="agendaHeading"></p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">
+            Minute Heading <span class="text-danger">*</span>
+        </div>
+        <div class="col-md-9">
+            <p name="minuteHeading"></p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4 fw-bold">
+            Agenda Preface
+        </div>
+        <div class="col-md-8">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <p style="white-space: pre-wrap;" name="agendaPreface"></p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4 fw-bold">
+            Minute Preface
+        </div>
+        <div class="col-md-8">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <p style="white-space: pre-wrap;" name="minutePreface"></p>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-4 fw-bold">
+            Resolution for Notice
+        </div>
+        <div class="col-md-8">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <p style="white-space: pre-wrap;" name="resolutionForNoticePara1"></p>
+
+            <!-- Table for Share Certificates -->
+            <table class="table-bordered-custom mt-3">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Sr. No.</th>
+                        <th rowspan="2">Name of Holder</th>
+                        <th rowspan="2">Folio No.</th>
+                        <th rowspan="2">Certificate No.</th>
+                        <th colspan="2">Distinctive No.</th>
+                        <th rowspan="2">Type of securities</th>
+                        <th rowspan="2">No of securities</th>
+                        <th rowspan="2">New Certificate No.</th>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                </thead>
+                <tbody id="securitiesTable1">
+                </tbody>
+            </table>
+
+            <p style="white-space: pre-wrap;" name="resolutionForNoticePara2"></p>
+        </div>
+    </div> *@
+
+    @* <div class="row mb-3">
+        <div class="col-md-4 fw-bold">
+            Resolution for Minutes
+        </div>
+        <div class="col-md-8">
+        </div>
+    </div> *@
+    <div class="row mb-3">
+        <div class="col-md-12">
+            @* <p style="white-space: pre-wrap;" name="resolutionForMinutesPara1"></p> *@
+            <p style="white-space: pre-line;" name="resolutionForMinutesPara1"></p>
+
+            @* <!-- Table for Share Certificates -->
+            <table class="table-bordered-custom mt-3">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Sr. No.</th>
+                        <th rowspan="2">Name of Holder</th>
+                        <th rowspan="2">Folio No.</th>
+                        <th rowspan="2">Certificate No.</th>
+                        <th colspan="2">Distinctive No.</th>
+                        <th rowspan="2">Type of securities</th>
+                        <th rowspan="2">No of securities</th>
+                        <th rowspan="2">New Certificate No.</th>
+                    </tr>
+                    <tr>
+                        <th>From</th>
+                        <th>To</th>
+                    </tr>
+                </thead>
+                <tbody id="securitiesTable2">
+                </tbody>
+            </table> *@
+
+            @* <p style="white-space: pre-wrap;" name="resolutionForMinutesPara2"></p> *@
+            <p style="white-space: pre-line;" name="resolutionForMinutesPara2"></p>
+        </div>
+    </div>
+}
+
+<script>
+    function addRowCert(tableId) {
+        let table = document.getElementById(tableId);
+        if (!table) return;
+        let rowCount = table.rows.length + 1;
+        let newRow = document.createElement('tr');
+
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td><input type="text" class="form-control" name="srNo" value="${rowCount}"></td>
+                <td><input type="text" class="form-control" name="nameOfHolder"></td>
+                <td><input type="text" class="form-control" name="folioNo"></td>
+                <td><input type="text" class="form-control" name="certificateNo"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoFrom"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoTo"></td>
+                <td><input type="text" class="form-control" name="typeOfSecurities"></td>
+                <td><input type="number" class="form-control num" name="noOfSecurities"></td>
+                <td><input type="text" class="form-control" name="newCertificateNo"></td>
+                <td class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeRowCert(this, '${tableId}')">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td><p name="srNo"></p></td>
+                <td><p name="nameOfHolder"></p></td>
+                <td><p name="folioNo"></p></td>
+                <td><p name="certificateNo"></p></td>
+                <td><p name="distinctiveNoFrom"></p></td>
+                <td><p name="distinctiveNoTo"></p></td>
+                <td><p name="typeOfSecurities"></p></td>
+                <td><p name="noOfSecurities"></p></td>
+                <td><p name="newCertificateNo"></p></td>
+            `;
+        }
+
+        table.appendChild(newRow);
+        if (isLayOut)
+        {
+            updateSrNoCert(tableId);
+        }
+    }
+
+    function removeRowCert(button, tableId) {
+        let table = document.getElementById(tableId);
+        if (table.rows.length > 1) {   // prevent deleting the last row
+            button.closest('tr').remove();
+            updateSrNoCert(tableId);
+        }
+    }
+
+    function updateSrNoCert(tableId) {
+        let table = document.getElementById(tableId);
+        [...table.rows].forEach((row, index) => {
+            row.cells[0].querySelector('input').value = index + 1;
+
+            // make sure only the first row has the "+" button
+            let actionCell = row.cells[row.cells.length - 1];
+            actionCell.innerHTML = (index === 0)
+                ? `<button type="button" class="btn btn-primary btn-sm" onclick="addRowCert('${tableId}')">+</button>`
+                : `<button type="button" class="btn btn-danger btn-sm" onclick="removeRowCert(this, '${tableId}')">-</button>`;
+        });
+    }
+
+    function resetTableCert() {
+        if (!isLayOut) return;
+
+        $('#securitiesTable1').empty();
+        $('#securitiesTable1').append(`
+            <tr>
+                <td><input type="text" class="form-control" name="srNo" value="1"></td>
+                <td><input type="text" class="form-control" name="nameOfHolder"></td>
+                <td><input type="text" class="form-control" name="folioNo"></td>
+                <td><input type="text" class="form-control" name="certificateNo"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoFrom"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoTo"></td>
+                <td><input type="text" class="form-control" name="typeOfSecurities"></td>
+                <td><input type="number" class="form-control num" name="noOfSecurities"></td>
+                <td><input type="text" class="form-control" name="newCertificateNo"></td>
+                <td class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addRowCert('securitiesTable1')">+</button>
+                </td>
+           </tr>
+        `);
+        $('#securitiesTable2').empty();
+        $('#securitiesTable2').append(`
+            <tr>
+                <td><input type="text" class="form-control" name="srNo" value="1"></td>
+                <td><input type="text" class="form-control" name="nameOfHolder"></td>
+                <td><input type="text" class="form-control" name="folioNo"></td>
+                <td><input type="text" class="form-control" name="certificateNo"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoFrom"></td>
+                <td><input type="text" class="form-control" name="distinctiveNoTo"></td>
+                <td><input type="text" class="form-control" name="typeOfSecurities"></td>
+                <td><input type="number" class="form-control num" name="noOfSecurities"></td>
+                <td><input type="text" class="form-control" name="newCertificateNo"></td>
+                <td class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addRowCert('securitiesTable2')">+</button>
+                </td>
+           </tr>
+        `);
+    }
+
+    function resetAgendasField() {
+        if (isLayOut)
+        {
+            $('[name="agenda"]>option').text(agendaOption);
+            $('[name="agenda"]').val('');
+            $('[name="agendaHeading"]').val(agendaHeading);
+            $('[name="minuteHeading"]').val(minuteHeading);
+            $('[name="agendaPreface"]').val(agendaPreface);
+            $('[name="minutePreface"]').val(minutePreface);
+            $('[name="resolutionForNoticePara1"]').val(resolutionForNoticePara1);
+            $('[name="resolutionForNoticePara2"]').val(resolutionForNoticePara2);
+            $('[name="resolutionForMinutesPara1"]').val(resolutionForMinutesPara1);
+            $('[name="resolutionForMinutesPara2"]').val(resolutionForMinutesPara2);
+        }
+        else
+        {
+            $('[name="agendaHeading"]').text(agendaHeading);
+            $('[name="minuteHeading"]').text(minuteHeading);
+            $('[name="agendaPreface"]').text(agendaPreface);
+            $('[name="minutePreface"]').text(minutePreface);
+            $('[name="resolutionForNoticePara1"]').text(resolutionForNoticePara1);
+            $('[name="resolutionForNoticePara2"]').text(resolutionForNoticePara2);
+            $('[name="resolutionForMinutesPara1"]').text(resolutionForMinutesPara1);
+            $('[name="resolutionForMinutesPara2"]').text(resolutionForMinutesPara2);
+        }
+    }
+
+    function updateAgendaFields(updateTarget) {
+
+    }
+</script>

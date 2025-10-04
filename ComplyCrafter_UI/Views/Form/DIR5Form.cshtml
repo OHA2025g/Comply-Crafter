@@ -1,0 +1,668 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.DIR-5
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Application for surrender of Director Identification Number
+
+                    [Pursuant to section 153 of the Companies Act, 2013 and rule 11 of the Companies (Appointment and Qualification of Directors) Rules, 2014]
+                </p>
+
+            </div>
+         @*    <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/MCA21/dca/help/instructionkit/NCA/Form_INC-22_help.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div> *@
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Tab1
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:25px;">
+
+                <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Attachments</label><br>
+
+            <div class="row showonisdigitallyyes death" style="height: auto; display: none;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(a) Proof of Identity of the applicant</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="identity" id="identity" class="1" accept=".pdf, .jpeg, .jpg" required="required">
+                    </div>
+                    
+                </div>
+
+            <div class="row showonisdigitallyyes death" style="height: auto; display: none;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(b) Proof of residence of the applicant</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="residence" id="residence" class="1" accept=".pdf, .jpeg, .jpg" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">
+                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger residence">X</button>
+                    </div>
+                </div>
+
+            <div class="row showonyesretained " style="height: auto; display: none;">
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-row bold">(c) Affidavit including declaration that retained DIN will be updated with all CIN/LLPIN association</div>
+                    <div class="col-xs-12 col-sm-6 col-md-4 form-row mx-5">
+                        <input type="file" name="affidavit" id="affidavit" class="1" accept=".pdf, .jpeg, .jpg" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">
+                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger affidavit">X</button>
+                    </div>
+
+                </div>
+
+                <div class="row showon4or5" style="height: auto; display: none;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(d) Copy of court order declaring DIN holder as insolvent/unsound mind</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="court" id="court" class="1" accept=".pdf, .jpeg, .jpg" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">
+                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger court">X</button>
+                    </div>
+                </div>
+
+            <div class="row showonisdigitallyyes deathClose" style="height: auto; display: none;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">(e) Copy of death certificate</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input type="file" name="death" id="death" class="1" accept=".pdf, .jpeg, .jpg" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3" style="display:none;">
+                        <a href="https://mcabucket.s3.ap-south-1.amazonaws.com/">
+                        </a> &nbsp;
+                        <button type="button" name="remove" class="btn btn-danger death">X</button>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row">
+                        (f) Optional Attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div id="equity6">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row">
+                            <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1" accept=".pdf, .jpeg, .jpg">
+                        </div>
+                    </div>
+                </div>
+
+                <label class="my-3" style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Declaration</label><br>
+
+
+                <div class="row" style="height: auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <input type="checkbox" name="herebydeclare" value="Y" required=""> &nbsp; *I hereby declare that Information and other particulars given in this form are true and correct.<br>
+
+                        <p class="showon6" style="display: none;">
+                            <input type="checkbox" name="furtherdeclare" id="furtherdeclare" value="Y"> &nbsp; I further declare that I have never been appointed as director in any companv/LLP and the DIN has never been used for filing of any document with any authority.
+                        </p>
+                    </div>
+                </div>
+
+            <div class="row my-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    *Name
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input type="text" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-control" name="name" required>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    *DIN / PAN / Passport / Membership number
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input type="text" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-control" name="idNumber" required>
+                </div>
+            </div>
+
+                <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;">Certificate by Practicing Professional</label><br>
+
+                <div class="row" style="height: auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <input type="checkbox" name="checkbox1" value="Y" required=""> &nbsp; *I declare that I have been duly engaged for the purpose of certification of this form.<br><br>
+
+                        <input type="checkbox" name="checkbox2" value="Y" required=""> &nbsp; *I have satisfied myself about the identity of the applicant based on perusal of the original of the attached document.<br>
+
+                        <p style="color: red;margin-top: 10px;">Note - In case where the applicant is residing outside India the particulars have to be verified from the documents duly attested by the attesting authority as prescribed. </p>
+
+                        <input type="checkbox" name="checkbox3" value="Y" required=""> &nbsp; *I have gone through the provisions of the Companies Act, 2013 and Rules thereunder for the subject matter of this form and matters incidental thereto and I have verified the above particulars (including attachment(s)) from the original records maintained by the applicant which is subject matter of this form and found them to be true, correct and complete and no information material to this form has been suppressed.<br><br>
+
+                        <input type="checkbox" name="checkbox4" value="Y" required=""> &nbsp; *I further certify that all the required attachments have been completelv and legibly attached to this form and it is understood that I shall be liable for action under Section 449 of the Companies Act, 2013 for wrong certification, if any found at any stage.
+
+                    </div>
+                </div>
+
+            <div class="row my-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Category [In whole time practice]
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                    &nbsp;<input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="radio" name="category" value="charteredAccountant" required>&nbsp; Chartered Accountant &nbsp;
+                    <input type="radio" name="category" value="costAccountant" required>&nbsp; Cost Accountant or&nbsp;
+                    <input type="radio" name="category" value="companySecretary" required>&nbsp;Company Secretary
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row CERT_PRACTICE_NO1" style="display: block;">
+                    Company Secretary
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row CERT_PRACTICE_NO1" style="text-align: center; display: block;">
+                    <select style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" name="pcs" aria-label="Default select example">
+                        <option value="">Select PCS</option>
+                        <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row my-3 mb-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Whether associate or fellow
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    &nbsp;<input type="radio" name="membershipStatus" value="associate" required>&nbsp; Associate&nbsp;
+                    <input type="radio" name="membershipStatus" value="fellow" required>&nbsp;Fellow&nbsp;
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Membership number or Certificate of practice number
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input type="text" class="form-control membershipnumber" name="membershipNumber" value="" required>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-12 my-2">
+                            <h6 style=" border-bottom:1px solid black; display:inline-block;">Reason for Surrender</h6>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mx-1 form-row">
+                            Photograph of the DIN holder
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                            <input type="file" accept=".jpeg,.jpg" required="">
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px;">1. *Reason for surrender of DIN</p>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row my-2" style="height: auto;">
+                            <input type="radio" name="reasonForSurrender" value="multipleDins" class="reasonofsurrender" required=""> &nbsp; Having multiple DINs <br>
+                            <input type="radio" name="reasonForSurrender" value="wrongfulObtaining" class="reasonofsurrender" required=""> &nbsp; DIN was obtained in a wrongful manner or by fraudulent means <br>
+                            <input type="radio" name="reasonForSurrender" value="death" class="reasonofsurrender" required=""> &nbsp; Death of the concerned individual <br>
+                            <input type="radio" name="reasonForSurrender" value="unsoundMind" class="reasonofsurrender" required=""> &nbsp; Concerned individual is declared as a person of unsound mind by a competent court <br>
+                            <input type="radio" name="reasonForSurrender" value="insolvency" class="reasonofsurrender" required=""> &nbsp; Concerned individual has been adjudicated as insolvent <br>
+                            <input type="radio" name="reasonForSurrender" value="notAssociated" class="reasonofsurrender" required=""> &nbsp; Concerned individual is/was not associated with any company/LLP and the DIN has never been used for filing of any document with any authority
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 pt-1">
+                            <p class="card-title mb-0" style="margin-top:1px;">Retained DIN details</p>
+                        </div>
+
+                        <div class="col-md-6 my-4">
+                            <label class="form-label">2 (a) *Whether DIN holder is retaining any DIN</label>
+                            <input class="form-check-input mx-1" type="radio" name="retainingDIN" value="yes" style="border-color:grey;" required>
+                            <label>Yes</label>
+                            <input class="form-check-input mx-1" type="radio" name="retainingDIN" value="no" style="border-color:grey;" required>
+                            <label>No</label>
+                        </div>
+
+                        <div class="col-md-6 my-2 dinContainer">
+                            <label class="form-label">(b) Mention the DIN to be retained</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" class="form-control" name="dinToRetain" placeholder="" value="">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="mx-1 dinContainer">
+                            <p class="card-title mb-0 " style="margin-top:1px; color:red;">
+                                (Note: DIN mentioned aforesaid will be replaced with all the other DINs for which surrender application is filed by the user)
+
+                            </p>
+                        </div>
+
+                        <div class=" mx-1 my-3 dinContainer">
+                            <p class="card-title mb-0" style="margin-top:1px;">
+                                (c) Name of the DIN holder
+                            </p>
+                        </div>
+                        <div class="col-md-4 my-3 dinContainer">
+                            <label class="form-label">(i) First Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="firstName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-3 dinContainer">
+                            <label class="form-label">(ii) Middle Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="middleName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-3 dinContainer">
+                            <label class="form-label">(iii) Last Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="lastName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class=" mx-1 my-2 dinContainer">
+                            <p class="card-title mb-0" style="margin-top:1px;">
+                                (d) Father's Name
+                            </p>
+                        </div>
+                        <div class="col-md-4 my-2 dinContainer">
+                            <label class="form-label">(i) First Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="fatherFirstName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2 dinContainer">
+                            <label class="form-label">(ii) Middle Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="fatherMiddleName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2 dinContainer">
+                            <label class="form-label">(iii) Last Name</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="fatherLastName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2 dinContainer">
+                            <label class="form-label">(e) Date of Birth (DD/MM/YYYY)</label>
+                            <input type="date" class="form-control" value="" name="dob" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2 dinContainer">
+                            <label class="form-label">(f) Income-tax permanent account number</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" class="form-control" name="pan">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 my-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black; display:inline-block;">
+                                Surrendered DIN details
+                            </p>
+                        </div>
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">3 *Specify the number of DIN(s) being surrendered by the applicant</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" class="form-control num" name="numOfDinsSurrendered">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="d-flex justify-content-between mx-1 my-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black; display:inline-block;">
+                                Applicant's Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 my-4">
+                            <label class="form-label">4 (a) *Whether the application is being digitally signed by the holder of DIN himself</label>
+                            <input class="form-check-input mx-1" type="radio" name="isDigitallySigned" value="yes" style="border-color:grey;" required>
+                            <label>Yes</label>
+                            <input class="form-check-input mx-1" type="radio" name="isDigitallySigned" value="no" style="border-color:grey;" required>
+                            <label>No</label>
+                        </div>
+                        <div class="row showonisdigitallyyes" style="">
+                            <div class="col-xs-12 col-sm-9 col-md-9 bold form-row">
+                               4. (b) Date of death/ Date of declaration of unsound mind/ Date of adjudication of insolvency
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                <input type="date" name="dateofdeath" class="form-control datepicker hasDatepicker" placeholder="dd/mm/yyyy" id="dateofdeath" value="" required="">
+                            </div>
+                        </div>
+                        <div class="row showonisdigitallyyes" style="">
+                            <div class="col-xs-12 col-sm-12 col-md-12 bold" style="">
+                                5. Particulars of the applicant
+                            </div>
+                        </div>
+                        <div class="row showonisdigitallyyes" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4" style="">
+                                <span style="font-weight: bold;">(a) Name</span>
+                                <div lass="input text">
+                                    <input name="applicantName" class="form-control" id="applicantname" value="" required="">
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4">
+                                <span style="font-weight: bold;">(b) Relation with DIN holder</span>
+                                <div class="input text">
+                                    <input name="applicantRelation" class="form-control" id="applicantrelation" value="" required="">
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4">
+                                <span style="font-weight: bold;">(c) DIN of the applicant (if any)</span>
+                                <div class="input text">
+                                    <input name="applicantDin" class="form-control" id="applicant_din" value="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row showonisdigitallyyes" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4" style="">
+                                <span style="font-weight: bold;">(d) Income-tax PAN</span>
+                                <div lass="input text">
+                                    <input name="applicantPan" class="form-control" id="applicantpan" value=""  maxlength="10" required="">
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4">
+                                <span style="font-weight: bold;">(e) *Mobile number of the applicant (with Country code)</span>
+                                <div class="input text">
+                                    <input name="applicantMobile" class="form-control" id="applicantmobile" value=""  maxlength="13" required="">
+                                </div>
+
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 my-4">
+                                <span style="font-weight: bold;">(f) *Email-ID of the applicant</span>
+                                <div class="input text">
+                                    <input name="applicantEmail" class="form-control" id="applicant_email" value=""  required="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between mx-1 my-2">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black; display:inline-block;">
+                                Other Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-12 my-2">
+                            <label class="form-label">6 Other information, if any, which the applicant intends to submit with regard to this application</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" class="form-control" name="otherInformation">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">Submit</button>
+    </div>
+
+</div>
+
+
+    <script>
+
+           
+    $(document).ready(function () {
+        function handleProfessionalTypeChange() {
+            const selected = $("[name='professionalType']:checked").val();
+
+         
+            $(".memberShipNumber").show();
+
+           
+            if (selected === "Company secretary (in whole-time practice)") {
+                $(".nameofpcs").show();
+            } else {
+                $(".nameofpcs").hide();
+            }
+
+        
+            if (selected === "Chartered accountant (in whole-time practice)") {
+                $("#memberShipNumber")
+                    .off("input.caOnly") 
+                    .on("input.caOnly", function () {
+                        this.value = this.value.replace(/\D/g, '');
+                    });
+            } else {
+                $("#memberShipNumber").off("input.caOnly");
+            }
+        }
+
+       
+        $(document).on("change", "[name='professionalType']", handleProfessionalTypeChange);
+
+    
+        handleProfessionalTypeChange();
+    });
+
+
+
+  
+     $(document).on("change", "input[name='reasonForSurrender']", function () {
+         const selectedReason = $(this).val();
+
+         const forceYes = ["multipleDins", "wrongfulObtaining", "notAssociated"];
+         const forceNo = ["death", "unsoundMind", "insolvency"];
+
+         const $yesRadio = $("input[name='isDigitallySigned'][value='yes']");
+         const $noRadio = $("input[name='isDigitallySigned'][value='no']");
+
+         if (forceYes.includes(selectedReason)) {
+             $yesRadio.prop("checked", true).prop("disabled", false);
+             $noRadio.prop("checked", false).prop("disabled", true);
+         } else if (forceNo.includes(selectedReason)) {
+             $noRadio.prop("checked", true).prop("disabled", false);
+             $yesRadio.prop("checked", false).prop("disabled", true);
+         } else {
+             $yesRadio.prop("disabled", false);
+             $noRadio.prop("disabled", false);
+         }
+     });
+</script>
+
+
+
+
+
+
+@section Scripts {
+
+
+    <script>
+        $(document).on("change", "[name='retainingDIN']",function(){
+            let din = $(this).val()
+            if (din == 'yes') {
+                $(".dinContainer").show()
+            } else {
+                $(".dinContainer").hide()
+            }
+        })
+
+        $(document).on("change", "[name='reasonForSurrender']", function () {
+            let din = $(this).val()
+            $(".showon4or5").hide()
+            $(".showonisdigitallyyes").hide()
+            $(".death").hide()
+            if (din == 'unsoundMind' || din == 'death' || din == 'insolvency') {
+                $(".showonisdigitallyyes").show()
+                if (din == "death") {
+                    $(".death").show()
+                } else {
+                    $(".showon4or5").show()
+                    $(".deathClose").hide()
+                }
+            
+            } else {
+                $(".showonisdigitallyyes").hide()
+            }
+        })
+
+        $(document).on("change", "[name='category']", function () {
+            let din = $(this).val()
+            if (din == 'companySecretary') {
+                $(".CERT_PRACTICE_NO1").show()
+            } else {
+                $(".CERT_PRACTICE_NO1").hide()
+            }
+        })
+
+      
+        var frm = {
+            id: 0,
+            companyId: 0,
+            reasonForSurrender: "",
+            retainingDIN: "",
+            dinToRetain: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            fatherFirstName: "",
+            fatherMiddleName: "",
+            fatherLastName: "",
+            dob: "",
+            pan: "",
+            numOfDinsSurrendered: 0,
+            isDigitallySigned: "",
+            otherInformation: "",
+            name: "",
+            idNumber: "",
+            category: "",
+            pcs: "",
+            membershipStatus: "",
+            membershipNumber: ""
+        }
+
+
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                console.log(x.id)
+                $("[name='companyId']").val(x.id);
+            })
+        }
+
+    </script>
+
+}

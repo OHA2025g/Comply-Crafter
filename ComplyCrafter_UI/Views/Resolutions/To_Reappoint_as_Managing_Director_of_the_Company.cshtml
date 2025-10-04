@@ -1,0 +1,239 @@
+﻿@{
+    ViewData["Title"] = "Director Appointment Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">Re-Appointment of Managing Director Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <div class="section-heading">RE-APPOINTMENT OF MANAGING DIRECTOR</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Effective Date of Re-Appointment</strong></label>
+                    <input type="date" class="form-control" name="EffectiveDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Board Approval</strong></label>
+                    <input type="date" class="form-control" name="DateOfApproval" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Tenure of Re-Appointment</strong></label>
+                    <input type="text" class="form-control" name="Tenure" placeholder="e.g. 5 Years" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Expiry Date of Tenure</strong></label>
+                    <input type="date" class="form-control" name="ExpiryDateOfTenure" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select name="agenda" class="form-control">
+                    <option>To Re-appoint {Name of Managing Director} as Managing Director of the Company</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To Re-appoint {Name of Managing Director} as Managing Director of the Company">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To Re-appoint {Name of Managing Director} as Managing Director of the Company">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+                    Pursuant to the provisions of sections 196,197 and 203 read with schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules,2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), it is proposed to re-appoint {Name of Managing Director} as managing director to hold office for a period of {Term of Reappointment} commencing from {Effective Date of Appointment} to {Expiry Date of Term}. The board may discuss the matter and may pass the following resolution in this regard.
+      </textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+                    Pursuant to the provisions of sections 196,197 and 203 read with schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules,2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), it was proposed to re-appoint {Name of Managing Director} as managing director to hold office for a period of {Term of Reappointment} commencing from {Effective Date of Appointment} to {Expiry Date of Term}. The following resolution was passed in this regard.
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Notice
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+                    "RESOLVED THAT  pursuant to Sections 196, 197 and 203 read with Schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules,2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), Consent of the Board be and is hereby accorded to re-appoint {Name of Managing Director}, as Managing Director of the Company to hold office for the period of {Term of Reappointment} with effect from {Effective Date of Appointment} to {Expiry Date of Term} on a remuneration not exceeding {Remuneration} subject to the approval of members at the{ Annual/Extra Ordinary} General Meeting.”
+
+"RESOLVED FURTHER THAT the Board of Directors be and is hereby authorized to do all such acts, deeds, and things as may be necessary, proper and expedient for the purpose of giving effect to this resolution.”
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Minutes
+            </div>
+            <div class="col-md-9">
+                <textarea rows="12" class="form-control">
+                    "RESOLVED THAT  pursuant to Sections 196, 197 and 203 read with Schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules,2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), Consent of the Board be and is hereby accorded to re-appoint {Name of Managing Director}, as Managing Director of the Company to hold office for the period of {Term of Reappointment} with effect from {Effective Date of Appointment} to {Expiry Date of Term} on a remuneration not exceeding {Remuneration} subject to the approval of members at the{ Annual/Extra Ordinary} General Meeting.”
+
+"RESOLVED FURTHER THAT the Board of Directors be and is hereby authorized to do all such acts, deeds, and things as may be necessary, proper and expedient for the purpose of giving effect to this resolution.”
+ </textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution Signatory Details
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control">
+                            </td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>

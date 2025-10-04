@@ -1,0 +1,149 @@
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+@media (min-width: 768px) {
+
+    .app-container {
+        padding: 28px !important;
+    }
+
+    .app-sidebar .logo {
+        padding: 28px !important;
+    }
+}
+
+    .logo-text {
+        padding-left: 0.5rem;
+        font-size: 1.5rem;
+        color: #0a2149;
+        visibility: initial !important;
+        opacity: 1 !important;
+    }
+
+    .app-sidebar .logo .logo-icon {
+        padding-left: 40px !important;
+    }
+
+        .app-sidebar .logo .logo-icon:hover {
+            padding-left: 40px !important;
+        }
+
+    .form-label {
+        margin-left: 0.25em;
+    }
+
+@media (max-width: 576px) {
+    .nav-item.user {
+        width: 30vw;
+        height: 3em;
+    }
+        .nav-item.user .nav-link {
+            max-width: 1em;
+            float: right;
+        }
+
+        .nav-item.user .dropdown-menu.show {
+            margin-top: 3.5em !important;
+        }
+}
+
+div.dt-scroll-body {
+    border-bottom: none !important;
+    overflow-y: hidden !important;
+}
+table.dataTable td, table.dataTable th {
+    padding: 10px !important;
+}
+
+
+@media (min-width: 768px) {
+    .app-sidebar-min:not(:hover) .logo-text {
+        opacity: 0 !important;
+    }
+
+    .app-sidebar-min:not(:hover) .app-menu li a {
+        display: flex;
+    }
+
+    .app-sidebar-min:not(:hover) .app-menu li i {
+        margin-right: 0px !important;
+    }
+
+    .app-sidebar-min:not(:hover) .app-menu li span {
+        display: none;
+    }
+
+    .app-sidebar-min:not(:hover) {
+        width: 90px !important;
+    }
+
+        .app-sidebar-min:not(:hover) .app-menu .sub-menu {
+            display: none !important;
+        }
+
+        .app-sidebar-min:not(:hover) .app-menu .has-sub-menu {
+            display: none !important;
+        }
+
+        .app-sidebar-min:not(:hover).app-sidebar .logo {
+            padding: 22px !important;
+        }
+
+        .app-sidebar-min:hover.app-sidebar .logo {
+            padding: 22px 28px !important;
+        }
+
+    .app-container {
+        margin-left: 90px !important;
+        width: calc(100vw - 90px) !important;
+        padding-right: 17px !important;
+    }
+
+    .app-header {
+        width: calc(100% - 135px);
+        right: 17px;
+    }
+}
+
+.search-visible .search {
+    width: calc(100% - 135px) !important;
+    left: 115px !important;
+}
+
+.ui-widget.ui-widget-content{
+    z-index: 100000;
+}
+
+
+
+.pricing-card {
+    flex: 0 0 19%;
+    max-width: 19%;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+}
+
+    .pricing-card .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 390px; 
+    }
+
+@media (max-width: 991px) {
+    .pricing-card {
+        flex: 0 0 45% !important;
+        max-width: 45% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-card {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+

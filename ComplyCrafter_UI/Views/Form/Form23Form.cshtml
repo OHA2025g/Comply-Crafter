@@ -1,0 +1,574 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    LLP Form No. 23
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Application for direction to Limited Liability Partnership (LLP) to change its name
+
+                    [Pursuant to rule 19(1) of Limited Liability Partnership Rules, 2009]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction_kit_LLP_Form_No_23.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            LLP/FLLP details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            DSC Details & Attachment
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        <div class="card" style=" padding:25px;">
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">1. Applicant details</label>
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -10px;">
+                        1. (a) Category of applicant
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        (b) LLPIN/CIN/reg. no of other entity seeking direction
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        (c) Name of the LLP/ Company/Applicant
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <select name="category" id="Applicant_Catagory" class="form-select">
+                                <option value="">Select applicant</option>
+                                <option value="LLP" selected="">LLP</option>
+                                <option value="Company">Company</option>
+                                <option value="Other Entity">Other Entity</option>
+                            </select>
+                        </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="cin" id="CIN_LLPIN" value="AAN-1801" class="form-control" readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="companyName" id="LLPName" value="BANDRA HOSPITALITY LLP" class="form-control" readonly="readonly">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">2. Address</label>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <b>Address line l</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <b>Address line II</b>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <b>Country</b>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="companyAddress" id="Line_1" value="29A NOOTAN NAGAR GURUNANAK ROAD   BANDRA WEST" class="form-control" readonly="readonly">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="line2" id="Line_2" value="" class="form-control">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="country" id="Country" value="India" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Pin Code/Zip code
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Area
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        City
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                        <input name="pinCode" class="form-control" id="PinCode" value="400050">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <select name="area" id="Area" class="form-select"><option value="">Select Locality</option></select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" class="form-control" name="city" id="City" value="MUMBAI">
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        District
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        State/UT
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Jurisdiction of Police Station
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="district" id="District" value="Mumbai City" class="form-control">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="state" id="state_Of_Registered_LLP_Office" value="Maharashtra" class="form-control">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="jurisdictionPoliceStation" id="jurisdictionOfPoliceStation" value="" class="form-control">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">(b) Contact Details</label>
+
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Phone (with STD/ISD code)
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Mobile No.
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        E-mail ID
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="phoneNo" id="Phone_std" value="" maxlength="13" class="form-control numbers">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="mobileNo" id="Mobile_No" value="" class="form-control" maxlength="13" required="">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="email" name="companyEmail" id="Email_ID" value="*****shah1988@gmail.com" class="form-control" readonly="readonly">
+                    </div>
+                </div>
+
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">3 Details of the LLP against whom application is filed</label>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        (a) LLPIN
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        (b) Name of the LLP
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        (d) Email ID
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                        <input type="text" name="llpin" id="llpin" required="" value="" class="form-control">
+                    </div>
+                    <input type="hidden" name="dateOfIncorporation" id="dateOfIncorporation" value="">
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="nameLlp" id="name_llp" value="" class="form-control">
+                    </div>
+
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="emailId1" id="email_ID_1" class="form-control" value="">
+
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 bold mt-3" style="margin-left: -10px;">
+                        (c) Address of the registered office of the LLP
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="registeredLlp" id="registered_llp" value="" class="form-control">
+                    </div>
+                </div>
+
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 bold mt-3" style="margin-left: -10px;">
+                        4 Grounds of objection
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="groundsOfObjection" id="grounds_Of_Objection" value="" class="form-control" required="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card" style=" padding:25px;">
+
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm2">
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 0px -10px 6px;">Verification</label>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <label>      <input type="checkbox" name="selfDeclaration" value="Y" id="selfDeclaration" required="">&nbsp; To the best of my knowledge and belief, the information given in this form and its attachments is correct and complete.<br></label>
+                        <label>
+                            <input type="checkbox" name="provisionDeclaration" value="Y" id="VerificationCheckbox2" required="">&nbsp;  I have gone through the provisions of the Limited Liability Partnership Act, 2008 and rules framed there under.<br>
+                        </label>
+                        <label>    <input type="checkbox" name="authorizedDeclaration" value="Y" id="VerificationCheckbox3" required="">&nbsp;  I have been authorized to sign and submit this application.</label>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Applicant or designated partner or managing director or director or manager or secretary</label>
+
+                <div class="row mt-3" style="margin-bottom: 0px;">
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Designation
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        Name
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                        DPIN or DIN or Income-tax PAN or Membership number
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <select name="designation" id="Designation" class="form-select Designated" required="">
+                            <option value="">Select Designation</option>
+                            <option value="Designated Partner">Designated Partner</option>
+                            <option value="Managing Director">Managing Director</option>
+                            <option value="Director">Director</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Secretary">Secretary</option>
+                            <option value="Applicant">Applicant</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;" id="director_dropdown"><select name="Name_Designation" id="Name_Designation" onchange="filldinname(this)" style="width: 100%;" required="" class="form-control Name_Designation"><option value="">Select Designated Partner</option><option value="07727600">Imran Faruk Memon (Designated Partner)</option><option value="07356321">Vatsal  Thirani (Designated Partner)</option></select></div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                        <input type="text" name="dpinNumber" id="DPIN_number" class="form-control" value="" required="">
+
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Attachments</label>
+                <div id="showonotherentity" style="">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                            Sr. No
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 bold form-row mt-3">
+                            (a) Copy of incorporation / registration certificate of LLP or the company or registration certificate of other entity, if any
+                        </div>
+                    </div>
+                    <div id="equity1">
+
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                                <input type="file" name="authority" id="authority">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        (b) Optional attachment(s) – if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div id="equity8" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row">
+                            <input type="file" name="attachmentFile" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+                <template id="rowTemp">
+                    <div class="row mt-4" id="rowq">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-10 form-row">
+                            <input type="file" name="attachmentFile" id="attachmentfile_3" class="3" accept=".jpg,.pdf">
+                        </div>
+                        <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12" align="center">
+                            <button type="button" name="remove" id="3" class="btn btn-danger btn_removeeq">X</button>
+                        </div>
+                    </div>
+                </template>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            category: "",
+            line2: "",
+            country: "",
+            pinCode: "",
+            area: "",
+            city: "",
+            district: "",
+            state: "",
+            jurisdictionPoliceStation: "",
+            phoneNo: "",
+            mobileNo: "",
+            llpin: "",
+            // incorporationDate: "",
+            nameLlp: "",
+            emailId1: "",
+            registeredLlp: "",
+            groundsOfObjection: "",
+            selfDeclaration: "",
+            provisionDeclaration: "",
+            authorizedDeclaration: "",
+            designation: "",
+            designationName: "",
+            dpinNumber: "",
+            authority: "",
+            attachmentFile: "",
+        }
+
+        $('#Applicant_Catagory').change(function () {
+            let category = $(this).val();
+
+            if (category === "LLP") {
+                $('#Designation option').each(function () {
+                    let optVal = $(this).val();
+                    if (optVal !== "Designated Partner" && optVal !== "") {
+                        $(this).prop("disabled", true);
+                    } else {
+                        $(this).prop("disabled", false);
+                    }
+                });
+                $('#Designation').val("Designated Partner");
+
+            } else if (category === "Company") {
+                $('#Designation option').each(function () {
+                    if ($(this).val() === "Designated Partner") {
+                        $(this).prop("disabled", true);
+                    } else {
+                        $(this).prop("disabled", false);
+                    }
+                });
+                if ($('#Designation').val() === "Designated Partner") {
+                    $('#Designation').val("");
+                }
+            } else if (category === "Other Entity") {
+                $('#Designation option').prop("disabled", false);
+            } else {
+                $('#Designation option').prop("disabled", false);
+            }
+        });
+
+        $('#Applicant_Catagory').trigger('change');
+
+        let rowCount = 1;
+
+        $('#attachmentadd').click(function () {
+            rowCount++; 
+            const template = $('#rowTemp').html(); 
+            const newRow = $(template).clone(); 
+            newRow.find('.form-row:first').text(rowCount + '.');
+
+            $('#equity8').append(newRow);
+
+            updateRowNumbers();
+        });
+
+        $(document).on('click', '.btn_removeeq', function () {
+            $(this).closest('.row').remove(); 
+            updateRowNumbers(); 
+        });
+
+        function updateRowNumbers() {
+            let currentRowNumber = 1;
+            $('#equity8 .row').each(function () {
+                $(this).find('.form-row:first').text(currentRowNumber + '.'); 
+                currentRowNumber++;
+            });
+            rowCount = currentRowNumber - 1; 
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            // vfFrm1 = $('#frm').validate({ rules: voFrm1, onsubmit: () => { console.log('submit') } })
+
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("FORM23", "Form")`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("FORM23", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+    </script>
+
+}

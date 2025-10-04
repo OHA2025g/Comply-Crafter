@@ -1,0 +1,902 @@
+﻿<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+
+    input[name="mobile"][readonly] {
+        pointer-events: none; /* no mouse/touch at all */
+        cursor: not-allowed; /* optional: visual cue */
+    }
+
+    input[name="email"][readonly] {
+        pointer-events: none; /* no mouse/touch at all */
+        cursor: not-allowed; /* optional: visual cue */
+    }
+
+    input[name="email"] {
+        text-transform: uppercase; /* or lowercase, capitalize */
+    }
+</style>
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">Director Information</h3>
+            </div>
+            <div class="card-body">
+                <form id="frmDirector">
+                    <input type="hidden" class="num" value="0" name="id" readonly />
+                    <div class="row">
+                        <div class="col-md-12 my-1">
+                            <label class="form-label">Director Identification Number (DIN)</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="din" readonly>
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-primary" type="button" style="height: 100%;" disabled>Sync</button>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+<!--
+                            <label class="form-label">Salutation</label>
+                            @* <input type="text" class="form-control" name="salutation" > *@
+                            <select class="form-control" name="salutation">
+                                <option value="Mr" selected>Mr</option>
+                                <option value="Mrs">Mrs</option>
+                                <option value="Ms">Miss</option>
+                            </select>
+                             -->
+
+                            <label for="salutation" class="form-label">Salutation</label>
+                            <select class="form-select" name="salutation" id="salutation">
+                                <option value="">Select</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss">Miss</option>
+                               
+                            </select>
+
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">First Name</label>
+                            <input type="text" class="form-control" name="firstName" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Middle Name</label>
+                            <input type="text" class="form-control" name="middleName" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Last Name</label>
+                            <input type="text" class="form-control" name="lastName" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Email</label>
+                            <div class="input-group">
+                                <input type="email" class="form-control" name="email" readonly>
+                                <button type="button" class="btn btn-success btn-verify" style="display: none;">Verify</button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Mobile</label>
+                            <div class="input-group">
+                                <span class="input-group-text">+91</span>
+                                <input type="text" class="form-control" name="mobile" readonly>
+                                <button type="button" class="btn btn-success btn-verify" style="display: none;">Verify</button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Aadhar</label>
+                            <input type="text" class="form-control" name="aadhar">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label for="formFile" class="form-label">Upload Aadhar</label>
+                            <div class="input-group">
+                                <input class="form-control" type="file" name="aadharUrl" id="aadharUrlFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewAadharBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deleteAadharBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">PAN</label>
+                            <input type="text" class="form-control" name="pan">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label for="formFile" class="form-label">Upload PAN</label>
+                            <div class="input-group">
+                                <input type="file" class="form-control" name="panUrl" id="panUrlFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewPanBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deletePanBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">DIN Status</label>
+                            <input type="text" class="form-control" name="dinStatus" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">DSC Expiry</label>
+                            <input type="date" class="form-control" name="dscExpiry">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">DIR KYC Status</label>
+                            <input type="text" class="form-control" name="dirKycStatus" readonly>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="directorAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                        Details
+                    </button>
+                </h2>
+                <div id="collapseDetails" class="accordion-collapse collapse" aria-labelledby="detailsHeading" data-bs-parent="#directorAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmDirectorDetails">
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="directorId" />
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Pincode</label>
+                                        <input type="text" class="form-control" name="pincode" id="pincodeInput" inputmode="numeric" maxlength="6">
+                                        <div class="invalid-feedback">Please enter a valid 6-digit pincode.</div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">City</label>
+                                        <input type="text" class="form-control" name="city">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">State</label>
+                                        <input type="text" class="form-control" name="state">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Country</label>
+                                        <input type="text" class="form-control" name="country">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address</label>
+                                        <textarea class="form-control" name="address"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Date of birth</label>
+                                        <input type="date" class="form-control" name="dateOfBirth">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Gender</label>
+                                        <select class="form-control" name="gender">
+                                            <option>Male</option>
+                                            <option>Female</option>
+                                        </select>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Occupation</label>
+                                        <input type="text" class="form-control" name="occupation">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Nationality</label>
+                                        <input type="text" class="form-control" name="nationality">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Residential Status</label>
+                                        <select class="form-control" name="residentialStatus">
+                                            <option>Resident</option>
+                                            <option>Non Resident</option>
+                                        </select>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Marital Status</label>
+                                        <select class="form-control" name="maritalStatus">
+                                            <option>Married</option>
+                                            <option>Unmarried</option>
+                                        </select>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Qualification</label>
+                                        <input type="text" class="form-control" name="qualification">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Experience</label>
+                                        <input type="text" class="form-control" name="experience">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Permanent Address</label>
+                                        <textarea class="form-control" name="permanentAddress"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Other Communication Address</label>
+                                        <textarea class="form-control" name="otherCommunicationAddress"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Passport</label>
+                                        <input type="text" class="form-control" name="passport">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Passport Expiry Date</label>
+                                        <input type="date" class="form-control" name="passportExpiryDate">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1">
+                                        <label for="formFile" class="form-label">Upload Passport</label>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" name="passportUrl" id="passportUrlFile">
+                                            <button type="button" class="form-control btn btn-outline-secondary" id="viewPassportBtn" style="display:none;" target="_blank">
+                                                View
+                                            </button>
+                                            <button type="button" class="btn btn-danger" id="deletePassportBtn" style="display:none;" target="_blank">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                    </div>
+
+
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Voter Id Number</label>
+                                        <input type="text" class="form-control" name="voterId">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label for="formFile" class="form-label">Upload Voter Id</label>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" name="voterIdUrl" id="voterIdUrlFile">
+                                            <button type="button" class="form-control btn btn-outline-secondary" id="viewVoterIdBtn" style="display:none;" target="_blank">
+                                                View
+                                            </button>
+                                            <button type="button" class="btn btn-danger" id="deleteVoterIdBtn" style="display:none;" target="_blank">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Driving Licence Number</label>
+                                        <input type="text" class="form-control" name="drivingLicence">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label for="formFile" class="form-label">Upload Driving Licence</label>
+                                        <div class="input-group">
+                                            <input type="file" class="form-control" name="drivingLicenceUrl" id="drivingLicenceUrlFile">
+                                            <button type="button" class="form-control btn btn-outline-secondary" id="viewDrivingLicenceBtn" style="display:none;" target="_blank">
+                                                View
+                                            </button>
+                                            <button type="button" class="btn btn-danger" id="deleteDrivingLicenceBtn" style="display:none;" target="_blank">
+                                                Delete
+                                            </button>
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="directorApp.save()">Save</button>
+    </div>
+</div>
+
+<script>
+    function updatePermanentAddress() {
+        let address = document.querySelector("[name='address']").value.trim();
+        let city = document.querySelector("[name='city']").value.trim();
+        let pincode = document.querySelector("[name='pincode']").value.trim();
+        let state = document.querySelector("[name='state']").value.trim();
+        let country = document.querySelector("[name='country']").value.trim();
+
+        // Join only non-empty values
+        let parts = [];
+        if (address) parts.push(address);
+        if (city) parts.push(city);
+        if (pincode) parts.push(pincode);
+        if (state) parts.push(state);
+        if (country) parts.push(country);
+
+        document.querySelector("[name='permanentAddress']").value = parts.join(" - ");
+    }
+
+    // Run only when Address field loses focus
+    document.querySelector("[name='address']").addEventListener("blur", updatePermanentAddress);
+</script>
+
+
+
+@section Scripts {
+    <script>
+        // Configuration objects
+        const objDirector = {
+            id: 0,
+            refUser: 0,
+            salutation: "",
+            firstName: "",
+            middleName: "",
+            lastName: "",
+            din: "",
+            pan: "",
+            mobile: "",
+            aadhar: "",
+            email: "",
+            dscExpiry: "",
+            dinStatus: "",
+            dirKycStatus: "",
+            isActive: true,
+            deletedOn: ""
+        };
+
+        const voDirector = {
+            id: 'required',
+            firstName: "required",
+            mobile: { mobile: true },
+            email: { email: true },
+            dscExpiry: { date: true }
+        };
+
+        const objDirectorDetails = {
+            id: 0,
+            directorId: 0,
+            address: "",
+            country: "",
+            state: "",
+            city: "",
+            pincode: 0,
+            fatherName: "",
+            dateOfBirth: "",
+            occupation: "",
+            gender: "",
+            nationality: "",
+            residentialStatus: "",
+            maritalStatus: "",
+            qualification: "",
+            experience: "",
+            passport: "",
+            passportExpiryDate: "",
+            permanentAddress: "",
+            otherCommunicationAddress: "",
+            panUrl: "",
+            aadharUrl: "",
+            passportUrl: "",
+            voterIdUrl: "",
+            drivingLicenceUrl: ""
+        };
+
+        const voDirectorDetails = {
+            id: 'required',
+            directorId: "required",
+            pincode: { required: true, pincode: true },
+            dateOfBirth: { date: true },
+            passportExpiryDate: { date: true }
+        };
+
+        let vfDirector = null;
+        let vfDirectorDetails = null;
+        let deletePan = false;
+        let deleteAadhar = false;
+        let deletePassport = false;
+        let deleteVoterId = false;
+        let deleteDrivingLicence = false;
+
+        // Utility functions
+        const utils = {
+            // Enhanced pincode lookup with error handling
+            pincodeLookup: function(pincode) {
+                if (!/^\d{6}$/.test(pincode)) return;
+
+                $.get(`@R.ApiUrl/Company/PinCode/${pincode}`)
+                    .then(r => {
+                        if (!r[0]?.PostOffice) return;
+
+                        $('[name="city"]').val(r[0].PostOffice[0].Region).trigger('change');
+                        $('[name="state"]').val(r[0].PostOffice[0].State).trigger('change');
+                        $('[name="country"]').val(r[0].PostOffice[0].Country).trigger('change');
+                    })
+                    .catch(err => {
+                        console.error('Pincode lookup failed:', err);
+                    });
+            },
+
+            // File handling utilities
+            fileHandlers: {
+                setupFileHandler: function(buttonId, fileInputId, deleteFlag, urlProperty) {
+                    $(`#${buttonId}`).on('click', function() {
+                        if (!confirm(`Are you sure you want to delete this file?`)) return;
+
+                        window[deleteFlag] = true;
+                        $(this).hide().siblings('.view-btn').hide();
+                        $(`#${fileInputId}`).show();
+                    });
+                },
+
+                setupViewHandler: function(buttonId, url) {
+                    $(`#${buttonId}`).on('click', function() {
+                        window.open(url, '_blank');
+                    });
+                }
+            },
+
+            // Validation helpers
+            validateDynamicForm: function() {
+                let isValid = true;
+                const target = $('.accordion-button').data('bs-target');
+                $(target).collapse('show');
+
+                // Validate pincode
+                const vPincode = $('[name="pincode"]');
+                if (!/^\d{6}$/.test(vPincode.val()) || /^0+$/.test(vPincode.val())) {
+                    vPincode.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    vPincode.removeClass("is-invalid").addClass("is-valid");
+                }
+
+                // Validate city
+                const vCity = $('[name="city"]');
+                if (!/^[A-Za-z\s]{2,}$/.test(vCity.val())) {
+                    vCity.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    vCity.removeClass("is-invalid").addClass("is-valid");
+                }
+
+                // Validate state
+                const vState = $('[name="state"]');
+                if (!/^[A-Za-z\s]{2,}$/.test(vState.val())) {
+                    vState.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    vState.removeClass("is-invalid").addClass("is-valid");
+                }
+
+                // Validate country
+                const vCountry = $('[name="country"]');
+                if (!/^[A-Za-z\s]{2,}$/.test(vCountry.val())) {
+                    vCountry.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    vCountry.removeClass("is-invalid").addClass("is-valid");
+                }
+
+                // Validate address
+                const vAddress = $('[name="address"]');
+                if (vAddress.val().trim() === "") {
+                    vAddress.addClass("is-invalid").removeClass("is-valid");
+                    isValid = false;
+                } else {
+                    vAddress.removeClass("is-invalid").addClass("is-valid");
+                }
+
+                return isValid;
+            }
+        };
+
+        // OTP verification functions
+        const otpService = {
+            verifyEmail: function($input) {
+                swal.fire({
+                    title: 'Processing...',
+                    didOpen: () => swal.showLoading()
+                });
+
+                $.ajax({
+                    url: `@R.ApiUrl/Email/SendEmailOTP`,
+                    method: "GET",
+                    data: {
+                        email: $input.val(),
+                        dirName: $('[name="firstName"]').val() + ' ' + $('[name="lastName"]').val()
+                    },
+                    success: function(res) {
+                        swal.close();
+
+                        if (res && res.status) {
+                            otpService.promptForOTP($input, 'email');
+                        } else {
+                            swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: res?.message || 'Failed to send OTP. Please try again.'
+                            });
+                        }
+                    },
+                    error: function() {
+                        swal.fire({
+                            icon: 'error',
+                            title: 'Server Error',
+                            text: 'Unable to send OTP at the moment. Please try again later.'
+                        });
+                    }
+                });
+            },
+
+            verifyMobile: function($input) {
+                otpService.promptForOTP($input, 'mobile');
+            },
+
+            promptForOTP: function($input, type) {
+                const isEmail = type === 'email';
+                const txt = isEmail ? 'Email Address' : 'Mobile Number';
+                const digits = isEmail ? 6 : 4;
+
+                swal.fire({
+                    title: `Verify ${txt}`,
+                    text: `We have sent a code to your ${txt} for verification, please verify the code to proceed`,
+                    input: 'text',
+                    inputAttributes: {
+                        maxlength: digits,
+                        placeholder: 'OTP'
+                    },
+                    preConfirm: async (v) => {
+                        if (!new RegExp(`^\\d{${digits}}$`).test(v)) {
+                            swal.showValidationMessage('Please enter a valid OTP');
+                            return false;
+                        }
+
+                        if (isEmail) {
+                            // Server-side verification for email
+                            try {
+                                const response = await $.ajax({
+                                    url: `@R.ApiUrl/Email/VerifyEmailOTP`,
+                                    method: "GET",
+                                    data: { otp: v }
+                                });
+
+                                if (response && response.status) {
+                                    return true;
+                                } else {
+                                    swal.showValidationMessage(response?.message || 'Invalid OTP');
+                                    return false;
+                                }
+                            } catch (error) {
+                                swal.showValidationMessage('Verification failed. Please try again.');
+                                return false;
+                            }
+                        } else {
+                            // Client-side verification for mobile (last 4 digits)
+                            const last4 = $input.val().substr(-4);
+                            if (v !== last4) {
+                                swal.showValidationMessage('Incorrect OTP');
+                                return false;
+                            }
+                            return true;
+                        }
+                    }
+                }).then(result => {
+                    if (result.value) {
+                        $input.attr('readonly', 'readonly');
+                        $input.siblings('.btn-verify').hide();
+
+                        if (isEmail) {
+                            swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: 'Your email has been verified successfully.'
+                            });
+                        }
+                    }
+                });
+            }
+        };
+
+        // Main application logic
+        const directorApp = {
+            init: function() {
+                this.setupEventListeners();
+                this.loadData();
+
+                // Initialize form validation
+                vfDirector = $('#frmDirector').validate({
+                    rules: voDirector,
+                    onsubmit: () => console.log('Director form submit')
+                });
+
+                vfDirectorDetails = $('#frmDirectorDetails').validate({
+                    rules: voDirectorDetails,
+                    onsubmit: () => console.log('Director details form submit')
+                });
+            },
+
+            setupEventListeners: function() {
+                // Pincode lookup
+                $('[name="pincode"]').on('change', function() {
+                    utils.pincodeLookup($(this).val());
+                });
+
+                // Verify buttons
+                $('.btn-verify').on('click', function() {
+                    const $inp = $(this).siblings('input');
+                    $inp.trigger('blur');
+
+                    setTimeout(() => {
+                        if ($inp.hasClass('is-invalid')) return;
+
+                        const type = $inp.attr('name');
+                        if (type === 'email') {
+                            otpService.verifyEmail($inp);
+                        } else if (type === 'mobile') {
+                            otpService.verifyMobile($inp);
+                        }
+                    }, 200);
+                });
+
+                // Prevent focus on readonly fields
+                $(document).on('mousedown focus touchstart',
+                    'input[name="mobile"][readonly], input[name="email"][readonly]',
+                    function(e) {
+                        e.preventDefault();
+                        this.blur();
+                    });
+            },
+
+            loadData: function() {
+                if (@ViewBag.id > 0) {
+                    $._get(`@R.ApiUrl/Director/ById/${@ViewBag.id}`).then(x => {
+                        if (!x) return;
+
+                        // Set form values
+                        setObj(x, "#frmDirector");
+                        setObj(x.details, '#frmDirectorDetails');
+
+                        // Set salutation if empty
+                        if (!x.salutation) {
+                            $('[name="salutation"] option:first').prop('selected', true);
+                        }
+
+                        // Setup mobile and email verification if needed
+                        this.setupVerificationFields(x);
+
+                        // Setup file handlers
+                        this.setupFileHandlers(x.details);
+                    }).catch(err => {
+                        console.error('Failed to load director data:', err);
+                    });
+                }
+            },
+
+            setupVerificationFields: function(data) {
+                // Mobile field
+                if (data.mobile && data.mobile.indexOf('*') >= 0) {
+                    $('[name="mobile"]').removeAttr('readonly')
+                        .siblings('.btn-verify').show();
+                }
+
+                // Email field
+                if (data.email && data.email.indexOf('*') >= 0) {
+                    $('[name="email"]').removeAttr('readonly')
+                        .siblings('.btn-verify').show();
+                }
+            },
+
+            setupFileHandlers: function(details) {
+                if (!details) return;
+
+                // PAN file
+                if (details.panUrl) {
+                    $("#panUrlFile").hide();
+                    utils.fileHandlers.setupViewHandler('viewPanBtn', details.panUrl);
+                    utils.fileHandlers.setupFileHandler('deletePanBtn', 'panUrlFile', 'deletePan');
+                    $('#viewPanBtn, #deletePanBtn').show();
+                } else {
+                    $('#viewPanBtn, #deletePanBtn').hide();
+                }
+
+                // Repeat for other file types (aadhar, passport, voterId, drivingLicence)
+                // Aadhar file
+                if (details.aadharUrl) {
+                    $("#aadharUrlFile").hide();
+                    utils.fileHandlers.setupViewHandler('viewAadharBtn', details.aadharUrl);
+                    utils.fileHandlers.setupFileHandler('deleteAadharBtn', 'aadharUrlFile', 'deleteAadhar');
+                    $('#viewAadharBtn, #deleteAadharBtn').show();
+                } else {
+                    $('#viewAadharBtn, #deleteAadharBtn').hide();
+                }
+
+                // Passport file
+                if (details.passportUrl) {
+                    $("#passportUrlFile").hide();
+                    utils.fileHandlers.setupViewHandler('viewPassportBtn', details.passportUrl);
+                    utils.fileHandlers.setupFileHandler('deletePassportBtn', 'passportUrlFile', 'deletePassport');
+                    $('#viewPassportBtn, #deletePassportBtn').show();
+                } else {
+                    $('#viewPassportBtn, #deletePassportBtn').hide();
+                }
+
+                // Voter ID file
+                if (details.voterIdUrl) {
+                    $("#voterIdUrlFile").hide();
+                    utils.fileHandlers.setupViewHandler('viewVoterIdBtn', details.voterIdUrl);
+                    utils.fileHandlers.setupFileHandler('deleteVoterIdBtn', 'voterIdUrlFile', 'deleteVoterId');
+                    $('#viewVoterIdBtn, #deleteVoterIdBtn').show();
+                } else {
+                    $('#viewVoterIdBtn, #deleteVoterIdBtn').hide();
+                }
+
+                // Driving Licence file
+                if (details.drivingLicenceUrl) {
+                    $("#drivingLicenceUrlFile").hide();
+                    utils.fileHandlers.setupViewHandler('viewDrivingLicenceBtn', details.drivingLicenceUrl);
+                    utils.fileHandlers.setupFileHandler('deleteDrivingLicenceBtn', 'drivingLicenceUrlFile', 'deleteDrivingLicence');
+                    $('#viewDrivingLicenceBtn, #deleteDrivingLicenceBtn').show();
+                } else {
+                    $('#viewDrivingLicenceBtn, #deleteDrivingLicenceBtn').hide();
+                }
+            },
+
+            save: async function() {
+                if (!utils.validateDynamicForm()) return;
+
+                if (!vfDirector.form()) return;
+
+                const obj = getObj(objDirector, '#frmDirector');
+                const objDetails = getObj(objDirectorDetails, '#frmDirectorDetails');
+                obj.details = objDetails;
+
+                if ($('.btn-verify:visible').length) {
+                    swal.fire({
+                        icon: 'info',
+                        text: 'Please complete contact details verification to proceed'
+                    });
+                    return;
+                }
+
+                try {
+                    const x = await $._post(`@R.ApiUrl/Director/Save`, obj);
+
+                    if (x.status) {
+                        const resp = await this.saveImgPath(x.responseObject.id);
+
+                        if (resp.status) {
+                            window.location = `@Url.Action("Director", "Home")`;
+                        } else {
+                            swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: "File not uploaded"
+                            });
+                        }
+                    } else {
+                        swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: x.message
+                        });
+                    }
+                } catch (error) {
+                    console.error('Save failed:', error);
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'An unexpected error occurred. Please try again.'
+                    });
+                }
+            },
+
+            saveImgPath: async function(id) {
+                const formData = new FormData();
+
+                $('input[type="file"]').each(function() {
+                    if (this.files.length > 0) {
+                        formData.append($(this).attr('name'), this.files[0]);
+                    }
+                });
+
+                return await $.ajax({
+                    url: `@R.ApiUrl/Director/${id}/image/${deletePan}/${deleteAadhar}/${deletePassport}/${deleteVoterId}/${deleteDrivingLicence}`,
+                    data: formData,
+                    type: 'POST',
+                    contentType: false,
+                    processData: false,
+                });
+            },
+
+            sync: function() {
+                $._get(`@R.ApiUrl/Director/${@ViewBag.id}/sync`)
+                    .then(r => {
+                        toastr[r.status ? 'success' : 'error'](r.message);
+                        if (r.status) {
+                            this.loadData();
+                        }
+                    })
+                    .catch(err => {
+                        console.error('Sync failed:', err);
+                        toastr.error('Sync operation failed');
+                    });
+
+                toastr.warning('Sync Job added to queue');
+            }
+        };
+
+        // Initialize application when document is ready
+        $(document).ready(function() {
+            directorApp.init();
+        });
+    </script>
+}

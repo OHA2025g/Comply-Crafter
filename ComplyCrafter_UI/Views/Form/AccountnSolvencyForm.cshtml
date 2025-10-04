@@ -1,0 +1,1471 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    td{
+        padding:15px;
+    }
+
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    LLP Form No. 8
+
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Statement of Account & Solvency and Charge filing
+
+                    [Pursuant to rule 24 of Limited Liability Partnership Rules, 2009]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_LLP%20Form%20No.%208.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity's Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Balance Sheet
+
+                                        </span>
+                                    </a>
+                                </li>
+                                   <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Profit & Loss statement
+                                        </span>
+                                    </a>
+                                </li>
+                                   <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part4" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            DSC  Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part5" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachment
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-3">
+
+                        1. Statement of Account and Solvency or Charge
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                   <label>    <input type="radio" name="purpose" value="Statement of Account and Solvency" checked="checked">&nbsp; Statement of Account and Solvency &nbsp; &nbsp; &nbsp;</label>
+
+                        <label>    <input type="radio" name="purpose" value="Charge" disabled="">&nbsp; Charge &nbsp; &nbsp; &nbsp;</label>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">LLP/FLLP details</label>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 bold form-row mt-3">
+                        2. Statement of Account and Solvency as at (DD/MM/YYYY)
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 form-row">
+                        <input type="date" name="statementOfAccountDate" id="statementOfAccountDate" class="form-control datepicker hasDatepicker requiredinput" onchange="checkForm(this); return false;" placeholder="" value="" required="">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 66px;">
+                        <span style="font-weight: bold;">3. (a) Limited Liability Partnership Identification Number (LLPIN) / Foreign Limited Liability Partnership Identification Number (FLLPIN)</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3" style="height: 66px;">
+                        <input type="date" class="form-control" style="width: 100%;height: 55px;" id="llpinFllpin" name="llpinFllpIn" value="AAN-1801" >
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="height: 66px;">
+                        <span style="font-weight: bold;">(b) Name of Limited Liability Partnership (LLP)/Foreign Limited Liability Partnership (FLLP)</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="height: 66px;">
+                        <input type="text" class="form-control" style="width: 100%;height: 55px;" name="llpFllpName"  id="llpFllpName" value="BANDRA HOSPITALITY LLP" >
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <span style="font-weight: bold;">(c) Address of registered office of the LLP or principal place of business in India of FLLP</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-8 form-row mt-3">
+                        <input type="text" style="width: 100%" id="company_address" class="form-control" name="companyAddress" value="29A NOOTAN NAGAR GURUNANAK ROAD   BANDRA WEST, MUMBAI, Mumbai City, Maharashtra, India, 400050" readonly="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row mt-3">
+                        <span style="font-weight: bold;">(d) Jurisdiction of Police Station</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-8 form-row mt-3">
+                        <input type="text" class="form-control" name="jurisdictionPoliceStation" id="jurisdictionPoliceStationOfRegisteredOfficeAddress" value="Bandra West">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <span style="font-weight: bold;">(e) Email ID</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="text" style="width: 100%" id="company_email" name="companyEmail" class="form-control" value="ashitshah1988@gmail.com" readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">(f) Total monetary value of obligation of contribution as on above date</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="contributionTotal" id="totalMonetaryObligationContribution" value="100,000">
+                    </div>
+
+                </div>
+
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Part A: Statement of Solvency</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="llpFllpEnquiryConfirmation" value="Y" id="" required=""> 4. (a) We, being the designated partners or authorized representatives OF &nbsp; <input type="text" name="llpFllpName2" style="width: auto;" id="llpFllpName1" value="BANDRA HOSPITALITY LLP" readonly=""> &nbsp; do solemnly affirm and sincerely declare that we have made a full inquiry into the affairs of this Limited Liability Partnership/ Foreign Limited Liability Partnership, and that, having done so, have formed the opinion that the LLP/ FLLP &nbsp; <label>  <input type="radio" name="llpFllpPayDebts" value="is" required="" class="">&nbsp; is &nbsp;</label> <label> <input type="radio" name="llpFllpPayDebts" value="is not" required="" class="">&nbsp; is not &nbsp;</label>  able to pay its debts in full as they become due in the normal course of business.&nbsp;
+                        </p>
+                        <input type="hidden" name="prreportingPeriodContributionReceived" value="100000">
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="appendStatement" value="Y" id="appendStatement" required=""> (b) We append a Statement of the Assets and Liabilities as at &nbsp; <input type="date" placeholder="" name="statementOfAsestsAndLiabilitiesAt" id="statementOfAsestsAndLiabilitiesAt" value="" readonly=""> &nbsp; and Income and Expenditure for the period ended on &nbsp; <input type="date" placeholder="" name="incomeAndExpenditureEndedOn" id="incomeAndExpenditureENdedOn" value="" readonly="">&nbsp; being latest practicable date before the making of this declaration.
+                        </p>
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="confirmationOnFilling" value="Y" id="confirmationOnFilling"> (c) We have already filed a statement indicating creation of charges or modification or satisfaction thereof till the present financial year.
+                        </p>
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="declareTurnover" value="Y" id="declareTurnover" required=""> (d) We declare that the turnover &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="turnover" value="does not exceed" required="">&nbsp; does not exceed &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="turnover" value="exceeds 40 lakh rupees" required="">&nbsp; exceeds 40 lakh rupees
+                        </p>
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="declareObligationOfContribution" value="Y" id="declareObligationOfContribution" required=""> (e) We declare that the obligation of contribution &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="obligationOfContribution" value="does not exceed" checked="checked" required="">&nbsp; does not exceed &nbsp; &nbsp; &nbsp;
+                            <input type="radio" name="obligationOfContribution" value="exceeds 25 lakh rupees" required="">&nbsp; exceeds 25 lakh rupees
+                        </p>
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="confirmingPartners" value="Y" id="confirmingPartners" required=""> (f) The partners/ authorized representatives have taken proper care and responsibility for maintenance of adequate accounting records and preparation of accounts in accordance with the provisions of the LLP Act and the Rules made thereunder.
+                        </p>
+                        <p style="text-align: justify;">
+                            <input type="checkbox" name="confirmingTheStatementIsTrue" value="Y" id="confirmingTheStatementIsTrue" required=""> (g) We make this statement conscientiously believing it to be true, and by virtue of the provisions of the Limited Liability Partnership Act, 2008, the rules made thereunder.
+                        </p>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Contingent Liability details</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-3">
+                        6. (a) Whether there are any contingent liabilities to report
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row mt-3">
+                        &nbsp; &nbsp;
+                        <label>     <input type="radio" name="contingentLiabilitesRadioBtn" class="contingentLiabilitesRadioBtn" value="Y" required="">&nbsp; Yes &nbsp; &nbsp;</label>
+                        <label>   <input type="radio" name="contingentLiabilitesRadioBtn" class="contingentLiabilitesRadioBtn" value="N" required="">&nbsp; No</label>
+                    </div>
+                </div>
+
+                <div id="contingentLiabilites" style="display: block;">
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-1 form-row bold mt-3">
+                            (b) S. No.
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-6 form-row bold mt-3">
+                            (c) Description of contingent liability
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                            (d) Amount
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-1 form-row mt-3" align="center">
+                            <button type="button" name="equityAdd" id="equityadd" class="btn btn-primary" title="Add Row" style="padding:4px 6px !important;"><i class="fa fa-plus" style=" margin:0px 0px 0px 0px !important;"></i></button>
+                        </div>
+                    </div>
+
+                    <div id="equity" class="mt-3">
+                        <input type="hidden" name="numberofrow" id="l" value="1">
+                        <div class="row mt-3" id="roweq1">
+                            <div class="col-xs-12 col-sm-4 col-md-1 form-row mt-3" align="center">
+                                1.
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-6 form-row mt-3">
+                                <input type="text" name="descriptionOfContigentLiability" class="form-control requiredinput" id="descriptionOfContigentLiability_1" style="width: 100%;" required="required">
+                            </div>
+                            <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                                <input type="text" name="amount" class="form-control requiredinput" id="amount_1" style="width: 100%;" required="required">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <div id="Balancesheet" class="tab-pane  animated  custon-tab-style1 active">
+                <div style="display: none;" id="dvloader1" align="center"><img src="../../admin/ajax-loader.gif"></div>
+                <form action="" role="form" method="post" enctype="multipart/form-data" id="target_subscriber">
+                    <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">Part B: Statement of Account</label>
+
+                    <div class="row mt-4">
+                        <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-3">
+                            5. Statement of Assets and Liabilities as at
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-2 form-row mt-3">
+                            <input type="text" name="statementAssetsLiabilities" class="form-control" id="statementOfAssetsAndLaibilitiesAt" value="" readonly="" style="width: 100%;">
+                        </div>
+                    </div>
+
+                    <table border="1" style="border:1px solid black;border-collapse:collapse; width:100%;font-size:15px;" class="mt-4">
+
+                        <tbody>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="font-weight:bold;text-align: center;"><strong>Particulars</strong></td>
+                                <td style="font-weight:bold;text-align: center; border:1px solid black; padding:5px;"><strong>Figures as at the end of (Current reporting period) (in Rs.)</strong></td>
+                                <td style="font-weight:bold;text-align: center;"><strong>Figures as at the end of (Previous reporting period) (in Rs.)</strong></td>
+                            </tr>
+
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 5px;" colspan="3"><strong>(I) CONTRIBUTION AND LIABILITIES</strong></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 10px;" colspan="3"><strong>(1) Partner's Funds</strong></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Contribution received</td>
+                                <td style="text-align:right; border:1px solid black;"> <input type="text" style="text-align: center;" name="contributionReceivedCr" class="form-control amount-field" placeholder="0.00" required="" id="contribution_received_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right;  border:1px solid black;"><input type="text" style="text-align: center;" name="contributionReceivedPr" class="form-control amount-field" placeholder="0.00" required="" id="contribution_received_pr" value="100000" autocomplete="off"></td>
+                            </tr>
+
+
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Reserves &amp; surplus (including surplus being the profit/loss made during year)</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="reservesSurplusCr" class="form-control amount-field" placeholder="0.00" required="" id="reserves_surplus_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="reservesSurplusPr" class="form-control amount-field" placeholder="0.00" required="" id="reserves_surplus_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 10px;" colspan="3"><strong>(2) Liabilities</strong></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Secured loans</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="securedLoansCr" class="form-control amount-field" placeholder="0.00" required="" id="secured_loans_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="securedLoansPr" style="text-align: center;" class="form-control amount-field" placeholder="0.00" required="" id="secured_loans_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Unsecured loans</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="unsecureLoansCr" class="form-control amount-field" placeholder="0.00" required="" id="unsecured_loans_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="unsecuredLoansPr" class="form-control amount-field" placeholder="0.00" required="" id="unsecured_loans_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Short term borrowing</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="shortTermCr" class="form-control amount-field" placeholder="0.00" required="" id="short_term_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="shortTermPr" class="form-control amount-field" placeholder="0.00" required="" id="short_term_pr" value="0" autocomplete="off"></td>
+                            </tr>
+
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Creditors/trade payables-Advance from customers</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="payablesAdvanceCr" class="form-control amount-field" placeholder="0.00" required="" id="payables_advance_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="payablesAdvancePr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="payables_advance_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td colspan="3">Amount of other liabilities</td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Other liabilities (to specify) <br> <input name="otherLiabilitiesNameCr" class="form-control" id="other_liabilities_NAME_cr" value="" autocomplete="off" maxlength="50"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="otherLiabilitiesCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="other_liabilities_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="otherLiabilitiesPr" class="form-control amount-field" placeholder="0.00" required="" id="other_liabilities_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="font-weight: bold;padding-left: 10px;" colspan="3">Provisions</td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>for taxation</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="forTaxationCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="for_taxation_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right;border:1px solid black;"><input type="text" name="forTaxationPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="for_taxation_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>for contingencies</td>
+                                <td style="text-align:right;"><input type="text" name="forContingenciesCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="for_contingencies_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right;"><input type="text" name="forContingenciesPr" class="form-control amount-field" style="text-align:center;" placeholder="0.00" required="" id="for_contingencies_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>for insurance</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="forInsuranceCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="for_insurance_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="forInsurancePr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="for_insurance_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black; " class="mt-2">
+                                <td>Other provisions (if any)</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="otherProvisionsCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="other_provisions_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="otherProvisionsPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="other_provisions_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 10px;"><strong>Total</strong></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="totalCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" id="total_cr" required="" value="" readonly="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="totalPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="total_pr" value="100000" readonly="" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 10px;" colspan="3"><strong>(II) ASSETS</strong></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Gross Fixed assets(including intangible assets)</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="fixedAssetsCr" class="form-control amount-field" placeholder="0.00" required="" id="fixed_assets_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="fixedAssetsPr" class="form-control amount-field" placeholder="0.00" required="" id="fixed_assets_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Less: depreciation and amortization</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="depreciationCr" class="form-control amount-field" placeholder="0.00" required="" id="depreciation_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align: center;" name="depreciationPr" class="form-control amount-field" placeholder="0.00" required="" id="depreciation_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Net fixed assets</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="netFixedAssetsCr" class="form-control amount-field" style="text-align: center;" readonly="" placeholder="0.00" required="" id="net_fixed_assets_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="netFixedAssetsPr" class="form-control amount-field" style="text-align: center;" readonly="" placeholder="0.00" required="" id="net_fixed_assets_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Investments</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="investmentsCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="investments_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="investmentsPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="investments_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Loans and advances</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="loansCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="Loans_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="loansPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="Loans_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Inventories</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="inventoriesCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="inventories_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="inventoriesPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="inventories_pr" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Debtors/trade receivables</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="tradeReceivablesCr" class="form-control amount-field" placeholder="0.00" required="" id="trade_receivables_cr" style="text-align: center;" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="tradeReceivablesPr" class="form-control amount-field" placeholder="0.00" required="" id="trade_receivables_pr" style="text-align: center;" value="0" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Cash and cash equivalents</td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="cashEquivalentsCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="cash_equivalents_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="cashEquivalentsPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="cash_equivalents_pr" value="100000" autocomplete="off"></td>
+                            </tr>
+                            <tr>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td colspan="3">Amount of other assets</td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td>Other assets (to specify) <br> <input type="text" name="otherAssetsNameCr" class="form-control" id="other_assets_NAME_cr" value="" autocomplete="off" oninput="validateInput(this)" maxlegnth="50"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="otherAssetsCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="other_assets_cr" value="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="otherAssetsPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="other_assets_pr" value="" autocomplete="off"></td>
+                            </tr>
+                            <tr style="border :1px solid black;" class="mt-2">
+                                <td style="padding-left: 10px;"><strong>Total</strong></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="totalAssetsCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" id="total_assets_cr" required="" value="" readonly="" autocomplete="off"></td>
+                                <td style="text-align:right; border:1px solid black;"><input type="text" name="totalAssetsPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="total_assets_pr" value="100000" readonly="" autocomplete="off"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <br>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="target_subscriber1">
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">Statement of Income and Expenditure</label>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6 bold">
+                        7. Statement of Income and Expenditure (in Rs.)
+                    </div>
+                </div>
+                <table border="1" style="border:1px solid black;border-collapse:collapse; width:100%;font-size:15px;">
+                    <tbody >
+                        <tr>
+                            <td style="text-align:center; border:1px solid black;"><strong>Particulars</strong></td>
+                            <td style="text-align:center; border:1px solid black;"><strong>Figures for the period (Current reporting period)</strong></td>
+                            <td style="text-align:center; border:1px solid black;"><strong>Figures for the period (Previous reporting period)</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-right: 15px;text-align: right; border:1px solid black;">From</td>
+                            <td style="text-align:right; border:1px solid black; border:1px solid black;"><input type="date" name="startingDateCr" id="Starting_date_CR" class="form-control Dateacquisition4 hasDatepicker" placeholder="dd/mm/yyyy" required="" value="" autocomplete="off" style="text-align: center;"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="date" name="startingDatePr" id="Starting_date_PR" class="form-control Dateacquisition3 hasDatepicker" placeholder="dd/mm/yyyy" value="" autocomplete="off" style="text-align: center;"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-right: 15px;text-align: right; border:1px solid black;">To</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="date" name="closingDateCr" id="Closing_date_CR" class="form-control Closing_date_CR" placeholder="dd/mm/yyyy" required="" value="" autocomplete="off" style="text-align: center;" readonly=""></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="date" name="closingDatePr" id="Closing_date_PR" class="form-control Dateacquisition2 hasDatepicker" placeholder="dd/mm/yyyy" value="" autocomplete="off" style="text-align: center;"></td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold;padding-left: 5px;" colspan="3">Income</td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;">Gross turnover</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="grossTurnoverCr" style="text-align:center;" class="form-control amount-field " placeholder="0.00" required="" id="GROSS_TURNOVER_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="grossTurnoverPr" class="form-control amount-field " style="text-align:center;" placeholder="0.00" required="" id="GROSS_TURNOVER_PR" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;">Less: Excise duty or service tax</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="exciseDutyCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="EXCISE_DUTY_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="exciseDutyPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="EXCISE_DUTY_PR" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;"><strong>Net Turnover details</strong></td>
+                            <td style="text-align:right; border:1px solid black;">
+                                <input type="text" name="netTurnoverCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" id="NET_TURNOVER_CR" value="0.00" autocomplete="off" readonly="">
+                            </td>
+                            <td style="text-align:right; border:1px solid black;">
+                                <input type="text" name="netTurnoverPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" id="NET_TURNOVER_PR" value="0.00" autocomplete="off" readonly="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;" colspan="3">(I) Domestic Turnover</td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">(a) Sales of goods manufactured</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoodCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="SALES_GOODS_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoodPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="SALES_GOODS_PR" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;">(b) Sales of goods traded</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoodsTCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_GOODS_T_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoodsTPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_GOODS_T_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">(c) Sales or supply of services</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesSupplyCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_SUPPLY_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesSuplyPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_SUPPLY_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;" colspan="3">(II) Export turnover</td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">(a) Sales of goods manufactured</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoods1Cr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_GOODS1_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesGoods1Pr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_GOODS1_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">(b) Sales of goods traded</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="saleGoodsT1Cr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALE_GOODS_T1_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="saleGoodsT1Pr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALE_GOODS_T1_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black; ">(c) Sales or supply of services</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salesSupply1Cr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_SUPPLY1_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="salessupply1Pr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="SALES_SUPPLY1_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;">Other income</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="otherIncomeCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="OTHER_INCOME_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="otherIncomePr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="OTHER_INCOME_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;">Increase/(decrease) in stocks [including for raw materials, work in progress and finished goods]</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="increaseCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="INCREASE_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="increasePR" class="form-control amount-field" placeholder="0.00" required="" id="INCREASE_PR" value="0" style="text-align: center;" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border:1px solid black;"><strong>Total income (I+II)</strong></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="totalRevenueCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="TOTAL_REVENUE_CR" value="" readonly="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="totalRevenuePr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="TOTAL_REVENUE_PR" value="0" readonly="" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 5px; border:1px solid black;" colspan="3"><strong>Expenses</strong></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">Raw material consumed</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="materialCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="MATERIAL_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="materialPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="MATERIAL_PR" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;">Purchases made for re-sale</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="purchaseMadeC" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PURCHASE_MADE_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="purchaseMadeP" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PURCHASE_MADE_P" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="border:1px solid black;">Consumption of stores and spare parts</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="consumptionCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="CONSUMPTION_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="consumptionPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="CONSUMPTION_P" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Power and fuel</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="powerCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="POWER_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="powerPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="POWER_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">Personnel Expenses</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="personnelCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PERSONNEL_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="personnelPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PERSONNEL_P" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td>Administrative expenses</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="administrativeCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="ADMINISTRATIVE_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="administrativePr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="ADMINISTRATIVE_P" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">Payment to auditors</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="paymentCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PAYMENT_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" name="paymenPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PAYMENT_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border:1px solid black;">Selling expenses</td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align:center;" name="sellingC" class="form-control amount-field" placeholder="0.00" required="" id="SELLING_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border:1px solid black;"><input type="text" style="text-align:center;" name="sellingP" class="form-control amount-field" placeholder="0.00" required="" id="SELLING_P" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black;">Insurance expenses</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="insuranceExpCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="INSURANCE_EXP_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="insuranceExpPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="INSURANCE_EXP_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black;">Depreciation and amortization</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="depreciationPCr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="DEPRECIATION_P_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="depreciationPPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="DEPRECIATION_P_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black;">Interest</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="interestCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="INTEREST_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="interestPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="INTEREST_PR" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="border: 1px solid black;">Other expenses</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="otherExpensesC" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="OTHER_EXPENSES_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="otherExpensesP" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="OTHER_EXPENSES_P" value="0" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border: 1px solid black;"><strong>Total expenditure</strong></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="totalExpensesC" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="TOTAL_EXPENSES_C" value="" readonly="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="totalExpensesP" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="TOTAL_EXPENSES_P" value="0" readonly="" autocomplete="off"></td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-left: 10px; border: 1px solid black;">
+                                Net Profit or Net Loss (before taxes)
+                            </td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profitNetCr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PROFIT_NET_CR" value="" readonly="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profitNetPr" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PROFIT_NET_PR" value="0" autocomplete="off" readonly=""></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border: 1px solid black;">Provision for Tax</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="provisionC" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PROVISION_C" value="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="provisionP" class="form-control amount-field" placeholder="0.00" style="text-align: center;" required="" id="PROVISION_P" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px;">Profit after Tax</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profitAftTaxC" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PROFIT_AFT_TAX_C" value="" readonly="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profitAftaxP" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PROFIT_AFT_TAX_P" value="0" readonly="" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border: 1px solid black;">Profit transferred to Partners' account</td>
+                            <td style="text-align:right; border: 1px solid black;"><input style="text-align: center;" type="text" name="profitTransferCr" class="form-control amount-field" placeholder="0.00" required="" id="PROFIT_TRANSFER_CR" value="" autocomplete="off"></td>
+                            <td style="text-align:right;border: 1px solid black;"><input type="text" name="profitTransferPr" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PROFIT_TRANSFER_PR" value="0" autocomplete="off"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding-left: 10px; border: 1px solid black;">Profit transferred to Reserves and surplus</td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profTraResSerC" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PROF_TRA_RES_SER_C" value="" readonly="" autocomplete="off"></td>
+                            <td style="text-align:right; border: 1px solid black;"><input type="text" name="profTraResSerP" class="form-control amount-field" style="text-align: center;" placeholder="0.00" required="" id="PROF_TRA_RES_SER_P" value="0" readonly="" autocomplete="off"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            
+            </form>
+        </div>
+    </div>
+
+
+    <div id="part4" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm4">
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">DPIN/ Income-tax PAN 1</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" id="dpinIncometaxPan11" name="dpinIncomeTaxPan11" value="" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">DPIN/ Income-tax PAN 2</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="dpinIncomeTaxPan12" id="dpinIncometaxPAN12" value="" required="">
+                    </div>
+                </div>
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Signature of Interim Resolution Professional (IRP)/Resolution Professional (RP)/Liquidator/LLP Administrator </label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-2 col-md-3 bold form-row mt-4">
+                        Name
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                        <input type="text"  class="form-control" name="administratorName" id="IRPOrRPOrLiquidatorOrLLPAdministratorName" style="width: 100%;" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 bold form-row mt-4">
+                        Designation
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                        <select name="designation" id="designation" class="form-select">
+                            <option value="">Select Designation</option>
+                            <option value="Liquidator">Liquidator</option>
+                            <option value="Interim Resolution Professional (IRP)">Interim Resolution Professional (IRP)</option>
+                            <option value="Resolution Professional (RP)">Resolution Professional (RP)</option>
+                            <option value="LLP Administrator">LLP Administrator</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-6 col-md-9 bold form-row mt-3">
+                        Income-tax PAN in case of Interim Resolution Professional (IRP)/Resolution Professional (RP)/Liquidator/LLP Administrator
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3" id="">
+                        <input type="text" name="administratorId" id="irpOrRpOrLiquidatorOrLLPAdministratorId" value="" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-4 form-row bold mt-3">
+                        Certificate by
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 form-row mt-3">
+                        &nbsp; &nbsp;
+                  <label>      <input type="radio" name="certifiedRadioButton" id="" value="Designated partner" class="CertifiedRadioButton3">&nbsp; Designated partner &nbsp; &nbsp; &nbsp;</label>
+                   <label>       <input type="radio" name="certifiedRadioButton" id="" value="Authorized representative" class="CertifiedRadioButton2">&nbsp; Authorized representative &nbsp; &nbsp; &nbsp;</label>
+                        <label>     <input type="radio" name="certifiedRadioButton" id="" value="Auditor" class="CertifiedRadioButton1">&nbsp; Auditor &nbsp; &nbsp; &nbsp;</label>
+                    </div>
+                </div>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;line-height: 3;"> It is hereby certified that I have verified the particulars contained in the Statement of Account and Solvency including the Statement of assets and liabilities as at &nbsp; <input type="date" placeholder="" name="fromDate" id="fromDate" value="" onchange="checkForm(this); return false;" style="width: 10%;" readonly=""> &nbsp; and the income and expenditure for the period ending &nbsp; <input type="date" placeholder="" name="toDate" id="toDate" value="" onchange="checkForm(this); return false;" style="width: 10%;" readonly="">&nbsp; from the accounting records and other books and papers of &nbsp; <input type="text" name="textboxOfAccouandRecord" style="width: auto;" value="BANDRA HOSPITALITY LLP" readonly=""> &nbsp; and found them to be true and fair.</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">DPIN/ Income-tax PAN/ Membership Number</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" id="membershipNumber" name="numberMembership" value="" required="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Name of the designated partner/ authorized representative/ auditor</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="designatedName" id="nameOfDesignatedPartner" value="" required="">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Address Line 1</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" id="addressLine1" name="addressLine1" value="" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Address Line 2</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" name="addressLine2" id="addressLine2" value="">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Country</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select class="form-select blankwhenauditor" id="country" name="country" style="width: 100%;" required="required">
+                            <option value="">Select Country</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                            <option value="Andorra, Principality of">Andorra, Principality of</option>
+                            <option value="Angola">Angola</option>
+                            <option value="Anguilla">Anguilla</option>
+                            <option value="Antarctica">Antarctica</option>
+                            <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                            <option value="Argentina">Argentina</option>
+                            <option value="Armenia">Armenia</option>
+                            <option value="Aruba">Aruba</option>
+                            <option value="Australia">Australia</option>
+                            <option value="Austria">Austria</option>
+                            <option value="Azerbaijan">Azerbaijan</option>
+                            <option value="Bahamas">Bahamas</option>
+                            <option value="Bahrain">Bahrain</option>
+                            <option value="Bangladesh">Bangladesh</option>
+                            <option value="Barbados">Barbados</option>
+                            <option value="Belarus">Belarus</option>
+                            <option value="Belgium">Belgium</option>
+                            <option value="Belize">Belize</option>
+                            <option value="Benin">Benin</option>
+                            <option value="Bermuda">Bermuda</option>
+                            <option value="Bhutan, Kingdom of">Bhutan, Kingdom of</option>
+                            <option value="Bolivia">Bolivia</option>
+                            <option value="Bosnia and Herzegovina">Bosnia and Herzegovina</option>
+                            <option value="Botswana">Botswana</option>
+                            <option value="Bouvet Island">Bouvet Island</option>
+                            <option value="Brazil">Brazil</option>
+                            <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                            <option value="Brunei">Brunei</option>
+                            <option value="Bulgaria">Bulgaria</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Burundi">Burundi</option>
+                            <option value="Cambodia">Cambodia</option>
+                            <option value="Cameroon">Cameroon</option>
+                            <option value="Canada">Canada</option>
+                            <option value="Cape Verde">Cape Verde</option>
+                            <option value="Cayman Islands">Cayman Islands</option>
+                            <option value="Central African Republic">Central African Republic</option>
+                            <option value="Chad">Chad</option>
+                            <option value="Chile">Chile</option>
+                            <option value="China">China</option>
+                            <option value="Christmas Island">Christmas Island</option>
+                            <option value="Cocos (Keeling) Islands">Cocos (Keeling) Islands</option>
+                            <option value="Colombia">Colombia</option>
+                            <option value="Comoros">Comoros</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Congo">Congo</option>
+                            <option value="Cook Islands">Cook Islands</option>
+                            <option value="Costa Rica">Costa Rica</option>
+                            <option value="Cote DIvoire">Cote DIvoire</option>
+                            <option value="Croatia">Croatia</option>
+                            <option value="Cuba">Cuba</option>
+                            <option value="Cyprus">Cyprus</option>
+                            <option value="Czech Republic">Czech Republic</option>
+                            <option value="Czechoslavakia">Czechoslavakia</option>
+                            <option value="Denmark">Denmark</option>
+                            <option value="Djibouti">Djibouti</option>
+                            <option value="Dominica">Dominica</option>
+                            <option value="Dominican Republic">Dominican Republic</option>
+                            <option value="East Timor">East Timor</option>
+                            <option value="Ecuador">Ecuador</option>
+                            <option value="Egypt">Egypt</option>
+                            <option value="El Salvador">El Salvador</option>
+                            <option value="Equatorial Guinea">Equatorial Guinea</option>
+                            <option value="Eritrea">Eritrea</option>
+                            <option value="Estonia">Estonia</option>
+                            <option value="Ethiopia">Ethiopia</option>
+                            <option value="Falkland Islands">Falkland Islands</option>
+                            <option value="Faroe Islands">Faroe Islands</option>
+                            <option value="Fiji">Fiji</option>
+                            <option value="Finland">Finland</option>
+                            <option value="France">France</option>
+                            <option value="French Guiana">French Guiana</option>
+                            <option value="French Polynesia">French Polynesia</option>
+                            <option value="French Southern Territories and Antarctic Lands">French Southern Territories and Antarctic Lands</option>
+                            <option value="Gabon">Gabon</option>
+                            <option value="Gambia, The">Gambia, The</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Germany">Germany</option>
+                            <option value="Ghana">Ghana</option>
+                            <option value="Gibraltar">Gibraltar</option>
+                            <option value="Great Britain (United Kingdom)">Great Britain (United Kingdom)</option>
+                            <option value="Greece">Greece</option>
+                            <option value="Greenland">Greenland</option>
+                            <option value="Grenada">Grenada</option>
+                            <option value="Guadeloupe">Guadeloupe</option>
+                            <option value="Guam">Guam</option>
+                            <option value="Guatemala">Guatemala</option>
+                            <option value="Guinea">Guinea</option>
+                            <option value="Guinea-Bissau">Guinea-Bissau</option>
+                            <option value="Guyana">Guyana</option>
+                            <option value="Haiti">Haiti</option>
+                            <option value="Heard Island and McDonald Islands (Territory of Australia)">Heard Island and McDonald Islands (Territory of Australia)</option>
+                            <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                            <option value="Honduras">Honduras</option>
+                            <option value="Hong Kong">Hong Kong</option>
+                            <option value="Hungary">Hungary</option>
+                            <option value="Iceland">Iceland</option>
+                            <option value="India">India</option>
+                            <option value="Indonesia">Indonesia</option>
+                            <option value="Iran">Iran</option>
+                            <option value="Iraq">Iraq</option>
+                            <option value="Ireland">Ireland</option>
+                            <option value="Israel">Israel</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Jamaica">Jamaica</option>
+                            <option value="Japan">Japan</option>
+                            <option value="Jordan">Jordan</option>
+                            <option value="Kazakstan or Kazakhstan">Kazakstan or Kazakhstan</option>
+                            <option value="Kenya">Kenya</option>
+                            <option value="Kiribati">Kiribati</option>
+                            <option value="Korea, North">Korea, North</option>
+                            <option value="Korea, South">Korea, South</option>
+                            <option value="Kuwait">Kuwait</option>
+                            <option value="Kyrgyzstan">Kyrgyzstan</option>
+                            <option value="Lao Peoples Democratic Republic (Laos)">Lao Peoples Democratic Republic (Laos)</option>
+                            <option value="Latvia">Latvia</option>
+                            <option value="Lebanon">Lebanon</option>
+                            <option value="Lesotho">Lesotho</option>
+                            <option value="Liberia">Liberia</option>
+                            <option value="Libya (Libyan Arab Jamahiriya)">Libya (Libyan Arab Jamahiriya)</option>
+                            <option value="Liechtenstein">Liechtenstein</option>
+                            <option value="Lithuania">Lithuania</option>
+                            <option value="Luxembourg">Luxembourg</option>
+                            <option value="Macau">Macau</option>
+                            <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                            <option value="Madagascar">Madagascar</option>
+                            <option value="Malawi">Malawi</option>
+                            <option value="Malaysia">Malaysia</option>
+                            <option value="Maldives">Maldives</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Malta">Malta</option>
+                            <option value="Marshall Islands">Marshall Islands</option>
+                            <option value="Martinique (French)">Martinique (French)</option>
+                            <option value="Mauritania">Mauritania</option>
+                            <option value="Mauritius">Mauritius</option>
+                            <option value="Mayotte">Mayotte</option>
+                            <option value="Mexico">Mexico</option>
+                            <option value="Micronesia">Micronesia</option>
+                            <option value="Moldova">Moldova</option>
+                            <option value="Monaco">Monaco</option>
+                            <option value="Mongolia">Mongolia</option>
+                            <option value="Montserrat">Montserrat</option>
+                            <option value="Morocco">Morocco</option>
+                            <option value="Mozambique">Mozambique</option>
+                            <option value="Myanmar">Myanmar</option>
+                            <option value="Namibia">Namibia</option>
+                            <option value="Nauru">Nauru</option>
+                            <option value="Nepal">Nepal</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Netherlands Antilles">Netherlands Antilles</option>
+                            <option value="New Caledonia">New Caledonia</option>
+                            <option value="New Zealand">New Zealand</option>
+                            <option value="Nicaragua">Nicaragua</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="Niue">Niue</option>
+                            <option value="Norfolk Island">Norfolk Island</option>
+                            <option value="Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)">Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)</option>
+                            <option value="Norway">Norway</option>
+                            <option value="Oman, Sultanate of (Former Muscat and Oman)">Oman, Sultanate of (Former Muscat and Oman)</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Palau">Palau</option>
+                            <option value="Palestinian State">Palestinian State</option>
+                            <option value="Panama">Panama</option>
+                            <option value="Papua New Guinea">Papua New Guinea</option>
+                            <option value="Paraguay">Paraguay</option>
+                            <option value="Peru">Peru</option>
+                            <option value="Philippines">Philippines</option>
+                            <option value="Pitcairn Island">Pitcairn Island</option>
+                            <option value="Poland">Poland</option>
+                            <option value="Portugal">Portugal</option>
+                            <option value="Puerto Rico">Puerto Rico</option>
+                            <option value="Qatar, State of">Qatar, State of</option>
+                            <option value="Reunion (French)">Reunion (French)</option>
+                            <option value="Romania">Romania</option>
+                            <option value="Russia - USSR">Russia - USSR</option>
+                            <option value="Russian Federation">Russian Federation</option>
+                            <option value="Rwanda (Rwandese Republic)">Rwanda (Rwandese Republic)</option>
+                            <option value="Saint Helena">Saint Helena</option>
+                            <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                            <option value="Saint Lucia">Saint Lucia</option>
+                            <option value="Saint Pierre and Miquelon">Saint Pierre and Miquelon</option>
+                            <option value="Saint Vincent and the Grenadines">Saint Vincent and the Grenadines</option>
+                            <option value="Samoa">Samoa</option>
+                            <option value="San Marino">San Marino</option>
+                            <option value="Sao Tome and Principe">Sao Tome and Principe</option>
+                            <option value="Saudi Arabia">Saudi Arabia</option>
+                            <option value="Senegal">Senegal</option>
+                            <option value="Serbia, Republic of">Serbia, Republic of</option>
+                            <option value="Seychelles">Seychelles</option>
+                            <option value="Sierra Leone">Sierra Leone</option>
+                            <option value="Singapore">Singapore</option>
+                            <option value="Slovakia">Slovakia</option>
+                            <option value="Slovenia">Slovenia</option>
+                            <option value="Solomon Islands">Solomon Islands</option>
+                            <option value="Somalia">Somalia</option>
+                            <option value="South Africa">South Africa</option>
+                            <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                            <option value="Spain">Spain</option>
+                            <option value="Sri Lanka (Former Serendib, Ceylon)">Sri Lanka (Former Serendib, Ceylon)</option>
+                            <option value="Sudan">Sudan</option>
+                            <option value="Suriname">Suriname</option>
+                            <option value="Svalbard (Spitzbergen) and Jan Mayen Islands">Svalbard (Spitzbergen) and Jan Mayen Islands</option>
+                            <option value="Swaziland">Swaziland</option>
+                            <option value="Sweden">Sweden</option>
+                            <option value="Switzerland">Switzerland</option>
+                            <option value="Syria (Syrian Arab Republic)">Syria (Syrian Arab Republic)</option>
+                            <option value="Taiwan">Taiwan</option>
+                            <option value="Tajikistan">Tajikistan</option>
+                            <option value="Tanzania">Tanzania</option>
+                            <option value="Thailand">Thailand</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Tokelau">Tokelau</option>
+                            <option value="Tonga">Tonga</option>
+                            <option value="Trinidad and Tobago">Trinidad and Tobago</option>
+                            <option value="Tromelin Island">Tromelin Island</option>
+                            <option value="Tunisia">Tunisia</option>
+                            <option value="Turkey">Turkey</option>
+                            <option value="Turkmenistan">Turkmenistan</option>
+                            <option value="Turks and Caicos Islands">Turks and Caicos Islands</option>
+                            <option value="Tuvalu">Tuvalu</option>
+                            <option value="Uganda">Uganda</option>
+                            <option value="Ukraine">Ukraine</option>
+                            <option value="United Arab Emirates">United Arab Emirates</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="United States">United States</option>
+                            <option value="United States Minor Outlying Islands">United States Minor Outlying Islands</option>
+                            <option value="Uruguay">Uruguay</option>
+                            <option value="Uzbekistan">Uzbekistan</option>
+                            <option value="Vanuatu">Vanuatu</option>
+                            <option value="Vatican City State (Holy See)">Vatican City State (Holy See)</option>
+                            <option value="Venezuela">Venezuela</option>
+                            <option value="Vietnam">Vietnam</option>
+                            <option value="Virgin Islands">Virgin Islands</option>
+                            <option value="Virgin Islands, British">Virgin Islands, British</option>
+                            <option value="Wallis and Futuna Islands">Wallis and Futuna Islands</option>
+                            <option value="Western Sahara">Western Sahara</option>
+                            <option value="Yemen">Yemen</option>
+                            <option value="Yugoslavia">Yugoslavia</option>
+                            <option value="Zaire">Zaire</option>
+                            <option value="Zambia">Zambia</option>
+                            <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Pin code/Zip Code</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" name="pinCode1" id="pinCode1" value="" required="required">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Area/Locality</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select class="form-select blankwhenauditor" id="areaLocality1" name="areaLocality1" required="required">
+                            <option value="">Select Locality</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">City</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" name="city1" id="city1" value="" required="required">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">District</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" id="district1" name="district1" value="" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">State</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" name="state1" id="state1" value="" required="required">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Jurisdiction of Police Station</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" id="Jurisdiction" name="jurisdiction" value="" required="required">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Phone</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" name="phone" id="phone" value="" required="required">
+                    </div>
+                </div>
+
+                <div class="row showwhenauditor mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">E-mail ID</span>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control blankwhenauditor" id="emailId" name="emailId" value="" required="required">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Certificate</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;">It is hereby certified that I have verified the above particulars (including attachment(s) from the records of &nbsp; <input type="text" name="certificateName" style="width: auto;" id="certificateName" value="BANDRA HOSPITALITY LLP" readonly=""> &nbsp; and found them to be true and correct. I further certify that all required attachment(s) have been completely attached to this form.</p>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-8 col-sm-8 col-md-8 form-row mt-3">
+                        <strong>Category (in whole time practice)</strong>&nbsp; &nbsp; &nbsp; &nbsp;
+                    <lable>    <input type="radio" name="categoryRadioButtons" value="Chartered Accountant in whole time practice" required="">&nbsp; Chartered Accountant &nbsp; &nbsp; &nbsp;</lable>
+                      <lable>    <input type="radio" name="categoryRadioButtons" value="Cost Accountant in whole time practice" required="">&nbsp; Cost Accountant &nbsp; &nbsp; &nbsp;</lable>
+                        <lable>   <input type="radio" name="categoryRadioButtons" value="Company Secretary in whole time practice" required="">&nbsp; Company Secretary &nbsp; &nbsp; &nbsp;</lable>
+                        <lable>   <input type="radio" name="categoryRadioButtons" value="NA" required=""> &nbsp; NA </lable>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 bold form-row nameofpcs mt-3" style="display: block;">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row nameofpcs mt-3">
+                        <select name="nameOfPcs" id="nameofpcs" style="width: 100%;" class="form-select">
+                            <option value="">Select PCS</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                            <option value="439">Pooja Gandhi (Practicing Company Secretary)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Whether associate or fellow </span>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-3 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="professionalType" id="" value="Associate" required="">&nbsp; Associate &nbsp; &nbsp; &nbsp;
+                        <input type="radio" name="professionalType" id="" value="Fellow" required="">&nbsp; Fellow &nbsp; &nbsp; &nbsp;
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Membership number or certificate of practice number
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="certificateOfPracticeNumber" id="certificateOfPracticeNumber" value="" required="">
+                    </div>
+                </div>
+
+               
+
+            </form>
+        </div>
+    </div>
+
+    <div id="part5" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm5">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        Optional attachment(s)- if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                    </div>
+
+                </div>
+                <div id="equity4" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="mt-3 col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="attachmentFile" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            // part-1
+
+            purpose: "",
+            statementOfAccountDate:"",
+            llpinFllpIn:"",
+            llpFllpName:"",
+            jurisdictionPoliceStation:"",
+            contributionTotal:"",
+            llpFllpEnquiryConfirmation:false,
+            llpFllpName2:"",
+            llpFllpPayDebts:"",
+            appendStatement:false,
+            statementOfAsestsAndLiabilitiesAt:"",
+            incomeAndExpenditureEndedOn:"",
+            confirmationOnFilling:false,
+            declareTurnover: false,
+            turnover:"",
+            declareObligationOfContribution: false,
+            obligationOfContribution:"",
+            confirmingPartners: false,
+            confirmingTheStatementIsTrue: false,
+            contingentLiabilitesRadioBtn:"",
+            descriptionOfContigentLiability:"",
+            amount:"",
+
+
+            // part-2
+
+            statementAssetsLiabilities:"",
+            contributionReceivedCr:"",
+            contributionReceivedPr:"",
+            reservesSurplusCr:"",
+            reservesSurplusPr:"",
+            securedLoansCr:"",
+            securedLoansPr:"",
+            unsecureLoansCr:"",
+            unsecureLoansPr:"",
+            shortTermCr:"",
+            shortTermPr:"",
+            payablesAdvanceCr:"",
+            payablesAdvancePr:"",
+            otherLiabilitiesNameCr:"",
+            otherLiabilitiesCr:"",
+            otherLiabilitiesPr:"",
+            forTaxationCr:"",
+            forTaxationPr:"",
+            forContingenciesCr:"",
+            forContingenciesPr:"",
+            forInsuranceCr:"",
+            forInsurancePr:"",
+            otherProvisionsCr:"",
+            otherProvisionsPr:"",
+            totalCr:"",
+            totalPr:"",
+            fixedAssetsCr:"",
+            fixedAssetsPr:"",
+            depreciationCr:"",
+            depreciationPr:"",
+            netFixedAssetsCr:"",
+            netFixedAssetsPr:"",
+            investmentsCr:"",
+            investmentsPr:"",
+            loansCr:"",
+            loansPr:"",
+            inventoriesCr:"",
+            inventoriesPr:"",
+            tradeReceivablesCr:"",
+            tradeReceivablesPr:"",
+            cashEquivalentsCr:"",
+            cashEquivalentsPr:"",
+             otherAssetsCr:"",
+            otherAssetsPr:"",
+            totalAssetsCr:"",
+            totalAssetsPr:"",
+            otherAssetsNameCr:"",
+
+
+
+            // part-3
+
+
+            startingDateCr:"",
+            startingDatePr:"",
+            closingDateCr:"",
+            closingDatePr:"",
+            grossTurnoverCr:"",
+            grossTurnoverPr:"",
+            exciseDutyCr:"",
+            exciseDutyPr:"",
+            netTurnoverCr:"",
+            netTurnoverPr:"",
+            salesGoodCr:"",
+            salesGoodPr:"",
+            salesGoodsTCr:"",
+            salesGoodsTPr:"",
+            salesSupplyCr:"",
+            salesSupplyPr:"",
+            salesGoods1Cr:"",
+            salesGoods1Pr:"",
+            saleGoodsT1Cr:"",
+            saleGoodsT1Pr:"",
+            salesSupply1Cr:"",
+            salesSupply1Pr:"",
+            otherIncomeCr:"",
+            otherIncomePr:"",
+            increaseCr:"",
+            increasePr:"",
+            totalRevenueCr:"",
+            totalRevenuePr:"",
+            materialCr:"",
+            materialPr:"",
+            purchaseMadeC:"",
+            purchaseMadeP:"",
+            consumptionCr:"",
+            consumptionPr:"",
+            powerCr:"",
+            powerPr:"",
+            personnelCr:"",
+            personnelPr:"",
+            administrativeCr:"",
+            administrativePr:"",
+            paymentCr:"",
+            paymentPr:"",
+            sellingC:"",
+            sellingP:"",
+            insuranceExpCr:"",
+            insuranceExpPr:"",
+            depreciationPCr:"",
+            depreciationPPr:"",
+            interestCr:"",
+            interestPr:"",
+            otherExpensesC:"",
+            otherExpensesP:"",
+            totalExpensesC:"",
+            totalExpensesP:"",
+            profitNetCr:"",
+            profitNetPr:"",
+            provisionC:"",
+            provisionP:"",
+            profitAftTaxC:"",
+            profitAftTaxP:"",
+            profitTransferCr:"",
+            profitTransferPr:"",
+            profTraResSerC:"",
+            profTraResSerP:"",
+
+
+            // part-4
+
+            dpinIncomeTaxPan11:"",
+            dpinIncomeTaxPan12:"",
+            administratorName:"",
+            designation:"",
+            administratorId:"",
+            certifiedRadioButton:"",
+            numberMembership:"",
+            designatedName:"",
+            addressLine1:"",
+            addressLine2:"",
+            country:"",
+            pinCode1:"",
+            areaLocality1:"",
+            city1:"",
+            district1:"",
+            state1:"",
+            jurisdiction:"",
+            phone:"",
+            emailId:"",
+            certificateName:"",
+            categoryRadioButtons:"",
+            nameOfPcs:"",
+            professionalType:"",
+            certificateOfPracticeNumber:"",
+
+
+
+
+
+
+            // part-5
+            attachmentFile:"",
+
+
+
+
+          
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $("#part4").hide();
+            $("#part5").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+                $("#part5").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

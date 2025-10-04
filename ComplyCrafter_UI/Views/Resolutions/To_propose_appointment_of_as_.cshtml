@@ -1,0 +1,95 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To propose appointment of {Name of Director} as {Designation}`;
+    let agendaHeading = `To propose appointment of {Name of Director} as {Designation}`;
+    let minuteHeading = `To propose appointment of {Name of Director} as {Designation}`;
+    let agendaPreface = `
+    The proposal is to be placed to appoint {Name of Appointee} as a {Designation}. The company has received the {his/her} consent in form DIR-2 and declaration in Form DIR-8 that {he/she} is not disqualified to be appointed as a director in accordance with the provisions of section 164 of the Companies Act 2013. The board may discuss the matter and if thought fit may pass the following resolution:
+                    `;
+    let minutePreface = `
+    It was proposed to appoint {Name of Appointee} as a {Designation} of the company. Further, the Company had received {his/her} consent to act as {Designation} in Form DIR-2 and declaration in Form DIR-8 that {he/she} was not disqualified to be appointed as {Designation} in accordance with the provisions of Section 164 of the Companies Act, 2013. After the discussion following resolution was passed in this regard:
+                    `;
+    let resolutionForNoticePara1 = `
+    "RESOLVED THAT pursuant to the provisions of section 152 and other applicable provisions of the Companies Act, 2013 and the Rules made thereunder including any statutory modification thereto or re-enactment thereof for the time being in force and subject to the approval of the members in the ensuing general meeting {Name of Appointee}, be and is hereby appointed as {Designation} of the Company.”
+    `;
+    let resolutionForNoticePara2 = ``;
+    let resolutionForMinutesPara1 = `
+    "RESOLVED THAT pursuant to the provisions of section 152 and other applicable provisions of the Companies Act, 2013 and the Rules made thereunder including any statutory modification thereto or re-enactment thereof for the time being in force and subject to the approval of the members in the ensuing general meeting {Name of Appointee}, be and is hereby appointed as {Designation} of the Company.”
+    `;
+    let resolutionForMinutesPara2 = ``;
+</script>
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+        @if (ViewBag.UseLayout == true)
+        {
+            <table class="custom-table full-width">
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="row mb-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Name of Director <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="appointedDirector" placeholder="Enter Director's Name" />
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Designation <span class="text-danger">*</span></label>
+                                    <select class="form-control" name="designation">
+                                        <option value="">Select</option>
+                                        <option>Director</option>
+                                        <option>Managing Director</option>
+                                        <option>Whole-time Director</option>
+                                        <option>Independent Director</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">DIN <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="appointedDirectorDIN" placeholder="Enter DIN" />
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Effective Date of Appointment <span class="text-danger">*</span></label>
+                                    <input type="date" name="appointmentDate" class="form-control" />
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        }
+
+
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails",
+                 new AgendaViewModelEnabler()
+                    {
+                        enableNoticeCertificateTable = false,
+                        enableResolutionForNoticePara2 = false,
+                        enableMinutesCertificateTable = false,
+                        enableResolutionForMinutesPara2 = false,
+                    }
+                 )
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

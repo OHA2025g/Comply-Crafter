@@ -1,0 +1,774 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.DIR-9
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Report by the company to Registrar for disqualification of Directors
+
+                    [Pursuant to section 164 read with rule 14(2) of the Companies (Appointment and Qualification of Directors) Rules, 2014]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_Form%20No%20DIR%209.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+Tab1                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <div id="part2" class="p-0">
+        <div class="card  p-0">
+
+                <label style="font-weight:bolder;text-decoration: underline;margin: 0px -10px 5px;text-transform: uppercase;" class="mx-3">Attachments</label>
+
+                <div class="row mb-4">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 bold form-row">
+                        (b) Optional Attachment(s) - if any
+                    </div>
+                </div>
+                <div id="equity2">
+
+                    <div class="row" id="rowel1">
+                        <div class="col-xs-12 col-sm-12 col-md-1 form-row my-2" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-11 form-row my-2">
+                            <input type="file" name="residence" id="residence_1" class="1" required="">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+
+                    <input type="checkbox" name="declaration_check" value="Y" required=""> &nbsp; *I hereby declare that information and other particulars given in this form are true and correct.<br><br>
+                    <p style="text-align;">
+                        I have been authorised by the Board of director's resolution dated * &nbsp; <input type="date" name="resolutionDate" class="datepicker hasDatepicker" id="resolutionDate" placeholder="" value="" required=""> &nbsp; to sign and submit this form.
+                    </p>
+                </div>
+
+            <div class="d-flex justify-content-between mx-1 pt-3 pb-3">
+                <p class="card-title mb-0 fw-bold fs-5 text-uppercase pb-1 mx-3"
+                   style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px;">
+                    Company Details
+                </p>
+            </div>
+
+
+
+            <div class="row g-3 px-2 py-3" style="background: #f9f9f9; border-radius: 6px; box-shadow: 0 0 12px rgba(0,0,0,0.06);">
+                <div class="col-md-4">
+                    <label class="form-label fw-semibold" for="designation">Designation</label>
+                    <select class="form-select" id="designation" name="designation" required>
+                        <option value="">Select Designation</option>
+                        <option value="Director">Director</option>
+                        <option value="Managing Director">Managing Director</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Company Secretary">Company Secretary</option>
+                        <option value="CFO">CFO</option>
+                        <option value="CEO">CEO</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 my-2" id="signatoryFieldWrapper">
+                    <label class="form-label fw-semibold" for="signatory">Signatory</label>
+                    <input type="text" id="signatory" name="signatory" class="form-control" placeholder="Enter signatory name" required />
+                </div>
+
+
+                <div class="col-md-4 my-2">
+                    <label class="form-label" for="dinPan">DIN / PAN</label>
+                    <input type="text" id="dinPan" name="dinPan" placeholder="Enter DIN/PAN" class="form-control" required>
+                </div>
+
+            </div>
+
+
+            <input type="hidden" name="companyId" value="" />
+
+         
+        </div>
+
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+
+        @*  tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+
+                        <div class="col-lg-12 my-3">
+                            <label class="form-label" style="margin-right:1.2rem;">1 *Are you filing the application on the basis of alert issued by ROC? </label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" name="rocAlert" value="yes" required>
+                            <label for="rocAlertYes">
+                                Yes
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="rocAlert" value="no" required>
+                            <label for="rocAlertNo">
+                                No
+                            </label>
+                        </div>
+
+
+
+
+                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">Company Details</p>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                Disqualification Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <label class="form-label">
+                                3. (a) *Filing for Disqualification of Directors under section:
+                            </label>
+                            <input class="form-check-input mx-1" type="radio" style="border-color:grey;" name="disqualificationSection" value="164(1)" required>
+                            <label for="disqualificationSection1641">
+                                164(1)
+                            </label>
+                            <input class="form-check-input mx-1" style="border-color:grey;" type="radio" name="disqualificationSection" value="164(2)(b)" required>
+                            <label for="disqualificationSection1642b">
+                                164(2)(b)
+                            </label>
+                        </div>
+
+
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row my-2" style="height: auto;">
+                            <p style="font-weight: bold;">(b) *Reason for Disqualification</p>
+
+                            <input type="checkbox" class="reason1" >&nbsp; He is of unsound mind and stands so declared by a competent court<br>
+
+                            <input type="checkbox" name="reason2" class="reason2" value="Y">&nbsp; He is an undischarged insolvent<br>
+
+                            <input type="checkbox" name="reason3" class="reason3" value="Y">&nbsp; He has applied to be adjudicated as an insolvent and his application is pending<br>
+
+                            <input type="checkbox" name="reason4" class="reason4" value="Y">&nbsp; He has been convicted by a court of any offence, whether involving moral turpitude or otherwise, and sentenced in respect thereof to imprisonment for not less than six months and a period of five years has not elapsed from the date of expiry of the sentence<br>
+
+                            <input type="checkbox" name="reason5" class="reason5" value="Y">&nbsp; An order disqualifying him for appointment as a director has been passed by a court or Tribunal and the order is in force<br>
+
+                            <input type="checkbox" name="reason6" class="reason6" value="Y">&nbsp; He has not paid any calls in respect of any shares of the company held by him, whether alone or jointly with others, and six months have elapsed from the last day fixed for the payment of the call<br>
+
+                            <input type="checkbox" name="reason7" class="reason7" value="Y">&nbsp; He has been convicted of the offence dealing with related party transactions under section 188 at any time during the last preceding five years<br>
+
+                            <input type="checkbox" name="reason8" class="reason8" value="Y">&nbsp; He has not complied with sub-section (3) of section 152.<br>
+
+                            <input type="checkbox" name="reason9" class="reason9" value="Y">&nbsp; He has not complied with the provisions of sub-section (1) of section 165.
+
+                        </div>
+
+                        <div class="row showon164_2" style="height: auto; display: block;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="height: auto;">
+                                <p style="font-weight: bold;">(b) *Reason for Disqualification</p>
+
+                                <div class="reason-container">
+
+                                    <div class="reason-group">
+                                        <input type="checkbox" class="reason11642b" name="reason11642b"> &nbsp;
+                                        The company has failed to repay deposits accepted on the due date being &nbsp;
+                                        <input type="date" name="repayDepositDate" class="datepicker repayDepositDate" readonly> &nbsp;
+                                        and period of one year expired on &nbsp;
+                                        <input type="date" name="repayDepositExpire" class="repayDepositExpire" readonly><br><br>
+                                    </div>
+
+                                    <div class="reason-group">
+                                        <input type="checkbox" class="reason21642b" name="reason21642b"> &nbsp;
+                                        The company has failed to pay interest thereon on the deposits accepted on the due date being &nbsp;
+                                        <input type="date" name="payDepositDue" class="datepicker payDepositDue" readonly> &nbsp;
+                                        and period of one year expired on &nbsp;
+                                        <input type="date" name="payDepositExpire" class="payDepositExpire" readonly><br><br>
+                                    </div>
+
+                                    <div class="reason-group">
+                                        <input type="checkbox" class="reason31642b" name="reason31642b"> &nbsp;
+                                        The company has failed to redeem any debentures on the due date being &nbsp;
+                                        <input type="date" name="failedToRedeem" class="datepicker failedToRedeem" readonly> &nbsp;
+                                        and period of one year expired on &nbsp;
+                                        <input type="date" name="failedToRedeemExpire" class="failedToRedeemExpire" readonly><br><br>
+                                    </div>
+
+                                    <div class="reason-group">
+                                        <input type="checkbox" class="reason41642b" name="reason41642b"> &nbsp;
+                                        The company has failed to pay interest thereon on the debentures redeemed on the due date being &nbsp;
+                                        <input type="date" name="debenturesRedeem" class="datepicker debenturesRedeem" readonly> &nbsp;
+                                        and period of one year expired on &nbsp;
+                                        <input type="date" name="debenturesRedeemExpire" class="debenturesRedeemExpire" readonly><br><br>
+                                    </div>
+
+                                    <div class="reason-group">
+                                        <input type="checkbox" class="reason51642b" name="reason51642b"> &nbsp;
+                                        The company has failed to pay dividend declared by the company since &nbsp;
+                                        <input type="date" name="dividendDate" class="datepicker dividendDate" readonly> &nbsp;
+                                        and period of one year expired on &nbsp;
+                                        <input type="date" name="dividendExpire" class="dividendExpire" readonly><br><br>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Director Details
+                            </p>
+                        </div>
+
+                        <div class="col-md-4 my-2">
+                            <label for="numDirectors" class="form-label">(a) *Number of Directors</label>
+                            <input type="number" id="numDirectors" name="numDirectors" class="form-control" min="1" required
+                                   placeholder="Enter the number of directors"
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback">
+                                Please enter a valid number of directors.
+                            </div>
+                        </div>
+
+                        <div id="directorContainer" class="row"></div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+
+
+<script>
+    const companyId = $("[name='companyId']").val();
+       $(document).ready(function () {
+        const $designation = $("#designation");
+        const $signatoryFieldWrapper = $("#signatoryFieldWrapper");
+        const $dinPanInput = $("#dinPan");
+        const companyId = $("[name='companyId']").val();
+        let directorList = [];
+
+        function renderSignatoryDropdown(directors) {
+            const $dropdown = $('<select class="form-select" id="signatory" name="signatory" required></select>');
+            $dropdown.append(`<option value="">Select Director</option>`);
+
+            directors.forEach(d => {
+                const fullName = `${d.firstName} ${d.middleName} ${d.lastName}`.replace(/\s+/g, ' ').trim();
+                $dropdown.append(`<option value="${d.din}">${fullName}</option>`);
+            });
+
+            const $label = $('<label class="form-label fw-semibold" for="signatory">Signatory</label>');
+
+            $signatoryFieldWrapper.empty().append($label).append($dropdown);
+
+            $dropdown.on("change", function () {
+                const selectedDin = $(this).val();
+                const selectedDirector = directors.find(d => d.din === selectedDin);
+                $dinPanInput.val(selectedDirector ? selectedDirector.din : "");
+            });
+        }
+
+        function renderSignatoryTextbox() {
+            $signatoryFieldWrapper.empty().append(`
+                <label class="form-label fw-semibold" for="signatory">Signatory</label>
+                <input type="text" id="signatory" name="signatory" placeholder="Enter signatory name" class="form-control" required>
+            `);
+            $dinPanInput.val("");
+        }
+
+        $designation.on("change", function () {
+            const selected = $(this).val();
+
+            if (selected === "Director") {
+                $.ajax({
+                    url: `https://dev-api.complycrafter.com/api/Director/ByCompany/${companyId}`,
+                    method: "GET",
+                    success: function (data) {
+                        if (Array.isArray(data) && data.length > 0) {
+                            directorList = data;
+                            renderSignatoryDropdown(directorList);
+                        } else {
+                            renderSignatoryTextbox();
+                        }
+                    },
+                    error: function () {
+                        console.error("API call to fetch directors failed.");
+                        renderSignatoryTextbox();
+                    }
+                });
+            } else {
+                renderSignatoryTextbox();
+            }
+        });
+    });
+
+</script>
+
+
+<script>
+    
+      let directorsList = [];
+
+      function fetchDirectors(companyId) {
+          return $.ajax({
+              url: `https://dev-api.complycrafter.com/api/Director/ByCompany/${companyId}`,
+              method: "GET"
+          });
+      }
+
+      function createDirectorBox(index) {
+          return `
+              <div class="director-box my-3 p-3" style="border: 1px solid #ccc; border-radius: 6px;">
+                  <div class="row">
+                      <div class="col-md-4">
+                          <label class="form-label">*Director identification number (DIN)</label>
+                          <select class="form-select director-select" data-index="${index}">
+                              <option value="">Select Director</option>
+                          </select>
+                      </div>
+                      <div class="col-md-4">
+                          <label class="form-label">*Name of the Director</label>
+                          <input type="text" class="form-control director-name" readonly />
+                      </div>
+                      <div class="col-md-4">
+                          <label class="form-label">*Father's Name</label>
+                          <input type="text" class="form-control director-father" readonly />
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-6">
+                          <label class="form-label">*Permanent residential address</label>
+                          <input type="text" class="form-control director-permanent-address" readonly />
+                      </div>
+                      <div class="col-md-6">
+                          <label class="form-label">*Present residential address</label>
+                          <input type="text" class="form-control director-present-address" readonly />
+                      </div>
+                  </div>
+                  <div class="row mt-3">
+                      <div class="col-md-6">
+                          <label class="form-label">*Position held in the last 5 years</label>
+                          <input type="text" class="form-control director-position" placeholder="Enter Here" />
+                      </div>
+                      <div class="col-md-6">
+                          <label class="form-label">*Effective date of disqualification</label>
+                          <input type="date" class="form-control director-disqualify-date" />
+                      </div>
+                  </div>
+              </div>`;
+      }
+
+      function populateDropdowns() {
+          $(".director-select").each(function () {
+              const $select = $(this);
+              const index = $select.data("index");
+
+              directorsList.forEach(d => {
+                  const displayName = `${d.firstName} ${d.middleName} ${d.lastName} (${d.din})`;
+                  $select.append(new Option(displayName, d.din));
+              });
+          });
+      }
+
+      function fillDirectorData($box, din) {
+          const dir = directorsList.find(d => d.din === din);
+          if (!dir) return;
+
+          const fullName = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+          const address = "***** NA, MUMBAI, Mumbai City, Maharashtra, PIN-400093"; // or fetch from backend
+
+          $box.find(".director-name").val(fullName.toUpperCase());
+          $box.find(".director-father").val("*****HAND **** *****AND"); // placeholder
+          $box.find(".director-permanent-address").val(address);
+          $box.find(".director-present-address").val(address);
+      }
+
+      $(document).ready(function () {
+          $("#numDirectors").on("input", function () {
+              const count = parseInt($(this).val(), 10);
+              const $container = $("#directorContainer");
+              $container.empty();
+
+              if (isNaN(count) || count <= 0) return;
+
+              const companyId = $("[name='companyId']").val();
+
+              fetchDirectors(companyId).done(function (data) {
+                  directorsList = data || [];
+                  for (let i = 0; i < count; i++) {
+                      $container.append(createDirectorBox(i + 1));
+                  }
+                  populateDropdowns();
+              }).fail(function () {
+                  console.error("Failed to load director data.");
+              });
+          });
+
+          $(document).on("change", ".director-select", function () {
+              const din = $(this).val();
+              const $box = $(this).closest(".director-box");
+              fillDirectorData($box, din);
+          });
+      });
+</script>
+
+
+
+<script>
+          $(document).ready(function () {
+        $("input[name='disqualificationSection']").on("change", function () {
+            const section = $(this).val();
+
+            if (section === "164(1)") {
+                $(".col-md-12.my-2").show();
+                $(".showon164_2").hide();
+            } else if (section === "164(2)(b)") {
+                $(".col-md-12.my-2").hide();
+                $(".showon164_2").show();
+            }
+        });
+
+        $("input[name='disqualificationSection']:checked").trigger("change");
+
+        $(".reason-container input[type='checkbox']").on("change", function () {
+            const $checkbox = $(this);
+            const $dateInputs = $checkbox.closest("div").find("input[type='date']");
+            $dateInputs.prop("readonly", !$checkbox.is(":checked"));
+        });
+
+        $(".reason-container input[type='checkbox']").each(function () {
+            const $checkbox = $(this);
+            const $dateInputs = $checkbox.closest("div").find("input[type='date']");
+            $dateInputs.prop("readonly", !$checkbox.is(":checked"));
+        });
+    });
+
+
+</script>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            rocAlert: "",  // This will hold the value of the selected radio button ("yes" or "no")
+            disqualificationSection: "",  // This will store the value of the selected radio button ("164(1)" or "164(2)(b)")
+            numDirectors: 0,  // This will store the number of directors entered by the user
+
+            reason11642b: false,         // true or false, depending on whether the checkbox is checked
+            repayDepositDate: "",        // Date when the deposit repayment was due
+            repayDepositExpire: "",      // Date when the one year expired
+
+            reason21642b: false,         // true or false, depending on whether the checkbox is checked
+            payDepositDue: "",           // Date when the deposit interest was due
+            payDepositExpire: "",        // Date when the one year expired
+
+            reason31642b: false,         // true or false, depending on whether the checkbox is checked
+            failedToRedeem: "",          // Date when the debenture redemption was due
+            failedToRedeemExpire: "",    // Date when the one year expired
+
+            reason41642b: false,         // true or false, depending on whether the checkbox is checked
+            debenturesRedeem: "",        // Date when the debenture redemption was due
+            debenturesRedeemExpire: "",  // Date when the one year expired
+
+            reason51642b: false,         // true or false, depending on whether the checkbox is checked
+            dividendDate: "",            // Date when the dividend was declared
+            dividendExpire: "",          // Date when the one year expired
+
+            resolutionDate: "",          // Resolution date
+            designation: "",             // Stores the selected designation (e.g., "Director")
+            signatory: "",               // Stores the signatory name
+            dinPan: ""                   // Stores the DIN/PAN value
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+
+            $('.reason-container .datepicker').prop('readonly', true);
+
+            // When a checkbox is checked, enable the corresponding first date input
+            $('.reason-container .reason11642b').change(function () {
+                toggleDateInputs($(this), '.repayDepositDate', '.repayDepositExpire');
+            });
+            $('.reason-container .reason21642b').change(function () {
+                toggleDateInputs($(this), '.payDepositDue', '.payDepositExpire');
+            });
+            $('.reason-container .reason31642b').change(function () {
+                toggleDateInputs($(this), '.failedToRedeem', '.failedToRedeemExpire');
+            });
+            $('.reason-container .reason41642b').change(function () {
+                toggleDateInputs($(this), '.debenturesRedeem', '.debenturesRedeemExpire');
+            });
+            $('.reason-container .reason51642b').change(function () {
+                toggleDateInputs($(this), '.dividendDate', '.dividendExpire');
+            });
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+               function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x;
+                    setObj(x, "#frm");
+                });
+            }
+
+            var company = localStorage.getItem("comp_id");
+            if (!company || company === "0") {
+                alert("Please select Company");
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`;
+                return;
+            }
+
+            $._get(`@R.ApiUrl/Company/${company}`).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+
+                const companyId = x.id;
+                const $designation = $("#designation");
+                const $signatoryFieldWrapper = $("#signatoryFieldWrapper");
+                const $dinPanInput = $("#dinPan");
+
+                function renderSignatoryDropdown(directors) {
+                    const $dropdown = $('<select class="form-select" id="signatory" name="signatory" required></select>');
+                    $dropdown.append(`<option value="">Select Director</option>`);
+                    directors.forEach(d => {
+                        const fullName = `${d.firstName} ${d.middleName} ${d.lastName}`.replace(/\s+/g, ' ').trim();
+                        $dropdown.append(`<option value="${d.din}">${fullName}</option>`);
+                    });
+
+                    const $label = $('<label class="form-label fw-semibold" for="signatory">Signatory</label>');
+                    $signatoryFieldWrapper.empty().append($label).append($dropdown);
+
+                    $dropdown.on("change", function () {
+                        const selectedDin = $(this).val();
+                        const selectedDirector = directors.find(d => d.din === selectedDin);
+                        $dinPanInput.val(selectedDirector ? selectedDirector.din : "");
+                    });
+                }
+
+                function renderSignatoryTextbox() {
+                    $signatoryFieldWrapper.empty().append(`
+                        <label class="form-label fw-semibold" for="signatory">Signatory</label>
+                        <input type="text" id="signatory" name="signatory" placeholder="Enter signatory name" class="form-control" required>
+                    `);
+                    $dinPanInput.val("");
+                }
+
+                $designation.on("change", function () {
+                    const selected = $(this).val();
+
+                    if (selected === "Director") {
+                        $.ajax({
+                            url: `https://dev-api.complycrafter.com/api/Director/ByCompany/${companyId}`,
+                            method: "GET",
+                            success: function (data) {
+                                if (Array.isArray(data) && data.length > 0) {
+                                    renderSignatoryDropdown(data);
+                                } else {
+                                    renderSignatoryTextbox();
+                                }
+                            },
+                            error: function () {
+                                console.error("Failed to fetch director data.");
+                                renderSignatoryTextbox();
+                            }
+                        });
+                    } else {
+                        renderSignatoryTextbox();
+                    }
+                });
+
+               
+            });
+        }
+
+
+       
+        function toggleDateInputs(checkbox, dateInputSelector, expireInputSelector) {
+            if (checkbox.prop('checked')) {
+                
+                checkbox.closest('.reason-container').find(dateInputSelector).prop('readonly', false);
+
+              
+                checkbox.closest('.reason-container').find(dateInputSelector).change(function () {
+                    var firstDate = $(this).val();
+
+                    if (firstDate) {
+                      
+                        var date = new Date(firstDate);
+
+                      
+                        date.setFullYear(date.getFullYear() + 1);
+
+                      
+                        var expiryDate = date.toISOString().split('T')[0]; 
+                        checkbox.closest('.reason-container').find(expireInputSelector).val(expiryDate);
+                    }
+                });
+            } else {
+               
+                checkbox.closest('.reason-container').find(dateInputSelector).prop('readonly', true);
+                checkbox.closest('.reason-container').find(dateInputSelector).val(''); 
+                checkbox.closest('.reason-container').find(expireInputSelector).val(''); 
+            }
+        }
+
+    </script>
+
+}

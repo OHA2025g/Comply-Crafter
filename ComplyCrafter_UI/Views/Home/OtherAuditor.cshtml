@@ -1,0 +1,184 @@
+﻿@{
+    ViewData["Title"] = "@ViewBag.ctrl Master";
+    ViewBag.ShowSearch = true;
+    ViewBag.ShowClear = true;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">@ViewBag.ctrl</h3>
+            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="auditor" data-bs-toggle="tab">
+                        <span class="ms-1">Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1 active" href="javascript:;" data-role="secretarial" data-bs-toggle="tab">
+                        <span class="ms-1">Secretarial Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="cost" data-bs-toggle="tab">
+                        <span class="ms-1">Cost Auditors</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" data-role="internal" data-bs-toggle="tab">
+                        <span class="ms-1">Internal Auditors</span>
+                    </a>
+                </li>
+            </ul>
+            <button class="btn btn-sm btn-outline-primary" onclick="add()"><i class="fa fa-plus px-2 fs-6"></i>Add</button>
+        </div>
+        <div class="card-body">
+            <table id="tbl" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Firm Name</th>
+                        <th>Auditor Name</th>
+                        <th>Address</th>
+                        <th>Email</th>
+                        <th>Phone No</th>
+                        <th>Active Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            initTabs();    
+            loadTbl();     
+        });
+
+        function initTabs() {
+            $('[role="tablist"] .nav-link').on('click', function () {
+                setTimeout(() => {
+                    loadTbl(); 
+                }, 100);
+            });
+        }
+
+        function loadTbl() {
+            const $tbl = $('#tbl');
+
+            if ($.fn.DataTable.isDataTable($tbl)) {
+                $tbl.DataTable().destroy();
+            }
+
+            $tbl.DataTable({
+                ajax: {
+                    url: `@R.ApiUrl/@ViewBag.ctrl/List`,
+                    data: function (d) {
+                        d.type = $('[role="tablist"] .nav-link.active').data('role');
+                        d.companyId= localStorage.getItem("comp_id")
+                        return d;
+                    },
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        targets: 0,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    { data: 'firmName' },
+                    { data: 'auditorName' },
+                    { data: 'addressOfFirmAuditor' },
+                    { data: 'auditorEmail' },
+                    { data: 'auditorMobile' },
+                    {
+                        data: 'isActive',
+                        render: function (isActive, type, row) {
+                            return `
+                                <input type="checkbox" class="status-toggle" data-toggle="toggle" data-on="Active" data-size="sm"
+                                    data-id="${row.id}" data-off="Inactive" ${isActive ? 'checked' : ''}
+                                    onchange="changeActive(${row.id}, ${isActive})"
+                                    data-onstyle="success" data-offstyle="danger">
+                            `;
+                        }
+                    },
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data, type, row) {
+                            return `
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-light" onclick="edit(${row.id})">Edit</button>
+                                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split"
+                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <button class="dropdown-item" onclick="del(${row.id})" style="color:red;">
+                                            <i class="fa fa-trash px-2 fs-6"></i>Delete
+                                        </button>
+                                    </ul>
+                                </div>
+                            `;
+                        }
+                    }
+                ],
+                order: [],
+                drawCallback: function () {
+                    $('input[data-toggle="toggle"]').each(function () {
+                        if (!$(this).hasClass('initialized')) {
+                            $(this).bootstrapToggle();
+                            $(this).addClass('initialized');
+                        }
+                    });
+                }
+            });
+        }
+
+        function changeActive(id, currentStatus) {
+            $.get(`@R.ApiUrl/@ViewBag.ctrl/${id}/Status/${!currentStatus}`).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload();
+            });
+        }
+
+        function del(id) {
+            if (!confirm('Are you sure you want to delete this @ViewBag.ctrl?')) return;
+            $.get(`@R.ApiUrl/@ViewBag.ctrl/${id}/delete`).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload();
+            });
+        }
+
+        function add() {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            window.location = `@Url.Action("OtherAuditor", "Home")/Add?type=${type}`;
+        }
+
+        function edit(id) {
+            const type = $('[role="tablist"] .nav-link.active').data('role');
+            window.location = `@Url.Action("OtherAuditor", "Home")/Edit/${id}?type=${type}`;
+        }
+
+        function createDirector(din) {
+            $._get(`@R.ApiUrl/@ViewBag.ctrl/Create/${din}`).then(response => {
+                if (response.status) {
+                    window.location = `@Url.Action("Auditor", "Home")/Add/${response.responseObject}`;
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: response.message
+                    });
+                }
+            });
+        }
+    </script>
+}

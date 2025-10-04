@@ -1,0 +1,549 @@
+﻿@{
+    ViewData["Title"] = "Particulars of " + @ViewBag.ctrl;
+    ViewBag.ShowSearch = true;
+}
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-header d-flex justify-content-between mb-3">
+            <h3 class="card-title mb-0 fs-4" style="margin-top:1px">
+                Documents
+            </h3>
+            <button class="btn btn-sm btn-outline-primary" onclick="add()"><i class="fa fa-plus px-2 fs-6"></i>Add</button>
+        </div>
+        <div class="card-body">
+            <table id="tbl" class="display nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Sr.No </th>
+                        <th>Form Name </th>
+                        <th>Event Date </th>
+                        <th>Original Files </th>
+                        <th>Client Uploads </th>
+                        <th>Action</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">DMS</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="frm">
+                    <div class="row">
+                        <div class="col-md-6 my-2 form-group">
+                            <input type="hidden" class="form-control num" name="id" />
+                            <label class="form-label">Form</label>
+                            <select class="form-control" name="formName">
+                                <option>ADJ</option>
+                                <option>ADT-1</option>
+                                <option>ADT-2</option>
+                                <option>ADT-3</option>
+                                <option>AGILE PRO</option>
+                                <option>Annual Return_Physical</option>
+                                <option>AOC-4</option>
+                                <option>AOC-4 CFS</option>
+                                <option>AOC-4 CFS NBFC</option>
+                                <option>AOC-4 NBFC</option>
+                                <option>AOC-4(XBRL)</option>
+                                <option>AOC-5</option>
+                                <option>Balance Sheet_Physical</option>
+                                <option>BEN-2</option>
+                                <option>CFI(CSR)</option>
+                                <option>CFSS-2020</option>
+                                <option>CG-1</option>
+                                <option>CHG-1</option>
+                                <option>CHG-4</option>
+                                <option>CHG-6</option>
+                                <option>CHG-8</option>
+                                <option>CHG-9</option>
+                                <option>Company Name Reservation</option>
+                                <option>CRA-2</option>
+                                <option>CRA-4</option>
+                                <option>CRL-1</option>
+                                <option>CSR-1</option>
+                                <option>CSR-2</option>
+                                <option>DIR-3</option>
+                                <option>DIR-3 KYC</option>
+                                <option>DIR-3C</option>
+                                <option>DIR-5</option>
+                                <option>DIR-6</option>
+                                <option>DIR-9</option>
+                                <option>DIR-10</option>
+                                <option>DIR-11</option>
+                                <option>DIR-12</option>
+                                <option>DPT-1</option>
+                                <option>DPT-3</option>
+                                <option>DPT-4</option>
+                                <option>FC-1</option>
+                                <option>FC-2</option>
+                                <option>FC-3</option>
+                                <option>FC-4</option>
+                                <option>FORM 1A_1956</option>
+                                <option>FORM 1AD_1956</option>
+                                <option>FORM 2</option>
+                                <option>FORM-3_Incorporation</option>
+                                <option>FORM-3_Modification</option>
+                                <option>FORM-4</option>
+                                <option>FORM-4A</option>
+                                <option>FORM-5</option>
+                                <option>FORM 5_1956</option>
+                                <option>FORM-8 (Statement of Account and Solvency)</option>
+                                <option>FORM-8 (Charge)</option>
+                                <option>FORM-9</option>
+                                <option>FORM-11</option>
+                                <option>FORM-12</option>
+                                <option>FORM-14</option>
+                                <option>FORM-15</option>
+                                <option>FORM-17</option>
+                                <option>FORM-18</option>
+                                <option>FORM-18_1956</option>
+                                <option>FORM 20B_1956</option>
+                                <option>FORM 21_1956</option>
+                                <option>FORM 21A_1956</option>
+                                <option>FORM-22</option>
+                                <option>FORM-23_LLP</option>
+                                <option>FORM 23_1956</option>
+                                <option>FORM 23AAA_1956</option>
+                                <option>FORM 23AAB_1956</option>
+                                <option>FORM 23AC_1956</option>
+                                <option>FORM 23ACA_1956</option>
+                                <option>FORM 23AC-XBRL_1956</option>
+                                <option>FORM 23ACA-XBRL_1956</option>
+                                <option>FORM 23B_1956</option>
+                                <option>FORM 23C_1956</option>
+                                <option>FORM 23D</option>
+                                <option>FORM-24</option>
+                                <option>FORM 24A_1956</option>
+                                <option>FORM 24AAA_1956</option>
+                                <option>FORM 24AB_1956</option>
+                                <option>FORM 24B_1956</option>
+                                <option>FORM-25</option>
+                                <option>FORM 25C</option>
+                                <option>FORM-27</option>
+                                <option>FORM-28</option>
+                                <option>FORM-29</option>
+                                <option>FORM-31</option>
+                                <option>FORM-32_LLP</option>
+                                <option>FORM-32_1956</option>
+                                <option>FORM 61_1956</option>
+                                <option>FORM 62</option>
+                                <option>FORM 63_1956</option>
+                                <option>FORM 64_1956</option>
+                                <option>FORM 65_1956</option>
+                                <option>FORM 66_1956</option>
+                                <option>FORM A-XBRL </option>
+                                <option>FORM I-XBRL</option>
+                                <option>FORM REFUND</option>
+                                <option>FTE</option>
+                                <option>GNL-1</option>
+                                <option>GNL-2</option>
+                                <option>GNL-3</option>
+                                <option>GNL-4</option>
+                                <option>ICP</option>
+                                <option>INC-1</option>
+                                <option>INC-3</option>
+                                <option>INC-4</option>
+                                <option>INC-13(e-MOA)</option>
+                                <option>INC-31(e-AOA)</option>
+                                <option>INC-33(e-MOA)</option>
+                                <option>INC-34(e-AOA)</option>
+                                <option>INC-6</option>
+                                <option>INC-12</option>
+                                <option>INC-18</option>
+                                <option>INC-20</option>
+                                <option>INC-20A</option>
+                                <option>INC-22</option>
+                                <option>INC-22A</option>
+                                <option>INC-23</option>
+                                <option>INC-24</option>
+                                <option>INC-27</option>
+                                <option>INC-28</option>
+                                <option>FiLLiP</option>
+                                <option>RUN</option>
+                                <option>RUN LLP</option>
+                                <option>MGT-3</option>
+                                <option>MGT-6</option>
+                                <option>MGT-7</option>
+                                <option>MGT-7A</option>
+                                <option>MGT-10</option>
+                                <option>MGT-14</option>
+                                <option>MGT-15</option>
+                                <option>MR-1</option>
+                                <option>MR-2</option>
+                                <option>MSC-1</option>
+                                <option>MSC-3</option>
+                                <option>MSME</option>
+                                <option>NDH-1</option>
+                                <option>NDH-2</option>
+                                <option>NDH-3</option>
+                                <option>NDH-4</option>
+                                <option>PAS-2</option>
+                                <option>PAS-3</option>
+                                <option>PAS-4</option>
+                                <option>PAS-6</option>
+                                <option>RD-1</option>
+                                <option>SCP</option>
+                                <option>SH-7</option>
+                                <option>SH-8</option>
+                                <option>SH-9</option>
+                                <option>SH-11</option>
+                                <option>Search</option>
+                                <option>Spice+ Part A</option>
+                                <option>Spice+ Part B</option>
+                                <option>Spice INC-9</option>
+                                <option>SPICE+ MOA</option>
+                                <option>SPICE+ AOA</option>
+                                <option>URC-1</option>
+                                <option>Stamp Duty Fee for CERTIFICATE OF INCORPORATION</option>
+                                <option>Fee For Company Incorporation</option>
+                                <option>Fee for Certified Copies</option>
+                                <option>Other</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2 form-group">
+                            <label class="form-label">Event Date</label>
+                            <input type="date" class="form-control" name="eventDate" />
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2 form-group">
+                            <label class="form-label">Financial Year</label>
+                            <input type="number" class="form-control num" name="financialYear" />
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 my-2 form-group">
+                            <label class="form-label">Form Upload</label>
+                            <div class="input-group">
+                                <input class="form-control" type="file" name="formOriginal" id="formOriginalFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewFormOriginalBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deleteFormOriginalBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2 form-group">
+                            <label class="form-label">Challan Upload</label>
+                            <div class="input-group">
+                                <input class="form-control" type="file" name="challanOriginal" id="challanOriginalFile">
+                                <button type="button" class="form-control btn btn-outline-secondary" id="viewChallanOriginalBtn" style="display:none;" target="_blank">
+                                    View
+                                </button>
+                                <button type="button" class="btn btn-danger" id="deleteChallanOriginalBtn" style="display:none;" target="_blank">
+                                    Delete
+                                </button>
+                            </div>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success" onclick="save()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .is-invalid + .select2-container--bootstrap-5 .select2-selection, .was-validated select:invalid + .select2-container--bootstrap-5 .select2-selection {
+        border-color: #dc3545 !important;
+    }
+
+    .is-valid + .select2-container--bootstrap-5 .select2-selection, .was-validated select:valid + .select2-container--bootstrap-5 .select2-selection {
+        border-color: #4bad48 !important;
+    }
+
+    .select2-container .select2-selection, .select2-container .selection {
+        padding-top: 9px;
+        padding-bottom: 9px;
+    }
+</style>
+
+@section Scripts {
+    <script>
+
+
+        function getFinancialYear() {
+            const currentDate = new Date();
+            let year = currentDate.getFullYear();
+            if (currentDate.getMonth() < 3) { // If before April
+                year--;
+            }
+            return year;
+        }
+
+        var objDMS = {
+            id: 0,
+            companyId: 0,
+            type: "",
+            formName: "",
+            eventDate: "",
+            financialYear: getFinancialYear(),
+            formOriginal: "",
+            formClient: "",
+            challanOriginal: "",
+            challanClient: ""
+        }
+
+        var voDMS = {
+            formName: 'required',
+            eventDate: 'required',
+            financialYear: 'required'
+        }
+
+        $(document).ready(function () {
+            $('[name="company_name"]').text(localStorage.getItem("comp_name"));
+            comp_id = parseInt(localStorage.getItem("comp_id"))
+            autocomplete()
+            loadTbl()
+            $('[name="formName"]').select2({
+                placeholder: 'Select Form',
+                dropdownParent: $('#myModal')
+            })
+            vfFrm = $('#frm').validate({ rules: voDMS, onsubmit: () => { console.log('submit') } })
+        });
+
+        function getFinancialYear() {
+            const currentDate = new Date();
+            let year = currentDate.getFullYear();
+            if (currentDate.getMonth() < 3) { // If before April
+                year--;
+            }
+            return year;
+        }
+
+        function loadTbl() {
+            $('#tbl').DataTable().destroy()
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                return;
+            }
+            d = $('#tbl').DataTable({
+                ajax: {
+                    url: `@R.ApiUrl/@ViewBag.ctrl/GetByCompany/${company}`,
+                    dataSrc: ""
+                },
+                // dom: '<lBf>rtip',
+                columns: [
+                    {
+                        "targets": 0,
+                        "render": function (data, type, row, meta) {
+                            return meta.row + 1;
+                        }
+                    },
+                    { data: 'formName' },
+                    { data: 'eventDate', render: FORMAT_DATE },
+                    { render: (a, b, c) => `<a href="${c.formOriginal}" target="_blank" class="btn btn-sm btn-outline-info mx-2">FORM</button><a href="${c.challanOriginal}" target="_blank" class="btn btn-sm btn-outline-info mx-2">CHALLAN</button>`, className: 'text-center' },
+                    { render: (a, b, c) => `<a href="${c.formClient}" target="_blank" class="btn btn-sm btn-outline-info mx-2 ${c.formClient ? '' : 'd-none'}">FORM</button><a href="${c.challanClient}" target="_blank" class="btn btn-sm btn-outline-info mx-2 ${c.challanClient ? '' : 'd-none'}">CHALLAN</button>`, className: 'text-center' },
+                    {
+                        data: null,
+                        render: function (a, b, c) {
+                            var btn1 = `
+                                        <div class="btn-group">
+                                                    <button type="button" class="btn btn-light" onclick="add(this)">Edit</button>
+                                                    <button type="button" class="btn btn-light dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <span class="visually-hidden">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <button class="dropdown-item " onclick="del(${a.id})" style="color:red;"><i class="fa fa-trash px-2 fs-6"></i>Delete</button>
+                                            </ul>
+                                        </div>`
+                            return btn1
+
+                        }, orderable: false
+                    },
+                    { render: (a, b, c) => setRowContent(c), className: 'd-none rowData' }
+                ],
+                order: [],
+            }).on('draw.dt', function () {
+                $('.dataTables_length').parent().removeClass('d-flex').removeClass('justify-content-between').addClass('d-flex').addClass('justify-content-between')
+                $('input[data-toggle="toggle"]:not(\'.initialized\')').bootstrapToggle().addClass('initialized');
+            });
+        }
+
+        function changeActive(id, currentStatus) {
+            $.get(`@R.ApiUrl/@ViewBag.ctrl/${id}/Status/${!currentStatus}`).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload()
+            })
+        }
+
+        function del(id) {
+            if (!confirm('Are you sure you want to delete this Entry?')) return;
+            $.get(`@R.ApiUrl/@ViewBag.ctrl/${id}/delete`).then(r => {
+                toastr[r.status ? 'success' : 'error'](r.message);
+                $('#tbl').DataTable().ajax.reload()
+            })
+        }
+
+        function hideFormOriginalButton() {
+            $('#viewFormOriginalBtn').hide();
+            $('#deleteFormOriginalBtn').hide();
+        }
+
+        function hideChallanOriginalButton() {
+            $('#viewChallanOriginalBtn').hide();
+            $('#deleteChallanOriginalBtn').hide();
+        }
+
+        function add(ctrl) {
+            var rd = {};
+            rd = !ctrl ? objDMS : getRowContent(ctrl);
+            setObj(rd, '#myModal');
+            // Show/hide the PAN view button
+            console.log(rd.formOriginal);
+            console.log(rd.challanOriginal);
+                    if (rd.formOriginal) {
+                        $("#formOriginalFile").hide();
+                        $('#viewFormOriginalBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(rd.formOriginal, '_blank');
+                            });
+                        $('#deleteFormOriginalBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Form')) return;
+                                hideFormOriginalButton();
+                                $("#formOriginalFile").show();
+                            });
+                    } else {
+                        hideFormOriginalButton();
+                    }
+                    if (rd.challanOriginal) {
+                        $("#challanOriginalFile").hide();
+                        $('#viewChallanOriginalBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                window.open(rd.challanOriginal, '_blank');
+                            });
+                        $('#deleteChallanOriginalBtn')
+                            .show()
+                            .off('click')
+                            .on('click', function () {
+                                if (!confirm('Are you sure you want to delete Challan')) return;
+                                hideChallanOriginalButton();
+                                $("#challanOriginalFile").show();
+                            });
+                    } else {
+                        hideChallanOriginalButton();
+                    }
+            $('#myModal').modal('show')
+        }
+
+        async function save() {
+            var obj = getObj(objDMS, '#myModal');
+            obj.companyId = localStorage.getItem("comp_id");
+            var isValid = true;
+            if (!vfFrm.form()) isValid = false;
+            if ($('[name="formOriginal"]').is(':visible') && !$('[name="formOriginal"]')[0].files.length) {
+                $('[name="formOriginal"]').validateInput(false, 'Please upload form file');
+                isValid = false;
+            } else $('[name="formOriginal"]').validateInput(true);
+            if ($('[name="challanOriginal"]').is(':visible') && !$('[name="challanOriginal"]')[0].files.length) {
+                $('[name="challanOriginal"]').validateInput(false, 'Please upload challan file');
+                isValid = false;
+            } else $('[name="challanOriginal"]').validateInput(true);
+            if (!isValid) return;
+            obj.companyId = comp_id;
+            var r = await $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj);
+            if(r.status){
+                obj.id = r.responseObject.id;
+                if ($('[name="formOriginal"]').is(':visible') && $('[name="formOriginal"]')[0].files.length) {
+                    var formData = new FormData();
+                    formData.append('file', $('[name="formOriginal"]')[0].files[0]);
+                    await $.ajax({
+                        url: '@R.ApiUrl/@ViewBag.ctrl/' + obj.id + '/Upload/form',
+                        data: formData,
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            // alert(data);
+                        },
+                        error: function (error) {
+                            // alert(error);
+                        }
+                    });
+                }
+                if ($('[name="challanOriginal"]').is(':visible') && $('[name="challanOriginal"]')[0].files.length) {
+                    var formData = new FormData();
+                    formData.append('file', $('[name="challanOriginal"]')[0].files[0]);
+                    await $.ajax({
+                        url: '@R.ApiUrl/@ViewBag.ctrl/' + obj.id + '/Upload/challan',
+                        data: formData,
+                        type: 'POST',
+                        contentType: false,
+                        processData: false,
+                        success: function (data) {
+                            // alert(data);
+                        },
+                        error: function (error) {
+                            // alert(error);
+                        }
+                    });
+                }
+                toastr.success(r.message);
+                $('#tbl').DataTable().ajax.reload();
+                $('#myModal').modal('hide')
+            }
+            else toastr.error(r.message);
+        }
+
+        function autocomplete() {
+            $("#headCompSearch").autocomplete({
+                source: function (request, response) {
+                    // Send AJAX request to the API
+                    $.ajax({
+                        url: `@R.ApiUrl/Company/S2`,
+                        dataType: "json",
+                        data: {
+                            query: request.term
+                        },
+                        appendTo: ".search",
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.companyName,
+                                    value: item.companyName,
+                                    id: item.id
+                                };
+                            }));
+                        }
+                    });
+                },
+                select: function (event, ui) {
+                    $("#headCompSearch").val("");
+                    localStorage.setItem("comp_id", ui.item.id);
+                    localStorage.setItem("comp_name", ui.item.label);
+                    $('[name="company_name"]').text(ui.item.label);
+                    $(".toggle-search:not(.nav-link)").click()
+                    loadTbl()
+                },
+                minLength: 2
+            });
+
+        }
+
+    </script>
+}

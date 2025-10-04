@@ -1,0 +1,633 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Change in Registered office
+                </h3>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                        <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Change in Registered office
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Declaration & Certification
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        Documents
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="card">
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+                        <div class="col-md-6 my-2">
+                            <label class="form-label" for="category">Category</label>
+                            <select id="category" name="category" class="form-control category">
+                                <option value="">Select Category</option>
+                                <option value="withinLocalLimits">Within Local limits of the city where registered office is situated</option>
+                                <option value="outsideLocalLimits">Outside the local limits of the city where registered office is situated.</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label" for="effectiveDate">Effective date of change</label>
+                            <input type="date" id="effectiveDate" name="effectiveDate" placeholder="" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-lg-12 my-2">
+                            <label class="form-label" for="existingAddress">Existing Address</label>
+                            <input type="text" id="existingAddress" name="existingAddress" placeholder="" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Address of New Registered Office
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeLine1">Line 1</label>
+                            <input type="text" id="newOfficeLine1" name="newOfficeLine1" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeLine2">Line 2</label>
+                            <input type="text" id="newOfficeLine2" name="newOfficeLine2" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeCity">City</label>
+                            <input type="text" id="newOfficeCity" name="newOfficeCity" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeState">State/Union territory</label>
+                            <input type="text" id="newOfficeState" name="newOfficeState" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeDistrict">District</label>
+                            <input type="text" id="newOfficeDistrict" name="newOfficeDistrict" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficeCountry">Country</label>
+                            <input type="text" id="newOfficeCountry" name="newOfficeCountry" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="newOfficePincode">Pincode</label>
+                            <input type="text" id="newOfficePincode" name="newOfficePincode" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="registeredOfficePremises">Registered office premises is</label>
+                            <select id="registeredOfficePremises" name="registeredOfficePremises" class="form-control">
+                                <option value="">Select Registered office premises</option>
+                                <option value="ownedByCompany">Owned By Company</option>
+                                <option value="ownedByDirectors">Owned By Directors (Not taken on Lease by the Company)</option>
+                                <option value="takenOnLease">Taken on Lease by the Company</option>
+                                <option value="ownedByOtherEntity">Owned by any other entity/person (Not taken on Lease by the Company)</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="proposedRoC">Name of office of Proposed RoC or new RoC</label>
+                            <select id="proposedRoC" name="proposedRoC" class="form-control" style="width:100%">
+                                <option value="">Select ROC</option>
+                                <option value="RegistrarOfCompaniesAP">Registrar of Companies, Andhra Pradesh</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Details of Police station under whose jurisdiction the registered office of the company is situated
+                            </p>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationName">Name</label>
+                            <input type="text" id="policeStationName" name="policeStationName" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationAddressLine1">Address Line 1</label>
+                            <input type="text" id="policeStationAddressLine1" name="policeStationAddressLine1" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationAddressLine2">Address Line 2</label>
+                            <input type="text" id="policeStationAddressLine2" name="policeStationAddressLine2" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationCity">City</label>
+                            <input type="text" id="policeStationCity" name="policeStationCity" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationState">State/Union territory</label>
+                            <input type="text" id="policeStationState" name="policeStationState" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="policeStationPincode">Pincode</label>
+                            <input type="text" id="policeStationPincode" name="policeStationPincode" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                        <div class="col-md-6 my-3">
+                            <label class="form-label" for="utilityServicesBill">Particulars of the Utility Services Bill depicting the address of the registered office</label>
+                            <select id="utilityServicesBill" name="utilityServicesBill" class="form-control" style="width:100%">
+                                <option value="">Select</option>
+                                <option value="telephoneBill">Telephone Bill</option>
+                                <option value="electricityBill">Electricity Bill</option>
+                                <option value="mobileBill">Mobile Bill</option>
+                                <option value="gasBill">Gas Bill</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+
+
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Details of General Meeting for shifting the registered office
+                            </p>
+                        </div>
+
+                        <div class="col-lg-12 my-3">
+                            <label class="form-label">Type of Meeting?</label>
+                            &nbsp; &nbsp;
+                            <input type="radio" name="meetingType" value="AGM" onchange="checkMeetingType(this)"> AGM &nbsp; &nbsp;
+                            <input type="radio" name="meetingType" value="EGM" onchange="checkMeetingType(this)"> EGM
+                        </div>
+
+                        <div class="col-lg-12 my-3">
+                            <label class="form-label">Do you want to incorporate this agenda in existing General Meeting?</label>
+                            &nbsp; &nbsp;
+                            <input type="radio" name="incorporateAgenda" value="Yes" onchange="checkExistingGM(this)"> Yes &nbsp; &nbsp;
+                            <input type="radio" name="incorporateAgenda" value="No" onchange="checkExistingGM(this)"> No
+                        </div>
+
+                        <div class="col-md-6 my-3 negm">
+                            <label class="form-label" for="generalMeetingDate">Date of General Meeting</label>
+                            <input id="generalMeetingDate" name="generalMeetingDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" class="form-control">
+                            <div class="invalid-feedback">Please select a valid date.</div>
+                        </div>
+
+                        <div class="col-md-6 my-3 negm">
+                            <label class="form-label" for="generalMeetingTime">Time of General Meeting</label>
+                            <input id="generalMeetingTime" name="generalMeetingTime" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="time" class="form-control">
+                            <div class="invalid-feedback">Please select a valid time.</div>
+                        </div>
+
+                        <div class="col-md-12 my-3 egm" style="display:none">
+                            <div class="col-md-12 my-3 tagm">
+                                <label class="form-label" for="existingAGM">Select Existing General AGM</label>
+                                <select id="existingAGM" name="existingAGM" class="form-select">
+                                    <option value="">Select Existing Meeting</option>
+                                    <option value="30/09/2022">30/09/2022</option>
+                                    <option value="30/09/2024">30/09/2024</option>
+                                    <option value="30/09/2023">30/09/2023</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-12 my-3 tegm" style="display:none">
+                                <label class="form-label" for="existingEGM">Select Existing General EGM</label>
+                                <select id="existingEGM" name="existingEGM" class="form-select">
+                                    <option value="">Select Existing Meeting</option>
+                                    <option value="30/09/2022">30/09/2022</option>
+                                    <option value="30/09/2024">30/09/2024</option>
+                                    <option value="30/09/2023">30/09/2023</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                                Details of Board Meeting for shifting the registered office
+                            </p>
+                        </div>
+
+                        <div class="col-lg-12 my-3">
+                            <label class="form-label">Do you want to incorporate this agenda in existing Board Meeting?</label>
+                            &nbsp; &nbsp;
+                            <input type="radio" name="incorporateBM" value="Yes" onchange="checkExistingBM(this)"> Yes &nbsp; &nbsp;
+                            <input type="radio" name="incorporateBM" value="No" onchange="checkExistingBM(this)"> No
+                        </div>
+
+                        <div class="col-md-6 my-3 nebm">
+                            <label class="form-label" for="boardMeetingDate">Date of Meeting</label>
+                            <input id="boardMeetingDate" name="boardMeetingDate" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" class="form-control">
+                            <div class="invalid-feedback">Please select a valid date.</div>
+                        </div>
+
+                        <div class="col-md-6 my-3 nebm">
+                            <label class="form-label" for="boardMeetingTime">Time of Meeting</label>
+                            <input id="boardMeetingTime" name="boardMeetingTime" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="time" class="form-control">
+                            <div class="invalid-feedback">Please select a valid time.</div>
+                        </div>
+
+                        <div class="col-md-12 my-3 ebm" style="display:none">
+                            <label class="form-label" for="existingBM">Select Existing Meeting</label>
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-1">
+                                <select id="existingBM" name="existingBM" class="form-select">
+                                    <option value="">Select Existing Meeting</option>
+                                    <option value="30/09/2022">30/09/2022</option>
+                                    <option value="30/09/2024">30/09/2024</option>
+                                    <option value="30/09/2023">30/09/2023</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 my-3">
+                            <label class="form-label" for="authorizedSignatory">Name of the Authorized Signatory</label>
+                            <select id="authorizedSignatory" name="authorizedSignatory" class="form-select">
+                                <option value="">Select Director</option>
+                                <option value="Mokshank Dilipbhai Savla (Director)">Mokshank Dilipbhai Savla (Director)</option>
+                                <option value="Rakshit Dilip Savla (Director)">Rakshit Dilip Savla (Director)</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 p-0" id="part2">
+        <div class="card">
+            <div class="card-body row mb-4">
+                <div class="d-flex justify-content-end mx-1 pt-3">
+                    <p class="card-title mb-0" style="margin-top:1px; color:red">
+                        *Quick Hint: Fill this information only if you want to prepare the form INC-22.
+                    </p>
+                </div>
+                <div class="d-flex justify-content-between mx-1 pt-3">
+                    <p class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        Declaration by Director
+                    </p>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="directorName">Name of Director</label>
+                    <select id="directorName" name="directorName" class="director form-select">
+                        <option value="">Select Director</option>
+                        <option value="Mokshank Dilipbhai Savla (Director)">Mokshank Dilipbhai Savla (Director)</option>
+                        <option value="Rakshit Dilip Savla (Director)">Rakshit Dilip Savla (Director)</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="directorDIN">DIN</label>
+                    <input id="directorDIN" name="directorDIN" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="directorDesignation">Designation</label>
+                    <input id="directorDesignation" name="directorDesignation" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="resolutionNumber">Resolution Number</label>
+                    <input id="resolutionNumber" name="resolutionNumber" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="resolutionDate">Resolution Date</label>
+                    <input id="resolutionDate" name="resolutionDate" type="date" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+
+
+
+
+                <div class="d-flex justify-content-between mx-1 pt-3">
+                    <span class="card-title mb-0" style="margin-top:1px; border-bottom:1px solid black;">
+                        Certificate by Professional
+                    </span>
+                    <span class="card-title mb-0" style="margin-top:1px; color:red">
+                        *Quick Hint: Click Here for adding PCS Data in the master.
+                    </span>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="professionalCategory">Category</label>
+                    <select id="professionalCategory" name="professionalCategory" class="form-control" style="width:100%">
+                        <option value="">Select</option>
+                        <option value="Chartered accountant(in whole time practice)">Chartered accountant(in whole time practice)</option>
+                        <option value="Company secretary(in whole time practice)" selected>Company secretary(in whole time practice)</option>
+                        <option value="Cost accountant(in whole time practice)">Cost accountant(in whole time practice)</option>
+                    </select>
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="professionalName">Name of Professional</label>
+                    <input id="professionalName" name="professionalName" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="membershipNumber">Membership number</label>
+                    <input id="membershipNumber" name="membershipNumber" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-6 my-3">
+                    <label class="form-label" for="practiceNumber">Practice number</label>
+                    <input id="practiceNumber" name="practiceNumber" type="text" class="form-control" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        Whether associate or fellow
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input id="associate" name="associateFellow" type="radio" value="Associate">&nbsp;&nbsp; Associate&nbsp;&nbsp;
+                        <input id="fellow" name="associateFellow" type="radio" value="Fellow">&nbsp;&nbsp; Fellow
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div id="part3" class="p-0">
+
+        <div class="card">
+            <div id="Download" class="tab-pane animated custon-tab-style1 active " style="padding:20px;">
+                <br>
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row" style="text-decoration:underline;">
+                        TITLE OF DOCUMENT
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row" style="text-decoration:underline;text-align: center;">
+                        VIEW
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 bold form-row" style="text-decoration:underline;text-align: center;">
+                        WORD FILE
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row" style="text-decoration:underline;text-align: center;">
+                        PDF FILE
+                    </div>
+                </div>
+
+                <div class="row my-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row">
+                        CTC OF BR-
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row" >
+                        <a href="" target="#"><span class="icon_style" ><i class="fa fa-eye" title="View"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2  form-row">
+                        <a href="" target="#"><span class="icon_style" ><i class="fa-solid fa-file-word" aria-hidden="true" title="Word File"></i></span></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2  form-row" >
+                        <a href="" target="#"><span class="icon_style" ><i class="fa-solid fa-file-pdf" aria-hidden="true" title="PDF File"></i></span></a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+            category: "",  
+            effectiveDate: "", 
+            existingAddress: "", 
+            newOfficeLine1: "",
+            newOfficeLine2: "",
+            newOfficeCity: "",
+            newOfficeState: "",
+            newOfficeDistrict: "",
+            newOfficeCountry: "",
+            newOfficePincode: "",
+            registeredOfficePremises: "",
+            proposedRoC: "", 
+            policeStationName: "",
+            policeStationAddressLine1: "",
+            policeStationAddressLine2: "",
+            policeStationCity: "",
+            policeStationState: "",
+            policeStationPincode: "",
+            utilityServicesBill: "",  
+            meetingType: "",        
+            incorporateAgenda: "",  
+            generalMeetingDate: "", 
+            generalMeetingTime: "", 
+            existingAGM: "",        
+            existingEGM: "",        
+            incorporateBM: "",      
+            boardMeetingDate: "",   
+            boardMeetingTime: "",   
+            existingBM: "",         
+            authorizedSignatory: "",
+            directorName: "",       
+            directorDIN: "",        
+            directorDesignation: "",
+            resolutionNumber: "",   
+            resolutionDate: "",     
+            professionalCategory: "",
+            professionalName: "",    
+            membershipNumber: "",    
+            practiceNumber: "",      
+            associateFellow: "",     
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/Action/@(ViewBag.ctrl)`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("Office", "Actions")/Change`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/Action/@(ViewBag.ctrl)/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("Office", "Actions")/Change`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+            function checkExistingBM(radio) {
+                if (radio.value === "Yes" && radio.checked) {
+                    $(".ebm").show()
+                    $(".nebm").hide()
+                } else {
+                    $(".nebm").show()
+                    $(".ebm").hide()
+                }
+            }
+            function checkExistingGM(radio) {
+                if (radio.value === "Yes" && radio.checked) {
+                    $(".egm").show()
+                    $(".negm").hide()
+                } else {
+                    $(".negm").show()
+                    $(".egm").hide()
+                }
+            }
+            function checkMeetingType(radio) {
+                if (radio.value === "AGM" && radio.checked) {
+                    $(".tagm").show()
+                    $(".tegm").hide()
+                } else {
+                    $(".tegm").show()
+                    $(".tagm").hide()
+                }
+            }
+    </script>
+
+}

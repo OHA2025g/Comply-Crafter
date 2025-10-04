@@ -1,0 +1,430 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Auditors
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Signing Information
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+               
+                <div class="row" style="display:none">
+                    <div class="col-md-6 my-3">
+                        <label class="form-label">2 *Corporate Identity Number (CIN) of company</label>
+                        <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="AKSHAY GRAPHICS PRIVATE LIMITED" class="form-control" value="" name="cin" disabled>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-md-6 my-3">
+                        <label class="form-label">3 .(a) *Name of the one-person company</label>
+                        <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="U22219MH2022PTC375586" class="form-control" value="" name="companyName" disabled>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-md-6 my-3">
+                        <label class="form-label">(b) *Registered Office Address</label>
+                        <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="SHOP NO 3 VERTEX VIKAS CHS LTD   WING A SIR M V RD BHD POLICE STN ANDHERI, MUMBAI, Mumbai City, Maharashtra, India, 400069" class="form-control" value="" name="companyAddress" disabled>
+                        <div class="invalid-feedback"></div>
+                    </div>
+
+                    <div class="col-md-6 my-3">
+                        <label class="form-label">(c) *Email id</label>
+                        <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="akshaygraphics69@gmail.com" class="form-control" value="" name="companyEmail" disabled>
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+               
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">Whether company is falling under any class of companies as per section 139(2)</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <label>   <input type="radio" name="fallingSection" value="YES">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <label>   <input type="radio" name="fallingSection" value="NO">&nbsp;&nbsp;&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Nature of appointment</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select name="appointmentNature" class="form-select" style="width: 100%;">
+                            <option value="">Select Nature</option>
+                            <option value="FABD">First auditor by Board of directors/members/C&amp;AG</option>
+                            <option value="ARGM">Appointment/Re-appointment in AGM</option>
+                            <option value="AACV">Auditor appointed in case of casual vacancy</option>
+                            <option value="AANR">Auditor appointed in case of non-re-appointment/ removal of the previous auditor</option>
+                            <option value="AABT">Auditor appointed by the Tribunal</option>
+                            <option value="OTHS">Others</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold form-row mt-3">Whether joint auditors have been appointed</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <label>
+                            <input type="radio" name="isAuditorAppointed" id="appointedauditors" value="YES" required=""> &nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label><input type="radio" name="isAuditorAppointed" id="appointedauditors" value="NO" required="">&nbsp;&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Number of auditor(s) appointed</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="number" name="auditorNumber" class="form-control" id="numberOfAuditor" style="width:100%" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 bold form-row mt-3 ">Whether auditor(s) has been appointed in the annual general meeting (AGM)</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <label>
+                            <input type="radio" name="annualGeneralMeeting" id="annualgeneralmeeting" value="YES"> &nbsp;&nbsp; &nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label> <input type="radio" name="annualGeneralMeeting" value="NO">&nbsp;&nbsp;&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">If yes, date of AGM</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input class="Dateacquisition1 hasDatepicker form-control" type="date" id="agmDate" name="agmDate" style="width:100%" autocomplete="off" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Date of appointment</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input class="Dateacquisition2 hasDatepicker form-control" type="date" name="appointmentDate" id="appointmentdate" style="width:100%" value="" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 bold form-row form-row mt-3">Whether auditor is appointed due to casual vacancy in the office of auditor</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>
+                            <input type="radio" name="isCasualVacancy" value="YES">&nbsp;&nbsp;&nbsp;Yes&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>    <input type="radio" name="isCasualVacancy" value="NO">&nbsp;&nbsp;&nbsp;No&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Specify the SRN of relevant form</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="" name="srnOfRelevantForm" id="srnOfRelevantForm" class="form-control" style="width:100%" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Person vacated the office</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>
+                            <input type="radio" name="personVacated" value="INDI" id="personVacated" class="personVacated">&nbsp;&nbsp;&nbsp;Individual&nbsp;&nbsp;&nbsp;&nbsp;
+                        </label>
+                        <label>  <input type="radio" id="personVacated" name="personVacated" value="AFRM" class="personVacated"> &nbsp;&nbsp;&nbsp;Auditor's firm</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Mention the date of such vacancy</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input class="Dateacquisition3 hasDatepicker form-control" name="vacancyDate" type="date" id="vacancyDate" style="width:100%" autocomplete="off" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row form-row1 mt-3">Reasons of the casual vacancy</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row form-row1 mt-3">
+                        <input style="width:100%" name="casualVacancyReasons" class="form-control" id="casualVacancyReasons" value="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 bold form-row mt-3">Mention the membership number of auditor or Registration number of auditor's firm who has vacated the office</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <input type="number" name="membershipNumber" class="num form-control" id="membershipNumber" style="width:100%" value="1">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form>
+                <div class="row">
+                    <div class="table-responsive">
+                        <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                            <thead>
+                                <tr style="background:#8e949a;">
+                                    <th style="text-align: center; vertical-align: middle;width: 100px; color:black;">Sr. No.</th>
+                                    <th style="vertical-align: middle; color:black;">Auditor Name</th>
+                                    <th style="text-align: center; vertical-align: middle;width: 200px; color:black;">Membership No</th>
+                                    <th style="text-align: center;vertical-align: middle;width: 200px; color:black;">More-Details</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tan_field5">
+                                <tr>
+                                    <td style="text-align:center;">
+                                        <input type="checkbox" name="auditorSerial" value="1">
+                                        <input type="hidden" name="auditorName" class="form-control" value="Pakshal K Shah">
+                                        <input type="hidden" class="form-control" name="firmName" value="Pakshal Shah &amp; Associates">1
+                                    </td>
+                                    <td>Pakshal K Shah (Pakshal Shah &amp; Associates)</td>
+                                    <td style="text-align:center;">
+                                        <input type="text" name="auditorMemberNo" class="form-control" style="width: 100% ;font-weight: initial;" value="191702" autocomplete="off">
+                                        <input type="hidden" name="auditorid" class="form-control" value="3331" autocomplete="off">
+                                    </td>
+                                    <td style="text-align:center;"><a href="auditorinformation.php?form_id=1412&amp;auditorid=3331">Click Here</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="p-0" id="part3">
+        <div class="card" style="padding:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">Resolution Number</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row  mt-3">
+                        <input name="resolutionNumber" class="form-control" style="width:100%" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Resolution Date</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <input class="Dateacquisition4 hasDatepicker form-control" type="date" name="resolutionDate" style="width:100%" autocomplete="off" value="" id="dp1739877401558">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-5 col-md-5 bold form-row mt-3">Signed by Director/Manager/Secretary/CEO/CFO of the company</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                        <select name="signedBy" class="form-select" style="width:100%" id="resolution1director">
+                            <option value="">Select</option>
+                            <option value="09475141">Mokshank Dilipbhai Savla</option>
+                            <option value="09473752">Rakshit Dilip Savla</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Designation</div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3 ">
+                        <select name="designation" class="form-control" style="width:100%">
+                            <option value="DIRT">Director</option>
+                            <option value="MANG">Manager</option>
+                            <option value="SECR">Company Secretary</option>
+                            <option value="CEO">CEO</option>
+                            <option value="CFO">CFO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-7 col-md-7 bold form-row form-row1 mt-3 ">Director identification number of the director; or DIN or PAN of the Manager/CEO/CFO; or Membership number of the Company Secretary</div>
+                    <div class="col-xs-12 col-sm-5 col-md-5 form-row form-row1 mt-3">
+                        <input name="din" id="din" class="form-control" style="width:100%" value="">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            fallingSection: "",
+            appointmentNature: "",
+            isAuditorAppointed: "",
+            auditorNumber: 0, // Has a number input, but no `num` class
+            annualGeneralMeeting: "",
+            agmDate: "",
+            appointmentDate: "",
+            isCasualVacancy: "",
+            srnOfRelevantForm: "",
+            personVacated: "",
+            vacancyDate: "",
+            casualVacancyReasons: "",
+            membershipNumber: 0, // Has the `num` class
+            auditorSerial: "",
+            auditorMemberNo: "",
+            resolutionNumber: "",
+            resolutionDate: "",
+            signedBy: "",
+            designation: "",
+            din: ""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        $(document).on("change", "[name='isAuditorAppointed']", function () {
+            let isAppointed = $(this).val();
+            if (isAppointed == "NO") {
+                $("#numberOfAuditor").val("1");
+                $("#numberOfAuditor").attr("readonly", "");
+            } else {
+                $("#numberOfAuditor").val("");
+                $("#numberOfAuditor").removeAttr("readonly");
+            }
+        });
+
+        $(document).on("change", "[name='annualGeneralMeeting']", function () {
+            let annualMeeting = $(this).val();
+            if (annualMeeting == "NO") {
+                $("#agmDate").attr("readonly", "");
+            } else {
+                $("#agmDate").removeAttr("readonly");
+            }
+        });
+
+        $(document).on("change", "[name='isCasualVacancy']", function () {
+            let isCasualVacancy = $(this).val();
+            if (isCasualVacancy == "NO") {
+                $("#srnOfRelevantForm").attr("readonly", "");
+                $(".personVacated").attr("disabled",true) 
+                $("#casualVacancyReasons").attr("readonly", "");
+                $("#membershipNumber").attr("readonly", "");
+                $("#vacancyDate").attr("readonly", "");
+            } else {
+                $("#srnOfRelevantForm").removeAttr("readonly");
+                $(".personVacated").removeAttr("disabled");
+                $("#casualVacancyReasons").removeAttr("readonly");
+                $("#membershipNumber").removeAttr("readonly");
+                $("#vacancyDate").removeAttr("readonly", "");
+            }
+        });
+
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

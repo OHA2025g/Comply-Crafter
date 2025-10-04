@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+<!-- Razorpay JS SDK -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    async function payNow() {
+        const res = await fetch('@R.ApiUrl/payment/createorder', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                OrderId: "ORD123",
+                ReceiptId: "RCPT123",
+                Amount: 500 // INR
+            })
+        });
+
+        const data = await res.json();
+        console.log("Order Data:", data);
+
+        const options = {
+            key: data.key,
+            amount: data.amount,
+            currency: "INR",
+            name: "My Company",
+            description: "Payment",
+            order_id: data.orderId,
+            handler: function (response) {
+                alert("Payment Successful!");
+                console.log("Payment ID:", response.razorpay_payment_id);
+                console.log("response:", );
+                fetch("@R.ApiUrl/Payment/VerifyPayment", {
+                    method: "POST",
+                    body:JSON.stringify(
+                    {
+                        razorpay_payment_id:response.razorpay_payment_id,
+                        razorpay_order_id:response.razorpay_order_id,
+                        razorpay_signature:response.razorpay_signature
+                    })
+                })
+                .then(res => res.json())
+                .then(data => console.log("Verify Response:", data))
+                .catch(err => console.error("Verify Error:", err));
+            },
+            prefill: {
+                name: "Your Name",
+                email: "your@email.com",
+                contact: "9000000000"
+            },
+            theme: { color: "#528FF0" }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+    }
+</script>
+
+<button onclick="payNow()" class="btn btn-primary">Pay Now</button>

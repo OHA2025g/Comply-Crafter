@@ -1,0 +1,1849 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    td {
+        padding: 15px;
+    }
+
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    LLP Form No. 8
+
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Statement of Account & Solvency and Charge filing
+
+                    [Pursuant to rule 24 of Limited Liability Partnership Rules, 2009]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_LLP%20Form%20No.%208.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            DSC  Details
+
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Attachment
+                                        </span>
+                                    </a>
+                                </li>
+                             
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:25px;">
+            <input type="hidden" class="num" value="0" name="id" />
+            <input type="hidden" class="num" value="0" name="companyId" />
+            <form action="" role="form" id="fupForm" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+                <div class="row mt-3">
+
+                   <div class="col-xs-12 col-sm-12 col-md-4 form-row bold ">
+
+                        1. Statement of Account and Solvency or Charge
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 form-row " >
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                        <label> <input type="radio" name="purpose" value="Statement of Account and Solvency" disabled="">&nbsp; Statement of Account and Solvency &nbsp; &nbsp; &nbsp;</label>
+
+                        <label>   <input type="radio" name="purpose" value="Charge" checked="checked">&nbsp; Charge &nbsp; &nbsp; &nbsp; </label>
+                    </div>
+                </div>
+
+                <label class="mt-4" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">2. Particulars for creation or modification or satisfaction of charges by an LLP</label><br>
+
+                <label class="mt-3" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">LLP/FLLP details</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                        3. (a) LLPIN / FLLPIN
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" id="" name="cin"  readonly="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (b) Name of the LLP / FLLP
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%;" name="companyName" id="llpFllpName"  readonly="">
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (c) Address of the registered office of the LLP or place of business of India of FLLP
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%" id="company_address" name="companyAddress"  readonly="">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (d) Jurisdiction of Police Station
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="jurisdictionPoliceStation" id="" >
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        (e) E-mail ID
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" style="width: 100%" id="company_email" name="companyEmail" readonly="">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Purpose</label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        4. (a) This form is for registration of
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                        <label>   <input type="radio" name="formPurpose" id="Creation" value="Creation of charge" class="chargePurposeRadio">&nbsp; Creation of Charge &nbsp; &nbsp; &nbsp;</label>
+
+                      <label>    <input type="radio" value="Modification of charge" name="formPurpose" id="Modification" class="chargePurposeRadio">&nbsp; Modification of Charge &nbsp; &nbsp; &nbsp;</label>
+
+                        <label>      <input type="radio" value="Satisfaction of charge" name="formPurpose" id="Satisfaction" class="chargePurposeRadio">&nbsp; Satisfaction of Charge</label>
+                    </div>
+                </div>
+                <div class="row chargeIdentificationNo mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold chargeIdentificationNo mt-3" style="">
+                        4. (b) Charge identification number of the charge to be modified or satisfied
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-3 form-row chargeIdentificationNo mt-3" style="">
+                     
+                        <select name="chargeIdentificationNo" id="chargeIdentificationNo" class="form-select" style="width: 100%;">
+                            <option value="">Select Charge ID</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 mt-3 form-row bold particularsOfPresentModification" style="">
+                        4. (c) Whether charge is modified in favor of Asset reconstruction company (ARC) or assignee
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2 form-row particularsOfPresentModification mt-3" style="">
+                        &nbsp; &nbsp; &nbsp;
+                        <label>
+                            <input type="radio" name="whetherChargeIsModified" class="whetherChargeIsModified" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;
+                        </label>
+
+                            <label>   <input type="radio" name="whetherChargeIsModified" class="whetherChargeIsModified" value="N">&nbsp; No</label>
+                    </div>
+                </div>
+
+                <div class="row particularsOfPresentModification mt-3" style="">
+                    <div id="whetherChargeHolderIsAuthorized" style="">
+                        <div class="col-xs-12 col-sm-3 col-md-12 form-row">
+                            <span style="font-weight: bold;" class="mt-3"> 4.(d) Whether charge holder is authorized to assign the charge as per the charge agreement</span>
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                            <label>
+                                <input type="radio" name="whetherChargeHolderIsAuthorized" class="whetherChargeHolderIsAuthorized" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+                            <label>   <input type="radio" name="whetherChargeHolderIsAuthorized" class="whetherChargeHolderIsAuthorized" value="N">&nbsp; No</label>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div id="showsatisfaction" style="display: block;">
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 5px -10px 10px;text-transform: uppercase;" class="mt-3"> Type of charge</label><br>
+
+                    <label style="font-weight: bolder; margin: 5px -10px 10px;" class="mt-3">5. (a) Description of the property charged indicating whether it is a charge on</label>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>       &nbsp; <input type="checkbox" name="chargeType" value="1" class="immovable" id="immovable1">&nbsp; &nbsp; Immovable property or any interest therein - Residential</label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>    &nbsp; <input type="checkbox" name="chargeType" value="2" id="immovable2">&nbsp; &nbsp; Immovable property or any interest therein - Commercial </label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>  &nbsp; <input type="checkbox" name="chargeType" value="3" class="immovable" id="immovable3">&nbsp; &nbsp; Immovable property or any interest therein - Others</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                           <label>   &nbsp; <input type="checkbox" name="chargeType" value="4">&nbsp; &nbsp; Movable property - Equipment and Machinery</label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>  &nbsp; <input type="checkbox" name="chargeType" value="5">&nbsp; &nbsp; Movable property - Inventory</label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>     &nbsp; <input type="checkbox" name="chargeType" value="6">&nbsp; &nbsp; Movable property - Inventory (incl. Receivables)</label>
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                        <label>      &nbsp; <input type="checkbox" name="chargeType" value="7">&nbsp; &nbsp; Movable property - Motor Vehicle (Hypothecation)</label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                         <label>     &nbsp; <input type="checkbox" name="chargeType" value="8">&nbsp; &nbsp; Movable property - Ship or any share in a ship</label>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>    &nbsp; <input type="checkbox" name="chargeType" value="9">&nbsp; &nbsp; Movable property - Others</label>
+                        </div>
+
+
+                    </div>
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                           <label>   &nbsp; <input type="checkbox" name="chargeType" value="10">&nbsp; &nbsp; Intangible - Goodwill</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                         <label>     &nbsp; <input type="checkbox" name="chargeType" value="11">&nbsp; &nbsp; Intangibles - Trademarks</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>    &nbsp; <input type="checkbox" name="chargeType" value="12">&nbsp; &nbsp; Intangible - Patent</label>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>         &nbsp; <input type="checkbox" name="chargeType" value="13">&nbsp; &nbsp; Intangible - Licence</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>      &nbsp; <input type="checkbox" name="chargeType" value="14">&nbsp; &nbsp; Intangible - Licence under a Patent</label>
+                        </div>
+                        <div class="mt-3 col-xs-12 col-sm-4 col-md-4 form-row" style="height: 40px;padding: 5px;">
+                            <label>        &nbsp; <input type="checkbox" name="chargeType" value="15">&nbsp; &nbsp; Intangible - Copyright</label>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                          <label>    &nbsp; <input type="checkbox" name="chargeType" value="16">&nbsp; &nbsp; Intangible - Copyright under a Patent</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>   &nbsp; <input type="checkbox" name="chargeType" value="17">&nbsp; &nbsp; Intangible - Designs</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>   &nbsp; <input type="checkbox" name="chargeType" value="18">&nbsp; &nbsp; Intangible - IPR</label>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>    &nbsp; <input type="checkbox" name="chargeType" value="19">&nbsp; &nbsp; Intangible - Others</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                       <label>       &nbsp; <input type="checkbox" name="chargeType" value="20">&nbsp; &nbsp; Solely of Property situated outside India</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="height: 40px;padding: 5px;">
+                            <label>    &nbsp; <input type="checkbox" name="chargeType" value="21">&nbsp; &nbsp; Book debts</label>
+                        </div>
+
+
+                    </div>
+
+                    <div class="row mt-3">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3" style="padding: 5px;">
+                            <label>   &nbsp; <input type="checkbox" name="chargeType" value="22" id="chargeTypeother">&nbsp; &nbsp; Others</label>
+                        </div>
+                        <div id="checkother" style="">
+                            <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3" >
+                                5. (b) If others, please specify
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-4 form-row mt-3" style="">
+                                <input type="text" name="otherDescOfCharge" value="" id="otherDescOfCharge" class="form-control" style="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <label class="mt-3" style="font-weight: bolder; font-size: 14px; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">Details of charge holder</label>
+                    <div class="row mt-3" style="margin-bottom: 5px;">
+                        <div class="col-xs-12 col-sm-3 col-md-4 bold mt-3" style="margin-left: -15px;">
+                            6. (a) Whether consortium finance is involved
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-4 bold leaderbankname mt-3" style="" required="required">
+                            (b) Please provide Lead Banker's Name
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-4 bold mt-3">
+                            (c) Whether joint charge is involved
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-4 form-row mt-3">
+                            &nbsp; &nbsp; &nbsp;
+                            <label>
+                                <input type="radio" name="whetherConsortiumFinanceisInvolved" class="whetherConsortiumFinanceisInvolved" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+
+                            <label>     <input type="radio" name="whetherConsortiumFinanceisInvolved" class="whetherConsortiumFinanceisInvolved" value="N">&nbsp; No</label>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-4 leaderbankname form-row mt-3" style="" required="required">
+                            <input type="text" name="bankerName" class="form-control" value="" id="leaderbankname">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-4 form-row mt-3">
+                            &nbsp; &nbsp; &nbsp;
+                            <label>
+                                <input type="radio" name="whetherJointChargeInvolved" class="whetherjointChargeInvolved" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;
+                            </label>
+
+                                <label>  <input type="radio" name="whetherJointChargeInvolved" class="whetherjointChargeInvolved" value="N">&nbsp; No</label>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                            7. (a) Number of charge holders
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" class="form-control" name="noOfChargeHolders" id="noOfChargeHolders" value="" required="required">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row bold chargePariPassu2 mt-3" style="">
+                            7. (b) Whether Charges rank pari passu
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row chargePariPassu2 mt-3" style="">
+                            &nbsp; &nbsp; &nbsp;
+                          <label>    <input type="radio" name="whetherChargerRankPariPassu" class="whetherChargerRankPariPassu" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+
+                            <label>    <input type="radio" name="whetherChargerRankPariPassu" class="whetherChargerRankPariPassu" value="N">&nbsp; No</label>
+
+                        </div>
+
+                    </div>
+
+                    <div id="listchargeholder">
+                    </div><br>
+                </div>
+
+                <div id="particularcharge" style="">
+                    <label class="mt-3" style="font-weight: bolder; font-size: 14px; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;">8. Particulars of charge holders</label>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Category
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold others mt-3" style="margin-left: -10px; ">
+                            If others, please specify
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Name of the charge holder
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <select name="category" id="category" value="" class="form-select" required="required">
+                                <option value="">Select Category</option>
+                                <option value="Nationalized bank">Nationalized bank</option>
+                                <option value="Scheduled bank">Scheduled bank</option>
+                                <option value="Private sector bank">Private sector bank</option>
+                                <option value="Financial institution">Financial institution</option>
+                                <option value="CEO">CEO</option>
+                                <option value="Non-banking financial company">Non-banking financial company</option>
+                                <option value="Co-operative bank">Co-operative bank</option>
+                                <option value="Foreign Bank">Foreign Bank</option>
+                                <option value="Individual">Individual</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 others mt-3" style="margin-left: -10px; ">
+                            <div class="input text"><input name="others" class="form-control" id="others" value=""> </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <select name="nameOfChargeHolder" id="nameOfChargeHolder_o" class="form-select" required="required">
+                                <option value="">Select charge holder</option>
+                                <option value="Abhyudaya Co-Operative Bank">Abhyudaya Co-Operative Bank</option>
+                                <option value="Adarsh Co-operative Bank Ltd">Adarsh Co-operative Bank Ltd</option>
+                                <option value="Axis Bank Limited">Axis Bank Limited</option>
+                                <option value="Bangiya Gramin Vikash Bank">Bangiya Gramin Vikash Bank</option>
+                                <option value="Bank of India">Bank of India</option>
+                                <option value="Canara Bank">Canara Bank</option>
+                                <option value="CIMB Bank Berhad">CIMB Bank Berhad</option>
+                                <option value="Central Madhya Pradesh Gramin">Central Madhya Pradesh Gramin</option>
+                                <option value="Chhattisgarh Gramin Bank">Chhattisgarh Gramin Bank</option>
+                                <option value="CITI BANK N.A">CITI BANK N.A</option>
+                                <option value="CITY UNION BANK LIMITED">CITY UNION BANK LIMITED</option>
+                                <option value="DBS Bank Ltd">DBS Bank Ltd</option>
+                                <option value="DENA BANK">DENA BANK</option>
+                                <option value="DHANLAXMI BANK LIMITED">DHANLAXMI BANK LIMITED</option>
+                                <option value="DNB ASIA LTD">DNB ASIA LTD</option>
+                                <option value="HDB FINANCIAL SERVICES LIMITED">HDB FINANCIAL SERVICES LIMITED</option>
+                                <option value="HDFC BANK LIMITED">HDFC BANK LIMITED</option>
+                                <option value="IDBI Bank Limited">IDBI Bank Limited</option>
+                                <option value="IDBI TRUSTEESHIP SERVICES LIMI">IDBI TRUSTEESHIP SERVICES LIMI</option>
+                                <option value="IFCI LIMITED">IFCI LIMITED</option>
+                                <option value="Indian Bank">Indian Bank</option>
+                                <option value="Indian Overseas Bank">Indian Overseas Bank</option>
+                                <option value="Industrial Bank of Korea">Industrial Bank of Korea</option>
+                                <option value="ING VYSYA BANK LIMITED">ING VYSYA BANK LIMITED</option>
+                                <option value="J. P. MORGAN ADVISORS INDIA">J. P. MORGAN ADVISORS INDIA</option>
+                                <option value="J.P. MORGAN SECURITIES INDIA">J.P. MORGAN SECURITIES INDIA</option>
+                                <option value="JHARNESHWAR NAGRIK SAHAKARI">JHARNESHWAR NAGRIK SAHAKARI</option>
+                                <option value="JP Morgan Chase Bank, N.A.">JP Morgan Chase Bank, N.A.</option>
+                                <option value="Kallappanna Awade Ichalkaranji">Kallappanna Awade Ichalkaranji</option>
+                                <option value="KERALA STATE FINANCIAL">KERALA STATE FINANCIAL</option>
+                                <option value="Karnataka Bank Ltd.">Karnataka Bank Ltd.</option>
+                                <option value="Kokan Merchantile Co-operative">Kokan Merchantile Co-operative</option>
+                                <option value="Karnataka State Financial Corp">Karnataka State Financial Corp</option>
+                                <option value="KRISHNA GRAMEENA BANK">KRISHNA GRAMEENA BANK</option>
+                                <option value="KERALA STATE FINANCIAL ENTERPR">KERALA STATE FINANCIAL ENTERPR</option>
+                                <option value="LAKSHMI VILAS BANK LIMITED">LAKSHMI VILAS BANK LIMITED</option>
+                                <option value="Maharashtra State Financial">Maharashtra State Financial</option>
+                                <option value="MANINAGAR CO. OP. BANK LTD.">MANINAGAR CO. OP. BANK LTD.</option>
+                                <option value="Model Co-op. Bank Limited">Model Co-op. Bank Limited</option>
+                                <option value="Nagarik Samabay Bank Limited">Nagarik Samabay Bank Limited</option>
+                                <option value="Nagpur Nagarik sahakari Bank">Nagpur Nagarik sahakari Bank</option>
+                                <option value="NORTH EASTERN DEVELOPMENT">NORTH EASTERN DEVELOPMENT</option>
+                                <option value="New India Co-op Bank Limited">New India Co-op Bank Limited</option>
+                                <option value="Prathama Bank">Prathama Bank</option>
+                                <option value="Punjab and Maharashtra">Punjab and Maharashtra</option>
+                                <option value="Purvanchal Bank">Purvanchal Bank</option>
+                                <option value="SAHARA HOUSINGFINA CORPORATION">SAHARA HOUSINGFINA CORPORATION</option>
+                                <option value="Saraspur Nagarik">Saraspur Nagarik</option>
+                                <option value="SBICAP TRUSTEE COMPANY LIMITED">SBICAP TRUSTEE COMPANY LIMITED</option>
+                                <option value="Shikshak Sahakari Bank Limited">Shikshak Sahakari Bank Limited</option>
+                                <option value="Shree Mahavir Sahakari Bank">Shree Mahavir Sahakari Bank</option>
+                                <option value="SIDBI">SIDBI</option>
+                                <option value="Standard Chartered Bank">Standard Chartered Bank</option>
+                                <option value="State Bank of India">State Bank of India</option>
+                                <option value="State Bank Of Travancore">State Bank Of Travancore</option>
+                                <option value="Syndicate Bank">Syndicate Bank</option>
+                                <option value="TAMILNAD MERCANTILE BANK LIMIT">TAMILNAD MERCANTILE BANK LIMIT</option>
+                                <option value="TATA CAPITAL FINANCIAL SERVICE">TATA CAPITAL FINANCIAL SERVICE</option>
+                                <option value="TATA CAPITAL HOUSING FINANCE">TATA CAPITAL HOUSING FINANCE</option>
+                                <option value="Tata Cleantech Capital Limited">Tata Cleantech Capital Limited</option>
+                                <option value="The Adarsh Co-operative Bank">The Adarsh Co-operative Bank</option>
+                                <option value="The Bharat Co-operative Bank">The Bharat Co-operative Bank</option>
+                                <option value="THE CATHOLIC SYRIAN BANK LTD">THE CATHOLIC SYRIAN BANK LTD</option>
+                                <option value="The Chanasma Nagrik Sahakari">The Chanasma Nagrik Sahakari</option>
+                                <option value="The City Co-operative Bank">The City Co-operative Bank</option>
+                                <option value="The Hongkong and Shanghai Bank">The Hongkong and Shanghai Bank</option>
+                                <option value="The Jalgaon Peoples Co-op Bank">The Jalgaon Peoples Co-op Bank</option>
+                                <option value="The Jammu and Kashmir Bank">The Jammu and Kashmir Bank</option>
+                                <option value="The Kalupur Commercial Co-Oper">The Kalupur Commercial Co-Oper</option>
+                                <option value="The Kunbi Sahakari Bank Limite">The Kunbi Sahakari Bank Limite</option>
+                                <option value="THE PANDHARPUR URBAN CO-OP. BA">THE PANDHARPUR URBAN CO-OP. BA</option>
+                                <option value="The Royal Bank of Scotland">The Royal Bank of Scotland</option>
+                                <option value="The Shirpur People Co-op Bank">The Shirpur People Co-op Bank</option>
+                                <option value="THE SOUTH INDIAN BANK LIMITED">THE SOUTH INDIAN BANK LIMITED</option>
+                                <option value="The Sutex Co-operative Bank">The Sutex Co-operative Bank</option>
+                                <option value="The Zoroastrian Co-operative">The Zoroastrian Co-operative</option>
+                                <option value="TJSB Sahakari Bank Limited">TJSB Sahakari Bank Limited</option>
+                                <option value="Tirupati Urban Co-op. Bank">Tirupati Urban Co-op. Bank</option>
+                                <option value="UCO Bank">UCO Bank</option>
+                                <option value="United Bank of India">United Bank of India</option>
+                                <option value="Utkal Grameen Bank">Utkal Grameen Bank</option>
+                                <option value="Vijaya Bank">Vijaya Bank</option>
+                                <option value="Yashwant Co-operative Bank Ltd">Yashwant Co-operative Bank Ltd</option>
+                                <option value="YES BANK LIMITED">YES BANK LIMITED</option>
+                                <option value="Others">Others</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            CIN in case charge holder or ARC or assignee is a company
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Name
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Address Line 1
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text">
+                                <input name="cinArcAssignee" class="form-control" id="cinArcAssignee" value="">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text">
+                                <input name="nameBasedOnCin" class="form-control" id="nameBasedOnCIN" value="" oninput="sanitizeInput()" required="required">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text">
+                                <input name="address1BasedOnCin" class="form-control" id="address1BasedOnCIN" value="" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Address Line 2
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Country
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            PIN / ZIP Code
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div lass="input text">
+                                <input name="address2BasedOnCin" class="form-control" id="address2BasedOnCIN" value="">
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text">
+                                <select name="countryBasedOnCin" id="countryBasedOnCIN" class="form-select" data-live-search="true" required="required">
+                                    <option>Select Country</option>
+                                    <option value="Afghanistan ">Afghanistan </option>
+                                    <option value="Albania ">Albania </option>
+                                    <option value="Algeria ">Algeria </option>
+                                    <option value="American Samoa">American Samoa</option>
+                                    <option value="Andorra, Principality of ">Andorra, Principality of </option>
+                                    <option value="Angola">Angola</option>
+                                    <option value="Anguilla ">Anguilla </option>
+                                    <option value="Antarctica">Antarctica</option>
+                                    <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                    <option value="Argentina ">Argentina </option>
+                                    <option value="Armenia">Armenia</option>
+                                    <option value="Aruba">Aruba</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Austria">Austria</option>
+                                    <option value="Azerbaijan">Azerbaijan</option>
+                                    <option value="Bahamas">Bahamas</option>
+                                    <option value="Bahrain">Bahrain</option>
+                                    <option value="Bangladesh">Bangladesh</option>
+                                    <option value="Barbados ">Barbados </option>
+                                    <option value="Belarus">Belarus</option>
+                                    <option value="Belgium ">Belgium </option>
+                                    <option value="Belize">Belize</option>
+                                    <option value="Benin">Benin</option>
+                                    <option value="Bermuda ">Bermuda </option>
+                                    <option value="Bhutan, Kingdom of">Bhutan, Kingdom of</option>
+                                    <option value="Bolivia ">Bolivia </option>
+                                    <option value="Bosnia and Herzegovina ">Bosnia and Herzegovina </option>
+                                    <option value="Botswana">Botswana</option>
+                                    <option value="Bouvet Island">Bouvet Island</option>
+                                    <option value="Brazil ">Brazil </option>
+                                    <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                    <option value="Brunei">Brunei</option>
+                                    <option value="Bulgaria ">Bulgaria </option>
+                                    <option value="Burkina Faso">Burkina Faso</option>
+                                    <option value="Burundi">Burundi</option>
+                                    <option value="Cambodia">Cambodia</option>
+                                    <option value="Cameroon">Cameroon</option>
+                                    <option value="Canada ">Canada </option>
+                                    <option value="Cape Verde ">Cape Verde </option>
+                                    <option value="Cayman Islands ">Cayman Islands </option>
+                                    <option value="Central African Republic ">Central African Republic </option>
+                                    <option value="Chad ">Chad </option>
+                                    <option value="Chile ">Chile </option>
+                                    <option value="China ">China </option>
+                                    <option value="Christmas Island ">Christmas Island </option>
+                                    <option value="Cocos (Keeling) Islands ">Cocos (Keeling) Islands </option>
+                                    <option value="Colombia ">Colombia </option>
+                                    <option value="Comoros">Comoros</option>
+                                    <option value="Congo">Congo</option>
+                                    <option value="Congo">Congo</option>
+                                    <option value="Cook Islands">Cook Islands</option>
+                                    <option value="Costa Rica ">Costa Rica </option>
+                                    <option value="Cote DIvoire">Cote DIvoire</option>
+                                    <option value="Croatia">Croatia</option>
+                                    <option value="Cuba ">Cuba </option>
+                                    <option value="Cyprus ">Cyprus </option>
+                                    <option value="Czech Republic">Czech Republic</option>
+                                    <option value="Czechoslavakia">Czechoslavakia</option>
+                                    <option value="Denmark ">Denmark </option>
+                                    <option value="Djibouti">Djibouti</option>
+                                    <option value="Dominica ">Dominica </option>
+                                    <option value="Dominican Republic ">Dominican Republic </option>
+                                    <option value="East Timor">East Timor</option>
+                                    <option value="Ecuador ">Ecuador </option>
+                                    <option value="Egypt">Egypt</option>
+                                    <option value="El Salvador ">El Salvador </option>
+                                    <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                    <option value="Eritrea">Eritrea</option>
+                                    <option value="Estonia">Estonia</option>
+                                    <option value="Ethiopia">Ethiopia</option>
+                                    <option value="Falkland Islands">Falkland Islands</option>
+                                    <option value="Faroe Islands ">Faroe Islands </option>
+                                    <option value="Fiji ">Fiji </option>
+                                    <option value="Finland ">Finland </option>
+                                    <option value="France ">France </option>
+                                    <option value="French Guiana">French Guiana</option>
+                                    <option value="French Polynesia">French Polynesia</option>
+                                    <option value="French Southern Territories and Antarctic Lands ">French Southern Territories and Antarctic Lands </option>
+                                    <option value="Gabon">Gabon</option>
+                                    <option value="Gambia, The ">Gambia, The </option>
+                                    <option value="Georgia">Georgia</option>
+                                    <option value="Germany ">Germany </option>
+                                    <option value="Ghana">Ghana</option>
+                                    <option value="Gibraltar ">Gibraltar </option>
+                                    <option value="Great Britain (United Kingdom) ">Great Britain (United Kingdom) </option>
+                                    <option value="Greece ">Greece </option>
+                                    <option value="Greenland ">Greenland </option>
+                                    <option value="Grenada ">Grenada </option>
+                                    <option value="Guadeloupe">Guadeloupe</option>
+                                    <option value="Guam">Guam</option>
+                                    <option value="Guatemala ">Guatemala </option>
+                                    <option value="Guinea">Guinea</option>
+                                    <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                    <option value="Guyana">Guyana</option>
+                                    <option value="Haiti ">Haiti </option>
+                                    <option value="Heard Island and McDonald Islands (Territory of Australia)">Heard Island and McDonald Islands (Territory of Australia)</option>
+                                    <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                    <option value="Honduras ">Honduras </option>
+                                    <option value="Hong Kong ">Hong Kong </option>
+                                    <option value="Hungary ">Hungary </option>
+                                    <option value="Iceland ">Iceland </option>
+                                    <option value="India">India</option>
+                                    <option value="Indonesia">Indonesia</option>
+                                    <option value="Iran">Iran</option>
+                                    <option value="Iraq ">Iraq </option>
+                                    <option value="Ireland">Ireland</option>
+                                    <option value="Israel ">Israel </option>
+                                    <option value="Italy ">Italy </option>
+                                    <option value="Jamaica ">Jamaica </option>
+                                    <option value="Japan ">Japan </option>
+                                    <option value="Jordan">Jordan</option>
+                                    <option value="Kazakstan or Kazakhstan">Kazakstan or Kazakhstan</option>
+                                    <option value="Kenya">Kenya</option>
+                                    <option value="Kiribati">Kiribati</option>
+                                    <option value="Korea, North">Korea, North</option>
+                                    <option value="Korea, South">Korea, South</option>
+                                    <option value="Kuwait ">Kuwait </option>
+                                    <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                    <option value="Lao Peoples Democratic Republic (Laos)">Lao Peoples Democratic Republic (Laos)</option>
+                                    <option value="Latvia">Latvia</option>
+                                    <option value="Lebanon ">Lebanon </option>
+                                    <option value="Lesotho">Lesotho</option>
+                                    <option value="Liberia ">Liberia </option>
+                                    <option value="Libya (Libyan Arab Jamahiriya)">Libya (Libyan Arab Jamahiriya)</option>
+                                    <option value="Liechtenstein ">Liechtenstein </option>
+                                    <option value="Lithuania">Lithuania</option>
+                                    <option value="Luxembourg ">Luxembourg </option>
+                                    <option value="Macau ">Macau </option>
+                                    <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                                    <option value="Madagascar">Madagascar</option>
+                                    <option value="Malawi">Malawi</option>
+                                    <option value="Malaysia ">Malaysia </option>
+                                    <option value="Maldives ">Maldives </option>
+                                    <option value="Mali">Mali</option>
+                                    <option value="Malta ">Malta </option>
+                                    <option value="Marshall Islands">Marshall Islands</option>
+                                    <option value="Martinique (French) ">Martinique (French) </option>
+                                    <option value="Mauritania ">Mauritania </option>
+                                    <option value="Mauritius ">Mauritius </option>
+                                    <option value="Mayotte">Mayotte</option>
+                                    <option value="Mexico ">Mexico </option>
+                                    <option value="Micronesia">Micronesia</option>
+                                    <option value="Moldova">Moldova</option>
+                                    <option value="Monaco">Monaco</option>
+                                    <option value="Mongolia">Mongolia</option>
+                                    <option value="Montserrat ">Montserrat </option>
+                                    <option value="Morocco ">Morocco </option>
+                                    <option value="Mozambique">Mozambique</option>
+                                    <option value="Myanmar">Myanmar</option>
+                                    <option value="Namibia">Namibia</option>
+                                    <option value="Nauru">Nauru</option>
+                                    <option value="Nepal ">Nepal </option>
+                                    <option value="Netherlands ">Netherlands </option>
+                                    <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                    <option value="New Caledonia ">New Caledonia </option>
+                                    <option value="New Zealand">New Zealand</option>
+                                    <option value="Nicaragua ">Nicaragua </option>
+                                    <option value="Niger ">Niger </option>
+                                    <option value="Nigeria ">Nigeria </option>
+                                    <option value="Niue">Niue</option>
+                                    <option value="Norfolk Island ">Norfolk Island </option>
+                                    <option value="Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)">Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)</option>
+                                    <option value="Norway ">Norway </option>
+                                    <option value="Oman, Sultanate of (Former Muscat and Oman)">Oman, Sultanate of (Former Muscat and Oman)</option>
+                                    <option value="Pakistan">Pakistan</option>
+                                    <option value="Palau">Palau</option>
+                                    <option value="Palestinian State">Palestinian State</option>
+                                    <option value="Panama ">Panama </option>
+                                    <option value="Papua New Guinea">Papua New Guinea</option>
+                                    <option value="Paraguay ">Paraguay </option>
+                                    <option value="Peru ">Peru </option>
+                                    <option value="Philippines ">Philippines </option>
+                                    <option value="Pitcairn Island">Pitcairn Island</option>
+                                    <option value="Poland ">Poland </option>
+                                    <option value="Portugal ">Portugal </option>
+                                    <option value="Puerto Rico ">Puerto Rico </option>
+                                    <option value="Qatar, State of ">Qatar, State of </option>
+                                    <option value="Reunion (French)">Reunion (French)</option>
+                                    <option value="Romania ">Romania </option>
+                                    <option value="Russia - USSR">Russia - USSR</option>
+                                    <option value="Russian Federation ">Russian Federation </option>
+                                    <option value="Rwanda (Rwandese Republic)">Rwanda (Rwandese Republic)</option>
+                                    <option value="Saint Helena ">Saint Helena </option>
+                                    <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                    <option value="Saint Lucia ">Saint Lucia </option>
+                                    <option value="Saint Pierre and Miquelon ">Saint Pierre and Miquelon </option>
+                                    <option value="Saint Vincent and the Grenadines ">Saint Vincent and the Grenadines </option>
+                                    <option value="Samoa">Samoa</option>
+                                    <option value="San Marino ">San Marino </option>
+                                    <option value="Sao Tome and Principe ">Sao Tome and Principe </option>
+                                    <option value="Saudi Arabia ">Saudi Arabia </option>
+                                    <option value="Senegal ">Senegal </option>
+                                    <option value="Serbia, Republic of">Serbia, Republic of</option>
+                                    <option value="Seychelles ">Seychelles </option>
+                                    <option value="Sierra Leone ">Sierra Leone </option>
+                                    <option value="Singapore ">Singapore </option>
+                                    <option value="Slovakia">Slovakia</option>
+                                    <option value="Slovenia ">Slovenia </option>
+                                    <option value="Solomon Islands">Solomon Islands</option>
+                                    <option value="Somalia">Somalia</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                    <option value="Spain ">Spain </option>
+                                    <option value="Sri Lanka (Former Serendib, Ceylon) ">Sri Lanka (Former Serendib, Ceylon) </option>
+                                    <option value="Sudan">Sudan</option>
+                                    <option value="Suriname">Suriname</option>
+                                    <option value="Svalbard (Spitzbergen) and Jan Mayen Islands ">Svalbard (Spitzbergen) and Jan Mayen Islands </option>
+                                    <option value="Swaziland">Swaziland</option>
+                                    <option value="Sweden ">Sweden </option>
+                                    <option value="Switzerland ">Switzerland </option>
+                                    <option value="Syria (Syrian Arab Republic)">Syria (Syrian Arab Republic)</option>
+                                    <option value="Taiwan">Taiwan</option>
+                                    <option value="Tajikistan">Tajikistan</option>
+                                    <option value="Tanzania">Tanzania</option>
+                                    <option value="Thailand">Thailand</option>
+                                    <option value="Togo">Togo</option>
+                                    <option value="Tokelau ">Tokelau </option>
+                                    <option value="Tonga">Tonga</option>
+                                    <option value="Trinidad and Tobago ">Trinidad and Tobago </option>
+                                    <option value="Tromelin Island ">Tromelin Island </option>
+                                    <option value="Tunisia ">Tunisia </option>
+                                    <option value="Turkey ">Turkey </option>
+                                    <option value="Turkmenistan">Turkmenistan</option>
+                                    <option value="Turks and Caicos Islands ">Turks and Caicos Islands </option>
+                                    <option value="Tuvalu">Tuvalu</option>
+                                    <option value="Uganda">Uganda</option>
+                                    <option value="Ukraine">Ukraine</option>
+                                    <option value="United Arab Emirates">United Arab Emirates</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States ">United States </option>
+                                    <option value="United States Minor Outlying Islands ">United States Minor Outlying Islands </option>
+                                    <option value="Uruguay">Uruguay</option>
+                                    <option value="Uzbekistan">Uzbekistan</option>
+                                    <option value="Vanuatu">Vanuatu</option>
+                                    <option value="Vatican City State (Holy See)">Vatican City State (Holy See)</option>
+                                    <option value="Venezuela ">Venezuela </option>
+                                    <option value="Vietnam ">Vietnam </option>
+                                    <option value="Virgin Islands">Virgin Islands</option>
+                                    <option value="Virgin Islands, British ">Virgin Islands, British </option>
+                                    <option value="Wallis and Futuna Islands ">Wallis and Futuna Islands </option>
+                                    <option value="Western Sahara">Western Sahara</option>
+                                    <option value="Yemen ">Yemen </option>
+                                    <option value="Yugoslavia ">Yugoslavia </option>
+                                    <option value="Zaire">Zaire</option>
+                                    <option value="Zambia">Zambia</option>
+                                    <option value="Zimbabwe">Zimbabwe</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text">
+                                <input name="pinBasedOnCin" class="form-control" id="pinBasedOnCIN" value="" required="required">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold" style="margin-left: -10px;">
+                            Area / Locality
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            City
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            District
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                            <div class="input text mt-3">
+                                <select name="areaBasedOnCin" id="areaBasedOnCIN" class="form-select" required="required">
+                                    <option value="">Select Locality</option>
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+                            <div class="input text mt-3">
+                                <input name="cityBasedOnCin" class="form-control" id="cityBasedOnCIN" value="" required="required">
+                            </div>
+
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                            <div class="input text mt-3">
+                                <input name="districtBasedOnCin" class="form-control" id="districtBasedOnCIN" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            State
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Email ID
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Jurisdiction of Police Station
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                            <div class="input text">
+                                <input name="stateBasedOnCin" class="form-control" id="stateBasedOnCIN" value="" required="required">
+                            </div>
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3 " style="margin-left: -10px;">
+                            <input type="email" class="form-control" id="emailIdBasedOnCIN" name="companyEmail" value="" required="required">
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4  mt-3" style="margin-left: -10px;">
+                            <input type="text" class="form-control" name="jurisdictionPoliceStation2" id="jurisdictionPoliceStation" value="" required="required">
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            BSR Code / Branch Code
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold mt-3" style="margin-left: -10px;">
+                            Whether Chargeholder has a valid PAN
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold panNo mt-3" style="margin-left: -10px;">
+                            Income tax PAN
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-8 col-md-4 mt-3" style="margin-left: -10px;">
+                            <input type="text" name="brsCode" class="form-control" id="brsCode" value="">
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-4 mt-3" style="margin-left: -10px;">
+                            <label>
+                                <input type="radio" name="whetherChargeHolderHavingPan" class="whetherChargeHolderHavingPAN" id="whetherChargeHolderHavingPANY" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;
+                            </label>
+                            <label><input type="radio" name="whetherChargeHolderHavingPan" class="whetherChargeHolderHavingPAN" id="whetherChargeHolderHavingPANN" value="N">&nbsp; No</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 panNo mt-3" style="margin-left: -10px; ">
+                            <input type="text" name="panno" id="panNo" class="form-control" value="" required="required">
+                        </div>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Details of charge</label>
+                <div class="row nature mt-3" style="">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                        9. Nature or description of instrument(s) creating or modifying the charge
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3">
+                        <input type="text" name="natureOfInstrument" class="form-control" id="natureOfInstrument" value="" required="required">
+                    </div>
+
+                </div>
+
+                <div class="row instrumentdate mt-3" style="">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                        10. (a) Date of the instrument creating the charge (DD/MM/YYYY)
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3">
+                        <input type="date" name="dateOfInstrumentCreate" class="form-control datepicker hasDatepicker" placeholder="" id="dateOfInstrumentcreate" value="" >
+                    </div>
+
+                </div>
+
+                <div class="row modifyingdate mt-3" style="">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                        10. (b) Date of the instrument modifying the charge (DD/MM/YYYY)
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3">
+                        <input type="date" name="dateOfInstrumentModify" class="form-control datepicker hasDatepicker" placeholder="" id="dateOfInstrumentmodify" value="" required="required">
+                    </div>
+                </div>
+
+                <div class="row satisfactiondate mt-3" style="">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                        10. (c) Date of satisfaction of charge in full (DD/MM/YYYY)
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3">
+                        <input type="date" name="dateOfSatisfactionFull" class="form-control datepicker hasDatepicker" placeholder="" id="dateOfSatisfactionFull" value="" >
+                    </div>
+                </div>
+                <div class="row mt-3" id="chargeoutside" style="height: auto; ">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3" style="height: 70px;">
+                        11. (a) Whether charge created or modified outside India
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-2 form-row mt-3" style="height: 70px;">
+                        &nbsp; &nbsp;
+                        <label>
+                            <input type="radio" name="chargeModifiedIndia" class="whetherChargecreatedoutsideIndia" id="" value="Y">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+                        <label>    <input type="radio" name="chargeModifiedIndia" class="whetherChargecreatedoutsideIndia" id="" value="N">&nbsp; No</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-4 form-row bold receiptdate mt-3" style="height: 70px; ">
+                        (b) In case charge created or modified outside India on the property situated outside India, the date of receipt of the documents in India
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-2 form-row receiptdate mt-3" style="height: 70px; ">
+                        <input type="date" name="dateOfRecieptDocumentsInIndia" class="form-control datepicker hasDatepicker" placeholder="" id="dateOfRecieptDocumentsInIndia" value="" style="height: 55px;"  required="required">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 form-row bold mt-3">
+                        12. (a) Maximum amount secured by the charge (In case the amount is in foreign currency,rupee equivalent to be stated) (in Rs.).
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="maximumAmountSecuredCharge" class="form-control" id="maximumAmountsecuredcharge" value="" required="">
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <small style="color:red;font-size: 14px; margin-left: 7px;">*(In case of modification of charge, enter the amount secured by the charge after such modification)</small>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-4 col-sm-4 col-md-4 form-row bold mt-3">
+                        (b) Maximum Amount secured by the charge in words
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="text" name="maximumAmountSecuredChargeWords" class="form-control" id="maximumAmountsecuredchargewords" value="" readonly="">
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 form-row bold mt-3">
+                        (c) In case amount secured by the charge is in foreign currency, mention details
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row mt-3">
+                        <input type="text" name="foreignCurrencydetails" class="form-control" id="foreignCurrencydetails" value="">
+                    </div>
+                </div>
+                <div id="satisfactioncharge" style="">
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 5px -14px 10px;text-transform: uppercase;" class="mt-3">13.Brief of the principal terms and conditions, extent and operation of charge</label>
+
+
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-9 col-md-9 bold form-row mt-3">
+                            (a) Date of Creating Security Interest by actual/ constructive deposit of title deeds within bank/ housing finance company
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                            <input type="date" name="dateOfCreating" id="dateOfCreating" class="datepicker form-control hasDatepicker" placeholder="" value="" >
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (b) Borrower’s customer/account number
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="borrowerAccountNumber" class="form-control" id="borrowerAccountNumber" value="">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (c) Rate of interest
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="rateOfInterest" class="form-control operationextent" id="rateOfInterest" value="" required="required">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (d) Repayment term (in months)
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="number" name="repaymentTerm" class="form-control operationextent" id="repaymentTerm" value="" required="required">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (e) Terms of Repayment
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="termsOfRepayment" class="form-control operationextent" id="TermsOfRepayment" value="" required="required">
+                        </div>
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (f) Nature of facility
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="natureOfFacility" class="form-control" id="natureOfFacility" value="">
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                            (g) Date of Disbursement (DD/MM/YYYY)
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-3 form-row mt-3">
+                            <input type="date" name="dateOfDisbursement" id="dateOfDisbursement" class="datepicker form-control hasDatepicker" placeholder="" value="" >
+                        </div>
+
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (h) Miscellaneous narrative information
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="miscellaneousNarrativeInformation" class="form-control" id="miscellaneousNarrativeInformation" value="">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (i) Margin
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="margin" class="form-control operationextent" id="margin" value="" maxlength="1000" pattern="^[A-Za-z0-9 ]+$" title="Only alphanumeric characters and spaces are allowed." required="required">
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (j) Extent and operation of the charge
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="extentOperationCharge" class="form-control operationextent" id="extentOperationCharge" value="" required="required">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (k) Others
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <input type="text" name="others1" class="form-control" id="others1" value="">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="showcreationmodification" style="">
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 5px -14px 10px;text-transform: uppercase;" class="mt-3">Asset Details</label><br>
+
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 5px -14px 10px;" class="mt-3">14. In case of acquisition of property, subjected to charge, furnish the details relating to the existing charge on the property so acquired</label>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -12px;">
+
+                            <span style="font-weight: bold;">(a)  Date of instrument creating or evidencing the charge</span>
+
+                            <input type="date" class="datepicker form-control hasDatepicker" name="dateOfInstrument" id="dateOfInstrument" value="" placeholder="" >
+                        </div>
+
+                        <div class="col-xs-12 col-sm-5 col-md-5 mt-3" style="margin-left: -12px;">
+
+                            <span style="font-weight: bold;">(b)  Description of the instrument creating or evidencing the charge</span>
+
+                            <input type="text" id="descriptionOfInstrument" class="form-control" name="descriptionOfInstrument" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3" style="margin-left: -6px;">
+
+                            <span style="font-weight: bold;">(c)  Date of acquisition of the property</span>
+
+                            <input type="date" id="dp1739441381767" class="datepicker form-control dateOfAcquisition hasDatepicker"  name="dateOfAcquisition" value="">
+
+                        </div>
+
+                    </div>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3" style="margin-left: -10px;">
+
+                            <span style="font-weight: bold;">(d) Charge ID</span>
+
+                            <input type="text" class="form-control " id="chargeId" name="chargeId" value="" >
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 " style="margin-left: -10px;">
+
+                            <span style="font-weight: bold;">(e) Amount of the charge (in INR)</span>
+
+                            <input type="text" class="form-control " id="AmountCharge" name="amountCharge" value="" >
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-5 col-md-5 mt-3 " style="margin-left: -10px;">
+
+                            <span style="font-weight: bold;">(f) Particulars of the property charge</span>
+
+                            <input type="text" class="form-control" id="particularsOfProperty" name="particularsOfProperty" value="" >
+
+                        </div>
+                    </div>
+
+                    <label style="font-weight: bolder; text-decoration: underline; margin: 5px -14px 10px;" class="mt-3">15. (a) Short particulars of the property or asset(s) charged (including complete address and location of the property)</label>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 " style="margin-left: -12px;">
+                            <input type="text" name="shortParticulars" class="form-control" id="shortParticulars" style="width: 100%;height: 40px;" value="" required="required">
+                        </div>
+                    </div>
+                </div>
+                <div class="showimmovable" style="">
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                            (b) Plot unit / Dwelling interest
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            &nbsp; &nbsp; &nbsp;
+                            <label>
+                                <input type="radio" value="Plot" name="whetherPlotOrDwellingInterest" id="plotInterest" class="c"> Plot &nbsp; &nbsp; &nbsp; &nbsp;
+                            </label>
+                            <label>       <input type="radio" value="Dwelling Interest" name="whetherPlotOrDwellingInterest" id="DwellingInterest" class="whetherPlotOrDwellinginterest">&nbsp; Dwelling Interest</label>
+
+                        </div>
+
+
+                    </div>
+
+                    <label style="font-weight: bolder; text-decoration: underline; margin-left: -12px; text-transform: uppercase;" class="plotInterest mt-3">(i) Details of plot unit</label>
+                    <label style="font-weight: bolder; text-decoration: underline; margin-left: -12px; text-transform: uppercase; " class="DwellingInterest mt-3">(ii) Details of Dwelling interest</label>
+                    <br><br>
+
+                    <div class="row form-row mt-3" style="height: 87px">
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+
+                            <span style="font-weight: bold;"> Evaluated Price of Asset as on Security interest Creation date (in INR)</span>
+
+                            <input type="text" class="form-control" id="plotUnitEvaluatedPrice" name="plotUnitEvaluatedPrice" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+
+                            <span style="font-weight: bold;"> Nature of property </span><br><br>
+
+                            <input type="text" class="form-control" id="plotUnitNatureOfProperty" name="plotUnitNatureOfProperty" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 ">
+
+                            <span style="font-weight: bold;"> Plot ID Number </span><br><br>
+
+                            <input type="text" class="form-control notspecialchars" id="plotUnitPlotIdNumber" name="plotUnitPlotIdNumber" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 ">
+
+                            <span style="font-weight: bold;"> Survey No. / GAT No. Etc.</span> <br><br>
+
+                            <input type="text" class="form-control notspecialchars" id="plotUnitSurveyNumberOrGatNumber" name="plotUnitSurveyNumberOrGatNumber" value="">
+
+                        </div>
+
+
+                    </div>
+                    <div class="row DwellingInterest form-row mt-3" style="height: 73px;">
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3 ">
+                            <span style="font-weight: bold;">  Dwelling Unit ID Number</span>
+
+                            <input type="text" style=" margin-left: -1px;" class="form-control" id="dwellingInterestDwellingUnitId" name="dwellingInterestDwellingUnitId" value="">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+
+                            <span style="font-weight: bold;">  Floor No. </span>
+
+                            <input type="text" class="form-control" id="dwellingInterestFloorNumber" name="dwellingInterestFloorNumber" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+
+                            <span style="font-weight: bold;"> Building Name &amp; Society Name</span>
+
+                            <input type="text" class="form-control" id="dwellingInterestBuildingNameAndSocietyName" name="nameOfBuildingSociety" value="">
+
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="row form-row mt-3" style="height: 73px">
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 ">
+
+                            <span style="font-weight: bold;">  Street number &amp; name</span>
+
+                            <input type="text" class="form-control notspecialchars" id="StreetNumberAndName" name="streetNumberAndName" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 ">
+                            <span style="font-weight: bold;"> Sector /Block Number</span>
+
+                            <input type="text" class="form-control notspecialchars" id="SectorBlockNumber" name="sectorBlockNumber" value="">
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3 ">
+                            <span style="font-weight: bold;"> Pin code</span>
+
+                            <input type="text" class="form-control" id="PinCode" name="pinCode" value="">
+
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;"> Landmark</span>
+
+                            <input type="text" class="form-control" id="landmark" name="landmark" value="">
+
+                        </div>
+                    </div>
+
+                    <div class="row form-row mt-3" style="height: 73px">
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;"> Village/Town</span>
+
+                            <input type="text" class="form-control" id="village" name="village" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;">Taluka</span>
+
+                            <input type="text" class="form-control" id="taluka" name="taluka" value="">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;"> Locality</span>
+                            <select name="areaLocality" id="areaLocality" class="form-select">
+                                <option>Select Locality</option>
+
+                            </select>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;"> District</span>
+
+                            <input type="text" class="form-control" id="district" name="district" value="">
+
+                        </div>
+                    </div>
+
+                    <div class="row form-row mt-3" style="height: 87px">
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 ">
+                            <span style="font-weight: bold;">  State</span><br><br>
+
+                            <input type="text" class="form-control" id="state" name="state" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;">Latitude</span><br><br>
+
+                            <input type="number" class="form-control num" id="latitude" name="latitude" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                            <span style="font-weight: bold;"> Longitude</span><br><br>
+
+                            <input type="number" class="form-control num" id="longitude" name="longitude" value="" >
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 plotArea mt-3">
+                            <span style="font-weight: bold;"> Area of plot (Sq. feet, Sq. meter, Acre, Gunta, Cents, Hectares)</span><br>
+
+                            <input type="text" class="form-control notspecialchars" id="plotArea" name="plotArea" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 dwellingarea mt-3" style="">
+                            <span style="font-weight: bold;" class="mt-5">Area of dwelling (Sq. feet, Sq. Meter)</span><br><br>
+
+                            <input type="text" class="form-control notspecialchars" id="dwellingarea" name="dwellingArea" value="">
+
+                        </div>
+
+                    </div>
+
+                    <label style="font-weight: bolder;  text-decoration: underline; margin-left: -12px; " class="mt-3 mb-2">Bounded by</label><br>
+
+                    <div class="row form-row mt-3" style="height: 73px">
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3" style="background:white;">
+                            <span style="font-weight: bold;"> By North</span>
+
+                            <input type="text" style="margin-left: -1px;" class="form-control notspecialchars" id="BoundedByNorth" name="boundedByNorth" value="">
+
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+
+                            <span style="font-weight: bold;"> By South</span>
+
+                            <input type="text" class="form-control notspecialchars" id="BoundedBySouth" name="boundedBySouth" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+
+                            <span style="font-weight: bold;">By East</span>
+
+                            <input type="text" class="form-control notspecialchars" id="BoundedByEast" name="boundedByEast" value="">
+
+                        </div>
+
+                        <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+
+                            <span style="font-weight: bold;">By West</span>
+
+                            <input type="text" class="form-control notspecialchars" id="BoundedByWest" name="boundedByWest" value="">
+
+                        </div>
+                    </div><br>
+                </div>
+
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3">
+                        16. (a) Whether any of the property or interest therein under reference is not registered in the name of the LLP
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp;
+                        <label>
+                            <input type="radio" name="whetherPropertyOrInterestRegister" class="whetherPropertyOrInterestRegister" value="Y" required="">&nbsp; Yes &nbsp; &nbsp; &nbsp;</label>
+
+                        <label>     <input type="radio" name="whetherPropertyOrInterestRegister" class="whetherPropertyOrInterestRegister" value="N" required="">&nbsp; No</label>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold whetherPropertyOrInterestRegister1 mt-3" style="">
+                        (c) PAN of the Individual in whose name property or interest therein is registered (if applicable)
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row  mt-3" style="">
+                        <input type="text" name="registerPanNo" class="form-control" id="registerPanNo" value="" required="required">
+
+                    </div>
+                </div>
+
+                <div class="row whetherPropertyOrInterestRegister1 mt-3" style="height: auto; ">
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3" style="height: 70px;">
+                        (b) CIN / LLPIN / FLLPIN of the company/ LLP/ FLLP in whose name property or interest therein is registered (if applicable)
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row mt-3" style="height: 70px;">
+                        <input type="text" name="llpidOfCompany" class="form-control" id="llpid" value="" style="height: 55px;" required="required">
+
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row bold mt-3" style="height: 70px;">
+                        (d) If yes, in whose name it is registered
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row mt-3" style="height: 70px;">
+                        <input type="text" name="inWhoseNameItIsRegistered" class="form-control" id="inWhoseNameItIsRegistered" value="" readonly="" style="height: 55px;">
+
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <small style="color:red;font-size: 14px; margin-left: 7px;">Note: If more than one charge holder involved, details of extent of charge, particulars of property charged, amount secured to be provided in attachment.</small>
+
+                </div>
+
+                <div id="dateparticulars" style="">
+                    <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Other Details</label>
+
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-4 form-row bold mt-3">
+                            17. Date of creation/ last modification prior to the present modification
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-2 form-row mt-3">
+                            <input type="date" name="dateOfCreationModification" class="form-control datepicker hasDatepicker" placeholder="" id="dateOfCreationModification" value="" >
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-4 form-row bold mt-3">
+                            18. Particulars of present modification
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-2 form-row mt-3">
+                            <input type="text" name="particularsOfPresentModification2" class="form-control" id="particularsOfPresentModification2" value="">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+
+    </div>
+
+
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm2">
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="desineted_partner">To be digitally signed by Designated partner or Authorized representative</label>
+                <div class="row desineted_partner">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">Designated Partner</span>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-3">
+                        <select name="partnerDin" id="partner_DIN" style="width: 100%;" class="form-select">
+                            <option value="">Select Designated Partner</option>
+                            <option value="07727600">Imran Faruk Memon</option>
+                            <option value="07356321">Vatsal  Thirani</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <span style="font-weight: bold;">DPIN / Income-tax PAN</span>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="incomeTaxPan" id="" value="">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Verification</label>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;"> I/ we confirm that the attached charge instrument(s) or document(s) is/ are true copies of the original which is/are available with the charge holder and all the information and particulars mentioned above are derived there from are concisely correctly stated.</p>
+                        <p style="text-align: justify;"> I/ we am/ are duly authorized to sign this form. </p>
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">To be digitally signed by</label>
+
+                <div class="row mt-3">
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row bold mt-3">
+                        Designation Charge holder
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" id="designationOfChargeHolder" name="designationOfChargeHolder" value="" required="">
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row bold arcorassignee mt-3" style="">
+                        Designation ARC or Assignee
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 form-row arcorassignee" style="">
+                        <input type="text" class="form-control" id="" name="designationOfArcAssignee" value=""><input type="hidden" name="arcOrAssigneeDSC" id="arcOrAssigneeDSC" value="DIN3">
+                    </div>
+                </div>
+
+                <label style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; margin: 7px -10px 10px;" class="mt-3">Certificate</label>
+
+                <div class="row mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="padding: 10px;height: auto;">
+                        It is hereby certified that I have verified the above certified (including attachment(s)) from the records of &nbsp; <input type="text" class="" name="certifiedBy" id="llpFllpName" value="BANDRA HOSPITALITY LLP" readonly=""> &nbsp; and found them to be true and correct. I further certify that all required attachment(s) have been completely attached to this form.
+
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-8 form-row mt-3">
+                        <span style="font-weight: bold;">Category (in whole time practice)</span> &nbsp; &nbsp; &nbsp; &nbsp;
+                        <label>     <input type="radio" name="category1" value="Chartered Accountant in whole time practice" required="">&nbsp; Chartered Accountant &nbsp; &nbsp; &nbsp;</label>
+                            <label>
+                                <input type="radio" name="category1" value="Company Secretary in whole time practice">&nbsp; Company Secretary &nbsp; &nbsp; &nbsp;
+                            </label>
+                                <label>    <input type="radio" name="category1" value="Cost Accountant in whole time practice">&nbsp; Cost Accountant</label>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 bold form-row nameofpcs mt-3">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 form-row nameofpcs mt-3" style="display: block;">
+                        <select name="nameOfPcs" id="nameofpcs" style="width: 100%;" class="form-select">
+                            <option value="">Select PCS</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                            <option value="439">Pooja Gandhi (Practicing Company Secretary)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-3 bold form-row mt-3">Whether associate or fellow :</div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row mt-3">
+                        &nbsp; &nbsp; &nbsp;  <label><input type="radio" name="professionalType" value="Associate">&nbsp; &nbsp; Associate &nbsp; &nbsp; &nbsp;</label>
+                        <label><input type="radio" name="professionalType" value="Fellow">&nbsp; Fellow</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">
+                        Membership number or certificate of practice number
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-3 form-row mt-3">
+                        <input type="text" class="form-control" name="certificateMembershipPractice" id="certificateOfPracticeNumber" value="">
+                    </div>
+                </div>
+
+                         </form>
+        </div>
+    </div>
+
+
+   
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:20px;">
+            <form action="" role="form" method="post" enctype="multipart/form-data" id="fupForm5">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        19. (a) Instrument of creation and modification
+                    </div>
+                
+
+                </div>
+                <div id="equity4" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="mt-3 col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="instrumentFile" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+                          <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        (b) Instrument evidencing creation or modification of charge in case of acquisation of property which is already subject to charge
+
+                    </div>
+                 
+
+                </div>
+                <div id="equity4" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="mt-3 col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="evidenceFile" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-1 col-md-1 bold form-row mt-3" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 bold form-row mt-3">
+                        (d) Optional attachment(s)- if any
+                    </div>
+                    <div class="col-xs-12 col-sm-1 col-md-1 form-row mt-3" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn btn-primary" style="padding:4px 6px !important;"><i class="fa fa-plus" style="margin:0px 0px 0px 0px !important;"></i></button>
+                    </div>
+
+                </div>
+                <div id="equity4" class="mt-3">
+                    <input type="hidden" name="l" id="l" value="1">
+
+                    <div class="row mt-3" id="rowq1">
+                        <div class="mt-3 col-xs-12 col-sm-1 col-md-1 form-row" align="center">
+                            1.
+                        </div>
+                        <div class="col-xs-12 col-sm-11 col-md-11 form-row mt-3">
+                            <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            // part-1
+
+            purpose: "",
+            jurisdictionPoliceStation:"",
+            formPurpose:"",
+            chargeIdentificationNo:"",
+            whetherChargeIsModified:"",
+            whetherChargeHolderIsAuthorized:"",
+            chargeType:false,
+            otherDescOfCharge:"",
+            whetherConsortiumFinanceisInvolved:"",
+            bankerName:"",
+            whetherJointChargeInvolved:"",
+            noOfChargeHolders:"",
+            whetherChargerRankPariPassu:"",
+            category:"",
+            others:"",
+            nameOfChargeHolder:"",
+            cinArcAssignee:"",
+            nameBasedOnCin:"",
+            address1BasedOnCin:"",
+            address2BasedOnCin:"",
+            countryBasedOnCin:"",
+            pinBasedOnCin:"",
+            areaBasedOnCin:"",
+            cityBasedOnCin:"",
+            districtBasedOnCin:"",
+            stateBasedOnCin:"",
+            emailIdBasedOnCIN:"",
+            jurisdictionPoliceStation2:"",
+            brsCode:"",
+            whetherChargeHolderHavingPan:"",
+            panno:"",
+            natureOfInstrument:"",
+            dateOfInstrumentCreate:"",
+            dateOfInstrumentModify:"",
+            dateOfSatisfactionFull:"",
+            chargeModifiedIndia:"",
+            dateOfRecieptDocumentsInIndia:"",
+            maximumAmountSecuredCharge:"",
+            maximumAmountSecuredChargeWords:"",
+            foreignCurrencydetails:"",
+            dateOfCreating:"",
+            borrowerAccountNumber:"",
+            rateOfInterest:"",
+            repaymentTerm:"",
+            termsOfRepayment:"",
+            natureOfFacility:"",
+            dateOfDisbursement:"",
+            miscellaneousNarrativeInformation:"",
+            margin:"",
+            extentOperationCharge:"",
+            others1:"",
+            dateOfInstrument:"",
+            dateOfAcquisition:"",
+            chargeId:"",
+            amountCharge:"",
+            particularsOfProperty:"",
+            shortParticulars:"",
+            whetherPlotOrDwellingInterest:"",
+            plotUnitEvaluatedPrice:"",
+            plotUnitNatureOfProperty:"",
+            plotUnitPlotIdNumber:"",
+            plotUnitSurveyNumberOrGatNumber:"",
+            dwellingInterestDwellingUnitId:"",
+            dwellingInterestFloorNumber:"",
+            nameOfBuildingSociety:"",
+            streetNumberAndName:"",
+            sectorBlockNumber:"",
+            pinCode:"",
+            landmark:"",
+            village:"",
+            taluka:"",
+            areaLocality:"",
+            district:"",
+            state:"",
+            latitude:0,
+            longitude:0,
+            plotArea:"",
+            dwellingArea:"",
+            boundedByNorth:"",
+            boundedBySouth:"",
+            boundedByEast:"",
+            boundedByWest:"",
+            whetherPropertyOrInterestRegister: "",
+            registerPanNo:"",
+            llpidOfCompany:"",
+            inWhoseNameItIsRegistered:"",
+            dateOfCreationModification: "",
+            particularsOfPresentModification2:"",
+
+            // part-2
+            partnerDin:"",
+            incomeTaxPan:"",
+            designationOfChargeHolder:"",
+            designationOfArcAssignee:"",
+            certifiedBy:"",
+            category1:"",
+            nameOfPcs:"",
+            professionalType:"",
+            certificateMembershipPractice:"",
+
+            // part-3
+            instrumentFile:"",
+            evidenceFile:"",
+            optionalAttachment:"",
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $("#part4").hide();
+            $("#part5").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+                $("#part5").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

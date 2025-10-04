@@ -1,0 +1,433 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@R.AppName Admin">
+    <meta name="keywords" content="admin,dashboard">
+    <meta name="author" content="stacks">
+    <title>@R.AppName - Login</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/assets/plugins/perfectscroll/perfect-scrollbar.css" rel="stylesheet">
+    <link href="~/assets/plugins/pace/pace.css" rel="stylesheet">
+    <link href="~/assets/css/main.min.css" rel="stylesheet">
+    <link href="~/assets/css/custom.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/logos/logo_sq_2.png" />
+    <link rel="icon" href="~/img/favicon.png" />
+    <link rel="shortcut icon" href="~/img/favicon.png" />
+    <link rel="apple-touch-icon" href="~/img/favicon.png" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
+    <link rel="stylesheet" href="~/assets/plugins/toastr/toastr.min.css" />
+
+    <!-- Javascripts -->
+    <script src="~/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/assets/plugins/perfectscroll/perfect-scrollbar.min.js"></script>
+    <script src="~/assets/plugins/pace/pace.min.js"></script>
+    <script src="~/assets/js/main.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/plugins/toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script>
+        localStorage.setItem('authToken', '');
+        localStorage.setItem('CCUser', '');
+        $.removeCookie("ComplyCrafterBrowserId", { path: '/' });
+        $.removeCookie("ComplyCrafterSessionId", { path: '/' });
+    </script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e5ebfa, white) !important;
+        }
+
+        .auth-alts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .pin-wrapper .pin-input {
+            width: 45px;
+            height: 45px;
+            text-align: center;
+            font-size: 20px;
+            padding: 0;
+            line-height: 45px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: all 0.2s ease-in-out;
+        }
+
+            .pin-wrapper .pin-input:focus {
+                border-color: #3f51b5;
+                box-shadow: 0 0 0 2px rgba(63, 81, 181, 0.2);
+                outline: none;
+            }
+
+        .pin-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            border-top: 1px solid #e0e0e0;
+            margin: 1.5rem 0;
+        }
+
+        .auth-credentials {
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="app app-auth-sign-in align-content-stretch d-flex flex-wrap justify-content-end">
+        <div class="app-auth-background">
+        </div>
+        <div class="app-auth-container">
+            <div class="logo">
+                <a>@R.AppName</a>
+            </div>
+            <p class="auth-description">
+                Please sign-in to your account and continue to the dashboard.
+                <br>Don't have an account? <a href="@Url.Action("Signup", "Home")">Sign Up</a>
+                @* <br>For customer login, <a href="@Url.Action("CustomerLogin", "Home")">Click Here</a> *@
+            </p>
+
+            <div class="auth-credentials m-b-xxl">
+                <label for="signInEmail" class="form-label">Email address</label>
+                <input type="email" class="form-control m-b-md" name="email" aria-describedby="signInEmail" placeholder="the-best-ca@gmail.com">
+
+
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+                <a href="#" class="auth-forgot-password text-start d-block mb-3 mt-3 ms-1" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" style="font-size: 0.9rem;">Forgot password?</a>
+
+                <div class="text-center my-3" style="font-weight: 500; color: #888;">OR</div>
+
+
+
+                <label class="form-label d-flex justify-content-center">CC Pin</label>
+                <div class="d-flex justify-content-center gap-2 pin-wrapper">
+                    <input type="text" class="form-control pin-input text-center" maxlength="1" inputmode="numeric">
+                    <input type="text" class="form-control pin-input text-center" maxlength="1" inputmode="numeric">
+                    <input type="text" class="form-control pin-input text-center" maxlength="1" inputmode="numeric">
+                    <input type="text" class="form-control pin-input text-center" maxlength="1" inputmode="numeric">
+                </div>
+                <a href="#" class="auth-forgot-password d-flex justify-content-center d-block mb-3 ms-1" style="font-size: 0.9rem;" data-bs-toggle="modal" data-bs-target="#forgotCCPinModal">Forgot CC Pin?</a>
+
+            </div>
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary w-100" id="btnLogin">Sign In</button>
+                </div>
+                @*  <div class="col-6 text-start">
+                    <a href="@Url.Action("Signup", "Home")" class="btn btn-outline-primary w-75">Sign Up</a>
+                </div> *@
+            </div>
+
+            <div class="divider"></div>
+            <div class="auth-alts">
+                <a href="@Url.Action("GoogleSignIn", "Home")" class="btn btn-outline-danger d-flex align-items-center justify-content-center gap-2 w-75" style="height: 45px;">
+                    <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google" style="width: 20px; height: 20px;">
+                    <span>Sign in with Google</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="forgotPasswordModalLabel">Forgot your password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <p>please enter registered email address or contact support</p>
+                    <form id="forgotPasswordForm">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="resetEmail" placeholder="Enter email address" required>
+                            <div class="invalid-feedback">Email is required</div>
+                        </div>
+                        <a href="#" class="btn btn-primary w-100" id="btnPasswordReset">Request reset link</a>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <a href="#" data-bs-dismiss="modal">Back to Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="forgotCCPinModal" tabindex="-1" aria-labelledby="forgotCCPinModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content p-4">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="forgotCCPinModalLabel">Forgot your CC Pin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0">
+                    <p>Please enter your registered email address or contact support</p>
+                    <form id="forgotCCPinForm">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="resetCCPinEmail" placeholder="Enter email address" required>
+                            <div class="invalid-feedback">Email is required</div>
+                        </div>
+                        <a href="#" class="btn btn-primary w-100" id="btnCCPINReset">Request CC Pin reset</a>
+                    </form>
+                    <div class="mt-3 text-center">
+                        <a href="#" data-bs-dismiss="modal">Back to Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+
+        if('@ViewBag.Message')
+        {
+            toastr.error('@ViewBag.Message');
+            setTimeout(function(){
+                window.location = '@Url.Action("SignUp", "Home")';
+            },2000);
+        }
+        $('#btnPasswordReset').on('click', function (e) {
+            e.preventDefault();
+            const email = $('#resetEmail').val();
+            if (!email) {
+                $('#resetEmail').addClass('is-invalid');
+                return;
+            } else {
+                $('#resetEmail').removeClass('is-invalid');
+                $('#btnPasswordReset').hide();
+                SendResetEmail($('#resetEmail').val(), 'resetpassword');
+            }
+        });
+        $('#btnCCPINReset').on('click', function (e) {
+            e.preventDefault();
+            const email = $('#resetCCPinEmail').val();
+            if (!email) {
+                $('#resetCCPinEmail').addClass('is-invalid');
+                return;
+            } else {
+                $('#resetCCPinEmail').removeClass('is-invalid');
+                $('#btnCCPINReset').hide();
+                SendResetEmail($('#resetCCPinEmail').val(), 'resetccpin');
+            }
+        });
+
+        function SendResetEmail(emailid, emailType)
+        {
+            $.ajax({
+                url: '@R.ApiUrl/Email/SendEmail',
+                data: {'Email':emailid, 'EmailType':emailType},
+                contentType: 'application/json',
+                type: 'GET',
+                success: data => {
+                    toastr.success(data.message);
+                    $('#forgotCCPinModal').modal('hide');
+                    $('#forgotPasswordModal').modal('hide');
+                    $('#btnPasswordReset').show();
+                    $('#btnCCPINReset').show();
+                    $('#resetEmail').val('');
+                    $('#resetCCPinEmail').val('');
+                }
+            });
+        }
+
+        $('.pin-input').on('keydown', function (event) {
+            let keyStrokeAllowed = ['Backspace', 'ArrowRight', 'ArrowLeft'];
+            if ((isNaN(event.key) || event.key == ' ') && !keyStrokeAllowed.includes(event.key)) event.preventDefault();
+            if ((this.value.length === 0 && event.key == 'Backspace') || event.key == 'ArrowLeft') $(this).prev('.pin-input').focus(); this.setSelectionRange(1, 1);
+            if (event.key == 'ArrowRight') $(this).next('.pin-input').focus();
+        });
+
+        $.fn.validate = function (valid, errorMsg) {
+            $(this).removeClass('is-valid').removeClass('is-invalid').addClass('is-' + (valid ? 'valid' : 'invalid'));
+            if (!valid && errorMsg)
+                $(this).parent().find('.invalid-feedback').text(errorMsg);
+        }
+        $('.pin-input').on('input', function () {
+            if (this.value.length === 1) {
+                $(this).next('.pin-input').focus();
+            }
+        });
+
+        $('#btnLogin').click(function () {
+
+            var vCCPIN = '';
+            $('.pin-input').each(function () {
+                vCCPIN += $(this).val();
+            });
+                    var valid = true;
+
+
+            var vPassword= vCCPIN !=''?vCCPIN:$('[name="password"]').val();
+
+            let auth = {
+                email: $('[name="email"]').val(),
+                password: vPassword,
+            };
+
+        if (!auth.email) {
+            $('[name="email"]').validate(false, 'Email is required');
+            toastr.error('Email is required');
+            valid = false;
+        } else {
+            $('[name="email"]').validate(true);
+        }
+
+
+        if (vCCPIN !== '') {
+
+            $('.pin-input').each(function () {
+                if (!$(this).val()) valid = false;
+            });
+
+            $('[name="password"]').removeClass('is-valid is-invalid');
+        } else {
+
+            if (!auth.password) {
+                $('[name="password"]').validate(false, 'Password is required');
+                toastr.error('Password is required');
+                valid = false;
+            } else {
+
+                if ($('[name="password"]').val().length < 8) {
+                    $('[name="password"]').validate(false, 'Password should be min 8 characters');
+                    toastr.error('Password should be more than 8 characters');
+                    valid = false;
+                }else
+                {
+                    $('[name="password"]').validate(true);
+                    valid = true;
+                }
+            }
+        }
+
+            if (!valid) return;
+
+            $.ajax({
+                url: '@R.ApiUrl/Auth/Authenticate',
+                data: JSON.stringify(auth),
+                contentType: 'application/json',
+                type: 'POST',
+                success: data => {
+                    if (data.status) {
+                        toastr.success(data.message);
+                        localStorage.setItem('CCUser', $('[name="email"]').val());
+                        localStorage.setItem('authToken', data.responseObject);
+                        $.cookie("ComplyCrafterBrowserId", '@ViewBag.BrowserId', {
+                            expires : new Date(new Date().getTime() + '@ViewBag.SessionValidity'),
+                            path    : '/',
+                            secure  : true
+                        });
+                        $.cookie("ComplyCrafterSessionId", data.responseObject, {
+                            expires : new Date(new Date().getTime() + '@ViewBag.SessionValidity'), //10 * 60 * 1000
+                            path    : '/',
+                            secure  : true
+                        });
+                        fnEndPrevSession();
+                    }
+                    else
+                    {
+                        if(data.message == 'Please verify your mobile.')
+                            window.location = '@Url.Action("VerifyOtp", "Home")' + '?emailId=' + $('[name="email"]').val() + '&message=' + encodeURIComponent(data.message)
+                        else
+                            toastr.error(data.message);
+                    }
+                }
+            });
+        });
+
+        $('[name="email"],[name="password"]').on('keypress', function () { if (event.keyCode == 13) $('#btnLogin').trigger('click') });
+
+        $('.showPassword').click(function () {
+            if ($(this).hasClass('fa-lock')) {
+                $('[name="password"]').attr('type', 'text');
+                $(this).removeClass('fa-lock').addClass('fa-lock-open');
+            } else {
+                $('[name="password"]').attr('type', 'password');
+                $(this).removeClass('fa-lock-open').addClass('fa-lock');
+            }
+        })
+        function fnEndPrevSession()
+        {
+            $(document).ready(function () {
+                let auth = {
+                    EmailId: localStorage.getItem('CCUser')
+                };
+
+                $.ajax({
+                    url: '@R.ApiUrl/Auth/UpdateDuplicateSession',
+                    data: JSON.stringify(auth),
+                    contentType: 'application/json',
+                    type: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                    },
+                    success: data => {
+                        //debugger
+                        if (data.status) {
+                            //toastr.error('Your previous session is active in another browser.');
+                        }
+                        SaveSession();
+                    }
+                });
+            });
+        }
+        function SaveSession()
+        {
+            $(document).ready(function () {
+            let auth = {
+                EmailId: localStorage.getItem('CCUser'),
+                BrowserId: '@ViewBag.BrowserId',
+                SessionId: $.cookie("ComplyCrafterSessionId")
+            };
+
+            $.ajax({
+                url: '@R.ApiUrl/Auth/SaveLoginTracker',
+                data: JSON.stringify(auth),
+                contentType: 'application/json',
+                type: 'POST',
+                headers: {
+                    'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId")
+                },
+                success: data => {
+                    //debugger
+                    if (data.status) {
+                    }
+                    window.location = '@Url.Action("Index")'
+                }
+                });
+            });
+        }
+
+    </script>
+
+</body>
+</html>

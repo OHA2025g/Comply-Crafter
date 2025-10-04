@@ -1,0 +1,271 @@
+﻿<style>
+    .accordion-button {
+        background-color: transparent !important;
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+    }
+
+        .accordion-button:not(.collapsed) {
+            box-shadow: none;
+        }
+
+    .accordion-item .accordion-button:not(.collapsed) {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .accordion-item {
+        border: none;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .accordion-item,
+    .accordion-header {
+        border: none;
+    }
+</style>
+
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+<div class="row" id="otherAuditor">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between mb-3">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">
+                    Particulars of <spam id="heading"></spam> Auditor
+                </h3>
+            </div>
+            <div class="card-body">
+                <form id="frm">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <div class="row">
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Category of Auditor</label>
+                            <select class="form-control" name="category">
+                                <option value="" selected>Select a category</option>
+                                <option>Individual</option>
+                                <option>Auditors Firm</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 internal">
+                            <label class="form-label">Sub Category</label>
+                            <select class="form-control" name="subCategory">
+                                <option value="" selected>Select a Sub Category</option>
+                                <option>Chartered Accountant</option>
+                                <option>Cost Accountant</option>
+                                <option>Company Secretary</option>
+                                <option>Any Other Professional</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1 other">
+                            <label class="form-label">Profession</label>
+                            <input type="text" class="form-control" name="profession">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-12 my-1"></div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Name of Firm</label>
+                            <input type="text" class="form-control" name="firmName">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-1">
+                            <label class="form-label">Firm Registration Number</label>
+                            <input type="text" class="form-control" name="frn">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="accordion" id="directorAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="detailsHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDetails" aria-expanded="false" aria-controls="collapseDetails">
+                        PARTICULARS OF AUDITOR
+                    </button>
+                </h2>
+                <div id="collapseDetails" class="accordion-collapse collapse" aria-labelledby="detailsHeading" data-bs-parent="#directorAccordion">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="frmDetails">
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Name of Auditor</label>
+                                        <input type="text" class="form-control" name="auditorName">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Designation in the firm</label>
+                                        <input type="text" class="form-control" name="auditorDesignationInFirm">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Membership Number</label>
+                                        <input type="text" class="form-control" name="memberNo">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Certificate of Practice</label>
+                                        <input type="text" class="form-control" name="certificateOfPractice">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Mobile Number</label>
+                                        <input type="text" class="form-control" name="auditorMobile">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <label class="form-label">Email ID</label>
+                                        <input type="text" class="form-control" name="auditorEmail">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                    <div class="col-md-12 my-1">
+                                        <label class="form-label">Address of firm / Auditor</label>
+                                        <textarea class="form-control" name="addressOfFirmAuditor"></textarea>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-lg btn-primary" style="float: right;" onclick="save()">Save</button>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var obj= {
+            id: 0,
+            refUser: 0,
+            companyId:localStorage.getItem("comp_id"),
+            category: "",
+            subCategory: "",
+            profession: "",
+            frn: "",
+            firmName: "",
+
+
+            auditorName: "",
+            auditorDesignationInFirm: "",
+            memberNo: "",
+            certificateOfPractice: "",
+            auditorMobile: "",
+            auditorEmail: "",
+            addressOfFirmAuditor: "",
+        }
+
+        var vo= {
+            id: 'required',
+
+            category: "required",
+            subCategory: "required",
+            // profession: "required",
+            frn: "required",
+            firmName: "required",
+
+            auditorName: "required",
+            auditorDesignationInFirm: "required",
+            memberNo: "required",
+            certificateOfPractice: "required",
+            auditorMobile: "required",
+            auditorEmail: {
+                required: true,
+                email: true
+            },
+            addressOfFirmAuditor: "required",
+        }
+        var vf= null;
+        var vfDetails = null;
+        var type;
+        $(document).ready(function () {
+            var urlParams = new URLSearchParams(window.location.search);
+            type = urlParams.get('type');
+            $(".internal").hide()
+            $(".other").hide()
+
+            if (type === "secretarial") {
+                $("#heading").text('Secretarial');
+            } else if (type === "cost") {
+                $("#heading").text('Cost');
+            } else if (type === "internal") {
+                $("#heading").text('Internal');
+                $(".internal").show()
+            } else {
+                window.location = `@Url.Action("OtherAuditor", "Home")`
+            }
+
+
+            vf = $('#frm').validate({ rules: vo, onsubmit: () => { console.log('submit') } })
+
+            $('[name="subCategory"]').change(function () {
+                var f = $(this).val() === "Any Other Professional";
+                $('.other').hide();
+                if (f) {
+                    $('.other').show();
+                }
+            });           
+
+            load()
+        })
+
+        async function save() {
+            let isValid = true;
+            if (!vf.form()) isValid = false;
+            if (!isValid) return;
+            var temp = getObj(obj, '#otherAuditor');
+            temp.companyId = localStorage.getItem("comp_id");
+            if(temp.companyId <= 0 )
+            {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Please select a company'
+                })
+                return;
+    
+			}
+            temp.type = type;
+            var x = await $._post(`@R.ApiUrl/@ViewBag.ctrl/Save`, temp);
+            if (x.status) {
+                window.location = `@Url.Action("OtherAuditor", "Home")`
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: x.message
+                })
+            }
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    if (x.type == "secretarial" || x.type == "cost" || x.type == "internal") {
+                        obj = x
+                        setObj(x, "#otherAuditor")
+                    } else {
+                        window.location = `@Url.Action("OtherAuditor", "Home")`
+                    }
+                })
+            }
+        }
+    </script>
+}

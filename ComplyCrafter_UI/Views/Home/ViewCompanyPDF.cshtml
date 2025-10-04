@@ -1,0 +1,278 @@
+﻿@{
+	Layout = null;
+}
+<style>
+	.print-btn {
+		display: block;
+		margin: 20px auto; /* centers inside container */
+		text-align: center;
+		width: 50%; /* takes full width of parent container */
+	}
+
+		.print-btn button {
+			background-color: #007bff; /* Bootstrap blue */
+			color: #fff;
+			border: none;
+			padding: 8px 20px;
+			border-radius: 6px;
+			font-size: 16px;
+			width: 100%; /* button stretches till container border */
+			cursor: pointer;
+		}
+
+			.print-btn button:hover {
+				background-color: #0056b3; /* darker blue on hover */
+			}
+
+	th {
+		text-align: left;
+		padding: 6px;
+		border: 1px solid #ddd;
+	}
+
+	td {
+		padding: 6px;
+		border: 1px solid #ddd;
+	}
+
+	table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+
+	h3 {
+		margin-top: 20px;
+		border-bottom: 1px solid #ddd;
+		padding-bottom: 5px;
+	}
+
+	@@media print {
+		.no-print {
+			display: none !important;
+		}
+	}
+</style>
+<div class="print-btn no-print">
+	<button onclick="window.print()" class="btn btn-secondary">Print</button>
+</div>
+<div id="companyPdfForm" style="font-family: Arial, sans-serif; max-width: 900px; margin:auto; padding:20px; border:1px solid #ccc; border-radius:8px;">
+	<h2 style="text-align:center; margin-bottom:40px;" class="companyName"></h2>
+
+	<!-- Company Information -->
+	<h3>Company Information</h3>
+	<table>
+		<tr><th>Company Name</th><td class="companyName"></td></tr>
+		<tr><th>CIN</th><td class="cin">U12345MH2023PTC123456</td></tr>
+		<tr><th>Incorporation Date</th><td class="incDate">01-Jan-2023</td></tr>
+		<tr><th>Company Type</th><td class="companyType">Private Limited</td></tr>
+		<tr><th>Email</th><td class="email">info@abc.com</td></tr>
+		<tr><th>Registered Address</th><td class="address">Mumbai, India</td></tr>
+		<tr><th>Website</th><td class="website">https://abc.com</td></tr>
+		<tr><th>Contact Number</th><td class="contactNo">+91-9876543210</td></tr>
+		<tr><th>PAN</th><td class="pan">ABCDE1234F</td></tr>
+		<tr><th>GST Number</th><td class="gstNo">27ABCDE1234F1Z5</td></tr>
+	</table>
+
+	<!-- Company Details -->
+	<h3>Details</h3>
+	<table>
+		<tr><th>Authorized Capital</th><td class="authorizedCapital"></td></tr>
+		<tr><th>Paid Up Capital</th><td class="paidUpCapital"></td></tr>
+		<tr><th>Registration Number</th><td class="registrationNumber"></td></tr>
+		<tr><th>Category</th><td class="category"></td></tr>
+		<tr><th>Subcategory</th><td class="subCategory"></td></tr>
+		<tr><th>Date Of Last Balance Sheet</th><td class="dateOfLastBalanceSheet"></td></tr>
+		<tr><th>Last AGM Date</th><td class="lastAgmDate"></td></tr>
+		<tr><th>Whether Listed</th><td class="whetherListed"></td></tr>
+		<tr><th>RoC</th><td class="roc"></td></tr>
+		<tr><th>Type of Company</th><td class="companyClass"></td></tr>
+		<tr><th>Address Books Maintained At</th><td class="addressBooksMaintainedAt"></td></tr>
+		<tr><th>Business Activity</th><td class="businessActivity"></td></tr>
+		<tr><th>Main Business Division Code</th><td class="mainBusinessDivisionCode"></td></tr>
+		<tr><th>Main Objects</th><td class="mainObjects"></td></tr>
+	</table>
+
+	<!-- Other Details -->
+	<h3>Other Details</h3>
+	<table>
+		<tr><th>TAN</th><td class="tan"></td></tr>
+		<tr><th>BRN</th><td class="brnNo"></td></tr>
+		<tr><th>Food Licence No</th><td class="foodLicenceNo"></td></tr>
+		<tr><th>MSME Number</th><td class="msmeNo"></td></tr>
+		<tr><th>Import Export Code</th><td class="impExpCode"></td></tr>
+		<tr><th>Trademark Number</th><td class="tradeMarkNo"></td></tr>
+		<tr><th>COR</th><td class="cor"></td></tr>
+	</table>
+
+	<!-- Financial Details -->
+	<h3>Financial Details</h3>
+	<table style="width:100%; border-collapse:collapse;">
+		<tr><th>Previous Name</th><td class="previousName"></td></tr>
+		<tr><th>Previous Begin Date</th><td class="previousBeginDate"></td></tr>
+		<tr><th>Previous End Date</th><td class="previousEndDate"></td></tr>
+		<tr><th>Financial Year Begin Month</th><td class="financialYearBeginMonth"></td></tr>
+		<tr><th>Financial Year End Month</th><td class="financialYearEndMonth"></td></tr>
+		<tr><th>Other CIN</th><td class="otherCin"></td></tr>
+		<tr><th>Other CIN Begin Date</th><td class="otherCinBeginDate"></td></tr>
+		<tr><th>Other CIN End Date</th><td class="otherCinEndDate"></td></tr>
+		<tr><th>Other Address</th><td class="otherAddress"></td></tr>
+		<tr><th>Other Address Begin Date</th><td class="otherAddressBeginDate"></td></tr>
+		<tr><th>Other Address End Date</th><td class="otherAddressEndDate"></td></tr>
+		<tr><th>Has Company Name Changed?</th><td class="hasCompanyNameChanged"></td></tr>
+		<tr><th>Does Company Have Other CIN?</th><td class="doesCompanyHaveOtherCin"></td></tr>
+	</table>
+
+	<!-- Director Details -->
+	<h3>Director Details</h3>
+	<div id="directors"></div>
+    <table id="tblDirectors">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Name</th>
+				<th>Appointment Date</th>
+				<th>DIN</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+
+	<h3>Index of Charges Details</h3>
+	<div id="Charge"></div>
+	<table id="tblCharges">
+		<thead>
+			<tr>
+				<th>#</th>
+				<th>Bank</th>
+				<th>Amount</th>
+				<th>Status</th>
+				<th>Date</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+	const types = {
+		'Private': 'Private Limited Company',
+		'Public': 'Public Limited Company',
+		'LLP': 'Limited Liability Partnership',
+	}
+
+	function formatDate(dateStr) {
+		if (!dateStr) return ""; // return blank if null/empty
+
+		let d = new Date(dateStr);
+		if (isNaN(d)) return ""; // handle invalid dates
+
+		return d.toLocaleDateString("en-GB", {
+			day: "2-digit",
+			month: "short",
+			year: "numeric"
+		});
+	}
+
+	$(document).ready(function () {
+		$.get(`@R.ApiUrl/Company/@ViewBag.companyId`).then(r => {
+			console.log(r);
+
+			$('.companyName').text(r.companyName);
+			$('.ccin').text(r.cin);
+			$('.incDate').text(formatDate(r.incorporationDate));
+			$('.companyType').text(r.companyType);
+			$('.email').text(r.email);
+			$('.address').text(r.address);
+			$('.website').text(r.website);
+			$('.contactNo').text(r.companyContactNo);
+			$('.pan').text(r.pan);
+			$('.gstNo').text(r.gstNo);
+
+			$('.authorizedCapital').text(r.details.authorizedCapital);
+			$('.paidUpCapital').text(r.details.paidUpCapital);
+			$('.registrationNumber').text(r.details.registrationNumber);
+			$('.category').text(r.details.category);
+			$('.subCategory').text(r.details.subCategory);
+			$('.dateOfLastBalanceSheet').text(formatDate(r.details.dateOfLastBalanceSheet));
+			$('.lastAgmDate').text(formatDate(r.details.lastAgmDate));
+			$('.whetherListed').text(r.details.whetherListed);
+			$('.roc').text(r.details.roc);
+			$('.companyClass').text(r.details.companyClass);
+			$('.addressBooksMaintainedAt').text(r.details.addressBooksMaintainedAt);
+			$('.businessActivity').text(r.details.businessActivity);
+			$('.mainBusinessDivisionCode').text(r.details.mainBusinessDivisionCode);
+			$('.mainObjects').text(r.details.mainObjects);
+
+
+			$('.tan').text(r.otherDetails.tan);
+			$('.brnNo').text(r.otherDetails.brnNo);
+			$('.foodLicenceNo').text(r.otherDetails.foodLicenceNo);
+			$('.msmeNo').text(r.otherDetails.msmeNo);
+			$('.impExpCode').text(r.otherDetails.impExpCode);
+			$('.tradeMarkNo').text(r.otherDetails.tradeMarkNo);
+			$('.cor').text(r.otherDetails.cor);
+
+			$('.previousName').text(r.financialDetails.previousName);
+			$('.previousBeginDate').text(formatDate(r.financialDetails.previousBeginDate));
+			$('.previousEndDate').text(formatDate(r.financialDetails.previousEndDate));
+			$('.financialYearBeginMonth').text(r.financialDetails.financialYearBeginMonth);
+			$('.financialYearEndMonth').text(r.financialDetails.financialYearEndMonth);
+			$('.otherCin').text(r.financialDetails.otherCin);
+			$('.otherCinBeginDate').text(r.financialDetails.otherCinBeginDate);
+			$('.otherCinEndDate').text(r.financialDetails.otherCinEndDate);
+			$('.otherAddress').text(r.financialDetails.otherAddress);
+			$('.otherAddressBeginDate').text(r.financialDetails.otherAddressBeginDate);
+			$('.otherAddressEndDate').text(r.financialDetails.otherAddressEndDate);
+			$('.hasCompanyNameChanged').text(r.financialDetails.hasCompanyNameChanged);
+			$('.doesCompanyHaveOtherCin').text(r.financialDetails.doesCompanyHaveOtherCin);
+
+
+			r.companyTypeView = types[r.companyType];
+			setObjView(r.details);
+			setObjView(r);
+			$('a.tel').each(() => { $(this).attr('href', `tel:` + $(this).text()); });
+			$('a.email').each(() => { $(this).attr('href', `mailto:` + $(this).text()); });
+
+            let rowsdirectors = r.directors.map((d, i) => `
+				<tr>
+					<td>${i + 1}</td>
+					<td>${d.firstName + ' ' + d.middleName + ' ' + d.lastName }</td>
+					<td>${formatDate(d.appointmentDate)}</td>
+					<td>${d.din}</td>
+				</tr>
+			`);
+
+			$("#tblDirectors tbody").html(rowsdirectors.join(""));
+
+			let rows = r.charges.map((d, i) => `
+				<tr>
+				<td>${i + 1}</td>
+					<td>${d.name }</td>
+					<td>${amount(d.amount)}</td>
+					<td>${d.status}</td>
+					<td>${formatDate(d.creationDate)}</td>
+				</tr>
+			`);
+
+			$("#tblCharges tbody").html(rows.join(""));
+		});
+
+		$(document).on('click', '.cbp_tmlabel h2', function () {
+			$(this).closest('.cbp_tmlabel').find('.collapse').collapse('toggle');
+		})
+	});
+		function formatDate(val) {
+		if (!val) return "";
+		let d = new Date(val);
+		if (isNaN(d)) return "";
+		// Format as DD-MM-YYYY
+		let day = String(d.getDate()).padStart(2, "0");
+		let month = String(d.getMonth() + 1).padStart(2, "0");
+		let year = d.getFullYear();
+		return `${day}-${month}-${year}`;
+	}
+</script>
+<script src="~/js/site.js" ></script>
+<script src="~/assets/plugins/moment/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>

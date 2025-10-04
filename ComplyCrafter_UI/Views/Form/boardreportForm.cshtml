@@ -1,0 +1,2212 @@
+﻿
+<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+
+    td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Particulars of Board report
+                </h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                        <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        1/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        2/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        3/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part4" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        4/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part5" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        5/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part6" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        6/7
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part7" data-bs-toggle="tab">
+                                    <span class="ms-1">
+                                        7/7
+                                    </span>
+                                </a>
+
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:20px;">
+            <input type="hidden" class="num"  name="id" />
+            <input type="hidden" class="num"  name="companyId" />
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">FY for which board report is to be prepared</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <select name="financialYear" class="form-select" required="required" id="AnnualFilingFinancialyear">
+                        <option >Select Financial Year</option>
+                        <option value="2025-26">2025-26</option>
+                        <option value="2024-25">2024-25</option>
+                        <option value="2023-24" selected="">2023-24</option>
+                        <option value="2022-23">2022-23</option>
+                        <option value="2021-22">2021-22</option>
+                        <option value="2020-21">2020-21</option>
+                        <option value="2019-20">2019-20</option>
+                        <option value="2018-19">2018-19</option>
+                        <option value="2017-18">2017-18</option>
+                        <option value="2016-17">2016-17</option>
+                        <option value="2015-16">2015-16</option>
+                        <option value="2014-15">2014-15</option>
+                        <option value="2013-14">2013-14</option>
+                        <option value="2012-13">2012-13</option>
+                        <option value="2011-12">2011-12</option>
+                        <option value="2010-11">2010-11</option>
+                        <option value="2009-10">2009-10</option>
+                        <option value="2008-09">2008-09</option>
+                        <option value="2007-08">2007-08</option>
+                        <option value="2006-07">2006-07</option>
+                        <option value="2005-06">2005-06</option>
+                        <option value="2004-05">2004-05</option>
+                        <option value="2003-04">2003-04</option>
+                        <option value="2002-03">2002-03</option>
+                        <option value="2001-02">2001-02</option>
+                        <option value="2000-01">2000-01</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">Amount In</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <select name="amountFigure" class="form-select" required="required" id="amountfigure">
+                        <option >Select Amount Type</option>
+                        <option value="Rupees">Rupees</option>
+                        <option value="Hundreds">Hundreds</option>
+                        <option value="Thousands">Thousands</option>
+                        <option value="Lakhs" selected="">Lakhs</option>
+                        <option value="Millions">Millions</option>
+                        <option value="Crores">Crores</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3" id="typeboardreport">
+                <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom">
+                    <strong>Type of Board Report </strong>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label> <input type="radio" name="typeBoardReport" class="typeboardreport" value="Abridged" style="margin-left:-20px"> Abridged Board Report</label> <label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="typeBoardReport" class="typeboardreport" checked="" value="Full" style="margin-left:-20px"> Full Board Report</label>
+                </div>
+            </div>
+
+
+            <div class="mt-4">
+                <label id="changecontent" style="margin-left:-10px;">PARTICULARS OF AGM TO BE HELD FOR FY 2023-24 <span style="color: red;font-size: 19px;">*</span></label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Date of AGM Notice</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="agmnoticeDate" class="form-control datepicker hasDatepicker" placeholder="Date of AGM notice" id="agmnotice_date" title="Date of AGM notice" type="date">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">Date of AGM</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="dateAgm" class="form-control datepicker hasDatepicker" placeholder="Date of AGM" id="date_agm" title="Date of AGM" type="date">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Day of AGM
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="dayDate" class="form-control" placeholder="Day of AGM" id="day_date"  title="Day of AGM" type="date">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Time of AGM
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <div class="input-group date">
+                            <input name="timeAgm" class="form-control input-small timing" placeholder="Time of AGM" id="time_agm" title="Time of AGM" type="time" style="z-index:1;"><span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Number of AGM
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="noOfAgm" class="form-control num"  placeholder="No of AGM" id="no_of_agm" title="No of AGM" type="number">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Paid up Capital
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="paidupCapital" class="form-control" placeholder="Paid up Share Capital"  id="paidup_capital" title="Paid up Share Capital" type="text">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row form-row mt-3">
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <label style="margin-left:-12px; text-transform: uppercase;">Number of Board Meetings held during the Year</label>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-7">
+                    <input name="noOfBoardMeeting" class="form-control num" required="required" placeholder="No of board meetings" id="no_of_board_meeting" title="No of board meetings" value="6" type="number">
+                </div>
+            </div>
+
+
+            <table border="1" class="table table-bordered table-hover table-striped" style="width:100%;margin-left:-15px;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;width:10%;">Sr. No.</th>
+                        <th style="text-align:left; color:black; background-color: #cfe7ff;">Meeting Date</th>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;">Total Number of directors associated as on the date of meeting</th>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;">Number of directors attended</th>
+                    </tr>
+                </thead>
+                <tbody id="board_meeting">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="1" name="boardMeetingSrNo" style="text-align: center !important;">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_1 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate" id="board_meetingdate_1">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength1" style="text-align: center !important;">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent1" style="text-align: center !important;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="2" name="boardMeetingSrNo2" style="text-align: center !important;">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_2 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate2" id="board_meetingdate_2">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength2" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent2" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="3" name="numbersOfBoardMeetingDuringYear" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_3 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate3" id="board_meetingdate_3" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength3" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent3" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="4" name="srNo4" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_4 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate4" id="board_meetingdate_4">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength4" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent4" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="5" name="srNo5" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_5 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate5">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength5" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent5" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="6" name="srNo6" style="text-align: center !important;" value="6">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control board_meetingdate_6 datepicker hasDatepicker" placeholder="Meeting Date" title="Meeting Date" name="boardMeetingDate6" id="board_meetingdate_6">
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="Board Strength" placeholder="Board Strength" name="boardStrength6" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Directors present" title="No of Directors present" name="noOfDirectorsPresent6" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div class="row form-row">
+                <div class="col-xs-12 col-sm-5 col-md-5">
+                    <label style="margin-left:-12px; text-transform: uppercase;">Number of General Meetings held during the Year</label>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-7">
+                    <input name="noOfGeneralMeeting" class="form-control num" placeholder="No of general meetings" id="no_of_general_meeting" title="No of general meetings"  type="number">
+                </div>
+            </div>
+
+            <table border="1" class=" mt-3 table table-bordered table-hover table-striped" style="width:100%;margin-left:-15px;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;width:10%;">Sr. No.</th>
+                        <th style="text-align:left; color:black; background-color: #cfe7ff;">Type of Meeting</th>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;">Meeting Date</th>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;">Total Number of members associated as on the date of meeting</th>
+                        <th style="text-align:center; color:black; background-color: #cfe7ff;">Number of members attended</th>
+                    </tr>
+                </thead>
+                <tbody id="general_meetings">
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="1" name="numberOfMeetingDuringYear2" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <select name="selectMeetingType" id="typeofmeeting_1" class="form-select" required="">
+                                <option >Select Type</option>
+                                <option value="AGM" selected="">Annual General Meeting</option>
+                                <option value="EGM">Extra Ordinary General Meeting</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" class="form-control general_meetingdate_1 datepicker hasDatepicker" placeholder="Date" title="Date" name="generalMeetingDate" id="general_meetingdate_1" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" title="General Strength" placeholder="General Strength" name="generalStrengthMeeting" style="text-align: center !important;" >
+                        </td>
+                        <td>
+                            <input type="number" class="form-control num" placeholder="No of Members present" title="No of Members present" name="noOfMembersPresent" style="text-align: center !important;" >
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <label style="text-transform:uppercase;margin-left:-10px;">Website Information</label>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 form-row label-bottom">
+                    <strong>Does the Company have any website?</strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveWebsite" id="BoardReportHaveWebsiteYes" class="have_website" > Yes &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveWebsite" id="BoardReportHaveWebsiteNo" class="have_website"  checked=""> No
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row website_name bold" style="">Website Link</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row website_name" style="">
+                    <input name="websiteName" class="form-control" placeholder="Website Link" id="website_name" title="Website Link"  type="text">
+                </div>
+            </div>
+
+            <label style="text-transform:uppercase;margin-left:-10px;">Financial Highlights</label>
+
+
+            <table border="1" style="margin-left:-10px;border:1px  #ada8a8;border-collapse:collapse; width:100%; font-size:15px;">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold; width:50%;padding: 5px;">Particulars</td>
+                        <td style="text-align:center;font-weight:bold; ">Current Year</td>
+                        <td style="text-align:center;font-weight:bold; ">Previous Year</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">Revenue from Operations</td>
+                        <td style="text-align:center; ">
+                            <input type="text" name="operationRevenueCur" class="form-control numbers calculatefinancial amount-field" placeholder="Revenue from Operations" id="operation_revenue_cur" title="Revenue from Operations" >
+                        </td>
+                        <td style="text-align:center;">
+                            <input name="operationRevenuePre" class="form-control numbers calculatefinancial amount-field" placeholder="Revenue from Operations" id="operation_revenue_pre" title="Revenue from Operations"  type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">Other Income</td>
+                        <td style="text-align:center;">
+                            <input name="otherIncomeCur" class="form-control numbers calculatefinancial amount-field" placeholder="Other Income" id="other_income_cur" title="Other Income" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="otherIncomePre" class="form-control numbers calculatefinancial amount-field" placeholder="Other Income" id="other_income_pre" title="Other Incomes"  type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;font-weight: bold;">Profit before Interest and Depreciation, Other expenses and Tax</td>
+                        <td style="text-align:center; ">
+                            <input name="profitBeforeCur" class="form-control amount-field" placeholder="Profit before Interest, Depreciation and Tax" id="profit_before_cur" title="Profit before Interest, Depreciation, Other expenses and Tax" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="profitBeforePre" class="form-control amount-field" placeholder="Profit before Interest, Depreciation and Tax" id="profit_before_pre" title="Profit before Interest, Depreciation, Other expenses and Tax" type="text" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">Finance Cost</td>
+                        <td style="text-align:center; ">
+                            <input name="financeChargeCur" class="form-control numbers calculatefinancial amount-field" placeholder="Finance Charges" id="finance_charge_cur" title="Finance Charges" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="financeChargePre" class="form-control numbers calculatefinancial amount-field" placeholder="Finance Charges" id="finance_charge_pre" title="Finance Charges" type="text" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">Depreciation and amortization expenses</td>
+                        <td style="text-align:center; ">
+                            <input name="depreciationCur" class="form-control numbers calculatefinancial amount-field" placeholder="Depreciation and amortization expenses" id="depreciation_cur" title="Depreciation and amortization expenses" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="depreciationPre" class="form-control numbers calculatefinancial amount-field" placeholder="Depreciation and amortization expenses"  id="depreciation_pre" title="Depreciation and amortization expenses" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">Other expenses</td>
+                        <td style="text-align:center; ">
+                            <input name="otherexpCur" class="form-control numbers calculatefinancial amount-field" placeholder="Other expenses" id="otherexp_cur" title="Other expenses" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="otherexpPre" class="form-control numbers calculatefinancial amount-field" placeholder="Other expenses"  id="otherexp_pre" title="Other expenses" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;font-weight: bold;">Net Profit before Tax</td>
+                        <td style="text-align:center; ">
+                            <input name="netProfitBeforeCur" class="form-control numbers calculatefinancial amount-field" placeholder="Net Profit before Tax" id="net_profit_before_cur" title="Net Profit before Tax" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="netProfitBeforePre" class="form-control numbers calculatefinancial amount-field" placeholder="Net Profit before Tax" id="net_profit_before_pre" title="Net Profit before Tax"  type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">Tax Expense</td>
+                        <td style="text-align:center;">
+                            <input name="taxExpenseCur" class="form-control numbers calculatefinancial amount-field" placeholder="Tax Expense" id="tax_expense_cur" title="Tax Expense" type="text" >
+                        </td>
+                        <td style="text-align:center;">
+                            <input name="taxExpensePre" class="form-control numbers calculatefinancial amount-field" placeholder="Tax Expense"  id="tax_expense_pre" title="Tax Expense" type="text">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">Deferred Tax</td>
+                        <td style="text-align:center;">
+                            <input name="deffereTaxExpenseCur" class="form-control numbers calculatefinancial amount-field" placeholder="Deferred Tax" id="deffered_tax_expense_cur" title="Deferred Tax" type="text" >
+                        </td>
+                        <td style="text-align:center;">
+                            <input name="defferedTaxExpensePre" class="form-control numbers calculatefinancial amount-field" placeholder="Deferred Tax" id="deffered_tax_expense_pre" title="Deferred Tax" type="text" >
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;font-weight: bold; ">Net Profit after Tax</td>
+                        <td style="text-align:center; ">
+                            <input name="netProfitCur" class="form-control amount-field" placeholder="Net Profit after Tax" id="net_profit_cur" title="Net Profit after Tax" type="text" >
+                        </td>
+                        <td style="text-align:center; ">
+                            <input name="netProfitPre" class="form-control amount-field" placeholder="Net Profit after Tax"  id="net_profit_pre" title="Net Profit after Tax" type="text">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <label style="text-transform: uppercase;margin-left:-10px;">State of companies affairs and future outlooks</label>
+
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    % and numeric change in revenue
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input name="revenueChanges" class="form-control" required="required" placeholder="% and numeric change in revenue" id="revenue_changes"  title="% and numeric change in revenue" type="text" >
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    % and numeric change in PBDIT
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input name="pbditChanges" class="form-control" required="required" placeholder="% and numeric change in PBDIT" id="pbdit_changes"  title="% and numeric change in PBDIT" type="text" >
+                </div>
+            </div>
+
+            <div class="row mt-3 mb-4">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">% and numeric change in PBT</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input name="pbtChanges" class="form-control" required="required" placeholder="% and numeric change in PBT" id="pbt_changes"  title="% and numeric change in PBT" type="text" >
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3 bold">% and numeric change in PAT</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input name="patChanges" class="form-control" required="required" placeholder="% and numeric change in PAT" id="pat_changes"  title="% and numeric change in PAT" type="text" >
+                </div>
+            </div>
+
+            <textarea id="summernote" class="mt-3">
+
+            </textarea>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-3 mb-4">
+                <label style="text-transform: uppercase;">Is there any independent director in company?</label>
+                <label>    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="isIndependDirector" class="is_independ_director" > Yes &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="isIndependDirector" class="is_independ_director"  checked=""> No</label>
+            </div>
+
+
+            <textarea id="summernote1" class="mt-3">
+
+            </textarea>
+
+        </div>
+    </div>
+
+    <div class="col-md-12 p-0" id="part2">
+        <div class="card" style="padding:20px;">
+            <div class="row corporarte_social">
+                <div class="col-xs-6 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                    <label style="margin-left: 0px;text-transform: uppercase;">Corporate Social Responsibility ? </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="haveCsr" class="have_csr" > Applicable &nbsp; &nbsp; &nbsp; &nbsp;</label> <label><input type="radio" name="haveCsr" class="have_csr" value="Not Applicable" checked=""> Not Applicable</label>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                    <label style="margin-left: 0px;text-transform: uppercase;">Risk Management Policy ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="riskManagementPolicy" class="risk_management_policy"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="riskManagementPolicy" class="risk_management_policy" checked=""> No</label>
+                </div>
+            </div>
+
+
+            <div class="row form-row mt-3">
+                <div class="col-xs-12 col-sm-5 col-md-5 mt-3">
+                    <label style="margin-left:-12px; text-transform: uppercase;">Number of Committee Meetings held during the Year</label>
+                </div>
+                <div class="col-xs-12 col-sm-7 col-md-7">
+                    <input name="noOfCommitteeMeeting" class="form-control num" placeholder="No of committee meetings" id="no_of_committee_meeting" title="No of committee meetings"  type="number">
+                </div>
+            </div>
+
+            <label style="margin-left:-10px;text-transform:uppercase;">Committees Of Board</label>
+            <label style="margin-left:-10px;text-transform:uppercase;text-decoration:none;" class="mb-3">1. Composition of Audit Committee ? &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="haveCas" class="have_cas" > Applicable &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="haveCas" class="have_cas" value="Not Applicable" checked=""> Not Applicable </label></label>
+
+
+            <textarea id="summernote2" class="mt-3"></textarea>
+
+            <label style="margin-left:-10px;text-transform:uppercase;text-decoration:none;" class="mb-3 mt-3">2. IS CONSTITUTION OF NRC APPLICABLE? &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="isCommitteeOfDirector" class="iscommittee_ofdirector" > Applicable &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="isCommitteeOfDirector" class="iscommittee_ofdirector"  checked=""> Not Applicable </label></label>
+            <textarea id="summernote3" class="mt-3"></textarea>
+
+        </div>
+    </div>
+
+    <div id="part3" class="p-0">
+        <div class="card" style="padding:20px;">
+            <label style="text-transform: uppercase;margin-left:-10px;">Statutory Auditors &amp; their Report</label>
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">Name Auditor Firm</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input name="nameOfAuditFirm" class="form-control" placeholder="Name Auditor Firm" id="firmname" title="Name Auditor Firm" type="text">
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">Date of agm of appointment of auditor</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                    <input name="dateAppoAuditor" class="form-control" placeholder="Date of agm of appointment of auditor" id="date_appo_auditor" title="Date of agm of appointment of auditor" type="date">
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold mt-3">Category</div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                    <select name="category" id="category" class="form-select">
+                        <option >Select Category</option>
+                        <option value="Individual">Individual</option>
+                        <option value="Auditors Firm" selected="">Auditors Firm</option>
+                    </select>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold mt-3">FRN / MRN</div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row mt-3">
+                    <input name="firmRegistration" class="form-control" placeholder="FRN / MRN" id="regno" title="FRN / MRN" type="text">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold auappo mt-3">Appointment ending in FY</div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row auappo mt-3">
+                    <input name="periodAppointment" class="form-control" placeholder="Appointment ending in FY" id="nooffinancial" title="Appointment ending in FY" type="date">
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold effectivedateau mt-3" style="">Effective Date of Cessation</div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row effectivedateau mt-3" style="">
+                    <input name="effectiveDateAu" class="form-control datepicker hasDatepicker" placeholder="Effective Date of Cessation" id="effectivedateau" title="Effective Date of Cessation" type="date" >
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3 mb-4">
+                <strong>Any observation, qualification, reservation, adverse remark or disclaimer given by auditor? </strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="anyObservation" class="anyobservation"> Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="anyObservation" class="anyobservation" checked=""> No</label>
+            </div>
+
+            <textarea id="summernote4" class="mt-3"></textarea>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                    <label style="text-transform: uppercase;">Cost Audit ?</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveCostaudit" class="have_costaudit" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveCostaudit" class="have_costaudit" value="Not Applicable" checked=""> Not Applicable
+                </div>
+            </div>
+            <div id="issecretarialaudit" style="display: block;">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">Name of Secretarial Auditor</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="nameOfSecretarialAuditor" class="form-control" placeholder="Name of Secretarial Auditor" id="name_of_secretarial_auditor" title="Name of Secretarial Auditor" type="text" >
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">Date of appointment</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="dateSecretariaAuditor" class="form-control datepicker hasDatepicker" placeholder="Date of appointment" id="date_secretaria_auditor" title="Date of appointment" type="date" >
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3">
+                        <strong>Any observation, qualification, reservation, adverse remark or disclaimer given by auditor? </strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="anyObservationSect" class="anyobservationsect" > Yes &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="anyObservationSect" class="anyobservationsect" > No</label>
+                    </div>
+                </div>
+                <div class="row" id="anyobservationsect">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <textarea name="costSecretariaFees" rows="3" class="form-control" id="cost_secretaria_fees" placeholder="Enter text here" style="margin-left:-10px;width:102%;"></textarea>
+                    </div>
+                    <small style="color: red;">*The text you enter will be shown in board report as it is.</small>
+                </div>
+            </div>
+
+
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3">
+                    <label style="text-transform: uppercase;">Internal Audit ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="haveInternalaudit" class="have_internalaudit" > Applicable  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label>
+                    <label>    <input type="radio" name="haveInternalaudit" class="have_internalaudit" value="Not Applicable" checked=""> Not Applicable</label>
+                </div>
+            </div>
+            <div id="isinternalaudit" style="display: block; mt-3">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">Name of Internal Auditor</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <input name="nameOfInternalAuditor" class="form-control" placeholder="Name of Internal Auditor" id="name_of_internal_auditor" title="Name of Internal Auditor" type="text" >
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row bold mt-3">Date of appointment</div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="dateInternalAuditor" class="form-control datepicker hasDatepicker" placeholder="Date of appointment" id="date_internal_auditor" title="Date of appointment" type="date" >
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3">
+                        <strong>Any observation, qualification, reservation, adverse remark or disclaimer given by auditor? </strong> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="anyObservationInt" class="anyobservationint" > Yes &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="anyObservationInt" class="anyobservationint" > No</label>
+                    </div>
+                </div>
+                <div class="row" id="anyobservationint">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <textarea name="costInternalFees" rows="3" class="form-control" id="cost_internal_fees" placeholder="Enter text here" style="margin-left:-10px;width:102%;"></textarea>
+                    </div>
+                    <small style="color: red;">*The text you enter will be shown in board report as it is.</small>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row bold mt-3">
+                    <label style="margin-left:-0px; text-transform: uppercase;">Loans Guarantees and Investments ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <label>   <input type="radio" name="loanInvest" class="loan_invest" > Yes &nbsp; &nbsp; &nbsp;</label>
+                    <label>  <input type="radio" name="loanInvest" class="loan_invest"  checked=""> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold no_of_party mt-3" style="display: block;"> Number of parties</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row no_of_party mt-3" style="display: block;">
+                    <input name="noOfParty" class="form-control"  placeholder="Number of parties" id="no_of_party" title="Number of parties" type="text">
+                </div>
+            </div>
+            <table border="1" class="mt-3 table table-bordered table-hover table-striped showtableparty no_of_party" style="width: 100%; margin-left: -15px;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Name of Party</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Particulars of loan, Guaeantee &amp; Investments</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Nature</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Purpose for which it shall be used</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount</th>
+                    </tr>
+                </thead>
+                <tbody id="party_info" style="display: table-row-group;">
+                </tbody>
+            </table>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                <textarea name="detailLoanInvest" rows="2" class="form-control" id="detail_loan_invest" style="margin-left:-10px;width:102%;">There were no loans, guarantees, or investments made by the Company under Section 186 of the Companies Act, 2013 during the year under review and hence the said provision is not applicable.
+</textarea>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3">
+                    <label style="text-transform: uppercase;">Related Party Transactions ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="relatedPartyTrans" class="related_party_trans" > Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="relatedPartyTrans" class="related_party_trans"  checked=""> No</label>
+                </div>
+            </div>
+            <div class="row mt-3" id="related_aoc" style="">
+                <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                    <label> Is AOC-2 applicable?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label><input type="radio" name="relatedPartyTransMatrial" class="related_party_trans_matrial" > Yes </label> &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="relatedPartyTransMatrial" class="related_party_trans_matrial" > No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold noteno_of_relatedparty mt-3" style="">RPT Note No. in Financial Statement </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row noteno_of_relatedparty mt-3" style="">
+                    <input name="noTenoOfRelatedParty" class="form-control" placeholder="Note No of the related party transactions in the  financial statements" id="noteno_of_relatedparty" title="Note No of the related party transactions in the  financial statements" type="text" >
+                </div>
+            </div>
+
+            <div id="annexureno_aoc" style="display: block;">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 label-bottom form-row mt-3">
+                        <label>Details of material contracts or arrangement or transactions at arm’s length basis</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="isRelatedPartyDetail" class="isrelated_party_detail" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </label>   <label>   <input type="radio" name="isRelatedPartyDetail" class="isrelated_party_detail" value="Not Applicable"> Not </label>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="noOfMatarial" class="form-control num" placeholder="No of material contracts" id="no_of_matarial" title="No of material contracts "  style="" type="number">
+                    </div>
+                </div>
+                <div id="matrial_contract_detail">
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-9 col-md-9 label-bottom form-row mt-3">
+                        <label>Details of contracts or arrangement or transactions not at arm’s length basis</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="isRelatedPartyDetailarms" class="isrelated_party_detailarms" > Applicable</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="isRelatedPartyDetailarms" class="isrelated_party_detailarms" value="Not Applicable"> Not Applicable</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input name="noOfContracts" class="form-control num" placeholder="No of contracts"  title="No of contracts" id="no_of_contracts" type="number">
+                    </div>
+                </div>
+                <div id="contracts_detail">
+                </div>
+            </div>
+
+            <textarea id="summernote5" class="mt-3"></textarea>
+
+
+
+            <div class="abridged_show">
+                <hr>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row label-bottom mt-3">
+                        <label style="text-transform: uppercase;">Changes in the nature of business activity ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="changesNature" class="changesNature" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="changesNature" class="changes_nature"  checked="">No</label>
+                    </div>
+                </div>
+                <div class="row mt-3" id="tab_changes_nature">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                        <textarea name="tabChangesNature" rows="3" class="form-control tab_changes_nature" placeholder="Enter Changes in the nature of business activity" style="margin-left:-10px;width:102%;">During the period under review, the Company has not changed its line of business in such a way that amounts to commencement of any new business or discontinuance, sale or disposal of any of its existing businesses or hiving off any segment or division.
+</textarea>
+                    </div>
+                    <small style="color: red;">*The text you enter will be shown in board report as it is.</small>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div id="part4" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-9 col-md-9 label-bottom form-row">
+                    <label style="text-transform: uppercase;">Changes in Share Capital ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="changesShare" class="changes_share" > Yes </label> <label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="changesShare" class="changes_share"  checked=""> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row" align="center">
+                    <a class="btn btn-primary" id="importcapitalchange"><i class="fa fa-download"></i> Import From Database</a>
+                </div>
+            </div>
+
+            <div class="row  mt-3">
+                <div class="col-xs-12 col-sm-5 col-md-5 label-bottom form-row mt-3">
+                    <label>A. Authorised Capital ?</label> &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="authorisedCapital" class="authorised_capital" value="yes"> Yes </label>&nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="authorisedCapital" class="authorisedCapital" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 label-bottom form-row mt-3">
+                    <label class="noOfAuthorizedclass">Number of Entries</label>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3">
+                    <input name="noOfAuthorized" class="form-control no_of_authorized num" placeholder="Number of increaments" id="no_of_authorized" title="Number of increaments"  type="number">
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height:auto;">
+                <table border="1" class="table table-bordered table-hover table-striped" style="width:100%;margin-left:-15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">#</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Type of shares</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">No. of Share</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Value per Share (in Rs.)</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="authorizes_info">
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-5 col-md-5 label-bottom form-row mt-3">
+                    <label>B. Paid up Capital ?</label> &nbsp; &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="shareIssue" class="shareissue" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="shareIssue" class="shareissue" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 label-bottom form-row mt-3">
+                    <label class="no_of_shareissue">Number of Entries</label>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row mt-3">
+                    <input name="noOfShareIssue" class="form-control no_of_shareissue" placeholder="Number of increaments" title="Number of increaments" id="no_of_shareissue"  type="text">
+                </div>
+            </div>
+            <table border="1" class="mt-3 table table-bordered table-hover table-striped" style="width:100%;margin-left:-15px;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">#</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Type of shares</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">No. of Share</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Face Value (in Rs.)</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Amount (in Lakhs)</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Date of Allotment</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Issued At</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black; ">Mode of Issue</th>
+                    </tr>
+                </thead>
+                <tbody id="shareissue_info">
+                </tbody>
+            </table>
+
+
+            <div class="row">
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row label-bottom">
+                    <label>C. Buy Back of Shares ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="buyBack" class="buyBack" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label><input type="radio" name="buyBack" class="buyback" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 label-bottom form-row isbuyback mt-3">
+                    <label class="no_of_buckback">Number of Entries</label>
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row isbuyback">
+                    <input name="noOfBuckBack" class="form-control no_of_buckback" placeholder="Number of Buy Back" title="Number of Buy Back" id="no_of_buckback"  type="text">
+                </div>
+            </div>
+
+            <div class="row isbuyback mt-3" style="height:auto;">
+                <div class="col-xs-12 col-sm-12 col-md-12" style="height:auto;">
+                    <table border="1" class="table table-bordered table-hover table-striped" style="margin-left:-15px;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">Date of Buy Back</th>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">Number of Share</th>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">Face value (in Rs.)</th>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="appendbuyback">
+                            <tr id="1">
+                                <td>
+                                    <input name="dataBox1" class="form-control datepicker hasDatepicker" placeholder="Date of Buy Back" id="date_of_buyback_1" title="Date of Buy Back" type="text" >
+                                </td>
+                                <td>
+                                    <input name="dataBox2" class="form-control" placeholder="No of Share" id="no_of_buyback_1" title="No of Share" type="text" >
+                                </td>
+                                <td>
+                                    <input name="dataBoxs3" class="form-control numbers" placeholder="Value Per Share" id="value_buyback_1" title="Value Per Share" type="text" >
+                                </td>
+                                <td>
+                                    <input name="dataBox4" class="form-control numbers" placeholder="Total Amount" id="total_buyback_1" title="Total Amount" type="text" >
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                <label>D. Sweat Equity Shares Issued ?</label> &nbsp; &nbsp; &nbsp;<label>  <input type="radio" name="sweetEquity" class="sweetequity" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="sweetEquity" class="sweetEquity" value="no"> No</label>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height:auto;">
+                <table border="1" class="table table-bordered table-hover table-striped" style="margin-left:-15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Number of Share</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Face value (in Rs.)</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="noOfSweetEquity" class="form-control" placeholder="No of Share" id="noof_sweetequity" title="No of Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="valueSweetEquity" class="form-control numbers" placeholder="Value Per Share" id="value_sweetequity" title="Value Per Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="totalSweetEquity" class="form-control numbers" placeholder="Total Amount" id="total_sweetequity" title="Total Amount" type="text" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                    <label>E. Bonus Shares Issued ?</label> &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="bonusShare" class="bonusshare" value="yes"> Yes</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="bonusShare" class="bonusshare" value="no"> No</label>
+                </div>
+            </div>
+
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height:auto;">
+                <table border="1" class="table table-bordered table-hover table-striped" style="margin-left:-15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Number of Share</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Face value (in Rs.)</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="noOfBonusShare" class="form-control" placeholder="No of Share" id="noof_bonusshare" title="No of Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="valueBonusShare" class="form-control numbers" placeholder="Value Per Share" id="value_bonusshare" title="Value Per Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="totalBonuShare" class="form-control numbers" placeholder="Total Amount" id="total_bonusshare" title="Total Amount" type="text" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                    <label>F. ESOP Issued ?</label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="esopShare" class="esopshare" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="esopShare" class="esopshare" value="no">No</label>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height:auto;">
+                <table border="1" class="table table-bordered table-hover table-striped" style="margin-left:-15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Number of Share</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Face value (in Rs.)</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="noOfEsopshare" class="form-control" placeholder="No of Share" id="noof_esopshare" title="No of Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="valueEsopshare" class="form-control numbers" placeholder="Value Per Share" id="value_esopshare" title="Value Per Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="totalEsopshare" class="form-control numbers" placeholder="Total Amount" id="total_esopshare" title="Total Amount" type="text" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                    <label>G. Shares with differential rights Issued?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="sharedIfRight" class="sharedIfRight" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label><input type="radio" name="sharedIfRight" class="sharediffright" value="no">No</label>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height:auto;">
+                <table border="1" class="table table-bordered table-hover table-striped" style="margin-left:-15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Number of Share</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Face value (in Rs.)</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Amount (in Lakhs)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <input name="noOfSharedIfRight" class="form-control" placeholder="No of Share" id="noof_sharediffright" title="No of Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="valueSharedIfRight" class="form-control numbers" placeholder="Value Per Share" id="value_sharediffright" title="Value Per Share" type="text" >
+                            </td>
+                            <td>
+                                <input name="totalSharedIfRight" class="form-control numbers" placeholder="Total Amount" id="total_sharediffright" title="Total Amount" type="text" >
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                    <label style="margin-left:-0px;text-transform: uppercase;">Amount transferred to reserves?</label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="amountTransferReserve" class="amount_transfer_reserve" value="yes"> Yes </label> &nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="amountTransferReserve" class="amount_transfer_reserve" checked="" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold no_of_transfer_reserve mt-3" style="display: block;">No. of reserves</div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row no_of_transfer_reserve mt-3" style="display: block;">
+                    <input name="noOfTransferReserve" class="form-control numbers" placeholder="No of reserves" id="no_of_transfer_reserve" title="No of reserves"  type="text">
+                </div>
+            </div>
+
+
+
+            <table border="1" class="mt-4 table table-bordered table-hover table-striped no_of_transfer_reserve" style="width: 100%; margin-left: -15px; display: table;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;width:10%;">Sr. No.</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Reserve head name</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Opening balance</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Addition</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Deduction, if any</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Closing balance</th>
+                    </tr>
+                </thead>
+                <tbody id="info_transfer_reserve" style="display: table-row-group;">
+                </tbody>
+            </table>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-4 col-md-4 label-bottom form-row mt-3">
+                    <label style="margin-left: -0px;text-transform: uppercase;">Paid Dividend ?</label>
+                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="haveDividend" class="have_dividend" value="yes"> Yes</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="haveDividend" class="haveDividend" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-8 col-md-8 have_dividendno form-row mt-3" style="">
+                    <select name="reasonNoPayment" class="form-select" id="reasonnopayment">
+                        <option >Reason for non-payment</option>
+                        <option value="Inadequate profits" selected="">Inadequate profits</option>
+                        <option value="Loss">Loss</option>
+                        <option value="Retention of profit">Retention of profit</option>
+                        <option value="Non applicability">Non applicability</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-4 col-md-4 label-bottom form-row mt-3">
+                    <label>Interim Dividend Paid?</label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label> <input type="radio" name="interimDividend" class="interim_dividend" value="yes" > Yes &nbsp; &nbsp; &nbsp; &nbsp;</label> <label><input type="radio" name="interimDividend" class="interim_dividend" value="no" > No</label>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 addinterim form-row bold mt-3" style="display: block;">Dividend Distribution Tax</div>
+                <div class="col-xs-12 col-sm-4 col-md-4 addinterim form-row mt-3" style="display: block;">
+                    <input name="dividendDistributionTaxInterim" class="form-control numbers" placeholder="Dividend Distribution Tax" id="dividend_distributiontax_interim" title="Dividend Distribution Tax" type="text" >
+                </div>
+            </div>
+
+            <table border="1" class="table table-bordered table-hover table-striped addinterim mt-4" style="width: 100%; margin-left: -15px; display: table;">
+                <thead>
+                    <tr>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Dividend Per Share</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Face Value Per Share</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Percent of Dividend</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="interimdetails">
+                    <tr id="rowinterim1">
+                        <td>
+                            <input type="text" class="form-control" placeholder="Dividend Per Share" name="dataBoardInterim" >
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Face Value" name="dataBoardInterimFaceValue" >
+                        </td>
+                        <td>
+                            <input type="text" class="form-control numbers" placeholder="Percent of Dividend" name="dataBoardInterimPercent" >
+                        </td>
+                        <td style="text-align:center;">
+                            <button type="button" name="remove" id="1" class="btn btn-danger btn_removeinterim">X</button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <button type="button" name="addInterim" id="addinterim" class="btn btn-primary addinterim" style="margin-left: -10px; margin-bottom: 10px; display: inline-block; width:10rem;"><i class="fa fa-plus"></i> Add More</button>
+
+
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-4 col-md-4 label-bottom form-row mt-3">
+                    <label style="margin-left: -0px;">Final  Dividend Paid?</label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="finalDividend" class="final_dividend" value="yes" > Yes</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="finalDividend" class="final_dividend" value="no"> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 addfinal form-row bold mt-3" style="display: block;">Dividend Distribution Tax</div>
+                <div class="col-xs-12 col-sm-4 col-md-4 addfinal form-row mt-3" style="display: block;">
+                    <input name="dividendDistributionTaxFinal" class="form-control numbers" placeholder="Dividend Distribution Tax" id="dividend_distributiontax_final" title="Dividend Distribution Tax" type="text" >
+                </div>
+            </div>
+
+            <table border="1" class="mt-3 table table-bordered table-hover table-striped addfinal" style="width: 100%; margin-left: -15px; display: table;">
+                <thead id="finalheader">
+                    <tr>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Dividend Per Share</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Face Value Per Share</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Percent of Dividend</th>
+                        <th style="text-align:center;background-color: #cfe7ff; color:black;">Action</th>
+                    </tr>
+                </thead>
+                <tbody id="finaldetails">
+                    <tr id="rowfinal1">
+                        <td>
+                            <input type="text" class="form-control" placeholder="Dividend Per Share" name="boardDividendShare" >
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Face Value" name="boardFaceValueShare" >
+                        </td>
+                        <td>
+                            <input type="text" class="form-control numbers" placeholder="Percent of Dividend" name="boardPercentOfDividend" >
+                        </td>
+                        <td style="text-align:center;">
+                            <button type="button" name="remove" id="1" class="btn btn-danger btn_removeinterim">X</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" name="addFinal" id="addfinal" class="btn btn-primary addfinal" style="width:10rem; margin-left: -10px; margin-bottom: 10px; display: inline-block;"><i class="fa fa-plus"></i> Add More</button>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-8 col-md-8 label-bottom form-row mt-3">
+                    <label style="text-transform: uppercase;">Transfer of unpaid dividend to investor education and protection fund ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="transferDividend" class="transfer_dividend" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="transferDividend" class="transfer_dividend" checked="" value="no"> No
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row bold trans_dividend_amount mt-3" style="display: block;">Amount</div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row trans_dividend_amount mt-3" style="display: block;">
+                    <input name="transDividendAmount" class="form-control numbers" placeholder="Amount" id="trans_dividend_amount" title="Amount" type="text" >
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                    <label style="text-transform: uppercase;">Material changes and commitments ? </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="haveChanges" class="have_changes" > Yes</label> &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="haveChanges" class="haveChanges"  checked=""> No</label>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 bold form-row no_of_events mt-3" style="display: block;">
+                    No of Events
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row no_of_events mt-3" style="display: block;">
+                    <input name="noOfEvents" class="form-control numbers" placeholder="No of Events" title="No of Events"  id="no_of_events" type="text">
+                </div>
+            </div>
+            <label style="margin-left: -10px;text-transform: uppercase; margin-top:10px;"> Conservation of Energy, Technology Absorption and Foreign Exchange Earnings</label>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label-bottom mt-3">
+                    <label style="margin-left: -10px;font-weight: 700;font-size: 15px;">A. Conservation of Energy ?</label>
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                    <label>    <input type="radio" name="conserveEnergy" class="conserve_energy" > Yes </label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="conserveEnergy" class="conserve_energy"  checked=""> No</label>
+                </div>
+            </div>
+
+            <label for="conserve_energy_step1" style="margin-left:-10px; margin-top:10px; margin-bottom:10px;">(i) Steps taken or impact on conservation of energy:</label>
+
+
+
+            <textarea id="summernote6">
+
+            </textarea>
+
+            <label for="conserve_energy_step2" style="margin-left:-10px; margin-top:10px; margin-bottom:10px;">(ii) Steps taken by the company for utilizing alternate sources of energy including waste generated:</label>
+
+
+            <textarea id="summernote7">
+
+            </textarea>
+
+            <label for="conserve_energy_step3" style="margin-left:-10px; margin-top:10px; margin-bottom:10px;">(iii) Capital investment on energy conservation equipment:</label>
+
+
+            <textarea id="summernote8">
+
+            </textarea>
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label-bottom mt-3"><label style="margin-left: -10px;font-weight: 700;font-size: 15px;">B. Technology Absorption ?</label></div>
+                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                    <label>  <input type="radio" name="techAbsortion" class="tech_absortion" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="techAbsortion" class="tech_absortion"  checked=""> No</label>
+                </div>
+            </div>
+
+
+            <label for="tech_absortion_step1" style="margin-left:-10px;  margin-top:10px; margin-bottom:10px;">i) Efforts, in brief, made towards technology absorption</label>
+
+            <textarea id="summernote9">
+
+            </textarea>
+
+
+            <label for="tech_absortion_step2" style="margin-left:-10px; margin-top:10px; margin-bottom:10px;">ii) Benefits derived as a result of the above efforts, e.g., product improvement, cost reduction, product development, import substitution, etc.</label>
+
+            <textarea id="summernote10">
+
+            </textarea>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mb-4">
+                <label for="tech_absortion_step3" style="margin-left:-10px;  margin-top:10px; margin-bottom:10px;">iii) In case of imported technology (imported during the last 3 years reckoned from the beginning of the financial year), following information may be furnished:</label>
+                <textarea name="techAbsortionStep3" class="form-control" id="tech_absortion_step3" type="text"></textarea>
+            </div>
+
+
+            <textarea id="summernote11">
+
+            </textarea>
+
+
+            <div class="row mt-3">
+                <div class="col-xs-12 col-sm-4 col-md-4 label-bottom mt-3">
+                    <label style="margin-left: -10px;font-weight: 700;font-size: 15px;">C. Foreign Exchange Earnings &amp; Outgo?</label>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                    <label>    <input type="radio" name="foreignExchange" class="foreign_exchange" > Yes </label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="foreignExchange" class="foreign_exchange"  checked="">No</label>
+                </div>
+            </div>
+
+
+            <table border="1" style="margin-left:-10px;border:0.5px #ada8a8;border-collapse:collapse; width:100%;font-size:15px;">
+                <tbody>
+                    <tr>
+                        <td style="font-weight:bold; width:50%;padding: 5px;">Particulars</td>
+                        <td style="text-align:center;font-weight:bold; ">Current Year</td>
+                        <td style="text-align:center;font-weight:bold; ">Previous Year</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 5px;">FOB Value of Export</td>
+                        <td><input name="foreignExchangeIncome" style="text-align:center; " class="form-control" id="foreign_exchange_income" type="text" ></td>
+                        <td><input name="foreignExchangeIncomePre" style="text-align:center; " class="form-control" id="foreign_exchange_income_pre" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">CIF Value of Import  </td>
+                        <td><input name="foreignExchangeImport" style="text-align:center; " class="form-control " id="foreign_exchange_import" type="text" ></td>
+                        <td><input name="foreignExchangeImportPre" style="text-align:center; " class="form-control " id="foreign_exchange_import_pre" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">Expenditure on Stores and Spares  </td>
+                        <td><input name="foreignExchangePnterest" style="text-align:center; " class="form-control " id="foreign_exchange_interest" type="text" ></td>
+                        <td><input name="foreignExchangeInterestPre" style="text-align:center; " class="form-control " id="foreign_exchange_interest_pre" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">Expenditure on Foreign travel  </td>
+                        <td><input name="foreignExchangeTravel" style="text-align:center; " class="form-control " id="foreign_exchange_travel" type="text" ></td>
+                        <td><input name="foreignExchangeTravelPre" style="text-align:center; " class="form-control " id="foreign_exchange_travel_pre" type="text" ></td>
+                    </tr>
+                    <tr>
+                        <td style=" padding: 5px;">Other </td>
+                        <td><input name="foreignExchangeOther" style="text-align:center; " class="form-control " id="foreign_exchange_other" type="text" ></td>
+                        <td><input name="foreignExchangeOtherPre" style="text-align:center; " class="form-control " id="foreign_exchange_other_pre" type="text" ></td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+    <div id="part5" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <div id="TabRedirect5" class="tab-pane flipInX custon-tab-style1 active">
+                <br>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 form-row label-bottom ">
+                        <label style="margin-left: -0px;text-transform: uppercase;">Changes in composition of BOD during the year ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="directors_kmp" class="directors_kmp" > Yes &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="directors_kmp" class="directors_kmp"  checked=""> No
+                    </div>
+
+                </div>
+                <table border="1" class="table table-bordered table-hover table-striped" style="width: 100%; margin-left: -15px; display: table;" id="changeheader">
+                    <thead>
+                        <tr>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Director and KMP Name</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Designation</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Type of Change</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Effective Date</th>
+                            <th style="text-align:center;background-color: #cfe7ff; color:black;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="info_changes">
+                        <tr id="rowtan1">
+                            <td><input type="text" class="form-control" title="Director and KMP Name" placeholder="Director and KMP Name" name="directorAndKmpName" > </td>
+                            <td><input type="text" class="form-control" placeholder="Designation" title="Designation" name="designation" ></td>
+                            <td>
+                                <select class="form-select status_1" name="selectTypeOfChange" id="tab_appointment_cess_1">
+                                    <option >Select Type of Change</option>
+                                    <option value="Appointment">Appointment</option>
+                                    <option value="Cessation">Cessation</option>
+                                    <option value="Change in Designation">Change in Designation</option>
+                                </select>
+                            </td>
+                            <td><input type="date" class="form-control date_of_appointment_cess_1" placeholder="Date of Appointment/ Cessation" title="Date of Appointment/ Cessation" name="dateAppointmentCessation" id="date_of_appointment_cess_1" ></td>
+                            <td><button type="button" name="remove" id="1" class="btn btn-danger btn_removetan">X</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" name="tanAdd" id="tanadd" class="btn btn-primary" style="margin-bottom: 10px; margin-left: -10px; display: inline-block;"><i class="fa fa-plus"></i> Add More</button>
+                <div id="directorrotation" style="">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row label-bottom mt-3">
+                            <label style="margin-left: -0px;text-transform: uppercase;">(A). Number of Directors retires by rotation</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                            <input name="noOfDirectorsKmpRotation" class="form-control num" placeholder="No of Directors retires by rotation" id="no_of_directors_kmp_rotation"  title="No of Directors retires by rotation" type="number">
+                        </div>
+                    </div>
+                    <table border="1" class="table table-bordered table-hover table-striped mt-3" style="width:100%;margin-left:-15px;">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;width:10%;">Sr. No.</th>
+                                <th style="text-align:left;background-color: #cfe7ff; color:black;">Name of Director</th>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">Designation</th>
+                                <th style="text-align:center;background-color: #cfe7ff; color:black;">DIN/PAN</th>
+                            </tr>
+                        </thead>
+                        <tbody id="info_directors_kmp_rotation">
+                        </tbody>
+                    </table>
+                </div><hr>
+                <div class="abridged_show mt-3" id="deposits_form">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                            <label style="margin-left: -0px;text-transform: uppercase;">Deposits ?</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="deposits" class="deposits" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="deposits" class="deposits"  checked=""> No
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 label-bottom depositsaccept form-row mt-3">
+                            <label>Deposits accepted from promoters?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="depositsAccept" class="depositsaccept"  style="display: none;"> Yes &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="depositsAccept" class="depositsaccept"  checked="" style="display: none;"> No
+                        </div>
+                    </div>
+                    <div id="tab_deposits" style="display: block;">
+                        <table border="1" class="table table-bordered table-hover table-striped mt-3" style="width:100%;margin-left:-15px;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">No. of Depositors</th>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">Deposits accepted during the year</th>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">Deposits Remained unpaid or unclaimed as at the end of the year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="tabDeposits" class="form-control" placeholder="No. of Depositors" title="No. of Depositors" type="text" id="BoardReportTabDeposits" ></td>
+                                    <td><input name="depositAccept" class="form-control" placeholder="Deposits accepted during the year" title="Deposits accepted during the year" type="text" id="BoardReportDepositAccept" ></td>
+                                    <td><input name="depositUnpaid" class="form-control" placeholder="Deposits Remained unpaid or unclaimed as at the end of the year" title="Deposits Remained unpaid or unclaimed as at the end of the year" type="text" id="BoardReportDepositUnpaid" ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                                <label>A. Whether there has been any default in repayment of deposits or payment of interest thereon during the Year ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="whetherDefault" class="whether_default" value="yes"> Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="whetherDefault" class="whether_default" value="no" > No
+                            </div>
+                        </div>
+                        <table border="1" class="table table-bordered table-hover table-striped" style="width:100%;margin-left:-15px;" id="tab_whether_default">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">No. of such cases</th>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">The total amount involved at the beginning of the year</th>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">The total amount involved maximum during the year</th>
+                                    <th style="text-align:center;background-color: #cfe7ff; color:black;">The total amount involved at the end of the year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input name="noSuchCases" class="form-control" placeholder="No. of such cases" title="No. of such cases" type="text" id="BoardReportNoSuchCases" ></td>
+                                    <td><input name="tamountBegining" class="form-control" placeholder="The total amount involved at the beginning of the year" title="The total amount involved at the beginning of the year" type="text" id="BoardReportTamountBegining" ></td>
+                                    <td><input name="tmaountDuring" class="form-control" placeholder="The total amount involved maximum during the year" title="The total amount involved maximum during the year" type="text" id="BoardReportTmaountDuring" ></td>
+                                    <td><input name="tamountEnd" class="form-control" placeholder="The total amount involved at the end of the year" title="The total amount involved at the end of the year" type="text" id="BoardReportTamountEnd" ></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <label style="margin-left:-10px;text-transform:uppercase;">Details of deposits which are not in compliance with the requirements of Chapter V of the Act</label>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-3">
+                                <input name="detailsDeposits" class="form-control" placeholder="Details of deposits which are not in compliance with the requirements of Chapter V of the Act" title="Details of deposits which are not in compliance with the requirements of Chapter V of the Act" type="text" id="BoardReportDetailsDeposits" >
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="directoramount">
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                                <label style="text-transform: uppercase;">Any amount received from a person who, at the time of the receipt, was a director or a relative of the director?</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="disclouserRelated" class="disclouser_related" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label> <label> <input type="radio" name="disclouserRelated" class="disclouser_related" value="Not Applicable" checked=""> No</label>
+                            </div>
+                        </div>
+                        <div class="row no_of_persons mt-3" style="display: block;">
+                            <div class="col-xs-12 col-sm-4 col-md-4 bold form-row mt-3">
+                                <label>Number of Person</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-8 col-md-8 form-row mt-3">
+                                <input name="noOfPersons" class="form-control numbers" placeholder="No of Persons" id="no_of_persons" title="No of Persons" type="text" >
+                            </div>
+                        </div>
+                        <table border="1" class="table table-bordered table-hover table-striped no_of_persons" style="width: 100%; margin-left: -15px; display: table;">
+                            <thead>
+                                <tr>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; width:8%;">Sr. No.</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Name</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Category</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Opening Amount</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Received  During the year</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Repaid During the year</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Closing Amount</th>
+                                    <th style="text-align:center;background-color: #cfe7ff;color:black; ">Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody id="info_persons" class="no_of_persons" style="display: table-row-group;">
+                            </tbody>
+                        </table>
+                    </div><hr>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Board Evaluation ?</label>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="boardEvalution" class="boardevalution" > Applicable</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <label><input type="radio" name="boardEvalution" class="boardevalution" value="Not Applicable" checked=""> Not Applicable</label>
+                        </div>
+                    </div><hr>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-6 col-md-6 form-row label-bottom mt-3">
+                        <label style="text-transform: uppercase;">Information about Subsidiary/JV/Associate Company ?</label> &nbsp; &nbsp; &nbsp; &nbsp;<label> <input type="radio" name="infoAboutSubsidiary" class="info_about_subsidiary" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</label><label> <input type="radio" name="infoAboutSubsidiary" class="info_about_subsidiary"  checked=""> No</label>
+                    </div>
+                </div>
+                <div id="info_subsidiary" style="display: block;">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row bold mt-3">Names of Subsidiary which are yet to commence operations</div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                            <input type="text" class="form-control " placeholder="Names of Subsidiary which are yet to commence operations" title="Names of Subsidiary which are yet to commence operations" name="commenCeoperationsSubs" >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row bold mt-3">Names of Subsidiary which have been liquidated or sold during the year.</div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                            <input type="text" class="form-control " placeholder="Names of Subsidiary which have been liquidated or sold during the year." title="Names of Subsidiary which have been liquidated or sold during the year." name="liquidatedSubs" >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row bold mt-3">Names of JV/Associate which are yet to commence operations</div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                            <input type="text" class="form-control " placeholder="Names of JV/Associate which are yet to commence operations" title="Names of JV/Associate which are yet to commence operations" name="commenCeoperationsJv" >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row bold mt-3">Names of JV/Associate which have been liquidated or sold during the year.</div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 form-row mt-3">
+                            <input type="text" class="form-control " placeholder="Names of JV/Associate which have been liquidated or sold during the year." title="Names of JV/Associate which have been liquidated or sold during the year." name="liquidatedJv" >
+                        </div>
+                    </div>
+                </div><hr>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                        <label style="margin-left: 0px;text-transform: uppercase;">Orders by the regulators or courts or tribunals ?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label> <input type="radio" name="regulatorOrder" class="regulator_order" > Yes&nbsp;</label> &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<label> <input type="radio" name="regulatorOrder" class="regulator_order"  checked=""> No</label>
+                    </div>
+                    <div class="col-xs-12 col-sm-6 col-md-6  form-row mt-3" id="tab_regulator_order" style="display: block;">
+                        <input name="tabRegulatorOrder" class="form-control" placeholder="Enter Orders by the regulators or courts or tribunals" title="Enter Orders by the regulators or courts or tribunals" type="text" >
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part6" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <div id="TabRedirect6" class="tab-pane flipInX custon-tab-style1 active">
+                <br>
+                <div class="row abridged_show mt-3 mb-4">
+                    <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                        <label style="margin-left: 0px;text-transform: uppercase;">Vigil Mechanism ? </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveVigil" class="have_vigil" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveVigil" class="have_vigil" value="Not Applicable" checked=""> Not Applicable
+                    </div>
+                </div><hr class="abridged_show">
+                <div class="row mt-3 mb-4">
+                    <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                        <label style="margin-left: 0px;"> Has auditor reported any fraud under sub-section (12) of section 143 other than those which are reportable to the Central Government? </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveFraud" class="have_fraud" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveFraud" class="have_fraud"  checked=""> No
+                    </div>
+                </div>
+                <textarea id="summernote12">
+
+                </textarea>
+
+                <div class="row abridged_show mt-3 mb-3 ">
+                    <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                        <label style="margin-left: 0px;text-transform: uppercase;"> Internal control systems and their adequacy ? </label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveAdequacy" class="have_adequacy" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveAdequacy" class="have_adequacy" value="Not Applicable" checked=""> Not Applicable
+                    </div>
+                </div>
+
+                <textarea id="summernote13">
+
+                </textarea>
+                <div class="row abridged_show mt-3" style="height: auto;">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-3" style="height: auto;">
+                        <textarea name="adequacyTextArea" class="form-control ckeditor" id="adequacy_textarea" rows="2" cols="30" style="visibility: hidden;"></textarea><div id="cke_adequacy_textarea" class="cke_15 cke cke_reset cke_chrome cke_editor_adequacy_textarea cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_adequacy_textarea_arialbl"><span id="cke_adequacy_textarea_arialbl" class="cke_voice_label">Rich Text Editor, adequacy_textarea</span><div class="cke_inner cke_reset" role="presentation"></div></div>
+                    </div>
+                </div><hr class="abridged_show mt-3">
+                <div class="abridged_show mt-3" id="harassment_form">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3" style="width:100%">
+                            <label style="text-transform: uppercase;">Whether sexual harassment complaints?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="sexualRating" class="sexual_rating" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="sexualRating" class="sexual_rating" value="Not Applicable" checked=""> Not Applicable
+                        </div>
+                    </div>
+                    <div id="sexual_rating" style="display: block;">
+                        <label style="text-transform: uppercase;margin-left:-10px;">Summary of sexual harassment complaints received and disposed of during the financial year:</label>
+                        <div class="row mt-3">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">No. of Complaints Received</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input name="complaintsReceived" class="form-control"  placeholder="No. of Complaints Received" id="complaints_received" title="No. of Complaints Received" type="text">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">No. of Complaints Disposed</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input name="complaintsDisposed" class="form-control" placeholder="No. of Complaints Disposed"  id="complaints_disposed" title="No. of Complaints Disposed" type="text">
+                            </div>
+                        </div>
+                        <div class="row mt-3 mb-4">
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">No. of Complaints Pending</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input name="complaintsPending" class="form-control"  placeholder="No. of Complaints Pending" id="complaints_pending" title="No. of Complaints Pending" type="text">
+                            </div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">No. of Complaints Unsolved</div>
+                            <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                                <input name="complaintsUnsolved" class="form-control" placeholder="No. of Complaints Unsolved"  id="complaints_unsolved" title="No. of Complaints Unsolved" type="text">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <textarea id="summernote14">
+
+ </textarea>
+
+                <div class="abridged_show mt-3">
+                    <div class="row remuneration_policy mt-3" style="">
+                        <div class="col-xs-12 col-sm-4 col-md-4 label-bottom mt-3">
+                            <label>27. Managerial Person appointed u/s 197 read with Rule 5 ?</label>
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3 ">
+                            <input type="radio" name="haveManaperson" class="have_manaperson" >Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="haveManaperson" class="have_manaperson"  checked="">No
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3 ">
+                            <input name="nameAppoint" class="form-control" placeholder="Name" title="Name" id="name_appoint" style=" type="text" >
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                            <input name="designationApp" class="form-control" placeholder="Designation" title="Designation" id="designation_app" style="" type="text" >
+                        </div>
+                        <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                            <input name="remuneraion" class="form-control" placeholder="Remuneraion" title="Remuneraion" id="remuneraion" style="" type="text" >
+                        </div>
+                    </div><hr style="" class="remuneration_policy mt-3 mb4">
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Whether Credit Rating obtained?</label>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="creditRating" class="credit_rating" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="creditRating" class="credit_rating"  checked=""> No
+                        </div>
+                    </div>
+
+                    <textarea id="summernote15">
+
+ </textarea>
+
+
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Statement regarding compliances of applicable Secretarial Standards?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="secretarialStandard" class="secretarialStandard" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="secretarial_standard" class="secretarial_standard"  checked=""> No
+                        </div>
+                    </div>
+
+                    <textarea id="summernote16">
+
+ </textarea>
+
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                            <textarea name="detailSecretarialStandard" rows="2" class="form-control ckeditor" id="detail_secretarial_standard" cols="30" style="visibility: hidden; ">
+
+                            </textarea><div id="cke_detail_secretarial_standard" class="cke_18 cke cke_reset cke_chrome cke_editor_detail_secretarial_standard cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_detail_secretarial_standard_arialbl"><span id="cke_detail_secretarial_standard_arialbl" class="cke_voice_label">Rich Text Editor, detail_secretarial_standard</span></div>
+                        </div>
+                    </div><hr>
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="text-transform: uppercase;">Is there any CIRP proceeding initiated against the company?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyCirp" class="any_cirp" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyCirp" class="any_cirp"  checked=""> No
+                        </div>
+                    </div>
+
+                    <textarea id="summernote17">
+
+ </textarea>
+
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Is there any corporate action pending for execution?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyCorporateaction" class="any_corporateaction" > Yes &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="anyCorporateaction" class="any_corporateaction"  checked=""> No
+                        </div>
+                    </div>
+
+
+                    <textarea id="summernote18">
+
+ </textarea>
+
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-6 col-md-6 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Particulars of top ten Employee:</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyTopten" class="any_topten" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyTopten" class="any_topten" value="Not Applicable" checked=""> Not Applicable
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row bold detail_any_topten mt-3" style="display: block;">Annexure No</div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row detail_any_topten" mt-3 style="display: block;">
+                            <select name="annexure" class="form-select" id="annexure">
+                                <option >Select Annexure</option>
+                                <option value="Annexure 1">Annexure 1</option>
+                                <option value="Annexure 2">Annexure 2</option>
+                                <option value="Annexure 3">Annexure 3</option>
+                                <option value="Annexure 4">Annexure 4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row detail_any_topten mt-3" style="display: block;">
+                        <div class="col-xs-12 col-sm-12 col-md-12 mt-3">
+                            <textarea name="detailAnyTopten" id="detail_any_topten" rows="2" class="form-control ckeditor" cols="30" style="visibility: hidden; ">
+
+                            </textarea><div id="cke_detail_any_topten" class="cke_21 cke cke_reset cke_chrome cke_editor_detail_any_topten cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" ><span id="cke_detail_any_topten_arialbl" class="cke_voice_label">Rich Text Editor, detail_any_topten</span></div>
+                        </div>
+                    </div><hr>
+                    <label style="margin-left: -10px; text-transform: uppercase; display: inline-block;" class="detail_any_topten">Disclosure Details</label>
+                    <div align="right" style="margin-top: -30px; display: block;" class="detail_any_topten">
+                        <button type="button" name="addDisclosure" id="adddisclosure" class="btn btn-primary"><i class="fa fa-plus"></i></button>
+                    </div>
+
+
+
+                    <div id="info_any_topten" style="display: block;">
+                        <div id="topten1">
+                            <label style="margin-left:-10px;text-transform:uppercase;">Details 1</label>
+                            <div class="row mt-3">
+                                <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                                    <label for="dis_emp_name">Name of the Employee</label>
+                                    <input type="text" class="form-control" title="Name of the Employee"  name="disEmpName">
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                                    <label for="dis_designation">Designation</label>
+                                    <input type="text" class="form-control" title="Designation" name="disDesignation" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                                    <label for="dis_remuneration">Remuneration Received</label>
+                                    <input type="text" class="form-control" title="Remuneration Received" name="disRemuneration" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                                    <label for="dis_nature">Nature of Employment</label>
+                                    <input type="text" class="form-control" title="Nature of Employment" name="disNature" >
+                                </div>
+                                <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                                    <label for="dis_qualification">Qualifications and Experience</label>
+                                    <input type="text" class="form-control" title="Qualifications and Experience" name="disQualification" >
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-3 col-md-3 mt-3">
+                                    <label for="dis_date_commence">Date of commencement of the employment</label>
+                                    <input type="date" class="form-control" title="Date of commencement of the employment" name="disDateCommence" placeholder="" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-4">
+                                    <label for="dis_age">Age </label>
+                                    <input type="text" class="form-control" title="Age" name="disAge" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-4">
+                                    <label for="dis_last_emp">Last employment held</label>
+                                    <input type="text" class="form-control" title="Last employment held" name="disLastEmp" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-4">
+                                    <label for="dis_percent_equity">% of equity shares held</label>
+                                    <input type="text" class="form-control" title="% of equity shares held" name="disPercentEquity" >
+                                </div>
+                                <div class="col-xs-12 col-sm-2 col-md-2 mt-3">
+                                    <label for="dis_nature_name">Nature of Relation with the Director with Name</label>
+                                    <input type="text" class="form-control" title="Nature of Relation with the Director or the Manager along with Name" name="disNatureName" >
+                                </div>
+                                <div class="col-xl-1 col-lg-1 col-md-12 col-sm-12 col-12 mt-3">
+                                    <label for="remove">Remove</label>
+                                    <button type="button" name="remove" id="1" class="btn btn-danger btn_removetopten" style="margin-top:0px;">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div><hr class="detail_any_topten" style="display: block;">
+                    <div class="row mt-3">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3 mb-4">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Disclosure regarding the difference in valuation?</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyDiffvalution" class="any_diffvalution" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="anyDiffvalution" class="any_diffvalution" value="Not applicable" checked=""> Not applicable
+                        </div>
+                    </div>
+
+                    <textarea id="summernote19">
+
+</textarea>
+
+                    <div class="row mt-3 mb-4">
+                        <div class="col-xs-12 col-sm-12 col-md-12 label-bottom form-row mt-3">
+                            <label style="margin-left: 0px;text-transform: uppercase;">Disclosure in respect of voting rights not exercised directly by the employees</label> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="anyDisclosure" class="any_disclosure" > Applicable &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="anyDisclosure" class="any_disclosure" value="Not applicable" checked=""> Not applicable
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <textarea id="summernote20">
+
+</textarea>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row bold mt-3">Place of Signing</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <input name="placeBoardreport" class="form-control" placeholder="Place" title="Place" id="place_boardreport" type="text" value="Mumbai">
+                    </div>
+                    <div class="col-xs-12 col-sm-2 col-md-2 form-row bold mt-3">Date of Signing</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <input name="meetingDate" class="form-control datepicker hasDatepicker" placeholder="Date of  Signing of Board Report" id="meeting_date" title="Date of  Signing of Board Report" type="date">
+                    </div>
+                </div>
+                <label style="text-transform: uppercase;margin-left:-10px;">Authorized Directors to Sign</label>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <select name="directorName1" class="form-select director" id="director_name1">
+                            <option >Select Director Name</option>
+                            <option selected="" >Mokshank Dilipbhai Savla</option>
+                            <option >Rakshit Dilip Savla</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <input name="directorDin1" class="form-control mt-3" placeholder="Director DIN" id="director_din1"   title="Director DIN" type="text">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <input name="directorDesigation1" class="form-control " placeholder="Director Designation" id="director_desigation1"  title="Director Designation" type="text">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <select name="directorName2" class="form-select director" id="director_name2">
+                            <option >Select Director Name</option>
+                            <option >Mokshank Dilipbhai Savla</option>
+                            <option selected="" >Rakshit Dilip Savla</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <input name="directorDin2" class="form-control" placeholder="Director DIN" id="director_din2"   title="Director DIN" type="text">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 mt-3">
+                        <input name="directorDesigation2" class="form-control" placeholder="Director Designation" id="director_desigation2"  title="Director Designation" type="text">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part7" class="p-0">
+        <div class="card" style="padding:20px;">
+            <label style="text-transform: uppercase;margin-left: -10px;">Add Any other point in Board Report</label>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-3 mb-4" style="margin-left: -10px;">
+                <label for="title">Title</label>
+                <input name="title" class="form-control" type="text">
+            </div>
+
+            <label for="discription" style="margin-left: -10px;">Description</label>
+
+
+            <textarea id="summernote21">
+
+</textarea>
+        </div>
+    </div>
+
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+
+
+        $(document).ready(function () {
+            $('#summernote').summernote();
+        });
+
+        $(document).ready(function () {
+            $('#summernote1').summernote();
+        });
+
+        $(document).ready(function () {
+            $('#summernote2').summernote();
+        });
+
+        $(document).ready(function () {
+            $('#summernote3').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote4').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote5').summernote();
+        });
+
+        $(document).ready(function () {
+            $('#summernote6').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote7').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote8').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote9').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote10').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote11').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote12').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote13').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote14').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote15').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote16').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote17').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote18').summernote();
+        });
+        $(document).ready(function () {
+            $('#summernote19').summernote();
+
+        });
+        $(document).ready(function () {
+            $('#summernote20').summernote();
+
+        });
+        $(document).ready(function () {
+            $('#summernote21').summernote();
+
+        });
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            // part-1
+
+            financialYear: "",
+            amountFigure: "",
+            typeBoardReport: "",
+            agmnoticeDate: "",
+            dateAgm: "",
+            dayDate: "",
+            timeAgm: "",
+            noOfAgm: 0,
+            paidupCapital: "",
+            noOfBoardMeeting: 0,
+            boardMeetingSrNo: "",
+            boardMeetingDate: "",
+            boardStrength1: 0,
+            noOfDirectorsPresent: 0,
+            boardMeetingSrNo2: "",
+            boardMeetingDate2: "",
+            boardStrength2: 0,
+            noOfDirectorsPresent2: 0,
+            numbersOfBoardMeetingDuringYear: "",
+            boardMeetingDate3: "",
+            boardStrength3: 0,
+            noOfDirectorsPresent3: 0,
+            srNo4: "",
+            boardMeetingDate4: "",
+            boardStrength4: 0,
+            noOfDirectorsPresent4: 0,
+            srNo5: "",
+            boardMeetingDate5: "",
+            boardStrength5: 0,
+            noOfDirectorsPresent5: 0,
+            srNo6: "",
+            boardMeetingDate6: "",
+            boardStrength6: 0,
+            noOfDirectorsPresent6: 0,
+            noOfGeneralMeeting: 0,
+            numberOfMeetingDuringYear2: "",
+            selectMeetingType: "",
+            generalMeetingDate: "",
+            generalStrengthMeeting: 0,
+            noOfMembersPresent: 0,
+            haveWebsite: "",
+            websiteName: "",
+            operationRevenueCur: "",
+            operationRevenuePre: "",
+            profitBeforeCur: "",
+            profitBeforePre: "",
+            otherIncomeCur: "",
+            otherIncomePre: "",
+            financeChargeCur: "",
+            financeChargePre: "",
+            depreciationCur: "",
+            depreciationPre: "",
+            otherexpCur: "",
+            otherexpPre: "",
+            netProfitBeforeCur: "",
+            netProfitBeforePre: "",
+            taxExpenseCur: "",
+            taxExpensePre: "",
+            deffereTaxExpenseCur: "",
+            defferedTaxExpensePre: "",
+            netProfitCur: "",
+            netProfitPre: "",
+            revenueChanges: "",
+            pbditChanges: "",
+            pbtChanges: "",
+            patChanges: "",
+            isIndependDirector: "",
+
+
+
+
+            // part-2
+
+            haveCsr: "",
+            riskManagementPolicy: "",
+            noOfCommitteeMeeting: 0,
+            haveCas: "",
+            isCommitteeOfDirector: "",
+
+
+
+            // part-3
+
+            nameOfAuditFirm: "",
+            dateAppoAuditor: "",
+            category: "",
+            firmRegistration: "",
+            periodAppointment: "",
+            effectiveDateAu: "",
+            anyObservation: "",
+            haveCostaudit: "",
+            nameOfSecretarialAuditor: "",
+            dateSecretariaAuditor: "",
+            anyObservationSect: "",
+            costSecretariaFees: "",
+            haveInternalaudit: "",
+            nameOfInternalAuditor: "",
+            dateInternalAuditor: "",
+            anyObservationInt: "",
+            costInternalFees: "",
+            loanInvest: "",
+            noOfParty: "",
+            detailLoanInvest: "",
+            relatedPartyTrans: "",
+            relatedPartyTransMatrial: "",
+            noTenoOfRelatedParty: "",
+            isRelatedPartyDetail: "",
+            noOfMatarial: 0,
+            isRelatedPartyDetailarms: "",
+            noOfContracts: 0,
+            changesNature: "",
+            tabChangesNature: "",
+
+
+            // part-4
+
+            changesShare: "",
+            authorisedCapital: "",
+            noOfAuthorized: 0,
+            shareIssue: "",
+            noOfShareIssue: "",
+            buyBack: "",
+            noOfBuckBack: "",
+            dataBox1: "",
+            dataBox2: "",
+            dataBoxs3: "",
+            dataBox4: "",
+            sweetEquity: "",
+            noOfSweetEquity: "",
+            valueSweetEquity: "",
+            totalSweetEquity: "",
+            bonusShare: "",
+            noOfBonusShare: "",
+            valueBonusShare: "",
+            totalBonuShare: "",
+            esopShare: "",
+            noOfEsopshare: "",
+            valueEsopshare: "",
+            totalEsopshare: "",
+            sharedIfRight: "",
+            noOfSharedIfRight: "",
+            valueSharedIfRight: "",
+            totalSharedIfRight: "",
+            amountTransferReserve: "",
+            noOfTransferReserve: "",
+            haveDividend: "",
+            reasonNoPayment: "",
+            interimDividend: "",
+            dividendDistributionTaxInterim: "",
+            dataBoardInterim: "",
+            dataBoardInterimFaceValue: "",
+            dataBoardInterimPercent: "",
+            finalDividend: "",
+            dividendDistributionTaxFinal: "",
+            boardDividendShare: "",
+            boardFaceValueShare: "",
+            boardPercentOfDividend: "",
+            transferDividend: "",
+            transDividendAmount: "",
+            haveChanges: "",
+            noOfEvents: "",
+            conserveEnergy: "",
+            techAbsortion: "",
+            techAbsortionStep3: "",
+            foreignExchange: "",
+            foreignExchangeIncome: "",
+            foreignExchangeIncomePre: "",
+            foreignExchangeImport: "",
+            foreignExchangeImportPre: "",
+            foreignExchangePnterest: "",
+            foreignExchangeInterestPre: "",
+            foreignExchangeTravel: "",
+            foreignExchangeTravelPre: "",
+            foreignExchangeOther: "",
+            foreignExchangeOtherPre: "",
+
+
+            // part-5
+
+            directors_kmp: "",
+            directorAndKmpName: "",
+            designation: "",
+            selectTypeOfChange: "",
+            dateAppointmentCessation: "",
+            noOfDirectorsKmpRotation: 0,
+            deposits: "",
+            depositsAccept: "",
+            tabDeposits: "",
+            depositAccept: "",
+            depositUnpaid: "",
+            whetherDefault: "",
+            noSuchCases: "",
+            tamountBegining: "",
+            tmaountDuring: "",
+            tamountEnd: "",
+            detailsDeposits: "",
+            disclouserRelated: "",
+            noOfPersons: "",
+            boardEvalution: "",
+            infoAboutSubsidiary: "",
+            commenCeoperationsSubs: "",
+            liquidatedSubs: "",
+            commenCeoperationsJv: "",
+            liquidatedJv: "",
+            regulatorOrder: "",
+            tabRegulatorOrder: "",
+
+
+            // part-6
+
+            haveVigil: "",
+            haveFraud: "",
+            haveAdequacy: "",
+            adequacyTextArea: "",
+            sexualRating: "",
+            complaintsReceived: "",
+            complaintsDisposed: "",
+            complaintsPending: "",
+            complaintsUnsolved: "",
+            haveManaperson: "",
+            nameAppoint: "",
+            designationApp: "",
+            remuneraion: "",
+            creditRating: "",
+            secretarialStandard: "",
+            detailSecretarialStandard: "",
+            anyCirp: "",
+            anyCorporateaction: "",
+            anyTopten: "",
+            annexure: "",
+            detailAnyTopten: "",
+            disEmpName: "",
+            disDesignation: "",
+            disRemuneration: "",
+            disNature: "",
+            disQualification: "",
+            disDateCommence: "",
+            disAge: "",
+            disLastEmp: "",
+            disPercentEquity: "",
+            disNatureName: "",
+            anyDiffvalution: "",
+            anyDisclosure: "",
+            placeBoardreport: "",
+            meetingDate: "",
+            directorName1: "",
+            directorDin1: "",
+            directorDesigation1: "",
+            directorName2: "",
+            directorDin2: "",
+            directorDesigation2: "",
+
+            // part-7
+
+            title: "",
+
+
+
+
+
+
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $("#part4").hide();
+            $("#part5").hide();
+            $("#part6").hide();
+            $("#part7").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+                $("#part5").hide();
+                $("#part6").hide();
+                $("#part7").hide();
+
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

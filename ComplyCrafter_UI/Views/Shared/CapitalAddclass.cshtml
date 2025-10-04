@@ -1,0 +1,446 @@
+﻿@{
+    ViewBag.ShowSearch = true;
+}
+
+@section HeaderBlock {
+    <h4 name="company_name"></h4>
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="row">
+
+    <!-- Equity Share Capital Classes -->
+    <div class="col-md-6">
+        <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="fw-bold">Equity Share Capital Classes</h6>
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#equityModal" onclick="openEquityModal()">
+                    Add Class
+                </button>
+            </div>
+            <table class="table table-bordered table-striped table-sm" id="equityTable">
+                <thead class="table-secondary text-center">
+                    <tr>
+                        <th style="width: 60px;">Sr. No.</th>
+                        <th>Equity Classes Name</th>
+                        <th style="width: 100px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">No records found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Preference Share Capital Classes -->
+    <div class="col-md-6">
+        <div class="card p-3">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="fw-bold">Preference Share Capital Classes</h6>
+                <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#prefModal" onclick="openPrefModal()">
+                    Add Class
+                </button>
+            </div>
+            <table class="table table-bordered table-striped table-sm" id="prefTable">
+                <thead class="table-secondary text-center">
+                    <tr>
+                        <th style="width: 60px;">Sr. No.</th>
+                        <th>Preference Classes Name</th>
+                        <th style="width: 100px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="text-center text-muted">No records found</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Equity Modal -->
+<div class="modal fade" id="equityModal" tabindex="-1" aria-labelledby="equityModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow-lg">
+
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold" id="equityModalLabel">
+                    <i class="bi bi-plus-circle"></i> Add Equity Share Capital Class
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="equityForm">
+					<input type="hidden" id="equityId" value="0" />
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Equity Share Capital Class <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control border border-dark" id="equityName" placeholder="Enter class name" required>
+                        <small class="text-danger">*Please specify the exact class you would like to be displayed in your shareholder data.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Terms & Conditions, if any:</label>
+                        <textarea class="form-control border border-dark" id="equityTerms" rows="5" placeholder="Enter terms & conditions (optional)"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="saveEquityBtn">
+                    <i class="bi bi-check-circle"></i> Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Preference Modal -->
+<div class="modal fade" id="prefModal" tabindex="-1" aria-labelledby="prefModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content shadow-lg">
+
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold" id="prefModalLabel">
+                    <i class="bi bi-plus-circle"></i> Add Preference Share Capital Class
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <form id="prefForm">
+					<input type="hidden" id="prefId" value="0" />
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Preference Share Capital Class <span class="text-danger">*</span></label>
+                        <input type="text" class="form-control border border-dark" id="prefName" placeholder="Enter class name" required>
+                        <small class="text-danger">*Please specify the exact class you would like to be displayed in your shareholder data.</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Terms & Conditions, if any:</label>
+                        <textarea class="form-control border border-dark" id="prefTerms" rows="5" placeholder="Enter terms & conditions (optional)"></textarea>
+                    </div>
+                </form>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">
+                    <i class="bi bi-x-circle"></i> Cancel
+                </button>
+                <button type="button" class="btn btn-primary btn-sm" id="savePrefBtn">
+                    <i class="bi bi-check-circle"></i> Add
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function CommonSwitchFunction()
+    {
+        fnGetEquityClassList();
+        fnGetPreferenceClassList(); 
+    }
+
+    $(document).ready(function(){
+        fnGetEquityClassList();
+        fnGetPreferenceClassList();
+    });
+    // ===== EQUITY HANDLING =====
+    let equityCounter = 0, equityEditMode = false, equityEditRow = null;
+
+    function openEquityModal() {
+        resetEquityModal();
+        $("#equityModalLabel").html('<i class="bi bi-plus-circle"></i> Add Equity Share Capital Class');
+        $("#saveEquityBtn").html('<i class="bi bi-check-circle"></i> Add');
+        $("#equityModal").modal("show");
+    }
+
+    $("#saveEquityBtn").click(function () {
+        const name = $("#equityName").val().trim();
+        const terms = $("#equityTerms").val().trim();
+
+        if (name === "") {
+            alert("Class name is required!");
+            return;
+        }
+
+        if (equityEditMode && equityEditRow) {
+            $(equityEditRow).find("td:eq(1)").text(name);
+            $(equityEditRow).attr("data-terms", terms);
+            resetEquityModal();
+            return;
+        }
+        var classMaster={
+            id:$("#equityId").val(),
+            companyId: localStorage.getItem("comp_id"),
+            classType:"Equity",
+            className: $("#equityName").val(),
+            classTerms: $("#equityTerms").val()
+		}
+        $.ajax({
+            url: '@R.ApiUrl/ClassMaster/Save',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(classMaster),
+            success: function (data) {
+                
+                if(data.status)
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: data.message,
+                    });
+                    fnGetEquityClassList();
+                }
+                resetEquityModal();
+            },
+            error: function () {
+                alert("Failed to add equity class. Please try again.");
+            }
+        });
+    });
+
+    function fnGetEquityClassList()
+    {
+        var classMaster={
+            companyId: localStorage.getItem("comp_id")
+        }
+        $.ajax({
+            url: '@R.ApiUrl/ClassMaster/List',
+            type: 'GET',
+            contentType: 'application/json',
+            data: { 'companyId':localStorage.getItem("comp_id"),'classType': 'Equity'},
+            success: function (data) {
+
+                if ($("#equityTable tbody tr td").length === 1 &&
+                    $("#equityTable tbody tr td").attr("colspan") === "3") {
+                    $("#equityTable tbody").empty();
+                }
+                $("#equityTable tbody").empty();
+                prefCounter = 0;
+                $.each(data, function (i, item) {
+                    prefCounter++;
+
+                    $("#equityTable tbody").append(`
+                        <tr data-terms="${item.classTerms}">
+                            <td class="text-center">${prefCounter}</td>
+                            <td>${item.className}</td>
+                            <td class="text-center">
+                                <a onclick="editEqt(this,${item.id})" class="mx-2 text-success" title="Edit"><i class="fa fa-pencil-alt"></i></a>
+                                <a onclick="deleteClass(${item.id})" class="mx-2 text-danger" title="Delete"><i class="fa fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    `);
+                });
+            },
+            error: function () {
+                alert("Failed to add equity class. Please try again.");
+            }
+        });
+    }
+
+    function editEqt(ele, id) {
+        $("#equityId").val(id);
+        quityEditRow = $(ele).closest("tr");
+        const name = $(equityEditRow).find("td:eq(1)").text();
+        const terms = $(equityEditRow).attr("data-terms") || "";
+
+        $("#equityName").val(name);
+        $("#equityTerms").val(terms);
+
+        $("#equityModalLabel").html('<i class="fa fa-edit"></i> Edit Equity Share Capital Class');
+        $("#saveEquityBtn").html('<i class="bi bi-check-circle"></i> Update');
+        $("#equityModal").modal("show");
+
+        equityEditMode = true;
+    }
+
+    function resetEquityModal() {
+        $("#equityForm")[0].reset();
+        $("#equityModal").modal("hide");
+        equityEditMode = false;
+        equityEditRow = null;
+    }
+
+    // ===== PREFERENCE HANDLING =====
+    let prefCounter = 0, prefEditMode = false, prefEditRow = null;
+
+    function openPrefModal() {
+        resetPrefModal();
+        $("#prefModalLabel").html('<i class="bi bi-plus-circle"></i> Add Preference Share Capital Class');
+        $("#savePrefBtn").html('<i class="bi bi-check-circle"></i> Add');
+        $("#prefModal").modal("show");
+    }
+
+    $("#savePrefBtn").click(function () {
+        const name = $("#prefName").val().trim();
+        const terms = $("#prefTerms").val().trim();
+
+        if (name === "") {
+            alert("Class name is required!");
+            return;
+        }
+
+        if (prefEditMode && prefEditRow) {
+            $(prefEditRow).find("td:eq(1)").text(name);
+            $(prefEditRow).attr("data-terms", terms);
+            resetPrefModal();
+            return;
+        }
+
+        var classMaster={
+			id: $("#prefId").val(),
+            companyId: localStorage.getItem("comp_id"),
+            classType:"Preference",
+            className: $("#prefName").val(),
+            classTerms: $("#prefTerms").val()
+        }
+        $.ajax({
+            url: '@R.ApiUrl/ClassMaster/Save',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(classMaster),
+            success: function (data) {
+
+                if(data.status)
+                {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: data.message,
+                    });
+                    fnGetPreferenceClassList();
+                }
+                resetEquityModal();
+            },
+            error: function () {
+                alert("Failed to add equity class. Please try again.");
+            }
+        });
+
+        resetPrefModal();
+    });
+
+    function fnGetPreferenceClassList()
+    {
+        var classMaster={
+            companyId: localStorage.getItem("comp_id")
+        }
+        $.ajax({
+            url: '@R.ApiUrl/ClassMaster/List',
+            type: 'GET',
+            contentType: 'application/json',
+            data: { 'companyId':localStorage.getItem("comp_id"),'classType': 'Preference'},
+            success: function (data) {
+
+                if ($("#prefTable tbody tr td").length === 1 &&
+                    $("#prefTable tbody tr td").attr("colspan") === "3") {
+                    $("#prefTable tbody").empty();
+                }
+                $("#prefTable tbody").empty();
+                prefCounter = 0;
+                $.each(data, function (i, item) {
+                    prefCounter++;
+
+                    $("#prefTable tbody").append(`
+                        <tr data-terms="${item.classTerms}">
+                            <td class="text-center">${prefCounter}</td>
+                            <td>${item.className}</td>
+                            <td class="text-center">
+                                <a onclick="editPref(this,${item.id})" class="mx-2 text-success" title="Edit"><i class="fa fa-pencil-alt"></i></a>
+                                <a onclick="deleteClass(${item.id})" class="mx-2 text-danger" title="Delete"><i class="fa fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    `);
+                });
+            },
+            error: function () {
+                alert("Failed to add equity class. Please try again.");
+            }
+        });
+    }
+
+    function editPref(ele, id) {
+        $("#prefId").val(id);
+        prefEditRow = $(ele).closest("tr");
+        const name = $(prefEditRow).find("td:eq(1)").text();
+        const terms = $(prefEditRow).attr("data-terms") || "";
+
+        $("#prefName").val(name);
+        $("#prefTerms").val(terms);
+
+        $("#prefModalLabel").html('<i class="fa fa-edit"></i> Edit Preference Share Capital Class');
+        $("#savePrefBtn").html('<i class="bi bi-check-circle"></i> Update');
+        $("#prefModal").modal("show");
+
+        prefEditMode = true;
+    }
+
+    function deleteClass(id) {
+
+        Swal.fire({
+            icon: 'info',
+            title: 'Attention!',
+            html: 'Are you sure you want to delete this class?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: 'No, Cancel',
+            confirmButtonColor: '#28a745',
+            cancelButtonColor: '#d33'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '@R.ApiUrl/ClassMaster/Delete/' + id,
+                    type: 'DELETE',
+                    contentType: 'application/json',
+                    success: function (res) {
+                        if (res.status) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success!',
+                                text: res.message,
+                            });
+                            fnGetEquityClassList();
+                            fnGetPreferenceClassList();
+                        }
+                        resetEquityModal();
+                    },
+                    error: function () {
+                        alert("Failed to delete equity class. Please try again.");
+                    }
+                });
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Cancelled',
+                    text: 'Delete action was cancelled.',
+                });
+            }
+        });
+
+    }
+
+    function resetPrefModal() {
+        $("#prefForm")[0].reset();
+        $("#prefModal").modal("hide");
+        prefEditMode = false;
+        prefEditRow = null;
+    }
+</script>
+
+

@@ -1,0 +1,409 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+    input{
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+
+    .select{
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+    }
+    a{
+        text-decoration:none;
+    }
+
+    .icon_style{
+        color:black;
+    }
+
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card" style="flex-direction:row;">
+        <div class="col-lg-12">
+            <div class="card-header">
+                <h3 class="card-title mb-0 fs-4" style="margin-top:1px">
+                    <span>Particulars of Shareholders </span>
+                </h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <input type="hidden" class="num" value="0" name="id" />
+            <input type="hidden" class="num" value="0" name="companyId" />
+            <p style="color:red;font-size: 14px;text-align: right;">
+                Quick Hint: If you are adding any shareholder as transferee or allottee, Pls do not add the number of shares held here.
+            </p>
+            <div class="row">
+
+                <div class="col-lg-6 my-3">
+                    <label class="form-label">Joint shareholding?</label>
+                    &nbsp; &nbsp;
+                    <input type="radio" id="jointShareholdingYes" name="jointShareholding" value="yes" onchange="checkIsJoint(this)"> Yes &nbsp; &nbsp;
+                    <input type="radio" id="jointShareholdingNo" name="jointShareholding" value="no" onchange="checkIsJoint(this)"> No
+                </div>
+
+                <div class="col-md-6 my-3 j">
+                    <label class="form-label" for="jointShareholdersCount">Number of joint shareholders</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" class="form-control num" id="jointShareholdersCount" name="jointShareholdersCount" oninput="addShareholders()">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+
+
+                <div id="shList" class="col-md-12">
+
+                </div>
+
+
+                <div class="col-lg-12 my-3">
+                    <label class="form-label">Category</label>
+                    &nbsp; &nbsp;
+                    <input type="radio" id="categoryMOASubscriber" name="category" value="MOA_subscriber" onchange="checkCategory(this)"> MOA subscriber &nbsp; &nbsp;
+                    <input type="radio" id="categorySubsequentShareholder" name="category" value="subsequent_shareholder" onchange="checkCategory(this)"> Subsequent shareholder
+                </div>
+                <div class="col-md-12"></div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="dateOfBecomingMember">Date of becoming member</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="date" id="dateOfBecomingMember" name="dateOfBecomingMember" class="form-control">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="shareholderStatus">Status</label>
+                    <select class="form-control" id="shareholderStatus" name="shareholderStatus" required="required">
+                        <option value="">Select Shareholder Status</option>
+                        <option>Promoter only</option>
+                        <option>Director &amp; Promoter</option>
+                        <option>Director</option>
+                        <option>KMP</option>
+                        <option>Public</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="shareholdingMode">Mode</label>
+                    <select class="form-control" id="shareholdingMode" name="shareholdingMode" onchange="checkMode(this)">
+                        <option value="">Select Mode of shareholding</option>
+                        <option>Demat</option>
+                        <option>Physical</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="typeOfShare">Type of share</label>
+                    <select class="form-control" id="typeOfShare" name="typeOfShare" required="">
+                        <option value="">Select Type of Share</option>
+                        <option>Equity Shares with Voting Rights</option>
+                    </select>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="numberOfSharesSubscribed">Number of shares subscribed at incorporation</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" id="numberOfSharesSubscribed" name="numberOfSharesSubscribed" class="form-control num">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="perShareValue">Per Share Value</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" id="perShareValue" name="perShareValue" class="form-control num dec">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-3 my-3">
+                    <label class="form-label" for="percentageOfSharesHeld">% of total shares held</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="number" id="percentageOfSharesHeld" name="percentageOfSharesHeld" class="form-control num dec">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-3 my-3 phy">
+                    <label class="form-label" for="folioNo">Folio No</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" id="folioNo" name="folioNo" class="form-control">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+                <div class="col-md-3 my-3 dem">
+                    <label class="form-label" for="dpClientId">DP/ Client ID</label>
+                    <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" id="dpClientId" name="dpClientId" class="form-control">
+                    <div class="invalid-feedback"></div>
+                </div>
+
+
+
+
+
+
+                <hr>
+
+                <div class="col-lg-12 my-3">
+                    <label class="form-label">Is there any beneficial owner (Section 89)?</label>
+                    &nbsp; &nbsp;
+                    <input type="radio" name="isBene" value="Yes" onchange="checkIsBene(this)"> Yes &nbsp; &nbsp;
+                    <input type="radio" name="isBene" value="No" onchange="checkIsBene(this)"> No
+                </div>
+                <div class="ben" style="display:none">
+
+                    <label style="text-transform:uppercase; text-decoration:underline; font-weight:bolder;" class="mt-2">Particulars of Beneficial Owner</label>
+                    <div class="row my-3" style="margin-bottom: 0px;">
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                            Date of declaration under section 89
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                            Name of beneficial owner
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4 bold">
+                            Address of beneficial owner
+                        </div>
+                    </div>
+                    <div id="bene">
+                    </div>
+                
+                    <div class="row my-3">
+                        <div class="col-xs-12 col-sm-3 col-md-3">
+                            <button type="button" class="btn btn-primary" onclick="addRow('bene')"><i class="fa fa-plus"></i>  Add More</button>
+                            <button type="button" class="btn btn-danger" onclick="removeRow('bene')"><i class="fa fa-minus"></i>  Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">Submit</button>
+    </div>
+
+</div>
+
+
+
+@section Scripts {
+    <script>
+        var companyObj;
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            jointShareholding: "", // Will be "yes" or "no" based on the radio selection
+            jointShareholdersCount: 0,
+            category: "", // Will be "MOA_subscriber" or "subsequent_shareholder"
+            dateOfBecomingMember: "", // Date value (initialized as empty string)
+            shareholderStatus: "", // Shareholder status (initialized as empty string)
+            shareholdingMode: "", // Shareholding mode (initialized as empty string)
+            typeOfShare: "", // Type of share (initialized as empty string)
+            numberOfSharesSubscribed: 0, // Number of shares subscribed (initialized as 0)
+            perShareValue: 0, // Per share value (initialized as 0)
+            percentageOfSharesHeld: 0, // Percentage of total shares held (initialized as 0)
+            folioNo: "", // Folio number (initialized as empty string)
+            dpClientId: "", // DP/Client ID (initialized as empty string)
+            isBene: "", // Will be "yes" or "no" based on the radio selection
+    }
+        
+
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        var ownerFrm = {
+            id: 0,
+            parentId: 0,
+            ownerName: "",
+            ownerAddress: "",
+            decDate:"",
+        };
+
+
+        $(document).ready(function () {
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+        })
+
+        function getData(){
+            var obj = getObj(frm, '#frm');
+
+            obj.beneList = $.makeArray($('#bene .bene')).map(d => getObj(ownerFrm, d));
+            obj.shList = JSON.stringify($('select[name^="shareholderName"]').map(function () {
+                return $(this).val();
+            }).get());
+            obj.companyId = localStorage.getItem("comp_id");
+            obj.id = @ViewBag.id;
+            return obj;
+        }
+        async function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getData();
+
+            var x = await $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj);
+            if (x.status) {
+                window.location = `@Url.Action("ShareholderManagement", "Home")/@ViewBag.type`
+            } else {
+                swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: x.message
+                })
+            }
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+
+                    if (x.beneList.length > 0) {
+                        $('#bene .bene').remove()
+                        x.beneList.forEach(function () {
+                            addRow("bene")
+                        });
+                        $('#bene .bene').each(function (index) {
+                            setObj(x.beneList[index], this);
+                        });
+                    }else{
+                        $('#bene .bene').remove();
+                        addRow('bene');
+                    }
+                    addShareholders()
+                    var shListValues = JSON.parse(x.shList);
+                    $('select[name^="shareholderName"]').each(function (index) {
+                        $(this).val(shListValues[index]);  // Set the value of each <select>
+                    });
+                })
+            } else {
+                // addRow("bene")
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Home")/@ViewBag.ctrl/@ViewBag.type`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                console.log(x.id)
+                companyObj = x;
+                $("[name='companyId']").val(x.id);
+            })
+        }
+
+        function checkIsJoint(radio) {
+            if (radio.value === "yes" && radio.checked) {
+                $(".j").show()
+            }else{
+                $("[name='jointShareholdersCount']").val(1);
+                addShareholders();
+                $(".j").hide()
+            }
+        }
+        function checkCategory(radio) {
+            // if (radio.value === "MOA_subscriber" && radio.checked) {
+            //     $(".moa").show()
+            //     $(".sub").hide()
+            // }else{
+            //     $(".moa").hide()
+            //     $(".sub").show()
+            // }
+        }
+        function checkMode(drp) {
+            if (drp.value === "Demat") {
+                $(".dem").show()
+                $(".phy").hide()
+            }else{
+                $(".dem").hide()
+                $(".phy").show()
+            }
+        }
+        function checkIsBene(radio) {
+            if (radio.value === "Yes" && radio.checked) {
+                $(`#bene .bene`).remove();
+                addRow("bene")
+                $(".ben").show()
+            }else{
+                $(".ben").hide()
+                $(`#bene .bene`).remove();
+            }
+        }
+
+
+        function addRow(type) {
+            var i = "";
+            if (type == "bene") {
+                i = `
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <input type="date" class="form-control" name="decDate" >
+                    </div>
+                `
+            }
+            const newRow = `
+                <div class="row my-3 ${type}">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="parentId" />
+                    ${i}
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <input type="text" class="form-control" name="ownerName">
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <input type="text" class="form-control" name="ownerAddress">
+                    </div>
+                </div>
+            `;
+            $('#'+type).append(newRow);
+
+        }
+        function removeRow(type) {
+            const rowCount = $(`#${type} .${type}`).length;
+
+            if (rowCount > 1) {
+                $(`#${type} .${type}:last`).remove();
+            } else {
+                alert('At least one row must be present.');
+            }
+
+        }
+
+        function addShareholders() {
+            var no = parseInt($("[name='jointShareholdersCount']").val()) || 0;
+            $('#shList').empty();
+            for (var i = 1; i <= no; i++) {
+                $('#shList').append(`
+                    <div class="col-md-12 my-3">
+                        <label class="form-label" for="">Name of Shareholder ${i}</label>
+                        <div class="col-xs-12 col-sm-12 col-md-12 form-row mt-1">
+                            <select class="form-select" name="shareholderName">
+                                <option value="">Select Shareholder Name</option>
+                                <option value="1">ALPHANUM VENTURES LLP  (NA)</option>
+                                <option value="2">Aalisha Shah ()</option>
+                                <option value="3">Afsar Ali Akbar Ali Khan ()</option>
+                            </select>
+                        </div>
+                    </div>
+                `);
+            }
+        }
+
+
+
+    </script>
+
+}

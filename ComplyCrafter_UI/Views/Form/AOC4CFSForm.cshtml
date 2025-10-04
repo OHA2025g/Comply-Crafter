@@ -1,0 +1,1160 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+
+    input {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+    textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);
+    }
+
+</style>
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    AOC4-CFS
+                </h3>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Directors
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Auditors
+                                        </span>
+                                    </a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Subsidiary
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part4" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Balance Sheet
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part5" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Profit & Loss
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part6" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            More Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part7" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Auditor Report
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part8" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Certification
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" class="num" value="0" name="id" />
+                <input type="hidden" class="num" value="0" name="companyId" />
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">SRN of form AOC-4 filed by the company for its standalone financial statements</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <input style="width:100%" value="" name="aoc4Srn" class="form-control">
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-4">
+                        Financial year to which financial statements relates
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        From &nbsp; <input type="date" placeholder="" class="Dateacquisition5 hasDatepicker form-control" name="financialYearStartingDate" id="financialyearstartingdate" value="">
+                    </div>
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        To &nbsp; &nbsp;<input type="date" placeholder="" class="Dateacquisition6 hasDatepicker form-control" name="financialYearEndingDate" id="financialyearendingdate" value="">
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">Date of Board of directors' meeting in which consolidated financial statements are approved</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <input style="width:100%" type="date" placeholder="" autocomplete="off" class="Dateacquisition hasDatepicker form-control" id="Dateacquisition" value="" name="boardMeetingDate">
+                    </div>
+                </div>
+                <p style="margin-left: -10px;" class="mt-3">Details of director,manager,secretary,CEO,CFO of the company who have signed the financial statments</p>
+                <div class="table-responsive mt-3">
+                    <table border="1" class="table table-bordered table-hover " id="example1" style="width: 99%">
+                        <thead>
+                            <tr style="background-color:#8e949a;">
+                                <th style="text-align: center; vertical-align: middle; color:black;">Sr. No.</th>
+                                <th style="text-align: center; vertical-align: middle; color:black;">DIN/PAN</th>
+                                <th style="vertical-align: middle; color:black;">Name</th>
+                                <th style="vertical-align: middle;text-align: center; color:black;">Designation</th>
+                                <th style="text-align: center; vertical-align: middle;width: 200px; color:black;">Date of Signing </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align:center;">
+                                    <input type="hidden" name="director1Din" value="09475141">
+                                    <input type="checkbox" name="director1Signed" value="1">&nbsp; 1
+                                </td>
+                                <td style="text-align:center;">09475141</td>
+                                <td>Mokshank Dilipbhai Savla</td>
+                                <td style="text-align:center;">Director</td>
+                                <td style="text-align:center;">
+                                    <input class="Dateacquisition1 hasDatepicker form-control" placeholder="" type="date" name="director1SigningDate" style="width:100%" autocomplete="off" id="dateofsigning1" value="">
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="text-align:center;">
+                                    <input type="hidden" name="director2Din" value="09473752">
+                                    <input type="checkbox" name="director2Signed" value="2">&nbsp; 2
+                                </td>
+                                <td style="text-align:center;">09473752</td>
+                                <td>Rakshit Dilip Savla</td>
+                                <td style="text-align:center;">Director</td>
+                                <td style="text-align:center;">
+                                    <input class="Dateacquisition1 hasDatepicker form-control" type="date" placeholder="" name="director2SigningDate" style="width:100%" autocomplete="off" id="dateofsigning2" value="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">Date of Board of directors' meeting in which boards' report referred to under section 134 was approved</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input style="width:100%" type="date" placeholder="" autocomplete="off" class="Dateacquisition3 hasDatepicker form-control" id="Dateacquisition3" value="" name="section134ApprovalDate" onchange="checkForm(this); return false;">
+                    </div>
+                </div>
+                <p style="margin-left:-10px">Details of director(s) who have signed the board's report</p>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <br>
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example2" style="width: 99%">
+                                <thead>
+                                    <tr style="background:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Sr. No.</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">DIN/PAN</th>
+                                        <th style="vertical-align: middle; color:black;">Name</th>
+                                        <th style="vertical-align: middle;text-align: center; color:black;">Designation</th>
+                                        <th style="text-align: center; vertical-align: middle;width: 200px; color:black;">Date of Signing </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" name="boardDirector1Signed" value="1">
+                                            <input type="hidden" name="boardDirector1Din" value="09475141">&nbsp;1
+                                        </td>
+                                        <td style="text-align:center;">09475141</td>
+                                        <td>Mokshank Dilipbhai Savla</td>
+                                        <td style="text-align:center;">Director</td>
+                                        <td style="text-align:center;">
+                                            <input class="Dateacquisition2 hasDatepicker form-control" placeholder="" name="boardDirector1SigningDate" type="date" style="width:100%" autocomplete="off" id="dateofsigning111" value="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" name="boardDirector2Signed" value="2">
+                                            <input type="hidden" name="boardDirector2Din" value="09473752">&nbsp;2
+                                        </td>
+                                        <td style="text-align:center;">09473752</td>
+                                        <td>Rakshit Dilip Savla</td>
+                                        <td style="text-align:center;">Director</td>
+                                        <td style="text-align:center;">
+                                            <input class="Dateacquisition2 hasDatepicker form-control" placeholder="" name="boardDirector2SigningDate" type="date" style="width:100%" autocomplete="off" id="dateofsigning112" value="">
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div><br>
+            </form>
+        </div>
+    </div>
+
+    <div id="part2" class="p-0">
+        <div class="card" style="padding:20px;">
+
+            <form action="" method="post" enctype="multipart/form-data">
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">Date of signing of reports on the consolidated financial statements by the auditors</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row">
+                        <input style="width:100%" type="date" placeholder="" autocomplete="off" class="form-control dateofsigningofreports hasDatepicker" id="Dateacquisition4" value="" name="auditorSigningDate" onchange="checkForm(this); return false;">
+                    </div>
+                </div>
+                <h5 style="margin-left: -14px; font-weight:600; " class="mt-3">Auditors</h5>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example4" style="width: 99%">
+                                <thead>
+                                    <tr style="background:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle;width: 100px; color:black;">Sr. No.</th>
+                                        <th style="vertical-align: middle; color:black;">Auditor Name</th>
+                                        <th style="text-align: center; vertical-align: middle;width: 200px; color:black;">Membership No</th>
+                                        <th style="text-align: center;vertical-align: middle;width: 200px; color:black;">SRN of Form ADT-1</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" name="firstAuditorSerial" value="1">
+                                            <input type="hidden" name="firstAuditorName" value="Pakshal K Shah">1
+                                        </td>
+                                        <td>Pakshal K Shah</td>
+                                        <td style="text-align:center;">
+                                            <input type="text" class="form-control" name="firstAuditorMemberNo" style="width: 100% ;font-weight: initial;" value="191702" autocomplete="off">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="firstAuditorSrn" style="width:100% ;font-weight: initial;" value="">
+                                            <input type="hidden" name="firstAuditorId" class="form-control" value="3274" autocomplete="off">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="text-align:center;">
+                                            <input type="checkbox" name="secondAuditorSerial" value="2">
+                                            <input type="hidden" name="secondAuditorName" value="Pakshal K Shah">2
+                                        </td>
+                                        <td>Pakshal K Shah</td>
+                                        <td style="text-align:center;">
+                                            <input type="text" name="secondAuditorMemberNo" class="form-control" style="width: 100% ;font-weight: initial;" value="191702" autocomplete="off">
+                                        </td>
+                                        <td><input type="text" name="secondAuditorSrn" style="width:100% ;font-weight: initial;" value="" class="form-control"><input type="hidden" name="auditorid" value="3274" class="form-control" autocomplete="off"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="p-0" id="part3">
+        <div class="card" style="padding:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">Whether the company has a subsidiary company as defined under clause (87) of section 2</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <label>   <input type="radio" name="hasSubsidiary" value="YES">&nbsp; &nbsp;Yes</label>
+                        <label>   &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="hasSubsidiary" value="NO">&nbsp; &nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3" id="companysubsidiary2" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-12  form-row mt-3" style="height: auto;">
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example3" style="width: 99%">
+                                <thead>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle;  color:black;">Sr. No.</th>
+                                        <th style="text-align: center; vertical-align: middle;width: 250px; color:black;">CIN</th>
+                                        <th style="vertical-align: middle; color:black;">Company Name</th>
+                                        <th style="vertical-align: middle;text-align: center; color:black;">Provision</th>
+                                        <th style="vertical-align: middle;text-align: center; color:black;">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="subsidiary">
+                                    <tr class="subsidiary">
+                                        <td style="display:none">
+                                            <input type="hidden" class="num" value="0" name="id" />
+                                            <input type="hidden" class="num" value="0" name="parentId" />
+                                        </td>
+
+                                        <td style="text-align: center;">1</td>
+                                        <td><input type="text" class="form-control" name="companyCin" style="width: 100%;"></td>
+                                        <td><input type="text" class="form-control" name="companyName" style="width: 100%;"></td>
+                                        <td>
+                                            <select name="companyProvision" style="width: 100%;" class="form-select">
+                                                <option>Select Provision</option>
+                                                <option value="S2871">Section 2(87)(i)</option>
+                                                <option value="S2872">Section 2(87)(ii)</option>
+                                            </select>
+                                        </td>
+                                        <td style="text-align:center"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><br>
+                    <button type="button" name="tanAdd" id="tanadd" class="btn btn-primary" style="margin-top: 15px;  width:15rem;   margin-left: 5px;" onclick="subsidiaryAdd('subsidiary')"><i class="fa fa-plus"></i>  Add More</button>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-8 col-md-8 bold form-row mt-3">Whether the company has an associate company or a joint venture as defined under clause (6) of section 2</div>
+                    <div class="col-xs-12 col-sm-4 col-md-4 form-row mt-3">
+                        <label>   <input type="radio" name="associateOrVenture" value="YES">&nbsp; &nbspYes</label>
+                        <label> &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="associateOrVenture" value="NO">&nbsp; &nbsp;>No</label>
+                    </div>
+                </div>
+                <div class="row mt-3" id="companysubsidiary3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-12  form-row mt-3" style="height: auto;">
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example3" style="width: 99%">
+                                <thead>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Sr. No.</th>
+                                        <th style="text-align: center; vertical-align: middle;width: 250px; color:black;">CIN</th>
+                                        <th style="vertical-align: middle; color:black;">Company Name</th>
+                                        <th style="vertical-align: middle;text-align: center; color:black;">Company type</th>
+                                        <th style="vertical-align: middle;text-align: center; color:black;">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="associate">
+                                    <tr class="associate">
+                                        <td style="text-align: center;">1</td>
+                                        <td><input type="text" name="companyCin" class="form-control" style="width: 100%;"></td>
+                                        <td><input type="text" name="companyName" class=" form-control" style="width: 100%;"></td>
+                                        <td>
+                                            <select name="CompanyProvision" style="width: 100%;" class="form-select">
+                                                <option>Select</option>
+                                                <option value="Associate">Associate</option>
+                                                <option value="Joint venture">Joint venture</option>
+                                            </select>
+                                        </td>
+                                        <td style="text-align:center"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div><br>
+                    <button type="button" name="tanAdd1" id="tanAdd1" class="btn btn-primary" style="margin-top: 15px; width:15rem;  margin-left: 5px;" onclick="subsidiaryAdd('associate')"><i class="fa fa-plus"></i>  Add More</button>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-8 bold form-row mt-3">
+                        <p>Whether Schedule III of the Companies Act 2013 is applicable</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-4 form-row mt-3">
+                        <label>     &nbsp;<input type="radio" name="scheduleApplicaple" value="YES">&nbsp; &nbsp;Yes</label>
+                        <label>&nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="scheduleApplicaple" value="NO">&nbsp; &nbsp;No</label>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3">
+                        <p>Type of Industry</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-6 form-row mt-3">
+                        <select name="industriesType" style="width: 100%" class="form-select">
+                            <option value="">Select type</option>
+                            <option value="COIC">Commercial &amp; Industrial</option>
+                            <option value="BANK">Banking Company</option>
+                            <option value="INSR">Insurance Company</option>
+                            <option value="POWR">Power Company</option>
+                            <option value="NBFC">Non banking Financial Company (NBFC) registered with RBI</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="p-0" id="part7">
+        <div class="card" style="padding:20px;">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                        In case of a government company, whether Comptroller and Auditor-General of India (CAG of India) has commented upon or supplemented the audit report under section 143 of the Companies Act, 2013
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>   &nbsp;<input type="radio" name="hasCagComments" value="YES" onchange="showDiv3(this)">&nbsp;&nbsp;Yes</label>
+                        <label>   &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="hasCagComments" value="NO" onchange="showDiv3(this)">&nbsp;&nbsp;No</label>
+                        <label>    &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="hasCagComments" value="NA" onchange="showDiv3(this)">&nbsp;&nbsp;NA</label>
+                    </div>
+                </div>
+                <div class="row mt-3" style="" id="CAG_COMMENTS">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <br>
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example10" style="width: 99%">
+                                <thead>
+                                    <tr style="background-color:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Sr. No.</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Provide details of comment(s) or supplement(s) received from CAG of India </th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Board of Director's reply(ies) on comments received from CAG of India</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cag">
+                                    <tr class="cag">
+                                        <td style='display:none'>
+                                            <input type="hidden" class="num" value="0" name="id" />
+                                            <input type="hidden" class="num" value="0" name="parentId" />
+                                        </td>
+                                        <td style="text-align:center;">1</td>
+                                        <td><input type="text" name="cagComments" class="form-control" style="width: 100%;"></td>
+                                        <td><input type="text" class="form-control" name="bodReply" style="width: 100%;"></td>
+                                        <td style="text-align: center;"></td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button type="button" name="tanadd5" id="tanadd5" class="btn btn-primary" style="margin-top: 15px;width:15rem; margin-left: 5px;" onclick="cagAdd()"><i class="fa fa-plus"></i>  Add More</button>
+                    <div>
+                        <br>
+                        <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                            Whether CAG of India has conducted supplementary or test audit under section 143
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                            <label> &nbsp;<input type="radio" name="hasCagSupplementaryAudit" value="YES">&nbsp;&nbsp;Yes</label>
+                            <label> &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="hasCagSupplementaryAudit" value="NO">&nbsp;&nbsp;No</label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                        Whether auditors' report has been qualified or has any reservations or contains adverse remarks
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>
+                            &nbsp;<input type="radio" name="hasAuditorRemarks" value="YES">&nbsp;&nbsp;Yes
+                        </label>
+                        <label>  &nbsp; &nbsp; &nbsp; &nbsp; <input type="radio" name="hasAuditorRemarks" value="NO">&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3" id="example9" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <br>
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example9" style="width: 99%">
+                                <thead>
+                                    <tr style=" background-color:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Sr. No.</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Auditor's Qualification,reservations or adverse remarks </th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Director's Comments</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Remove</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="reservation">
+                                    <tr class="reservation">
+                                        <td style='display:none'>
+                                            <input type="hidden" class="num" value="0" name="id" />
+                                            <input type="hidden" class="num" value="0" name="parentId" />
+                                        </td>
+                                        <td style="text-align:center;">1</td>
+                                        <td><input type="text" name="auditorQualification" class="form-control" style="width: 100%;"></td>
+                                        <td><input type="text" name="directorComments" class="form-control" style="width: 100%;height: auto;"></td>
+                                        <td style="text-align: center;"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <button type="button" name="tanadd4" id="tanAdd4" class="btn btn-primary" style="margin-top: 15px; width:15rem; margin-left: 5px;" onclick="reservationAdd()"><i class="fa fa-plus"></i>  Add More</button>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                        Whether Companies (Auditors' Report) Order (CARO) applicable
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>   &nbsp;<input type="radio" name="isCaroApplicable" value="YES" required="">&nbsp;&nbsp;Yes</label>
+                        <label>   &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="isCaroApplicable" value="NO" required="">&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3" style="" id="CARO">
+                    <div class="col-xs-12 col-sm-3 col-md-12 form-row mt-3" style="height: auto;">
+                        <br>
+                        <div class="table-responsive">
+                            <table border="1" class="table table-bordered table-hover " id="example11" style="width: 99%">
+                                <thead>
+                                    <tr style="background:#8e949a;">
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Particulars</th>
+                                        <th style="text-align: center; vertical-align: middle; color:black;">Auditors' comments on the report </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Fixed assets</td>
+                                        <td>
+                                            <select name="fixedAssets" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Inventories</td>
+                                        <td>
+                                            <select name="inventories" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Loans given by the company</td>
+                                        <td>
+                                            <select name="loansGiven" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Acceptance of Public Deposits</td>
+                                        <td>
+                                            <select name="publicDeposits" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maintenance of Cost records</td>
+                                        <td>
+                                            <select name="costRecords" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Statutory dues</td>
+                                        <td>
+                                            <select name="statutoryDues" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Term loans</td>
+                                        <td>
+                                            <select name="termLoans" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fraud noticed</td>
+                                        <td>
+                                            <select name="fraudNoticed" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Others</td>
+                                        <td>
+                                            <select name="otherComments" class="form-select" style="width: 100%">
+                                                <option value="">Select Comment</option>
+                                                <option value="FAVO">Favourable Remark</option>
+                                                <option value="UNFO">Unfavourable remark</option>
+                                                <option value="DISO">Disclaimer remark</option>
+                                                <option value="CNTA">Clause not applicable</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                        Whether the Secretarial Audit is applicable
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>
+                            &nbsp;<input type="radio" name="isSecretarialAuditApplicable" value="YES" required="">&nbsp;&nbsp;Yes
+                        </label>
+                        <label>  &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="isSecretarialAuditApplicable" value="NO" required="">&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-9 bold form-row mt-3">
+                        Whether detailed disclosures with respect to Directors’ report under sub-section (3)of section 134 is attached.
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                        <label>       &nbsp;<input type="radio" name="hasDetailedDisclosures" value="YES" required="">&nbsp;&nbsp;Yes</label>
+                        <label>     &nbsp; &nbsp; &nbsp; &nbsp;<input type="radio" name="hasDetailedDisclosures" value="NO" required="">&nbsp;&nbsp;No</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="p-0" id="part8">
+        <div class="card" style="padding:20px">
+            <form action="" method="post" enctype="multipart/form-data">
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-6 bold form-row mt-3">
+                        Resolution Number and Date
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        Number  <input type="number" class="num form-control" name="resolutionNumber" value="">
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3s">
+                        Date <input type="date" placeholder="" name="resolutionDate" autocomplete="off" class="datepicker hasDatepicker form-control" id="Dateacquisition7" value="01/01/1970" onchange="checkForm(this); return false;">
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Digitally signed by MD or Director or Manager or Secretary
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="text-align: center;">
+                        <select name="signatoryId" class="form-select" style="width:100%" id="signed">
+                            <option value="">Select Signatory</option>
+                            <option value="09475141">Mokshank Dilipbhai Savla</option>
+                            <option value="09473752">Rakshit Dilip Savla</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Designation
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <select name="signatoryDesignation" class="form-select" id="designationdropdown" style="width: 100%">
+                            <option value="">Select Designation</option>
+                            <option value="DIRT">Director</option>
+                            <option value="CEO">CEO</option>
+                            <option value="MANG">Manager</option>
+                            <option value="SECR">Secretary</option>
+                            <option value="CFO">CFO</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        DIN/PAN
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="text-align:center;">
+                        <input type="text" style="width: 100%" class="form-control" name="signatoryDinPan" id="DIN_PAN" value="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Certificate by CA or CS or CoA
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3" style="text-align: center;">
+                        <select name="certifiedBy" class="form-select" style="width:100%" id="certificateby">
+                            <option value="">Certificate by</option>
+                            <option value="CA">Chartered Accountant</option>
+                            <option value="COA">Cost Accountant</option>
+                            <option value="CS">Company Secretary</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row CERT_PRACTICE_NO1 mt-3" style="">
+                        Company Secretary
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row CERT_PRACTICE_NO1 mt-3" style="text-align: center;">
+                        <select name="nameOfPcs" class="form-select" style="width:100%" id="nameofpcs">
+                            <option value="">Select PCS</option>
+                            <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                            <option value="439">Pooja Gandhi (Practicing Company Secretary)</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="row mt-3">
+
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Whether fellow or associate
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <label>    &nbsp;<input type="radio" name="assosiateOrFellow" value="ASS">&nbsp;&nbsp;<span>Associate</span>&nbsp; &nbsp; &nbsp;</label>
+                        <label>
+                            <input type="radio" name="assosiateOrFellow" value="FW">&nbsp;&nbsp;<span>Fellow</span>
+                        </label>
+                        <label>&nbsp; &nbsp; &nbsp; <input type="radio" name="assosiateOrFellow" value="NONE">&nbsp;&nbsp;<span>NA</span></label>
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Membership number
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" style="width: 100%" name="membNumber" class="form-control" value="" id="MEMBERSHIP_NUM">
+                    </div>
+                </div>
+                <div class="row CERT_PRACTICE_NO1 mt-3" style="">
+                    <div class="col-xs-12 col-sm-3 col-md-3 bold form-row mt-3">
+                        Certificate of practice number
+                    </div>
+                    <div class="col-xs-12 col-sm-3 col-md-3 form-row mt-3">
+                        <input type="text" name="certPraticeNo" value="" class="form-control" style="width: 100%" id="CERT_PRACTICE_NO">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+
+        var subsidiary = {
+            id: 0,
+            parentId: 0,
+            type: "",
+            companyCin: "",
+            companyName: "",
+            companyProvision: "",
+
+        };
+        var cag = {
+            id:0,
+            parentId:0,
+
+        }
+        let subsidiaryRow = 1;
+        let associateRow = 1;
+
+        function subsidiaryAdd(type) {
+            if (type == "subsidiary"){
+                subsidiaryRow += 1;
+                const newRow = `
+                                <tr class="subsidiary">
+                                   <td style="display:none">
+                                   <input type="hidden" class="num" value="0" name="id" />
+                                   <input type="hidden" class="num" value="0" name="parentId" />
+                                   </td>
+                                   <td style="text-align: center;">${subsidiaryRow}</td>
+                                   <td><input type="text" class="form-control" name="companyCin" style="width: 100%;"></td>
+                                   <td><input type="text" class="form-control" name="companyName" style="width: 100%;"></td>
+                                   <td>
+                                   <select name="companyProvision" style="width: 100%;" class="form-select">
+                                       <option>Select Provision</option>
+                                       <option value="S2871">Section 2(87)(i)</option>
+                                       <option value="S2872">Section 2(87)(ii)</option>
+                                   </select>
+                                   </td>
+                                   <td style="text-align:center"><i class='fa fa-times' style='color:red;font-size:2rem' onclick="subsidiaryRemove(this, '${type}')"></i></td>
+                                </tr>`;
+                $('#subsidiary').append(newRow);
+
+            } else {
+                associateRow += 1;
+                const newRow = `
+                                <tr class="associate">
+                                  <td style="display:none">
+                                      <input type="hidden" class="num" value="0" name="id" />
+                                      <input type="hidden" class="num" value="0" name="parentId" />
+                                  </td>
+                                  <td style="text-align: center;">${associateRow}</td>
+                                  <td><input type="text" class="form-control" name="companyName" style="width: 100%;"></td>
+                                  <td><input type="text" class="form-control" name="companyCin" style="width: 100%;"></td>
+                                  <td>
+                                  <select name="companyProvision" style="width: 100%;" class="form-select">
+                                  <option>Select</option>
+                                  <option value="Associate">Associate</option>
+                                  <option value="Joint venture">Joint venture</option>
+                                  </select>
+                                  </td>
+                                  <td style="text-align:center"><i class='fa fa-times' style='color:red;font-size:2rem' onclick="subsidiaryRemove(this, '${type}')"></i></td>
+                                 </tr>`;
+                $('#associate').append(newRow);
+            }
+
+        }
+
+        function subsidiaryRemove(button, type) {
+            const row = $(button).closest('tr'); 
+            const tableId = type === "subsidiary" ? "#subsidiary" : "#associate";
+            const rowClass = type === "subsidiary" ? ".subsidiary" : ".associate";
+
+            const rowCount = $(`${tableId} ${rowClass}`).length;
+
+            if (rowCount > 1) {
+                const rowNumber = parseInt(row.find('td:eq(1)').text());
+                row.remove(); 
+
+                $(`${tableId} ${rowClass}`).each(function (index) {
+                    $(this).find('td:eq(1)').text(index + 1);
+                });
+
+                if (type === "subsidiary") {
+                    subsidiaryRow--;
+                } else {
+                    associateRow--;
+                }
+            } 
+        }
+
+        var cag = {
+            id: 0,
+            parentId: 0,
+            cagComments:"",
+            bodReply:""
+
+        }
+
+        let cagRow = 1
+        function cagAdd() {
+                cagRow += 1;
+                const newRow = `
+                               <tr class='cag'>
+                               <td style='display:none'>
+                                <input type="hidden" class="num" value="0" name="id" />
+                                <input type="hidden" class="num" value="0" name="parentId" />
+                                </td>
+                                 <td style="text-align:center;">${cagRow}</td>
+                                 <td><input type="text" name="cagComments" class="form-control" style="width: 100%;"></td>
+                                 <td><input type="text" class="form-control" name="bodReply" style="width: 100%;"></td>
+                                 <td style="text-align:center"><i class='fa fa-times' style='color:red;font-size:2rem' onclick="cagRemove(this)"></i></td>
+                               </tr>`;
+                $('#cag').append(newRow);
+        }
+
+        var reservation = {
+            id: 0,
+            parentId: 0,
+            auditorQualification:"",
+            directorComments:"",
+
+        }
+        let reservationRow = 1
+        function reservationAdd() {
+                reservationRow += 1;
+                const newRow = `
+                                <tr class='reservation'>
+                                 <td style='display:none'>
+                                 <input type="hidden" class="num" value="0" name="id" />
+                                 <input type="hidden" class="num" value="0" name="parentId" />
+                                 </td>
+                                 <td style="text-align:center;">${reservationRow}</td>
+                                 <td><input type="text" name="auditorQualification" class="form-control" style="width: 100%;"></td>
+                                 <td><input type="text" name="directorComments" class="form-control" style="width: 100%;height: auto;"></td>
+                                 <td style="text-align:center"><i class='fa fa-times' style='color:red;font-size:2rem' onclick="reservationRemove(this)"></i></td>
+                                </tr>`;
+            $('#reservation').append(newRow);
+
+            }
+        function cagRemove(button) {
+            const row = $(button).closest('tr'); 
+            const rowCount = $(`#cag .cag`).length;
+
+            if (rowCount > 1) {
+                const rowNumber = parseInt(row.find('td:eq(1)').text());
+                row.remove();
+                $(`#cag .cag`).each(function (index) {
+                    $(this).find('td:eq(1)').text(index + 1);
+                });
+                cagRow--
+            }
+        }
+
+        function reservationRemove(button) {
+            const row = $(button).closest('tr');
+            const rowCount = $(`#reservation .reservation`).length;
+
+            if (rowCount > 1) {
+                const rowNumber = parseInt(row.find('td:eq(1)').text());
+                row.remove();
+                $(`#reservation .reservation`).each(function (index) {
+                    $(this).find('td:eq(1)').text(index + 1);
+                });
+                reservationRow--
+            }
+
+        }
+      
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            //Part 1
+            aoc4Srn: "",
+            financialYearStartingDate: "",
+            financialYearEndingDate: "",
+            boardMeetingDate: "",
+            section134ApprovalDate: "",
+
+            // Director 1 financial statement
+            // director1Din: "09475141",
+            director1Signed: false,
+            director1SigningDate: "",
+
+            // Director 2 financial statement
+            // director2Din: "09473752",
+            director2Signed: false,
+            director2SigningDate: "",
+
+            // Director 1 board report
+            // boardDirector1Din: "09475141",
+            boardDirector1Signed: false,
+            boardDirector1SigningDate: "",
+
+            // Director 2 board report
+            // boardDirector2Din: "09473752",
+            boardDirector2Signed: false,
+            boardDirector2SigningDate: "",
+
+            //Part 2
+
+            auditorSigningDate: "",
+
+            // First auditor
+            firstAuditorSerial: false,
+            // firstAuditorName: "Pakshal K Shah",
+            firstAuditorMemberNo: "",
+            firstAuditorSrn: "",
+            // firstAuditorId: "3274",
+
+            // Second auditor
+            secondAuditorSerial: false,
+            // secondAuditorName: "Pakshal K Shah",
+            secondAuditorMemberNo: "",
+            secondAuditorSrn: "",
+            // secondAuditorId: "3274"
+
+            //Part 3
+
+            hasSubsidiary: "",
+            associateOrVenture: "",
+            industriesType: "",
+            scheduleApplicaple: "",
+
+            //Part 7
+            hasCagComments: "", // "YES", "NO", or "NA"
+            // cagComments: "", // Details of CAG comments (first row)
+            // bodReply: "", // Board's reply (first row)
+            hasCagSupplementaryAudit: "", // "YES" or "NO"
+
+            // Auditor Remarks Section
+            hasAuditorRemarks: "", // "YES" or "NO"
+            // auditorQualification: "", // Auditor's qualification (first row)
+            // directorComments: "", // Director's comments (first row)
+
+            // CARO Section
+            isCaroApplicable: "", // "YES" or "NO"
+            fixedAssets: "", // "FAVO", "UNFO", "DISO", "CNTA"
+            inventories: "",
+            loansGiven: "",
+            publicDeposits: "",
+            costRecords: "",
+            statutoryDues: "",
+            termLoans: "",
+            fraudNoticed: "",
+            otherComments: "",
+
+            // Secretarial Audit
+            isSecretarialAuditApplicable: "", // "YES" or "NO"
+
+            // Directors' Report Disclosures
+            hasDetailedDisclosures: "", // "YES" or "NO"
+
+            //Part 8
+            resolutionNumber: "",
+            resolutionDate: "",
+
+            // Signatory Details
+            signatoryId: "",
+            signatoryDesignation: "",
+            signatoryDinPan: "",
+
+            // Professional Certification
+            certifiedBy: "",
+            nameOfPcs: "",
+
+            // Membership Details
+            assosiateOrFellow: "", // This group has two different name attributes (rbAssocFellow and assosiateOrFellow)
+            membNumber: "",
+
+            // Practice Certificate
+            certPraticeNo: "",
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $("#part4").hide();
+            $("#part5").hide();
+            $("#part6").hide();
+            $("#part7").hide();
+            $("#part8").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#part4").hide();
+                $("#part5").hide();
+                $("#part6").hide();
+                $("#part7").hide();
+                $("#part8").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getData();
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+        }
+
+        function getData() {
+            var obj = getObj(frm, '#frm');
+
+            obj.subsidiaryList = $.makeArray($('#subsidiary .subsidiary')).map(d => getObj(subsidiary, d));
+            obj.associateList = $.makeArray($('#associate .associate')).map(d => getObj(associate, d));
+            obj.cagList = $.makeArray($('#cag .cag')).map(d => getObj(cag, d));
+            obj.reservationList = $.makeArray($('#reservation .reservation')).map(d => getObj(reservation, d));
+
+
+            obj.id = @ViewBag.id;
+            obj.type = `@ViewBag.type`;
+            return obj;
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

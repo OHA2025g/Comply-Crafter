@@ -1,0 +1,850 @@
+﻿@{
+    ViewData["Title"] = "User Profile";
+}
+<style>
+    .user-card {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 10px;
+        padding: 1rem;
+        position: relative;
+        transition: background 0.2s ease;
+    }
+
+        .user-card:hover {
+            background: #f1f3f5;
+        }
+
+        .user-card input {
+            border: none;
+            background-color: transparent;
+            font-weight: bold;
+            font-size: 1rem;
+            padding-left: 0;
+            padding-right: 2rem;
+        }
+
+            .user-card input:focus {
+                outline: none;
+                box-shadow: none;
+            }
+
+        .user-card small {
+            color: #6c757d;
+        }
+
+    .remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .switch-btn {
+        position: absolute;
+        padding-top:10px;
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .cursorpointer{
+        cursor:pointer !important;
+    }
+    .user-card:hover {
+        background-color: #eef3f7;
+    }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+            <div class="page-description">
+                <h1>Profile</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center p-4 shadow-sm rounded bg-white mb-4">
+        <div class="col-md-2 text-center">
+            <img src="/img/logos/logo_sq_0.png" alt="Profile Picture" class="rounded-circle border border-3 border-primary" style="width: 100px; height: 100px; object-fit: cover;">
+        </div>
+
+        <div class="col-md-7">
+            <h4 class="fw-bold mb-1"><span id="spnDisplayName"></span></h4>
+            <div class="d-flex align-items-center text-muted mb-1">
+                <i class="bi bi-envelope me-2"></i> <span id="spnEmailId"></span>
+            </div>
+            <div class="d-flex align-items-center text-muted">
+                <i class="bi bi-telephone me-2"></i> <span id="spnMobile"></span>
+            </div>
+        </div>
+
+      @*   <div class="col-md-3 text-center">
+            <div class="bg-light p-3 rounded border shadow-sm">
+                <div class="mb-1 text-dark small">
+                    <i class="bi bi-list-task me-1 text-primary"></i>
+                    Total Open Tasks: <strong>1</strong>
+                </div>
+                <div class="mb-1 text-dark small">
+                    <i class="bi bi-clock-history me-1 text-success"></i>
+                    Total Hours Worked: <strong>898.15</strong>
+                </div>
+                <div class="text-dark small">
+                    <i class="bi bi-clock me-1 text-warning"></i>
+                    Assignment Hours: <strong>118.55</strong>
+                </div>
+            </div>
+        </div> *@
+    </div>
+
+
+    <!-- Nav Tabs -->
+    <ul class="nav nav-tabs mb-4" id="profileTabs" role="tablist">
+      
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#general" type="button">General Info</button>
+        </li>
+     @*    <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#social" type="button">Social Links</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#job" type="button">Job Info</button>
+        </li> *@
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#account" type="button">Account Settings</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#preferences" type="button">My Preferences</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#files" type="button">Files</button>
+        </li>
+      @*   <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#timecards" type="button">Time Cards</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#leave" type="button">Leave</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#expenses" type="button">Expenses</button>
+        </li> *@
+        <li class="nav-item" role="presentation" id="liSubscriptionLink">
+            <button class="nav-link" data-bs-toggle="tab" data-bs-target="#subscription" type="button">Subscription</button>
+        </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="profileTabsContent">
+
+
+        <div class="tab-pane fade show active" id="general" role="tabpanel">
+            <h5 class="mb-4 fw-semibold">General Info</h5>
+
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted w-25">First name</td>
+                            <td><span id="spnFirstName"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Last name</td>
+                            <td><span id="spnLastName"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Mailing address</td>
+                            <td><span id="spnMailingAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Alternative address</td>
+                            <td><span id="spnAltAddress"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Phone</td>
+                            <td><span id="spnPhone"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Alternative phone</td>
+                            <td><span id="spnAltPhone"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Date of birth</td>
+                            <td><span id="spnDob"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">GST Number</td>
+                            <td><span id="spnGst"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Gender</td>
+                            <td>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="male">
+                                    <label class="form-check-label" for="male">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="female">
+                                    <label class="form-check-label" for="female">Female</label>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start mt-3">
+                <button type="button" class="btn btn-primary" id="btnSaveGeneral">
+                    <i class="fa fa-save me-2"></i> Save
+                </button>
+            </div>
+        </div>
+
+
+
+
+
+        @* <div class="tab-pane fade" id="social" role="tabpanel">
+            <h5 class="mb-4 fw-semibold">Social Links</h5>
+
+            <div class="row gy-3">
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-facebook me-2 text-primary"></i> Facebook</label>
+                    <input type="url" class="form-control" placeholder="https://www.facebook.com/">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-twitter-x me-2 text-info"></i> Twitter</label>
+                    <input type="url" class="form-control" placeholder="https://twitter.com/">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-linkedin me-2 text-primary"></i> LinkedIn</label>
+                    <input type="url" class="form-control" placeholder="https://www.linkedin.com/">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-google me-2 text-danger"></i> Google+</label>
+                    <input type="url" class="form-control" placeholder="https://plus.google.com/">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-pinterest me-2 text-danger"></i> Pinterest</label>
+                    <input type="url" class="form-control" placeholder="https://www.pinterest.com/">
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><i class="bi bi-instagram me-2 text-warning"></i> Instagram</label>
+                    <input type="url" class="form-control" placeholder="https://instagram.com/">
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-save me-2"></i>Save
+                </button>
+            </div>
+        </div> *@
+
+
+      @*   <div class="tab-pane fade" id="job" role="tabpanel">
+            <h5 class="mb-4 fw-semibold">Job Info</h5>
+
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted w-25">Job Title</td>
+                            <td>Untitled</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Salary in hand per month</td>
+                            <td class="text-muted">Salary in hand per month</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Salary term</td>
+                            <td class="text-muted">Salary term</td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Date of hire</td>
+                            <td class="text-muted">Date of hire</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start mt-3">
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-save me-2"></i> Save
+                </button>
+            </div>
+        </div> *@
+
+
+        <div class="tab-pane fade" id="account" role="tabpanel">
+            <h5 class="mb-4 fw-semibold">Account Settings</h5>
+
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="text-muted w-25">Email</td>
+                            <td><span id="spnAccountEmail"></span></td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Password</td>
+                            <td>
+                                <input type="password" id="txtPassword" class="form-control bg-light" placeholder="Password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Retype password</td>
+                            <td>
+                                <input type="password" id="txtRetypePassword" class="form-control bg-light" placeholder="Retype password">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Role</td>
+                            <td><span id="spnRole"></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start mt-3">
+                <button type="button" id="btnSaveAccount" class="btn btn-primary">
+                    <i class="fa fa-save me-2"></i> Save
+                </button>
+            </div>
+        </div>
+
+
+
+        <div class="tab-pane fade" id="preferences" role="tabpanel">
+            <h5 class="mb-4 fw-semibold">My Preferences</h5>
+
+            <div class="table-responsive">
+                <table class="table table-borderless">
+                    <tbody>
+                        @* <tr>
+                            <td class="text-muted w-25">Notification sound volume</td>
+                            <td>
+                                <select class="form-select">
+                                    <option>||||||</option>
+                                </select>
+                            </td>
+                        </tr> *@
+                        <tr>
+                            <td class="text-muted">Enable web notification</td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Enable email notification</td>
+                            <td>
+                                <select class="form-select">
+                                    <option>Yes</option>
+                                    <option>No</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Language</td>
+                            <td>
+                                <select class="form-select">
+                                    <option>English</option>
+                                    <option>Hindi</option>
+                                    <option>Marathi</option>
+                                    <option>Gujarati</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Hide menus from topbar</td>
+                            <td>
+                                <input type="text" class="form-control bg-light" placeholder="Hidden topbar menus">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-muted">Disable keyboard shortcuts</td>
+                            <td class="d-flex">
+                                <select class="form-select me-2" style="max-width: 150px;">
+                                    <option>No</option>
+                                    <option>Yes</option>
+                                </select>
+                                <button class="btn btn-light border"><i class="bi bi-info"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-start mt-3">
+                <button type="button" class="btn btn-primary">
+                    <i class="fa fa-save me-2"></i> Save
+                </button>
+            </div>
+        </div>
+
+
+        <div class="tab-pane fade" id="files" role="tabpanel">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-semibold">Files</h5>
+                <button class="btn btn-outline-dark btn-sm">
+                    <i class="bi bi-plus-circle me-1"></i> Add files
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table id="filesTable" class="table table-bordered table-hover table-striped w-100">
+                    <thead class="table-light">
+                        <tr>
+                            <th>ID</th>
+                            <th>File</th>
+                            <th>Size</th>
+                            <th>Uploaded by</th>
+                            <th>Created date</th>
+                            <th style="width: 40px;"><i class="bi bi-list"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="6" class="text-center text-muted py-4">No record found.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+     @*    <div class="tab-pane fade" id="timecards" role="tabpanel">
+            <p class="text-muted">Work logs and time tracking...</p>
+        </div>
+
+        <div class="tab-pane fade" id="leave" role="tabpanel">
+            <p class="text-muted">Leave records and requests...</p>
+        </div>
+
+        <div class="tab-pane fade" id="expenses" role="tabpanel">
+            <p class="text-muted">Expense submissions and reimbursements...</p>
+        </div> *@
+
+        <div class="tab-pane fade" id="subscription" role="tabpanel">
+
+            
+            <div class="card shadow-sm border rounded">
+                <div class="card-body">
+                    <button class="btn btn-sm btn-outline-primary"
+                            onclick="location.href='@Url.Action("Subscription", "Home")'">
+                        <i class="fa fa-plus px-2 fs-6"></i>Purchase Plan?
+                    </button>
+                </div>
+                <div class="card-body">
+                    <h6 class="fw-bold text-primary mb-3">Subscription History</h6>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered align-middle" id="tblsubscriptionhistory">
+                            <thead class="table-light">
+                                <tr>
+                                    <th class="text-center">Plan Name</th>
+                                    <th class="text-center">Expires in Days</th>
+                                    <th>Total Entities</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Status</th>
+                                    <th class="text-center">Amount Paid</th>
+                                    <th class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="fw-bold text-primary mb-3">
+                        <i class="bi bi-people me-2"></i>Subscription Users
+                    </h5>
+
+                    <div class="card shadow-sm mb-4">
+                        <div class="card-body">
+                            <h5 class="fw-bold text-primary mb-3">
+                                <i class="bi bi-person-check me-2"></i> Admin
+                            </h5>
+
+                            <div class="bg-light p-3 border rounded mb-4 d-flex justify-content-between align-items-center">
+                                <div>
+                                    <strong id="adminName"></strong><br />
+                                    <small id="adminEmail" class="text-muted"></small>
+                                </div>
+                                <span class="badge bg-success">Admin</span>
+                            </div>
+
+                            <h5 class="fw-bold text-primary mb-3 d-flex justify-content-between align-items-center">
+                                <span><i class="bi bi-person-plus me-2"></i> Sub-Users</span>
+                                @* <button class="btn btn-outline-primary btn-sm" onclick="addSubUser()">
+                                    <i class="bi bi-plus-lg"></i> Add Sub-User
+                                </button> *@
+                                <a href="#" class="btn btn-primary  auth-forgot-password d-flex justify-content-center d-block mb-3 ms-1"
+                                   style="font-size: 0.9rem;" data-bs-toggle="modal" data-bs-target="#divSubUser">Add Sub User?</a>
+                            </h5>
+
+                            <div class="">
+                                <table class="table table-striped table-bordered align-middle" id="tblSubUsers">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>User Name</th>
+                                            <th>Email</th>
+                                            <th>Mobile</th>
+                                            <th>Created Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                          
+                            <div id="subUserList" class="vstack gap-3"></div>
+
+                            <template id="subUserTemplate">
+                                <div class="user-card d-flex justify-content-between align-items-start p-3 border rounded bg-light">
+                                    <div>
+                                        <div class="fw-semibold user-name"></div>
+                                        <small class="text-muted user-email"></small>
+                                    </div>
+                                    <div class="dropdown">
+                                        <button class="btn btn-sm btn-light border-0" data-bs-toggle="dropdown">
+                                            <i class="bi bi-three-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-end">
+                                            <li><a class="dropdown-item edit-user"><i class="bi bi-pencil me-2"></i>Edit</a></li>
+                                            <li><a class="dropdown-item switch-admin"><i class="bi bi-arrow-left-right me-2"></i>Make Admin</a></li>
+                                            <li><a class="dropdown-item text-danger delete-user"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="divSubUser" tabindex="-1" aria-labelledby="divSubUserLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content p-4">
+            <div class="modal-header border-0">
+                <h5 class="modal-title" id="divSubUserLabel">Create Sub User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pt-0">
+                <p>Please provide the sub-user details you'd like to register.</p>
+                <form>
+                    <div class="auth-credentials row g-3">
+                        <div class="col-md-6">
+                            <label for="txtFirstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="txtFirstName" placeholder="Enter first name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="txtLastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="txtLastName" placeholder="Enter last name" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="txtEmailId" class="form-label">Email ID</label>
+                            <input type="email" class="form-control" id="txtEmailId" placeholder="example@neptune.com" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="txtMobile" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="txtMobile" placeholder="Enter phone number" maxlength="10" inputmode="numeric" required>
+                        </div>
+                        <a href="#" class="btn btn-primary w-100" id="btnRegSubUser">Submit</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        fnUserInfo();
+        fnSD();
+        fnSubUserDetails();
+
+        // 🔹 Register SubUser
+        $('#btnRegSubUser').click(function () {
+            swal.fire({ title: 'Processing...' });
+            swal.showLoading();
+
+            let appUser = {
+                FirstName: $('#txtFirstName').val(),
+                LastName: $('#txtLastName').val(),
+                Name: $('#txtFirstName').val() + ' ' + $('#txtLastName').val(),
+                Email: $('#txtEmailId').val(),
+                Mobile: $('#txtMobile').val(),
+            };
+
+            $.ajax({
+                url: '@R.ApiUrl/User/RegisterSubUser',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(appUser),
+                headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+                success: data => {
+                    swal.close();
+                    if (data.status) {
+                        fnSubUserDetails();
+                        fnSendEmailtoSubuser();
+                        Swal.fire({ icon: 'success', title: 'Success!', text: data.message });
+                        $('#divSubUser').modal('hide');
+                    } else {
+                        Swal.fire({ icon: 'error', title: 'Oops...!', text: data.message });
+                    }
+                }
+            });
+        });
+
+        // 🔹 Save Account Settings
+        $('#btnSaveAccount').click(function () {
+            fnSaveAccount();
+        });
+    });
+
+    // 🔹 User Info
+    function fnUserInfo() {
+        $.ajax({
+            url: `@R.ApiUrl/Auth/UserInfo`,
+            type: 'GET',
+            headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+            success: data => {
+                if (data.status) {
+                    const user = data.responseObject;
+
+                    // Top Profile Section
+                    $('#adminName').text(user.name);
+                    $('#adminEmail').text(user.email);
+
+                    // General Info Tab
+                    $('#spnDisplayName').text(user.name);
+                    $('#spnEmailId').text(user.email);
+                    $('#spnMobile').text(user.mobile);
+
+                    $('#spnFirstName').text(user.firstName || "");
+                    $('#spnLastName').text(user.lastName || "");
+                    $('#spnMailingAddress').text(user.email || "");
+                    $('#spnPhone').text(user.mobile || "");
+                    $('#spnAltPhone').text(user.alternateNumber || "");
+                    $('#spnDob').text(user.dob || "");
+                    $('#spnGst').text(user.gstNumber || "");
+
+                    if (user.gender === "Male") {
+                        $("#male").prop("checked", true);
+                    } else if (user.gender === "Female") {
+                        $("#female").prop("checked", true);
+                    }
+
+                    // 🔹 Account Settings Tab
+                    $('#spnAccountEmail').text(user.email || "");
+                    $('#spnRole').text(user.roleName || "");
+
+                    if (user.roleName === 'SubUser') {
+                        $('#subscription').hide();
+                        $('#liSubscriptionLink').hide();
+                    }
+                }
+            }
+        });
+    }
+
+    // 🔹 Save Account Settings
+    function fnSaveAccount() {
+        var password = $("#txtPassword").val();
+        var confirmPassword = $("#txtRetypePassword").val();
+
+        if (password !== confirmPassword) {
+            Swal.fire("Error", "Passwords do not match!", "error");
+            return;
+        }
+
+        var payload = {
+            email: $("#spnAccountEmail").text(), // keeping readonly
+            password: password
+        };
+
+        $.ajax({
+            url: '@R.ApiUrl/User/UpdateAccount',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(payload),
+            headers: { "Authorization": "Bearer " + $.cookie("ComplyCrafterSessionId") },
+            success: function (res) {
+                if (res.status) {
+                    Swal.fire("Success", res.message || "Account updated successfully!", "success");
+                    $("#txtPassword").val('');
+                    $("#txtRetypePassword").val('');
+                } else {
+                    Swal.fire("Error", res.message || "Something went wrong.", "error");
+                }
+            }
+        });
+    }
+
+    // 🔹 Subscription History
+    function fnSD() {
+        $.ajax({
+            url: '@R.ApiUrl/Subscription/List',
+            type: 'GET',
+            headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+            success: data => {
+                if (data) {
+                    const tbody = document.querySelector('#tblsubscriptionhistory tbody');
+                    tbody.innerHTML = "";
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td class="text-center">${item.subscriptionPlan.planName}</td>
+                            <td class="text-center">${fnExpiryDays(item.userSubscription.endDate)}</td>
+                            <td class="text-center">${item.subscriptionPlan.noOfCompany}</td>
+                            <td>${new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(item.userSubscription.startDate))}</td>
+                            <td>${new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(item.userSubscription.endDate))}</td>
+                            <td>
+                                <span class="badge ${item.userSubscription.isActive ? 'bg-success' : 'bg-danger'}">
+                                    ${item.userSubscription.isActive ? 'Active' : item.userSubscription.isCancelled ? 'Expired' : 'Inactive'}
+                                </span>
+                            </td>
+                            <td class="text-center">₹${item.paymentDetails.transactionAmount}</td>
+                            <td>
+                                <a class="btn btn-sm btn-outline-primary" href="/Subscription/Invoice?InvoiceId=${item.userSubscription.id}" target="_blank">
+                                    <i class="bi bi-eye"></i> View Invoice
+                                </a>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            }
+        });
+    }
+
+    function fnExpiryDays(date) {
+        var startDate = new Date(date);
+        var today = new Date();
+        startDate.setHours(0,0,0,0);
+        today.setHours(0,0,0,0);
+        return Math.round((startDate - today) / (1000 * 60 * 60 * 24));
+    }
+
+    // 🔹 Send email notification to SubUser
+    function fnSendEmailtoSubuser() {
+        $.ajax({
+            url: '@R.ApiUrl/Email/SendRegistrationEmail?Email=' + $('#txtEmailId').val(),
+            type: 'GET',
+            headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+            success: data => { swal.close(); }
+        });
+    }
+
+    // 🔹 SubUser List
+    function fnSubUserDetails() {
+        $.ajax({
+            url: '@R.ApiUrl/User/GetSubUser',
+            type: 'GET',
+            headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+            success: data => {
+                if (data) {
+                    $('#tblSubUsers tbody').empty();
+                    const tbody = document.querySelector('#tblSubUsers tbody');
+                    data.forEach(item => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${item.name}</td>
+                            <td>${item.email}</td>
+                            <td>${item.mobile}</td>
+                            <td>${new Intl.DateTimeFormat('en-GB',{day:'2-digit',month:'short',year:'numeric'}).format(new Date(item.createdOn))}</td>
+                            <td>
+                                <span class="badge ${item.isActive ? 'bg-success' : 'bg-danger'}">
+                                    ${item.isActive ? 'Active' : 'Inactive'}
+                                </span>
+                            </td>
+                            <td>
+                                <div class="dropdown d-inline ms-2">
+                                    <button class="btn btn-sm btn-light border-0" data-bs-toggle="dropdown">
+                                        <i class="bi bi-three-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item switch-admin cursorpointer" onclick="fnMakeAdmin(${item.id})"><i class="bi bi-arrow-left-right me-2"></i>Make Admin</a></li>
+                                        <li><a class="dropdown-item text-danger delete-user cursorpointer" onclick="fnDelete(${item.id})"><i class="bi bi-trash me-2"></i>Delete</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                        `;
+                        tbody.appendChild(row);
+                    });
+                }
+            }
+        });
+    }
+
+    // 🔹 Switch Admin
+    function fnMakeAdmin(id) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Attention!',
+            text: 'Are you sure you want to transfer your admin rights?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Make an Admin',
+            cancelButtonText: 'No, Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '@R.ApiUrl/User/MakeSubUserAdmin',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ id }),
+                    headers: { 'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId") },
+                    success: data => {
+                        if (data.status) {
+                            Swal.fire({ icon: 'success', title: 'Success!', text: data.message })
+                                .then(() => window.location = '@Url.Action("Login", "Home")');
+                        } else {
+                            Swal.fire({ icon: 'error', title: 'Oops...!', text: data.message });
+                        }
+                    }
+                });
+            }
+        });
+    }
+
+    // 🔹 Delete SubUser
+    function fnDelete(id) {
+        Swal.fire({
+            icon: 'info',
+            title: 'Attention!',
+            text: 'Are you sure you want to delete sub user details?',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, Delete',
+            cancelButtonText: 'No, Cancel',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = '@Url.Action("Profile", "Home")';
+            }
+        });
+    }
+</script>
+
+
+

@@ -1,0 +1,351 @@
+﻿@{
+    ViewData["Title"] = "Share Certificates";
+}
+
+<style>
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .btn-primary-custom {
+        background-color: #2269f5 !important;
+        border: 1px solid #2269f5 !important;
+        color: #fff !important;
+        padding: 6px 20px;
+        border-radius: 6px;
+        font-weight: 400;
+        transition: 0.2s ease-in-out;
+    }
+
+        .btn-primary-custom:hover {
+            background-color: #1b56c2 !important;
+            border-color: #1b56c2 !important;
+        }
+
+    td, th {
+        text-align: center !important;
+        vertical-align: middle !important;
+        padding: 10px !important;
+    }
+
+    table.dataTable thead th {
+        background-color: #2269f5;
+        color: white;
+        font-weight: 600;
+        border-bottom: none;
+        position: relative;
+        padding-right: 25px !important; /* space for arrows */
+    }
+
+        /* Sorting arrows fix */
+        table.dataTable thead th.sorting:after,
+        table.dataTable thead th.sorting_asc:after,
+        table.dataTable thead th.sorting_desc:after {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.7em; /* smaller arrows */
+            opacity: 0.8;
+        }
+
+    table.dataTable tbody tr {
+        transition: background-color 0.2s ease;
+    }
+
+        table.dataTable tbody tr:hover {
+            background-color: #f1f3f9 !important;
+        }
+
+    .legend-box {
+        display: inline-block;
+        width: 20px;
+        height: 12px;
+        margin-right: 6px;
+        border-radius: 2px;
+    }
+
+    .table-split {
+        background-color: #f28b82 !important;
+        color: #000;
+    }
+
+    .table-issued {
+        background-color: #aecbfa !important;
+    }
+
+    .table-consolidated {
+        background-color: #d7aefb !important;
+    }
+
+    .table-jumbo {
+        background-color: #a8dab5 !important;
+    }
+
+    .table-duplicate {
+        background-color: #b3e5fc !important;
+    }
+</style>
+
+
+<div class="row m-auto">
+    <div class="card">
+        <div class="card-body">
+            <ul class="nav nav-tabs mb-3" id="shareTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="physical-tab" data-bs-toggle="tab" data-bs-target="#physical" type="button" role="tab">Physical</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="demat-tab" data-bs-toggle="tab" data-bs-target="#demat" type="button" role="tab">Demat</button>
+                </li>
+            </ul>
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="physical" role="tabpanel">
+                    <h5 class="fw-bold mb-3">PARTICULARS OF SHARE CERTIFICATE</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Type of Share Certificate:</label>
+                            <select class="form-select">
+                                <option>Equity Shares</option>
+                                <option>Preference Shares</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Category of Share Certificate:</label>
+                            <select class="form-select">
+                                <option>All Certificate</option>
+                                <option>Original</option>
+                                <option>Duplicate</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <button class="btn btn-sm btn-primary-custom me-2">Stamp Duty</button>
+                            <button class="btn btn-sm btn-primary-custom"><i class="fa fa-download me-1"></i>Bulk Download Certificate</button>
+                        </div>
+                    </div>
+
+                    <table id="tblPhysical" class="display nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Cert. No.</th>
+                                <th>Certificate issued to</th>
+                                <th>Folio No.</th>
+                                <th>No. of Shares</th>
+                                <th>Distinctive No.</th>
+                                <th>Present Shareholder</th>
+                                <th>Remark</th>
+                                <th>Action</th>
+                                <th>View/Download</th>
+                                <th>Upload</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                    <div class="mt-3">
+                        <span class="legend-box" style="background-color:#f28b82;"></span> Split Certificates
+                        <span class="legend-box" style="background-color:#aecbfa;"></span> Issued in Lieu of split
+                        <span class="legend-box" style="background-color:#d7aefb;"></span> Consolidated Certificates
+                        <span class="legend-box" style="background-color:#a8dab5;"></span> Jumbo Certificate
+                        <span class="legend-box" style="background-color:#b3e5fc;"></span> Duplicate Certificate
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="demat" role="tabpanel">
+                    <h5 class="fw-bold mb-3">PARTICULARS OF DISTINCTIVE NO.</h5>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Type of Share:</label>
+                            <select class="form-select">
+                                <option>Equity Shares</option>
+                                <option>Preference Shares</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9 text-end">
+                            <input type="text" class="form-control d-inline-block w-auto" placeholder="Search..." />
+                        </div>
+                    </div>
+
+                    <table id="tblDemat" class="display nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Shareholder Name</th>
+                                <th>DP ID</th>
+                                <th>No. of Shares</th>
+                                <th>Distinctive No.</th>
+                                <th>Present Shareholder</th>
+                                <th>Remark</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            var physicalData = [
+                {
+                    certNo: "1",
+                    issuedTo: "Mr Kiran Premchand Shah",
+                    folioNo: "01",
+                    noOfShares: 5000,
+                    distinctiveNo: "1-5000",
+                    presentShareholder: "Mr Kiran Premchand Shah",
+                    remark: "Split Certificates"
+                },
+                {
+                    certNo: "2",
+                    issuedTo: "Siddharth Ravi Prakash Singh",
+                    folioNo: "02",
+                    noOfShares: 5000,
+                    distinctiveNo: "5001-10000",
+                    presentShareholder: "Siddharth Ravi Prakash Singh",
+                    remark: "Split Certificates"
+                },
+                {
+                    certNo: "3",
+                    issuedTo: "Mr Kiran Premchand Shah",
+                    folioNo: "01",
+                    noOfShares: 4850,
+                    distinctiveNo: "1-4850",
+                    presentShareholder: "Mr Kiran Premchand Shah",
+                    remark: "Issued in Lieu of split"
+                },
+                {
+                    certNo: "4",
+                    issuedTo: "Mr Ajit Munnalal Vishwakarma",
+                    folioNo: "01",
+                    noOfShares: 150,
+                    distinctiveNo: "4851-5000",
+                    presentShareholder: "Mr Ajit Munnalal Vishwakarma",
+                    remark: "Issued in Lieu of split"
+                },
+                {
+                    certNo: "5",
+                    issuedTo: "Siddharth Ravi Prakash Singh",
+                    folioNo: "02",
+                    noOfShares: 4850,
+                    distinctiveNo: "5001-9850",
+                    presentShareholder: "Siddharth Ravi Prakash Singh",
+                    remark: "Issued in Lieu of split"
+                },
+                {
+                    certNo: "6",
+                    issuedTo: "Mr Ajit Munnalal Vishwakarma",
+                    folioNo: "02",
+                    noOfShares: 150,
+                    distinctiveNo: "9851-10000",
+                    presentShareholder: "Mr Ajit Munnalal Vishwakarma",
+                    remark: "Issued in Lieu of split"
+                }
+            ];
+
+            $('#tblPhysical').DataTable({
+                data: physicalData,
+                columns: [
+                    { data: 'certNo' },
+                    { data: 'issuedTo' },
+                    { data: 'folioNo' },
+                    { data: 'noOfShares' },
+                    { data: 'distinctiveNo' },
+                    { data: 'presentShareholder' },
+                    { data: 'remark' },
+                    {
+                        data: null, render: function () {
+                            return `
+
+                                <a href="/Resolutions/Particulars_of_Share_Certificate" class="mx-1 text-success"><i class="fa fa-pencil-alt"></i></a>
+                                <a href="#" class="mx-1 text-danger"><i class="fa fa-trash-alt"></i></a>
+                            `;
+                        }, orderable: false
+                    },
+                    {
+                        data: null, render: function () {
+                            return `
+                               <a href="/ShareCertificate/ViewCertificate" class="mx-1">
+            <i class="fa fa-eye"></i>
+        </a>
+                                <a href="#" class="mx-1"><i class="fa fa-file-pdf"></i></a>
+                                <a href="#" class="mx-1"><i class="fa fa-file-word"></i></a>
+                            `;
+                        }, orderable: false
+                    },
+                    {
+                        data: null, render: function () {
+                            return `<a href="#"><i class="fa fa-upload"></i></a>`;
+                        }, orderable: false
+                    }
+                ],
+                createdRow: function (row, data) {
+                    if (data.remark.includes("Split")) {
+                        $(row).addClass("table-split");
+                    } else if (data.remark.includes("Lieu")) {
+                        $(row).addClass("table-issued");
+                    } else if (data.remark.includes("Consolidated")) {
+                        $(row).addClass("table-consolidated");
+                    } else if (data.remark.includes("Jumbo")) {
+                        $(row).addClass("table-jumbo");
+                    } else if (data.remark.includes("Duplicate")) {
+                        $(row).addClass("table-duplicate");
+                    }
+                },
+                order: []
+            });
+
+            var dematData = [
+                {
+                    srNo: 1,
+                    shareholderName: "Alice Johnson",
+                    dpId: "DP001",
+                    noOfShares: 500,
+                    distinctiveNo: "2001-2500",
+                    presentShareholder: "Alice Johnson",
+                    remark: "Active"
+                },
+                {
+                    srNo: 2,
+                    shareholderName: "Bob Williams",
+                    dpId: "DP002",
+                    noOfShares: 300,
+                    distinctiveNo: "2501-2800",
+                    presentShareholder: "Bob Williams",
+                    remark: "Inactive"
+                }
+            ];
+
+            $('#tblDemat').DataTable({
+                data: dematData,
+                columns: [
+                    { data: 'srNo' },
+                    { data: 'shareholderName' },
+                    { data: 'dpId' },
+                    { data: 'noOfShares' },
+                    { data: 'distinctiveNo' },
+                    { data: 'presentShareholder' },
+                    { data: 'remark' },
+                    {
+                        data: null, render: function () {
+                            return `
+                                <a href="#" class="mx-1 text-primary"><i class="fa fa-eye"></i></a>
+                                <a href="#" class="mx-1 text-success"><i class="fa fa-pencil-alt"></i></a>
+                                <a href="#" class="mx-1 text-danger"><i class="fa fa-trash-alt"></i></a>
+                            `;
+                        }, orderable: false
+                    }
+                ],
+                order: []
+            });
+        });
+    </script>
+}

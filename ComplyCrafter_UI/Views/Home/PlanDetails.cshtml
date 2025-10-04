@@ -1,0 +1,100 @@
+﻿@model PlanDetailsViewModel
+@{
+    var discountAmount = (Model.BasePrice * Model.DiscountPercent) / 100;
+    var discountedPrice = Model.BasePrice - discountAmount;
+    var gstAmount = (discountedPrice * Model.GSTPercent) / 100;
+    var finalPrice = discountedPrice + gstAmount;
+}
+
+<div class="container py-5">
+    <div class="card shadow-sm p-4">
+        <h3 class="fw-bold text-primary">@Model.PlanName</h3>
+        <p class="text-muted">Base Price: ₹@Model.BasePrice</p>
+
+        <div class="mt-3">
+            <p>Coupon Applied: <strong>@Model.CouponCode</strong> (@Model.DiscountPercent% off)</p>
+            <p>Discount: - ₹@discountAmount</p>
+            <p>Subtotal: ₹@discountedPrice</p>
+            <p>GST (@Model.GSTPercent%): ₹@gstAmount</p>
+            <h5 class="fw-bold">Total Payable: ₹@finalPrice</h5>
+        </div>
+
+        <form>
+            <input type="hidden" name="amount" value="@finalPrice" />
+            <input type="hidden" name="plan" value="@Model.PlanName" />
+            <input type="hidden" name="coupon" value="@Model.CouponCode" />
+            <button class="btn btn-success mt-3" type="submit" onclick="payNow()">Proceed to Payment</button>
+        </form>
+    </div>
+    <a href="#" class="btn btn-warning text-white mt-2" onclick="payNow()">Buy Yearly</a>
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+<script>
+    async function payNow() {
+        const res = await fetch('@R.ApiUrl/payment/createorder', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId"),
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                SubscriptionId: 1,
+                Amount: 500 // INR
+            })
+        });
+
+        const data = await res.json();
+        console.log("Order Data:", data);
+
+        const options = {
+            key: data.key,
+            amount: data.amount,
+            currency: "INR",
+            name: "Comply Crafter",
+            description: "Payment",
+            order_id: data.orderId,
+            handler: function (response) {
+                swal.fire({
+                    icon: 'Success',
+                    title: 'Payment Success',
+                    text: 'Payment received. Thank you for your purchase.'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location = '@Url.Action("PaymentSuccess", "Home")' + '?TransactionId=' + data.orderId;
+                    }
+                });
+                console.log("Payment ID:", response.razorpay_payment_id);
+                console.log("response:", );
+                fetch("@R.ApiUrl/Payment/VerifyPayment", {
+                    method: "POST",
+                    headers: {
+                        'Authorization': 'Bearer ' + $.cookie("ComplyCrafterSessionId"),
+                        'Content-Type': 'application/json'
+                    },
+                    body:JSON.stringify(
+                    {
+                        razorpay_payment_id:response.razorpay_payment_id,
+                        razorpay_order_id:response.razorpay_order_id,
+                        razorpay_signature:response.razorpay_signature
+                    })
+                })
+                .then(res => res.json())
+                .then(data => console.log("Verify Response:", data))
+                .catch(err => console.error("Verify Error:", err));
+            },
+            prefill: {
+                name: "Your Name",
+                email: "your@email.com",
+                contact: "9000000000"
+            },
+            theme: { color: "#528FF0" }
+        };
+
+        const rzp = new Razorpay(options);
+        rzp.open();
+    }
+</script>
+

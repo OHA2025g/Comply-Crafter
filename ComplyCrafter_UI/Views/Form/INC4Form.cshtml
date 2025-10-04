@@ -1,0 +1,1015 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.INC-4
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    One Person Company - Change in Member/Nominee
+
+                    [Pursuant to Section 3(1) of the Companies Act, 2013 and Rule 4 (4),(5) & (6) of The Companies (Incorporation) Rules, 2014]
+                </p>
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/content/dam/mca-aem-forms/instructionkits/Instruction%20Kit_INC-4.pdf" target="_blank">
+                    Refer instruction kit for filing the form
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Company information
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1" href="javascript:;" role="part3" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Nominee Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+        <div class="col-md-12 p-0">
+            <div class="accordion" id="companyAccordion">
+                <div class="accordion-item">
+                    <div id="collapseDetails" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                        <div class="card">
+                            <div class="card-body">
+                                <form id="frmCompanyDetails">
+                                    <input type="hidden" class="num" value="0" name="id" />
+                                    <input type="hidden" class="num" value="0" name="companyId" />
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-3 col-md-3 form-row bold" style="height: 80px;">
+                                                1. *This form is for
+                                            </div>
+                                            <div class="col-xs-12 col-sm-9 col-md-9 form-row" style="height: auto;">
+                                                &nbsp; <input type="radio" name="purpose" class="form_purpose" value="Notice of withdrawal of consent by the nominee of OPC" required=""> &nbsp; Notice of withdrawal of consent by the nominee of OPC <br> &nbsp; <input type="radio" name="purpose" class="form_purpose" value="Intimation about change in the name of the nominee of OPC" required=""> &nbsp; Intimation about change in the name of the nominee of OPC <br> &nbsp; <input type="radio" name="purpose" class="form_purpose" value="Intimation of Cessation" required=""> &nbsp; Intimation of Cessation
+                                            </div>
+                                        </div>
+
+                                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                                Company Information
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">2 *Corporate Identity Number (CIN) of company</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="AKSHAY GRAPHICS PRIVATE LIMITED" class="form-control" value="" name="cin" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">3 .(a) *Name of the one-person company</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="U22219MH2022PTC375586" class="form-control" value="" name="companyName" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">(b) *Registered Office Address</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="SHOP NO 3 VERTEX VIKAS CHS LTD   WING A SIR M V RD BHD POLICE STN ANDHERI, MUMBAI, Mumbai City, Maharashtra, India, 400069" class="form-control" value="" name="companyAddress" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+
+                                        <div class="col-md-6 my-3">
+                                            <label class="form-label">(c) *Email id</label>
+                                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="akshaygraphics69@gmail.com" class="form-control" value="" name="companyEmail" disabled>
+                                            <div class="invalid-feedback"></div>
+                                        </div>
+                                        <label class="showonnoticeofwithdrawl" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; display: inline-block;">4 Notice of withdrawal of consent</label>
+                                        <div class="row showonnoticeofwithdrawl" style="display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 bold">
+                                                Notice of Withdrawal of consent by Nominee (Following fields are applicable in case option 1 is selected in data field 1)
+                                            </div>
+                                        </div>
+                                        <div class="row showonnoticeofwithdrawl" style="height: auto; display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: 92px;">
+                                                <p style="text-align: justify;line-height: 2.5em;">Notice is hereby given that <input type="text" name="withdrwalNomineeName" id="nomineenemae" value="" placeholder="Name of Nominee" required="required">&nbsp; was nominated as the nominee of &nbsp;<input type="text" name="withdrawlSubscriberName" id="subscribername" placeholder="Name of Subscriber" value="" required="required">&nbsp;has withdrawn his/her consent vide his/her notice dated &nbsp; <input type="date" name="withdrawlDate" id="withdrawl_date" class="datepicker hasDatepicker" placeholder="dd/mm/yyyy" value="" required> &nbsp; a copy of which is attached herewith.</p>
+                                            </div>
+                                        </div>
+                                        <label class="showonintimation" id="changecssofintimation" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; display: inline-block;">Intimation about change in nomination (Following fields are applicable in case option 2 is selected in data field 1)</label>
+                                        <div class="row showonintimation" style="display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 bold">
+                                                5 Intimation about change in nomination
+                                            </div>
+                                        </div>
+                                        <div class="row showonintimation mt-2" style="height: auto; display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                                <p style="text-align: justify;line-height: 2.5em;">
+                                                    Notice is hereby given that
+                                                    <input type="text" name="subscriberName" id="inti_subscr_name" value="" placeholder="Name of Subscriber" required="required" style="height:2.4rem">&nbsp; member of &nbsp;
+                                                    <input type="text" name="companyName" style="height:2.4rem" id="companyName" value="">&nbsp; has nominated &nbsp;
+                                                    <input type="text" name="firstName" id="firstname" placeholder="First Name" value="" class="onlynumbersandletters" maxlength="35" style="height:2.4rem"> &nbsp;
+                                                    <input type="text" name="middleName" id="middlename" placeholder="Middle Name" value="" class="onlynumbersandletters" maxlength="35" style="height:2.4rem"> &nbsp;
+                                                    <input type="text" name="lastName" id="lastname" placeholder="Surname" value="" class="onlynumbersandletters" maxlength="35" style="height:2.4rem"> &nbsp; vide intimation dated
+                                                    <input type="date" name="intimationDate" id="intimation_date" class="datepicker hasDatepicker" placeholder="dd/mm/yyyy" value="" required="required" style="height:2.4rem">
+                                                    &nbsp; as his/her nominee in place of <input type="text" style="height:2.4rem" name="nomineeName" id="previousnominee_name" value="" required="required"> &nbsp; who shall become the member of the company in the event of his/her death or his/her incapacity to contract. He/she declares that the nominee is eligible for nomination within the meaning of Rule 3 of the Companies (Incorporation) Rules,2014.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <label class="showonintimationofcess" id="changecssofcess" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; display: inline-block;">Intimation of Cessation of member (Following fields are applicable in case option 3 is selected in data field 1)</label>
+                                        <div class="row showonintimationofcess" style="display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 bold">
+                                                6 Intimation of Cessation of member
+                                            </div>
+                                        </div>
+                                        <div class="row showonintimationofcess" style="height: auto; display: block;">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                                <p style="text-align: justify;line-height: 2.5em;">
+                                                    (a) Intimation is hereby given that &nbsp; <input type="text" name="cessationSubscrName" id="cessation_subscr_name" value="" placeholder="Name of Subscriber">&nbsp; has ceased to be member of &nbsp;<input type="text" name="companyName" id="companyName" value="" readonly="">&nbsp; w.e.f <input type="date" name="cesstionDate" id="cesstion_date" class="datepicker hasDatepicker" placeholder="dd/mm/yyyy" value="" required="required"> &nbsp; due to
+                                                    <select name="dueReason" class="due_reason" required="required">
+                                                        <option value="">Select</option>
+                                                        <option value="Death of the member">Death of the member</option>
+                                                        <option value="Change in ownership">Change in ownership</option>
+                                                        <option value="Incapacity of member to contract">Incapacity of member to contract</option>
+                                                    </select> and First Name <input type="text" name="cessationFirstName" id="cessation_firstname" placeholder="First Name" value="" class="onlynumbersandletters" maxlength="35"> Middle Name <input type="text" name="cessationMiddName" id="cessation_middname" placeholder="Middle Name" value="" class="onlynumbersandletters" maxlength="35"> Last Name <input type="text" name="cessationLastName" id="cessation_lastname" placeholder="Last Name" value="" class="onlynumbersandletters" maxlength="35"> &nbsp;
+                                                    <select name="soleMember" class="sole_member" required="required">
+                                                        <option value="">Select</option>
+                                                        <option value="his/her nominee">his/her nominee</option>
+                                                        <option value="the transferee">the transferee</option>
+                                                    </select> &nbsp; has become the sole member of the above mentioned company.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <template>
+                                    </template>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="part2" class="p-0">
+        <div class="card  p-0">
+
+            <form action="" role="form" id="fupForm2" method="post" accept-charset="utf-8" enctype="multipart/form-data" style="padding:15px;">
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Attachments
+                    </p>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        (c) Optional Attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <div class="row" id="roweq1">
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        1.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                        <input type="file" name="optionalAttachment" id="attachmentfile_1" class="1" accept=".pdf,.xlsx">
+                    </div>
+                </div>
+
+                <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">Declaration</p>
+                </div>
+
+                <div class="col-md-12 my-2">
+                    <label class="form-label">*Income-tax PAN or Director identification number (DIN) of the member</label>
+                    <input type="text" placeholder="" class="form-control" value="" name="pan" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                    <div class="invalid-feedback"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 my-2">
+                        <label class="form-label">
+                            *Designation
+                        </label>
+                        <select id="designationDropdown" class="form-select" name="designation" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <option selected value="">Select Designation</option>
+                            <option value="Director">Director</option>
+                            <option value="Manager">Manager</option>
+                            <option value="Company Secretary">Company Secretary</option>
+                            <option value="CFO">CFO</option>
+                            <option value="CEO">CEO</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4 my-2">
+                        <label class="form-label">Signatory</label>
+                        <input id="signatoryInput" type="text" class="form-control" name="signatory" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+
+                        <select id="signatoryDropdown" class="form-select" name="signatoryDirector" style="display: none; box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                            <option value="">Loading ...</option>
+                        </select>
+
+                        <div class="invalid-feedback"></div>
+                    </div>
+                    <div class="col-md-4 my-2">
+                        <label class="form-label">DIN / PAN</label>
+                        <input id="dinPanInput" type="text" class="form-control" name="din" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                        <div class="invalid-feedback"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+ 
+    <div id="part3" class="p-0">
+        <div class="col-md-12 p-0">
+            <div class="accordion" id="companyAccordion">
+                <div class="accordion-item">
+                    <div id="collapseDetails" aria-labelledby="detailsHeading" data-bs-parent="#companyAccordion">
+                        <div class="card p-4">
+                            <br>
+
+
+                            <div id="tab2" class="tab-pane animated custon-tab-style1 showonnotice active">
+                                <div class="guideLoading guideServiceLoading dvloader" style="display: none;"></div>
+                                <form action="" role="form" id="fupForm2" method="post" accept-charset="utf-8" enctype="multipart/form-data">
+
+                                    <label class="showon1and3" style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase; display: inline-block;">Intimation about the change of nominee (Following fields are applicable in case option 1 or 3 is selected in data field 1)</label><br>
+
+                                    <div class="row showon1and3" style="display: block;">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 bold" style="margin-left: -12px;">
+                                            7 Intimation about the change of nominee
+                                        </div>
+                                    </div>
+
+                                    <div class="row showon1and3" style="height: auto; display: block;">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                            <p style="text-align: justify;line-height: 2.5em;">Further notice is given that <input type="text" name="changeNomineeScrName" id="changenominee_subscr_name" value="" placeholder="Name of Subscriber">&nbsp; <input type="text" name="eitherMemberOrNew" id="eithermemberornew" value=""> of <input type="text" name="companyName" id="companyName" value="" readonly=""> &nbsp; has nominated First name/Name of the existing nominee &nbsp; <input type="text" name="nomineeFirstName" id="changenominee_firstname" placeholder="First Name" value="" class="onlyletters" maxlength="35"> &nbsp; Middle Name <input type="text" name="nomineeMidname" id="changenominee_midname" placeholder="Middle Name" value="" class="onlyletters" maxlength="35"> &nbsp; Surname <input type="text" name="nomineeLastName" id="changenominee_lastname" placeholder="Surname" value="" class="onlyletters" maxlength="35"> &nbsp; as his nominee w. e. f. <input type="date" name="nomineeDate" id="nominee_date" class="datepicker hasDatepicker" placeholder="dd/mm/yyyy" value="" required="required"> &nbsp; who shall become the member of the company in the event his/her death or his/her incapacity to contract. He/she declare that the nominee is eligible for nomination within the meaning of Rule 3 of the Companies (Incorporation) Rules 2014.</p>
+                                        </div>
+                                    </div>
+
+                                    <label class="nomineedin" style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase; ">Particulars of the nominee  (Following fields are applicable in all the cases except the case 'Yes' is selected in field 6(b))</label><br>
+
+                                    <div class="row nomineedin" style="display: block;">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 bold" style="margin-left: -12px;">
+                                            8 Particulars of the nominee
+                                        </div>
+                                    </div>
+
+                                    <div class="row nomineedin" style="display: block;">
+                                        <div class="col-xs-12 col-sm-3 col-md-3 bold form-row">
+                                            8 Director Identification number (DIN)
+                                        </div>
+                                        <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                            <input type="text" name="nomineeDin" id="din" class="form-control" value="">
+                                        </div>
+                                    </div>
+
+                                    <div class="row nomineedin">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 showondinchange" style="margin-left: -12px; ">
+                                            <span style="font-weight: bold;">First Name</span>
+                                            <div lass="input text">
+                                                <input name="firstNameOfDin" class="form-control onlyletters" id="firstnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4 showondinchange">
+                                            <span style="font-weight: bold;">Middle Name</span>
+                                            <div class="input text">
+                                                <input name="midNameOfDin" class="form-control onlyletters" id="midnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4 showondinchange">
+                                            <span style="font-weight: bold;">Surname</span>
+                                            <div class="input text">
+                                                <input name="surNameOfDin" class="form-control onlyletters" id="surnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row nomineedin">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 hideondinchange" style="margin-left: -12px; ">
+                                            <span style="font-weight: bold;">Father’s First name</span>
+                                            <div lass="input text">
+                                                <input name="fatherFirstName" class="form-control onlyletters" id="fatherfirstnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4 showondinchange" id="changecssMiddlename">
+                                            <span style="font-weight: bold;">Father’s Middle Name</span>
+                                            <div class="input text">
+                                                <input name="fatherMidName" class="form-control onlyletters" id="fathermidnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-4 col-md-4 hideondinchange">
+                                            <span style="font-weight: bold;">Father’s Last name</span>
+                                            <div class="input text">
+                                                <input name="fatherSurname" class="form-control onlyletters" id="fathersurnameofdin" value="" placeholder="Enter here" maxlength="35">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hideondinchange">
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">Gender</span>
+                                                <div lass="input text">
+                                                    <select name="fatherGender" class="form-control genderofdin changedin">
+                                                        <option value="">Select Gender</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                        <option value="Transgender">Transgender</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Date of Birth</span>
+                                                <div class="input text">
+                                                    <input type="date" name="fatherDob" class="form-control datepicker changedin hasDatepicker" id="dobofdin" value="" placeholder="dd/mm/yyyy">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Nationality</span>
+                                                <div class="input text">
+                                                    <select name="nationality" class="form-control changedin" id="nationality">
+
+                                                        <option value="">Select Country</option>
+                                                        <option value="Afghanistan ">Afghanistan </option>
+                                                        <option value="Albania ">Albania </option>
+                                                        <option value="Algeria ">Algeria </option>
+                                                        <option value="American Samoa">American Samoa</option>
+                                                        <option value="Andorra, Principality of ">Andorra, Principality of </option>
+                                                        <option value="Angola">Angola</option>
+                                                        <option value="Anguilla ">Anguilla </option>
+                                                        <option value="Antarctica">Antarctica</option>
+                                                        <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                                      
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">Income-tax PAN</span>
+                                                <div lass="input text">
+                                                    <input name="nomineePan" class="form-control changedin" id="pan" value="" placeholder="Enter here" maxlength="10">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Place of Birth (District and State)</span>
+                                                <div class="input text">
+                                                    <input name="placeOfBirth" class="form-control changedin" id="placeofbirth" value="" maxlength="70" >
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Occupation type</span>
+                                                <div class="input text">
+                                                    <select name="occupation" class="form-control occupation changedin">
+                                                        <option value="">Select Occupation</option>
+                                                        <option value="Business">Business</option>
+                                                        <option value="Professional">Professional</option>
+                                                        <option value="Government">Government</option>
+                                                        <option value="Employment">Employment</option>
+                                                        <option value="Private Employment">Private Employment</option>
+                                                        <option value="Housewife">Housewife</option>
+                                                        <option value="Student">Student</option>
+                                                        <option value="Others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1" style="margin-left: -12px;">
+                                                <a class="btn btn-primary verifydetails" id="verifydetails" style="margin-top: 5px;">Verify PAN</a>
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                                <p id="showerror" class="verifypanstatus" style="display: none;color: red;margin-top: 5px;    margin-left: 10px;"></p>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-4 col-md-4 nomineedin" style="margin-left: -12px; display: block;">
+                                                <span style="font-weight: bold;">Area of Occupation</span>
+                                                <div class="input text">
+                                                    <select name="occupationArea" class="form-control occupation_area changedin">
+                                                        <option value="">Select Area</option>
+                                                        <option value="Government">Government</option>
+                                                        <option value="Teaching">Teaching</option>
+                                                        <option value="Others">Others</option>
+                                                        <option value="Business">Business</option>
+                                                        <option value="Government Employment">Government Employment</option>
+                                                        <option value="Housewife">Housewife</option>
+                                                        <option value="Private Employment">Private Employment</option>
+                                                        <option value="Professional">Professional</option>
+                                                        <option value="Student">Student</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4 showonotherarea" style="display: none;">
+                                                <span style="font-weight: bold;">If ‘Other’s , please specify</span>
+                                                <div lass="input text">
+                                                    <input name="otherArea" class="form-control onlynumbersandletters" id="otherarea" value="" placeholder="Enter here" maxlength="35">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4 nomineedin" style="display: block;">
+                                                <span style="font-weight: bold;">*Educational Qualification</span>
+                                                <select name="qualification" class="form-control edu_qualification changedin">
+                                                    <option value="">Select occupation</option>
+
+                                                    <option value="Primary education">Primary education</option>
+                                                    <option value="Secondary education">Secondary education</option>
+                                                    <option value="Vocational qualification">Vocational qualification</option>
+                                                    <option value="Bachelor’s degree">Bachelor's degree</option>
+                                                    <option value="Master degree">Master degree</option>
+                                                    <option value="Doctorate or higher">Doctorate or higher</option>
+                                                    <option value="Professional">Professional</option>
+                                                    <option value="Diploma">Diploma</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="row showonotherEducational" style="display: none;">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">If ‘Other’s , please specify</span>
+                                                <div lass="input text">
+                                                    <input name="otherQualification" class="form-control onlynumbersandletters" id="otherqualification" value="" placeholder="Enter here" maxlength="35">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <label class="nomineedin" style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase; display: inline-block;">Permanent address</label><br>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                                                <span style="font-weight: bold;">Address Line 1</span>
+                                                <div lass="input text">
+                                                    <input name="line1" class="form-control onlynumbersandletters changedin" id="addline1" value="" placeholder="Enter here" maxlength="100">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Address Line 2</span>
+                                                <div lass="input text">
+                                                    <input name="line2" class="form-control onlynumbersandletters" id="addline2" value="" placeholder="Enter here" maxlength="100">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Country</span>
+                                                <div lass="input text">
+                                                    <input name="country" class="form-control changedin" id="country" value="India" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">Pin Code / Zip Code</span>
+                                                <div lass="input text">
+                                                    <input name="pinCode" class="form-control onlynumbers changedin" id="pincode" value="" placeholder="Enter here" maxlength="10">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Area / Locality</span>
+                                                <div lass="input text">
+                                                    <select name="areaLocality" id="arealocality" class="form-control changedin">
+                                                        <option value="">Select locality</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">City</span>
+                                                <div lass="input text">
+                                                    <input name="city" class="form-control changedin" id="city" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">District</span>
+                                                <div lass="input text">
+                                                    <input name="district" class="form-control changedin" id="district" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">State / Union Territory</span>
+                                                <div lass="input text">
+                                                    <input name="state" class="form-control changedin" id="state" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Phone (with STD/ISD code)</span>
+                                                <div lass="input text">
+                                                    <input name="phone" class="form-control" id="phone" value="" placeholder="Enter here" maxlength="13" 
+                                                    >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">Mobile No.</span>
+                                                <div lass="input text">
+                                                    <input name="mobile" class="form-control changedin" id="mobile" value="" placeholder="Enter here"
+                                                    >
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Fax</span>
+                                                <div lass="input text">
+                                                    <input name="fax" class="form-control onlynumbers" id="fax" value="" placeholder="Enter here" maxlength="13">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Email ID</span>
+                                                <div lass="input text">
+                                                    <input name="emailId" class="form-control changedin" id="emailid" value="" placeholder="Enter here" >
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin mt-3" style="display: block;">
+                                            <div class="col-xs-12 col-sm-8 col-md-8 form-row">
+                                                Whether present residential address same as permanent residential address &nbsp; <input type="radio" name="whetherAddressSame" class="whetheraddresssame changedin" value="Y"> &nbsp; Yes <input type="radio" name="whetherAddressSame" class="whetheraddresssame changedin" value="N"> &nbsp; No
+                                            </div>
+                                        </div>
+
+                                        <label class="nomineedin mt-2" style="font-weight: bolder; text-decoration: underline; margin: 0px -10px 5px; text-transform: uppercase; display: inline-block;">Present address</label><br>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                                                <span style="font-weight: bold;">Address Line 1</span>
+                                                <div lass="input text">
+                                                    <input name="presentLine1" class="form-control onlynumbersandletters changedin" id="presentaddline1" value="" placeholder="Enter here" maxlength="100">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Address Line 2</span>
+                                                <div lass="input text">
+                                                    <input name="presentLine2" class="form-control onlynumbersandletters" id="presentaddline2" value="" placeholder="Enter here" maxlength="100">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Country</span>
+                                                <div lass="input text">
+                                                    <input name="presentCountry" class="form-control" id="presentcountry" value="India" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">Pin Code / Zip Code</span>
+                                                <div lass="input text">
+                                                    <input name="presentPinCode" class="form-control onlynumbers changedin" id="presentpincode" value="" placeholder="Enter here" maxlength="10">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Area / Locality</span>
+                                                <div lass="input text">
+                                                    <select name="presentAreaLocality" id="presentarealocality" class="form-control changedin">
+                                                        <option value="">Select locality</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">City</span>
+                                                <div lass="input text">
+                                                    <input name="presentCity" class="form-control changedin" id="presentcity" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px; ">
+                                                <span style="font-weight: bold;">District</span>
+                                                <div lass="input text">
+                                                    <input name="presentDistrict" class="form-control changedin" id="presentdistrict" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">State / Union Territory</span>
+                                                <div lass="input text">
+                                                    <input name="presentState" class="form-control changedin" id="presentstate" value="" placeholder="Enter here" readonly="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: 56px;">
+                                                <p style="text-align: justify;line-height: 2.5em;">
+                                                    Duration of stay at present address
+                                                    <select name="presentAddress" class="presentaddressat changedin">
+                                                        <option value="">Select year</option>
+
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                     
+                                                    </select> &nbsp; year(s)
+                                                    <select name="presentAddressYears" class="presentaddressyears changedin">
+                                                        <option value="">Select month</option>
+                                                        <option value="0">0</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5">5</option>
+                                                        <option value="6">6</option>
+                                                        <option value="7">7</option>
+                                                        <option value="8">8</option>
+                                                        <option value="9">9</option>
+                                                        <option value="10">10</option>
+                                                        <option value="11">11</option>
+                                                    </select> month(s).
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                                                <span style="font-weight: bold;">*Proof of Identity</span>
+                                                <div class="input text">
+                                                    <select name="identityProof" class="form-control identity_proof changedin">
+                                                        <option value="">Select</option>
+                                                        <option value="Driving License">Driving License</option>
+                                                        <option value="Aadhar Card">Aadhar Card</option>
+                                                        <option value="Voter ID Card">Voter ID Card</option>
+                                                        <option value="Passport">Passport</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Proof of Identity Number</span>
+                                                <div lass="input text">
+                                                    <input name="identityProofNo" class="form-control changedin" id="identity_proof_no" value="" placeholder="Enter here" maxlength="20">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin" style="height: auto; display: flex; margin-top:20px; margin-bottom:20px">
+                                            <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">Identity Proof Document</div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                                <input type="file" name="identityPrfDoc" id="identityprrofdoc" class="1">
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="row nomineedin ">
+                                            <div class="col-xs-12 col-sm-4 col-md-4" style="margin-left: -12px;">
+                                                <span style="font-weight: bold;">*Residential Proof</span>
+                                                <div class="input text">
+                                                    <select name="residentalProof" class="form-control residental_proof changedin">
+                                                        <option value="">Select</option>
+                                                        <option value="Mobile bill">Mobile bill</option>
+                                                        <option value="Telephone bill">Telephone bill</option>
+                                                        <option value="Electricity Bill">Electricity Bill</option>
+                                                        <option value="Bank Statement">Bank Statement</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                                <span style="font-weight: bold;">Residential Proof No.</span>
+                                                <div lass="input text">
+                                                    <input name="residentalProofNo" class="form-control changedin" id="residental_proof_no" value="" placeholder="Enter here" maxlength="25">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row nomineedin" style="height: auto; display: flex;margin-top:20px;margin-bottom:20px">
+                                            <div class="col-xs-12 col-sm-4 col-md-4 form-row bold">Residential Proof Document</div>
+                                            <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                                                <input type="file" name="residentalProofDoc" id="residentalproof" class="1">
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                    <label class="nomineedin mt-2" style="font-weight: bolder; text-decoration: underline; text-transform: uppercase; display: inline-block;">Consent along with declaration by Nominee</label><br>
+
+                                    <div class="row nomineedin" style="height: auto; ">
+                                        <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                                            <p style="text-align: justify;line-height: 2em;">I <input type="text" name="companyName" id="companyName" value="" placeholder="Name of Nominee">&nbsp; hereby give my consent to become the member of &nbsp;<input type="text" name="companyName" id="companyName" value="" readonly="">&nbsp; in the event of death of &nbsp;<input type="text" name="eventDeath" id="event_death" value="">&nbsp; member of the company or his incapacity to contract.<br><br> I do solemnly declare that I am an Indian citizen and resident in India and I have not been convicted of any offence in connection with  the promotion, formation or management of any company or LLP and have not been found guilty of any fraud or misfeasance or of any breach of duty to any company under this Act or any previous company law or LLP Act in the last five years. I further declare that. <br><br> I am not a nominee in any other One Person Company, and I shall comply with the eligibility criteria specified in Rule 3(3) within the prescribed period. I understand that the person nominating me may withdraw my nomination without my consent.</p>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save()">
+            Submit
+        </button>
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+       
+        $('.showonnoticeofwithdrawl, .showonintimation, .showonintimationofcess').hide();
+
+        $('input[name="purpose"]').change(function () {
+            const selectedValue = $(this).val();
+
+            
+            $('.showonnoticeofwithdrawl, .showonintimation, .showonintimationofcess').hide();
+
+            if (selectedValue === 'Notice of withdrawal of consent by the nominee of OPC') {
+                $('.showonnoticeofwithdrawl').show();
+            } else if (selectedValue === 'Intimation about change in the name of the nominee of OPC') {
+                $('.showonintimation').show();
+            } else if (selectedValue === 'Intimation of Cessation') {
+                $('.showonintimationofcess').show();
+            }
+        });
+    });
+</script>
+
+@section Scripts {
+    <script>
+
+        $(document).on("change", "[name='purpose']", function () {
+            let purpose = $(this).val()
+        })
+
+
+
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            //Part 1
+            purpose:"",
+            withdrwalNomineeName: "", // Input for the name of the nominee in withdrawal notice
+            withdrawlSubscriberName: "", // Input for the name of the subscriber in withdrawal notice
+            withdrawlDate: "", // Input for the date of withdrawal notice
+            subscriberName: "", // Input for the name of the subscriber in intimation
+            memberCompanyName:"",
+            firstName: "", // Input for the first name of the nominee in intimation
+            middleName: "", // Input for the middle name of the nominee in intimation
+            lastName: "", // Input for the last name of the nominee in intimation
+            intimationDate: "", // Input for the date of intimation
+            nomineeName: "", // Input for the name of the previous nominee in intimation
+            cessationSubscrName: "", // Input for the name of the subscriber in cessation
+            cessCompanyName: "", // Input for the company name in cessation
+            cesstionDate: "", // Input for the date of cessation
+            dueReason: "", // Select box for the reason of cessation
+            cessationFirstName: "", // Input for the first name of the nominee in cessation
+            cessationMiddName: "", // Input for the middle name of the nominee in cessation
+            cessationLastName: "", // Input for the last name of the nominee in cessation
+            soleMember: "", // Select box for the sole member in cessation
+
+            //Part 3
+            changeNomineeScrName: "", // Input for the name of the subscriber
+            eitherMemberOrNew: "", // Input for either member or new
+            nomineeCompany: "", // Input for the company name
+            nomineeFirstName: "", // Input for the first name of the nominee
+            nomineeMidname: "", // Input for the middle name of the nominee
+            nomineeLastName: "", // Input for the last name of the nominee
+            nomineeDate: "", // Input for the date of nomination
+            nomineeDin: "", // Input for the Director Identification Number (DIN)
+            firstNameOfDin: "", // Input for the first name of the DIN holder
+            midNameOfDin: "", // Input for the middle name of the DIN holder
+            surNameOfDin: "", // Input for the surname of the DIN holder
+            fatherFirstName: "", // Input for the father's first name of the DIN holder
+            fatherMidName: "", // Input for the father's middle name of the DIN holder
+            fatherSurname: "", // Input for the father's surname of the DIN holder
+            fatherGender: "", // Select box for the gender of the DIN holder
+            fatherDob: "", // Input for the date of birth of the DIN holder
+            nationality: "", // Select box for the nationality of the DIN holder
+            nomineePan: "", // Input for the PAN of the nominee
+            placeOfBirth: "", // Input for the place of birth of the nominee
+            occupation: "", // Select box for the occupation type of the nominee
+            occupationArea: "", // Select box for the area of occupation
+            qualification: "", // Select box for educational qualification
+            line1: "", // Input for permanent address line 1
+            line2: "", // Input for permanent address line 2
+            country: "", // Input for permanent address country
+            pinCode: "", // Input for permanent address pin code
+            areaLocality: "", // Select box for permanent address area/locality
+            city: "", // Input for permanent address city
+            district: "", // Input for permanent address district
+            state: "", // Input for permanent address state
+            phone: "", // Input for permanent address phone number
+            mobile: "", // Input for permanent address mobile number
+            fax: "", // Input for permanent address fax number
+            emailId: "", // Input for permanent address email ID
+            whetherAddressSame: "", // Radio button for whether present address is same as permanent address
+            presentLine1: "", // Input for present address line 1
+            presentLine2: "", // Input for present address line 2
+            presentCountry: "", // Input for present address country
+            presentPinCode: "", // Input for present address pin code
+            presentAreaLocality: "", // Select box for present address area/locality
+            presentCity: "", // Input for present address city
+            presentDistrict: "", // Input for present address district
+            presentState: "", // Input for present address state
+            presentAddress: "", // Select box for duration of stay at present address (years)
+            presentAddressYears: "", // Select box for duration of stay at present address (months)
+            identityProof: "", // Select box for proof of identity
+            identityProofNo: "", // Input for proof of identity number
+            identityPrfDoc: "", // File input for identity proof document
+            residentalProof: "", // Select box for residential proof
+            residentalProofNo: "", // Input for residential proof number
+            residentalProofDoc: "", // File input for residential proof document
+            declarantNomineeName: "", // Input for the name of the declarant nominee
+            declarantCompanyName: "", // Input for the company name of the declarant
+            eventDeath: "",
+
+            //Part 3
+            optionalAttachment: "", // Array to hold optional attachment files
+            pan: "", // Input for Income-tax PAN or Director Identification Number (DIN) of the member
+            designation: "", // Select box for the designation of the member
+            signatory: "", // Input for the signatory
+            din: "", // Input for the DIN or PAN of the signatory
+
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+            load()
+        })
+
+        function save() {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`   /@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("SH8", "Form")`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+        }
+
+
+
+    </script>
+     
+    <script>
+        $(document).ready(function () {
+            $('#designationDropdown').on('change', function () {
+                const selectedDesignation = $(this).val();
+                const signatoryInput = $('#signatoryInput');
+                const signatoryDropdown = $('#signatoryDropdown');
+                const dinPanInput = $('#dinPanInput');
+
+                dinPanInput.val('');
+
+                if (selectedDesignation === 'Director') {
+                    signatoryInput.hide();
+                    signatoryDropdown.show();
+
+                    const companyId = localStorage.getItem("comp_id");
+                    if (!companyId) {
+                        alert("Please select a company first.");
+                        return;
+                    }
+
+                    const apiUrl = `@R.ApiUrl/Director/ByCompany/${companyId}`;
+
+                    $.getJSON(apiUrl, function (directors) {
+                        signatoryDropdown.empty().append('<option value="">Select a Director</option>');
+
+                        if (directors && directors.length > 0) {
+                            directors.forEach(function (director) {
+                                const fullName = [director.firstName, director.middleName, director.lastName].filter(Boolean).join(' ');
+                                const option = $('<option></option>')
+                                    .val(director.id)
+                                    .text(fullName)
+                                    .attr('data-din', director.din);
+                                signatoryDropdown.append(option);
+                            });
+                        } else {
+                            signatoryDropdown.append('<option disabled>No directors found</option>');
+                        }
+                    }).fail(function() {
+                        signatoryDropdown.empty().append('<option disabled>Error fetching directors</option>');
+                    });
+
+                } else {
+                    signatoryInput.show();
+                    signatoryDropdown.hide();
+                }
+            });
+
+            $('#signatoryDropdown').on('change', function () {
+                const selectedOption = $(this).find('option:selected');
+                const din = selectedOption.data('din');
+                $('#dinPanInput').val(din || '');
+            });
+        });
+    </script>
+
+}

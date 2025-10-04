@@ -1,0 +1,388 @@
+﻿@{
+    Layout = ViewBag.UseLayout == false ? null : "_Layout";
+}
+<script id="resolnMain">
+    let mode = '@ViewBag.Mode';
+    let meeting = @ViewBag.Meeting;
+    let resolnId = @ViewBag.ResolnId;
+    let isLayOut = Boolean('@(ViewBag.UseLayout == false ? "" : "_Layout")');
+    let R_ApiUrl = '@R.ApiUrl';
+
+    let agendaOption = `To recommend appointment of {Name of Director} as {Managing Director-Whole Time Director} of the Company`;
+    let agendaHeading = `To recommend appointment of {Name of Director} as {Managing Director-Whole Time Director} of the Company`;
+    let minuteHeading = `To recommend appointment of {Name of Director} as {Managing Director-Whole Time Director} of the Company`;
+    let agendaPreface = `
+    The Chairman shall inform the Board, that pursuant to the provisions of Section 196 of the Companies Act, 2013, the Company is required to appoint a {Managing Director-Whole Time Director} who is also a Key Managerial Personnel. Considering this it is proposed that the existing {Managing Director-Whole Time Director} {Name of Appointee} be reappointed as a {Managing Director-Whole Time Director} of the Company, subject to the approval of shareholders in the ensuing general meeting to hold office for a period of {Period in Years} commencing from {Appointment Date} to {Expiry Date}. The Baord shall discuss the matter and if thought fit, may pass the following resolution in this regard:                `;
+    let minutePreface = `
+    The Chairman informed the Board, that pursuant to the provisions of Section 196 of the Companies Act, 2013, the Company is required to appoint a {Managing Director-Whole Time Director} who is also a Key Managerial Personnel. Considering this it is proposed that the existing {Managing Director-Whole Time Director} {Name of Appointee} be reappointed as a {Managing Director-Whole Time Director} of the Company, subject to the approval of shareholders in the ensuing general meeting to hold office for a period of {Period in Years} commencing from {Appointment Date} to {Expiry Date}. The Board unanimously passed the following resolution in this regard:
+    `;
+    let resolutionForNoticePara1 = `
+    "RESOLVED THAT in accordance with the provisions of Sections 196, 197 read with Schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), and subject to the necessary approval of the members in the ensuing {Annual General Meeting-Extra Ordinary General Meeting}, consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to reappoint {Name of Director} as {Managing Director-Whole-Time Director} of the Company, for another term of {Period in Years} ({Period in Years in words}) consecutive years with effect from {Appointment Date} to {Expiry Date}, with the liberty to the Board of Directors to alter and vary the terms and conditions of the said appointment and/or remuneration as it may deem fit."
+
+    RESOLVED FURTHER THAT the Board of Directors of the Company be and are  hereby authorized to do all such acts, deeds, things and matters including the filing of the necessary e-forms with the Ministry of Corporate Affairs as may be necessary to give effect to the Resolution.”         `;
+    let resolutionForNoticePara2 = `Details as required as per the provisions of Section 197 and Schedule V of the Companies Act, 2013 are detailed below:
+
+    Name
+
+    {Name of Director}
+
+    Proposed Designation
+
+    {Managing Director-Whole-Time Director}
+
+    Salary inclusive of all allowances
+
+    Not exceeding to {Salary} or as may be decided by the board of directors
+
+    Perquisites in addition to salary
+
+    Free use of Company’s car for the business of the Company and shall be valued as per Income Tax Rules.
+
+    Retirement Benefits
+
+    Company’s Contribution towards Provident Fund, Gratuity as per the rules of the Company.
+
+    Other benefits
+
+    Free telephone facility at residence and use of mobile facility.
+
+    Reimbursement of expenses incurred for travelling boarding and lodging during business trips and all other expenses actually and properly incurred by them for the business of the Company.
+
+    Bonus payable as per rules of the company
+
+    Minimum Remuneration
+
+    Where in any financial year during the currency of tenure of the {Managing Director-Whole-Time Director}, the company has no profits or its profits are inadequate, the company will pay remuneration by way of salary and perquisites not exceeding the limits as specified above.
+
+    RESOLVED FURTHER THAT any of the Directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions”
+    `;
+    let resolutionForMinutesPara1 = `
+    "RESOLVED THAT in accordance with the provisions of Sections 196, 197 read with Schedule V and all other applicable provisions of the Companies Act, 2013 and the Companies (Appointment and Remuneration of Managerial Personnel) Rules, 2014 (including any statutory modification(s) or re-enactment thereof for the time being in force), and subject to the necessary approval of the members in the ensuing {Annual General Meeting-Extra Ordinary General Meeting}, consent of the Board of Directors ("the Board") of the Company be and is hereby accorded to reappoint {Name of Director} as {Managing Director-Whole-Time Director} of the Company, for another term of {Period in Years} ({Period in Years in words}) consecutive years with effect from {Appointment Date} to {Expiry Date}, with the liberty to the Board of Directors to alter and vary the terms and conditions of the said appointment and/or remuneration as it may deem fit."
+
+    RESOLVED FURTHER THAT the Board of Directors of the Company be and are  hereby authorized to do all such acts, deeds, things and matters including the filing of the necessary e-forms with the Ministry of Corporate Affairs as may be necessary to give effect to the Resolution.”         `;
+    let resolutionForMinutesPara2 = `
+                       Details as required as per the provisions of Section 197 and Schedule V of the Companies Act, 2013 are detailed below:
+
+    Name
+
+    {Name of Director}
+
+    Proposed Designation
+
+    {Managing Director-Whole-Time Director}
+
+    Salary inclusive of all allowances
+
+    Not exceeding to {Salary} or as may be decided by the board of directors
+
+    Perquisites in addition to salary
+
+    Free use of Company’s car for the business of the Company and shall be valued as per Income Tax Rules.
+
+    Retirement Benefits
+
+    Company’s Contribution towards Provident Fund, Gratuity as per the rules of the Company.
+
+    Other benefits
+
+    Free telephone facility at residence and use of mobile facility.
+
+    Reimbursement of expenses incurred for travelling boarding and lodging during business trips and all other expenses actually and properly incurred by them for the business of the Company.
+
+    Bonus payable as per rules of the company
+
+    Minimum Remuneration
+
+    Where in any financial year during the currency of tenure of the {Managing Director-Whole-Time Director}, the company has no profits or its profits are inadequate, the company will pay remuneration by way of salary and perquisites not exceeding the limits as specified above.
+
+    RESOLVED FURTHER THAT any of the Directors of the Company be and are hereby severally authorized to issue and authenticate a certified true copy of this resolution wherever required and to do all such acts, matters, deeds and things necessary or desirable in connection with or incidental to give effect to the above resolutions”   `;
+</script>
+<style>
+    .table-bordered-custom {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+        .table-bordered-custom th,
+        .table-bordered-custom td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+        }
+</style>
+
+<div class="@(ViewBag.UseLayout == true ? "card p-4 shadow-sm mt-3" : "")">
+
+    <style>
+        .custom-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            table-layout: fixed; /* ensures equal column width */
+        }
+
+            .custom-table td {
+                border: 1px solid #ccc;
+                padding: 8px;
+                width: 25%; /* 4 equal columns */
+                vertical-align: middle;
+            }
+
+            .custom-table .table-title {
+                font-weight: bold;
+                text-align: left;
+                background: #f8f9fa;
+                padding: 8px;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 4px 10px;
+        }
+    </style>
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <table class="custom-table">
+            <tbody>
+                <!-- Section Title -->
+                <tr>
+                    <td colspan="4" class="table-title">Director Appointment Details</td>
+                </tr>
+
+                <!-- Row 1 -->
+                <tr>
+
+                    <td><strong>Name of Director</strong></td>
+                    <td>
+                        <select class="form-control director" id="directorName" name="appointedDirector" onchange="updateAgendaFields()">
+                            <option value="">Select Director</option>
+                        </select>
+                    </td>
+                    <td><strong>Designation</strong></td>
+                    <td>
+                        <select class="form-control" id="designation" name="designation" onchange="updateAgendaFields()">
+                            <option value="">Select</option>
+                            <option value="Managing Director">Managing Director</option>
+                            <option value="Whole Time Director">Whole Time Director</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                    <td><strong>Number of Years</strong></td>
+                    <td>
+                        <input type="number" id="periodYears" class="form-control num" placeholder="e.g. 3" name="numberOfYear" oninput="updateAgendaFields()">
+                    </td>
+                    <td><strong>Appointment Date</strong></td>
+                    <td>
+                        <input type="date" id="appointmentDate" class="form-control" name="appointmentDate" oninput="updateAgendaFields()">
+                    </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                    <td><strong>Retirement Date</strong></td>
+                    <td>
+                        <input type="date" id="expiryDate" class="form-control" name="retirementDate" oninput="updateAgendaFields()">
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <!-- Authorization Section -->
+                <tr>
+                    <td colspan="4" class="table-title">Authorization For Resolution</td>
+                </tr>
+
+                <tr class="authorizedRow">
+                    <td><strong>Name of Authorized Person</strong></td>
+                    <td>
+                        <select class="form-control director" name="appointedDirector">
+                            <option value="">Select name</option>
+                        </select>
+                    </td>
+                    <td colspan="2" class="text-center">
+                        <input type="hidden" name="id" class="num" value="0">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else
+    {
+        @* <table class="custom-table">
+            <tbody>
+                <!-- Section Title -->
+                <tr>
+                    <td colspan="4" class="table-title">Director Appointment Details</td>
+                </tr>
+
+                <!-- Row 1 -->
+                <tr>
+                    <td><strong>Name of Director</strong></td>
+                    <td>
+                        <p name="appointedDirector"></p>
+                    </td>
+                    <td><strong>Designation</strong></td>
+                    <td>
+                        <p name="designation"></p>
+                    </td>
+                </tr>
+
+                <!-- Row 2 -->
+                <tr>
+                    <td><strong>Number of Years</strong></td>
+                    <td>
+                        <p name="numberOfYear"></p>
+                    </td>
+                    <td><strong>Appointment Date</strong></td>
+                    <td>
+                        <p name="appointmentDate" type="date"></p>
+                    </td>
+                </tr>
+
+                <!-- Row 3 -->
+                <tr>
+                    <td><strong>Retirement Date</strong></td>
+                    <td>
+                        <p name="retirementDate" type="date"></p>
+                    </td>
+                    <td colspan="2"></td>
+                </tr>
+
+                <!-- Authorization Section -->
+                <tr>
+                    <td colspan="4" class="table-title">Authorization For Resolution</td>
+                </tr>
+            </tbody>
+        </table> *@
+    }
+
+
+    @if (ViewBag.UseLayout == true)
+    {
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+    }
+
+    <form id="frmAgenda">
+        @await Html.PartialAsync("SharedResolutionView/_AgendaDetails", new AgendaViewModelEnabler())
+        @if (ViewBag.UseLayout == false)
+        {
+            <div class="container my-5">
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td><p name="appointedDirector">{Name of Director}</p></td>
+                        </tr>
+                        <tr>
+                            <th>Proposed Designation</th>
+                            <td><p name="designation">{Managing Director-Whole-Time Director}</p></td>
+                        </tr>
+                        <tr>
+                            <th>Salary inclusive of all allowances</th>
+                            <td>Not exceeding to {Salary} or as may be decided by the board of directors</td>
+                        </tr>
+                        <tr>
+                            <th>Perquisites in addition to salary</th>
+                            <td>Free use of Company’s car for the business of the Company and shall be valued as per Income Tax Rules.</td>
+                        </tr>
+                        <tr>
+                            <th>Retirement Benefits</th>
+                            <td>Company’s Contribution towards Provident Fund, Gratuity as per the rules of the Company.</td>
+                        </tr>
+                        <tr>
+                            <th>Other benefits</th>
+                            <td>
+                                Free telephone facility at residence and use of mobile facility.<br><br>
+                                Reimbursement of expenses incurred for travelling, boarding and lodging during business trips and all other expenses actually and properly incurred by them for the business of the Company.<br><br>
+                                Bonus payable as per rules of the company
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Minimum Remuneration</th>
+                            <td>
+                                Where in any financial year during the currency of tenure of the <p name="designation">{Managing Director-Whole-Time Director}</p>, the company has no profits or its profits are inadequate, the company will pay remuneration by way of salary and perquisites not exceeding the limits as specified above.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        }
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSignDetails")
+        @await Html.PartialAsync("SharedResolutionView/_ResolutionSaveButton")
+    </form>
+</div>
+
+<script id="resolnFunction">
+    function addAuthorizedRow() {
+        let table = document.querySelector('.custom-table tbody');
+        if (!table) return;
+        let newRow = document.createElement('tr');
+        newRow.classList.add('authorizedRow');
+        if (isLayOut)
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeAuthorizedRow(this)">-</button>
+                </td>
+            `;
+        }
+        else
+        {
+            newRow.innerHTML = `
+                <td><strong>Name of Authorized Person</strong></td>
+                <td colspan="3">
+                    <p name="appointedDirector"></p>
+                </td>
+            `;
+        }
+
+        table.appendChild(newRow);
+    }
+
+    function removeAuthorizedRow(button) {
+        button.closest('tr').remove();
+    }
+
+    function resetTableAuthorized() {
+        if (!isLayOut) return;
+
+        $('.authorizedRow').remove();
+        $('.custom-table tbody').append(`
+            <tr class="authorizedRow">
+                <td><strong>Name of Authorized Person</strong></td>
+                <td>
+                    <select class="form-control director" name="appointedDirector">
+                        <option value="">Select name</option>
+                        ${directorsOptionHTMLAgenda}
+                    </select>
+                </td>
+                <td colspan="2" class="text-center">
+                    <input type="hidden" name="id" class="num" value="0">
+                    <button type="button" class="btn btn-primary btn-sm" onclick="addAuthorizedRow()">+</button>
+                </td>
+            </tr>
+        `);
+    }
+</script>
+<script src="~/js/resolutions/commonresolutionscript.js"></script>

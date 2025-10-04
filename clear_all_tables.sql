@@ -1,0 +1,43 @@
+TRUNCATE TABLE tbl_login_tracker RESTART IDENTITY;
+TRUNCATE TABLE tbl_email_tracker RESTART IDENTITY;
+TRUNCATE TABLE tbl_user_details RESTART IDENTITY;
+
+
+TRUNCATE TABLE tbl_company RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_director RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_financial_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_ioc RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_notice RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_other_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_company_otp RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_director RESTART IDENTITY;
+TRUNCATE TABLE tbl_director_details RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_dms RESTART IDENTITY;
+TRUNCATE TABLE tbl_user_subscriptions RESTART IDENTITY;
+TRUNCATE TABLE tbl_user_details RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_shareholder RESTART IDENTITY;
+TRUNCATE TABLE tbl_shareholder_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_shareholder_management RESTART IDENTITY;
+TRUNCATE TABLE tbl_shareholder_management_owner RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_auditor RESTART IDENTITY;
+TRUNCATE TABLE tbl_auditor_partner RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_capital RESTART IDENTITY;
+TRUNCATE TABLE tbl_capital_child RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_meeting RESTART IDENTITY;
+TRUNCATE TABLE tbl_meeting_agenda_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_meeting_appointment_details RESTART IDENTITY;
+
+TRUNCATE TABLE tbl_meeting_resolution RESTART IDENTITY;
+TRUNCATE TABLE tbl_meeting_resolution_for_minutes_certificate_details RESTART IDENTITY;
+TRUNCATE TABLE tbl_meeting_resolution_for_notice_certificate_details RESTART IDENTITY;
+
+
+
+

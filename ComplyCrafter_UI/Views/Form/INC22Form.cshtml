@@ -1,0 +1,995 @@
+﻿<style>
+    .textheader a {
+        color: blue;
+        text-decoration: none !important;
+    }
+
+    .textheader:hover a {
+        color: red !important;
+        cursor: pointer;
+    }
+</style>
+
+<div class="row m-auto" id="frm">
+    <div class="card " style="flex-direction:row;">
+        <div class=" col-lg-12">
+            <div class="card-header ">
+                <h3>
+                    Form No.INC-22
+                </h3>
+
+            </div>
+            <div class="card-body" style="padding:0px 25px;">
+                <p>
+                    Notice of situation or change of situation of registered oftice
+
+                    [Pursuant to section 12(2) & (4) of The Companies Act, 2013 and Rule 25 and 27 of The Companies (lncorporation) Rules, 20141]
+                </p>
+
+            </div>
+            <div class="textheader my-4 mx-3">
+                <a href="https://www.mca.gov.in/MCA21/dca/help/instructionkit/NCA/Form_INC-22_help.pdf" target="_blank">
+
+                    Refer instruction kit for filing the form
+
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                <div class="row">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between" style="padding: 15px 30px 10px;">
+                            <ul class="nav nav-pills nav-fill p-1 bg-transparent" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 active " href="javascript:;" role="part1" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Entity Details
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link mb-0 px-4 py-1 " href="javascript:;" role="part2" data-bs-toggle="tab">
+                                        <span class="ms-1">
+                                            Declaration & Attachments
+                                        </span>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </main>
+        </div>
+    </div>
+    <div id="part2" class="card ">
+        <div class="card-body  ">
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Attachments
+                    </p>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-5 bold form-row">
+                        (a) *Proof of Registered Office address (Conveyance/Lease deed/Rent Agreement etc. along with the rent receipts) along with standard NOC in case of Leased or rented property
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row" >
+                        <input type="file" name="address" id="address_1" class="1" required="">
+                    </div>
+                </div>
+
+                <div class="row my-4">
+                    <div class="col-xs-12 col-sm-12 col-md-5 bold form-row">
+                        (b)*Copies of the utility bills (not older than two months)
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row">
+                        <input type="file" name="utility" id="utility" class="1" required="">
+                    </div>
+                </div>
+                <div class="row my-4" >
+                    <div class="col-xs-12 col-sm-12 col-md-5 bold form-row" >
+                        (c) *Photograph of Registered Office showing external building and inside office also showing therein at least one director/ KMP who has affixed his/her Digital Signature to this form.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-3 form-row" >
+                        <input type="file" name="director" id="director" class="1" required="">
+                    </div>
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-xs-12 col-sm-12 col-md-1 bold form-row" align="center">
+                        Sr. No
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-10 bold form-row">
+                        (d) Optional Attachment(s) - if any
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        <button type="button" name="attachmentadd" id="attachmentadd" class="btn-sm btn-primary"><i class=" fa-plus"></i></button>
+                    </div>
+
+                </div>
+
+
+                <div class="row" id="roweq1">
+                    <div class="col-xs-12 col-sm-12 col-md-1 form-row" align="center">
+                        1.
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-11 form-row">
+                        <input type="file" name="attachment_file[]" id="attachmentfile_1" class="1" accept=".pdf,.xlsx">
+                    </div>
+                </div>
+
+                <div class="row my-3" style="height: auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                    <p style="text-align: justify; line-height: 2.5em;">
+                        I,
+                        <input type="text"
+                               id="declarantName"
+                               name="declarantName"
+                               value=""
+                               placeholder="Enter Name"
+                               required />
+                        &nbsp; a person named in the articles as a
+                        &nbsp;
+                        <input type="text"
+                               id="designation"
+                               name="designation"
+                               value=""
+                               placeholder="Enter Designation"
+                               required />
+                        &nbsp; of the company have been authorised by the Board of Directors of the Company vide resolution no
+                        &nbsp;
+                        <input type="text"
+                               id="resolutionNumber"
+                               name="resolutionNumber"
+                               value=""
+                               placeholder="Enter Resolution No"
+                               required />
+                        &nbsp; dated
+                        &nbsp;
+                        <input type="date"
+                               id="resolutionDate"
+                               name="resolutionDate"
+                               class="datepicker hasDatepicker"
+                               value=""
+                               required />
+                        &nbsp; to sign this form and declare that:
+                    </p>
+                    <div>
+                        <input type="checkbox"
+                               id="complianceDeclaration"
+                               name="complianceDeclaration"
+                               required />
+                        &nbsp; *All the requirements of the Companies Act, 2013 and the rules made thereunder in respect of the subject matter of this form and matters incidental thereto have been complied with
+                    </div>
+
+                    <br><input type="checkbox" name="matters" id="" value="Y" required=""> &nbsp;*I also declare that all the information given herein above is true, correct and complete including the attachments to this form and nothing material has been suppressed.
+                    </div>
+                </div>
+
+
+                <div class="  d-flex justify-content-between mx-1 pt-5 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">Declaration</p>
+                </div>
+
+              
+                <div class="row">
+
+                <div class="col-md-6 my-2">
+                    <label for="directorName" class="form-label">Name of Director for DSC</label>
+                    <select id="directorName"
+                            name="directorName"
+                            class="form-select"
+                            aria-label="Select Director"
+                            style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                            required>
+                        <option value="">Select Director</option>
+                        <option value="09475141">Mokshank Dilipbhai Savla</option>
+                        <option value="09473752">Rakshit Dilip Savla</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6 my-2">
+                    <label for="designation" class="form-label">*Designation</label>
+                    <select id="designation2"
+                            name="designation2"
+                            class="form-select"
+                            aria-label="Select Designation"
+                            style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                            required>
+                        <option value="">Select Designation</option>
+                        <option value="Director">Director</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Company Secretary">Company Secretary</option>
+                        <option value="CFO">CFO</option>
+                        <option value="CEO">CEO</option>
+                    </select>
+                </div>
+
+                <div class="col-md-12 my-2">
+                    <label for="identificationNumber" class="form-label">
+                        Director identification number of the director; or DIN or PAN of the manager or CFO; or Membership number of the Company Secretary
+                    </label>
+                    <input type="text"
+                           id="identificationNumber"
+                           name="identificationNumber"
+                           class="form-control"
+                           placeholder="Enter Identification Number"
+                           value=""
+                           style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                           required />
+                    <div class="invalid-feedback">Please provide a valid identification number.</div>
+                </div>
+
+                </div>
+
+                <div class="  d-flex justify-content-between mx-1 pt-2 mb-3 ">
+                    <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                        Certificate by Practicing Professionals
+                    </p>
+                </div>
+                <div class="row" style="height: auto">
+                    <div class="col-xs-12 col-sm-12 col-md-12 form-row" style="padding: 10px;height: auto;">
+                        <p style="text-align: justify;">I declare that I have been duly engaged for the purpose of certification of this form. It is hereby certified that I have gone through the provisions of The companies Act, 2013 and rules thereunder for the subject matter of this form and matters incidental thereto and I have verified the above particulars (including attachment(s)) from the original records maintained by the company which is subject matter of this form and found them to be true correct and complete and no information material to this form has been suppressed. I further certify that:<br><br>1. The said records have been properly prepared, signed by the required officers of the company and maintained as per the relevant provisions of The Companies Act, 2013 and were found to be in order;<br><br>2. All the required attachments have been completely and legibly attached to this form;<br><br>3. I further declare that I have personally visited the registered office given in the form at the address mentioned herein above and verified that the said registered office of the company is functioning for the business purposes of the company.</p>
+                    </div>
+                </div>
+
+            <div class="row my-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Category [In whole time practice]
+                </div>
+                <div class="col-xs-12 col-sm-5 col-md-5 form-row">
+                    &nbsp;<input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="radio" name="category" value="charteredAccountant" required>&nbsp; Chartered Accountant &nbsp;
+                    <input type="radio" name="category" value="costAccountant" required>&nbsp; Cost Accountant or&nbsp;
+                    <input type="radio" name="category" value="companySecretary" required>&nbsp;Company Secretary
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 bold form-row CERT_PRACTICE_NO1" style="display: block;">
+                    Company Secretary
+                </div>
+                <div class="col-xs-12 col-sm-2 col-md-2 form-row CERT_PRACTICE_NO1" style="text-align: center; display: block;">
+                    <select style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" name="pcs" aria-label="Default select example">
+                        <option value="">Select PCS</option>
+                        <option value="265">PAKSHAL KIRAN SHAH (CHARTERED ACCOUNTANT)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row my-3 mb-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Whether associate or fellow
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    &nbsp;<input type="radio" name="membershipStatus" value="associate" required>&nbsp; Associate&nbsp;
+                    <input type="radio" name="membershipStatus" value="fellow" required>&nbsp;Fellow&nbsp;
+                </div>
+
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row bold">
+                    Membership number or Certificate of practice number
+                </div>
+                <div class="col-xs-12 col-sm-3 col-md-3 form-row">
+                    <input type="text" class="form-control membershipnumber" name="membershipNumber" value="" required>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div id="part1" class="p-0">
+        @*  tab-1 *@
+
+        <div class="col-md-12 p-0">
+            <div class="card">
+
+                <div class="card-body">
+                    <input type="hidden" class="num" value="0" name="id" />
+                    <input type="hidden" class="num" value="0" name="companyId" />
+                    <div class="row">
+
+
+                        <div class="  d-flex justify-content-between mx-1 pt-3 ">
+                            <p class="card-title mb-0 " style="margin-top:1px; border-bottom:1px solid black;">
+                                1. Company lnformation
+                            </p>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">1. Corporate Identity Number (CIN) or Foreign Company Registration Number (FCRN)</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="cin" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">2. (a) Name of the Company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyName" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (b) Address of the registered office or principal place of business in India of the company</label>
+                            <input type="text" placeholder="" class="form-control" value="" name="companyAddress" sstyle="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-lg-6 my-2">
+                            <label class="form-label">2. (c) E-mail ID of the company</label>
+                            <input type="email" placeholder="" class="form-control" value="" name="companyEmail" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" disabled>
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+                        <!-- Purpose of Filing Dropdown -->
+                        <div class="col-md-12 my-2">
+                            <label for="purposeOfFiling" class="form-label">2. *Purpose of filing</label>
+                            <select id="purposeOfFiling" name="purposeOfFiling" class="form-select" required
+                                    style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                <option value="">Select Purpose</option>
+                                <option value="Verification of registered office post incorporation of company">Verification of registered office post incorporation of company</option>
+                                <option value="Change within the local limits of city, town or village">Change within the local limits of city, town or village</option>
+                                <option value="Change outside the local limit of city, town or village">Change outside the local limit of city, town or village</option>
+                                <option value="Change in ROC within the same state">Change in ROC within the same state</option>
+                                <option value="Change in State within the jurisdiction of existing ROC">Change in State within the jurisdiction of existing ROC</option>
+                                <option value="Change in State outside the jurisdiction of existing ROC">Change in State outside the jurisdiction of existing ROC</option>
+                            </select>
+                        </div>
+
+                        <!-- MGT-14 Section -->
+                        <div id="mgt14Section" class="row my-2" style="display: none;">
+                            <div class="col-md-12 d-flex align-items-center flex-wrap">
+                                <label class="form-label me-3 mb-0">3 (a)* Have you filed MGT-14?</label>
+                                <div class="form-check me-3">
+                                    <input type="radio" name="filedMGT14" value="Y" class="form-check-input" id="filedMGT14Yes">
+                                    <label class="form-check-label" for="filedMGT14Yes">Yes</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input type="radio" name="filedMGT14" value="N" class="form-check-input" id="filedMGT14No">
+                                    <label class="form-check-label" for="filedMGT14No">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="mgt14SRN" class="row my-2" style="display: none;">
+                            <div class="col-md-12 d-flex align-items-center flex-wrap">
+                                <label class="form-label me-3 mb-0">(a)(i) If yes, enter service request number (SRN) of Form MGT-14</label>
+                                <input type="text" name="mgt14SRN" class="form-control" maxlength="9" style="max-width: 200px;" />
+                            </div>
+                        </div>
+
+                        <!-- INC-28 Section -->
+                        <div id="inc28Section" class="row my-2" style="display: none;">
+                            <div class="col-md-12 d-flex align-items-center flex-wrap">
+                                <label class="form-label me-3 mb-0">(b) *Have you filed INC-28?</label>
+                                <div class="form-check me-3">
+                                    <input type="radio" name="filedINC28" value="Y" class="form-check-input" id="filedINC28Yes">
+                                    <label class="form-check-label" for="filedINC28Yes">Yes</label>
+                                </div>
+                                <div class="form-check me-3">
+                                    <input type="radio" name="filedINC28" value="N" class="form-check-input" id="filedINC28No">
+                                    <label class="form-check-label" for="filedINC28No">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="inc28SRN" class="row my-2" style="display: none;">
+                            <div class="col-md-12 d-flex align-items-center flex-wrap">
+                                <label class="form-label me-3 mb-0">(b)(i) If yes, enter service request number (SRN) of Form INC-28</label>
+                                <input type="text" name="inc28SRN" class="form-control" maxlength="9" style="max-width: 200px;" />
+                            </div>
+                        </div>
+
+
+
+
+                       
+                             <script>
+                                                       
+                            $(document).ready(function () {
+                                $('#purposeOfFiling').on('change', function () {
+                                    const selected = $(this).val().trim();
+
+                                    const showBoth = [
+                                        "Change in ROC within the same state",
+                                        "Change in State within the jurisdiction of existing ROC",
+                                        "Change in State outside the jurisdiction of existing ROC"
+                                    ];
+
+                                    const showOnlyMGT14 = "Change outside the local limit of city, town or village";
+
+                                    if (showBoth.includes(selected) || selected === showOnlyMGT14) {
+                                        $('#mgt14Section').show();
+                                    } else {
+                                        $('#mgt14Section').hide();
+                                        $('#mgt14SRN').hide();
+                                        $('input[name="filedMGT14"]').prop('checked', false);
+                                        $('input[name="mgt14SRN"]').val('');
+                                    }
+
+                                    if (showBoth.includes(selected)) {
+                                        $('#inc28Section').show();
+                                    } else {
+                                        $('#inc28Section').hide();
+                                        $('#inc28SRN').hide();
+                                        $('input[name="filedINC28"]').prop('checked', false);
+                                        $('input[name="inc28SRN"]').val('');
+                                    }
+                                });
+
+                                $('input[name="filedMGT14"]').on('change', function () {
+                                    if ($(this).val() === "Y") {
+                                        $('#mgt14SRN').show();
+                                    } else {
+                                        $('#mgt14SRN').hide();
+                                        $('input[name="mgt14SRN"]').val('');
+                                    }
+                                });
+
+                                $('input[name="filedINC28"]').on('change', function () {
+                                    if ($(this).val() === "Y") {
+                                        $('#inc28SRN').show();
+                                    } else {
+                                        $('#inc28SRN').hide();
+                                        $('input[name="inc28SRN"]').val('');
+                                    }
+                                });
+                            });
+                        </script>
+
+                      
+
+                        
+
+                        <div class="d-flex justify-content-between mx-1 pt-3">
+                            <p class="card-title mb-0" style="margin-top: 1px; border-bottom: 1px solid black;">
+                                4. Notice is hereby given that
+                            </p>
+                        </div>
+                        <div class="col-xs-12 col-sm-12 col-md-12 my-3">
+                            <span style="font-weight: bold;">(a) *The address of the registered office of the company is situated w.e.f</span>
+                            &nbsp;
+                            <input type="date"
+                                   id="registeredOfficeDate"
+                                   name="registeredOfficeDate"
+                                   class="datepicker hasDatepicker"
+                                   placeholder="Select Date"
+                                   value=""
+                                   required />
+                            &nbsp;
+                            <span style="font-weight: bold;">at</span>
+                        </div>
+
+
+
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">*Address Line 1</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="addressLine1">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-6 my-2">
+                            <label class="form-label">Address Line 2</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="addressLine2">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">*Country</label>
+                            <div class="invalid-feedback"></div>
+                            <select style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" class="form-select" name="country">
+                                <option value="">Select country</option>
+                                <option value="Afghanistan ">Afghanistan </option>
+                                <option value="Albania ">Albania </option>
+                                <option value="Algeria ">Algeria </option>
+                                <option value="American Samoa">American Samoa</option>
+                                <option value="Andorra, Principality of ">Andorra, Principality of </option>
+                                <option value="Angola">Angola</option>
+                                <option value="Anguilla ">Anguilla </option>
+                                <option value="Antarctica">Antarctica</option>
+                                <option value="Antigua and Barbuda">Antigua and Barbuda</option>
+                                <option value="Argentina ">Argentina </option>
+                                <option value="Armenia">Armenia</option>
+                                <option value="Aruba">Aruba</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Austria">Austria</option>
+                                <option value="Azerbaijan">Azerbaijan</option>
+                                <option value="Bahamas">Bahamas</option>
+                                <option value="Bahrain">Bahrain</option>
+                                <option value="Bangladesh">Bangladesh</option>
+                                <option value="Barbados ">Barbados </option>
+                                <option value="Belarus">Belarus</option>
+                                <option value="Belgium ">Belgium </option>
+                                <option value="Belize">Belize</option>
+                                <option value="Benin">Benin</option>
+                                <option value="Bermuda ">Bermuda </option>
+                                <option value="Bhutan, Kingdom of">Bhutan, Kingdom of</option>
+                                <option value="Bolivia ">Bolivia </option>
+                                <option value="Bosnia and Herzegovina ">Bosnia and Herzegovina </option>
+                                <option value="Botswana">Botswana</option>
+                                <option value="Bouvet Island">Bouvet Island</option>
+                                <option value="Brazil ">Brazil </option>
+                                <option value="British Indian Ocean Territory">British Indian Ocean Territory</option>
+                                <option value="Brunei">Brunei</option>
+                                <option value="Bulgaria ">Bulgaria </option>
+                                <option value="Burkina Faso">Burkina Faso</option>
+                                <option value="Burundi">Burundi</option>
+                                <option value="Cambodia">Cambodia</option>
+                                <option value="Cameroon">Cameroon</option>
+                                <option value="Canada ">Canada </option>
+                                <option value="Cape Verde ">Cape Verde </option>
+                                <option value="Cayman Islands ">Cayman Islands </option>
+                                <option value="Central African Republic ">Central African Republic </option>
+                                <option value="Chad ">Chad </option>
+                                <option value="Chile ">Chile </option>
+                                <option value="China ">China </option>
+                                <option value="Christmas Island ">Christmas Island </option>
+                                <option value="Cocos (Keeling) Islands ">Cocos (Keeling) Islands </option>
+                                <option value="Colombia ">Colombia </option>
+                                <option value="Comoros">Comoros</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Congo">Congo</option>
+                                <option value="Cook Islands">Cook Islands</option>
+                                <option value="Costa Rica ">Costa Rica </option>
+                                <option value="Cote DIvoire">Cote DIvoire</option>
+                                <option value="Croatia">Croatia</option>
+                                <option value="Cuba ">Cuba </option>
+                                <option value="Cyprus ">Cyprus </option>
+                                <option value="Czech Republic">Czech Republic</option>
+                                <option value="Czechoslavakia">Czechoslavakia</option>
+                                <option value="Denmark ">Denmark </option>
+                                <option value="Djibouti">Djibouti</option>
+                                <option value="Dominica ">Dominica </option>
+                                <option value="Dominican Republic ">Dominican Republic </option>
+                                <option value="East Timor">East Timor</option>
+                                <option value="Ecuador ">Ecuador </option>
+                                <option value="Egypt">Egypt</option>
+                                <option value="El Salvador ">El Salvador </option>
+                                <option value="Equatorial Guinea">Equatorial Guinea</option>
+                                <option value="Eritrea">Eritrea</option>
+                                <option value="Estonia">Estonia</option>
+                                <option value="Ethiopia">Ethiopia</option>
+                                <option value="Falkland Islands">Falkland Islands</option>
+                                <option value="Faroe Islands ">Faroe Islands </option>
+                                <option value="Fiji ">Fiji </option>
+                                <option value="Finland ">Finland </option>
+                                <option value="France ">France </option>
+                                <option value="French Guiana">French Guiana</option>
+                                <option value="French Polynesia">French Polynesia</option>
+                                <option value="French Southern Territories and Antarctic Lands ">French Southern Territories and Antarctic Lands </option>
+                                <option value="Gabon">Gabon</option>
+                                <option value="Gambia, The ">Gambia, The </option>
+                                <option value="Georgia">Georgia</option>
+                                <option value="Germany ">Germany </option>
+                                <option value="Ghana">Ghana</option>
+                                <option value="Gibraltar ">Gibraltar </option>
+                                <option value="Great Britain (United Kingdom) ">Great Britain (United Kingdom) </option>
+                                <option value="Greece ">Greece </option>
+                                <option value="Greenland ">Greenland </option>
+                                <option value="Grenada ">Grenada </option>
+                                <option value="Guadeloupe">Guadeloupe</option>
+                                <option value="Guam">Guam</option>
+                                <option value="Guatemala ">Guatemala </option>
+                                <option value="Guinea">Guinea</option>
+                                <option value="Guinea-Bissau">Guinea-Bissau</option>
+                                <option value="Guyana">Guyana</option>
+                                <option value="Haiti ">Haiti </option>
+                                <option value="Heard Island and McDonald Islands (Territory of Australia)">Heard Island and McDonald Islands (Territory of Australia)</option>
+                                <option value="Holy See (Vatican City State)">Holy See (Vatican City State)</option>
+                                <option value="Honduras ">Honduras </option>
+                                <option value="Hong Kong ">Hong Kong </option>
+                                <option value="Hungary ">Hungary </option>
+                                <option value="Iceland ">Iceland </option>
+                                <option value="India">India</option>
+                                <option value="Indonesia">Indonesia</option>
+                                <option value="Iran">Iran</option>
+                                <option value="Iraq ">Iraq </option>
+                                <option value="Ireland">Ireland</option>
+                                <option value="Israel ">Israel </option>
+                                <option value="Italy ">Italy </option>
+                                <option value="Jamaica ">Jamaica </option>
+                                <option value="Japan ">Japan </option>
+                                <option value="Jordan">Jordan</option>
+                                <option value="Kazakstan or Kazakhstan">Kazakstan or Kazakhstan</option>
+                                <option value="Kenya">Kenya</option>
+                                <option value="Kiribati">Kiribati</option>
+                                <option value="Korea, North">Korea, North</option>
+                                <option value="Korea, South">Korea, South</option>
+                                <option value="Kuwait ">Kuwait </option>
+                                <option value="Kyrgyzstan">Kyrgyzstan</option>
+                                <option value="Lao Peoples Democratic Republic (Laos)">Lao Peoples Democratic Republic (Laos)</option>
+                                <option value="Latvia">Latvia</option>
+                                <option value="Lebanon ">Lebanon </option>
+                                <option value="Lesotho">Lesotho</option>
+                                <option value="Liberia ">Liberia </option>
+                                <option value="Libya (Libyan Arab Jamahiriya)">Libya (Libyan Arab Jamahiriya)</option>
+                                <option value="Liechtenstein ">Liechtenstein </option>
+                                <option value="Lithuania">Lithuania</option>
+                                <option value="Luxembourg ">Luxembourg </option>
+                                <option value="Macau ">Macau </option>
+                                <option value="Macedonia, The Former Yugoslav Republic of">Macedonia, The Former Yugoslav Republic of</option>
+                                <option value="Madagascar">Madagascar</option>
+                                <option value="Malawi">Malawi</option>
+                                <option value="Malaysia ">Malaysia </option>
+                                <option value="Maldives ">Maldives </option>
+                                <option value="Mali">Mali</option>
+                                <option value="Malta ">Malta </option>
+                                <option value="Marshall Islands">Marshall Islands</option>
+                                <option value="Martinique (French) ">Martinique (French) </option>
+                                <option value="Mauritania ">Mauritania </option>
+                                <option value="Mauritius ">Mauritius </option>
+                                <option value="Mayotte">Mayotte</option>
+                                <option value="Mexico ">Mexico </option>
+                                <option value="Micronesia">Micronesia</option>
+                                <option value="Moldova">Moldova</option>
+                                <option value="Monaco">Monaco</option>
+                                <option value="Mongolia">Mongolia</option>
+                                <option value="Montserrat ">Montserrat </option>
+                                <option value="Morocco ">Morocco </option>
+                                <option value="Mozambique">Mozambique</option>
+                                <option value="Myanmar">Myanmar</option>
+                                <option value="Namibia">Namibia</option>
+                                <option value="Nauru">Nauru</option>
+                                <option value="Nepal ">Nepal </option>
+                                <option value="Netherlands ">Netherlands </option>
+                                <option value="Netherlands Antilles">Netherlands Antilles</option>
+                                <option value="New Caledonia ">New Caledonia </option>
+                                <option value="New Zealand">New Zealand</option>
+                                <option value="Nicaragua ">Nicaragua </option>
+                                <option value="Niger ">Niger </option>
+                                <option value="Nigeria ">Nigeria </option>
+                                <option value="Niue">Niue</option>
+                                <option value="Norfolk Island ">Norfolk Island </option>
+                                <option value="Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)">Northern Mariana Islands (Former Mariana Islands District - Trust Territory of the Pacific Islands)</option>
+                                <option value="Norway ">Norway </option>
+                                <option value="Oman, Sultanate of (Former Muscat and Oman)">Oman, Sultanate of (Former Muscat and Oman)</option>
+                                <option value="Pakistan">Pakistan</option>
+                                <option value="Palau">Palau</option>
+                                <option value="Palestinian State">Palestinian State</option>
+                                <option value="Panama ">Panama </option>
+                                <option value="Papua New Guinea">Papua New Guinea</option>
+                                <option value="Paraguay ">Paraguay </option>
+                                <option value="Peru ">Peru </option>
+                                <option value="Philippines ">Philippines </option>
+                                <option value="Pitcairn Island">Pitcairn Island</option>
+                                <option value="Poland ">Poland </option>
+                                <option value="Portugal ">Portugal </option>
+                                <option value="Puerto Rico ">Puerto Rico </option>
+                                <option value="Qatar, State of ">Qatar, State of </option>
+                                <option value="Reunion (French)">Reunion (French)</option>
+                                <option value="Romania ">Romania </option>
+                                <option value="Russia - USSR">Russia - USSR</option>
+                                <option value="Russian Federation ">Russian Federation </option>
+                                <option value="Rwanda (Rwandese Republic)">Rwanda (Rwandese Republic)</option>
+                                <option value="Saint Helena ">Saint Helena </option>
+                                <option value="Saint Kitts and Nevis">Saint Kitts and Nevis</option>
+                                <option value="Saint Lucia ">Saint Lucia </option>
+                                <option value="Saint Pierre and Miquelon ">Saint Pierre and Miquelon </option>
+                                <option value="Saint Vincent and the Grenadines ">Saint Vincent and the Grenadines </option>
+                                <option value="Samoa">Samoa</option>
+                                <option value="San Marino ">San Marino </option>
+                                <option value="Sao Tome and Principe ">Sao Tome and Principe </option>
+                                <option value="Saudi Arabia ">Saudi Arabia </option>
+                                <option value="Senegal ">Senegal </option>
+                                <option value="Serbia, Republic of">Serbia, Republic of</option>
+                                <option value="Seychelles ">Seychelles </option>
+                                <option value="Sierra Leone ">Sierra Leone </option>
+                                <option value="Singapore ">Singapore </option>
+                                <option value="Slovakia">Slovakia</option>
+                                <option value="Slovenia ">Slovenia </option>
+                                <option value="Solomon Islands">Solomon Islands</option>
+                                <option value="Somalia">Somalia</option>
+                                <option value="South Africa">South Africa</option>
+                                <option value="South Georgia and the South Sandwich Islands">South Georgia and the South Sandwich Islands</option>
+                                <option value="Spain ">Spain </option>
+                                <option value="Sri Lanka (Former Serendib, Ceylon) ">Sri Lanka (Former Serendib, Ceylon) </option>
+                                <option value="Sudan">Sudan</option>
+                                <option value="Suriname">Suriname</option>
+                                <option value="Svalbard (Spitzbergen) and Jan Mayen Islands ">Svalbard (Spitzbergen) and Jan Mayen Islands </option>
+                                <option value="Swaziland">Swaziland</option>
+                                <option value="Sweden ">Sweden </option>
+                                <option value="Switzerland ">Switzerland </option>
+                                <option value="Syria (Syrian Arab Republic)">Syria (Syrian Arab Republic)</option>
+                                <option value="Taiwan">Taiwan</option>
+                                <option value="Tajikistan">Tajikistan</option>
+                                <option value="Tanzania">Tanzania</option>
+                                <option value="Thailand">Thailand</option>
+                                <option value="Togo">Togo</option>
+                                <option value="Tokelau ">Tokelau </option>
+                                <option value="Tonga">Tonga</option>
+                                <option value="Trinidad and Tobago ">Trinidad and Tobago </option>
+                                <option value="Tromelin Island ">Tromelin Island </option>
+                                <option value="Tunisia ">Tunisia </option>
+                                <option value="Turkey ">Turkey </option>
+                                <option value="Turkmenistan">Turkmenistan</option>
+                                <option value="Turks and Caicos Islands ">Turks and Caicos Islands </option>
+                                <option value="Tuvalu">Tuvalu</option>
+                                <option value="Uganda">Uganda</option>
+                                <option value="Ukraine">Ukraine</option>
+                                <option value="United Arab Emirates">United Arab Emirates</option>
+                                <option value="United Kingdom">United Kingdom</option>
+                                <option value="United States ">United States </option>
+                                <option value="United States Minor Outlying Islands ">United States Minor Outlying Islands </option>
+                                <option value="Uruguay">Uruguay</option>
+                                <option value="Uzbekistan">Uzbekistan</option>
+                                <option value="Vanuatu">Vanuatu</option>
+                                <option value="Vatican City State (Holy See)">Vatican City State (Holy See)</option>
+                                <option value="Venezuela ">Venezuela </option>
+                                <option value="Vietnam ">Vietnam </option>
+                                <option value="Virgin Islands">Virgin Islands</option>
+                                <option value="Virgin Islands, British ">Virgin Islands, British </option>
+                                <option value="Wallis and Futuna Islands ">Wallis and Futuna Islands </option>
+                                <option value="Western Sahara">Western Sahara</option>
+                                <option value="Yemen ">Yemen </option>
+                                <option value="Yugoslavia ">Yugoslavia </option>
+                                <option value="Zaire">Zaire</option>
+                                <option value="Zambia">Zambia</option>
+                                <option value="Zimbabwe">Zimbabwe</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">*Pin/Zip Code</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="pinCode">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">*Area/Locality</label>
+                            <select name="areaLocality" class="form-select" style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);">
+                                <option value="">Select Area/Locality</option>
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">*City</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="city">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">District</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="district">
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="col-md-4 my-2">
+                            <label class="form-label">*State/UT</label>
+                            <input style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);" type="text" placeholder="" class="form-control" name="stateUT">
+                            <div class="invalid-feedback"></div>
+                        </div>
+
+
+
+                        <div class="col-md-4 my-3">
+                            <label for="longitude" class="form-label">*Longitude</label>
+                            <input id="longitude"
+                                   name="longitude"
+                                   type="number"
+                                   class="form-control"
+                                   placeholder="Enter Longitude"
+                                   value=""
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required />
+                            <div class="invalid-feedback">Please provide a valid longitude.</div>
+                        </div>
+                        <div class="col-md-4 my-3">
+                            <label for="latitude" class="form-label">*Latitude</label>
+                            <input id="latitude"
+                                   name="latitude"
+                                   type="number"
+                                   class="form-control"
+                                   placeholder="Enter Latitude"
+                                   value=""
+                                   style="box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05);"
+                                   required
+                                   />
+                            <div class="invalid-feedback">Please provide a valid latitude.</div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="col-m-12 mt-3">
+        <button class="btn btn-md btn-primary" style="float: right;" onclick="save(event)">
+            Submit
+        </button>
+    </div>
+</div>
+
+
+
+<script>
+         $(document).on("change", "[name='pinCode']", function () {
+        const pin = $(this).val().trim();
+
+        if (pin.length !== 6 || isNaN(pin)) {
+            $(this).addClass("is-invalid");
+            $(this).next(".invalid-feedback").text("Please enter a valid 6-digit PIN code").show();
+            return;
+        } else {
+            $(this).removeClass("is-invalid").next(".invalid-feedback").text("").hide();
+        }
+
+        $.get(`@R.ApiUrl/Company/PinCode/${pin}`)
+            .then(response => {
+                if (response && response[0] && response[0].PostOffice?.length > 0) {
+                    const info = response[0].PostOffice[0];
+
+                    // ✅ Set Country (select from dropdown using trimmed value)
+                    const countryVal = (info.Country || '').trim();
+                    const countrySelect = $("[name='country']");
+                    countrySelect.val(""); // Reset
+                    countrySelect.find("option").each(function () {
+                        if ($(this).val().trim() === countryVal) {
+                            $(this).prop("selected", true);
+                            return false;
+                        }
+                    });
+
+                    // ✅ Set State, City, District
+                    $("[name='stateUT']").val(info.State || '');
+                    $("[name='city']").val(info.Region || '');
+                    $("[name='district']").val(info.District || '');
+
+                    // ✅ Populate Area/Locality dropdown
+                    const areaSelect = $("[name='areaLocality']");
+                    areaSelect.empty().append(`<option value="">Select Area/Locality</option>`);
+                    response[0].PostOffice.forEach(po => {
+                        areaSelect.append(`<option value="${po.Name}">${po.Name}</option>`);
+                    });
+
+                } else {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'No Data Found',
+                        text: 'Could not find area details for this PIN code.'
+                    });
+                    clearFields();
+                }
+            })
+            .catch(() => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Something went wrong while fetching PIN code details.'
+                });
+                clearFields();
+            });
+
+        function clearFields() {
+            $("[name='country']").val('');
+            $("[name='stateUT']").val('');
+            $("[name='city']").val('');
+            $("[name='district']").val('');
+            $("[name='areaLocality']").empty().append(`<option value="">Select Area/Locality</option>`);
+        }
+    });
+
+
+</script>
+
+@section Scripts {
+    <script>
+
+        var frm = {
+            id: 0,
+            companyId: 0,
+
+            cin: "",
+            companyName: "",
+            companyAddress: "",
+            companyEmail: "",
+
+            purposeOfFiling: "", // Will store the selected value, e.g., "Verification of registered office post incorporation of company"
+            registeredOfficeDate: "", // Will store the selected date, e.g., "2025-01-08"
+
+
+            addressLine1: "",
+            addressLine2: "",
+            country: "",
+            pinCode: "",
+            areaLocality: "",
+            city: "",
+            district: "",
+            stateUT: "",
+
+            longitude: "", // Will store the entered longitude, e.g., "-122.4194"
+            latitude: "",  // Will store the entered latitude, e.g., "37.7749"
+
+
+            declarantName: "",           // Stores the name entered, e.g., "John Doe"
+            designation: "",             // Stores the designation, e.g., "Director"
+            resolutionNumber: "",        // Stores the resolution number, e.g., "12345"
+            resolutionDate: "",          // Stores the date of the resolution, e.g., "2025-01-08"
+
+            directorName: "",           // Stores the selected director's ID, e.g., "09475141"
+            designation2: "",            // Stores the selected designation, e.g., "Director"
+            identificationNumber: "",   // Stores the entered identification number, e.g., "DIN123456"
+
+            category: "",
+            pcs: "",
+            membershipStatus: "",
+            membershipNumber: ""
+        }
+
+        var voFrm = {
+            id: 'required',
+            companyId: 'required',
+        };
+
+        var vfFrm = null;
+
+        $(document).ready(function () {
+
+            $("#part2").hide();
+            $("#part3").hide();
+            $('a[data-bs-toggle="tab"]').on('shown.bs.tab', function (e) {
+                var active = $(e.target).attr('role');
+                $("#part1").hide();
+                $("#part2").hide();
+                $("#part3").hide();
+                $("#" + active).show();
+
+            });
+
+            load()
+            vfFrm = $('#frm').validate({ rules: voFrm, onsubmit: () => { console.log('submit') } })
+
+        })
+
+        function save(event) {
+            event.preventDefault();
+
+            // let isValid = true;
+            // if (!vfFrm1.form()) isValid = false;
+
+            // if (!isValid) return;
+
+            var obj = getObj(frm, '#frm');
+            $._post(`@R.ApiUrl/@ViewBag.ctrl`, obj).then(x => {
+                console.log(x)
+                if (x.status) {
+                    window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                } else {
+                    swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: x.message
+                    })
+                }
+            })
+
+        }
+
+        function load() {
+            if (@ViewBag.id > 0) {
+                $._get(`@R.ApiUrl/@ViewBag.ctrl/${@ViewBag.id}`).then(x => {
+                    frm = x
+                    setObj(x, "#frm")
+                })
+            }
+            var company = localStorage.getItem("comp_id");
+            if (company === null || company === undefined || company === "0") {
+                alert("Please select Company")
+                window.location = `@Url.Action("", "Form")/@ViewBag.ctrl`
+                return;
+            }
+            $._get(`@R.ApiUrl/Company/${company} `).then(x => {
+                $("[name='companyId']").val(x.id);
+                $("[name='cin']").val(x.cin);
+                $("[name='companyName']").val(x.companyName);
+                $("[name='companyAddress']").val(x.address);
+                $("[name='companyEmail']").val(x.email);
+            })
+
+        }
+
+
+    </script>
+
+}

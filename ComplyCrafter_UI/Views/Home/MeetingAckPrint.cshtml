@@ -1,0 +1,605 @@
+﻿@{
+    Layout = null;
+}
+<html>
+<head>
+    <title>Comply Crafter</title>
+    <link href="~/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="~/assets/plugins/jquery/jquery-3.5.1.min.js"></script>
+    <script src="~/assets/plugins/moment/moment.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        var url = '@R.ApiUrl/Auth/Validate';
+        $.ajaxSetup({ headers: { 'Authorization': `Bearer ${localStorage.getItem('authToken')}` } });
+        $.ajax({ url: url, type: 'GET', async: false, success: r => appuser = r.responseObject, error: _ => { window.location = '@Url.Action("Meeting", "Home")' } });
+        window.data = JSON.parse(atob('@Html.Raw(ViewBag.Query)'));
+        let _directors = [];
+    </script>
+    <style>
+        .table-style {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .table-style th, .table-style td {
+            padding: 8px !important;
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row" id="main">
+            
+        </div>
+    </div>
+    <script>
+        async function loadDirectors() {
+            var comp_id = localStorage.getItem("comp_id");
+            _directors = await $.get(`@R.ApiUrl/Director/ByCompanyAddressDetails/${comp_id}`);
+        }
+        function getPrefix(maritalStatus, gender) {
+            if (gender && gender == "Male") {
+                return "Mr."
+            }
+            else if (gender && gender == "Female") {
+                if (maritalStatus && maritalStatus == "Married") {
+                    return "Mrs."
+                }
+                else {
+                    return "Ms."
+                }
+            }
+            else {
+                return ""
+            }
+        }
+        function header() {
+            var col = `
+                <div class="col-12 text-center d-flex flex-column mb-2">
+                    <h4><b>${data.comp.companyName}</b></h4>
+                    <p class="mb-0">E-mail ID: ${data.comp.email}, Contact No.: ${data.comp.companyContactNo}</p>
+                    <p class="mb-0">CIN: <b>${data.comp.cin}</b></p>
+                    <p class="mb-0"><small>Registered Office:- ${data.comp.address}</small></p>
+                </div>
+                <hr />
+            `
+            $("#main").append(col);
+        }
+        function seperator() {
+            $("#main").append("<hr />");
+        }
+        function title(t,s) {
+            var p = ""
+            if (t) { 
+                p += `<p class="text-center"><b>${t}</b></p>`
+            }
+            if (s) { 
+                p += `<p><small>${s}</small></p>`
+            }
+            var col = `
+                <div class="col-12">
+                    ${p}
+                </div>
+            `
+            $("#main").append(col);
+        }
+        function bold(t) {
+            var p = ""
+            if (t) {
+                p += `<p><b>${t}</b></p>`
+            }
+            var col = `
+                        <div class="col-12">
+                            ${p}
+                        </div>
+                    `
+            $("#main").append(p);
+        }
+        function text(t, { align = "left", weight = "normal", underline = "none", size = "medium", margin = "3px" } = {}, id = "") {
+            var p = "<br/>";
+            if (t) {
+                if(id){
+                    id = `id="${id}"`
+                }
+                p = `<p ${id} style="
+                    text-align: ${align};
+                    font-weight: ${weight};
+                    text-decoration-line: ${underline};
+                    font-size: ${size};
+                    margin: ${margin};
+                    ">${t}</p>`;
+            }
+            $("#main").append(p);
+        }
+        function html(t) {
+            var p = "<br/>";
+            $("#main").append(p);
+            $("#main").append(t);
+        }
+        function meetingTable() {
+            var col = `
+                <div style="margin: 20px 0;">
+                    <table class="table-style">
+                        <thead>
+                            <tr>
+                                <th style="width:18%;">Meeting Date</th>
+                                <th style="width:18%;">Meeting Number</th>
+                                <th style="width:18%;">Meeting Time</th>
+                                <th style="width:46%;">Meeting Place</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>${moment(data.obj.dateMeeting).format("DD/MM/YYYY")}</td>
+                                <td>${data.obj.numberMeeting}</td>
+                                <td>${moment(data.obj.timeMeeting, 'HH:mm').format('hh:mm A')}</td>
+                                <td><small>Registered Office Situated At ${data.comp.address}</small></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            $("#main").append(col);
+        }
+        function ackTable(type,list) {
+            var rows = "";
+            var counter = 0;
+            function loadRows(dir, currentItem) {
+                counter++;
+                var preFix = getPrefix(dir.details.maritalStatus,dir.details.gender);
+                var name = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+                rows += `
+                    <tr>
+                        <td style="text-align: start;">
+                            ${counter}. ${preFix} ${name}<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;DIN: ${dir.din}<br />
+                            &nbsp;&nbsp;&nbsp;&nbsp;Director
+                        </td>
+                        <td>${moment(currentItem.cDate).format("DD/MM/YYYY")}</td>
+                        <td>${currentItem.cMode}</td>
+                        <td></td>
+                        <td>${moment(currentItem.cReceiptDate).format("DD/MM/YYYY")}</td>
+                    </tr>
+                `;
+            }
+            var isAllDirector = list.find(x => x.cDirector == "All Director");
+            if(isAllDirector) {
+                _directors.forEach((dirO, index) => {
+                    loadRows(dirO, isAllDirector);
+                });
+            }
+            list.forEach((item, index) => {
+                    let dirObj = _directors.find(x => x.din == item.cDirector);
+                    if (dirObj)
+                    {
+                        loadRows(dirObj, item);
+                    }
+                });
+            var col = `
+                <div style="margin: 20px 0;">
+                    <table class="table-style">
+                        <thead>
+                            <tr>
+                                <th style="width:30%;">Name of Persons acknowledging the receipt of ${type}</th>
+                                <th style="width:15%;">Date of Circulation of ${type}</th>
+                                <th style="width:15%;">Mode</th>
+                                <th style="width:20%;">Signature</th>
+                                <th style="width:20%;">Date of Receipt</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            $("#main").append(col);
+        }
+        function regAttTable(list) {
+            var rows = "";
+            var counter = 0;
+            function loadRows(dir) {
+                counter++;
+                var preFix = getPrefix(dir.details.maritalStatus,dir.details.gender);
+                var name = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+                rows += `
+                    <tr>
+                        <td>${counter}. ${preFix} ${name}<br />&nbsp;&nbsp;&nbsp;&nbsp;DIN: ${dir.din}<br />&nbsp;&nbsp;&nbsp;&nbsp;Director </td>
+                        <td></td>
+                    </tr>
+                `;
+            }
+            var isAllDirector = list.find(x => x.cDirector == "All Director");
+            if(isAllDirector) {
+                _directors.forEach((dirO, index) => {
+                    loadRows(dirO);
+                });
+            }
+            list.forEach((item, index) => {
+                    let dirObj = _directors.find(x => x.din == item.cDirector);
+                    if (dirObj)
+                    {
+                        loadRows(dirObj);
+                    }
+                });
+            var col = `
+                <div style="margin: 20px 0;">
+                    <table class="table-style">
+                        <thead>
+                            <tr>
+                                <th style="width:50%;">Present </th>
+                                <th style="width:50%;">Signature </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            $("#main").append(col);
+        }
+        function bottomDirTable(list) {
+            var rows = "";
+            function loadRows(dir) {
+                var name = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+                var pinCode = dir.details.pincode ?? '';
+                if (!isNaN(parseInt(pinCode)) && parseInt(pinCode) == 0)
+                    pinCode = '';
+                var address = `${dir.details.address ?? ''} ${dir.details.city ?? ''} ${dir.details.state ?? ''} ${dir.details.country ?? ''} ${pinCode}`;
+                rows += `
+                    <div class="col-6">
+                        <p style="margin: 0px"><b>${name}</b></p>
+                        <p style="margin: 0px"><small>DIN : ${dir.din}</small></p>
+                        <p style="margin: 0px"><small>Director</small></p>
+                        <p style="margin: 0px"><small>Address : ${address}</small></p>
+                        <p></p>
+                    </div>
+                `;
+            }
+            var isAllDirector = list.find(x => x.cDirector == "All Director");
+            if(isAllDirector) {
+                _directors.forEach((dirO, index) => {
+                    loadRows(dirO);
+                });
+            }
+            list.forEach((item, index) => {
+                    let dirObj = _directors.find(x => x.din == item.cDirector);
+                    if (dirObj)
+                    {
+                        loadRows(dirObj);
+                    }
+                });
+            var col = `
+                <div class="row" style="margin: 20px 0;">
+                    ${rows}
+                </div>
+            `;
+            $("#main").append(col);
+        }
+        function bottomDP() {
+            var col = `
+                <div class="row" style="margin: 20px 0;">
+                    <p style=" margin: 0px;font-weight:bold;">Date: ${moment(data.obj.dateMeeting).format("DD/MM/YYYY")}</p>
+                    <p style=" margin: 0px;font-weight:bold;">Place: Mumbai</p>
+                </div>
+            `;
+            $("#main").append(col);
+        }
+        function meetDirTable(listSigned, listNotice, listDraft) {
+            var rows = "";
+            var counter = 0;
+            function loadRows(dir, currentItem) {
+                counter++;
+                var preFix = getPrefix(dir.details.maritalStatus,dir.details.gender);
+                var name = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+                var currentNotice = listNotice.find(x => x.cDirector == currentItem.cDirector);
+                if(!currentNotice) {
+                    currentNotice = listNotice.find(x => x.cDirector == dir.din);
+                    if(!currentNotice) {
+                        currentNotice = listNotice.find(x => x.cDirector == "All Director");
+                    }
+                }
+                var currentDraft = listDraft.find(x => x.cDirector == currentItem.cDirector);
+                if(!currentNotice) {
+                    currentDraft = listDraft.find(x => x.cDirector == dir.din);
+                    if(!currentDraft) {
+                        currentDraft = listDraft.find(x => x.cDirector == "All Director");
+                    }
+                }
+                rows += `
+                    <tr>
+                        <td style="text-align:left;">${counter}. ${preFix} ${name}<br> &nbsp; &nbsp; DIN: ${dir.din}<br> &nbsp; &nbsp; Director</td>
+                        <td>${moment(currentNotice.cReceiptDate).format("DD/MM/YYYY")}</td>
+                        <td></td>
+                        <td>${window.data.obj.meetingMode}</td>
+                        <td></td>
+                        <td>${moment(currentDraft.cReceiptDate).format("DD/MM/YYYY")}</td>
+                        <td></td>
+                        <td>${moment(currentItem.cReceiptDate).format("DD/MM/YYYY")}</td>
+                        <td></td>
+                    </tr>
+                `;
+            }
+            var isAllDirector = listSigned.find(x => x.cDirector == "All Director");
+            if(isAllDirector) {
+                _directors.forEach((dirO, index) => {
+                    loadRows(dirO, isAllDirector);
+                });
+            }
+            listSigned.forEach((item, index) => {
+                    let dirObj = _directors.find(x => x.din == item.cDirector);
+                    if (dirObj)
+                    {
+                        loadRows(dirObj, item);
+                    }
+                });
+            var col = `
+                <div style="margin: 20px 0;">
+                    <table class="table-style">
+                        <thead>
+                            <tr>
+                                <th style="text-align:left;vertical-align:middle;width:16%;" rowspan="2">NAME</th>
+                                <th style="width:21%;" colspan="2">ACKNOWLEDGEMENT OF RECEIPT OF TYPE, AGENDA & NOTES ON AGENDA</th>
+                                <th style="width:21%;" colspan="2">ATTENDANCE REGESITER OF THE BOARD MEETING</th>
+                                <th style="width:21%;" colspan="2">ACKNOWLEDGEMENT OF RECEIPT OF DRAFT MINUTE</th>
+                                <th style="width:21%;" colspan="2">ACKNOWLEDGEMENT OF RECEIPT OF SIGNED MINUTE</th>
+                            </tr>
+                            <tr>
+                                <th style="width:8%;">Date of Receipt</th>
+                                <th style="width:13%;">Signature</th>
+                                <th style="width:8%;">Mode of Attendance</th>
+                                <th style="width:13%;">Signature</th>
+                                <th style="width:8%;">Date of Receipt</th>
+                                <th style="width:13%;">Signature</th>
+                                <th style="width:8%;">Date of Receipt</th>
+                                <th style="width:13%;">Signature</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${rows}
+                        </tbody>
+                    </table>
+                </div>
+                <p style=" margin: 0px;font-weight:bold;">Authentication of the Attendance Register by the Company Secretary or Chairman (if there is no CS):</p>
+            `;
+            $("#main").append(col);
+        }
+        function dirPresentTable(list) {
+            var rows = "";
+            var counter = 0;
+            function loadRows(dir, currentItem) {
+                counter++;
+                var preFix = getPrefix(dir.details.maritalStatus,dir.details.gender);
+                var name = `${dir.firstName} ${dir.middleName} ${dir.lastName}`;
+                var desig = 'Director';
+                if([window.data.obj.chairpersonChairperson, window.data.obj.chairpersonDirector, window.data.obj.chairpersonMember].includes(dir.din)) {
+                    desig = 'Chairperson Cum Director';
+                }
+                rows += `
+                            <tr>
+                                <td>${counter}</td>
+                                <td>${preFix} ${name}</td>
+                                <td>${dir.din}</td>
+                                <td>${desig}</td>
+                                <td>${window.data.obj.meetingMode}</td>
+                            </tr>
+                        `;
+            }
+            var isAllDirector = list.find(x => x.cDirector == "All Director");
+            if(isAllDirector) {
+                _directors.forEach((dirO, index) => {
+                    loadRows(dirO, isAllDirector);
+                });
+            }
+            list.forEach((item, index) => {
+                    let dirObj = _directors.find(x => x.din == item.cDirector);
+                    if (dirObj)
+                    {
+                        loadRows(dirObj, item);
+                    }
+                });
+            var col = `
+                        <div style="margin: 20px 0;">
+                            <table class="table-style">
+                                <thead>
+                                    <tr>
+                                        <th style="width:5%;">S. No.</th>
+                                        <th style="width:30%;">Name of Person</th>
+                                        <th style="width:10%;">*DIN/PAN</th>
+                                        <th style="width:30%;">Designation/ Capacity</th>
+                                        <th style="width:20%;">Mode of Attendance</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    ${rows}
+                                </tbody>
+                            </table>
+                        </div>
+                    `;
+            $("#main").append(col);
+        }
+
+        function downloadFile(type) {
+            if (type == 'pdf') {
+                var element = document.getElementById('main');
+                var opt = {
+                    margin: 1,
+                    filename: `${data.type}.pdf`,
+                    image: { type: 'jpeg', quality: 1 },
+                    html2canvas: { scale: 2 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                };
+                html2pdf().set(opt).from(element).save();
+                setTimeout(function () {
+                    window.close();
+                }, 1000);
+            } else if (type == 'doc') {
+                var preHtml = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset='utf-8'><title>Export HTML To Doc</title></head><body>`;
+                var postHtml = "</" + "body></html>";
+                var html = preHtml + document.getElementById('main').innerHTML + postHtml;
+
+                var blob = new Blob(['\ufeff', html], {
+                    type: 'application/msword'
+                });
+
+                var url = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(html);
+                filename = `${data.type}.doc`;
+                var downloadLink = document.createElement("a");
+                document.body.appendChild(downloadLink);
+                if (navigator.msSaveOrOpenBlob) {
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    downloadLink.href = url;
+                    downloadLink.download = filename;
+                    downloadLink.click();
+                }
+                document.body.removeChild(downloadLink);
+                window.close()
+            }
+        }
+
+        (async function () {
+            await loadDirectors();
+
+            if (data.type == 'ackDraft') {
+                header();
+                title(
+                    "ACKNOWLEDGEMENT REGISTER (DRAFT MINUTES OF BOARD MEETING)",
+                    "We, the undersigned, confirm to have received the draft minutes of the board meeting held as per details given below:"
+                );
+                meetingTable()
+                ackTable('Draft', data.obj.cDraftList)
+            }
+            else if (data.type == 'ackNotice') {
+                header();
+                title(
+                    "ACKNOWLEDGEMENT REGISTER (NOTICE MINUTES OF BOARD MEETING)",
+                    "We, the undersigned, confirm to have received the notice of the board meeting to be held as per the details given below along with the detailed agenda and other necessary documents."
+                );
+                meetingTable()
+                ackTable('Notice', data.obj.cNoticeList)
+            }
+            else if (data.type == 'ackSigned') {
+                header();
+                title(
+                    "ACKNOWLEDGEMENT REGISTER (SIGNED MINUTES OF BOARD MEETING)",
+                    "We, the undersigned, confirm to have received the signed minutes of the board meeting held as per details given below:"
+                );
+                meetingTable()
+                ackTable('Signed', data.obj.cSignedList)
+            }
+            else if (data.type == 'regAtt') {
+                header();
+                title(
+                    "ATTENDANCE REGISTER OF BOARD MEETING",
+                    null
+                );
+                meetingTable()
+                regAttTable(data.obj.cSignedList)
+                bottomDirTable(data.obj.cSignedList)
+                bottomDP()
+            }
+            else if (data.type == 'meetDir') {
+                header();
+                title(
+                    "MEETING OF BOARD OF DIRECTORS",
+                    null
+                );
+                meetingTable()
+                meetDirTable(data.obj.cSignedList, data.obj.cNoticeList, data.obj.cDraftList)
+                bottomDirTable(data.obj.cSignedList)
+            }
+            else if (data.type == 'notice') {
+                header();
+                title(
+                    "NOTICE OF BOARD MEETING",
+                    "This is to inform you that a meeting of the Board of Directors is scheduled to be held as per details given below:"
+                );
+                meetingTable();
+                title(
+                    null,
+                    `
+                        Agenda of the meeting and draft of resolutions proposed to be presented for approval of the board are enclosed for your perusal.<br/><br/>
+                        You are requested to make it convenient to attend the meeting. Please submit leave of absence in case you are not in a position to attend the meeting.<br/><br/>
+                        Please acknowledge receipt of this notice.<br/>
+                    `
+                );
+                bold(`Your’s faithfully,<br/>For & on behalf of the board of directors of<br/>${data.comp.companyName}`)
+                bottomDirTable(data.obj.cSignedList)
+                bottomDP()
+            }
+            else if (data.type == 'minutes') {
+                header();
+                bold(
+                    `MINUTES OF THE ${data.obj.numberMeeting} MEETING OF THE BOARD OF DIRECTORS OF ${data.comp.companyName} HELD ON ${moment(data.obj.dateMeeting).format('dddd, Do MMMM, YYYY')} AT The Registered Office of the company situated at ${data.comp.address} AT ${moment(data.obj.timeMeeting, 'HH:mm').format('hh:mm A')} AND CONCLUDED AT ${moment(data.obj.meetingTimeConcluded, 'HH:mm').format('hh:mm A')}`,
+                );
+                seperator();
+                bold("PRESENT:")
+                dirPresentTable(data.obj.cSignedList)
+                title(null, "Note: The name of the Directors is to be read with their respective Director Identification Number (DIN) mentioned above.");
+                [{}, {}, {}].forEach((item, index) => {
+                    text(`${index + 1}. Election of chairperson:`,
+                        { weight: "bold", underline: "underline" });
+                    text("All directors being present, there is no requirement to grant leave of absence.");
+                });
+
+                [window.data.obj.chairpersonChairperson, window.data.obj.chairpersonDirector, window.data.obj.chairpersonMember].forEach((item, index) => {
+                    if(item && item != '')
+                    {
+                        let dirObj = _directors.find(x => x.din == item);
+                        if (dirObj)
+                        {
+                            var name = `${dirObj.firstName} ${dirObj.middleName} ${dirObj.lastName}`;
+                            text(name, { align: "right", weight: "bold",margin:"0px"});
+                            text("Chairperson", { align: "right", weight: "bold", margin: "0px" });
+                        }
+                    }
+                });
+                bold(`Date of Entry: ${moment(data.obj.entryInMinutesBookDate).format('Do MMMM, YYYY')}`)
+                bold(`Date of Signing: ${moment(data.obj.signingMinutesDate).format('Do MMMM, YYYY')}`)
+                bold(`Place: ${data.obj.signingMinutesPlace}`)
+            }
+            else if (data.type.includes('ctc_for_')) {
+                let idAndFormView = data.type.replace('ctc_for_','')
+                let splitedString = idAndFormView.split('-');
+                let id = splitedString[0];
+                let formView = splitedString[1];
+                let meetingSeq = splitedString[2];
+                header();
+                text(`CERTIFIED TRUE COPY OF THE RESOLUTION PASSED AT THE MEETING OF THE BOARD OF DIRECTORS OF ${data.comp.companyName} HELD ON ${moment(data.obj.dateMeeting).format('dddd, Do MMMM, YYYY')}, ${moment(data.obj.timeMeeting, 'HH:mm').format('hh:mm A')} AT THE REGISTERED OFFICE OF THE COMPANY SITUATED AT ${data.comp.address}`,
+                {weight: "bold", underline: "underline", size: "16px" });
+                text("");
+                var resolutionHTML = await $.get(`@Url.Action("LoadResolution", "Resolutions")/${formView}/view/${data.obj.id}/${id}`);
+                text(`Item Number ${meetingSeq} - Meeting Agenda:`,
+                    { weight: "bold", underline: "underline", size: "14px" }, "meetingTitleItemNumber");
+                html(resolutionHTML);
+                if(typeof agendaOption !== 'undefined' && agendaOption)
+                {
+                    $('#meetingTitleItemNumber').text(`Item Number ${meetingSeq} - ${agendaOption}:`);
+                }
+                else
+                {
+                    $('#meetingTitleItemNumber').text(`Item Number ${meetingSeq} - :`);
+                }
+                text("//Certified True Copy//", { weight: "bold" });
+                text(`For ${data.comp.companyName}`, { weight: "bold" });
+                text("")
+
+                text("Place:", { weight: "bold" });
+                text("Date:", { weight: "bold" });
+
+            }
+
+            downloadFile(data.viewType);
+        })();
+    </script>
+</body>
+</html>

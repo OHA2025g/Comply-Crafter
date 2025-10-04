@@ -1,0 +1,9 @@
+To run locally
+
+Set UI Project appsettings.json to local URL
+
+Set API Project Middleware Program.cs to local CORS
+
+Set appsettings.json to local connection string
+
+Set Project to API Project and then Run the API Project first and then in UI Project CMD run dotnet run
