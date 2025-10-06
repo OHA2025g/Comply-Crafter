@@ -219,3 +219,7 @@ FakesAssemblies/
 # Ignore secrets
 secrets.json
 appsettings.Development.json
+
+# ignore per-developer launch settings and local secrets
+ComplyCrafter_UI/Properties/launchSettings.json
+ComplyCrafter_UI/appsettings.Development.json

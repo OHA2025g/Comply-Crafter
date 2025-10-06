@@ -30,8 +30,11 @@ builder.Services.AddSwaggerGenWithBearer();
 // });
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowLocal5029", policy => policy
-        .WithOrigins("http://localhost:5029")
+    options.AddPolicy("AllowUI", policy => policy
+        .WithOrigins(
+            "https://theinsightpartners.in",
+            "https://www.theinsightpartners.in"
+        )
         .AllowAnyHeader()
         .AllowAnyMethod()
     // .AllowCredentials() // enable only if you send cookies/credentials
@@ -67,7 +70,7 @@ if (R.AppSet<bool>("ShowErrors") || app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // app.UseCors("CORS");
-app.UseCors("AllowLocal5029");
+app.UseCors("AllowUI");
 
 app.UseAuthentication();
 
