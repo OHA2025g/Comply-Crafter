@@ -1,0 +1,389 @@
+﻿@{
+    ViewData["Title"] = "Particulars of Redemption Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">
+        Particulars of Redemption Form
+    </h4>
+
+    <form asp-action="Save" method="post">
+
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+        <!-- SECTION 1: SHARE DETAILS -->
+<div class="section-heading">SHARE DETAILS</div>
+<div class="p-3 border mb-4">
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <label class="form-label fw-bold">Type of Shares</label>
+            <select class="form-select" name="TypeOfShare">
+                <option value="">Select Type of Share</option>
+                <option>Equity</option>
+                <option>Preference</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label fw-bold">Issued At</label>
+            <select class="form-select" name="IssuedAt">
+                <option value="">Select Issue At</option>
+                <option>Premium</option>
+                <option>Face Value</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label fw-bold">Record Date</label>
+            <input type="date" class="form-control" name="RecordDate" value="2025-10-08" />
+        </div>
+    </div>
+</div>
+
+
+<div class="section-heading">PARTICULARS OF SHAREHOLDERS</div>
+<div class="p-3 border mb-4">
+    <div class="table-responsive">
+        <table class="table table-bordered text-center align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th>Shareholder Name</th>
+                    <th>Number of shares held in this class</th>
+                    <th>Number of shares to be redeemed</th>
+                    <th>Remaining balance, if any</th>
+                    <th>Redemption Amount including premium, if any</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select class="form-select">
+                            <option>Select Shareholder</option>
+                            <option>Shareholder 1</option>
+                            <option>Shareholder 2</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><button type="button" class="btn btn-primary">+</button></td>
+                </tr>
+               
+                <tr>
+                    <td class="fw-bold text-end" colspan="1">Total</td>
+                    <td><input type="text" class="form-control" readonly /></td>
+                    <td colspan="4"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+        <div class="section-heading">BOARD MEETING FOR REDEMPTION</div>
+        <div class="p-3 border mb-4">
+
+            <div class="mb-3">
+                <label class="form-label fw-bold">Do you want to incorporate this agenda in existing Board Meeting?</label><br>
+                <label class="me-3">
+                    <input type="radio" name="IncorporateAgenda" value="Yes"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="IncorporateAgenda" value="No"> No
+                </label>
+            </div>
+
+          
+            <div id="existingMeetingSection" class="row">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Select Existing Meeting</label>
+                    <select class="form-select" name="ExistingMeeting">
+                        <option value="">Select Existing Meeting</option>
+                        <option>Meeting 1</option>
+                        <option>Meeting 2</option>
+                    </select>
+                </div>
+            </div>
+
+           
+            <div id="newMeetingSection" class="row" style="display: none;">
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Date of New Meeting</label>
+                    <input type="date" class="form-control" name="DateOfNewMeeting" value="2025-10-08">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Time of New Meeting</label>
+                    <input type="time" class="form-control" name="TimeOfNewMeeting" value="13:30">
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select name="agenda" class="form-control">
+                    <option>To approve the redemption of {Shares} of Rs. {Face Value per share}/- each</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To approve the redemption of {Shares} of Rs. {Face Value per share}/- each">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To approve the redemption of {Shares} of Rs. {Face Value per share}/- each">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+The Board will discuss the matter regarding the allotment of [Number of shares to be issued] [Type of Shares_E] 
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+The Board discussed the matt
+</textarea></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Notice
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
+
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Minutes
+            </div>
+            <div class="col-md-9">
+                <textarea rows="12" class="form-control">
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
+
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution Signatory Details
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control">
+                            </td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        const tableBody = $(".table tbody");
+
+       
+        function addRow() {
+            const newRow = `
+                <tr>
+                    <td>
+                        <select class="form-select">
+                            <option>Select Shareholder</option>
+                            <option>Shareholder 1</option>
+                            <option>Shareholder 2</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><button type="button" class="btn btn-danger btn-remove">X</button></td>
+                </tr>
+            `;
+
+           
+            tableBody.find("tr:last").before(newRow);
+        }
+
+      
+        function removeRow(button) {
+            $(button).closest("tr").remove();
+        }
+
+       
+        $(document).on("click", ".btn-primary", function () {
+            addRow();
+        });
+
+     
+        $(document).on("click", ".btn-remove", function () {
+            removeRow(this);
+        });
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('input[name="IncorporateAgenda"]').on('change', function () {
+            const value = $(this).val();
+
+            if (value === 'Yes') {
+                $('#existingMeetingSection').show();
+                $('#newMeetingSection').hide();
+            } else if (value === 'No') {
+                $('#existingMeetingSection').hide();
+                $('#newMeetingSection').show();
+            }
+        });
+    });
+</script>
+

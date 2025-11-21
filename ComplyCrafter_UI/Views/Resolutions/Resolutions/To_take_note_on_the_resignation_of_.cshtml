@@ -1,0 +1,348 @@
+﻿@{
+    ViewData["Title"] = "To take note on the resignation of Chief Financial Officer (KMP) of the Company Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+
+    label.form-label strong {
+        font-weight: 600;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To take note on the resignation of Chief Financial Officer (KMP) of the Company</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== PARTICULARS OF RESIGNATION ====================== -->
+        <div class="section-heading mb-3">
+            PARTICULARS OF RESIGNATION / CESSATION
+        </div>
+
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Name of the Resigning Director/KMP</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <select name="resigningdir" id="resigningdir" class="form-select" required>
+                        <option value="">Select Director</option>
+                        <option value="07693548">Kiran Premchand Shah (07693548) (Director)</option>
+                        <option value="07691455">Pakshal Kiran Shah (07691455) (Director)</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Effective Date of Resignation</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="effectivedate" id="effectivedate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Place of Signing of Letter</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="placesignletter" id="placesignletter">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Date of Resignation Letter</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="letterdate" id="letterdate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Reason</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <select class="form-select" name="reason" id="reason">
+                        <option value="">Select Reason</option>
+                        <option value="due to pre-occupation in other assignments">Resigning due to pre-occupation in other assignment</option>
+                        <option value="Due to Illness">Resigning due to illness</option>
+                        <option value="Due to relocation">Resigning due to relocation</option>
+                        <option value="Due to change in occupation">Resigning due to change in occupation</option>
+                        <option value="Due to change in management">Resigning due to change in management</option>
+                        <option value="Due to family reason">Resigning due to family reason</option>
+                        <option value="Due to personal reason">Resigning due to personal reason</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Date of Notice of Resignation</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="datenotice" id="datenotice" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+            </div>
+
+            <div class="row mb-3 d-none" id="otherreasondiv">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Other Reason</strong></label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="otherreason" id="otherreason" placeholder="Specify other reason">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Place of Notice of Resignation</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="placenotice" id="placenotice">
+                </div>
+            </div>
+
+            <hr>
+
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label"><strong>Approval Mode:</strong></label>
+                    <div class="d-inline-block ms-2">
+                        <label class="me-3"><input type="radio" name="whichmeeting" value="Board meeting" checked> In Board meeting</label>
+                        <label><input type="radio" name="whichmeeting" value="Circular Resolution"> By Circular Resolution</label>
+                    </div>
+                </div>
+            </div>
+
+            <div id="boardmeeting" class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label"><strong>Do you want to incorporate this agenda in existing Board Meeting?</strong></label>
+                    <label class="ms-2 me-3"><input type="radio" name="existmeeting" value="Yes" checked> Yes</label>
+                    <label><input type="radio" name="existmeeting" value="No"> No</label>
+                </div>
+            </div>
+
+            <div id="existmeetingyes" class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Select Existing Meeting</strong></label>
+                </div>
+                <div class="col-md-9">
+                    <select name="m_id" id="m_id" class="form-select">
+                        <option value="">Select Existing Meeting</option>
+                        <option value="143245" selected>15/04/2025</option>
+                        <option value="94757">30/09/2024</option>
+                        <option value="94756">14/08/2024</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="existmeetingno" class="row mb-3 ">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Date of Meeting</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="meetingdate" id="meetingdate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Time of Meeting</strong></label>
+                </div>
+                <div class="col-md-3">
+                    <input type="time" class="form-control" name="timing" id="timing" value="@DateTime.Now.ToString("HH:mm")">
+                </div>
+            </div>
+
+            <div id="circular" class="row mb-3 d-none">
+                <div class="col-md-4">
+                    <label class="form-label"><strong>Date of Passing Circular Resolution</strong></label>
+                </div>
+                <div class="col-md-8">
+                    <input type="date" class="form-control" id="circularresdate" name="circularresdate" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                </div>
+                <div class="col-md-9">
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>Kiran Premchand Shah (07693548) (Director)</option>
+                        <option>Pakshal Kiran Shah (07691455) (Director)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option></option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To take note shares transferred in demat form">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="Noting of shares transferred in demat form">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">The board shall discuss and take note of the transfer of shares in dematerialized form as per the details provided by the RTA and pass the following resolution regarding the same:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">The board reviewed and took note of the transfer of shares in dematerialized form as per the details provided by the RTA. The following resolution was passed in this regard:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">“"RESOLVED THAT the Board of Directors of the Company do hereby take note of the transfer of shares in the Demat form as per the details mentioned below:
+
+[Table]:</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">“RESOLVED THAT the Board of Directors of the Company do hereby take note of the transfer of shares in the Demat form as per the details mentioned below:
+
+[Table]:</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    $(function(){
+        function updateVisibility(){
+            var which = $('input[name="whichmeeting"]:checked').val();
+            if(which === 'Circular Resolution'){
+                $('#circular').removeClass('d-none');
+                $('#boardmeeting').addClass('d-none');
+                $('#existmeetingyes, #existmeetingno').addClass('d-none');
+            } else {
+                $('#circular').addClass('d-none');
+                $('#boardmeeting').removeClass('d-none');
+                var exist = $('input[name="existmeeting"]:checked').val();
+                if(exist === 'No'){
+                    $('#existmeetingno').removeClass('d-none');
+                    $('#existmeetingyes').addClass('d-none');
+                } else {
+                    $('#existmeetingyes').removeClass('d-none');
+                    $('#existmeetingno').addClass('d-none');
+                }
+            }
+        }
+
+        $('input[name="whichmeeting"], input[name="existmeeting"]').on('change', updateVisibility);
+        updateVisibility();
+    });
+</script>

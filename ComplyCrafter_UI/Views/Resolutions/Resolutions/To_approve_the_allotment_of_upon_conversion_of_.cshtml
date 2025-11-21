@@ -1,5 +1,8 @@
-﻿@{
-    ViewData["Title"] = "Director Reappoint Form";
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "To approve the allotment of Shares upon conversion of Debentures Form";
 }
 
 <style>
@@ -51,13 +54,12 @@
 </style>
 
 <div class="card shadow-sm p-4">
-    <h4 class="text-primary mb-3">Note of Disclosure of Interest Form</h4>
+    <h4 class="text-primary mb-3">To approve the allotment of Shares upon conversion of Debentures Form</h4>
 
     <form asp-action="Save" method="post">
 
-        <div class="section-heading"></div>
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
         <div class="p-3 border">
-
             <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label"><strong>Name of the Managing Director</strong></label>
@@ -68,9 +70,6 @@
                     </select>
                 </div>
 
-             
-
-            <div class="row mb-3">
                 <div class="col-md-6">
                     <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
                     <select class="form-select" name="AuthorizedSignatory">
@@ -81,7 +80,28 @@
                 </div>
             </div>
 
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Type of Share</strong></label>
+                    <select class="form-select" name="TypeOfShare">
+                        <option value="">Select Type of Share</option>
+                        <option>Equity</option>
+                        <option>Preference</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Type of Debenture</strong></label>
+                    <select class="form-select" name="TypeOfDebenture">
+                        <option value="">Select Type of Debenture</option>
+                        <option>Convertible</option>
+                        <option>Non-Convertible</option>
+                        <option>Partially Convertible</option>
+                    </select>
+                </div>
+            </div>
         </div>
+
 
 
 
@@ -95,7 +115,7 @@
             </div>
             <div class="col-md-9">
                 <select name="agenda" class="form-control">
-                        <option>To take note of disclosure of interest by newly appointed {director(s)}</option>
+                    <option>To approve the allotment of {Shares} upon conversion of {Debentures}}</option>
                 </select>
             </div>
         </div>
@@ -105,7 +125,7 @@
                 Agenda Heading <span class="text-danger">*</span>
             </div>
             <div class="col-md-9">
-                    <input type="text" class="form-control" value="To take note of disclosure of interest by newly appointed {director(s)}">
+                <input type="text" class="form-control" value="To approve the allotment of {Shares} upon conversion of {Debentures}">
             </div>
         </div>
 
@@ -114,7 +134,7 @@
                 Minute Heading <span class="text-danger">*</span>
             </div>
             <div class="col-md-9">
-                    <input type="text" class="form-control" value="Disclosure of interest by newly appointed [director-directors]">
+                <input type="text" class="form-control" value="To approve the allotment of {Shares} upon conversion of {Debentures}">
             </div>
         </div>
 
@@ -124,8 +144,11 @@
             </div>
             <div class="col-md-9">
                 <textarea rows="6" class="form-control">
-The board is to take note of disclosure of interest submitted by newly appointed [director-directors] i.e. [Name of director(s)] pursuant to the provisions of Section 184(1) and rule 9(1) of the Companies (Meeting of Board and its Powers) Rules, 2014. The board may review the [form-forms] and if thought fit may pass the following resolution to take note of the same:
-             </textarea>  </div>
+The Board will discuss the matter regarding the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- each at [Par/Premium of Rs.], aggregating to Rs. [Total Amount]/-, to the holders of [Number of Debentures] [Type of Debentures], in accordance with the terms of conversion. The proposal is in compliance with Section 62(3) of the Companies Act, 2013, the rules made thereunder, and the Articles of Association of the company.
+
+The following resolution is proposed in this regard, which the Board may review and pass with or without modification:
+</textarea>
+            </div>
         </div>
 
         <div class="row mb-3">
@@ -134,8 +157,9 @@ The board is to take note of disclosure of interest submitted by newly appointed
             </div>
             <div class="col-md-9">
                 <textarea rows="6" class="form-control">
-Form MBP-1 being notice of disclosure of interest received from newly appointed [director-directors] i.e. [Name of director(s)] pursuant to the provisions of section 184 of Companies Act, 2013 was placed for the confirmation of the board. The [form-forms] [was-were] read at the meeting and after discussion, the Board passed the following resolution:
-                
+The Board discussed the matter regarding the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- each at [Par/Premium of Rs.], aggregating to Rs. [Total Amount]/-, to the holders of [Number of Debentures] [Type of Debentures], in accordance with the terms of conversion. The proposal was reviewed and approved by the Board in compliance with Section 62(3) of the Companies Act, 2013, the rules made thereunder, and the Articles of Association of the company.
+
+The following resolution was passed in this regard:
 </textarea></div>
         </div>
 
@@ -145,11 +169,13 @@ Form MBP-1 being notice of disclosure of interest received from newly appointed 
             </div>
             <div class="col-md-9">
                 <textarea rows="6" class="form-control">
-“RESOLVED THAT pursuant to the provisions of section 184(1) and other applicable provisions, if any, of the Companies Act, 2013, read with rule 9(1) of the Companies (Meeting of Board and its Powers) Rules, 2014, the disclosure of interest made by [Name of director(s) & Designation] of the company in Form MBP-1, as placed before the Board, be and [is-are] hereby noted taken on record.
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
 
-RESOLVED FURTHER THAT [Name of Authorized Director, Designation], of the company be and is hereby authorized on behalf of the Board of Directors to keep the [form-forms] MBP-1 in the safe custody.
+[Table_Allottees]
 
-RESOLVED FURTHER THAT [Name of Authorized Director, Designation] of the company be and is hereby authorized to take all such actions, matters, writings and things as may be required to give effect to the aforesaid resolution.”
+RESOLVED FURTHER THAT the directors of the company, be and are hereby authorized to issue share certificates to the allottees and make necessary entries in the Register of Members and other statutory records of the company.
+
+RESOLVED FURTHER THAT the directors of the company, be and are hereby authorized to file Form PAS-3 with the Registrar of Companies and complete all other compliance formalities as required under the Companies Act, 2013."
 </textarea>
             </div>
         </div>
@@ -160,11 +186,13 @@ RESOLVED FURTHER THAT [Name of Authorized Director, Designation] of the company 
             </div>
             <div class="col-md-9">
                 <textarea rows="12" class="form-control">
-“RESOLVED THAT pursuant to the provisions of section 184(1) and other applicable provisions, if any, of the Companies Act, 2013, read with rule 9(1) of the Companies (Meeting of Board and its Powers) Rules, 2014, the disclosure of interest made by [Name of director(s) & Designation] of the company in Form MBP-1, as placed before the Board, be and [is-are] hereby noted taken on record.
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
 
-RESOLVED FURTHER THAT [Name of Authorized Director, Designation], of the company be and is hereby authorized on behalf of the Board of Directors to keep the [form-forms] MBP-1 in the safe custody.
+[Table_Allottees]
 
-RESOLVED FURTHER THAT [Name of Authorized Director, Designation] of the company be and is hereby authorized to take all such actions, matters, writings and things as may be required to give effect to the aforesaid resolution.”
+RESOLVED FURTHER THAT the directors of the company, be and are hereby authorized to issue share certificates to the allottees and make necessary entries in the Register of Members and other statutory records of the company.
+
+RESOLVED FURTHER THAT the directors of the company, be and are hereby authorized to file Form PAS-3 with the Registrar of Companies and complete all other compliance formalities as required under the Companies Act, 2013."
 </textarea>
             </div>
         </div>

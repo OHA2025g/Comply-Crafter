@@ -1,0 +1,340 @@
+﻿@{
+    ViewData["Title"] = " Appointment Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">Director Appointment Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <div class="section-heading">APPOINTMENT DETAILS</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Director</strong></label>
+                    <select class="form-select" name="DirectorName">
+                        <option value="">Select Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Classification</strong></label>
+                    <select class="form-select" name="Classification">
+                        <option value="">Select Classification</option>
+                        <option>Executive</option>
+                        <option>Non-Executive</option>
+                        <option>Independent</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Effective Date of Change</strong></label>
+                    <input type="date" class="form-control" name="EffectiveDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Category</strong></label>
+                    <select class="form-select" name="Category">
+                        <option value="">Select Category</option>
+                        <option>Promoter</option>
+                        <option>Professional</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-12">
+                    <label class="form-label d-block"><strong>The Appointee is</strong></label>
+                    <label class="me-3"><input type="radio" name="Appointee" value="Chairman"> Chairman</label>
+                    <label class="me-3"><input type="radio" name="Appointee" value="Executive"> Executive Director</label>
+                    <label><input type="radio" name="Appointee" value="NonExecutive"> Non-Executive Director</label>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Consent</strong></label>
+                    <input type="date" class="form-control" name="DateOfConsent" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Place of Consent</strong></label>
+                    <input type="text" class="form-control" name="PlaceOfConsent" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Appointment</strong></label>
+                    <input type="date" class="form-control" name="DateOfAppointment" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Expiry Date of Tenure</strong></label>
+                    <input type="date" class="form-control" name="ExpiryDateOfTenure" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Tenure of Appointment</strong></label>
+                    <input type="date" class="form-control" name="TenureOfAppointment" />
+                </div>
+            </div>
+
+          
+            <div class="">
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <label class="form-label d-block"><strong>Do you want to incorporate this agenda in existing Board Meeting?</strong></label>
+                        <label class="me-3"><input type="radio" name="IncorporateAgenda" value="Yes"> Yes</label>
+                        <label><input type="radio" name="IncorporateAgenda" value="No" checked> No</label>
+                    </div>
+                </div>
+
+                <!-- Section when "Yes" is selected -->
+                <div id="existingMeetingSection" class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Select Existing Meeting</strong></label>
+                        <select class="form-select" name="ExistingMeeting">
+                            <option value="">Select Meeting</option>
+                            <option>15/04/2025</option>
+                            <option>20/05/2025</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                        <select class="form-select" name="AuthorizedSignatory">
+                            <option value="">Select Director</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                        </select>
+                    </div>
+                </div>
+
+               
+                <div id="newMeetingSection">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label"><strong>Date of Meeting</strong></label>
+                            <input type="date" class="form-control" name="DateOfMeeting" value="2025-11-08" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label"><strong>Time of Meeting</strong></label>
+                            <input type="time" class="form-control" name="TimeOfMeeting" value="15:30" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                            <select class="form-select" name="AuthorizedSignatoryNew">
+                                <option value="">Select Director</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select name="agenda" class="form-control">
+                    <option>To Re-designate {Name of the CFO} as Chief Financial officer</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To Re-designate {Name of the CFO} as Chief Financial officer">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To Re-designate {Name of the CFO} as Chief Financial officer">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+      </textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Notice
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Minutes
+            </div>
+            <div class="col-md-9">
+                <textarea rows="12" class="form-control">
+ </textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution Signatory Details
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control">
+                            </td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const yesRadio = document.querySelector('input[name="IncorporateAgenda"][value="Yes"]');
+        const noRadio = document.querySelector('input[name="IncorporateAgenda"][value="No"]');
+        const existingSection = document.getElementById("existingMeetingSection");
+        const newSection = document.getElementById("newMeetingSection");
+
+        function toggleSections() {
+            if (yesRadio.checked) {
+                existingSection.style.display = "flex";
+                newSection.style.display = "none";
+            } else {
+                existingSection.style.display = "none";
+                newSection.style.display = "block";
+            }
+        }
+
+        yesRadio.addEventListener("change", toggleSections);
+        noRadio.addEventListener("change", toggleSections);
+
+        // Initialize based on default
+        toggleSections();
+    });
+</script>

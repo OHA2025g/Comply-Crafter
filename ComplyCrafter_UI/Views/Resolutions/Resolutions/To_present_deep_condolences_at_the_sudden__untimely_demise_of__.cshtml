@@ -1,0 +1,449 @@
+﻿<div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">
+            To present deep condolences at the sudden & untimely demise of {Name of Ceasing Director}, {Designation}
+        </h5>
+    </div>
+    <div class="card-body">
+        <form action="" method="post" enctype="multipart/form-data">
+            <!-- Basic Information Section -->
+            <div class="section-heading">Basic Information</div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Name of the Resigning Director/KMP</label>
+                    <select class="form-control" name="resigningdir" required id="resigningdir">
+                        <option value="">Select Director</option>
+                        <option value="07693548">Kiran Premchand Shah (07693548) (Director)</option>
+                        <option value="07691455">Pakshal Kiran Shah (07691455) (Director)</option>
+                    </select>
+                </div>
+                <div class="col-md-6 Resigning">
+                    <label class="form-label">Effective Date of Resignation</label>
+                    <input type="date" class="form-control" name="effectivedate" id="effectivedate" onchange="checkForm(this); return false;">
+                </div>
+                <div class="col-md-6 otherreason1" style="display:none;">
+                    <label class="form-label">Effective Date</label>
+                    <input type="date" class="form-control" name="effectivedate" id="effectivedate">
+                </div>
+            </div>
+
+            <!-- Resignation Details Section -->
+            <div class="section-heading">Resignation Details</div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Place of Signing of Letter</label>
+                    <input type="text" class="form-control" name="placesignletter" id="placesignletter">
+                </div>
+                <div class="col-md-6 Resigned">
+                    <label class="form-label Resigning">Date of Resignation Letter</label>
+                    <label class="form-label Deceased">Date of Death</label>
+                    <input type="date" class="form-control" name="letterdate" id="letterdate">
+                </div>
+            </div>
+
+            <!-- Acceptance & Reason Section -->
+            <div class="row mb-3">
+                <div class="col-md-6 showonkmp">
+                    <label class="form-label">Acceptance Date</label>
+                    <input type="date" class="form-control" name="acceptance_date" id="acceptance_date">
+                </div>
+                <div class="col-md-6 hideonkmp">
+                    <label class="form-label">Reason</label>
+                    <select class="form-control" name="reason" id="reason">
+                        <option value="">Select Reason</option>
+                        <option value="due to pre-occupation in other assignments">Resigning due to pre-occupation in other assignment</option>
+                        <option value="Due to Illness">Resigning due to illness</option>
+                        <option value="Due to relocation">Resigning due to relocation</option>
+                        <option value="Due to change in occupation">Resigning due to change in occupation</option>
+                        <option value="Due to change in management">Resigning due to change in management</option>
+                        <option value="Due to family reason">Resigning due to family reason</option>
+                        <option value="Due to personal reason">Resigning due to personal reason</option>
+                        <option value="Cessation due to death">Cessation due to death</option>
+                        <option value="Retirement">Retirement</option>
+                        <option value="Disqualification u/s 164">Disqualification u/s 164</option>
+                        <option value="Exceeding maximum number of directorship u/s 165">Exceeding maximum number of directorship u/s 165</option>
+                        <option value="Vacation of office u/s 167">Vacation of office u/s 167</option>
+                        <option value="Removal u/s 169">Removal u/s 169</option>
+                        <option value="Nomination withdrawn by appointing authority">Nomination withdrawn by appointing authority</option>
+                        <option value="Not been reappointed">Not been reappointed</option>
+                        <option value="Vacation of office u/s 161">Vacation of office u/s 161</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-6 dateofintimation">
+                    <label class="form-label">Date of Intimation received from the authority</label>
+                    <input type="date" class="form-control" name="dateofintimation" id="dateofintimation">
+                </div>
+            </div>
+
+            <!-- Other Reason Section -->
+            <div class="row mb-3" id="otherreason">
+                <div class="col-md-12">
+                    <label class="form-label">Other Reason</label>
+                    <input type="text" class="form-control" name="otherreason" placeholder="Specify other reason">
+                </div>
+            </div>
+
+            <!-- Resignation Notice Section -->
+            <div class="section-heading Resigning">Resignation Notice Details</div>
+
+            <div class="row mb-3 Resigning">
+                <div class="col-md-6">
+                    <label class="form-label">Date of Notice of Resignation</label>
+                    <input type="date" class="form-control" name="datenotice" onchange="checkForm(this); return false;">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Place of Notice of Resignation</label>
+                    <input type="text" class="form-control" name="placenotice">
+                </div>
+            </div>
+
+            <!-- Death Intimation Section -->
+            <div class="section-heading hideonkmp" id="deathintimation">
+                Information for Death Intimation Letter
+            </div>
+
+            <div class="row mb-3 hideonkmp">
+                <div class="col-md-6">
+                    <label class="form-label">Name of Relative</label>
+                    <input type="text" class="form-control" name="namerelative" placeholder="Name of Relative">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Relation</label>
+                    <input type="text" class="form-control" name="relation" placeholder="Relation">
+                </div>
+            </div>
+
+            <div class="row mb-3 hideonkmp" id="datetimes">
+                <div class="col-md-6">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control" name="dateintimation">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Place</label>
+                    <input type="text" class="form-control" name="place" placeholder="Place">
+                </div>
+            </div>
+
+            <!-- Approval Section -->
+            <div class="section-heading">Approval Process</div>
+
+            <div class="row mb-3 approval">
+                <div class="col-md-12">
+                    <label class="form-label">Approval Mode</label>
+                    <div class="mt-2">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="whichmeeting" value="Board meeting" checked required>
+                            <label class="form-check-label">In Board meeting</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="whichmeeting" value="Circular Resolution" required>
+                            <label class="form-check-label">By Circular Resolution</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Board Meeting Section -->
+            <div class="row mb-3" id="boardmeeting">
+                <div class="col-md-12">
+                    <label class="form-label">Do you want to incorporate this agenda in existing Board Meeting?</label>
+                    <div class="mt-2">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="existmeeting" value="Yes" checked required>
+                            <label class="form-check-label">Yes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="existmeeting" value="No" required>
+                            <label class="form-check-label">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Meeting Section -->
+            <div class="row mb-3" id="existmeetingyes">
+                <div class="col-md-12">
+                    <label class="form-label">Select Existing Meeting</label>
+                    <select class="form-control" name="m_id" id="m_id">
+                        <option value="">Select Existing Meeting</option>
+                        <option selected value="143245">15/04/2025</option>
+                        <option value="94757">30/09/2024</option>
+                        <option value="94756">14/08/2024</option>
+                        <!-- Other options -->
+                    </select>
+                </div>
+            </div>
+
+            <!-- New Meeting Section -->
+            <div class="row mb-3" id="existmeetingno">
+                <div class="col-md-6">
+                    <label class="form-label">Date of Meeting</label>
+                    <input type="date" class="form-control" name="meetingdate" id="meetingdate" onchange="handleOnChangemeetings(this,'BM','meetingdate','datetimepicker2','143245'); return false;">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Time of Meeting</label>
+                    <input type="time" class="form-control" id="datetimepicker2" name="timing" onchange="checkmeetingexisting('BM','meetingdate','datetimepicker2','143245')">
+                </div>
+            </div>
+
+            <!-- Circular Resolution Section -->
+            <div class="row mb-3" id="circular" style="display: none;">
+                <div class="col-md-12">
+                    <label class="form-label">Date of Passing Circular Resolution</label>
+                    <input type="date" class="form-control" id="circularresdate" name="circularresdate" onchange="checkForm(this); return false;">
+                </div>
+            </div>
+
+            <!-- Authorized Signatory Section -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <label class="form-label">Name of the Authorized Signatory</label>
+                    <select class="form-control" name="chairman" required id="chairman">
+                        <option value="07693548">Kiran Premchand Shah (07693548) (Director)</option>
+                        <option value="07691455">Pakshal Kiran Shah (07691455) (Director)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- ====================== AGENDA & RESOLUTION ====================== -->
+            <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+            <div class="p-3 border">
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda</div>
+                    <div class="col-md-9">
+                        <select name="agenda" class="form-control">
+                            <option>To present deep condolences at the sudden & untimely demise of {Name of Ceasing Director}, {Designation}</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" value="To present deep condolences at the sudden & untimely demise of {Name of Ceasing Director}, {Designation}">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" value="To present deep condolences at the sudden & untimely demise of {Name of Ceasing Director}, {Designation}">
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Agenda Preface</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">
+The Board hereby proposes to reclassify the authorized capital of the company as part of our strategic initiative to issue shares and meet our long-term capital requirements. This reclassification necessitates the approval of shareholders via a Special Resolution. Therefore, the Board recommends passing the following resolution...
+                    </textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Minute Preface</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">
+The Board of Directors convened the meeting to propose the reclassification of the company's authorized capital to issue shares and address long-term capital requirements in the ensuing general meeting...
+                    </textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                    <div class="col-md-9">
+                        <textarea rows="6" class="form-control">[Resolution for Notice text here]</textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                    <div class="col-md-9">
+                        <textarea rows="12" class="form-control">[Resolution for Minutes text here]</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================== SIGNATORY TABLE ====================== -->
+            <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+            <div class="p-3 border">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                            <td><input type="date" class="form-control"></td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ====================== SUBMIT ====================== -->
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #e3e6f0;
+        border-radius: 0.35rem;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    }
+
+    .card-header {
+        background-color: #4e73df;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .section-heading {
+        background: #f8f9fc;
+        font-weight: 600;
+        padding: 12px 15px;
+        border: 1px solid #e3e6f0;
+        margin: 20px 0 15px 0;
+        border-radius: 0.35rem;
+        color: #4e73df;
+        border-left: 4px solid #4e73df;
+    }
+
+    .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #495057;
+    }
+
+    input, select, textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+        border: 1px solid #d1d3e2;
+        border-radius: 0.35rem;
+        padding: 0.75rem;
+    }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25) !important;
+        }
+
+    .btn-primary {
+        background-color: #4e73df;
+        border-color: #4e73df;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+    }
+
+        .btn-primary:hover {
+            background-color: #2e59d9;
+            border-color: #2653d4;
+        }
+
+    .form-check-input:checked {
+        background-color: #4e73df;
+        border-color: #4e73df;
+    }
+</style>
+
+<script>
+    // JavaScript for handling form interactions
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle approval mode change
+        const approvalRadios = document.querySelectorAll('input[name="whichmeeting"]');
+        approvalRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                const boardSection = document.getElementById('boardmeeting');
+                const circularSection = document.getElementById('circular');
+                const existYes = document.getElementById('existmeetingyes');
+                const existNo = document.getElementById('existmeetingno');
+
+                if (this.value === 'Board meeting') {
+                    boardSection.style.display = 'block';
+                    circularSection.style.display = 'none';
+                    // Show/hide based on existmeeting selection
+                    handleExistMeetingChange();
+                } else {
+                    boardSection.style.display = 'none';
+                    circularSection.style.display = 'block';
+                    existYes.style.display = 'none';
+                    existNo.style.display = 'none';
+                }
+            });
+        });
+
+        // Handle existing meeting selection
+        const existMeetingRadios = document.querySelectorAll('input[name="existmeeting"]');
+        existMeetingRadios.forEach(radio => {
+            radio.addEventListener('change', handleExistMeetingChange);
+        });
+
+        function handleExistMeetingChange() {
+            const existYes = document.getElementById('existmeetingyes');
+            const existNo = document.getElementById('existmeetingno');
+            const selectedValue = document.querySelector('input[name="existmeeting"]:checked').value;
+
+            if (selectedValue === 'Yes') {
+                existYes.style.display = 'block';
+                existNo.style.display = 'none';
+            } else {
+                existYes.style.display = 'none';
+                existNo.style.display = 'block';
+            }
+        }
+
+        // Handle reason change for "Other" option
+        const reasonSelect = document.getElementById('reason');
+        const otherReasonSection = document.getElementById('otherreason');
+
+        reasonSelect.addEventListener('change', function() {
+            if (this.value === 'Other') {
+                otherReasonSection.style.display = 'block';
+            } else {
+                otherReasonSection.style.display = 'none';
+            }
+        });
+
+        // Initialize form state
+        handleExistMeetingChange();
+    });
+
+    // Your existing functions
+    function checkForm(element) {
+        // Your existing checkForm implementation
+    }
+
+    function handleOnChangemeetings(element, type, dateField, timeField, meetingId) {
+        // Your existing implementation
+    }
+
+    function checkmeetingexisting(type, dateField, timeField, meetingId) {
+        // Your existing implementation
+    }
+</script>

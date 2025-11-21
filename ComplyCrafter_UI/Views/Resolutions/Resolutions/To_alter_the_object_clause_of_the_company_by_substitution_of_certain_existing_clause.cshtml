@@ -1,0 +1,417 @@
+﻿@{
+    ViewData["Title"] = "Director Appointment Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+
+
+<div class="section-heading">Alteration of Object Clause</div>
+<form asp-action="Save" method="post">
+
+
+
+    <div class="row mb-3">
+        <div class="col-md-3 fw-bold">Alteration</div>
+        <div class="col-md-3">
+            <select name="alterationtype" id="alterationtype" class="form-select" required>
+                <option value="">Select Alteration</option>
+                <option value="Addition of new clause">Addition of new clause</option>
+                <option value="Substitution of certain existing clause">Substitution of certain existing clause</option>
+            </select>
+        </div>
+
+        <div class="col-md-3 fw-bold addition_clause">New areas of business</div>
+        <div class="col-md-3 addition_clause">
+            <input type="text" id="newarea_business" name="newarea_business" class="form-control">
+        </div>
+
+        <div class="col-md-3 fw-bold substitution_clause">Present Business Activity</div>
+        <div class="col-md-3 substitution_clause">
+            <input type="text" id="presentbusinessactivity" name="presentbusinessactivity" class="form-control">
+        </div>
+    </div>
+
+    <div class="row mb-3 substitution_clause">
+        <div class="col-md-3 fw-bold">Proposed Business Activity</div>
+        <div class="col-md-3">
+            <input type="text" id="proposedtbusinessactivity" name="proposedtbusinessactivity" class="form-control">
+        </div>
+        <div class="col-md-3 fw-bold">Altered Clause of Object Clause</div>
+        <div class="col-md-3">
+            <input type="text" id="alterclause" name="alterclause" class="form-control">
+        </div>
+    </div>
+
+    <div class="row mb-4 addition_clause">
+        <div class="col-12">
+            <label class="fw-bold d-block mb-2">
+                To alter Clause III (related to Object Clause) of the Memorandum of Association of the company by inserting
+            </label>
+            <input type="text" name="newclausenumber" id="newclausenumber" class="form-control d-inline-block" style="width: 15%;" placeholder="New Clause Number">
+            after the existing
+            <input type="text" name="lastcluasenumber" id="lastcluasenumber" class="form-control d-inline-block" style="width: 15%;" placeholder="Existing Clause Number">
+            of the Memorandum of Association of Company:
+            <br><br>
+            <textarea name="newcluase" id="newcluase" class="form-control ckeditor" placeholder="Enter new clause text"></textarea>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- SECTION 2 -->
+    <div class="section-heading">Board Meeting for recommending this proposal in General Meeting</div>
+
+    <div class="row mb-3">
+        <div class="col-12 fw-bold">
+            Do you want to incorporate this agenda in existing Board Meeting?
+            &nbsp;&nbsp;
+            <label class="me-3"><input type="radio" name="existmeeting" value="Yes" checked> Yes</label>
+            <label><input type="radio" name="existmeeting" value="No"> No</label>
+        </div>
+    </div>
+
+    <div class="row mb-3" id="existmeetingyes">
+        <div class="col-md-3 fw-bold">Select Existing Meeting</div>
+        <div class="col-md-9">
+            <select name="m_id" id="m_id" class="form-select">
+                <option value="">Select Existing Meeting</option>
+                <option value="143245" selected>15/04/2025</option>
+                <option value="94757">30/09/2024</option>
+                <option value="94756">14/08/2024</option>
+                <option value="94755">15/06/2024</option>
+                <option value="94753">09/04/2024</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-3" id="existmeetingno" style="display:none;">
+        <div class="col-md-3 fw-bold">Date of Meeting</div>
+        <div class="col-md-3">
+            <input type="text" name="meetingdate" id="meetingdate" class="form-control datepicker" autocomplete="off">
+        </div>
+        <div class="col-md-3 fw-bold">Time of Meeting</div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input id="datetimepicker2" type="text" name="timing" class="form-control">
+                <span class="input-group-text"><i class="glyphicon glyphicon-time"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-3 fw-bold">Name of Authorized Signatory</div>
+        <div class="col-md-9">
+            <select name="chairman" class="form-select" required>
+                <option value="">Select Director</option>
+                <option value="07693548">Kiran Premchand Shah (Director)</option>
+                <option value="07691455">Pakshal Kiran Shah (Director)</option>
+            </select>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- SECTION 3 -->
+    <div class="section-heading">General Meeting for Approval of Alteration of Object Clause</div>
+
+    <div class="row mb-3">
+        <div class="col-12 fw-bold">
+            Type of Meeting?
+            &nbsp;&nbsp;
+            <label class="me-3"><input type="radio" name="whichmeeting" value="AGM"> AGM</label>
+            <label><input type="radio" name="whichmeeting" value="EGM"> EGM</label>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-12 fw-bold">
+            Do you want to incorporate this agenda in existing General Meeting?
+            &nbsp;&nbsp;
+            <label class="me-3"><input type="radio" name="existmeetingagm" value="Yes"> Yes</label>
+            <label><input type="radio" name="existmeetingagm" value="No"> No</label>
+        </div>
+    </div>
+
+    <div id="existagmyes" class="row mb-3" style="display:none;">
+        <div class="col-md-3 fw-bold">Select Existing General Meeting</div>
+        <div class="col-md-9">
+            <select name="m_idagm" id="meetingagm" class="form-select mb-2">
+                <option value="">Select Existing AGM</option>
+                <option value="26323">30/09/2024</option>
+                <option value="16859">30/09/2023</option>
+            </select>
+
+            <select name="m_idegm" id="meetingegm" class="form-select" style="display:none;">
+                <option value="">Select Existing EGM</option>
+            </select>
+        </div>
+    </div>
+
+    <div id="existagmno" class="row mb-3" style="display:none;">
+        <div class="col-md-3 fw-bold">Date of General Meeting</div>
+        <div class="col-md-3">
+            <input type="text" name="meetingdateagm" id="meetingdateagm" class="form-control datepicker" autocomplete="off">
+        </div>
+        <div class="col-md-3 fw-bold">Time of General Meeting</div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input id="datetimepicker1" type="text" name="timingagm" class="form-control">
+                <span class="input-group-text"><i class="glyphicon glyphicon-time"></i></span>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+            <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda
+                </div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To approve Change in name clause</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda Heading <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To approve Change in name clause">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Minute Heading <span class="text-danger">*</span>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To approve Change in name clause">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Agenda Preface
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+      </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Minute Preface
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution for Notice
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution for Minutes
+                </div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">
+ </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">
+                    Resolution Signatory Details
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Sr. No.</th>
+                                <th>Name of Signatory</th>
+                                <th>DIN / PAN</th>
+                                <th>Date of Signing</th>
+                                <th style="width: 80px; text-align:center;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>
+                                    <select class="form-select">
+                                        <option value="">Select Signatory</option>
+                                        <option>John Doe</option>
+                                        <option>Jane Smith</option>
+                                        <option>Michael Johnson</option>
+                                        <option>Emily Davis</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                                </td>
+                                <td>
+                                    <input type="date" class="form-control">
+                                </td>
+                                <td style="text-align:center;">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-end">
+                    <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+                </div>
+            </div>
+
+</form>
+
+
+
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // 🔹 Toggle for Addition vs Substitution
+            const alterationSelect = document.getElementById("alterationtype");
+            const additionFields = document.querySelectorAll(".addition_clause");
+            const substitutionFields = document.querySelectorAll(".substitution_clause");
+
+            function updateAlterationFields() {
+                const val = alterationSelect.value;
+                if (val === "Addition of new clause") {
+                    additionFields.forEach(f => f.style.display = "flex");
+                    substitutionFields.forEach(f => f.style.display = "none");
+                } else if (val === "Substitution of certain existing clause") {
+                    additionFields.forEach(f => f.style.display = "none");
+                    substitutionFields.forEach(f => f.style.display = "flex");
+                } else {
+                    additionFields.forEach(f => f.style.display = "none");
+                    substitutionFields.forEach(f => f.style.display = "none");
+                }
+            }
+
+            alterationSelect.addEventListener("change", updateAlterationFields);
+            updateAlterationFields(); // initialize on load
+
+            // 🔸 Helper function to toggle Yes/No sections
+            function toggleSection(radioName, yesId, noId) {
+                const radios = document.getElementsByName(radioName);
+                const yesSection = document.getElementById(yesId);
+                const noSection = document.getElementById(noId);
+
+                function updateVisibility() {
+                    const selected = [...radios].find(r => r.checked)?.value;
+                    if (selected === "Yes") {
+                        yesSection.style.display = "flex";
+                        noSection.style.display = "none";
+                    } else if (selected === "No") {
+                        yesSection.style.display = "none";
+                        noSection.style.display = "flex";
+                    } else {
+                        yesSection.style.display = "none";
+                        noSection.style.display = "none";
+                    }
+                }
+
+                radios.forEach(radio => radio.addEventListener("change", updateVisibility));
+                updateVisibility();
+            }
+
+            // 🔹 Apply toggles
+            toggleSection("existmeeting", "existmeetingyes", "existmeetingno");
+            toggleSection("existmeetingagm", "existagmyes", "existagmno");
+
+            // 🔹 AGM / EGM toggle
+            const meetingTypeRadios = document.getElementsByName("whichmeeting");
+            const agmDropdown = document.getElementById("meetingagm");
+            const egmDropdown = document.getElementById("meetingegm");
+
+            function updateMeetingType() {
+                const selected = [...meetingTypeRadios].find(r => r.checked)?.value;
+                if (selected === "AGM") {
+                    agmDropdown.style.display = "block";
+                    egmDropdown.style.display = "none";
+                } else if (selected === "EGM") {
+                    agmDropdown.style.display = "none";
+                    egmDropdown.style.display = "block";
+                } else {
+                    agmDropdown.style.display = "none";
+                    egmDropdown.style.display = "none";
+                }
+            }
+
+            meetingTypeRadios.forEach(r => r.addEventListener("change", updateMeetingType));
+            updateMeetingType();
+
+        });
+    </script>
+}

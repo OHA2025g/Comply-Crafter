@@ -1,0 +1,767 @@
+﻿@{
+    ViewData["Title"] = "Buy Back Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To Approve the Buy Back of Shares Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== Buy Back ====================== -->
+        <div class="section-heading">Buy Back</div>
+        <div class="p-3 border">
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Buy back is</label>
+                    <select name="buyback_type" class="form-control" required="required" id="buyback_type">
+                        <option value="">Select Buy back is</option>
+                        <option value="Upto 10% of of the total paid-up equity capital and free reserves">Upto 10% of of the total paid-up equity capital and free reserves</option>
+                        <option value="Upto 25% of of the aggregate of paid-up capital and free reserves">Upto 25% of of the aggregate of paid-up capital and free reserves</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Type of Share</label>
+                    <select class="form-select" name="TypeOfShare">
+                        <option value="">Select Type of Share</option>
+                        <option>Equity</option>
+                        <option>Preference</option>
+                    </select>
+                </div>
+            </div>
+            <div class="note-box " style="font-size:12px;color:red">
+                **In respect of the buy-back of equity shares in any financial year, the reference to twenty-five per cent. in this clause shall be construed with respect to its total paid-up equity capital in that financial year; [Section 68(2)]**
+            </div>
+            <div class="row mb-3">
+
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Record Date</label>
+                    <input type="date" class="form-control" name="RecordDate" value="2025-10-07" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date of Buyback for records</label>
+                    <input type="date" class="form-control" name="BuybackDate" value="2025-10-07" />
+                </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Total % of Buyback Shares</label>
+                    <input type="text" class="form-control" name="BuybackPercentage" placeholder="Enter percentage" />
+                </div>
+            </div>
+
+
+
+            <!-- ====================== Buy Back ====================== -->
+            <div class="section-heading mb-3">
+                <h6 class="fw-bold">Buy Back</h6>
+            </div>
+
+            <div id="buyBackContainer"></div>
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary" id="addShareholderBtn">Add More Shareholder</button>
+            </div>
+
+     
+
+        </div>
+
+
+
+
+
+        <div class="section-heading mb-3">
+            <h5>Particulars of Offer Period</h5>
+        </div>
+
+        <div class="p-3 border mb-4">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="width:25%; font-weight:bold;">Opening of the Buyback Offer</td>
+                        <td style="width:25%;">
+                            <input type="date" class="form-control" name="OpeningOffer" value="2025-10-07">
+                        </td>
+                        <td style="width:25%; font-weight:bold;">Closing of the Buyback Offer</td>
+                        <td style="width:25%;">
+                            <input type="date" class="form-control" name="ClosingOffer" value="2025-10-07">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;">Dispatch of Offer letter</td>
+                        <td>
+                            <input type="date" class="form-control" name="DispatchDate" value="2025-10-07">
+                        </td>
+                        <td style="font-weight:bold;">Place of Signing of offer letter</td>
+                        <td>
+                            <input type="text" class="form-control" name="SigningPlace" placeholder="Place of Signing of offer letter">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-3 p-2 bg-light border text-danger">
+                <small>
+                    **Offer letter has to be dispatched within 20 days from the date of filling SH-8. [Ref sub rule 4 of rule 17 of the Companies (Share Capital and Debentures) Rules, 2014]**
+                </small>
+            </div>
+        </div>
+
+        <div class="section-heading mb-3">
+            <h5>Particulars of Valuation</h5>
+        </div>
+
+        <div class="p-3 border">
+            <table class="table table-bordered">
+                <tbody>
+                    <tr>
+                        <td style="width:25%; font-weight:bold;">Name of Registered Valuer</td>
+                        <td style="width:25%;">
+                            <input type="text" class="form-control" name="ValuerName" placeholder="Name of Registered Valuer">
+                        </td>
+                        <td style="width:25%; font-weight:bold;">Date of Valuation Report</td>
+                        <td style="width:25%;">
+                            <input type="date" class="form-control" name="ValuationDate" value="2025-10-07">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;">Relevant date for valuation</td>
+                        <td>
+                            <input type="date" class="form-control" name="RelevantDate" value="2025-10-07">
+                        </td>
+                        <td style="font-weight:bold;">Address</td>
+                        <td>
+                            <input type="text" class="form-control" name="ValuerAddress" placeholder="Address">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold;">Per Share Buy Back Value</td>
+                        <td>
+                            <input type="text" class="form-control" name="PerShareValue" placeholder="Per Share Buy Back Value">
+                        </td>
+                        <td style="font-weight:bold;">Total Amount</td>
+                        <td>
+                            <input type="text" class="form-control" name="TotalAmount" placeholder="Total Amount">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- General Meeting for approval -->
+        <h2 class="mb-4">Board Meeting for Approval of Buy Back</h2>
+
+        <div class="p-3 border mb-4">
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label fw-bold">Do you want to incorporate this agenda in existing Board Meeting ?</label><br>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="boardMeetingIncorporate" id="boardYes" value="yes" checked>
+                        <label class="form-check-label" for="boardYes">Yes</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="boardMeetingIncorporate" id="boardNo" value="no">
+                        <label class="form-check-label" for="boardNo">No</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- If YES -->
+            <div id="boardMeetingYes" class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Select Existing Meeting</label>
+                    <select class="form-select">
+                        <option>Select Meeting</option>
+                        <option>Meeting on 15/04/2025</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Name of the Authorized Signatory</label>
+                    <select class="form-select">
+                        <option>Select Director</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- If NO -->
+            <div id="boardMeetingNo" class="row mb-3 d-none">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Date of Meeting</label>
+                    <input type="date" class="form-control" value="2025-04-15">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Time of Meeting</label>
+                    <input type="time" class="form-control" value="19:14">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Name of the Authorized Signatory</label>
+                    <select class="form-select">
+                        <option>Select Director</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- ====================== PARTICULARS OF AFFIDAVIT ====================== -->
+        <div class="section-heading">PARTICULARS OF AFFIDAVIT</div>
+        <div class="p-3 border mb-4">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Select directors who are going to sign the Affidavit as per rule 17(3)</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Director1" id="director1">
+                        <label class="form-check-label" for="director1">Kiran Premchand Shah, Director</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="Director2" id="director2">
+                        <label class="form-check-label" for="director2">Pakshal Kiran Shah, Director</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date of Statement of Assets and Liabilities</label>
+                    <input type="date" class="form-control" name="StatementDate" value="2025-10-07">
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== PARTICULARS OF SH-15 ====================== -->
+        <div class="section-heading">PARTICULARS OF SH-15</div>
+        <div class="p-3 border mb-4">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Signing Director 1</label>
+                    <select class="form-select" name="SigningDirector1">
+                        <option value="">Select Director</option>
+                        <option>Kiran Premchand Shah</option>
+                        <option>Pakshal Kiran Shah</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Signing Director 2</label>
+                    <select class="form-select" name="SigningDirector2">
+                        <option value="">Select Director</option>
+                        <option>Kiran Premchand Shah</option>
+                        <option>Pakshal Kiran Shah</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Practicing Company Secretary</label>
+                    <select class="form-select" name="PracticingCompanySecretary">
+                        <option value="">Select PCS</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== PARTICULARS OF LETTER OF OFFER ====================== -->
+        <div class="section-heading">PARTICULARS OF LETTER OF OFFER</div>
+        <div class="p-3 border mb-4">
+            <h6 class="fw-bold mb-3">Contact Person Details</h6>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Name</label>
+                    <input type="text" class="form-control" name="ContactName" placeholder="Enter Name">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Designation</label>
+                    <input type="text" class="form-control" name="Designation" placeholder="Enter Designation">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Contact Number</label>
+                    <input type="text" class="form-control" name="ContactNumber" placeholder="Enter Contact Number">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Last date of extinguishment of the certificates</label>
+                    <input type="date" class="form-control" name="ExtinguishmentDate" value="2025-10-07">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date of Audit Report</label>
+                    <input type="date" class="form-control" name="AuditReportDate" value="2025-10-07">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Name of Statutory Auditor</label>
+                    <select class="form-select" name="StatutoryAuditor">
+                        <option value="">Select Auditor</option>
+                        <option>ABC & Co.</option>
+                        <option>XYZ Associates</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Signing Director 1</label>
+                    <select class="form-select" name="LetterSigningDirector1">
+                        <option value="">Select Director</option>
+                        <option>Kiran Premchand Shah</option>
+                        <option>Pakshal Kiran Shah</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Signing Director 2</label>
+                    <select class="form-select" name="LetterSigningDirector2">
+                        <option value="">Select Director</option>
+                        <option>Kiran Premchand Shah</option>
+                        <option>Pakshal Kiran Shah</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== OTHER DETAILS ====================== -->
+        <div class="section-heading">OTHER DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date by which buy-back was completed</label>
+                    <input type="date" class="form-control" name="CompletionDate" value="2025-10-07">
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Date of Payment</label>
+                    <input type="date" class="form-control" name="PaymentDate" value="2025-10-07">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label fw-bold">Mode of Buy Back</label>
+                    <input type="text" class="form-control" name="ModeOfBuyBack" placeholder="Enter Mode of Buy Back">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To Approve the Buy Back of Shares</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To Approve the Buy Back of Shares">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To Approve the Buy Back of Shares">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">To Approve the Buy Back of Shares via a Special Resolution. Therefore, the Board recommends passing the following resolution...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">To Approve the Buy Back of Shares...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">To Approve the Buy Back  for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">[Buy Back for Notice text here]</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Buy Bak for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">[Buy Bakfor Minutes text here]</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('input[name="FullyPaid"]').change(function () {
+            if ($(this).val() === "No") {
+                $('#amountPaidRow').show();
+            } else {
+                $('#amountPaidRow').hide();
+                $('#amountPaidRow input').val("");
+            }
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    // Container
+    const container = document.getElementById("buyBackContainer");
+    const addBtn = document.getElementById("addShareholderBtn");
+
+    // Counter for numbering
+    let count = 1;
+
+    // Function to create a new shareholder section
+    function createShareholderSection(number) {
+      const section = document.createElement("div");
+      section.classList.add("p-3", "border", "mb-3", "rounded");
+
+      section.innerHTML = `
+        <h6 class="fw-bold mb-3">${number}. Buy Back</h6>
+        <div class="row mb-3">
+            <div class="col-md-5">
+                <label class="form-label fw-bold">Select Shareholder's Name</label>
+                <select class="form-select" name="ShareholderName${number}">
+                    <option value="">Select Shareholder Name</option>
+                    <option>John Smith</option>
+                    <option>Jane Doe</option>
+                    <option>Robert Johnson</option>
+                    <option>Sarah Williams</option>
+                </select>
+            </div>
+            <div class="col-md-5">
+                <label class="form-label fw-bold">Enter Quantity</label>
+                <input type="number" class="form-control" name="ShareQuantity${number}" placeholder="Enter quantity" />
+            </div>
+            <div class="col-md-2 d-flex align-items-end">
+                <button type="button" class="btn btn-danger btn-sm removeBtn">X</button>
+            </div>
+        </div>
+      `;
+
+      // Add remove event
+      section.querySelector(".removeBtn").addEventListener("click", function() {
+        section.remove();
+        updateSectionNumbers();
+      });
+
+      return section;
+    }
+
+    // Add new section
+    addBtn.addEventListener("click", function() {
+      const section = createShareholderSection(count);
+      container.appendChild(section);
+      count++;
+    });
+
+    // Update numbering after removal
+    function updateSectionNumbers() {
+      const sections = container.querySelectorAll(".border");
+      count = 1;
+      sections.forEach((sec) => {
+        const title = sec.querySelector("h6");
+        title.textContent = `${count}. Buy Back`;
+        count++;
+      });
+    }
+
+    // Create first section by default
+    container.appendChild(createShareholderSection(count));
+    count++;
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Toggle Board/Circular sections
+        document.querySelectorAll("input[name='approvalMode']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalBoardSection").classList.toggle("d-none", this.value !== "board");
+                document.getElementById("approvalCircularSection").classList.toggle("d-none", this.value !== "circular");
+            });
+        });
+
+        // Toggle YES/NO inside Board section
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>
+<script>
+    (function() {
+      const container = document.getElementById('allotteeContainer');
+      const addBtn = document.getElementById('addAllotteeBtn');
+      let allotteeCount = 0;
+
+      // Add an allottee block
+      function addAllottee() {
+        allotteeCount++;
+        const block = document.createElement('div');
+        block.className = 'allotment-block mb-3';
+        block.setAttribute('data-id', allotteeCount);
+
+        block.innerHTML = `
+          <div class="row mb-1">
+            <div class="col-12">
+              <span class="allotment-title fw-bold text-decoration-underline">${allotteeCount} Allotment</span>
+            </div>
+          </div>
+
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <select class="form-control" name="ShareholderName${allotteeCount}">
+                <option value="">Select Shareholder Name</option>
+                <option value="shareholder1">Shareholder 1</option>
+                <option value="shareholder2">Shareholder 2</option>
+                <option value="shareholder3">Shareholder 3</option>
+              </select>
+            </div>
+
+            <div class="col-md-3">
+              <input type="number" class="form-control" name="Quantity${allotteeCount}" placeholder="Enter Quantity" />
+            </div>
+
+            <div class="col-md-2">
+              <input type="number" class="form-control" name="LoanAmount${allotteeCount}" placeholder="Loan Amount" />
+            </div>
+
+            <div class="col-md-1 text-end">
+              <button type="button" class="btn btn-danger btn-sm remove-allottee">X</button>
+            </div>
+          </div>
+        `;
+
+        container.appendChild(block);
+      }
+
+      // Re-number titles and input names after add/remove
+      function updateAllotteeLabels() {
+        const blocks = container.querySelectorAll('.allotment-block');
+        allotteeCount = 0;
+        blocks.forEach((blk, idx) => {
+          const newIndex = idx + 1;
+          allotteeCount = newIndex;
+          blk.setAttribute('data-id', newIndex);
+
+          // Update title
+          const title = blk.querySelector('.allotment-title');
+          if (title) title.textContent = `${newIndex} Allotment`;
+
+          // Update form field names
+          blk.querySelector('select').setAttribute('name', `ShareholderName${newIndex}`);
+          blk.querySelectorAll('input')[0].setAttribute('name', `Quantity${newIndex}`);
+          blk.querySelectorAll('input')[1].setAttribute('name', `LoanAmount${newIndex}`);
+        });
+      }
+
+      // Add button event
+      addBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        addAllottee();
+        updateAllotteeLabels();
+      });
+
+      // Remove allottee (event delegation)
+      container.addEventListener('click', function (e) {
+        if (e.target.classList.contains('remove-allottee')) {
+          e.target.closest('.allotment-block').remove();
+          updateAllotteeLabels();
+        }
+      });
+
+      // Submit handler (optional, logs data)
+      document.getElementById('submitAllottees').addEventListener('click', function () {
+        const data = [];
+        const blocks = container.querySelectorAll('.allotment-block');
+        blocks.forEach((blk, idx) => {
+          const i = idx + 1;
+          data.push({
+            index: i,
+            name: blk.querySelector(`select[name="ShareholderName${i}"]`)?.value || '',
+            qty: blk.querySelector(`input[name="Quantity${i}"]`)?.value || '',
+            loan: blk.querySelector(`input[name="LoanAmount${i}"]`)?.value || ''
+          });
+        });
+        console.log('Allottees:', data);
+      });
+    })();
+</script>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Board Meeting toggle
+        document.querySelectorAll("input[name='boardMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("boardMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("boardMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // General Meeting toggle
+        document.querySelectorAll("input[name='generalMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("generalMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("generalMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // Approval for allotment toggle
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>

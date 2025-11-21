@@ -1,0 +1,981 @@
+﻿@{
+    ViewData["Title"] = "Buy Back Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To authorize Director To Complete The Verification Of The Offers Received for Buy Back Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section-heading mb-3">
+            <h6 class="fw-bold">Particulars of Adjournment</h6>
+        </div>
+
+        <!-- Container for dynamic sections -->
+        <div id="adjournmentContainer"></div>
+
+        <!-- Button to add new adjournment -->
+        <div class="mt-3">
+            <button type="button" class="btn btn-outline-primary" id="addAdjournmentBtn">
+                Add More Adjournment
+            </button>
+        </div>
+
+        <!-- ACKNOWLEDGEMENT OF CIRCULATION OF NOTICE OF BOARD MEETING -->
+        <div class="section-heading mt-4">ACKNOWLEDGEMENT OF CIRCULATION OF NOTICE OF BOARD MEETING</div>
+        <div class="p-3 border">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Director</th>
+                            <th>Date of Circulation of Notice</th>
+                            <th>Date of receipt</th>
+                            <th>Mode</th>
+                            <th>Other</th>
+                        </tr>
+                    </thead>
+                    <tbody id="directorTableBody">
+                        <tr>
+                            <td>
+                                <select class="form-select" name="director[]">
+                                    <option value="">Select Director</option>
+                                    <option>Director 1</option>
+                                    <option>Director 2</option>
+                                    <option>Director 3</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                            </td>
+                            <td>
+                                <select class="form-select" name="mode[]">
+                                    <option value="">Select Mode</option>
+                                    <option>Email</option>
+                                    <option>Physical Copy</option>
+                                    <option>Digital Portal</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary" id="addDirectorBtn">+ Add More</button>
+            </div>
+        </div>
+
+        <!-- FINALISATION OF MINUTES -->
+        <div class="section-heading mt-4">FINALISATION OF MINUTES</div>
+        <div class="p-3 border">
+            <div class="mb-3">
+                <p class="text-justify">
+                    Within fifteen days from the date of the conclusion of the Meeting of the Board, the draft Minutes thereof shall be circulated to all the members of the Board for their comments. The Directors, whether present at the Meeting or not, shall communicate their comments, if any, in writing on the draft Minutes within seven days from the date of circulation thereof, so that the Minutes are finalised and entered in the Minutes Book within the specified time limit of thirty days. In the event a Director does not comment on the draft Minutes, the draft Minutes shall be deemed to have been approved by such Director.
+                </p>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Whether the draft minutes have been circulated among the Board Members?</strong></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMeetingIncorporate" id="boardYes" value="yes">
+                            <label class="form-check-label" for="boardYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMeetingIncorporate" value="no" id="boardNo" checked>
+                            <label class="form-check-label" for="boardNo">No</label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <div id="boardMeetingYes" class="row mb-3">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Director</th>
+                                        <th>Date of Circulation of Draft Minutes</th>
+                                        <th>Date of receipt</th>
+                                        <th>Mode</th>
+                                        <th>Other</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodySecond">
+                                    <tr>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="mode[]">
+                                                <option value="">Select Mode</option>
+                                                <option>Email</option>
+                                                <option>Physical Copy</option>
+                                                <option>Digital Portal</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorSecondBtn">+ Add More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Whether the draft minutes have been circulated among the Board Members?</strong></label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="boardMeetingSecondIncorporate" id="boardSecondYes" value="yes">
+                                <label class="form-check-label" for="boardSecondYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="boardMeetingSecondIncorporate" value="no" id="boardSecondNo" checked>
+                                <label class="form-check-label" for="boardSecondNo">No</label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div id="boardMeetingNo" class="row mb-3 d-none">
+                </div>
+                <div id="boardMeetingSecondYes" class="row mb-3">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                      
+                                        <th>Date of Receiving comment</th>
+                                        <th>Director</th>
+                                        <th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodythird">
+                                    <tr>
+                                      
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+                                       
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Comment">
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorThirdBtn">+ Add More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="boardMeetingSecondNo" class="row mb-3 d-none">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Whether the signed minutes have been circulated among the Board Members?</strong></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMinutesCirculatedRadio" id="boardsignedYes" value="yes">
+                            <label class="form-check-label" for="boardsignedYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMinutesCirculatedRadio" id="boardsignedNo" value="no" checked>
+                            <label class="form-check-label" for="boardsignedNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Section - Initially Hidden -->
+                <div id="boardMinutesCirculatedSection" class="row mb-3 d-none">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Director</th>
+                                        <th>Date of Circulation of Signed Minutes</th>
+                                        <th>Date of receipt</th>
+                                        <th>Mode</th>
+                                        <th>Other</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodySigned">
+                                    <tr>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="mode[]">
+                                                <option value="">Select Mode</option>
+                                                <option>Email</option>
+                                                <option>Physical Copy</option>
+                                                <option>Digital Portal</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorSignedBtn">+ Add More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                const boardYes = document.getElementById("boardYes");
+                const boardNo = document.getElementById("boardNo");
+                const boardMeetingYes = document.getElementById("boardMeetingYes");
+                const boardMeetingNo = document.getElementById("boardMeetingNo");
+
+                const boardSecondYes = document.getElementById("boardSecondYes");
+                const boardSecondNo = document.getElementById("boardSecondNo");
+                const boardMeetingSecondYes = document.getElementById("boardMeetingSecondYes");
+                const boardMeetingSecondNo = document.getElementById("boardMeetingSecondNo");
+                const yesRadio = document.getElementById('boardsignedYes');
+                const noRadio = document.getElementById('boardsignedNo');
+                const section = document.getElementById('boardMinutesCirculatedSection');
+
+
+                    function toggleSection() {
+                       if (yesRadio.checked) {
+                           section.classList.remove('d-none');
+                       } else {
+                           section.classList.add('d-none');
+                       }
+                   }
+                function toggleBoardMeeting() {
+                    boardMeetingYes.classList.toggle("d-none", !boardYes.checked);
+                    boardMeetingNo.classList.toggle("d-none", boardYes.checked);
+                }
+
+                function toggleBoardMeetingSecond() {
+                    boardMeetingSecondYes.classList.toggle("d-none", !boardSecondYes.checked);
+                    boardMeetingSecondNo.classList.toggle("d-none", boardSecondYes.checked);
+                }
+                     yesRadio.addEventListener('change', toggleSection);
+            noRadio.addEventListener('change', toggleSection);
+
+            // Call on page load to set correct visibility
+            toggleSection();
+
+                // initial toggle based on default selection
+                toggleBoardMeeting();
+                toggleBoardMeetingSecond();
+
+                // add event listeners
+                boardYes.addEventListener("change", toggleBoardMeeting);
+                boardNo.addEventListener("change", toggleBoardMeeting);
+
+                boardSecondYes.addEventListener("change", toggleBoardMeetingSecond);
+                boardSecondNo.addEventListener("change", toggleBoardMeetingSecond);
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const addButton = document.getElementById('addDirectorThirdBtn');
+                const tableBody = document.getElementById('directorTableBodythird');
+
+                // Function to add new row
+                function addNewRow() {
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                       
+                        <td>
+                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                        </td>
+                         <td>
+                            <select class="form-select" name="director[]">
+                                <option value="">Select Director</option>
+                                <option>Director 1</option>
+                                <option>Director 2</option>
+                                <option>Director 3</option>
+                            </select>
+                        </td>
+                       
+                        <td>
+                            <input type="text" class="form-control" name="other[]" placeholder="Comment">
+                        </td>
+                        <td>
+                                        <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(newRow);
+                    updateRemoveButtons();
+                }
+
+                // Function to update remove buttons visibility
+                function updateRemoveButtons() {
+                    const rows = tableBody.querySelectorAll('tr');
+                    const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+                    if (rows.length > 1) {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'block';
+                        });
+                    } else {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'none';
+                        });
+                    }
+                }
+
+                // Event listener for Add More button
+                addButton.addEventListener('click', addNewRow);
+
+                // Event delegation for Remove buttons
+                tableBody.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('remove-row')) {
+                        const row = e.target.closest('tr');
+                        row.remove();
+                        updateRemoveButtons();
+                    }
+                });
+
+                // Initialize remove buttons
+                updateRemoveButtons();
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const addButton = document.getElementById('addDirectorSignedBtn');
+                const tableBody = document.getElementById('directorTableBodySigned');
+
+                // Function to add new row
+                function addNewRow() {
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>
+                            <select class="form-select" name="director[]">
+                                <option value="">Select Director</option>
+                                <option>Director 1</option>
+                                <option>Director 2</option>
+                                <option>Director 3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <select class="form-select" name="mode[]">
+                                <option value="">Select Mode</option>
+                                <option>Email</option>
+                                <option>Physical Copy</option>
+                                <option>Digital Portal</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                        </td>
+                        <td>
+                                        <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(newRow);
+                    updateRemoveButtons();
+                }
+
+                // Function to update remove buttons visibility
+                function updateRemoveButtons() {
+                    const rows = tableBody.querySelectorAll('tr');
+                    const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+                    if (rows.length > 1) {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'block';
+                        });
+                    } else {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'none';
+                        });
+                    }
+                }
+
+                // Event listener for Add More button
+                addButton.addEventListener('click', addNewRow);
+
+                // Event delegation for Remove buttons
+                tableBody.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('remove-row')) {
+                        const row = e.target.closest('tr');
+                        row.remove();
+                        updateRemoveButtons();
+                    }
+                });
+
+                // Initialize remove buttons
+                updateRemoveButtons();
+            });
+        </script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const addButton = document.getElementById('addDirectorSecondBtn');
+                const tableBody = document.getElementById('directorTableBodySecond');
+
+                // Function to add new row
+                function addNewRow() {
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>
+                            <select class="form-select" name="director[]">
+                                <option value="">Select Director</option>
+                                <option>Director 1</option>
+                                <option>Director 2</option>
+                                <option>Director 3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <select class="form-select" name="mode[]">
+                                <option value="">Select Mode</option>
+                                <option>Email</option>
+                                <option>Physical Copy</option>
+                                <option>Digital Portal</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                        </td>
+                        <td>
+                                        <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(newRow);
+                    updateRemoveButtons();
+                }
+
+                // Function to update remove buttons visibility
+                function updateRemoveButtons() {
+                    const rows = tableBody.querySelectorAll('tr');
+                    const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+                    if (rows.length > 1) {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'block';
+                        });
+                    } else {
+                        removeButtons.forEach(button => {
+                            button.style.display = 'none';
+                        });
+                    }
+                }
+
+                // Event listener for Add More button
+                addButton.addEventListener('click', addNewRow);
+
+                // Event delegation for Remove buttons
+                tableBody.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('remove-row')) {
+                        const row = e.target.closest('tr');
+                        row.remove();
+                        updateRemoveButtons();
+                    }
+                });
+
+                // Initialize remove buttons
+                updateRemoveButtons();
+            });
+        </script>
+
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Function to handle image file reading and store as base64
+                function handleImageUpload(inputElement, dataField) {
+                    const file = inputElement.files[0];
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            if (dataField.endsWith('[]')) {
+                                // For array fields, find the corresponding hidden input
+                                const index = Array.from(document.querySelectorAll('input[name="' + dataField + '"]')).indexOf(inputElement.nextElementSibling);
+                                document.querySelectorAll('input[name="' + dataField + '"]')[index].value = e.target.result;
+                            } else {
+                                document.querySelector(`input[name="${dataField}"]`).value = e.target.result;
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+
+                // Add event listeners for all file inputs
+                document.querySelectorAll('input[type="file"]').forEach(input => {
+                    input.addEventListener('change', function() {
+                        const fieldName = this.name;
+                        const dataFieldName = fieldName + '_data';
+                        handleImageUpload(this, dataFieldName);
+                    });
+                });
+
+                // Add Director functionality
+                const addDirectorBtn = document.getElementById('addDirectorBtn');
+                const directorTableBody = document.getElementById('directorTableBody');
+
+                addDirectorBtn.addEventListener('click', function() {
+                    const newRow = document.createElement('tr');
+                    newRow.innerHTML = `
+                        <td>
+                            <select class="form-select" name="director[]">
+                                <option value="">Select Director</option>
+                                <option>Director 1</option>
+                                <option>Director 2</option>
+                                <option>Director 3</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                        </td>
+                        <td>
+                            <select class="form-select" name="mode[]">
+                                <option value="">Select Mode</option>
+                                <option>Email</option>
+                                <option>Physical Copy</option>
+                                <option>Digital Portal</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                        </td>
+                        <td>
+
+                            <button type="button" class="btn btn-danger btn-sm mt-1 remove-director">X</button>
+                        </td>
+                    `;
+
+                    directorTableBody.appendChild(newRow);
+
+                    // Add event listener for the new file input
+                    const newFileInput = newRow.querySelector('input[type="file"]');
+                    newFileInput.addEventListener('change', function() {
+                        handleImageUpload(this, 'director_signature_data[]');
+                    });
+                });
+
+                // Remove director functionality
+                directorTableBody.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('remove-director')) {
+                        e.target.closest('tr').remove();
+                    }
+                });
+            });
+        </script>
+
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To authorize Director to complete the verification of the offers received for Buyback</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To authorize for openening a special current bank account for the purpose of Buy back">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="Authorization for openening a special current bank account for the purpose of Buy back">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">For the purpose of Buy back, a special bank account has to be opened and it is proposed to open this special current account under the name and style of “[Name of Company]- Buy Back A/c. Authorization of the board is required for this purpose. The board may discuss the matter and if thought fit, pass the following resolution in this regard:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">It was proposed to open a special current account under the name and style of “[Name of Company] - Buy Back A/c for the purpose of the buyback of shares by the company. Authorization of the board was required for this purpose. After discussions, the board passed the following resolution in this regard:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">“RESOLVED THAT a special current account under the name and style of “[Name of Company] - Buy Back A/c” be opened with the [Name of Bank], [Branch] and a sum of amount as may be finalized by the board of directors of the company be deposited with the bankers to meet the amount of consideration payable to the successful applicants under buyback offer.
+
+RESOLVED FURTHER THAT [Name of Director, Designation] [and Name of Director2, Designation2] of the company be and [is-are] hereby authorized to sign the necessary forms and documents.
+
+FURTHER RESOLVED THAT the bank be instructed to pay the amount of consideration to the shareholders as may be requested by the company by way of issue of normal banking channel including electronic transfer and/or NEFT/RTGS, etc. and the bank charges be paid to the bankers as per advise as may be issued by the company.
+
+FURTHER RESOLVED THAT [Name of Director, Designation] [and Name of Director2, Designation2] of the company be and [is-are] hereby severally authorized to open and to give any instructions relating to the operation of the above-said bank account by any two below mentioned authorized signatories and their signatures shall be sufficient authority to bind the company in all transactions between the Bank and the company including those specifically referred to herein:</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">“RESOLVED THAT a special current account under the name and style of “[Name of Company] - Buy Back A/c” be opened with the [Name of Bank], [Branch] and a sum of amount as may be finalized by the board of directors of the company be deposited with the bankers to meet the amount of consideration payable to the successful applicants under buyback offer.
+
+RESOLVED FURTHER THAT [Name of Director, Designation] [and Name of Director2, Designation2] of the company be and [is-are] hereby authorized to sign the necessary forms and documents.
+
+FURTHER RESOLVED THAT the bank be instructed to pay the amount of consideration to the shareholders as may be requested by the company by way of issue of normal banking channel including electronic transfer and/or NEFT/RTGS, etc. and the bank charges be paid to the bankers as per advise as may be issued by the company.
+
+FURTHER RESOLVED THAT [Name of Director, Designation] [and Name of Director2, Designation2] of the company be and [is-are] hereby severally authorized to open and to give any instructions relating to the operation of the above-said bank account by any two below mentioned authorized signatories and their signatures shall be sufficient authority to bind the company in all transactions between the Bank and the company including those specifically referred to herein:</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('input[name="FullyPaid"]').change(function () {
+            if ($(this).val() === "No") {
+                $('#amountPaidRow').show();
+            } else {
+                $('#amountPaidRow').hide();
+                $('#amountPaidRow input').val("");
+            }
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    const container = document.getElementById("adjournmentContainer");
+    const addBtn = document.getElementById("addAdjournmentBtn");
+    let count = 1;
+
+    // Create new adjournment section
+    function createAdjournmentSection(number, showRemove = true) {
+      const section = document.createElement("div");
+      section.classList.add("p-3", "border", "mb-3", "rounded");
+
+      section.innerHTML = `
+        <div class="row align-items-end">
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-2">${number}. Adjournment</h6>
+                <label class="form-label fw-bold">Select Resolution</label>
+                <select class="form-select" name="Resolution${number}">
+                    <option value="">-- Select Resolution --</option>
+                    <option value="Source">Source</option>
+                    <option value="Slytes">Slytes</option>
+                    <option value="Format">Format</option>
+                    <option value="Font">Font</option>
+                    <option value="Size">Size</option>
+                </select>
+            </div>
+
+            <div class="col-md-8">
+                <label class="form-label fw-bold">Remarks / Description</label>
+                <textarea class="form-control" name="Remarks${number}" rows="1" placeholder="Enter details..."></textarea>
+            </div>
+
+            <div class="col-md-1 text-end">
+                ${
+                  showRemove
+                    ? `<button type="button" class="btn btn-danger btn-sm removeBtn">X</button>`
+                    : ""
+                }
+            </div>
+        </div>
+      `;
+
+      // If remove button exists, attach event
+      const removeBtn = section.querySelector(".removeBtn");
+      if (removeBtn) {
+        removeBtn.addEventListener("click", function () {
+          section.remove();
+          updateSectionNumbers();
+        });
+      }
+
+      return section;
+    }
+
+    // Add new section
+    addBtn.addEventListener("click", function () {
+      const section = createAdjournmentSection(count, true);
+      container.appendChild(section);
+      count++;
+    });
+
+    // Update numbering after removal
+    function updateSectionNumbers() {
+      const sections = container.querySelectorAll(".border");
+      count = 1;
+      sections.forEach((sec) => {
+        const title = sec.querySelector("h6");
+        title.textContent = `${count}. Adjournment`;
+        count++;
+      });
+    }
+
+    // Add the first section (without remove button)
+    container.appendChild(createAdjournmentSection(count, false));
+    count++;
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Toggle Board/Circular sections
+        document.querySelectorAll("input[name='approvalMode']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalBoardSection").classList.toggle("d-none", this.value !== "board");
+                document.getElementById("approvalCircularSection").classList.toggle("d-none", this.value !== "circular");
+            });
+        });
+
+        // Toggle YES/NO inside Board section
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Board Meeting toggle
+        document.querySelectorAll("input[name='boardMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("boardMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("boardMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // General Meeting toggle
+        document.querySelectorAll("input[name='generalMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("generalMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("generalMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // Approval for allotment toggle
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>
