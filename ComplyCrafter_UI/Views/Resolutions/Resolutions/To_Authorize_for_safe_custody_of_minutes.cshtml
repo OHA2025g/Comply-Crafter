@@ -1,0 +1,196 @@
+﻿@{
+    ViewData["Title"] = "Share Capital Clause Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To Authorize {Director} for safe custody of minutes</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To Authorize {Director} for safe custody of minutes</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To Authorize {Director} for safe custody of minutes">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To Authorize {Director} for safe custody of minutes">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Board hereby proposes to reclassify the authorized capital of the company as part of our strategic initiative to issue shares and meet our long-term capital requirements. This reclassification necessitates the approval of shareholders via a Special Resolution. Therefore, the Board recommends passing the following resolution...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Board of Directors convened the meeting to propose the reclassification of the company's authorized capital to issue shares and address long-term capital requirements in the ensuing general meeting...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">[Resolution for Notice text here]</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">[Resolution for Minutes text here]</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+

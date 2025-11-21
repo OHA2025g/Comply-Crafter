@@ -1,0 +1,671 @@
+﻿@{
+    ViewData["Title"] = "Add Transfer Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+
+    .hidden-section {
+        display: none !important;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To Consider And Approve Transfer of Debentures Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+      
+        <!-- Approval Mode Section -->
+        <div class="section-heading mb-3">
+            <h6 class="fw-bold">Enter Particulars of Meeting</h6>
+        </div>
+        <div class="mb-4">
+            <label class="form-label"><strong>Approval Mode:</strong></label>
+            <div class="d-flex gap-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="approvalMode" id="boardMeeting" value="board">
+                    <label class="form-check-label" for="boardMeeting">In Board meeting</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="approvalMode" id="circularResolution" value="circular">
+                    <label class="form-check-label" for="circularResolution">By Circular Resolution</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="defulatrowshow">
+            <div class="col-md-12">
+                <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                <select class="form-select" name="circularAuthorizedSignatory">
+                    <option value="">Select Director</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Robert Johnson</option>
+                </select>
+            </div>
+        </div>
+        <!-- Circular Resolution Section -->
+        <div id="circularResolutionSection" class="row hidden-section">
+            <div class="col-md-6 mb-3">
+                <label class="form-label"><strong>Date of Passing Circular Resolution</strong></label>
+                <input class="form-control" type="date" name="circularResolutionDate" />
+            </div>
+
+            <div class="col-md-6 mb-3">
+                <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                <select class="form-select" name="circularAuthorizedSignatory">
+                    <option value="">Select Director</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Robert Johnson</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Board Meeting Section -->
+        <div id="boardMeetingSection" class="hidden-section">
+            <!-- Existing Meeting Question -->
+            <div class="mb-4" id="existingMeetingSection">
+                <label class="form-label"><strong>Do you want to incorporate this agenda in existing Board Meeting?</strong></label>
+                <div class="d-flex gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="incorporateAgenda" id="incorporateYes" value="yes">
+                        <label class="form-check-label" for="incorporateYes">Yes</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="incorporateAgenda" id="incorporateNo" value="no">
+                        <label class="form-check-label" for="incorporateNo">No</label>
+                    </div>
+                </div>
+               
+                
+
+            </div>
+
+            <div class="mb-4 hidden-section" id="yesandnoucheekthenshow">
+                <div class="row">
+                <div class="col-md-4">
+                    <label class="form-label"><strong>Date of New Meeting</strong></label>
+                    <input type="date" class="form-control" name="newMeetingDate" />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label"><strong>Time of New Meeting</strong></label>
+                    <input type="time" class="form-control" name="newMeetingTime" />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="boardAuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                        <option>Robert Johnson</option>
+                    </select>
+                </div>
+                </div>
+            </div>
+            <!-- Select Existing Meeting (shown when Yes is selected) -->
+            <div class="mb-4 hidden-section" id="selectExistingMeetingSection">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Select Existing Meeting</strong></label>
+                        <select class="form-select" name="existingMeeting">
+                            <option value="">Select Existing Meeting</option>
+                            <option>Meeting 1 - 15/09/2025</option>
+                            <option>Meeting 2 - 20/09/2025</option>
+                            <option>Meeting 3 - 25/09/2025</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                        <select class="form-select" name="boardAuthorizedSignatory">
+                            <option value="">Select Director</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                            <option>Robert Johnson</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Meeting Section (shown when No is selected) -->
+            <div class="mb-4 hidden-section" id="newMeetingSection">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Date of New Meeting</strong></label>
+                        <input type="date" class="form-control" name="newMeetingDate" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Time of New Meeting</strong></label>
+                        <input type="time" class="form-control" name="newMeetingTime" />
+                    </div>
+                    <div class="col-md-4">
+                        <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                        <select class="form-select" name="boardAuthorizedSignatory">
+                            <option value="">Select Director</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                            <option>Robert Johnson</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+       
+
+        <!-- FINALISATION OF MINUTES -->
+        <div class="section-heading mt-4">Enter Particulars of Transfer</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Type of Debenture</strong></label>
+                    <select class="form-control">
+                        <option value="">Select Type of Debenture</option>
+                        <option>Convertible Debentures</option>
+                        <option>Non-Convertible Debentures</option>
+                        <option>Redeemable Debentures</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Date of Transfer</strong></label>
+                    <input type="date" class="form-control" value="2025-10-09">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="section-heading mt-4">Transfer</div>
+        <div class="p-3 border">
+            <!-- Add this container div -->
+            <div id="transferContainer">
+                <!-- First Transfer Row wrapped in transfer-row div -->
+                <div class="transfer-row mb-4 p-3 border">
+                    <h6 class="fw-bold mb-3">Transfer #1</h6>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Transferor</strong></label>
+                            <select class="form-control" name="transferor[]">
+                                <option value="">Select Transferor</option>
+                                <option>ABC Holdings Ltd.</option>
+                                <option>XYZ Investments Pvt. Ltd.</option>
+                                <option>John Smith</option>
+                                <option>Sarah Wilson</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Transferee</strong></label>
+                            <select class="form-control" name="transferee[]">
+                                <option value="">Select Transferee</option>
+                                <option>DEF Capital Ltd.</option>
+                                <option>PQR Financial Services</option>
+                                <option>Michael Brown</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Quantity</strong></label>
+                            <input type="number" class="form-control" name="quantity[]" placeholder="Enter Quantity">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Transfer Number</strong></label>
+                            <input type="text" class="form-control" name="transferNumber[]" placeholder="Enter Transfer No.">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Date of execution (SH-4)</strong></label>
+                            <input type="date" class="form-control" name="executionDate[]">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Stamp duty paid</strong></label>
+                            <input type="text" class="form-control" name="stampDuty[]" placeholder="Enter stamp duty">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label"><strong>Transfer By Way</strong></label>
+                            <select class="form-control" name="transferByWay[]">
+                                <option value="">Select By Way</option>
+                                <option>Gift</option>
+                                <option>Sale</option>
+                                <option>Inheritance</option>
+                                <option>Exchange</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <!-- Empty column for alignment - no remove button in first row -->
+                            <label class="form-label">&nbsp;</label>
+                            <div class="mt-2" style="height: 38px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary" onclick="addTransferRow()">Add More Transfer</button>
+            </div>
+        </div>
+
+      
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To consider the sub division of the nominal value of the Shares of the Company from Rs. Existing Face Value/- per share to Rs. New Face Value/- per share</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To consider the sub division of the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="Sub division of the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">Existing Issued, subscribed, and paid up [Type of Shares] capital of the Company is Rs. [Total Existing Paid Up Capital]/- (Rupees [Total Existing Paid Up Capital in words] Only) divided into [Existing Paid Up Shares] [Type of Shares] of Rs. [Existing Face Value]/- each.
+
+With a view to enhancing the shareholders base of the company and also to increase the liquidity of the [Type of Shares] of the Company, it is proposed to sub-divide the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share. Further,  after sub-division, each paid up [Type of Shares] of nominal value Rs. [Existing Face Value]/-  per share, existing on the Record Date as might be fixed, shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of Nominal Value of Rs. [New Face Value]/- each.
+
+Further, it is also proposed that existing authorized [Type of Shares] capital of Rs. [Existing Authorized Capital]/- (Rupees [Existing Authorized Capital in words] Only) divided into [Existing Authorized Shares] ([Existing Authorized Shares in words]) [Type of Shares] of Rs. [Existing Face Value]/- each shall be sub-divided into [Authorized Shares after division] ([Authorized Shares after division in words]) [Type of Shares] of Rs. [New Face Value]/- each.
+
+The Board may discuss the matter and if thought fit pass the following resolution:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">Existing Issued, subscribed, and paid up [Type of Shares] capital of the Company was Rs. [Total Existing Paid Up Capital]/- (Rupees [Total Existing Paid Up Capital in words] Only) divided into [Existing Paid Up Shares] [Type of Shares] of Rs. [Existing Face Value]/- each.
+
+With a view to enhancing the shareholders base of the company and also to increase the liquidity of the [Type of Shares] of the Company, it was proposed to sub-divide the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share. Further,  after sub-division, each paid up [Type of Shares] of nominal value Rs. [Existing Face Value]/-  per share, existing on the Record Date as might be fixed, would stand sub-divided into [Paid Up Shares after division] [Type of Shares] of Nominal Value of Rs. [New Face Value]/- each.
+
+Further, it is also proposed that existing authorized [Type of Shares] capital of Rs. [Existing Authorized Capital]/- (Rupees [Existing Authorized Capital in words] Only) divided into [Existing Authorized Shares] ([Existing Authorized Shares in words]) [Type of Shares] of Rs. [Existing Face Value]/- each shall be sub-divided into [Authorized Shares after division] ([Authorized Shares after division in words]) [Type of Shares] of Rs. [New Face Value]/- each.
+
+The Board may discuss the matter and if thought fit pass the following resolution:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">"RESOLVED THAT pursuant to the provisions of section 61(1)(d) and other applicable provisions, if any, of the Companies Act, 2013, read with rules made thereunder or any modification(s) or re-enactment thereof, subject to the provisions of Articles of Association and subject to the approval of shareholders in general meeting, the consent of the board be and are hereby accorded for sub-division of [Type of Shares] of Rs. [Existing Face Value]/- per share into Rs. [New Face Value]/- per share.
+
+"RESOLVED FURTHER THAT pursuant to the sub-division each [Type of Shares] of the face value of Rs. [Existing Face Value]/- as existing on the record date shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each fully paid-up, with effect from the record date.
+
+"RESOLVED FURTHER THAT on sub-division, [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each be issued in lieu of the existing [Type of Shares] of Rs. [Existing Face Value]/- each, subject to the terms of Memorandum and Articles of Association of the company and shall rank pari-passu in all respects with and carry the same rights as the existing fully paid [Type of Shares] of Rs. [Existing Face Value]/- each of the company.
+
+"RESOLVED FURTHER THAT upon sub-division of [Type of Shares] of the company as aforesaid, the existing share certificate(s) in relation to the existing [Type of Shares] of the face value of Rs. [Existing Face Value]/- each held in physical form shall be deemed to have been automatically canceled and be of no effect on and from the Record Date of sub-division. The Company may, without requiring the surrender of existing share certificate(s) directly issue and dispatch the new share certificate(s) of the Company in lieu of such existing share certificate(s) within the period prescribed or that may be prescribed in this behalf from time to time and in the case of shares held in dematerialized form, the number of sub-divided [Type of Shares] be credited to the respective beneficiary accounts of the shareholders with the Depository Participants, in lieu of the existing credits representing the [Type of Shares] before sub-division.
+
+"RESOLVED FURTHER THAT the Board be and is hereby authorized to fix a record date and to take such steps as may be necessary for obtaining approvals, statutory, contractual or otherwise, in relation to the above and to settle all matters arising out of and incidental thereto, and to execute all deeds, applications, documents, and writings that may be required, on behalf of the company and generally to do all such acts, deeds, matters and things and to give such directions as may be necessary, proper and expedient or incidental for the purpose of giving effect to this resolution.
+
+"RESOLVED FURTHER THAT necessary entries in the register of members and other statutory registers be made and modified consequent to the changes in share capital of the company due to sub-division of share capital in accordance with the application the provisions of the Companies Act, 2013 rules made thereunder as amended from time to time."
+
+"RESOLVED FURTHER THAT [Director1], [Designtaion1][, and Director2, Designation2], be and [is-are] hereby severally authorized to do all such acts, deeds, and things and to sign all such documents, papers, and writings as may be necessary to give effect to the resolution.":</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">"RESOLVED THAT pursuant to the provisions of section 61(1)(d) and other applicable provisions, if any, of the Companies Act, 2013, read with rules made thereunder or any modification(s) or re-enactment thereof, subject to the provisions of Articles of Association and subject to the approval of shareholders in general meeting, the consent of the board be and are hereby accorded for sub-division of [Type of Shares] of Rs. [Existing Face Value]/- per share into Rs. [New Face Value]/- per share.
+
+"RESOLVED FURTHER THAT pursuant to the sub-division each [Type of Shares] of the face value of Rs. [Existing Face Value]/- as existing on the record date shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each fully paid-up, with effect from the record date.
+
+"RESOLVED FURTHER THAT on sub-division, [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each be issued in lieu of the existing [Type of Shares] of Rs. [Existing Face Value]/- each, subject to the terms of Memorandum and Articles of Association of the company and shall rank pari-passu in all respects with and carry the same rights as the existing fully paid [Type of Shares] of Rs. [Existing Face Value]/- each of the company.
+
+"RESOLVED FURTHER THAT upon sub-division of [Type of Shares] of the company as aforesaid, the existing share certificate(s) in relation to the existing [Type of Shares] of the face value of Rs. [Existing Face Value]/- each held in physical form shall be deemed to have been automatically canceled and be of no effect on and from the Record Date of sub-division. The Company may, without requiring the surrender of existing share certificate(s) directly issue and dispatch the new share certificate(s) of the Company in lieu of such existing share certificate(s) within the period prescribed or that may be prescribed in this behalf from time to time and in the case of shares held in dematerialized form, the number of sub-divided [Type of Shares] be credited to the respective beneficiary accounts of the shareholders with the Depository Participants, in lieu of the existing credits representing the [Type of Shares] before sub-division.
+
+"RESOLVED FURTHER THAT the Board be and is hereby authorized to fix a record date and to take such steps as may be necessary for obtaining approvals, statutory, contractual or otherwise, in relation to the above and to settle all matters arising out of and incidental thereto, and to execute all deeds, applications, documents, and writings that may be required, on behalf of the company and generally to do all such acts, deeds, matters and things and to give such directions as may be necessary, proper and expedient or incidental for the purpose of giving effect to this resolution.
+
+"RESOLVED FURTHER THAT necessary entries in the register of members and other statutory registers be made and modified consequent to the changes in share capital of the company due to sub-division of share capital in accordance with the application the provisions of the Companies Act, 2013 rules made thereunder as amended from time to time."
+
+"RESOLVED FURTHER THAT [Director1], [Designtaion1][, and Director2, Designation2], be and [is-are] hereby severally authorized to do all such acts, deeds, and things and to sign all such documents, papers, and writings as may be necessary to give effect to the resolution."</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Get all elements
+        const boardMeetingRadio = document.getElementById("boardMeeting");
+        const circularResolutionRadio = document.getElementById("circularResolution");
+        const boardMeetingSection = document.getElementById("boardMeetingSection");
+        const circularResolutionSection = document.getElementById("circularResolutionSection");
+        const defaultRowShow = document.getElementById("defulatrowshow"); // Fixed typo in variable name
+         const yesAndNoUncheckThenShow = document.getElementById("yesandnoucheekthenshow"); //Your default section
+
+        // Existing meeting elements
+        const incorporateYes = document.getElementById("incorporateYes");
+        const incorporateNo = document.getElementById("incorporateNo");
+        const selectExistingMeetingSection = document.getElementById("selectExistingMeetingSection");
+        const newMeetingSection = document.getElementById("newMeetingSection");
+
+        function toggleApprovalSections() {
+            // Check if any radio button is checked
+            const isBoardMeetingChecked = boardMeetingRadio.checked;
+            const isCircularResolutionChecked = circularResolutionRadio.checked;
+
+            if (!isBoardMeetingChecked && !isCircularResolutionChecked) {
+                // Both unchecked - show default signatory section only
+                defaultRowShow.classList.remove("hidden-section");
+                boardMeetingSection.classList.add("hidden-section");
+                circularResolutionSection.classList.add("hidden-section");
+                document.getElementById("existingMeetingSection").classList.add("hidden-section");
+
+            } else if (isBoardMeetingChecked) {
+                // Board meeting checked
+                defaultRowShow.classList.add("hidden-section");
+                boardMeetingSection.classList.remove("hidden-section");
+                circularResolutionSection.classList.add("hidden-section");
+
+                // Show existing meeting question
+                document.getElementById("existingMeetingSection").classList.remove("hidden-section");
+
+                // Initialize existing meeting section
+                toggleExistingMeeting();
+
+            } else if (isCircularResolutionChecked) {
+                // Circular resolution checked
+                defaultRowShow.classList.add("hidden-section");
+                boardMeetingSection.classList.add("hidden-section");
+                circularResolutionSection.classList.remove("hidden-section");
+
+                // Hide existing meeting question and sections
+                document.getElementById("existingMeetingSection").classList.add("hidden-section");
+                selectExistingMeetingSection.classList.add("hidden-section");
+                newMeetingSection.classList.add("hidden-section");
+            }
+        }
+
+        function toggleExistingMeeting() {
+            if(!incorporateNo.checked && !incorporateYes.checked)
+            {
+                yesAndNoUncheckThenShow.classList.remove("hidden-section");
+
+            }
+            if (incorporateYes.checked) {
+                // Show select existing meeting, hide new meeting section
+                selectExistingMeetingSection.classList.remove("hidden-section");
+                newMeetingSection.classList.add("hidden-section");
+                yesAndNoUncheckThenShow.classList.add("hidden-section");
+
+            } else if (incorporateNo.checked) {
+                // Show new meeting section, hide select existing meeting
+                selectExistingMeetingSection.classList.add("hidden-section");
+                yesAndNoUncheckThenShow.classList.add("hidden-section");
+                newMeetingSection.classList.remove("hidden-section");
+            }
+
+
+        }
+
+        // Add event listeners to radio buttons
+        if (boardMeetingRadio && circularResolutionRadio) {
+            boardMeetingRadio.addEventListener("change", toggleApprovalSections);
+            circularResolutionRadio.addEventListener("change", toggleApprovalSections);
+        }
+
+        // Add event listeners for existing meeting
+        if (incorporateYes && incorporateNo) {
+            incorporateYes.addEventListener("change", toggleExistingMeeting);
+            incorporateNo.addEventListener("change", toggleExistingMeeting);
+        }
+
+        // Initialize the form state - both unchecked by default
+        toggleApprovalSections();
+    });
+
+    // Signatory table functions
+    window.addSignatoryRow = function() {
+        const table = document.getElementById('signatoryTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+        const rowCount = table.rows.length;
+
+        newRow.innerHTML = `
+            <td>${rowCount}</td>
+            <td>
+                <select class="form-select">
+                    <option value="">Select Signatory</option>
+                    <option>John Doe</option>
+                    <option>Jane Smith</option>
+                    <option>Michael Johnson</option>
+                    <option>Emily Davis</option>
+                </select>
+            </td>
+            <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+            <td><input type="date" class="form-control"></td>
+            <td style="text-align:center;">
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteSignatoryRow(this)">-</button>
+            </td>
+        `;
+    };
+
+    window.deleteSignatoryRow = function(button) {
+        const row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+
+        // Update serial numbers
+        const table = document.getElementById('signatoryTable').getElementsByTagName('tbody')[0];
+        for (let i = 0; i < table.rows.length; i++) {
+            table.rows[i].cells[0].innerHTML = i + 1;
+        }
+    };
+</script>
+
+
+<script>
+    let transferCounter = 1;
+
+    function addTransferRow() {
+        transferCounter++;
+        const transferContainer = document.getElementById('transferContainer');
+        const newRow = document.createElement('div');
+        newRow.className = 'transfer-row mb-4 p-3 border';
+        newRow.innerHTML = `
+            <h6 class="fw-bold mb-3">Transfer #${transferCounter}</h6>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Transferor</strong></label>
+                    <select class="form-control" name="transferor[]">
+                        <option value="">Select Transferor</option>
+                        <option>ABC Holdings Ltd.</option>
+                        <option>XYZ Investments Pvt. Ltd.</option>
+                        <option>John Smith</option>
+                        <option>Sarah Wilson</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Transferee</strong></label>
+                    <select class="form-control" name="transferee[]">
+                        <option value="">Select Transferee</option>
+                        <option>DEF Capital Ltd.</option>
+                        <option>PQR Financial Services</option>
+                        <option>Michael Brown</option>
+                        <option>Emily Davis</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Quantity</strong></label>
+                    <input type="number" class="form-control" name="quantity[]" placeholder="Enter Quantity">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Transfer Number</strong></label>
+                    <input type="text" class="form-control" name="transferNumber[]" placeholder="Enter Transfer No.">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Date of execution (SH-4)</strong></label>
+                    <input type="date" class="form-control" name="executionDate[]">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Stamp duty paid</strong></label>
+                    <input type="text" class="form-control" name="stampDuty[]" placeholder="Enter stamp duty">
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label"><strong>Transfer By Way</strong></label>
+                    <select class="form-control" name="transferByWay[]">
+                        <option value="">Select By Way</option>
+                        <option>Gift</option>
+                        <option>Sale</option>
+                        <option>Inheritance</option>
+                        <option>Exchange</option>
+                    </select>
+                </div>
+                <div class="col-md-3 pt-2">
+                   <button type="button" class="mt-4 btn btn-danger btn-sm removeBtn" onclick="removeTransferRow(this)">X</button>
+                </div>
+            </div>
+        `;
+        transferContainer.appendChild(newRow);
+
+        // Update all transfer numbers
+        updateTransferNumbers();
+    }
+
+    function removeTransferRow(button) {
+        const transferRow = button.closest('.transfer-row');
+        if (document.querySelectorAll('.transfer-row').length > 1) {
+            transferRow.remove();
+            transferCounter--;
+            updateTransferNumbers();
+        }
+    }
+
+    function updateTransferNumbers() {
+        const transferRows = document.querySelectorAll('.transfer-row');
+        transferRows.forEach((row, index) => {
+            row.querySelector('h6').textContent = `Transfer #${index + 1}`;
+        });
+    }
+</script>

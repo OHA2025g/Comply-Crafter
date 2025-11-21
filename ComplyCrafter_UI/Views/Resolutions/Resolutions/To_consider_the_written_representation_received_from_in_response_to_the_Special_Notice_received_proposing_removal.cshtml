@@ -1,0 +1,700 @@
+﻿@{
+    ViewData["Title"] = "Share Capital Clause Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To consider the written representation received from {Name of Director} in response to the Special Notice received proposing {his-her} removal</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== PARTICULARS OF RIGHT ISSUE ====================== -->
+        <div class="section-heading fw-bold text-decoration-underline mb-2">
+            SPECIAL NOTICE U/S 115
+        </div>
+
+        <div class="p-3 border mb-4">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Date of Special Notice</label>
+                    <input type="date" class="form-control" name="DateOfSpecialNotice" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Name of the Removal Director/KMP</label>
+                    <select class="form-select" name="RemovalDirectorKMP">
+                        <option value="">Select Director</option>
+                        <option>Director A</option>
+                        <option>Director B</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading fw-bold text-decoration-underline mb-2">
+            SHAREHOLDERS
+        </div>
+
+        <div class="p-3 border mb-4">
+            <table class="table table-bordered table-sm align-middle" id="shareholderTable">
+                <thead class="table-light">
+                    <tr>
+                        <th style="width: 25%;">Name</th>
+                        <th style="width: 25%;">Address</th>
+                        <th style="width: 25%;">Folio No./DP ID & Client ID</th>
+                        <th style="width: 15%;">No. of Shares held</th>
+                        <th style="width: 10%; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Shareholder Name" name="ShareholderName[]"></td>
+                        <td><input type="text" class="form-control" placeholder="Address" name="ShareholderAddress[]"></td>
+                        <td><input type="text" class="form-control" placeholder="Folio No./DP ID & Client ID" name="ShareholderFolio[]"></td>
+                        <td><input type="number" class="form-control" placeholder="No. of Shares" name="ShareholderShares[]"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addShareholderRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Collective holding</label>
+                    <input type="text" class="form-control" name="CollectiveHolding" placeholder="Collective holding">
+                </div>
+            </div>
+        </div>
+
+        <div class="section-heading fw-bold text-decoration-underline mb-2">
+            REASON FOR REMOVAL
+        </div>
+
+        <div class="p-3 border mb-4">
+            <textarea class="form-control" name="ReasonForRemoval" rows="3"
+                      placeholder="Briefly outline the reasons for seeking removal, e.g., failure to discharge duties, conflict of interest, or any other justifiable grounds."></textarea>
+        </div>
+
+        <div class="section-heading fw-bold text-decoration-underline mb-2">
+            INTIMATION OF SPECIAL NOTICE TO THE DIRECTOR
+        </div>
+
+        <div class="p-3 border mb-4">
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Date of Intimation</label>
+                    <input type="date" class="form-control" name="DateOfIntimation" value="@DateTime.Now.ToString("yyyy-MM-dd")">
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Select signatory for Letter</label>
+                    <select class="form-select" name="SignatoryForLetter">
+                        <option value="">Select Director</option>
+                        <option>Director A</option>
+                        <option>Director B</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Place</label>
+                    <input type="text" class="form-control" name="Place" placeholder="Place">
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- ====================== ALLOTTEE DETAILS TABLE ====================== -->
+
+
+
+
+
+
+
+        <div class="section-heading fw-bold  mb-2">
+            NOTING OF THE SPECIAL NOTICE, CALLING OF GM
+        </div>
+
+        <div class="p-3 border mb-4">
+            <!-- Noting Mode -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label fw-bold me-3">Noting Mode:</label>
+                    <label class="me-3">
+                        <input type="radio" name="notingMode" value="board" checked> In Board meeting
+                    </label>
+                    <label>
+                        <input type="radio" name="notingMode" value="circular"> By Circular Resolution
+                    </label>
+                </div>
+            </div>
+
+            <!-- Board Meeting Section -->
+            <div id="boardMeetingSection">
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold">Do you want to incorporate this agenda in existing Board Meeting ?</label><br>
+                        <label class="ms-2">
+                            <input type="radio" name="boardMeetingIncorporate" value="yes" checked> Yes
+                        </label>
+                        <label class="ms-2">
+                            <input type="radio" name="boardMeetingIncorporate" value="no"> No
+                        </label>
+                    </div>
+                </div>
+
+                <!-- If YES -->
+                <div id="boardMeetingYes" class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Select Existing Meeting</label>
+                        <select class="form-select">
+                            <option>Select Meeting</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Authorized Director</label>
+                        <select class="form-select">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- If NO -->
+                <div id="boardMeetingNo" class="row mb-3 d-none">
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Date of Meeting</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Time of Meeting</label>
+                        <input type="time" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Authorized Director</label>
+                        <select class="form-select">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Authorized Director</label>
+                        <select class="form-select">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circular Resolution Section -->
+            <div id="circularSection" class="d-none">
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label class="form-label fw-bold">Date of Passing Circular</label>
+                        <input type="date" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Authorized Director</label>
+                        <select class="form-select">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label fw-bold">Authorized Director</label>
+                        <select class="form-select">
+                            <option>Select Director</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- General Meeting for approval -->
+        <div class="section-heading fw-bold mb-2">
+            PROPOSED GENERAL MEETING
+        </div>
+
+        <div class="p-3 border mb-4">
+            <!-- Type of Meeting -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label fw-bold me-3">Type of Meeting?</label>
+                    <label class="me-3">
+                        <input type="radio" name="whichMeeting" value="AGM" checked> AGM
+                    </label>
+                    <label>
+                        <input type="radio" name="whichMeeting" value="EGM"> EGM
+                    </label>
+                </div>
+            </div>
+
+            <!-- Incorporate in Existing Meeting -->
+            <div id="generalMeetingIncorporate" class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label fw-bold me-3">
+                        Do you want to incorporate this agenda in existing General Meeting?
+                    </label>
+                    <label class="me-3">
+                        <input type="radio" name="existingGeneralMeeting" value="yes" checked> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="existingGeneralMeeting" value="no"> No
+                    </label>
+                </div>
+            </div>
+
+            <!-- If YES -->
+            <div id="existingGeneralYes" class="row mb-3">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Select Existing General Meeting</label>
+                    <select class="form-select" id="existingAgm">
+                        <option>Select Existing AGM</option>
+                        <option>30/09/2024</option>
+                        <option>30/09/2023</option>
+                        <option>30/09/2022</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label fw-bold">Select Existing EGM</label>
+                    <select class="form-select" id="existingEgm">
+                        <option>Select Existing EGM</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- If NO -->
+            <div id="existingGeneralNo" class="d-none">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Date of General Meeting</label>
+                        <input type="date" class="form-control" id="meetingDateGm">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Time of General Meeting</label>
+                        <input type="time" class="form-control" id="meetingTimeGm">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Number of AGM</label>
+                        <input type="text" class="form-control" placeholder="Number of AGM" id="noAgm">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Venue</label>
+                        <input type="text" class="form-control" placeholder="Venue of GM" id="venueOfGm">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Effective Date of Cessation -->
+            <div class="row mb-3">
+                <div class="col-md-3">
+                    <label class="form-label fw-bold">Effective Date of Cessation</label>
+                    <input type="date" class="form-control" id="cessationDate">
+                </div>
+            </div>
+
+            <!-- Written Representation -->
+            <div class="row mb-3">
+                <div class="col-md-12">
+                    <label class="form-label fw-bold me-3">
+                        Has the company received any written representation?
+                    </label>
+                    <label class="me-3">
+                        <input type="radio" name="writtenRepresentation" value="yes"> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="writtenRepresentation" value="no" checked> No
+                    </label>
+                </div>
+            </div>
+
+            <!-- If Written Representation = YES -->
+            <div id="writtenRepSection" class="d-none">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Date of Representation</label>
+                        <input type="date" class="form-control" id="dateOfRepresent">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label fw-bold">Place</label>
+                        <input type="text" class="form-control" placeholder="Place" id="placeOfRepresent">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label fw-bold">Response of the Director</label>
+                    <textarea class="form-control" rows="3" placeholder="Response of the Director..."></textarea>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label class="form-label fw-bold me-3">
+                            Do you want to take note of the written representation in board?
+                        </label>
+                        <label class="me-3">
+                            <input type="radio" name="takeNoteInBoard" value="yes"> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="takeNoteInBoard" value="no" checked> No
+                        </label>
+                    </div>
+                </div>
+
+                <!-- If Take Note = YES -->
+                <div id="takeNoteSection" class="d-none">
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label class="form-label fw-bold me-3">Mode:</label>
+                            <label class="me-3">
+                                <input type="radio" name="meetingMode" value="board" checked> In Board meeting
+                            </label>
+                            <label>
+                                <input type="radio" name="meetingMode" value="circular"> By Circular Resolution
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Board meeting mode -->
+                    <div id="boardModeSection">
+                        <div class="row mb-3">
+                            <div class="col-md-12">
+                                <label class="form-label fw-bold me-3">
+                                    Do you want to incorporate this agenda in existing Board Meeting?
+                                </label>
+                                <label class="me-3">
+                                    <input type="radio" name="existMeeting1" value="yes"> Yes
+                                </label>
+                                <label>
+                                    <input type="radio" name="existMeeting1" value="no" checked> No
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- If No -->
+                        <div id="existingNo1" class="row mb-3">
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">Date of Meeting</label>
+                                <input type="date" class="form-control" id="meetingDate1">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label fw-bold">Time of Meeting</label>
+                                <input type="time" class="form-control" id="meetingTime1">
+                            </div>
+                        </div>
+
+                        <!-- If Yes -->
+                        <div id="existingYes1" class="row mb-3 d-none">
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Select Existing Meeting</label>
+                                <select class="form-select">
+                                    <option>Select Existing Meeting</option>
+                                    <option>15/04/2025</option>
+                                    <option>30/09/2024</option>
+                                    <option>14/08/2024</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Circular mode -->
+                    <div id="circularModeSection" class="d-none">
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold">Date of Passing Circular</label>
+                                <input type="date" class="form-control" id="circularDate1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To consider the written representation received from {Name of Director} in response to the Special Notice received proposing {his-her} removal</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To consider the written representation received from {Name of Director} in response to the Special Notice received proposing {his-her} removal">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To consider the written representation received from {Name of Director} in response to the Special Notice received proposing {his-her} removal">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Board hereby proposes to reclassify the authorized capital of the company as part of our strategic initiative to issue shares and meet our long-term capital requirements. This reclassification necessitates the approval of shareholders via a Special Resolution. Therefore, the Board recommends passing the following resolution...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Board of Directors convened the meeting to propose the reclassification of the company's authorized capital to issue shares and address long-term capital requirements in the ensuing general meeting...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">[Resolution for Notice text here]</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">[Resolution for Minutes text here]</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function addShareholderRow() {
+        const table = document.getElementById('shareholderTable').getElementsByTagName('tbody')[0];
+        const newRow = table.rows[0].cloneNode(true);
+
+        // clear all input/select values in cloned row
+        newRow.querySelectorAll('input, select').forEach(el => el.value = '');
+
+        // add delete button to cloned row
+        const actionCell = newRow.lastElementChild;
+        if (actionCell) {
+            actionCell.innerHTML = `
+                <button type="button" class="btn btn-primary btn-sm" onclick="addShareholderRow()">+</button>
+                <button type="button" class="btn btn-danger btn-sm" onclick="deleteShareholderRow(this)">X</button>
+            `;
+        }
+
+        table.appendChild(newRow);
+    }
+
+    function deleteShareholderRow(button) {
+        const row = button.closest('tr');
+        const tableBody = document.getElementById('shareholderTable').getElementsByTagName('tbody')[0];
+
+        if (tableBody.rows.length > 1) {
+            row.remove();
+        } else {
+            alert('At least one row must remain.');
+        }
+    }
+</script>
+
+
+<script>
+    // Toggle between Board Meeting and Circular Resolution
+    document.querySelectorAll('input[name="notingMode"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            const boardSection = document.getElementById('boardMeetingSection');
+            const circularSection = document.getElementById('circularSection');
+
+            if (this.value === 'board') {
+                boardSection.classList.remove('d-none');
+                circularSection.classList.add('d-none');
+            } else {
+                boardSection.classList.add('d-none');
+                circularSection.classList.remove('d-none');
+            }
+        });
+    });
+
+
+    document.querySelectorAll('input[name="boardMeetingIncorporate"]').forEach(radio => {
+        radio.addEventListener('change', function () {
+            const yesSection = document.getElementById('boardMeetingYes');
+            const noSection = document.getElementById('boardMeetingNo');
+
+            if (this.value === 'yes') {
+                yesSection.classList.remove('d-none');
+                noSection.classList.add('d-none');
+            } else {
+                yesSection.classList.add('d-none');
+                noSection.classList.remove('d-none');
+            }
+        });
+    });
+</script>
+<script>
+
+    document.querySelectorAll('input[name="existingGeneralMeeting"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            document.getElementById('existingGeneralYes').classList.toggle('d-none', e.target.value !== 'yes');
+            document.getElementById('existingGeneralNo').classList.toggle('d-none', e.target.value === 'yes');
+        });
+    });
+
+
+    document.querySelectorAll('input[name="writtenRepresentation"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            document.getElementById('writtenRepSection').classList.toggle('d-none', e.target.value !== 'yes');
+        });
+    });
+
+
+    document.querySelectorAll('input[name="takeNoteInBoard"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            document.getElementById('takeNoteSection').classList.toggle('d-none', e.target.value !== 'yes');
+        });
+    });
+
+
+    document.querySelectorAll('input[name="meetingMode"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            document.getElementById('boardModeSection').classList.toggle('d-none', e.target.value !== 'board');
+            document.getElementById('circularModeSection').classList.toggle('d-none', e.target.value !== 'circular');
+        });
+    });
+
+
+    document.querySelectorAll('input[name="existMeeting1"]').forEach(radio => {
+        radio.addEventListener('change', e => {
+            document.getElementById('existingYes1').classList.toggle('d-none', e.target.value !== 'yes');
+            document.getElementById('existingNo1').classList.toggle('d-none', e.target.value === 'yes');
+        });
+    });
+</script>

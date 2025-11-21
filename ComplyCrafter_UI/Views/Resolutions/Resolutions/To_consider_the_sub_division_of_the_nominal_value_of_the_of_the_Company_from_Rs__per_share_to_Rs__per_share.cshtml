@@ -1,0 +1,1008 @@
+﻿@{
+    ViewData["Title"] = "Sub-Division of Share Capital Form";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">To Amend The Share Capital Clause of Memorandum of Association (MOA) of the Company Consequent Upon The Sub-Division of Share Capital of The Company Form</h4>
+
+    <form asp-action="Save" method="post">
+
+        <!-- ====================== MANAGING DIRECTOR & SIGNATORY ====================== -->
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="section-heading mb-3">
+            <h6 class="fw-bold">Particulars of Adjournment</h6>
+        </div>
+
+        <!-- Container for dynamic sections -->
+        <div id="adjournmentContainer"></div>
+
+        <!-- Button to add new adjournment -->
+        <div class="mt-3">
+            <button type="button" class="btn btn-outline-primary" id="addAdjournmentBtn">
+                Add More Adjournment
+            </button>
+        </div>
+
+        <!-- ACKNOWLEDGEMENT OF CIRCULATION OF NOTICE OF BOARD MEETING -->
+        <div class="section-heading mt-4">Acknowledgement of Circulation of Notice of Board Meeting</div>
+        <div class="p-3 border">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Director</th>
+                            <th>Date of Circulation of Notice</th>
+                            <th>Date of receipt</th>
+                            <th>Mode</th>
+                            <th>Other</th>
+                        </tr>
+                    </thead>
+                    <tbody id="directorTableBody">
+                        <tr>
+                            <td>
+                                <select class="form-select" name="director[]">
+                                    <option value="">Select Director</option>
+                                    <option>Director 1</option>
+                                    <option>Director 2</option>
+                                    <option>Director 3</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                            </td>
+                            <td>
+                                <select class="form-select" name="mode[]">
+                                    <option value="">Select Mode</option>
+                                    <option>Email</option>
+                                    <option>Physical Copy</option>
+                                    <option>Digital Portal</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-3">
+                <button type="button" class="btn btn-outline-primary" id="addDirectorBtn">+ Add More</button>
+            </div>
+        </div>
+
+        <!-- FINALISATION OF MINUTES -->
+        <div class="section-heading mt-4">Finalisation of Minutes</div>
+        <div class="p-3 border">
+            <div class="mb-3">
+                <p class="text-justify">
+                    Within fifteen days from the date of the conclusion of the Meeting of the Board, the draft Minutes thereof shall be circulated to all the members of the Board for their comments. The Directors, whether present at the Meeting or not, shall communicate their comments, if any, in writing on the draft Minutes within seven days from the date of circulation thereof, so that the Minutes are finalised and entered in the Minutes Book within the specified time limit of thirty days. In the event a Director does not comment on the draft Minutes, the draft Minutes shall be deemed to have been approved by such Director.
+                </p>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Whether the draft minutes have been circulated among the Board Members?</strong></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMeetingIncorporate" id="boardYes" value="yes">
+                            <label class="form-check-label" for="boardYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMeetingIncorporate" value="no" id="boardNo" checked>
+                            <label class="form-check-label" for="boardNo">No</label>
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+                <div id="boardMeetingYes" class="row mb-3">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Director</th>
+                                        <th>Date of Circulation of Draft Minutes</th>
+                                        <th>Date of receipt</th>
+                                        <th>Mode</th>
+                                        <th>Other</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodySecond">
+                                    <tr>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="mode[]">
+                                                <option value="">Select Mode</option>
+                                                <option>Email</option>
+                                                <option>Physical Copy</option>
+                                                <option>Digital Portal</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorSecondBtn">+ Add More</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><strong>Whether Directors Have Communicated Any Comments In Respect To The Minutes </strong></label>
+                        <div class="d-flex gap-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="boardMeetingSecondIncorporate" id="boardSecondYes" value="yes">
+                                <label class="form-check-label" for="boardSecondYes">Yes</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="boardMeetingSecondIncorporate" value="no" id="boardSecondNo" checked>
+                                <label class="form-check-label" for="boardSecondNo">No</label>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div id="boardMeetingNo" class="row mb-3 d-none">
+                </div>
+                <div id="boardMeetingSecondYes" class="row mb-3">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+
+                                        <th>Date of Receiving comment</th>
+                                        <th>Director</th>
+                                        <th>Comment</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodythird">
+                                    <tr>
+
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Comment">
+                                        </td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorThirdBtn">+ Add More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="boardMeetingSecondNo" class="row mb-3 d-none">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Whether the signed minutes have been circulated among the Board Members?</strong></label>
+                    <div class="d-flex gap-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMinutesCirculatedRadio" id="boardsignedYes" value="yes">
+                            <label class="form-check-label" for="boardsignedYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="boardMinutesCirculatedRadio" id="boardsignedNo" value="no" checked>
+                            <label class="form-check-label" for="boardsignedNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Section - Initially Hidden -->
+                <div id="boardMinutesCirculatedSection" class="row mb-3 d-none">
+                    <div class="p-3 border">
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Director</th>
+                                        <th>Date of Circulation of Signed Minutes</th>
+                                        <th>Date of receipt</th>
+                                        <th>Mode</th>
+                                        <th>Other</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="directorTableBodySigned">
+                                    <tr>
+                                        <td>
+                                            <select class="form-select" name="director[]">
+                                                <option value="">Select Director</option>
+                                                <option>Director 1</option>
+                                                <option>Director 2</option>
+                                                <option>Director 3</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                                        </td>
+                                        <td>
+                                            <select class="form-select" name="mode[]">
+                                                <option value="">Select Mode</option>
+                                                <option>Email</option>
+                                                <option>Physical Copy</option>
+                                                <option>Digital Portal</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="mt-3">
+                            <button type="button" class="btn btn-outline-primary" id="addDirectorSignedBtn">+ Add More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To consider the sub division of the nominal value of the Shares of the Company from Rs. Existing Face Value/- per share to Rs. New Face Value/- per share</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To consider the sub division of the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="Sub division of the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">Existing Issued, subscribed, and paid up [Type of Shares] capital of the Company is Rs. [Total Existing Paid Up Capital]/- (Rupees [Total Existing Paid Up Capital in words] Only) divided into [Existing Paid Up Shares] [Type of Shares] of Rs. [Existing Face Value]/- each.
+
+With a view to enhancing the shareholders base of the company and also to increase the liquidity of the [Type of Shares] of the Company, it is proposed to sub-divide the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share. Further,  after sub-division, each paid up [Type of Shares] of nominal value Rs. [Existing Face Value]/-  per share, existing on the Record Date as might be fixed, shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of Nominal Value of Rs. [New Face Value]/- each.
+
+Further, it is also proposed that existing authorized [Type of Shares] capital of Rs. [Existing Authorized Capital]/- (Rupees [Existing Authorized Capital in words] Only) divided into [Existing Authorized Shares] ([Existing Authorized Shares in words]) [Type of Shares] of Rs. [Existing Face Value]/- each shall be sub-divided into [Authorized Shares after division] ([Authorized Shares after division in words]) [Type of Shares] of Rs. [New Face Value]/- each.
+
+The Board may discuss the matter and if thought fit pass the following resolution:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">Existing Issued, subscribed, and paid up [Type of Shares] capital of the Company was Rs. [Total Existing Paid Up Capital]/- (Rupees [Total Existing Paid Up Capital in words] Only) divided into [Existing Paid Up Shares] [Type of Shares] of Rs. [Existing Face Value]/- each.
+
+With a view to enhancing the shareholders base of the company and also to increase the liquidity of the [Type of Shares] of the Company, it was proposed to sub-divide the nominal value of the [Type of Shares] of the Company from Rs. [Existing Face Value]/- per share to Rs. [New Face Value]/- per share. Further,  after sub-division, each paid up [Type of Shares] of nominal value Rs. [Existing Face Value]/-  per share, existing on the Record Date as might be fixed, would stand sub-divided into [Paid Up Shares after division] [Type of Shares] of Nominal Value of Rs. [New Face Value]/- each.
+
+Further, it is also proposed that existing authorized [Type of Shares] capital of Rs. [Existing Authorized Capital]/- (Rupees [Existing Authorized Capital in words] Only) divided into [Existing Authorized Shares] ([Existing Authorized Shares in words]) [Type of Shares] of Rs. [Existing Face Value]/- each shall be sub-divided into [Authorized Shares after division] ([Authorized Shares after division in words]) [Type of Shares] of Rs. [New Face Value]/- each.
+
+The Board may discuss the matter and if thought fit pass the following resolution:...
+                    </textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">“RESOLVED THAT pursuant to the provisions of section 61(1)(d) and other applicable provisions, if any, of the Companies Act, 2013, read with rules made thereunder or any modification(s) or re-enactment thereof, subject to the provisions of Articles of Association and subject to the approval of shareholders in general meeting, the consent of the board be and are hereby accorded for sub-division of [Type of Shares] of Rs. [Existing Face Value]/- per share into Rs. [New Face Value]/- per share.
+
+“RESOLVED FURTHER THAT pursuant to the sub-division each [Type of Shares] of the face value of Rs. [Existing Face Value]/- as existing on the record date shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each fully paid-up, with effect from the record date.
+
+“RESOLVED FURTHER THAT on sub-division, [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each be issued in lieu of the existing [Type of Shares] of Rs. [Existing Face Value]/- each, subject to the terms of Memorandum and Articles of Association of the company and shall rank pari-passu in all respects with and carry the same rights as the existing fully paid [Type of Shares] of Rs. [Existing Face Value]/- each of the company.
+
+“RESOLVED FURTHER THAT upon sub-division of [Type of Shares] of the company as aforesaid, the existing share certificate(s) in relation to the existing [Type of Shares] of the face value of Rs. [Existing Face Value]/- each held in physical form shall be deemed to have been automatically canceled and be of no effect on and from the Record Date of sub-division. The Company may, without requiring the surrender of existing share certificate(s) directly issue and dispatch the new share certificate(s) of the Company in lieu of such existing share certificate(s) within the period prescribed or that may be prescribed in this behalf from time to time and in the case of shares held in dematerialized form, the number of sub-divided [Type of Shares] be credited to the respective beneficiary accounts of the shareholders with the Depository Participants, in lieu of the existing credits representing the [Type of Shares] before sub-division.
+
+“RESOLVED FURTHER THAT the Board be and is hereby authorized to fix a record date and to take such steps as may be necessary for obtaining approvals, statutory, contractual or otherwise, in relation to the above and to settle all matters arising out of and incidental thereto, and to execute all deeds, applications, documents, and writings that may be required, on behalf of the company and generally to do all such acts, deeds, matters and things and to give such directions as may be necessary, proper and expedient or incidental for the purpose of giving effect to this resolution.
+
+“RESOLVED FURTHER THAT necessary entries in the register of members and other statutory registers be made and modified consequent to the changes in share capital of the company due to sub-division of share capital in accordance with the application the provisions of the Companies Act, 2013 rules made thereunder as amended from time to time.”
+
+“RESOLVED FURTHER THAT [Director1], [Designtaion1][, and Director2, Designation2], be and [is-are] hereby severally authorized to do all such acts, deeds, and things and to sign all such documents, papers, and writings as may be necessary to give effect to the resolution.”:</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">“RESOLVED THAT pursuant to the provisions of section 61(1)(d) and other applicable provisions, if any, of the Companies Act, 2013, read with rules made thereunder or any modification(s) or re-enactment thereof, subject to the provisions of Articles of Association and subject to the approval of shareholders in general meeting, the consent of the board be and are hereby accorded for sub-division of [Type of Shares] of Rs. [Existing Face Value]/- per share into Rs. [New Face Value]/- per share.
+
+“RESOLVED FURTHER THAT pursuant to the sub-division each [Type of Shares] of the face value of Rs. [Existing Face Value]/- as existing on the record date shall stand sub-divided into [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each fully paid-up, with effect from the record date.
+
+“RESOLVED FURTHER THAT on sub-division, [Paid Up Shares after division] [Type of Shares] of the face value of Rs. [New Face Value]/- each be issued in lieu of the existing [Type of Shares] of Rs. [Existing Face Value]/- each, subject to the terms of Memorandum and Articles of Association of the company and shall rank pari-passu in all respects with and carry the same rights as the existing fully paid [Type of Shares] of Rs. [Existing Face Value]/- each of the company.
+
+“RESOLVED FURTHER THAT upon sub-division of [Type of Shares] of the company as aforesaid, the existing share certificate(s) in relation to the existing [Type of Shares] of the face value of Rs. [Existing Face Value]/- each held in physical form shall be deemed to have been automatically canceled and be of no effect on and from the Record Date of sub-division. The Company may, without requiring the surrender of existing share certificate(s) directly issue and dispatch the new share certificate(s) of the Company in lieu of such existing share certificate(s) within the period prescribed or that may be prescribed in this behalf from time to time and in the case of shares held in dematerialized form, the number of sub-divided [Type of Shares] be credited to the respective beneficiary accounts of the shareholders with the Depository Participants, in lieu of the existing credits representing the [Type of Shares] before sub-division.
+
+“RESOLVED FURTHER THAT the Board be and is hereby authorized to fix a record date and to take such steps as may be necessary for obtaining approvals, statutory, contractual or otherwise, in relation to the above and to settle all matters arising out of and incidental thereto, and to execute all deeds, applications, documents, and writings that may be required, on behalf of the company and generally to do all such acts, deeds, matters and things and to give such directions as may be necessary, proper and expedient or incidental for the purpose of giving effect to this resolution.
+
+“RESOLVED FURTHER THAT necessary entries in the register of members and other statutory registers be made and modified consequent to the changes in share capital of the company due to sub-division of share capital in accordance with the application the provisions of the Companies Act, 2013 rules made thereunder as amended from time to time.”
+
+“RESOLVED FURTHER THAT [Director1], [Designtaion1][, and Director2, Designation2], be and [is-are] hereby severally authorized to do all such acts, deeds, and things and to sign all such documents, papers, and writings as may be necessary to give effect to the resolution.”</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        $('input[name="FullyPaid"]').change(function () {
+            if ($(this).val() === "No") {
+                $('#amountPaidRow').show();
+            } else {
+                $('#amountPaidRow').hide();
+                $('#amountPaidRow input').val("");
+            }
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    const container = document.getElementById("adjournmentContainer");
+    const addBtn = document.getElementById("addAdjournmentBtn");
+    let count = 1;
+
+    // Create new adjournment section
+    function createAdjournmentSection(number, showRemove = true) {
+      const section = document.createElement("div");
+      section.classList.add("p-3", "border", "mb-3", "rounded");
+
+      section.innerHTML = `
+        <div class="row align-items-end">
+            <div class="col-md-3">
+                <h6 class="fw-bold mb-2">${number}. Adjournment</h6>
+                <label class="form-label fw-bold">Select Resolution</label>
+                <select class="form-select" name="Resolution${number}">
+                    <option value="">-- Select Resolution --</option>
+                    <option value="Source">Source</option>
+                    <option value="Slytes">Slytes</option>
+                    <option value="Format">Format</option>
+                    <option value="Font">Font</option>
+                    <option value="Size">Size</option>
+                </select>
+            </div>
+
+            <div class="col-md-8">
+                <label class="form-label fw-bold">Remarks / Description</label>
+                <textarea class="form-control" name="Remarks${number}" rows="1" placeholder="Enter details..."></textarea>
+            </div>
+
+            <div class="col-md-1 text-end">
+                ${
+                  showRemove
+                    ? `<button type="button" class="btn btn-danger btn-sm removeBtn">X</button>`
+                    : ""
+                }
+            </div>
+        </div>
+      `;
+
+      // If remove button exists, attach event
+      const removeBtn = section.querySelector(".removeBtn");
+      if (removeBtn) {
+        removeBtn.addEventListener("click", function () {
+          section.remove();
+          updateSectionNumbers();
+        });
+      }
+
+      return section;
+    }
+
+    // Add new section
+    addBtn.addEventListener("click", function () {
+      const section = createAdjournmentSection(count, true);
+      container.appendChild(section);
+      count++;
+    });
+
+    // Update numbering after removal
+    function updateSectionNumbers() {
+      const sections = container.querySelectorAll(".border");
+      count = 1;
+      sections.forEach((sec) => {
+        const title = sec.querySelector("h6");
+        title.textContent = `${count}. Adjournment`;
+        count++;
+      });
+    }
+
+    // Add the first section (without remove button)
+    container.appendChild(createAdjournmentSection(count, false));
+    count++;
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Toggle Board/Circular sections
+        document.querySelectorAll("input[name='approvalMode']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalBoardSection").classList.toggle("d-none", this.value !== "board");
+                document.getElementById("approvalCircularSection").classList.toggle("d-none", this.value !== "circular");
+            });
+        });
+
+        // Toggle YES/NO inside Board section
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function () {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Board Meeting toggle
+        document.querySelectorAll("input[name='boardMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("boardMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("boardMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // General Meeting toggle
+        document.querySelectorAll("input[name='generalMeetingIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("generalMeetingYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("generalMeetingNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+
+        // Approval for allotment toggle
+        document.querySelectorAll("input[name='approvalIncorporate']").forEach(radio => {
+            radio.addEventListener("change", function() {
+                document.getElementById("approvalYes").classList.toggle("d-none", this.value !== "yes");
+                document.getElementById("approvalNo").classList.toggle("d-none", this.value !== "no");
+            });
+        });
+    });
+</script>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const boardYes = document.getElementById("boardYes");
+        const boardNo = document.getElementById("boardNo");
+        const boardMeetingYes = document.getElementById("boardMeetingYes");
+        const boardMeetingNo = document.getElementById("boardMeetingNo");
+
+        const boardSecondYes = document.getElementById("boardSecondYes");
+        const boardSecondNo = document.getElementById("boardSecondNo");
+        const boardMeetingSecondYes = document.getElementById("boardMeetingSecondYes");
+        const boardMeetingSecondNo = document.getElementById("boardMeetingSecondNo");
+        const yesRadio = document.getElementById('boardsignedYes');
+        const noRadio = document.getElementById('boardsignedNo');
+        const section = document.getElementById('boardMinutesCirculatedSection');
+
+
+            function toggleSection() {
+               if (yesRadio.checked) {
+                   section.classList.remove('d-none');
+               } else {
+                   section.classList.add('d-none');
+               }
+           }
+        function toggleBoardMeeting() {
+            boardMeetingYes.classList.toggle("d-none", !boardYes.checked);
+            boardMeetingNo.classList.toggle("d-none", boardYes.checked);
+        }
+
+        function toggleBoardMeetingSecond() {
+            boardMeetingSecondYes.classList.toggle("d-none", !boardSecondYes.checked);
+            boardMeetingSecondNo.classList.toggle("d-none", boardSecondYes.checked);
+        }
+             yesRadio.addEventListener('change', toggleSection);
+    noRadio.addEventListener('change', toggleSection);
+
+    // Call on page load to set correct visibility
+    toggleSection();
+
+        // initial toggle based on default selection
+        toggleBoardMeeting();
+        toggleBoardMeetingSecond();
+
+        // add event listeners
+        boardYes.addEventListener("change", toggleBoardMeeting);
+        boardNo.addEventListener("change", toggleBoardMeeting);
+
+        boardSecondYes.addEventListener("change", toggleBoardMeetingSecond);
+        boardSecondNo.addEventListener("change", toggleBoardMeetingSecond);
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addButton = document.getElementById('addDirectorThirdBtn');
+        const tableBody = document.getElementById('directorTableBodythird');
+
+        // Function to add new row
+        function addNewRow() {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+
+                <td>
+                    <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                </td>
+                 <td>
+                    <select class="form-select" name="director[]">
+                        <option value="">Select Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                        <option>Director 3</option>
+                    </select>
+                </td>
+
+                <td>
+                    <input type="text" class="form-control" name="other[]" placeholder="Comment">
+                </td>
+                <td>
+                                <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                </td>
+            `;
+
+            tableBody.appendChild(newRow);
+            updateRemoveButtons();
+        }
+
+        // Function to update remove buttons visibility
+        function updateRemoveButtons() {
+            const rows = tableBody.querySelectorAll('tr');
+            const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+            if (rows.length > 1) {
+                removeButtons.forEach(button => {
+                    button.style.display = 'block';
+                });
+            } else {
+                removeButtons.forEach(button => {
+                    button.style.display = 'none';
+                });
+            }
+        }
+
+        // Event listener for Add More button
+        addButton.addEventListener('click', addNewRow);
+
+        // Event delegation for Remove buttons
+        tableBody.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-row')) {
+                const row = e.target.closest('tr');
+                row.remove();
+                updateRemoveButtons();
+            }
+        });
+
+        // Initialize remove buttons
+        updateRemoveButtons();
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addButton = document.getElementById('addDirectorSignedBtn');
+        const tableBody = document.getElementById('directorTableBodySigned');
+
+        // Function to add new row
+        function addNewRow() {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <select class="form-select" name="director[]">
+                        <option value="">Select Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                        <option>Director 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <select class="form-select" name="mode[]">
+                        <option value="">Select Mode</option>
+                        <option>Email</option>
+                        <option>Physical Copy</option>
+                        <option>Digital Portal</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                </td>
+                <td>
+                                <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                </td>
+            `;
+
+            tableBody.appendChild(newRow);
+            updateRemoveButtons();
+        }
+
+        // Function to update remove buttons visibility
+        function updateRemoveButtons() {
+            const rows = tableBody.querySelectorAll('tr');
+            const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+            if (rows.length > 1) {
+                removeButtons.forEach(button => {
+                    button.style.display = 'block';
+                });
+            } else {
+                removeButtons.forEach(button => {
+                    button.style.display = 'none';
+                });
+            }
+        }
+
+        // Event listener for Add More button
+        addButton.addEventListener('click', addNewRow);
+
+        // Event delegation for Remove buttons
+        tableBody.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-row')) {
+                const row = e.target.closest('tr');
+                row.remove();
+                updateRemoveButtons();
+            }
+        });
+
+        // Initialize remove buttons
+        updateRemoveButtons();
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const addButton = document.getElementById('addDirectorSecondBtn');
+        const tableBody = document.getElementById('directorTableBodySecond');
+
+        // Function to add new row
+        function addNewRow() {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <select class="form-select" name="director[]">
+                        <option value="">Select Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                        <option>Director 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <select class="form-select" name="mode[]">
+                        <option value="">Select Mode</option>
+                        <option>Email</option>
+                        <option>Physical Copy</option>
+                        <option>Digital Portal</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                </td>
+                <td>
+                                <button type="button" class="btn btn-danger btn-sm remove-row">X</button>
+                </td>
+            `;
+
+            tableBody.appendChild(newRow);
+            updateRemoveButtons();
+        }
+
+        // Function to update remove buttons visibility
+        function updateRemoveButtons() {
+            const rows = tableBody.querySelectorAll('tr');
+            const removeButtons = tableBody.querySelectorAll('.remove-row');
+
+            if (rows.length > 1) {
+                removeButtons.forEach(button => {
+                    button.style.display = 'block';
+                });
+            } else {
+                removeButtons.forEach(button => {
+                    button.style.display = 'none';
+                });
+            }
+        }
+
+        // Event listener for Add More button
+        addButton.addEventListener('click', addNewRow);
+
+        // Event delegation for Remove buttons
+        tableBody.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-row')) {
+                const row = e.target.closest('tr');
+                row.remove();
+                updateRemoveButtons();
+            }
+        });
+
+        // Initialize remove buttons
+        updateRemoveButtons();
+    });
+</script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Function to handle image file reading and store as base64
+        function handleImageUpload(inputElement, dataField) {
+            const file = inputElement.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    if (dataField.endsWith('[]')) {
+                        // For array fields, find the corresponding hidden input
+                        const index = Array.from(document.querySelectorAll('input[name="' + dataField + '"]')).indexOf(inputElement.nextElementSibling);
+                        document.querySelectorAll('input[name="' + dataField + '"]')[index].value = e.target.result;
+                    } else {
+                        document.querySelector(`input[name="${dataField}"]`).value = e.target.result;
+                    }
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Add event listeners for all file inputs
+        document.querySelectorAll('input[type="file"]').forEach(input => {
+            input.addEventListener('change', function() {
+                const fieldName = this.name;
+                const dataFieldName = fieldName + '_data';
+                handleImageUpload(this, dataFieldName);
+            });
+        });
+
+        // Add Director functionality
+        const addDirectorBtn = document.getElementById('addDirectorBtn');
+        const directorTableBody = document.getElementById('directorTableBody');
+
+        addDirectorBtn.addEventListener('click', function() {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>
+                    <select class="form-select" name="director[]">
+                        <option value="">Select Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                        <option>Director 3</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="circulation_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <input type="date" class="form-control" name="receipt_date[]" value="2025-10-08">
+                </td>
+                <td>
+                    <select class="form-select" name="mode[]">
+                        <option value="">Select Mode</option>
+                        <option>Email</option>
+                        <option>Physical Copy</option>
+                        <option>Digital Portal</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" class="form-control" name="other[]" placeholder="Any Other Specify">
+                </td>
+                <td>
+
+                    <button type="button" class="btn btn-danger btn-sm mt-1 remove-director">X</button>
+                </td>
+            `;
+
+            directorTableBody.appendChild(newRow);
+
+            // Add event listener for the new file input
+            const newFileInput = newRow.querySelector('input[type="file"]');
+            newFileInput.addEventListener('change', function() {
+                handleImageUpload(this, 'director_signature_data[]');
+            });
+        });
+
+        // Remove director functionality
+        directorTableBody.addEventListener('click', function(e) {
+            if (e.target.classList.contains('remove-director')) {
+                e.target.closest('tr').remove();
+            }
+        });
+    });
+</script>

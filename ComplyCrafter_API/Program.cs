@@ -103,8 +103,8 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowUI", policy => policy
         .WithOrigins(
-            "https://theinsightpartners.in",
-            "https://www.theinsightpartners.in",
+            "https://demo.menindata.org",
+            "https://www.demo.menindata.org",
             "http://localhost:3000", // optional: local UI dev
             "https://localhost:7161" // optional: dev API
         )

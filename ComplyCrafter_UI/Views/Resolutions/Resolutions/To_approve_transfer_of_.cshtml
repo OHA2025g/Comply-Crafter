@@ -1,0 +1,557 @@
+﻿@{
+    ViewData["Title"] = "Particulars of Transfer of Shares";
+}
+
+<style>
+    .custom-table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-bottom: 20px;
+        table-layout: fixed;
+    }
+
+        .custom-table td, .custom-table th {
+            border: 1px solid #ccc;
+            padding: 8px;
+            vertical-align: middle;
+        }
+
+        .custom-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    .form-control, .form-select {
+        width: 100%;
+        padding: 6px;
+        box-sizing: border-box;
+    }
+
+    .btn-custom {
+        background-color: #2269f5;
+        color: #fff;
+        border-radius: 6px;
+        padding: 6px 16px;
+        border: none;
+    }
+
+        .btn-custom:hover {
+            background-color: #1b56c2;
+        }
+
+    .section-heading {
+        background: #f8f9fa;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px;
+        border: 1px solid #ccc;
+        margin-bottom: -1px;
+    }
+</style>
+
+<div class="card shadow-sm p-4">
+    <h4 class="text-primary mb-3">Particulars of Transfer of Shares</h4>
+
+    
+
+        <div class="section-heading">DIRECTOR & SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Managing Director</strong></label>
+                    <select class="form-select" name="ManagingDirectorName">
+                        <option value="">Select Managing Director</option>
+                        <option>Director 1</option>
+                        <option>Director 2</option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label"><strong>Name of the Authorized Signatory</strong></label>
+                    <select class="form-select" name="AuthorizedSignatory">
+                        <option value="">Select Director</option>
+                        <option>John Doe</option>
+                        <option>Jane Smith</option>
+                    </select>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+      
+
+            <form id="TransferShareForm" method="post" onsubmit="return validateMyForm(event);">
+
+                <!-- TYPE OF TRANSFER -->
+                <div class="section-heading">TRANSFER TYPE</div>
+                <div class="p-3 border mb-4">
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 fw-bold">Type of Transfer</div>
+                        <div class="col-md-9">
+                            <label class="me-3">
+                                <input type="radio" name="TypeOfTransfer" value="Demat" required> Demat
+                            </label>
+                            <label>
+                                <input type="radio" name="TypeOfTransfer" value="Physical" required> Physical
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3 showondemat" style="display:none;">
+                        <div class="col-md-12 fw-bold">
+                            Do you want to take note of this transfer in the Board meeting?
+                            <label class="ms-3 me-3">
+                                <input type="radio" name="WantToNote" value="Yes"> Yes
+                            </label>
+                            <label>
+                                <input type="radio" name="WantToNote" value="No"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- APPROVAL MODE -->
+                <div class="section-heading showonnoting" style="display:none;">APPROVAL MODE</div>
+                <div class="p-3 border mb-4 showonnoting" style="display:none;">
+                    <div class="fw-bold mb-2">Approval Mode</div>
+                    <label class="me-4">
+                        <input type="radio" name="WhichMeeting" value="BoardMeeting"> In Board Meeting
+                    </label>
+                    <label>
+                        <input type="radio" name="WhichMeeting" value="CircularResolution"> By Circular Resolution
+                    </label>
+                </div>
+
+                <!-- BOARD MEETING SECTION -->
+                <div id="boardmeeting" style="display:none;">
+                    <div class="section-heading">BOARD MEETING DETAILS</div>
+                    <div class="p-3 border mb-4">
+                        <div class="fw-bold mb-3">
+                            Do you want to incorporate this agenda in existing Board Meeting?
+                            <label class="ms-3 me-3"><input type="radio" name="ExistMeeting" value="Yes"> Yes</label>
+                            <label><input type="radio" name="ExistMeeting" value="No"> No</label>
+                        </div>
+
+                        <div id="existmeetingyes" class="row mb-3" style="display:none;">
+                            <div class="col-md-4 fw-bold">Select Existing Meeting</div>
+                            <div class="col-md-8">
+                                <select name="MeetingId" class="form-select">
+                                    <option value="">Select Existing Meeting</option>
+                                    <option value="143245">15/04/2025</option>
+                                    <option value="94757">30/09/2024</option>
+                                    <option value="94755">15/06/2024</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="existmeetingno" class="row mb-3">
+                            <div class="col-md-4 fw-bold">Date of New Meeting</div>
+                            <div class="col-md-4">
+                                <input type="date" name="MeetingDate" class="form-control">
+                            </div>
+                            <div class="col-md-4 fw-bold">Time of New Meeting</div>
+                            <div class="col-md-4">
+                                <input type="time" name="MeetingTime" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CIRCULAR RESOLUTION -->
+                <div id="circular" style="display:none;">
+                    <div class="section-heading">CIRCULAR RESOLUTION DETAILS</div>
+                    <div class="p-3 border mb-4">
+                        <div class="row mb-3">
+                            <div class="col-md-4 fw-bold">Date of Passing Circular Resolution</div>
+                            <div class="col-md-8">
+                                <input type="date" name="CircularResDate" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AUTHORIZED SIGNATORY -->
+                <div class="section-heading showonnoting" style="display:none;">AUTHORIZED SIGNATORY</div>
+                <div class="p-3 border mb-4 showonnoting" style="display:none;">
+                    <div class="row mb-3">
+                        <div class="col-md-4 fw-bold">Name of Authorized Signatory</div>
+                        <div class="col-md-8">
+                            <select name="Chairman" class="form-select">
+                                <option value="">Select Director</option>
+                                <option value="07693548">Kiran Premchand Shah (07693548)</option>
+                                <option value="07691455">Pakshal Kiran Shah (07691455)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PARTICULARS OF TRANSFER -->
+                <div class="section-heading">PARTICULARS OF TRANSFER</div>
+                <div class="p-3 border mb-4">
+                    <div class="row mb-3">
+                        <div class="col-md-3 fw-bold">Type of Share</div>
+                        <div class="col-md-3">
+                            <select name="TypeOfShare" class="form-select" required>
+                                <option value="">Select Type of Share</option>
+                                <option value="Equity">Equity Shares with Voting Rights</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3 fw-bold">Date of Transfer</div>
+                        <div class="col-md-3">
+                            <input type="date" name="DateOfTransfer" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Transfer Rows -->
+                    <div id="allotment_info">
+                        <div class="transfer-block border p-3 mb-3 rounded bg-light">
+                            <div class="d-flex justify-content-between mb-2">
+                                <label class="fw-bold">1. Transfer</label>
+                                <button type="button" class="btn btn-danger btn-sm remove-transfer">X</button>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <label>Transferor</label>
+                                    <select class="form-select" required>
+                                        <option>Select Transferor</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Transferee</label>
+                                    <select class="form-select" required>
+                                        <option>Select Transferee</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Quantity</label>
+                                    <input type="number" class="form-control" placeholder="Enter Quantity" required>
+                                </div>
+                                <div class="col-md-3">
+                                    <label>Transfer Number</label>
+                                    <input type="text" class="form-control" placeholder="Transfer Number">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" id="addTransfer" class="btn btn-custom">+ Add More Transfer</button>
+                    </div>
+                </div>
+
+              
+            
+     
+
+        
+
+
+
+
+
+
+
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda
+            </div>
+            <div class="col-md-9">
+                <select name="agenda" class="form-control">
+                    <option>To approve transfer of {shares}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To approve transfer of {shares}">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Heading <span class="text-danger">*</span>
+            </div>
+            <div class="col-md-9">
+                <input type="text" class="form-control" value="To approve transfer of {shares}">
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Agenda Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+The Board will discuss the matter regarding the allotment of [Number of shares to be issued] [Type of Shares_E] 
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Minute Preface
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+The Board discussed the matt
+</textarea></div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Notice
+            </div>
+            <div class="col-md-9">
+                <textarea rows="6" class="form-control">
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
+
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution for Minutes
+            </div>
+            <div class="col-md-9">
+                <textarea rows="12" class="form-control">
+"RESOLVED THAT pursuant to the provisions of Section 62(3) and all other applicable provisions of the Companies Act, 2013, the rules made thereunder, and the authority vested by the Articles of Association of the company, the consent of the Board be and is hereby accorded for the allotment of [Number of shares to be issued] [Type of Shares_E] of Rs. [Face Value Per Share]/- (Rupees [Face Value Per Share in words]) each at [Par/premium of Rs.] aggregating to Rs. [Total Amount]/- (Rupees [Total Amount in words]), to the holders of [Number of Debentures] [Type of Debentures] as per the conversion terms, to the following allottees:
+
+</textarea>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-md-3 fw-bold">
+                Resolution Signatory Details
+            </div>
+            <div class="col-md-9">
+                <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Sr. No.</th>
+                            <th>Name of Signatory</th>
+                            <th>DIN / PAN</th>
+                            <th>Date of Signing</th>
+                            <th style="width: 80px; text-align:center;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="">Select Signatory</option>
+                                    <option>John Doe</option>
+                                    <option>Jane Smith</option>
+                                    <option>Michael Johnson</option>
+                                    <option>Emily Davis</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" class="form-control" placeholder="Enter DIN / PAN">
+                            </td>
+                            <td>
+                                <input type="date" class="form-control">
+                            </td>
+                            <td style="text-align:center;">
+                                <button type="button" class="btn btn-primary btn-sm btn-add-signatory">+</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+
+        /* =====================================================
+           1️⃣  Signatory Table - Add / Remove Rows
+        ===================================================== */
+        function updateSignatorySerials() {
+            $("#signatoryTable tbody tr").each(function (i) {
+                $(this).find("td:first").text(i + 1);
+            });
+        }
+
+        $(document).on("click", ".btn-add-signatory", function () {
+            const newRow = `
+                <tr>
+                    <td></td>
+                    <td>
+                        <select class="form-select">
+                            <option value="">Select Signatory</option>
+                            <option>John Doe</option>
+                            <option>Jane Smith</option>
+                            <option>Michael Johnson</option>
+                            <option>Emily Davis</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                    <td><input type="date" class="form-control"></td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-danger btn-sm btn-remove-signatory">-</button>
+                    </td>
+                </tr>
+            `;
+            $("#signatoryTable tbody").append(newRow);
+            updateSignatorySerials();
+        });
+
+        $(document).on("click", ".btn-remove-signatory", function () {
+            $(this).closest("tr").remove();
+            updateSignatorySerials();
+        });
+
+
+        /* =====================================================
+           2️⃣  Shareholder Table (if present)
+        ===================================================== */
+        const tableBody = $("#shareholderTable tbody");
+
+        $(document).on("click", "#addShareholder", function () {
+            const newRow = `
+                <tr>
+                    <td>
+                        <select class="form-select">
+                            <option>Select Shareholder</option>
+                            <option>Shareholder 1</option>
+                            <option>Shareholder 2</option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><input type="text" class="form-control" value="0" readonly /></td>
+                    <td><button type="button" class="btn btn-danger btn-sm btn-remove-shareholder">X</button></td>
+                </tr>`;
+            tableBody.append(newRow);
+        });
+
+        $(document).on("click", ".btn-remove-shareholder", function () {
+            $(this).closest("tr").remove();
+        });
+
+
+        /* =====================================================
+           3️⃣  Meeting Radio Buttons (Yes/No toggles)
+        ===================================================== */
+        $('input[name="IncorporateAgenda"]').on('change', function () {
+            const value = $(this).val();
+            $('#existingMeetingSection').toggle(value === 'Yes');
+            $('#newMeetingSection').toggle(value === 'No');
+        });
+
+
+        /* =====================================================
+           4️⃣  Transfer Type Logic (No Animations)
+        ===================================================== */
+        $('input[name="TypeOfTransfer"]').on('change', function () {
+            if ($(this).val() === "Demat") {
+                $('.showondemat').show();
+            } else {
+                $('.showondemat, .showonnoting, #boardmeeting, #circular').hide();
+            }
+        });
+
+        $('input[name="WantToNote"]').on('change', function () {
+            if ($(this).val() === "Yes") {
+                $('.showonnoting').show();
+            } else {
+                $('.showonnoting, #boardmeeting, #circular').hide();
+            }
+        });
+
+        $('input[name="WhichMeeting"]').on('change', function () {
+            if ($(this).val() === "BoardMeeting") {
+                $('#boardmeeting').show();
+                $('#circular').hide();
+            } else {
+                $('#boardmeeting').hide();
+                $('#circular').show();
+            }
+        });
+
+        $('input[name="ExistMeeting"]').on('change', function () {
+            if ($(this).val() === "Yes") {
+                $('#existmeetingyes').show();
+                $('#existmeetingno').hide();
+            } else {
+                $('#existmeetingyes').hide();
+                $('#existmeetingno').show();
+            }
+        });
+
+
+        /* =====================================================
+           5️⃣  Add / Remove Transfer Blocks
+        ===================================================== */
+        $('#addTransfer').on('click', function () {
+            let count = $('#allotment_info .transfer-block').length + 1;
+            let newRow = `
+            <div class="transfer-block border p-3 mb-3 rounded bg-light">
+                <div class="d-flex justify-content-between mb-2">
+                    <label class="fw-bold">${count}. Transfer</label>
+                    <button type="button" class="btn btn-danger btn-sm remove-transfer">X</button>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label>Transferor</label>
+                        <select class="form-select" required>
+                            <option>Select Transferor</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Transferee</label>
+                        <select class="form-select" required>
+                            <option>Select Transferee</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Quantity</label>
+                        <input type="number" class="form-control" placeholder="Enter Quantity" required>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Transfer Number</label>
+                        <input type="text" class="form-control" placeholder="Transfer Number">
+                    </div>
+                </div>
+            </div>`;
+            $('#allotment_info').append(newRow);
+        });
+
+        $(document).on('click', '.remove-transfer', function () {
+            $(this).closest('.transfer-block').remove();
+            $('#allotment_info .transfer-block').each(function (i) {
+                $(this).find('label.fw-bold').text((i + 1) + '. Transfer');
+            });
+        });
+
+    });
+</script>

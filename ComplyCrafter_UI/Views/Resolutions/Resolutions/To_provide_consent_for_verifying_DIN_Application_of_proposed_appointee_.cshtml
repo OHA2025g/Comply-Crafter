@@ -1,0 +1,205 @@
+﻿<div class="card shadow-sm">
+
+    <form>
+
+      <div class="section-heading">DIRECTOR REMUNERATION DETAILS</div>
+<div class="p-3 border">
+    <div class="row mb-3">
+        <div class="col-md-6">
+                    <label class="form-label"><strong>Name of Appointee</strong></label>
+            <select class="form-select" name="DirectorName">
+                        <option value="">Select Appointee</option>
+                        <option>Appointee 1</option>
+                        <option>Appointee 2</option>
+            </select>
+        </div>
+      
+    </div>
+
+ 
+</div>
+
+        <!-- ====================== AGENDA & RESOLUTION ====================== -->
+        <h4 class="mb-4 border-bottom pb-2 mt-4">Agenda Details</h4>
+        <div class="p-3 border">
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda</div>
+                <div class="col-md-9">
+                    <select name="agenda" class="form-control">
+                        <option>To provide consent for verifying DIN Application of proposed appointee {Name of Director}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To provide consent for verifying DIN Application of proposed appointee {Name of Director}">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Heading <span class="text-danger">*</span></div>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" value="To provide consent for verifying DIN Application of proposed appointee {Name of Director}">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Agenda Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Chairperson shall inform the Board about the duties of the director, which needs to be complied pursuant to Section 166 of the Companies Act, 2013. The Board shall be requested to take note of the same.
+
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Minute Preface</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+The Chairperson informed the Board that pursuant to the provisions of Section 166 of the Companies Act 2013 ("the Act") and any other rules applicable alongwith the statutory modification thereof, there are certain specific duties of the director, that all directors need to comply with to avoid the penalty ranging between INR 1,00,000 (Indian Rupees One Lakh only) to INR 5,00,000 (Indian Rupees Five Lakhs only). The following duties of the director were specified in the Act were read at the meeting. The director shall:
+
+a. act in accordance with the articles of the company.
+
+b. act in good faith in order to promote the objects of the company for the benefit of its members as a whole, and in the best interests of the company, its employees, the shareholders, the community and for the protection of the environment.
+
+c. shall exercise his duties with due and reasonable care, skill and diligence and shall exercise independent judgment.
+
+d. shall not involve in a situation in which he may have a direct or indirect interest that conflicts, or possibly may conflict, with the interest of the company.
+
+e. shall not achieve or attempt to achieve any undue gain or advantage either to himself or to his relatives, partners, or associates and if such director is found guilty of making any undue gain, he shall be liable to pay an amount equal to that gain to the company.
+
+f. shall not assign his office.
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Notice</div>
+                <div class="col-md-9">
+                    <textarea rows="6" class="form-control">
+
+
+</textarea>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolution for Minutes</div>
+                <div class="col-md-9">
+                    <textarea rows="12" class="form-control">
+
+
+</textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====================== SIGNATORY TABLE ====================== -->
+        <div class="section-heading">RESOLUTION SIGNATORY DETAILS</div>
+        <div class="p-3 border">
+            <table class="table table-bordered table-sm align-middle" id="signatoryTable">
+                <thead class="table-light">
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Name of Signatory</th>
+                        <th>DIN / PAN</th>
+                        <th>Date of Signing</th>
+                        <th style="width: 80px; text-align:center;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <select class="form-select">
+                                <option value="">Select Signatory</option>
+                                <option>John Doe</option>
+                                <option>Jane Smith</option>
+                                <option>Michael Johnson</option>
+                                <option>Emily Davis</option>
+                            </select>
+                        </td>
+                        <td><input type="text" class="form-control" placeholder="Enter DIN / PAN"></td>
+                        <td><input type="date" class="form-control"></td>
+                        <td style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addSignatoryRow()">+</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ====================== SUBMIT ====================== -->
+        <div class="row mt-4">
+            <div class="col text-end">
+                <button type="submit" class="btn btn-primary px-4 py-2">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid #e3e6f0;
+        border-radius: 0.35rem;
+        box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+    }
+
+    .card-header {
+        background-color: #4e73df;
+        border-bottom: 1px solid #e3e6f0;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .section-heading {
+        background: #f8f9fc;
+        font-weight: 600;
+        padding: 12px 15px;
+        border: 1px solid #e3e6f0;
+        margin: 20px 0 15px 0;
+        border-radius: 0.35rem;
+        color: #4e73df;
+        border-left: 4px solid #4e73df;
+    }
+
+    .form-label {
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #495057;
+    }
+
+    input, select, textarea {
+        box-shadow: 0 0 11px 1px rgba(0, 0, 0, .05) !important;
+        border: 1px solid #d1d3e2;
+        border-radius: 0.35rem;
+        padding: 0.75rem;
+    }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25) !important;
+        }
+
+    .btn-primary {
+        background-color: #4e73df;
+        border-color: #4e73df;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+    }
+
+        .btn-primary:hover {
+            background-color: #2e59d9;
+            border-color: #2653d4;
+        }
+
+    .form-check-input:checked {
+        background-color: #4e73df;
+        border-color: #4e73df;
+    }
+</style>
+
+
