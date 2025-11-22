@@ -225,14 +225,29 @@ namespace ComplyCrafter_BL
 
         public int TotalCompanyCount(int userId)
         {
-            var i = NpgSQL.Query(R.ConnectionString, $@"select sum(sp.no_of_company) as total_company_limit from {TABLE_NAME} us inner join tbl_subscription_plans sp on us.subscription_id = sp.id
-                where us.is_active = true and us.user_id = @userId;", //us.subscription_id > 1 and 
-               new Dictionary<string, object>
-               {
+            var dt = NpgSQL.Query(
+                R.ConnectionString,
+                $@"select sum(sp.no_of_company) as total_company_limit
+                from {TABLE_NAME} us
+                inner join tbl_subscription_plans sp on us.subscription_id = sp.id
+                where us.is_active = true and us.user_id = @userId;",
+                new Dictionary<string, object>
+             {
                     { "@userId", userId },
-               });
-            return Convert.ToInt32(i.Rows[0].ItemArray[0] == System.DBNull.Value ? 0 : i.Rows[0].ItemArray[0]);
+             });
+
+            // ✅ No subscription rows for this user → treat as 0
+            if (dt == null || dt.Rows.Count == 0)
+                return 0;
+
+            var value = dt.Rows[0].ItemArray[0];
+
+            if (value == System.DBNull.Value)
+                return 0;
+
+            return Convert.ToInt32(value);
         }
+
 
         public int UsedCompanyCount(int userId)
         {
